@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AH Health App — Patient Engagement Platform for Hospitals | adeahub</title>
+    <meta name="description" content="A branded patient app for hospitals. Appointment booking, health records, care plans, and follow-up automation — integrated with your HIS. Proven at national scale.">
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        adeahub: {
+                            blue: '#0D6EFD',
+                            yellow: '#F4B223',
+                            gray: '#4B5563',
+                            lightbg: '#F8FAFC'
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        /* Carousel Styles */
+        .carousel-container { overflow: hidden; position: relative; }
+        .carousel-track { display: flex; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); width: 200%; }
+        .carousel-slide { width: 50%; flex-shrink: 0; }
+        /* Architecture Stack Hover */
+        .arch-layer { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .arch-layer:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 15px 30px -10px rgba(13,110,253,0.3); }
+        /* Marquee */
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .animate-marquee { animation: marquee 40s linear infinite; }
+        .marquee-container:hover .animate-marquee { animation-play-state: paused; }
+        /* Fade-in animation */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in-up { animation: fadeInUp 0.6s ease forwards; }
+        /* Tab active states */
+        .tab-btn.active { background-color: #0D6EFD; color: white; }
+        /* Smooth scroll */
+        html { scroll-behavior: smooth; }
+    
+        
+        /* ───── BASE ───── */
+        :root {
+            --blue: #0D6EFD;
+            --yellow: #F4B223;
+            --blue-pale: #EEF4FF;
+            --shadow-blue: rgba(13,110,253,0.15);
+        }
+        body { font-family: 'Outfit', sans-serif; -webkit-font-smoothing: antialiased; }
+        html { scroll-behavior: smooth; }
+
+        /* ───── SCROLL REVEAL ───── */
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-left { opacity: 0; transform: translateX(-30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal-left.visible { opacity: 1; transform: translateX(0); }
+        .reveal-right { opacity: 0; transform: translateX(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal-right.visible { opacity: 1; transform: translateX(0); }
+        .reveal-d1 { transition-delay: 0.10s; }
+        .reveal-d2 { transition-delay: 0.20s; }
+        .reveal-d3 { transition-delay: 0.30s; }
+        .reveal-d4 { transition-delay: 0.40s; }
+        .reveal-d5 { transition-delay: 0.50s; }
+
+        /* ───── NAVBAR ───── */
+        .nav-scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.07) !important; }
+        .nav-dropdown { position: relative; }
+        .nav-dropdown:hover .nav-dropdown-menu,
+        .nav-dropdown-menu:hover { display: block !important; }
+        .nav-dropdown-menu { animation: dropIn 0.18s ease forwards; }
+        @keyframes dropIn {
+            from { opacity: 0; transform: translateY(-6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ───── HERO ───── */
+        .hero-bg {
+            background:
+                radial-gradient(ellipse 75% 65% at 90% 40%, rgba(13,110,253,0.10) 0%, transparent 68%),
+                radial-gradient(ellipse 55% 55% at 8%  80%, rgba(13,110,253,0.07) 0%, transparent 62%),
+                radial-gradient(ellipse 40% 40% at 50% 5%,  rgba(244,178,35,0.06)  0%, transparent 60%),
+                #F8FAFC;
+        }
+        .dot-grid {
+            background-image: radial-gradient(circle, rgba(13,110,253,0.11) 1px, transparent 1px);
+            background-size: 28px 28px;
+        }
+        /* Badge pulse */
+        @keyframes badgePulse {
+            0%,100% { box-shadow: 0 0 0 0   rgba(13,110,253,0.30); }
+            50%      { box-shadow: 0 0 0 7px rgba(13,110,253,0);    }
+        }
+        .hero-badge { animation: badgePulse 2.8s ease-in-out infinite; }
+
+        /* Concentric circles */
+        @keyframes rotateSlow    { to { transform: rotate(360deg);  } }
+        @keyframes rotateReverse { to { transform: rotate(-360deg); } }
+        .circle-ring-1 { animation: rotateSlow    28s linear infinite; transform-origin: center; }
+        .circle-ring-2 { animation: rotateReverse 20s linear infinite; transform-origin: center; }
+
+        /* CTA button glow */
+        @keyframes btnGlow {
+            0%,100% { box-shadow: 0 8px 28px rgba(13,110,253,0.38); }
+            50%      { box-shadow: 0 8px 44px rgba(13,110,253,0.58); }
+        }
+        .btn-glow { animation: btnGlow 2.4s ease-in-out infinite; }
+        .btn-glow:hover {
+            animation: none;
+            box-shadow: 0 12px 40px rgba(13,110,253,0.55);
+            transform: translateY(-2px);
+            transition: all 0.25s ease;
+        }
+        /* Shimmer sweep on hover */
+        .btn-shimmer { position: relative; overflow: hidden; }
+        .btn-shimmer::after {
+            content: '';
+            position: absolute; top: 0; left: -100%;
+            width: 55%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+        }
+        .btn-shimmer:hover::after { left: 160%; transition: left 0.55s ease; }
+
+        /* Hero mini trusted strip */
+        .hero-logo-strip img { filter: grayscale(100%) opacity(0.5); transition: filter 0.3s, opacity 0.3s; }
+        .hero-logo-strip img:hover { filter: grayscale(0%) opacity(1); }
+
+        /* ───── SECTION LABEL ───── */
+        .section-label {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em;
+            text-transform: uppercase; color: #0D6EFD; margin-bottom: 14px;
+        }
+        .section-label::before {
+            content: ''; display: block;
+            width: 22px; height: 2px;
+            background: #0D6EFD; border-radius: 2px;
+        }
+
+        /* ───── GRADIENT TEXT ───── */
+        .gradient-text {
+            background: linear-gradient(135deg, #0D6EFD 0%, #3B82F6 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        /* ───── TRUST / COMPLIANCE PILLS ───── */
+        .compliance-pill {
+            background: white; border: 1px solid rgba(13,110,253,0.14);
+            border-radius: 9999px; padding: 7px 18px;
+            font-size: 0.72rem; font-weight: 700; color: #4B5563;
+            letter-spacing: 0.05em; text-transform: uppercase;
+            display: inline-flex; align-items: center; gap: 6px;
+            transition: all 0.22s; box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+        .compliance-pill:hover {
+            background: var(--blue-pale); border-color: rgba(13,110,253,0.35);
+            color: #0D6EFD; box-shadow: 0 4px 16px rgba(13,110,253,0.10);
+        }
+
+        /* ───── STAT NUMBERS ───── */
+        .stat-block { position: relative; }
+        .stat-num {
+            font-variant-numeric: tabular-nums;
+            background: linear-gradient(135deg, #0D6EFD 0%, #1a5fd6 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .stat-block::after {
+            content: ''; position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 2px; background: linear-gradient(90deg, transparent, rgba(13,110,253,0.15), transparent);
+        }
+
+        /* ───── AWARD CARDS ───── */
+        .award-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+        .award-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px -5px rgba(0,0,0,0.09); }
+
+        /* ───── SOLUTION CARDS ───── */
+        .solution-card {
+            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+            border-top: 3px solid transparent;
+            border-radius: 24px;
+        }
+        .solution-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 24px 56px -12px rgba(13,110,253,0.18);
+            border-top-color: #0D6EFD;
+        }
+        .solution-card .icon-wrap { transition: transform 0.28s ease, background 0.28s ease; }
+        .solution-card:hover .icon-wrap { background: rgba(13,110,253,0.12) !important; transform: scale(1.1); }
+        .solution-arrow { transition: transform 0.22s ease; }
+        .solution-card:hover .solution-arrow { transform: translateX(5px); }
+
+        /* ───── ARCHITECTURE LAYERS ───── */
+        .arch-layer { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .arch-layer:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 15px 30px -10px rgba(13,110,253,0.3); }
+        @keyframes platformPulse {
+            0%,100% { box-shadow: 0 4px 24px rgba(13,110,253,0.30); }
+            50%      { box-shadow: 0 4px 40px rgba(13,110,253,0.50); }
+        }
+        .platform-core { animation: platformPulse 2.6s ease-in-out infinite; }
+
+        /* ───── OUTCOME CARDS ───── */
+        .outcome-card { transition: transform 0.28s ease, box-shadow 0.28s ease; position: relative; overflow: hidden; }
+        .outcome-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, #0D6EFD, #60a5fa);
+            transform: scaleX(0); transform-origin: left; transition: transform 0.32s ease;
+        }
+        .outcome-card:hover { transform: translateY(-5px); box-shadow: 0 18px 44px -10px rgba(13,110,253,0.15); }
+        .outcome-card:hover::before { transform: scaleX(1); }
+
+        /* ───── CTA SECTION ───── */
+        .cta-mesh {
+            background:
+                radial-gradient(ellipse 70% 80% at 20% 50%, rgba(13,110,253,0.12) 0%, transparent 65%),
+                radial-gradient(ellipse 50% 60% at 80% 30%, rgba(13,110,253,0.09) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 50% at 60% 90%, rgba(244,178,35,0.07) 0%, transparent 55%),
+                linear-gradient(135deg, #EEF4FF 0%, #F8FAFC 50%, #F0F7FF 100%);
+        }
+
+        /* ───── TESTIMONIAL ───── */
+        .testimonial-bg {
+            background: linear-gradient(140deg, #0D6EFD 0%, #1552c4 100%);
+            position: relative; overflow: hidden;
+        }
+        .testimonial-bg::before {
+            content: ''; position: absolute; top: -70px; right: -70px;
+            width: 300px; height: 300px; border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .testimonial-bg::after {
+            content: ''; position: absolute; bottom: -90px; left: -50px;
+            width: 250px; height: 250px; border-radius: 50%;
+            background: rgba(255,255,255,0.04);
+        }
+
+        /* ───── MARQUEE ───── */
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .animate-marquee { animation: marquee 40s linear infinite; }
+        .marquee-container:hover .animate-marquee { animation-play-state: paused; }
+
+        /* ───── CARD SCROLL ───── */
+        @keyframes scroll-cards { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .animate-scroll-cards { display: flex; width: max-content; animation: scroll-cards 60s linear infinite; }
+        .animate-scroll-cards:hover { animation-play-state: paused; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* ───── TAB ACTIVE ───── */
+        .tab-btn.active { background-color: #0D6EFD; color: white; }
+
+        /* ───── FLOATING BLOBS (hero decoration) ───── */
+        @keyframes floatBlob {
+            0%,100% { transform: translateY(0) scale(1); }
+            50%      { transform: translateY(-18px) scale(1.04); }
+        }
+        .blob-float-1 { animation: floatBlob 9s ease-in-out infinite; }
+        .blob-float-2 { animation: floatBlob 12s ease-in-out infinite 2.5s; }
+    
+    </style>
+</head>
+<body class="bg-white text-gray-700">
+
+    <!-- Unified Navbar -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 flex justify-between items-center">
+
+            <!-- Logo -->
+            <a href="index.html" class="flex flex-col hover:opacity-90 transition shrink-0">
+                <img src="AdeaHub Logo-Default.png" alt="adeahub logo" class="h-10 object-contain object-left mb-1">
+                <span class="text-[0.65rem] font-medium text-gray-500 tracking-widest leading-none pl-1">Powering modern healthcare</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+
+                <!-- Solutions Dropdown -->
+                <div class="nav-dropdown relative">
+                    <button class="nav-dropdown-trigger text-gray-600 hover:text-blue-600 transition-colors flex items-center gap-1 font-medium py-2">
+                        Solutions
+                        <svg class="w-3.5 h-3.5 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="nav-dropdown-menu absolute left-0 top-full pt-1 w-64 hidden">
+                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 py-2 overflow-hidden solution-card">
+                            <a href="adeahub_pha.html" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors group">
+                                <span class="bg-blue-50 group-hover:bg-blue-100 p-2 rounded-xl transition-colors shrink-0">
+                                    <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                                </span>
+                                <div><p class="font-semibold text-gray-800 text-sm">AH Health App</p><p class="text-xs text-gray-500">For Patients &amp; Caregivers</p></div>
+                            </a>
+                            <a href="adeahub_providers.html" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors group">
+                                <span class="bg-blue-50 group-hover:bg-blue-100 p-2 rounded-xl transition-colors shrink-0">
+                                    <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                                </span>
+                                <div><p class="font-semibold text-gray-800 text-sm">AH Provider</p><p class="text-xs text-gray-500">For Healthcare Workers &amp; Admins</p></div>
+                            </a>
+                            <a href="adeahub_connect.html" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors group">
+                                <span class="bg-blue-50 group-hover:bg-blue-100 p-2 rounded-xl transition-colors shrink-0">
+                                    <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                                </span>
+                                <div><p class="font-semibold text-gray-800 text-sm">AH Connect</p><p class="text-xs text-gray-500">For Devices &amp; Applications</p></div>
+                            </a>
+                            <a href="adeahub_insight.html" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors group">
+                                <span class="bg-blue-50 group-hover:bg-blue-100 p-2 rounded-xl transition-colors shrink-0">
+                                    <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                                </span>
+                                <div><p class="font-semibold text-gray-800 text-sm">AH Insights</p><p class="text-xs text-gray-500">For Decision Makers</p></div>
+                            </a>
+                            <a href="workwise.html" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors group">
+                                <span class="bg-blue-50 group-hover:bg-blue-100 p-2 rounded-xl transition-colors shrink-0">
+                                    <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                </span>
+                                <div><p class="font-semibold text-gray-800 text-sm">WorkWise</p><p class="text-xs text-gray-500">Healthcare Workforce Experience</p></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Platform -->
+                <a href="adeahub_platform.html" class="text-gray-600 hover:text-blue-600 transition-colors font-medium py-2">Platform</a>
+
+                <!-- Resources Dropdown -->
+                <div class="nav-dropdown relative">
+                    <button class="nav-dropdown-trigger text-gray-600 hover:text-blue-600 transition-colors flex items-center gap-1 font-medium py-2">
+                        Resources
+                        <svg class="w-3.5 h-3.5 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="nav-dropdown-menu absolute left-0 top-full pt-1 w-56 hidden">
+                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 py-2 overflow-hidden solution-card">
+                            <a href="newsroom.html" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors group">
+                                <span class="bg-gray-50 group-hover:bg-blue-100 p-2 rounded-xl transition-colors shrink-0">
+                                    <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+                                </span>
+                                <div><p class="font-semibold text-gray-800 text-sm">Newsroom</p><p class="text-xs text-gray-500">Press & announcements</p></div>
+                            </a>
+                            <a href="customers.html" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors group">
+                                <span class="bg-gray-50 group-hover:bg-blue-100 p-2 rounded-xl transition-colors shrink-0">
+                                    <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>
+                                </span>
+                                <div><p class="font-semibold text-gray-800 text-sm">Customers</p><p class="text-xs text-gray-500">Case studies & outcomes</p></div>
+                            </a>
+                            <a href="Blogs.html" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors group">
+                                <span class="bg-gray-50 group-hover:bg-blue-100 p-2 rounded-xl transition-colors shrink-0">
+                                    <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                                </span>
+                                <div><p class="font-semibold text-gray-800 text-sm">Blog</p><p class="text-xs text-gray-500">Insights & perspectives</p></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Us -->
+                <a href="about_us.html" class="text-gray-600 hover:text-blue-600 transition-colors font-medium py-2">About Us</a>
+
+                <!-- Contact Us -->
+                <a href="contact_us.html" class="text-gray-600 hover:text-blue-600 transition-colors font-medium py-2">Contact Us</a>
+
+                <!-- CTA Button -->
+                <a href="contact_us.html" class="bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-colors shadow-md shadow-blue-500/25 font-semibold text-sm whitespace-nowrap btn-glow btn-shimmer">Talk to Our Team</a>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-600 hover:text-blue-600 transition-colors p-1" aria-label="Toggle menu">
+                <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-5 py-4">
+            <p class="text-[0.65rem] font-bold uppercase tracking-widest text-gray-400 pb-2">Solutions</p>
+            <a href="adeahub_pha.html" class="block py-2.5 px-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors font-medium text-sm">AH Health App</a>
+            <a href="adeahub_providers.html" class="block py-2.5 px-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors font-medium text-sm">AH Provider</a>
+            <a href="adeahub_connect.html" class="block py-2.5 px-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors font-medium text-sm">AH Connect</a>
+            <a href="adeahub_insight.html" class="block py-2.5 px-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors font-medium text-sm">AH Insights</a>
+            <a href="workwise.html" class="block py-2.5 px-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors font-medium text-sm">WorkWise</a>
+            <div class="my-2 border-t border-gray-100"></div>
+            <a href="adeahub_platform.html" class="block py-2.5 px-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors font-medium text-sm">Platform</a>
+            <div class="my-2 border-t border-gray-100"></div>
+            <p class="text-[0.65rem] font-bold uppercase tracking-widest text-gray-400 pt-1 pb-2">Resources</p>
+            <a href="newsroom.html" class="block py-2.5 px-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors font-medium text-sm">Newsroom</a>
+            <a href="customers.html" class="block py-2.5 px-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors font-medium text-sm">Customers</a>
+            <a href="Blogs.html" class="block py-2.5 px-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors font-medium text-sm">Blog</a>
+            <div class="my-2 border-t border-gray-100"></div>
+            <a href="about_us.html" class="block py-2.5 px-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors font-medium text-sm">About Us</a>
+            <a href="contact_us.html" class="block py-2.5 px-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors font-medium text-sm">Contact Us</a>
+            <div class="pt-3 pb-1">
+                <a href="contact_us.html" class="block bg-blue-600 text-white text-center px-5 py-3 rounded-full hover:bg-blue-700 transition-colors font-semibold text-sm shadow-md shadow-blue-500/20 btn-glow btn-shimmer">Talk to Our Team</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: Hero -->
+    <header class="bg-adeahub-lightbg pt-16 pb-24 overflow-hidden relative overflow-hidden">
+<div class="dot-grid absolute inset-0 pointer-events-none opacity-60" aria-hidden="true"></div>
+<div class="blob-float-1 absolute left-[5%] top-[15%] w-72 h-72 rounded-full bg-blue-100/40 blur-3xl pointer-events-none -z-0" aria-hidden="true"></div>
+<div class="blob-float-2 absolute right-[8%] bottom-[10%] w-56 h-56 rounded-full bg-yellow-100/30 blur-3xl pointer-events-none -z-0" aria-hidden="true"></div>
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <!-- Hero Copy -->
+            <div class="space-y-6 z-10">
+                <span class="inline-block text-sm font-bold text-adeahub-yellow tracking-wider uppercase">
+                    Patient-Facing Digital Health
+                </span>
+                
+                <h1 class="text-4xl md:text-5xl tracking-tight leading-tight">
+                    <span class="text-adeahub-blue font-bold">AH</span> <span class="text-gray-900 font-bold">Health App</span>
+                </h1>
+                
+                <h2 class="text-3xl md:text-4xl font-bold text-adeahub-blue leading-tight mt-6">
+                    Your Hospital in Every Patient's Pocket
+                </h2>
+
+                <p class="text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
+                    AH Health App is a fully white-labelled patient engagement platform — covering appointment management, health records, telemedicine, medication, care plans, and beyond. One branded app that keeps your patients connected to their care from registration to recovery.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 pt-6">
+                    <a href="#cta" class="bg-adeahub-blue text-white text-center px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30 btn-glow btn-shimmer">
+                        Talk to Our Healthcare Team
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Image / UI Mockup -->
+            <div class="relative w-full max-w-sm mx-auto lg:ml-auto perspective-1000">
+                <!-- Background decorative shapes -->
+                <div class="absolute inset-0 bg-blue-100 rounded-full blur-3xl opacity-50 transform scale-150 -translate-y-10"></div>
+                <div class="absolute inset-0 bg-yellow-100 rounded-full blur-3xl opacity-30 transform scale-125 translate-x-20 translate-y-20"></div>
+                
+                <!-- Phone UI Mockup (CSS) -->
+                <div class="phone-frame w-full aspect-[9/19] flex flex-col hover:-translate-y-2 transition duration-500 shadow-2xl relative z-10 border-[10px] border-gray-900">
+                    <div class="phone-notch"></div>
+                    
+                    <!-- App Header -->
+                    <div class="bg-adeahub-blue text-white px-6 pt-12 pb-8 rounded-b-3xl shadow-md relative z-10">
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <p class="text-sm text-blue-100 opacity-90">Good morning,</p>
+                                <p class="text-xl font-bold tracking-wide">Sarah Jenkins</p>
+                            </div>
+                            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                                <i data-lucide="user" class="w-5 h-5 text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- App Body -->
+                    <div class="flex-1 bg-gray-50 p-5 space-y-4 overflow-hidden -mt-4 pt-8">
+                        
+                        <!-- Next Appointment Card -->
+                        <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 transform transition hover:scale-[1.02] solution-card">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center gap-2">
+                                    <div class="bg-blue-50 p-1.5 rounded-lg text-adeahub-blue">
+                                        <i data-lucide="calendar-clock" class="w-4 h-4"></i>
+                                    </div>
+                                    <span class="font-bold text-gray-900 text-sm">Upcoming Visit</span>
+                                </div>
+                                <span class="bg-green-100 text-green-700 text-[10px] font-bold px-2 py-0.5 rounded-full">Confirmed</span>
+                            </div>
+                            <p class="font-semibold text-gray-800">Dr. Emily Chen</p>
+                            <p class="text-sm text-gray-500 mb-3">Cardiology Department</p>
+                            <div class="bg-gray-50 p-2 rounded-xl flex items-center gap-2 text-xs text-gray-600 border border-gray-100">
+                                <i data-lucide="clock" class="w-3.5 h-3.5 text-adeahub-blue"></i> Tomorrow, 10:00 AM
+                            </div>
+                        </div>
+
+                        <!-- Action Grid -->
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center justify-center text-center gap-2 solution-card">
+                                <div class="bg-yellow-50 p-2.5 rounded-xl text-adeahub-yellow">
+                                    <i data-lucide="file-text" class="w-5 h-5"></i>
+                                </div>
+                                <span class="text-xs font-semibold text-gray-800">Health<br>Records</span>
+                            </div>
+                            <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center justify-center text-center gap-2 solution-card">
+                                <div class="bg-purple-50 p-2.5 rounded-xl text-purple-600">
+                                    <i data-lucide="activity" class="w-5 h-5"></i>
+                                </div>
+                                <span class="text-xs font-semibold text-gray-800">Care<br>Plans</span>
+                            </div>
+                        </div>
+
+                        <!-- Recent Result -->
+                        <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-center gap-4 solution-card">
+                            <div class="bg-green-50 p-3 rounded-full text-green-600 shrink-0">
+                                <i data-lucide="microscope" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-gray-900">New Lab Result</p>
+                                <p class="text-xs text-gray-500">Comprehensive Metabolic Panel</p>
+                            </div>
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-gray-300 ml-auto"></i>
+                        </div>
+
+                    </div>
+
+                    <!-- App Bottom Nav -->
+                    <div class="h-16 bg-white border-t border-gray-100 flex justify-around items-center text-gray-400 z-20 pb-1">
+                        <div class="flex flex-col items-center text-adeahub-blue gap-1">
+                            <i data-lucide="home" class="w-5 h-5"></i>
+                            <span class="text-[9px] font-bold">Home</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-1 hover:text-gray-600 transition">
+                            <i data-lucide="calendar" class="w-5 h-5"></i>
+                            <span class="text-[9px] font-medium">Visits</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-1 hover:text-gray-600 transition relative">
+                            <i data-lucide="bell" class="w-5 h-5"></i>
+                            <span class="text-[9px] font-medium">Alerts</span>
+                            <span class="absolute top-0 right-1 w-2 h-2 bg-red-500 rounded-full border border-white"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION 2: Problem Statement -->
+    <section class="py-24 bg-white border-b border-gray-100">
+        <div class="max-w-4xl mx-auto px-6 md:px-12">
+            <h2 class="text-3xl font-bold text-adeahub-blue mb-12 text-center md:text-left">The Challenge</h2>
+            
+            <div class="space-y-6 mb-12 text-lg text-gray-700">
+                <div class="flex items-start gap-4">
+                    <div class="mt-1 bg-red-50 p-1.5 rounded-full text-red-500 shrink-0">
+                        <i data-lucide="alert-circle" class="w-5 h-5"></i>
+                    </div>
+                    <p>Patients miss follow-up appointments when post-discharge reminders depend on staff to chase them.</p>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="mt-1 bg-red-50 p-1.5 rounded-full text-red-500 shrink-0">
+                        <i data-lucide="alert-circle" class="w-5 h-5"></i>
+                    </div>
+                    <p>Inbound scheduling calls consume clinical administration time that should be directed toward patient care.</p>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="mt-1 bg-red-50 p-1.5 rounded-full text-red-500 shrink-0">
+                        <i data-lucide="alert-circle" class="w-5 h-5"></i>
+                    </div>
+                    <p>Patients discharged without structured guidance are significantly more likely to return as avoidable readmissions.</p>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="mt-1 bg-red-50 p-1.5 rounded-full text-red-500 shrink-0">
+                        <i data-lucide="alert-circle" class="w-5 h-5"></i>
+                    </div>
+                    <p>Without a direct digital channel, your hospital has no presence in your patients' lives between visits.</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 border-l-4 border-adeahub-blue p-8 rounded-r-2xl text-lg text-gray-600 leading-relaxed font-medium">
+                When patients cannot easily access their care between visits, clinical outcomes suffer and operational costs rise. Health systems that close this gap with a trusted, provider-owned patient app see measurable improvements in adherence, satisfaction, and appointment attendance.
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: How It Works -->
+    <section id="how-it-works" class="py-24 bg-adeahub-lightbg relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative">
+            <h2 class="text-3xl md:text-4xl font-bold text-adeahub-blue text-center mb-20">How AH Health App Works</h2>
+
+            <div class="relative timeline-line space-y-24 pb-12">
+                
+                <!-- Step 01 -->
+                <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="pl-12 md:pl-20 relative">
+                        <!-- Number Bubble -->
+                        <div class="absolute left-[-1.25rem] md:left-[0.25rem] top-0 w-12 h-12 bg-adeahub-blue text-white rounded-full flex items-center justify-center font-bold text-xl border-4 border-white shadow-md">
+                            01
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Book & Access</h3>
+                        <div class="space-y-4">
+                            <p class="text-gray-600"><span class="font-bold text-gray-800">Patient:</span> The patient opens the hospital-branded app, browses available services, and books an appointment.</p>
+                            <p class="text-gray-600"><span class="font-bold text-adeahub-blue">Platform:</span> AH Health App displays real-time availability drawn from your HIS and confirms the booking instantly. Automated reminders are sent in the days and hours before the appointment.</p>
+                            <p class="text-gray-600"><span class="font-bold text-green-600">Outcome:</span> Inbound scheduling calls fall. Patients arrive informed, on time, and with their details already confirmed.</p>
+                        </div>
+                    </div>
+                    <!-- UI Crop 1 -->
+                    <div class="bg-white p-6 rounded-3xl shadow-float border border-blue-50 relative overflow-hidden group solution-card">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                        <h4 class="font-bold text-gray-400 text-xs tracking-wider uppercase mb-4">UI Previews</h4>
+                        <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100 max-w-sm mx-auto shadow-sm">
+                            <div class="flex justify-between items-center mb-4 pb-4 border-b border-gray-200">
+                                <span class="font-bold text-gray-800">Select Time</span>
+                                <span class="text-adeahub-blue font-semibold text-sm">Oct 24</span>
+                            </div>
+                            <div class="grid grid-cols-3 gap-2">
+                                <div class="bg-white border border-gray-200 rounded-lg py-2 text-center text-sm font-medium text-gray-400 line-through">09:00</div>
+                                <div class="bg-adeahub-blue border border-adeahub-blue rounded-lg py-2 text-center text-sm font-bold text-white shadow-md">09:30</div>
+                                <div class="bg-white border border-gray-200 rounded-lg py-2 text-center text-sm font-medium text-gray-600 hover:border-adeahub-blue transition cursor-pointer">10:00</div>
+                                <div class="bg-white border border-gray-200 rounded-lg py-2 text-center text-sm font-medium text-gray-600 hover:border-adeahub-blue transition cursor-pointer">10:30</div>
+                                <div class="bg-white border border-gray-200 rounded-lg py-2 text-center text-sm font-medium text-gray-600 hover:border-adeahub-blue transition cursor-pointer">11:00</div>
+                            </div>
+                            <button class="w-full mt-4 bg-gray-900 text-white py-3 rounded-xl font-semibold text-sm">Confirm Booking</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 02 -->
+                <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="pl-12 md:pl-20 relative md:order-2">
+                        <div class="absolute left-[-1.25rem] md:left-[0.25rem] md:hidden top-0 w-12 h-12 bg-adeahub-blue text-white rounded-full flex items-center justify-center font-bold text-xl border-4 border-white shadow-md">
+                            02
+                        </div>
+                        <!-- Desktop alternate positioning for timeline dot -->
+                        <div class="hidden md:flex absolute left-[-3.75rem] top-0 w-12 h-12 bg-adeahub-blue text-white rounded-full items-center justify-center font-bold text-xl border-4 border-white shadow-md transform -translate-x-1/2">
+                            02
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Receive & Review</h3>
+                        <div class="space-y-4">
+                            <p class="text-gray-600"><span class="font-bold text-gray-800">Patient:</span> After a consultation or investigation, the patient checks their results and clinical documents in the app.</p>
+                            <p class="text-gray-600"><span class="font-bold text-adeahub-blue">Platform:</span> AH Health App retrieves records securely from your clinical systems in real time. Providers control what is shared and when.</p>
+                            <p class="text-gray-600"><span class="font-bold text-green-600">Outcome:</span> Patients get answers faster. Record request calls and front desk queries decrease measurably.</p>
+                        </div>
+                    </div>
+                    <!-- UI Crop 2 -->
+                    <div class="bg-white p-6 rounded-3xl shadow-float border border-blue-50 relative overflow-hidden group md:order-1 solution-card">
+                        <div class="absolute top-0 left-0 w-32 h-32 bg-green-50 rounded-br-full -z-10 transition-transform group-hover:scale-110"></div>
+                        <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100 max-w-sm mx-auto shadow-sm space-y-3">
+                            <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex items-start gap-3">
+                                <div class="bg-green-100 p-2 rounded-lg text-green-600 mt-1"><i data-lucide="file-check-2" class="w-4 h-4"></i></div>
+                                <div>
+                                    <p class="font-bold text-gray-900 text-sm">Lipid Panel Results</p>
+                                    <p class="text-xs text-gray-500 mb-2">Available: Today, 08:15 AM</p>
+                                    <span class="inline-block bg-gray-100 text-gray-600 text-[10px] px-2 py-1 rounded font-semibold uppercase">Normal Range</span>
+                                </div>
+                            </div>
+                            <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex items-start gap-3">
+                                <div class="bg-blue-100 p-2 rounded-lg text-adeahub-blue mt-1"><i data-lucide="stethoscope" class="w-4 h-4"></i></div>
+                                <div>
+                                    <p class="font-bold text-gray-900 text-sm">Discharge Summary</p>
+                                    <p class="text-xs text-gray-500">Dr. Emily Chen • Oct 20</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 03 -->
+                <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="pl-12 md:pl-20 relative">
+                        <div class="absolute left-[-1.25rem] md:left-[0.25rem] top-0 w-12 h-12 bg-adeahub-blue text-white rounded-full flex items-center justify-center font-bold text-xl border-4 border-white shadow-md">
+                            03
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Follow & Adhere</h3>
+                        <div class="space-y-4">
+                            <p class="text-gray-600"><span class="font-bold text-gray-800">Patient:</span> At the point of discharge, the care team assigns a structured care plan to the patient's app profile.</p>
+                            <p class="text-gray-600"><span class="font-bold text-adeahub-blue">Platform:</span> AH Health App guides the patient through each post-visit step — with task checklists, medication reminders, and follow-up scheduling built into their personalised journey.</p>
+                            <p class="text-gray-600"><span class="font-bold text-green-600">Outcome:</span> Patients stay on protocol after leaving the facility. Avoidable readmission risk reduces.</p>
+                        </div>
+                    </div>
+                    <!-- UI Crop 3 -->
+                    <div class="bg-white p-6 rounded-3xl shadow-float border border-blue-50 relative overflow-hidden group solution-card">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-purple-50 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                        <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100 max-w-sm mx-auto shadow-sm">
+                            <div class="mb-4">
+                                <h5 class="font-bold text-gray-900">Post-Op Recovery Plan</h5>
+                                <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                                    <div class="bg-adeahub-blue h-2 rounded-full" style="width: 45%"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1 text-right">Day 3 of 7</p>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="bg-white p-3 rounded-xl border border-adeahub-blue shadow-sm flex items-center gap-3 cursor-pointer">
+                                    <div class="w-5 h-5 rounded-full border-2 border-adeahub-blue flex items-center justify-center">
+                                        <div class="w-2.5 h-2.5 bg-adeahub-blue rounded-full"></div>
+                                    </div>
+                                    <span class="text-sm font-semibold text-gray-900">Take Morning Medication</span>
+                                </div>
+                                <div class="bg-white p-3 rounded-xl border border-gray-200 flex items-center gap-3 opacity-60">
+                                    <div class="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-white">
+                                        <i data-lucide="check" class="w-3 h-3"></i>
+                                    </div>
+                                    <span class="text-sm font-semibold text-gray-500 line-through">Record Blood Pressure</span>
+                                </div>
+                                <div class="bg-white p-3 rounded-xl border border-gray-200 flex items-center gap-3">
+                                    <div class="w-5 h-5 rounded-full border-2 border-gray-300"></div>
+                                    <span class="text-sm font-semibold text-gray-700">Watch Mobility Video</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 04 -->
+                <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="pl-12 md:pl-20 relative md:order-2">
+                        <div class="absolute left-[-1.25rem] md:left-[0.25rem] md:hidden top-0 w-12 h-12 bg-adeahub-blue text-white rounded-full flex items-center justify-center font-bold text-xl border-4 border-white shadow-md">
+                            04
+                        </div>
+                        <div class="hidden md:flex absolute left-[-3.75rem] top-0 w-12 h-12 bg-adeahub-blue text-white rounded-full items-center justify-center font-bold text-xl border-4 border-white shadow-md transform -translate-x-1/2">
+                            04
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Connect, Consult & Grow</h3>
+                        <div class="space-y-4">
+                            <p class="text-gray-600"><span class="font-bold text-gray-800">Patient:</span> Between visits, the patient messages their care team, joins a virtual consultation, requests a prescription refill, and explores on-demand wellness services — all from the same app.</p>
+                            <p class="text-gray-600"><span class="font-bold text-adeahub-blue">Platform:</span> AH Health App handles telemedicine, in-app messaging, medication management, and a configurable marketplace — all connected to the patient's existing clinical record.</p>
+                            <p class="text-gray-600"><span class="font-bold text-green-600">Outcome:</span> Patients stay engaged between visits. Avoidable ED attendances fall. New digital revenue opens through the in-app marketplace.</p>
+                        </div>
+                    </div>
+                    <!-- UI Crop 4 -->
+                    <div class="bg-white p-6 rounded-3xl shadow-float border border-blue-50 relative overflow-hidden group md:order-1 solution-card">
+                        <div class="absolute top-0 left-0 w-32 h-32 bg-yellow-50 rounded-br-full -z-10 transition-transform group-hover:scale-110"></div>
+                        <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100 max-w-sm mx-auto shadow-sm space-y-3">
+                            <!-- Telemedicine card -->
+                            <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+                                <div class="h-16 bg-gradient-to-r from-blue-100 to-indigo-100 flex items-center justify-center gap-3">
+                                    <i data-lucide="video" class="w-7 h-7 text-adeahub-blue"></i>
+                                    <span class="text-sm font-bold text-adeahub-blue">Video Consultation</span>
+                                </div>
+                                <div class="p-3 flex justify-between items-center">
+                                    <div>
+                                        <p class="font-bold text-sm text-gray-900">Dr. Emily Chen</p>
+                                        <p class="text-xs text-gray-500">Today, 3:00 PM • 20 min</p>
+                                    </div>
+                                    <button class= btn-glow btn-shimmer"bg-adeahub-blue text-white p-2 rounded-lg><i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+                                </div>
+                            </div>
+                            <!-- Medication refill row -->
+                            <div class="bg-white rounded-xl border border-gray-200 p-3 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="bg-purple-100 p-2 rounded-lg text-purple-600"><i data-lucide="pill" class="w-4 h-4"></i></div>
+                                    <div>
+                                        <p class="font-bold text-sm text-gray-900">Metformin 500mg</p>
+                                        <p class="text-xs text-gray-500">Refill due in 3 days</p>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-bold text-adeahub-blue bg-blue-50 px-2 py-1 rounded-lg">Request</span>
+                            </div>
+                            <!-- Message row -->
+                            <div class="bg-white rounded-xl border border-gray-200 p-3 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="bg-green-100 p-2 rounded-lg text-green-600"><i data-lucide="message-circle" class="w-4 h-4"></i></div>
+                                    <p class="font-bold text-sm text-gray-900">New message from care team</p>
+                                </div>
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Capabilities Grid -->
+    <section class="py-24 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-adeahub-blue mb-4">Everything Your Patients Need. One App.</h2>
+                <p class="text-lg text-gray-500 max-w-3xl mx-auto">AH Health App is a fully modular platform — every capability below can be activated, configured, and branded to match your hospital's identity and workflows.</p>
+            </div>
+
+            <!-- Group 1: Access & Scheduling -->
+            <div class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center text-adeahub-blue shrink-0">
+                        <i data-lucide="calendar" class="w-4 h-4"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 uppercase tracking-wider">Access & Scheduling</h3>
+                    <div class="flex-1 h-px bg-gray-100"></div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-adeahub-lightbg p-6 rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-soft transition group">
+                        <i data-lucide="calendar-check" class="w-6 h-6 text-adeahub-blue mb-3"></i>
+                        <h4 class="font-bold text-gray-900 mb-1">Appointment Booking</h4>
+                        <p class="text-sm text-gray-500">Book, reschedule, and cancel with real-time HIS availability.</p>
+                    </div>
+                    <div class="bg-adeahub-lightbg p-6 rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-soft transition group">
+                        <i data-lucide="ticket" class="w-6 h-6 text-adeahub-blue mb-3"></i>
+                        <h4 class="font-bold text-gray-900 mb-1">Queue Management</h4>
+                        <p class="text-sm text-gray-500">Virtual queuing with live wait-time updates and token notifications.</p>
+                    </div>
+                    <div class="bg-adeahub-lightbg p-6 rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-soft transition group">
+                        <i data-lucide="git-branch" class="w-6 h-6 text-adeahub-blue mb-3"></i>
+                        <h4 class="font-bold text-gray-900 mb-1">Referral Management</h4>
+                        <p class="text-sm text-gray-500">In-app referrals and specialist routing — tracked end to end.</p>
+                    </div>
+                    <div class="bg-adeahub-lightbg p-6 rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-soft transition group">
+                        <i data-lucide="users" class="w-6 h-6 text-adeahub-blue mb-3"></i>
+                        <h4 class="font-bold text-gray-900 mb-1">Family & Dependents</h4>
+                        <p class="text-sm text-gray-500">Manage appointments and records for family members from one account.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Group 2: Health Records & Clinical -->
+            <div class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-8 h-8 bg-green-50 rounded-lg flex items-center justify-center text-green-600 shrink-0">
+                        <i data-lucide="folder-heart" class="w-4 h-4"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 uppercase tracking-wider">Health Records & Clinical</h3>
+                    <div class="flex-1 h-px bg-gray-100"></div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-adeahub-lightbg p-6 rounded-2xl border border-gray-100 hover:border-green-200 hover:shadow-soft transition">
+                        <i data-lucide="file-text" class="w-6 h-6 text-green-600 mb-3"></i>
+                        <h4 class="font-bold text-gray-900 mb-1">Digital Health Records</h4>
+                        <p class="text-sm text-gray-500">Secure patient access to results, clinical documents, and visit history.</p>
+                    </div>
+                    <div class="bg-adeahub-lightbg p-6 rounded-2xl border border-gray-100 hover:border-green-200 hover:shadow-soft transition">
+                        <i data-lucide="microscope" class="w-6 h-6 text-green-600 mb-3"></i>
+                        <h4 class="font-bold text-gray-900 mb-1">Lab & Radiology Results</h4>
+                        <p class="text-sm text-gray-500">Real-time delivery of test results as soon as they are verified.</p>
+                    </div>
+                    <div class="bg-adeahub-lightbg p-6 rounded-2xl border border-gray-100 hover:border-green-200 hover:shadow-soft transition">
+                        <i data-lucide="clipboard-list" class="w-6 h-6 text-green-600 mb-3"></i>
+                        <h4 class="font-bold text-gray-900 mb-1">Personalised Care Plans</h4>
+                        <p class="text-sm text-gray-500">Structured post-visit journeys with checklists, tasks, and progress tracking.</p>
+                    </div>
+                    <div class="bg-adeahub-lightbg p-6 rounded-2xl border border-gray-100 hover:border-green-200 hover:shadow-soft transition">
+                        <i data-lucide="file-pen" class="w-6 h-6 text-green-600 mb-3"></i>
+                        <h4 class="font-bold text-gray-900 mb-1">Digital Consent Forms</h4>
+                        <p class="text-sm text-gray-500">Paperless pre-admission and consent capture before the patient arrives.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Group 3: Medication & Monitoring -->
+            <div class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-8 h-8 bg-purple-50 rounded-lg flex items-center justify-center text-purple-600 shrink-0">
+                        <i data-lucide="pill" class="w-4 h-4"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 uppercase tracking-wider">Medication & Monitoring</h3>
+                    <div class="flex-1 h-px bg-gray-100"></div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-adeahub-lightbg p-6 rounded-2xl border border-gray-100 hover:border-purple-200 hover:shadow-soft transition">
+                        <i data-lucide="pill" class="w-6 h-6 text-purple-600 mb-3"></i>
+                        <h4 class="font-bold text-gray-900 mb-1">Medication Management</h4>
+                        <p class="text-sm text-gray-500">Prescription history, refill requests, and dosage reminders in one place.</p>
+                    </div>
+                    <div class="bg-adeahub-lightbg p-6 rounded-2xl border border-gray-100 hover:border-purple-200 hover:shadow-soft transition">
+                        <i data-lucide="activity" class="w-6 h-6 text-purple-600 mb-3"></i>
+                        <h4 class="font-bold text-gray-900 mb-1">Vital Signs Tracking</h4>
+                        <p class="text-sm text-gray-500">Patient-logged vitals and device data synced to the clinical record.</p>
+                    </div>
+                    <div class="bg-adeahub-lightbg p-6 rounded-2xl border border-gray-100 hover:border-purple-200 hover:shadow-soft transition">
+                        <i data-lucide="bell-ring" class="w-6 h-6 text-purple-600 mb-3"></i>
+                        <h4 class="font-bold text-gray-900 mb-1">Push Notifications & Alerts</h4>
+                        <p class="text-sm text-gray-500">Reminders for appointments, medications, follow-ups, and preventive milestones.</p>
+                    </div>
+                    <div class="bg-adeahub-lightbg p-6 rounded-2xl border border-gray-100 hover:border-purple-200 hover:shadow-soft transition">
+                        <i data-lucide="heart-pulse" class="w-6 h-6 text-purple-600 mb-3"></i>
+                        <h4 class="font-bold text-gray-900 mb-1">Chronic Disease Management</h4>
+                        <p class="text-sm text-gray-500">Structured monitoring pathways for diabetes, hypertension, and more.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Group 4: Communication & Virtual Care -->
+            <div class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-8 h-8 bg-sky-50 rounded-lg flex items-center justify-center text-sky-600 shrink-0">
+                        <i data-lucide="video" class="w-4 h-4"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 uppercase tracking-wider">Communication & Virtual Care</h3>
+                    <div class="flex-1 h-px bg-gray-100"></div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-adeahub-lightbg p-6 rounded-2xl border border-gray-100 hover:border-sky-200 hover:shadow-soft transition">
+                        <i data-lucide="video" class="w-6 h-6 text-sky-600 mb-3"></i>
+                        <h4 class="font-bold text-gray-900 mb-1">Telemedicine</h4>
+                        <p class="text-sm text-gray-500">Secure video consultations with your clinical team — no third-party app required.</p>
+                    </div>
+                    <div class="bg-adeahub-lightbg p-6 rounded-2xl border border-gray-100 hover:border-sky-200 hover:shadow-soft transition">
+                        <i data-lucide="message-circle" class="w-6 h-6 text-sky-600 mb-3"></i>
+                        <h4 class="font-bold text-gray-900 mb-1">In-App Messaging</h4>
+                        <p class="text-sm text-gray-500">Direct, asynchronous messaging between patients and their care team.</p>
+                    </div>
+                    <div class="bg-adeahub-lightbg p-6 rounded-2xl border border-gray-100 hover:border-sky-200 hover:shadow-soft transition">
+                        <i data-lucide="bot" class="w-6 h-6 text-sky-600 mb-3"></i>
+                        <h4 class="font-bold text-gray-900 mb-1">Health Chatbot</h4>
+                        <p class="text-sm text-gray-500">AI-assisted triage, symptom checking, and care navigation available 24/7.</p>
+                    </div>
+                    <div class="bg-adeahub-lightbg p-6 rounded-2xl border border-gray-100 hover:border-sky-200 hover:shadow-soft transition">
+                        <i data-lucide="triangle-alert" class="w-6 h-6 text-sky-600 mb-3"></i>
+                        <h4 class="font-bold text-gray-900 mb-1">Emergency SOS</h4>
+                        <p class="text-sm text-gray-500">One-tap emergency alert with location sharing to the nearest facility.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Group 5: Engagement & Revenue -->
+            <div class="mb-4">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-8 h-8 bg-yellow-50 rounded-lg flex items-center justify-center text-adeahub-yellow shrink-0">
+                        <i data-lucide="store" class="w-4 h-4"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 uppercase tracking-wider">Engagement & Revenue</h3>
+                    <div class="flex-1 h-px bg-gray-100"></div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-adeahub-lightbg p-6 rounded-2xl border border-gray-100 hover:border-yellow-200 hover:shadow-soft transition">
+                        <i data-lucide="store" class="w-6 h-6 text-adeahub-yellow mb-3"></i>
+                        <h4 class="font-bold text-gray-900 mb-1">Health Services Marketplace</h4>
+                        <p class="text-sm text-gray-500">On-demand health packages, pharmacy delivery, and wellness services in-app.</p>
+                    </div>
+                    <div class="bg-adeahub-lightbg p-6 rounded-2xl border border-gray-100 hover:border-yellow-200 hover:shadow-soft transition">
+                        <i data-lucide="credit-card" class="w-6 h-6 text-adeahub-yellow mb-3"></i>
+                        <h4 class="font-bold text-gray-900 mb-1">Billing & Payments</h4>
+                        <p class="text-sm text-gray-500">View invoices, settle balances, and manage insurance claims — in-app.</p>
+                    </div>
+                    <div class="bg-adeahub-lightbg p-6 rounded-2xl border border-gray-100 hover:border-yellow-200 hover:shadow-soft transition">
+                        <i data-lucide="gift" class="w-6 h-6 text-adeahub-yellow mb-3"></i>
+                        <h4 class="font-bold text-gray-900 mb-1">Loyalty & Rewards</h4>
+                        <p class="text-sm text-gray-500">Branded loyalty programme to recognise and retain your patient base.</p>
+                    </div>
+                    <div class="bg-adeahub-lightbg p-6 rounded-2xl border border-gray-100 hover:border-yellow-200 hover:shadow-soft transition">
+                        <i data-lucide="book-open" class="w-6 h-6 text-adeahub-yellow mb-3"></i>
+                        <h4 class="font-bold text-gray-900 mb-1">Health Education Content</h4>
+                        <p class="text-sm text-gray-500">Curated articles, videos, and health tips personalised to the patient's profile.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Platform Foundation Strip -->
+            <div class="mt-12 bg-adeahub-blue rounded-2xl p-8 text-white flex flex-col md:flex-row items-center gap-6 md:gap-12">
+                <div class="shrink-0 text-center md:text-left">
+                    <p class="text-xs font-bold uppercase tracking-widest text-blue-200 mb-1">Foundation</p>
+                    <p class="text-xl font-bold">Fully White-Labelled &amp; Modular</p>
+                </div>
+                <div class="flex-1 h-px bg-white/20 hidden md:block"></div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center w-full md:w-auto">
+                    <div>
+                        <i data-lucide="paintbrush" class="w-5 h-5 mx-auto mb-1 text-blue-200"></i>
+                        <p class="text-xs font-semibold text-blue-100">Custom Branding</p>
+                    </div>
+                    <div>
+                        <i data-lucide="languages" class="w-5 h-5 mx-auto mb-1 text-blue-200"></i>
+                        <p class="text-xs font-semibold text-blue-100">Multi-Language</p>
+                    </div>
+                    <div>
+                        <i data-lucide="blocks" class="w-5 h-5 mx-auto mb-1 text-blue-200"></i>
+                        <p class="text-xs font-semibold text-blue-100">Modular Activation</p>
+                    </div>
+                    <div>
+                        <i data-lucide="network" class="w-5 h-5 mx-auto mb-1 text-blue-200"></i>
+                        <p class="text-xs font-semibold text-blue-100">HIS / EMR Integration</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: Role-Based Value Callouts -->
+    <section class="py-24 bg-adeahub-lightbg">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-adeahub-blue text-center mb-16">How AH Health App Helps Your Team</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Role 1: Clinical -->
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 flex flex-col h-full hover-lift solution-card">
+                    <div class="bg-blue-50 w-16 h-16 rounded-2xl flex items-center justify-center text-adeahub-blue mb-6">
+                        <i data-lucide="stethoscope" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">For Clinical Leaders</h3>
+                    <p class="text-xs font-bold uppercase tracking-wider text-adeahub-blue mb-6">CMO · CMIO · Clinical Director</p>
+                    <p class="text-gray-600 leading-relaxed flex-grow">
+                        Structured post-discharge care plans, medication management, and vital signs monitoring keep patients on protocol between visits and reduce readmission risk — without adding to your clinical team's workload. In-app messaging and telemedicine let your team handle follow-ups remotely and efficiently.
+                    </p>
+                </div>
+
+                <!-- Role 2: IT -->
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 flex flex-col h-full hover-lift solution-card">
+                    <div class="bg-gray-50 w-16 h-16 rounded-2xl flex items-center justify-center text-gray-700 mb-6">
+                        <i data-lucide="shield-check" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">For IT Leaders</h3>
+                    <p class="text-xs font-bold uppercase tracking-wider text-adeahub-blue mb-6">CIO · CTO · VP Applications</p>
+                    <p class="text-gray-600 leading-relaxed flex-grow">
+                        AH Health App integrates with your existing HIS and EMR through standard HL7 and FHIR interfaces. Modular architecture and provider-controlled data governance give your IT team confidence from day one.
+                    </p>
+                </div>
+
+                <!-- Role 3: Admin -->
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 flex flex-col h-full hover-lift solution-card">
+                    <div class="bg-yellow-50 w-16 h-16 rounded-2xl flex items-center justify-center text-adeahub-yellow mb-6">
+                        <i data-lucide="bar-chart-3" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">For Administrators</h3>
+                    <p class="text-xs font-bold uppercase tracking-wider text-adeahub-blue mb-6">CFO · VP Operations · Administrator</p>
+                    <p class="text-gray-600 leading-relaxed flex-grow">
+                        Fewer no-shows, lower call-centre volume, and reduced per-patient administrative cost. Virtual queuing shortens wait times without adding front-desk staff. The in-app marketplace and loyalty programme create new digital revenue streams. Digital billing and insurance claim management cuts collection cycles.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: Integration & Compliance -->
+    <section class="py-20 bg-white border-y border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 text-center">
+            <h2 class="text-2xl font-bold text-gray-900 mb-10">Interoperability & Security You Can Trust</h2>
+            
+            <!-- Logo/Badge Strip -->
+            <div class="flex flex-wrap justify-center gap-4 md:gap-8 mb-10">
+                <div class="flex flex-col items-center justify-center px-6 py-4 bg-gray-50 rounded-xl border border-gray-100 min-w-[140px]">
+                    <span class="font-bold text-adeahub-blue text-xl mb-1">HL7</span>
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-gray-500">Messaging Standard</span>
+                </div>
+                <div class="flex flex-col items-center justify-center px-6 py-4 bg-gray-50 rounded-xl border border-gray-100 min-w-[140px]">
+                    <span class="font-bold text-adeahub-blue text-xl mb-1">FHIR R4</span>
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-gray-500">Interoperability API</span>
+                </div>
+                <div class="flex flex-col items-center justify-center px-6 py-4 bg-gray-50 rounded-xl border border-gray-100 min-w-[140px]">
+                    <i data-lucide="braces" class="text-gray-400 w-6 h-6 mb-1"></i>
+                    <span class="font-bold text-gray-700 text-sm mb-1">REST APIs</span>
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-gray-500">Open Integration</span>
+                </div>
+                <div class="flex flex-col items-center justify-center px-6 py-4 bg-gray-50 rounded-xl border border-gray-100 min-w-[140px]">
+                    <i data-lucide="cloud" class="text-blue-500 w-6 h-6 mb-1"></i>
+                    <span class="font-bold text-gray-700 text-sm mb-1">Cloud & On-Premise</span>
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-gray-500">Flexible Deployment</span>
+                </div>
+                <div class="flex flex-col items-center justify-center px-6 py-4 bg-gray-50 rounded-xl border border-gray-100 min-w-[140px]">
+                    <i data-lucide="shield" class="text-green-600 w-6 h-6 mb-1"></i>
+                    <span class="font-bold text-gray-700 text-sm mb-1">Zero Trust</span>
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-gray-500">Security Architecture</span>
+                </div>
+            </div>
+
+            <p class="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                AH Health App connects to your existing hospital systems through open HL7 and FHIR standards, supporting full interoperability with your HIS, EMR, laboratory, and pharmacy platforms. The platform is built on a Zero Trust Architecture with provider-controlled data governance, and supports both cloud and on-premise deployment.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 7: Customer Proof -->
+    <section class="py-24 bg-adeahub-lightbg">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-adeahub-blue text-center mb-16">Proven in the Field</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Case Study Details -->
+                <div class="bg-white p-10 md:p-12 rounded-3xl shadow-soft border border-gray-100 h-full flex flex-col justify-center solution-card">
+                    <div class="flex items-center gap-4 mb-8">
+                        <img src="https://flagcdn.com/w80/ae.png" alt="UAE flag" class="w-12 rounded shadow-sm" onerror="this.style.display='none'">
+                        <div>
+                            <h3 class="text-sm font-bold uppercase tracking-wider text-gray-400">Case Study Snapshot</h3>
+                            <h4 class="text-xl font-bold text-gray-900">UAE Ministry of Health and Prevention</h4>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <span class="font-bold text-gray-900 block mb-1">Challenge:</span>
+                            <p class="text-gray-600">The UAE Ministry of Health and Prevention needed a digital platform to connect patients across the country during a national public health emergency.</p>
+                        </div>
+                        <div>
+                            <span class="font-bold text-adeahub-blue block mb-1">Solution:</span>
+                            <p class="text-gray-600">adeahub deployed the Reaya patient app in partnership with MOHAP, Du Telecom, and Emirates Health Services — enabling remote monitoring, geo-fenced movement tracking, and real-time case management at a national level.</p>
+                        </div>
+                        <div>
+                            <span class="font-bold text-green-600 block mb-1">Result:</span>
+                            <p class="text-gray-600">The platform served patients across all UAE governorates, integrated with law enforcement dashboards and MOHAP systems, and was recognised with the Gold Award at the Stevie Awards MENA 2021 for excellence in technology-driven healthcare innovation.</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="mt-8 text-adeahub-blue font-bold text-lg hover:text-blue-800 flex items-center gap-2 group w-fit">
+                        Read the Full Case Study <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Testimonial -->
+                <div class="bg-adeahub-blue text-white rounded-3xl p-10 md:p-12 relative overflow-hidden shadow-xl h-full flex flex-col justify-center">
+                    <i data-lucide="quote" class="absolute top-8 left-8 w-32 h-32 text-blue-600 opacity-30"></i>
+                    <div class="relative z-10 text-center">
+                        <div class="w-20 h-20 bg-white/10 rounded-full mx-auto mb-8 flex items-center justify-center backdrop-blur-sm border border-white/20">
+                            <i data-lucide="user" class="w-10 h-10 text-white"></i>
+                        </div>
+                        <p class="text-xl md:text-2xl font-medium leading-relaxed mb-8 italic">
+                            "Placeholder — insert approved customer quote here once sign-off is obtained from the relevant stakeholder."
+                        </p>
+                        <div class="font-bold text-lg">[Name]</div>
+                        <div class="text-blue-200">[Title], [Organisation]</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: Final CTA -->
+    <section id="cta" class="py-24 bg-adeahub-blue border-t border-blue-600 text-center relative overflow-hidden">
+        <!-- Subtle Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute w-96 h-96 bg-white rounded-full blur-3xl -top-20 -left-20"></div>
+            <div class="absolute w-96 h-96 bg-white rounded-full blur-3xl -bottom-20 -right-20"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Ready to put your hospital in your patients’ hands?</h2>
+            <p class="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
+                See AH Health App live — configured for your patient population and your workflows. Request a personalised demo from our team.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button class="bg-white text-adeahub-blue text-lg px-10 py-4 rounded-full font-bold hover:bg-gray-50 transition shadow-xl w-full sm:w-auto">
+                    Talk to Our Healthcare Team
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-100 py-12">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-center justify-center space-y-6">
+            <div class="flex flex-col items-center">
+                <a href="index.html">
+                    <img src="AdeaHub Logo-Default.png" alt="adeahub logo" class="h-10 object-contain mb-1 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition duration-300">
+                </a>
+                <span class="text-xs font-semibold text-gray-400 tracking-widest text-center">Powering modern healthcare</span>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-6 text-sm font-medium text-gray-500 mb-4">
+                <a href="adeahub_providers.html" class="hover:text-adeahub-blue transition">AH Provider</a>
+                <a href="adeahub_connect.html" class="hover:text-adeahub-blue transition">AH Connect</a>
+                <a href="adeahub_insight.html" class="hover:text-adeahub-blue transition">AH Insights</a>
+                <a href="#" class="hover:text-adeahub-blue transition">Case Studies</a>
+            </div>
+
+            <div class="text-sm text-gray-400">
+                &copy; 2026 adeahub. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts for Functionality -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+
+    <script>
+        // Mobile menu toggle
+        (function() {
+            var btn  = document.getElementById('mobile-menu-btn');
+            var menu = document.getElementById('mobile-menu');
+            var ham  = document.getElementById('hamburger-icon');
+            var cls  = document.getElementById('close-icon');
+            if (btn) {
+                btn.addEventListener('click', function() {
+                    var open = !menu.classList.contains('hidden');
+                    menu.classList.toggle('hidden', open);
+                    ham.classList.toggle('hidden', !open);
+                    cls.classList.toggle('hidden', open);
+                });
+            }
+        })();
+    </script>
+
+<!-- Navbar scroll shadow -->
+<script>
+(function() {
+    var nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 10) {
+            nav.classList.add('nav-scrolled');
+        } else {
+            nav.classList.remove('nav-scrolled');
+        }
+    }, { passive: true });
+})();
+</script>
+
+<!-- Scroll-reveal (IntersectionObserver) -->
+<script>
+(function() {
+    var targets = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    if (!window.IntersectionObserver) {
+        targets.forEach(function(el) { el.classList.add('visible'); });
+        return;
+    }
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    targets.forEach(function(el) { observer.observe(el); });
+})();
+</script>
+
+<!-- Animated number counters -->
+<script>
+(function() {
+    function formatNum(n, suffix) {
+        if (suffix.indexOf('M+') !== -1) return n + 'M+';
+        if (n >= 1000) return n.toLocaleString() + '+';
+        return n + suffix;
+    }
+    function animateCounter(el) {
+        var target = parseInt(el.dataset.target, 10);
+        var suffix = el.dataset.suffix || '';
+        var start = 0;
+        var duration = 1600;
+        var startTime = null;
+        function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            var progress = Math.min((timestamp - startTime) / duration, 1);
+            var eased = 1 - Math.pow(1 - progress, 3);
+            var current = Math.round(eased * target);
+            el.textContent = formatNum(current, suffix);
+            if (progress < 1) requestAnimationFrame(step);
+            else el.textContent = formatNum(target, suffix);
+        }
+        requestAnimationFrame(step);
+    }
+    var counters = document.querySelectorAll('.counter');
+    if (!window.IntersectionObserver) { return; }
+    var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    counters.forEach(function(el) { obs.observe(el); });
+})();
+</script>
+
+</body>
+</html>

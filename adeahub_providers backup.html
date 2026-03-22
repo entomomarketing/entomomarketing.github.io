@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AH Provider — Hospital Information System | adeahub</title>
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        adeahub: {
+                            blue: '#0D6EFD',
+                            yellow: '#F4B223',
+                            gray: '#4B5563',
+                            lightbg: '#F8FAFC'
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        /* Carousel Styles */
+        .carousel-container { overflow: hidden; position: relative; }
+        .carousel-track { display: flex; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); width: 200%; }
+        .carousel-slide { width: 50%; flex-shrink: 0; }
+        /* Architecture Stack Hover */
+        .arch-layer { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .arch-layer:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 15px 30px -10px rgba(13,110,253,0.3); }
+        /* Marquee */
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .animate-marquee { animation: marquee 40s linear infinite; }
+        .marquee-container:hover .animate-marquee { animation-play-state: paused; }
+        /* Fade-in animation */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in-up { animation: fadeInUp 0.6s ease forwards; }
+        /* Tab active states */
+        .tab-btn.active { background-color: #0D6EFD; color: white; }
+        /* Smooth scroll */
+        html { scroll-behavior: smooth; }
+    
+        
+        /* ───── BASE ───── */
+        :root {
+            --blue: #0D6EFD;
+            --yellow: #F4B223;
+            --blue-pale: #EEF4FF;
+            --shadow-blue: rgba(13,110,253,0.15);
+        }
+        body { font-family: 'Outfit', sans-serif; -webkit-font-smoothing: antialiased; }
+        html { scroll-behavior: smooth; }
+
+        /* ───── SCROLL REVEAL ───── */
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-left { opacity: 0; transform: translateX(-30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal-left.visible { opacity: 1; transform: translateX(0); }
+        .reveal-right { opacity: 0; transform: translateX(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal-right.visible { opacity: 1; transform: translateX(0); }
+        .reveal-d1 { transition-delay: 0.10s; }
+        .reveal-d2 { transition-delay: 0.20s; }
+        .reveal-d3 { transition-delay: 0.30s; }
+        .reveal-d4 { transition-delay: 0.40s; }
+        .reveal-d5 { transition-delay: 0.50s; }
+
+        /* ───── NAVBAR ───── */
+        .nav-scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.07) !important; }
+        .nav-dropdown { position: relative; }
+        .nav-dropdown:hover .nav-dropdown-menu,
+        .nav-dropdown-menu:hover { display: block !important; }
+        .nav-dropdown-menu { animation: dropIn 0.18s ease forwards; }
+        @keyframes dropIn {
+            from { opacity: 0; transform: translateY(-6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ───── HERO ───── */
+        .hero-bg {
+            background:
+                radial-gradient(ellipse 75% 65% at 90% 40%, rgba(13,110,253,0.10) 0%, transparent 68%),
+                radial-gradient(ellipse 55% 55% at 8%  80%, rgba(13,110,253,0.07) 0%, transparent 62%),
+                radial-gradient(ellipse 40% 40% at 50% 5%,  rgba(244,178,35,0.06)  0%, transparent 60%),
+                #F8FAFC;
+        }
+        .dot-grid {
+            background-image: radial-gradient(circle, rgba(13,110,253,0.11) 1px, transparent 1px);
+            background-size: 28px 28px;
+        }
+        /* Badge pulse */
+        @keyframes badgePulse {
+            0%,100% { box-shadow: 0 0 0 0   rgba(13,110,253,0.30); }
+            50%      { box-shadow: 0 0 0 7px rgba(13,110,253,0);    }
+        }
+        .hero-badge { animation: badgePulse 2.8s ease-in-out infinite; }
+
+        /* Concentric circles */
+        @keyframes rotateSlow    { to { transform: rotate(360deg);  } }
+        @keyframes rotateReverse { to { transform: rotate(-360deg); } }
+        .circle-ring-1 { animation: rotateSlow    28s linear infinite; transform-origin: center; }
+        .circle-ring-2 { animation: rotateReverse 20s linear infinite; transform-origin: center; }
+
+        /* CTA button glow */
+        @keyframes btnGlow {
+            0%,100% { box-shadow: 0 8px 28px rgba(13,110,253,0.38); }
+            50%      { box-shadow: 0 8px 44px rgba(13,110,253,0.58); }
+        }
+        .btn-glow { animation: btnGlow 2.4s ease-in-out infinite; }
+        .btn-glow:hover {
+            animation: none;
+            box-shadow: 0 12px 40px rgba(13,110,253,0.55);
+            transform: translateY(-2px);
+            transition: all 0.25s ease;
+        }
+        /* Shimmer sweep on hover */
+        .btn-shimmer { position: relative; overflow: hidden; }
+        .btn-shimmer::after {
+            content: '';
+            position: absolute; top: 0; left: -100%;
+            width: 55%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+        }
+        .btn-shimmer:hover::after { left: 160%; transition: left 0.55s ease; }
+
+        /* Hero mini trusted strip */
+        .hero-logo-strip img { filter: grayscale(100%) opacity(0.5); transition: filter 0.3s, opacity 0.3s; }
+        .hero-logo-strip img:hover { filter: grayscale(0%) opacity(1); }
+
+        /* ───── SECTION LABEL ───── */
+        .section-label {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em;
+            text-transform: uppercase; color: #0D6EFD; margin-bottom: 14px;
+        }
+        .section-label::before {
+            content: ''; display: block;
+            width: 22px; height: 2px;
+            background: #0D6EFD; border-radius: 2px;
+        }
+
+        /* ───── GRADIENT TEXT ───── */
+        .gradient-text {
+            background: linear-gradient(135deg, #0D6EFD 0%, #3B82F6 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        /* ───── TRUST / COMPLIANCE PILLS ───── */
+        .compliance-pill {
+            background: white; border: 1px solid rgba(13,110,253,0.14);
+            border-radius: 9999px; padding: 7px 18px;
+            font-size: 0.72rem; font-weight: 700; color: #4B5563;
+            letter-spacing: 0.05em; text-transform: uppercase;
+            display: inline-flex; align-items: center; gap: 6px;
+            transition: all 0.22s; box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+        .compliance-pill:hover {
+            background: var(--blue-pale); border-color: rgba(13,110,253,0.35);
+            color: #0D6EFD; box-shadow: 0 4px 16px rgba(13,110,253,0.10);
+        }
+
+        /* ───── STAT NUMBERS ───── */
+        .stat-block { position: relative; }
+        .stat-num {
+            font-variant-numeric: tabular-nums;
+            background: linear-gradient(135deg, #0D6EFD 0%, #1a5fd6 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .stat-block::after {
+            content: ''; position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 2px; background: linear-gradient(90deg, transparent, rgba(13,110,253,0.15), transparent);
+        }
+
+        /* ───── AWARD CARDS ───── */
+        .award-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+        .award-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px -5px rgba(0,0,0,0.09); }
+
+        /* ───── SOLUTION CARDS ───── */
+        .solution-card {
+            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+            border-top: 3px solid transparent;
+            border-radius: 24px;
+        }
+        .solution-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 24px 56px -12px rgba(13,110,253,0.18);
+            border-top-color: #0D6EFD;
+        }
+        .solution-card .icon-wrap { transition: transform 0.28s ease, background 0.28s ease; }
+        .solution-card:hover .icon-wrap { background: rgba(13,110,253,0.12) !important; transform: scale(1.1); }
+        .solution-arrow { transition: transform 0.22s ease; }
+        .solution-card:hover .solution-arrow { transform: translateX(5px); }
+
+        /* ───── ARCHITECTURE LAYERS ───── */
+        .arch-layer { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .arch-layer:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 15px 30px -10px rgba(13,110,253,0.3); }
+        @keyframes platformPulse {
+            0%,100% { box-shadow: 0 4px 24px rgba(13,110,253,0.30); }
+            50%      { box-shadow: 0 4px 40px rgba(13,110,253,0.50); }
+        }
+        .platform-core { animation: platformPulse 2.6s ease-in-out infinite; }
+
+        /* ───── OUTCOME CARDS ───── */
+        .outcome-card { transition: transform 0.28s ease, box-shadow 0.28s ease; position: relative; overflow: hidden; }
+        .outcome-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, #0D6EFD, #60a5fa);
+            transform: scaleX(0); transform-origin: left; transition: transform 0.32s ease;
+        }
+        .outcome-card:hover { transform: translateY(-5px); box-shadow: 0 18px 44px -10px rgba(13,110,253,0.15); }
+        .outcome-card:hover::before { transform: scaleX(1); }
+
+        /* ───── CTA SECTION ───── */
+        .cta-mesh {
+            background:
+                radial-gradient(ellipse 70% 80% at 20% 50%, rgba(13,110,253,0.12) 0%, transparent 65%),
+                radial-gradient(ellipse 50% 60% at 80% 30%, rgba(13,110,253,0.09) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 50% at 60% 90%, rgba(244,178,35,0.07) 0%, transparent 55%),
+                linear-gradient(135deg, #EEF4FF 0%, #F8FAFC 50%, #F0F7FF 100%);
+        }
+
+        /* ───── TESTIMONIAL ───── */
+        .testimonial-bg {
+            background: linear-gradient(140deg, #0D6EFD 0%, #1552c4 100%);
+            position: relative; overflow: hidden;
+        }
+        .testimonial-bg::before {
+            content: ''; position: absolute; top: -70px; right: -70px;
+            width: 300px; height: 300px; border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .testimonial-bg::after {
+            content: ''; position: absolute; bottom: -90px; left: -50px;
+            width: 250px; height: 250px; border-radius: 50%;
+            background: rgba(255,255,255,0.04);
+        }
+
+        /* ───── MARQUEE ───── */
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .animate-marquee { animation: marquee 40s linear infinite; }
+        .marquee-container:hover .animate-marquee { animation-play-state: paused; }
+
+        /* ───── CARD SCROLL ───── */
+        @keyframes scroll-cards { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .animate-scroll-cards { display: flex; width: max-content; animation: scroll-cards 60s linear infinite; }
+        .animate-scroll-cards:hover { animation-play-state: paused; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* ───── TAB ACTIVE ───── */
+        .tab-btn.active { background-color: #0D6EFD; color: white; }
+
+        /* ───── FLOATING BLOBS (hero decoration) ───── */
+        @keyframes floatBlob {
+            0%,100% { transform: translateY(0) scale(1); }
+            50%      { transform: translateY(-18px) scale(1.04); }
+        }
+        .blob-float-1 { animation: floatBlob 9s ease-in-out infinite; }
+        .blob-float-2 { animation: floatBlob 12s ease-in-out infinite 2.5s; }
+    
+    </style>
+</head>
+<body class="bg-white text-gray-700">
+
+    <!-- Unified Navbar -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 flex justify-between items-center">
+
+            <!-- Logo -->
+            <a href="index.html" class="flex flex-col hover:opacity-90 transition shrink-0">
+                <img src="AdeaHub Logo-Default.png" alt="adeahub logo" class="h-10 object-contain object-left mb-1">
+                <span class="text-[0.65rem] font-medium text-gray-500 tracking-widest leading-none pl-1">Powering modern healthcare</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+
+                <!-- Solutions Dropdown -->
+                <div class="nav-dropdown relative">
+                    <button class="nav-dropdown-trigger text-gray-600 hover:text-blue-600 transition-colors flex items-center gap-1 font-medium py-2">
+                        Solutions
+                        <svg class="w-3.5 h-3.5 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="nav-dropdown-menu absolute left-0 top-full pt-1 w-64 hidden">
+                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 py-2 overflow-hidden solution-card">
+                            <a href="adeahub_pha.html" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors group">
+                                <span class="bg-blue-50 group-hover:bg-blue-100 p-2 rounded-xl transition-colors shrink-0">
+                                    <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                                </span>
+                                <div><p class="font-semibold text-gray-800 text-sm">AH Health App</p><p class="text-xs text-gray-500">For Patients &amp; Caregivers</p></div>
+                            </a>
+                            <a href="adeahub_providers.html" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors group">
+                                <span class="bg-blue-50 group-hover:bg-blue-100 p-2 rounded-xl transition-colors shrink-0">
+                                    <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                                </span>
+                                <div><p class="font-semibold text-gray-800 text-sm">AH Provider</p><p class="text-xs text-gray-500">For Healthcare Workers &amp; Admins</p></div>
+                            </a>
+                            <a href="adeahub_connect.html" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors group">
+                                <span class="bg-blue-50 group-hover:bg-blue-100 p-2 rounded-xl transition-colors shrink-0">
+                                    <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                                </span>
+                                <div><p class="font-semibold text-gray-800 text-sm">AH Connect</p><p class="text-xs text-gray-500">For Devices &amp; Applications</p></div>
+                            </a>
+                            <a href="adeahub_insight.html" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors group">
+                                <span class="bg-blue-50 group-hover:bg-blue-100 p-2 rounded-xl transition-colors shrink-0">
+                                    <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                                </span>
+                                <div><p class="font-semibold text-gray-800 text-sm">AH Insights</p><p class="text-xs text-gray-500">For Decision Makers</p></div>
+                            </a>
+                            <a href="workwise.html" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors group">
+                                <span class="bg-blue-50 group-hover:bg-blue-100 p-2 rounded-xl transition-colors shrink-0">
+                                    <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                </span>
+                                <div><p class="font-semibold text-gray-800 text-sm">WorkWise</p><p class="text-xs text-gray-500">Healthcare Workforce Experience</p></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Platform -->
+                <a href="adeahub_platform.html" class="text-gray-600 hover:text-blue-600 transition-colors font-medium py-2">Platform</a>
+
+                <!-- Resources Dropdown -->
+                <div class="nav-dropdown relative">
+                    <button class="nav-dropdown-trigger text-gray-600 hover:text-blue-600 transition-colors flex items-center gap-1 font-medium py-2">
+                        Resources
+                        <svg class="w-3.5 h-3.5 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="nav-dropdown-menu absolute left-0 top-full pt-1 w-56 hidden">
+                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 py-2 overflow-hidden solution-card">
+                            <a href="newsroom.html" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors group">
+                                <span class="bg-gray-50 group-hover:bg-blue-100 p-2 rounded-xl transition-colors shrink-0">
+                                    <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+                                </span>
+                                <div><p class="font-semibold text-gray-800 text-sm">Newsroom</p><p class="text-xs text-gray-500">Press & announcements</p></div>
+                            </a>
+                            <a href="customers.html" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors group">
+                                <span class="bg-gray-50 group-hover:bg-blue-100 p-2 rounded-xl transition-colors shrink-0">
+                                    <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>
+                                </span>
+                                <div><p class="font-semibold text-gray-800 text-sm">Customers</p><p class="text-xs text-gray-500">Case studies & outcomes</p></div>
+                            </a>
+                            <a href="Blogs.html" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors group">
+                                <span class="bg-gray-50 group-hover:bg-blue-100 p-2 rounded-xl transition-colors shrink-0">
+                                    <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                                </span>
+                                <div><p class="font-semibold text-gray-800 text-sm">Blog</p><p class="text-xs text-gray-500">Insights & perspectives</p></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Us -->
+                <a href="about_us.html" class="text-gray-600 hover:text-blue-600 transition-colors font-medium py-2">About Us</a>
+
+                <!-- Contact Us -->
+                <a href="contact_us.html" class="text-gray-600 hover:text-blue-600 transition-colors font-medium py-2">Contact Us</a>
+
+                <!-- CTA Button -->
+                <a href="contact_us.html" class="bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-colors shadow-md shadow-blue-500/25 font-semibold text-sm whitespace-nowrap btn-glow btn-shimmer">Talk to Our Team</a>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-600 hover:text-blue-600 transition-colors p-1" aria-label="Toggle menu">
+                <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-5 py-4">
+            <p class="text-[0.65rem] font-bold uppercase tracking-widest text-gray-400 pb-2">Solutions</p>
+            <a href="adeahub_pha.html" class="block py-2.5 px-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors font-medium text-sm">AH Health App</a>
+            <a href="adeahub_providers.html" class="block py-2.5 px-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors font-medium text-sm">AH Provider</a>
+            <a href="adeahub_connect.html" class="block py-2.5 px-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors font-medium text-sm">AH Connect</a>
+            <a href="adeahub_insight.html" class="block py-2.5 px-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors font-medium text-sm">AH Insights</a>
+            <a href="workwise.html" class="block py-2.5 px-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors font-medium text-sm">WorkWise</a>
+            <div class="my-2 border-t border-gray-100"></div>
+            <a href="adeahub_platform.html" class="block py-2.5 px-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors font-medium text-sm">Platform</a>
+            <div class="my-2 border-t border-gray-100"></div>
+            <p class="text-[0.65rem] font-bold uppercase tracking-widest text-gray-400 pt-1 pb-2">Resources</p>
+            <a href="newsroom.html" class="block py-2.5 px-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors font-medium text-sm">Newsroom</a>
+            <a href="customers.html" class="block py-2.5 px-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors font-medium text-sm">Customers</a>
+            <a href="Blogs.html" class="block py-2.5 px-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors font-medium text-sm">Blog</a>
+            <div class="my-2 border-t border-gray-100"></div>
+            <a href="about_us.html" class="block py-2.5 px-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors font-medium text-sm">About Us</a>
+            <a href="contact_us.html" class="block py-2.5 px-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors font-medium text-sm">Contact Us</a>
+            <div class="pt-3 pb-1">
+                <a href="contact_us.html" class="block bg-blue-600 text-white text-center px-5 py-3 rounded-full hover:bg-blue-700 transition-colors font-semibold text-sm shadow-md shadow-blue-500/20 btn-glow btn-shimmer">Talk to Our Team</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: HERO -->
+    <header class="bg-adeahub-lightbg pt-16 pb-24 overflow-hidden relative overflow-hidden">
+<div class="dot-grid absolute inset-0 pointer-events-none opacity-60" aria-hidden="true"></div>
+<div class="blob-float-1 absolute left-[5%] top-[15%] w-72 h-72 rounded-full bg-blue-100/40 blur-3xl pointer-events-none -z-0" aria-hidden="true"></div>
+<div class="blob-float-2 absolute right-[8%] bottom-[10%] w-56 h-56 rounded-full bg-yellow-100/30 blur-3xl pointer-events-none -z-0" aria-hidden="true"></div>
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <!-- Hero Copy -->
+            <div class="space-y-6 z-10">
+                <span class="inline-block text-sm font-bold text-adeahub-yellow tracking-wider uppercase">
+                    Integrated Hospital Management
+                </span>
+
+                <h1 class="text-4xl md:text-6xl tracking-tight leading-tight">
+                    <span class="text-adeahub-blue font-bold">AH</span> <span class="text-gray-900 font-bold">Provider</span>
+                </h1>
+
+                <h2 class="text-3xl md:text-4xl font-bold text-adeahub-blue leading-tight mt-6">
+                    One connected system for safer care and smoother operations.
+                </h2>
+
+                <p class="text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
+                    AH Provider gives clinical and administrative teams a single, integrated platform — covering every department from registration and pharmacy to billing and records — so your hospital runs with the reliability that patients depend on.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 pt-6">
+                    <a href="#cta" class="bg-adeahub-blue text-white text-center px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30 btn-glow btn-shimmer">
+                        Talk to Our Healthcare Team
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Hero Visual: CSS Mock UI of Clinical Dashboard -->
+            <div class="relative w-full h-[500px] flex items-center justify-center">
+                <!-- Decorative background blobs -->
+                <div class="absolute top-10 right-10 w-64 h-64 bg-blue-200 rounded-full blur-3xl opacity-50"></div>
+                <div class="absolute bottom-10 left-10 w-72 h-72 bg-yellow-100 rounded-full blur-3xl opacity-40"></div>
+                
+                <!-- Main Dashboard Card -->
+                <div class="absolute w-[110%] md:w-full max-w-lg bg-white rounded-2xl shadow-float border border-gray-100  outcome-card flex flex-col">
+                    <!-- Top Bar -->
+                    <div class="h-12 border-b border-gray-100 bg-gray-50 flex items-center px-4 gap-3">
+                        <div class="flex gap-1.5">
+                            <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                        </div>
+                        <div class="mx-auto bg-white border border-gray-200 h-6 w-1/2 rounded text-center flex items-center justify-center text-[10px] text-gray-400 font-mono">search patient record...</div>
+                    </div>
+                    <!-- Body -->
+                    <div class="flex h-80">
+                        <!-- Sidebar -->
+                        <div class="w-16 bg-white border-r border-gray-100 flex flex-col items-center py-4 gap-4 text-gray-300">
+                            <i data-lucide="menu" class="w-5 h-5 mb-4"></i>
+                            <i data-lucide="user" class="w-5 h-5 text-adeahub-blue bg-blue-50 p-1 rounded-md w-8 h-8"></i>
+                            <i data-lucide="activity" class="w-5 h-5"></i>
+                            <i data-lucide="file-text" class="w-5 h-5"></i>
+                            <i data-lucide="pill" class="w-5 h-5"></i>
+                        </div>
+                        <!-- Content Area (Patient Record) -->
+                        <div class="flex-1 p-6 bg-gray-50/50">
+                            <!-- Patient Header -->
+                            <div class="flex items-center gap-4 mb-6 mock-ui-element">
+                                <div class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center text-adeahub-blue font-bold text-xl border-2 border-white shadow-sm">JS</div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 leading-tight">John Smith <span class="text-xs font-normal text-gray-400 bg-gray-200 px-2 py-0.5 rounded ml-2">MRN: 847291</span></h3>
+                                    <p class="text-xs text-gray-500 mt-1">42 yrs • Male • Blood: O+ • Allergy: Penicillin</p>
+                                </div>
+                            </div>
+                            <!-- Vitals & Orders Grid -->
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-white p-3 rounded-xl border border-gray-100 shadow-sm mock-ui-element">
+                                    <p class="text-[10px] font-bold text-gray-400 uppercase mb-2">Recent Vitals</p>
+                                    <div class="flex justify-between items-end">
+                                        <div><span class="text-xl font-bold text-gray-800">120/80</span><span class="text-[10px] text-gray-400 ml-1">mmHg</span></div>
+                                        <i data-lucide="heart-pulse" class="w-4 h-4 text-green-500"></i>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-3 rounded-xl border border-gray-100 shadow-sm mock-ui-element relative border-l-4 border-l-adeahub-yellow">
+                                    <p class="text-[10px] font-bold text-gray-400 uppercase mb-2">Active Prescriptions</p>
+                                    <p class="text-sm font-semibold text-gray-800">Amoxicillin 500mg</p>
+                                    <p class="text-[10px] text-gray-500">PO TID x 7 days</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Callout Annotation 1 -->
+                <div class="absolute -right-4 md:-right-12 top-24 bg-white p-3 rounded-lg shadow-xl border border-blue-100 flex gap-3 items-start animate-float z-20 w-48">
+                    <div class="bg-blue-100 text-adeahub-blue p-1.5 rounded-md mt-0.5 shrink-0"><i data-lucide="check-circle" class="w-4 h-4"></i></div>
+                    <div>
+                        <p class="text-xs font-bold text-gray-900">Unified Identity</p>
+                        <p class="text-[10px] text-gray-500 leading-tight mt-0.5">One verified record across all departments.</p>
+                    </div>
+                </div>
+
+                <!-- Callout Annotation 2 -->
+                <div class="absolute -left-4 md:-left-8 bottom-16 bg-white p-3 rounded-lg shadow-xl border border-yellow-100 flex gap-3 items-start animate-float-delayed z-20 w-52">
+                    <div class="bg-yellow-100 text-adeahub-yellow p-1.5 rounded-md mt-0.5 shrink-0"><i data-lucide="alert-triangle" class="w-4 h-4"></i></div>
+                    <div>
+                        <p class="text-xs font-bold text-gray-900">Clinical Decision Support</p>
+                        <p class="text-[10px] text-gray-500 leading-tight mt-0.5">Real-time alerts for drug interactions and allergies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION 2: PROBLEM STATEMENT -->
+    <section class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6 md:px-12">
+            <h2 class="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-16 text-center max-w-2xl mx-auto">
+                When hospital systems don't connect, patient care pays the price.
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+                <!-- Pain Point 1 -->
+                <div class="flex items-start gap-4">
+                    <div class="bg-red-50 text-red-500 p-2 rounded-lg shrink-0 mt-1">
+                        <i data-lucide="laptop" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-lg mb-2">Clinicians document in disconnected systems.</h3>
+                        <p class="text-gray-600 leading-relaxed">Hours that should go to patients are lost to data entry and chasing records across platforms.</p>
+                    </div>
+                </div>
+                
+                <!-- Pain Point 2 -->
+                <div class="flex items-start gap-4">
+                    <div class="bg-red-50 text-red-500 p-2 rounded-lg shrink-0 mt-1">
+                        <i data-lucide="alert-circle" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-lg mb-2">Medication errors go unchecked.</h3>
+                        <p class="text-gray-600 leading-relaxed">When prescribing, pharmacy, and nursing systems don't share real-time data, dangerous interactions slip through.</p>
+                    </div>
+                </div>
+
+                <!-- Pain Point 3 -->
+                <div class="flex items-start gap-4">
+                    <div class="bg-red-50 text-red-500 p-2 rounded-lg shrink-0 mt-1">
+                        <i data-lucide="trending-down" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-lg mb-2">Revenue leaks through manual billing.</h3>
+                        <p class="text-gray-600 leading-relaxed">Clinical activity that isn't automatically captured and linked to patient accounts creates avoidable financial loss.</p>
+                    </div>
+                </div>
+
+                <!-- Pain Point 4 -->
+                <div class="flex items-start gap-4">
+                    <div class="bg-red-50 text-red-500 p-2 rounded-lg shrink-0 mt-1">
+                        <i data-lucide="server-crash" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-lg mb-2">IT teams absorb the integration burden.</h3>
+                        <p class="text-gray-600 leading-relaxed">Maintaining point-to-point connections between legacy systems consumes resources and introduces instability with every upgrade.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 border border-gray-100 p-8 rounded-2xl text-center">
+                <p class="text-lg text-gray-700 leading-relaxed font-medium">
+                    These are not IT problems in isolation. They are clinical and operational problems that affect the care your patients receive every day. Hospitals that run on fragmented systems face slower decisions, higher error rates, and operational costs that compound over time.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: HOW IT WORKS — FEATURE WORKFLOW -->
+    <section class="py-24 bg-adeahub-lightbg relative border-y border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            
+            <div class="mb-20 text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-5xl font-bold text-adeahub-blue mb-6">How AH Provider works.</h2>
+                <p class="text-xl text-gray-600">From the moment a patient arrives to the moment they are discharged, every clinical and administrative action happens inside one connected system.</p>
+            </div>
+
+            <div class="space-y-24 relative">
+                <!-- Vertical connecting line -->
+                <div class="hidden md:block absolute left-1/2 top-10 bottom-10 w-0.5 bg-blue-100 -translate-x-1/2 z-0"></div>
+
+                <!-- Step 1 -->
+                <div class="flex flex-col md:flex-row items-center gap-12 relative z-10">
+                    <div class="md:w-1/2 flex justify-end md:pr-12">
+                        <!-- CSS Mock UI / Process Illustration -->
+                        <div class="w-full max-w-sm bg-white p-6 rounded-2xl shadow-soft border border-gray-100 relative solution-card">
+                            <div class="absolute -top-4 -left-4 bg-adeahub-blue text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg shadow-lg">1</div>
+                            <div class="flex items-center gap-3 mb-4 pb-4 border-b border-gray-50">
+                                <i data-lucide="user-plus" class="text-gray-400 w-5 h-5"></i>
+                                <span class="text-sm font-bold text-gray-500 uppercase">Front Desk Registration</span>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="h-10 bg-gray-50 border border-gray-200 rounded px-3 flex items-center justify-between">
+                                    <span class="text-xs text-gray-500">ID / Passport No.</span>
+                                    <span class="text-sm font-mono text-gray-800">G8472910</span>
+                                </div>
+                                <div class="bg-green-50 border border-green-200 p-3 rounded-lg flex items-start gap-2">
+                                    <i data-lucide="check-circle" class="w-4 h-4 text-green-600 mt-0.5"></i>
+                                    <div>
+                                        <p class="text-xs font-bold text-green-800">MPI Match Found</p>
+                                        <p class="text-[10px] text-green-600 mt-1">Patient record retrieved. No duplicates created.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 md:pl-12">
+                        <div class="mb-4 inline-block bg-blue-50 text-adeahub-blue px-3 py-1 rounded text-sm font-semibold">User Action</div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">The patient arrives and is registered at the front desk.</h3>
+                        <p class="text-gray-600 mb-4"><strong class="text-gray-800">What AH Provider does:</strong> runs a real-time duplicate check against a Master Patient Index. It creates or retrieves a single, verified patient identity that follows the patient across every department and every visit.</p>
+                        <p class="text-gray-600"><strong class="text-adeahub-blue">Outcome:</strong> Every clinician who touches the patient's care works from the same complete, accurate record — reducing duplicate tests and improving safety.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex flex-col md:flex-row-reverse items-center gap-12 relative z-10">
+                    <div class="md:w-1/2 flex justify-start md:pl-12">
+                        <!-- CSS Mock UI / Process Illustration -->
+                        <div class="w-full max-w-sm bg-white p-6 rounded-2xl shadow-soft border border-gray-100 relative solution-card">
+                            <div class="absolute -top-4 -right-4 bg-adeahub-blue text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg shadow-lg">2</div>
+                            <div class="flex items-center gap-3 mb-4 pb-4 border-b border-gray-50">
+                                <i data-lucide="stethoscope" class="text-gray-400 w-5 h-5"></i>
+                                <span class="text-sm font-bold text-gray-500 uppercase">CPOE / Ordering</span>
+                            </div>
+                            <div class="space-y-3 relative">
+                                <div class="flex items-center gap-3 p-3 border border-gray-100 rounded-lg hover:bg-gray-50">
+                                    <i data-lucide="microscope" class="w-5 h-5 text-purple-500"></i>
+                                    <span class="text-sm font-semibold text-gray-800">Order: Complete Blood Count</span>
+                                </div>
+                                <div class="flex items-center gap-3 p-3 border-2 border-yellow-300 bg-yellow-50 rounded-lg relative">
+                                    <i data-lucide="pill" class="w-5 h-5 text-adeahub-yellow"></i>
+                                    <div>
+                                        <span class="text-sm font-semibold text-gray-800 block">Order: Warfarin 5mg</span>
+                                        <span class="text-xs text-yellow-700 font-medium">Alert: Severe interaction with current meds</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 md:pr-12 text-left">
+                        <div class="mb-4 inline-block bg-blue-50 text-adeahub-blue px-3 py-1 rounded text-sm font-semibold">User Action</div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">The physician accesses the patient record and places clinical orders through the Clinician Access module.</h3>
+                        <p class="text-gray-600 mb-4"><strong class="text-gray-800">What AH Provider does:</strong> Orders route instantly to pharmacy, laboratory, and radiology. Clinical decision support runs in the background — flagging drug interactions, abnormal lab results, and protocol deviations at the point of care, not after the fact.</p>
+                        <p class="text-gray-600"><strong class="text-adeahub-blue">Outcome:</strong> Clinicians spend less time on administration and more time on the decisions that affect patient outcomes.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex flex-col md:flex-row items-center gap-12 relative z-10">
+                    <div class="md:w-1/2 flex justify-end md:pr-12">
+                        <!-- CSS Mock UI / Process Illustration -->
+                        <div class="w-full max-w-sm bg-white p-6 rounded-2xl shadow-soft border border-gray-100 relative solution-card">
+                            <div class="absolute -top-4 -left-4 bg-adeahub-blue text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg shadow-lg">3</div>
+                            <div class="flex items-center gap-3 mb-4 pb-4 border-b border-gray-50">
+                                <i data-lucide="clipboard-list" class="text-gray-400 w-5 h-5"></i>
+                                <span class="text-sm font-bold text-gray-500 uppercase">Nursing Workflow</span>
+                            </div>
+                            <div class="bg-blue-50 border border-blue-100 p-4 rounded-xl text-center mb-3">
+                                <p class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Fall Risk Score</p>
+                                <p class="text-3xl font-extrabold text-adeahub-blue">High</p>
+                                <p class="text-[10px] text-blue-500 mt-1">Auto-calculated from vitals & meds</p>
+                            </div>
+                            <button class="w-full bg-gray-900 text-white py-2 rounded-lg text-sm font-medium flex items-center justify-center gap-2">
+                                <i data-lucide="scan-barcode" class="w-4 h-4"></i> Scan Patient Barcode
+                            </button>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 md:pl-12">
+                        <div class="mb-4 inline-block bg-blue-50 text-adeahub-blue px-3 py-1 rounded text-sm font-semibold">User Action</div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Nursing staff access structured care plans and manage medication administration at the bedside.</h3>
+                        <p class="text-gray-600 mb-4"><strong class="text-gray-800">What AH Provider does:</strong> Auto-calculates risk assessment scores, recommends care protocols, and supports structured medication administration documentation. Every medication given — or withheld — is recorded against the patient record with a time stamp and clinical reason.</p>
+                        <p class="text-gray-600"><strong class="text-adeahub-blue">Outcome:</strong> Nursing documentation becomes a clinical safety tool, not just a compliance task.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex flex-col md:flex-row-reverse items-center gap-12 relative z-10">
+                    <div class="md:w-1/2 flex justify-start md:pl-12">
+                        <!-- Process Flow Illustration -->
+                        <div class="w-full max-w-sm bg-white p-6 rounded-2xl shadow-soft border border-gray-100 relative flex flex-col items-center solution-card">
+                            <div class="absolute -top-4 -right-4 bg-adeahub-blue text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg shadow-lg">4</div>
+                            
+                            <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-2 z-10 relative">
+                                <i data-lucide="network" class="w-6 h-6 text-gray-600"></i>
+                            </div>
+                            <div class="w-0.5 h-6 bg-gray-200"></div>
+                            
+                            <div class="flex gap-4 w-full justify-center">
+                                <div class="bg-white border border-gray-200 p-3 rounded-xl flex flex-col items-center shadow-sm w-24">
+                                    <i data-lucide="microscope" class="w-5 h-5 text-adeahub-blue mb-2"></i>
+                                    <span class="text-[10px] font-bold text-gray-600">Lab</span>
+                                </div>
+                                <div class="bg-white border border-gray-200 p-3 rounded-xl flex flex-col items-center shadow-sm w-24">
+                                    <i data-lucide="radio" class="w-5 h-5 text-adeahub-blue mb-2"></i>
+                                    <span class="text-[10px] font-bold text-gray-600">PACS</span>
+                                </div>
+                                <div class="bg-white border border-gray-200 p-3 rounded-xl flex flex-col items-center shadow-sm w-24">
+                                    <i data-lucide="flask-conical" class="w-5 h-5 text-adeahub-blue mb-2"></i>
+                                    <span class="text-[10px] font-bold text-gray-600">Pharmacy</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-center text-gray-400 mt-4 font-medium uppercase tracking-widest">Real-time Bi-directional sync</p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 md:pr-12 text-left">
+                        <div class="mb-4 inline-block bg-blue-50 text-adeahub-blue px-3 py-1 rounded text-sm font-semibold">User Action</div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Supporting departments receive and fulfil orders as they are placed.</h3>
+                        <p class="text-gray-600 mb-4"><strong class="text-gray-800">What AH Provider does:</strong> Real-time order routing, ward acknowledgement, and bi-directional PACS integration keep every department synchronised. There are no fax machines, phone calls, or manual handoffs between systems.</p>
+                        <p class="text-gray-600"><strong class="text-adeahub-blue">Outcome:</strong> Care moves faster, delays shrink, and the risk of things falling through the cracks is significantly reduced.</p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="flex flex-col md:flex-row items-center gap-12 relative z-10">
+                    <div class="md:w-1/2 flex justify-end md:pr-12">
+                        <!-- CSS Mock UI / Process Illustration -->
+                        <div class="w-full max-w-sm bg-white p-6 rounded-2xl shadow-soft border border-gray-100 relative solution-card">
+                            <div class="absolute -top-4 -left-4 bg-adeahub-blue text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg shadow-lg">5</div>
+                            <div class="flex items-center gap-3 mb-4 pb-4 border-b border-gray-50">
+                                <i data-lucide="receipt" class="text-gray-400 w-5 h-5"></i>
+                                <span class="text-sm font-bold text-gray-500 uppercase">Billing & Discharge</span>
+                            </div>
+                            
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between items-center text-sm">
+                                    <span class="text-gray-500 line-through">Manual Charge Entry</span>
+                                    <i data-lucide="x" class="w-4 h-4 text-red-400"></i>
+                                </div>
+                                <div class="flex justify-between items-center text-sm font-medium bg-green-50 p-2 rounded text-green-800">
+                                    <span>Auto-captured Clinical Charges</span>
+                                    <i data-lucide="check" class="w-4 h-4 text-green-600"></i>
+                                </div>
+                            </div>
+                            <div class="border-t border-dashed border-gray-200 pt-3 flex justify-between items-end">
+                                <span class="text-xs font-bold text-gray-400 uppercase">Total Recovered</span>
+                                <span class="text-xl font-bold text-gray-900">$100% Accuracy</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 md:pl-12">
+                        <div class="mb-4 inline-block bg-blue-50 text-adeahub-blue px-3 py-1 rounded text-sm font-semibold">User Action</div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">At discharge, billing teams process charges and close the financial record.</h3>
+                        <p class="text-gray-600 mb-4"><strong class="text-gray-800">What AH Provider does:</strong> Connects clinical activity to patient billing, insurance management, and accounts receivable — closing the gap between care delivered and revenue recorded.</p>
+                        <p class="text-gray-600"><strong class="text-adeahub-blue">Outcome:</strong> The hospital's financial performance accurately reflects the care it delivered.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: KEY CAPABILITIES GRID -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="mb-16 text-center max-w-2xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-adeahub-blue mb-4">Built to cover every department in your hospital.</h2>
+                <p class="text-lg text-gray-600">Eight natively integrated modules. Select what you need today and expand as your organisation grows.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Tile 1 -->
+                <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-soft transition-all group solution-card">
+                    <i data-lucide="users" class="w-8 h-8 text-adeahub-blue mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Patient Administration</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Manage registration, appointments, inpatient stays, and medical records across all departments with real-time duplicate detection.</p>
+                </div>
+                
+                <!-- Tile 2 -->
+                <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-soft transition-all group solution-card">
+                    <i data-lucide="stethoscope" class="w-8 h-8 text-adeahub-blue mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Clinician Access & CPOE</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Give physicians one interface for orders, results, documentation, and clinical decision support at the point of care.</p>
+                </div>
+
+                <!-- Tile 3 -->
+                <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-soft transition-all group solution-card">
+                    <i data-lucide="clipboard-heart" class="w-8 h-8 text-adeahub-blue mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Nursing Care Plans</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Auto-calculate risk scores and deliver evidence-based protocol recommendations directly into the nursing workflow.</p>
+                </div>
+
+                <!-- Tile 4 -->
+                <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-soft transition-all group solution-card">
+                    <i data-lucide="shield-alert" class="w-8 h-8 text-adeahub-blue mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Medication Safety</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Catch drug–drug, drug–food, and drug–lab interactions at prescribing and dispensing, and reconcile medication records across the full care cycle.</p>
+                </div>
+
+                <!-- Tile 5 -->
+                <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-soft transition-all group solution-card">
+                    <i data-lucide="test-tubes" class="w-8 h-8 text-adeahub-blue mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Laboratory & Radiology</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Connect diagnostic orders to results with bi-directional HL7 and PACS integration across all ancillary departments.</p>
+                </div>
+
+                <!-- Tile 6 -->
+                <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-soft transition-all group solution-card">
+                    <i data-lucide="pill" class="w-8 h-8 text-adeahub-blue mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Pharmacy Management</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Track every medication from order entry to ward delivery, with full reconciliation and drug interaction alerts.</p>
+                </div>
+
+                <!-- Tile 7 -->
+                <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-soft transition-all group solution-card">
+                    <i data-lucide="banknote" class="w-8 h-8 text-adeahub-blue mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Patient Billing & Insurance</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Manage patient billing, insurance claims, and accounts receivable as part of one integrated clinical and administrative workflow.</p>
+                </div>
+
+                <!-- Tile 8 -->
+                <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-soft transition-all group solution-card">
+                    <i data-lucide="network" class="w-8 h-8 text-adeahub-blue mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Integration Engine</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Connect to any system via HL7, FHIR, REST APIs, and flat-file formats — in real time or batch, uni- or bi-directional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: ROLE-BASED VALUE CALLOUTS -->
+    <section class="py-24 bg-adeahub-lightbg">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-adeahub-blue text-center mb-16">How AH Provider helps your team.</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1: Clinical -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 solution-card">
+                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-adeahub-blue mb-6">
+                        <i data-lucide="stethoscope" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">For Clinical Leaders</h4>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Safer decisions, built into the workflow.</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">Clinical decision support runs at the point of prescribing and ordering — not after the fact. Physicians get drug interaction alerts. Nurses get auto-calculated risk scores and recommended protocols. Structured documentation reduces the burden on clinical staff and supports safer, more consistent care.</p>
+                </div>
+
+                <!-- Card 2: IT -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 solution-card">
+                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-adeahub-blue mb-6">
+                        <i data-lucide="shield-check" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">For IT Leaders</h4>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Open standards, built to integrate.</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">AH Provider runs on a single code base across all facilities. It supports HL7, FHIR, REST APIs, and proprietary formats out of the box. Centralised and hybrid deployment options scale from a single site to a national network. Half-yearly upgrade releases keep the system current without disrupting operations.</p>
+                </div>
+
+                <!-- Card 3: Finance -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 solution-card">
+                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-adeahub-blue mb-6">
+                        <i data-lucide="line-chart" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">For Finance & Operations</h4>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Clinical activity linked directly to revenue.</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">Integrated billing connects clinical activity to the financial record — closing the gap between care delivered and revenue collected. Configurable workflows adapt to your department's processes. A single system for operations, billing, and reporting means less reconciliation and more accurate performance data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: INTEGRATION & COMPLIANCE -->
+    <section class="py-16 bg-white border-t border-gray-100">
+        <div class="max-w-5xl mx-auto px-6 md:px-12 text-center">
+            <h2 class="text-2xl font-bold text-gray-900 mb-10">Interoperability and compliance you can rely on.</h2>
+            
+            <!-- Standards Badges -->
+            <div class="flex flex-wrap justify-center gap-4 md:gap-6 mb-10">
+                <span class="px-5 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm font-bold text-gray-600 tracking-wide shadow-sm">HL7</span>
+                <span class="px-5 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm font-bold text-gray-600 tracking-wide shadow-sm">FHIR</span>
+                <span class="px-5 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm font-bold text-gray-600 tracking-wide shadow-sm">REST APIs</span>
+                <span class="px-5 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm font-bold text-gray-600 tracking-wide shadow-sm">ICD / NANDA</span>
+                <span class="px-5 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm font-bold text-gray-600 tracking-wide shadow-sm flex items-center gap-2"><i data-lucide="award" class="w-4 h-4 text-adeahub-yellow"></i> HIMSS EMRAM Stage 7</span>
+                <span class="px-5 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm font-bold text-gray-600 tracking-wide shadow-sm">XML / JSON / Flat-file</span>
+            </div>
+
+            <p class="text-gray-600 text-lg leading-relaxed max-w-4xl mx-auto">
+                AH Provider is built on open standards. It connects to PACS systems, laboratory analysers, and national health registries via HL7, FHIR, and REST APIs. Centralised, decentralised, and hybrid deployment configurations support everything from a single hospital to a country-wide Electronic Health Record network. Validated at HIMSS EMRAM Stage 7.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 7: CUSTOMER PROOF -->
+    <section class="py-24 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-16">Trusted by hospitals across Asia and the Middle East.</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 items-stretch">
+                <!-- Case Study Snippet -->
+                <div class="lg:col-span-3 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between solution-card">
+                    <div>
+                        <div class="flex items-center gap-4 mb-8 pb-6 border-b border-gray-100">
+                            <!-- Placeholder for Logo -->
+                            <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center font-bold text-xl text-gray-400 border border-gray-200">
+                                AM
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">Al Mouwasat Group</h3>
+                                <p class="text-sm text-gray-500 flex items-center gap-1"><img src="https://flagcdn.com/w20/sa.png" alt="Saudi Arabia" class="w-4 rounded-sm"> Saudi Arabia</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div class="bg-blue-50 p-4 rounded-xl border border-blue-100">
+                                <p class="text-sm font-bold text-adeahub-blue uppercase tracking-wide mb-1 flex items-center gap-2">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4"></i> Powered by AH Provider
+                                </p>
+                                <p class="text-gray-800 font-medium text-sm">HIMSS EMRAM Stage 7 — the highest global standard for clinical digital maturity.</p>
+                            </div>
+
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-900 uppercase mb-1">Challenge</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">Al Mouwasat Group needed to reach the highest standard of clinical digital maturity — a benchmark that required advanced clinical decision support, medication safety workflows, and full integration across inpatient and pharmacy systems.</p>
+                            </div>
+
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-900 uppercase mb-1">Solution</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">AH Provider was deployed across CPOE, pharmacy, nursing care plans, and clinical documentation — with drug interaction alerts at both prescribing and dispensing, barcode medication administration, and automated risk scoring for nursing staff.</p>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-900 uppercase mb-1">Result</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">Al Mouwasat Group achieved HIMSS EMRAM Stage 7 — recognised by Healthcare IT News as a landmark achievement for the region.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t border-gray-100">
+                        <a href="#" class="inline-flex items-center gap-2 font-bold text-adeahub-blue hover:text-blue-800 transition group">
+                            Read the full case study <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Testimonial -->
+                <div class="lg:col-span-2 bg-adeahub-blue text-white p-8 md:p-12 rounded-3xl shadow-xl relative overflow-hidden flex flex-col justify-center">
+                    <i data-lucide="quote" class="absolute top-8 left-8 w-24 h-24 text-blue-500 opacity-20"></i>
+                    
+                    <div class="relative z-10">
+                        <p class="text-xl md:text-2xl font-medium leading-relaxed mb-10">
+                            "AH Provider gave our clinical teams the decision support they needed at the point of care. The medication safety alerts and automated nursing protocols changed how our staff works — and the impact on patient safety has been clear."
+                        </p>
+                        
+                        <div class="flex items-center gap-4">
+                            <!-- Placeholder Avatar -->
+                            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center font-bold text-white border border-white/30 backdrop-blur-sm">
+                                <i data-lucide="user" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-lg">Chief Medical Information Officer</p>
+                                <p class="text-sm text-blue-200">Al Mouwasat Group, Saudi Arabia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: FINAL CTA -->
+    <section id="cta" class="py-24 bg-adeahub-blue text-white overflow-hidden relative">
+        <!-- Background decorative elements -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-black/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
+
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
+                See what AH Provider can do for your hospital.
+            </h2>
+            <p class="text-xl text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+                Talk to our team. We'll show you how hospitals across Asia and the Middle East are running cleaner operations, safer clinical workflows, and better patient outcomes — on one connected platform.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button class="bg-white text-adeahub-blue text-lg px-10 py-4 rounded-full font-bold hover:bg-gray-50 transition shadow-xl w-full sm:w-auto">
+                    Talk to Our Healthcare Team
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Consistent with Homepage) -->
+    <footer class="bg-white border-t border-gray-100 py-12">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-center justify-center space-y-6">
+            <div class="flex flex-col items-center">
+                <img src="AdeaHub Logo-Default.png" alt="adeahub logo" class="h-10 object-contain mb-1 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition duration-300">
+                <span class="text-xs font-semibold text-gray-400 tracking-widest text-center">Powering modern healthcare</span>
+            </div>
+            <div class="text-sm text-gray-400">
+                &copy; 2026 adeahub. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts for Functionality -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+
+    <script>
+        // Mobile menu toggle
+        (function() {
+            var btn  = document.getElementById('mobile-menu-btn');
+            var menu = document.getElementById('mobile-menu');
+            var ham  = document.getElementById('hamburger-icon');
+            var cls  = document.getElementById('close-icon');
+            if (btn) {
+                btn.addEventListener('click', function() {
+                    var open = !menu.classList.contains('hidden');
+                    menu.classList.toggle('hidden', open);
+                    ham.classList.toggle('hidden', !open);
+                    cls.classList.toggle('hidden', open);
+                });
+            }
+        })();
+    </script>
+
+<!-- Navbar scroll shadow -->
+<script>
+(function() {
+    var nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 10) {
+            nav.classList.add('nav-scrolled');
+        } else {
+            nav.classList.remove('nav-scrolled');
+        }
+    }, { passive: true });
+})();
+</script>
+
+<!-- Scroll-reveal (IntersectionObserver) -->
+<script>
+(function() {
+    var targets = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    if (!window.IntersectionObserver) {
+        targets.forEach(function(el) { el.classList.add('visible'); });
+        return;
+    }
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    targets.forEach(function(el) { observer.observe(el); });
+})();
+</script>
+
+<!-- Animated number counters -->
+<script>
+(function() {
+    function formatNum(n, suffix) {
+        if (suffix.indexOf('M+') !== -1) return n + 'M+';
+        if (n >= 1000) return n.toLocaleString() + '+';
+        return n + suffix;
+    }
+    function animateCounter(el) {
+        var target = parseInt(el.dataset.target, 10);
+        var suffix = el.dataset.suffix || '';
+        var start = 0;
+        var duration = 1600;
+        var startTime = null;
+        function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            var progress = Math.min((timestamp - startTime) / duration, 1);
+            var eased = 1 - Math.pow(1 - progress, 3);
+            var current = Math.round(eased * target);
+            el.textContent = formatNum(current, suffix);
+            if (progress < 1) requestAnimationFrame(step);
+            else el.textContent = formatNum(target, suffix);
+        }
+        requestAnimationFrame(step);
+    }
+    var counters = document.querySelectorAll('.counter');
+    if (!window.IntersectionObserver) { return; }
+    var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    counters.forEach(function(el) { obs.observe(el); });
+})();
+</script>
+
+</body>
+</html>
