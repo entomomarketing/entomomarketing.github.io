@@ -390,7 +390,17 @@
     .hero-bg .text-gray-800 { color: #1f2937 !important; }
     .hero-bg .text-gray-900 { color: #111827 !important; }
 
-    </style>
+    
+        /* ── Mega menu product cards ── */
+        .mega-card { display:flex; align-items:flex-start; gap:13px; padding:14px 16px; border-radius:12px; text-decoration:none; color:inherit; transition:background 0.15s; }
+        .mega-card:hover { background:#f0f6ff; }
+        .mega-card:hover .mega-icon { background:#dbeafe; }
+        .mega-icon { width:40px; height:40px; background:#eff6ff; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:background 0.15s; }
+        .mega-icon svg { width:18px; height:18px; color:#0D6EFD; }
+        .mega-name { font-size:0.85rem; font-weight:700; color:#111827; margin-bottom:2px; }
+        .mega-tag { font-size:0.7rem; color:#6b7280; font-weight:500; margin-bottom:3px; }
+        .mega-desc { font-size:0.68rem; color:#9ca3af; line-height:1.4; }
+        </style>
 </head>
 <body class="bg-white text-gray-700">
 
@@ -404,13 +414,28 @@
         <div class="hidden md:flex items-center gap-6 text-sm font-medium">
             <div class="nav-dropdown relative">
                 <button class="nav-dropdown-trigger text-gray-600 hover:text-blue-600 transition-colors flex items-center gap-1 font-medium py-2">Products <svg class="w-3.5 h-3.5 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg></button>
-                <div class="nav-dropdown-menu absolute left-0 top-full pt-1 w-64 hidden">
-                    <div class="bg-white rounded-2xl shadow-xl border border-gray-100 py-2 overflow-hidden">
-                        <a href="adeahub_engage.html" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors group"><span class="bg-blue-50 group-hover:bg-blue-100 p-2 rounded-xl transition-colors shrink-0"><svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg></span><div><p class="font-semibold text-gray-800 text-sm">AH Engage</p><p class="text-xs text-gray-500">For Patients &amp; Caregivers</p></div></a>
-                        <a href="adeahub_care.html" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors group"><span class="bg-blue-50 group-hover:bg-blue-100 p-2 rounded-xl transition-colors shrink-0"><svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg></span><div><p class="font-semibold text-gray-800 text-sm">AH Care</p><p class="text-xs text-gray-500">For Healthcare Workers &amp; Admins</p></div></a>
-                        <a href="adeahub_connect.html" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors group"><span class="bg-blue-50 group-hover:bg-blue-100 p-2 rounded-xl transition-colors shrink-0"><svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></span><div><p class="font-semibold text-gray-800 text-sm">AH Connect</p><p class="text-xs text-gray-500">For Devices &amp; Applications</p></div></a>
-                        <a href="adeahub_insights.html" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors group"><span class="bg-blue-50 group-hover:bg-blue-100 p-2 rounded-xl transition-colors shrink-0"><svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></span><div><p class="font-semibold text-gray-800 text-sm">AH Insights</p><p class="text-xs text-gray-500">For Decision Makers</p></div></a>
-                        <a href="workwise.html" class="flex items-center gap-3 px-4 py-3 bg-blue-50 transition-colors group"><span class="bg-blue-100 p-2 rounded-xl shrink-0"><svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></span><div><p class="font-semibold text-gray-800 text-sm">WorkWise</p><p class="text-xs text-gray-500">Healthcare Workforce Experience</p></div></a>
+                <div class="nav-dropdown-menu absolute top-full pt-2 hidden" style="left:-150px;width:740px;">
+                    <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+                        <!-- Mega header -->
+                        <div style="background:linear-gradient(135deg,#f0f6ff,#eef4ff);border-bottom:1px solid #dbeafe;padding:11px 20px;display:flex;align-items:center;justify-content:space-between;">
+                            <span style="font-size:0.65rem;font-weight:800;letter-spacing:0.12em;color:#6396F1;display:flex;align-items:center;gap:6px;"><span style="display:inline-block;width:18px;height:2px;background:#6396F1;border-radius:2px;"></span>adeahub products</span>
+                            <a href="adeahub_platform.html" style="font-size:0.72rem;font-weight:600;color:#0D6EFD;display:flex;align-items:center;gap:4px;text-decoration:none;">View platform overview <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a>
+                        </div>
+                        <!-- 2-col product grid -->
+                        <div style="display:grid;grid-template-columns:1fr 1fr;padding:8px;">
+                            <a href="adeahub_engage.html" class="mega-card"><span class="mega-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg></span><div><p class="mega-name"><span style="color:#0D6EFD">adeahub</span> engage</p><p class="mega-tag">Digital front door for patients</p><p class="mega-desc">Appointments, health records &amp; care journeys</p></div></a>
+                            <a href="adeahub_care.html" class="mega-card"><span class="mega-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg></span><div><p class="mega-name"><span style="color:#0D6EFD">adeahub</span> care</p><p class="mega-tag">Health information system</p><p class="mega-desc">25+ clinical &amp; admin modules, multi-site</p></div></a>
+                            <div style="grid-column:1/-1;height:1px;background:#f3f4f6;margin:0 10px;"></div>
+                            <a href="adeahub_connect.html" class="mega-card"><span class="mega-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></span><div><p class="mega-name"><span style="color:#0D6EFD">adeahub</span> connect</p><p class="mega-tag">Interoperability &amp; health data exchange</p><p class="mega-desc">FHIR server, integration engine &amp; API gateway</p></div></a>
+                            <a href="adeahub_insights.html" class="mega-card"><span class="mega-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></span><div><p class="mega-name"><span style="color:#0D6EFD">adeahub</span> insights</p><p class="mega-tag">Healthcare intelligence &amp; analytics</p><p class="mega-desc">Population health, real-time analytics &amp; AI/ML</p></div></a>
+                            <div style="grid-column:1/-1;height:1px;background:#f3f4f6;margin:0 10px;"></div>
+                            <a href="workwise.html" class="mega-card" style="grid-column:1/-1;"><span class="mega-icon" style="background:#f5f3ff;"><svg fill="none" stroke="#7c3aed" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></span><div><p class="mega-name" style="color:#7c3aed;">WorkWise <span style="font-size:0.62rem;background:#f5f3ff;color:#7c3aed;padding:1px 6px;border-radius:8px;font-weight:600;">by entomo</span></p><p class="mega-tag">Healthcare workforce experience platform</p><p class="mega-desc">Performance, learning &amp; workforce intelligence for healthcare teams</p></div></a>
+                        </div>
+                        <!-- Footer -->
+                        <div style="border-top:1px solid #f3f4f6;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;background:#fafafa;">
+                            <p style="font-size:0.7rem;color:#9ca3af;">Trusted by 75+ enterprise clients across 16 countries</p>
+                            <a href="request_demo.html" style="font-size:0.72rem;font-weight:600;color:#0D6EFD;background:#eff6ff;padding:6px 14px;border-radius:20px;display:flex;align-items:center;gap:4px;text-decoration:none;">Request a demo <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a>
+                        </div>
                     </div>
                 </div>
             </div>
