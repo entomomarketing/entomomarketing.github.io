@@ -771,6 +771,174 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════════
+     SECTION 4B: ASK AH INSIGHTS AI
+═══════════════════════════════════════════════════ -->
+<section id="ask-ai" class="py-24 border-t border-gray-100" style="background:#6396F1;">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="flex flex-col lg:flex-row items-center gap-16">
+
+            <!-- Left: Copy -->
+            <div class="flex-1 text-white reveal">
+                <span class="inline-block text-sm font-bold tracking-wider uppercase mb-4" style="color:#FAC515;">Ask AH Insights AI</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white leading-tight mb-5">Ask any question.<br>Get an answer in seconds.</h2>
+                <p class="text-lg leading-relaxed mb-6" style="color:rgba(255,255,255,0.82);">AH Insights AI lets your clinical and operational teams query data in plain English. No SQL. No waiting for a report. Just ask — and get a clear, data-backed answer instantly.</p>
+                <ul class="space-y-3 text-base" style="color:rgba(255,255,255,0.82);">
+                    <li class="flex items-start gap-3"><span style="color:#FAC515;font-size:18px;line-height:1.4;">✓</span> Query clinical, operational, and financial data with one question</li>
+                    <li class="flex items-start gap-3"><span style="color:#FAC515;font-size:18px;line-height:1.4;">✓</span> Drill down by department, facility, date range, or patient cohort</li>
+                    <li class="flex items-start gap-3"><span style="color:#FAC515;font-size:18px;line-height:1.4;">✓</span> Powered by your live data — not static reports</li>
+                </ul>
+            </div>
+
+            <!-- Right: Animated Chat Demo -->
+            <div class="flex-1 w-full reveal reveal-d2">
+                <style>
+                    #adea-chat-wrap { font-family: 'Outfit', 'Inter', sans-serif; width: 100%; max-width: 580px; margin: 0 auto; }
+                    #adea-chat-wrap .adea-container { background: #FFFFFF; border-radius: 16px; box-shadow: 0 8px 40px rgba(0,0,0,0.18); overflow: hidden; display: flex; flex-direction: column; min-height: 480px; }
+                    #adea-chat-wrap .adea-messages { flex: 1; padding: 22px 22px 14px; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; }
+                    #adea-chat-wrap .adea-welcome { background: #FAFBFC; border: 1px solid #E8ECF1; border-radius: 12px; padding: 18px 20px; }
+                    #adea-chat-wrap .adea-welcome-title { font-size: 18px; font-weight: 700; color: #1A1D23; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+                    #adea-chat-wrap .adea-welcome-wave { display: inline-block; animation: adea-wave 1.8s ease-in-out 0.4s 1; transform-origin: 70% 70%; }
+                    @keyframes adea-wave { 0%{transform:rotate(0deg)} 10%{transform:rotate(14deg)} 20%{transform:rotate(-8deg)} 30%{transform:rotate(14deg)} 40%{transform:rotate(-4deg)} 50%{transform:rotate(10deg)} 60%,100%{transform:rotate(0deg)} }
+                    #adea-chat-wrap .adea-welcome-desc { font-family: 'Inter', sans-serif; font-size: 13px; color: #5A6170; line-height: 1.5; }
+                    #adea-chat-wrap .adea-user-row { display: flex; justify-content: flex-end; opacity: 0; transform: translateY(8px); }
+                    #adea-chat-wrap .adea-user-row.adea-vis { animation: adea-fadeup 0.35s ease forwards; }
+                    #adea-chat-wrap .adea-user-bubble { background: linear-gradient(135deg,#2B7BF7 0%,#0D6EFD 100%); color:#fff; font-family:'Inter',sans-serif; font-size:13px; line-height:1.5; padding:11px 16px; border-radius:16px 16px 4px 16px; max-width:82%; }
+                    #adea-chat-wrap .adea-user-bubble .adea-ts { display:block; text-align:right; font-size:10px; color:rgba(255,255,255,0.6); margin-top:5px; }
+                    #adea-chat-wrap .adea-ai-row { display: flex; justify-content: flex-start; opacity: 0; transform: translateY(8px); }
+                    #adea-chat-wrap .adea-ai-row.adea-vis { animation: adea-fadeup 0.4s ease forwards; }
+                    #adea-chat-wrap .adea-ai-bubble { background:#F7F8FA; border:1px solid #E8ECF1; border-radius:4px 16px 16px 16px; padding:14px 18px; max-width:88%; font-family:'Inter',sans-serif; font-size:13px; color:#2D3140; line-height:1.6; }
+                    #adea-chat-wrap .adea-dots { display:flex; gap:5px; padding:4px 0; }
+                    #adea-chat-wrap .adea-dots span { width:7px; height:7px; background:#B0B7C3; border-radius:50%; animation:adea-bounce 1.4s ease-in-out infinite; }
+                    #adea-chat-wrap .adea-dots span:nth-child(2){animation-delay:.2s} #adea-chat-wrap .adea-dots span:nth-child(3){animation-delay:.4s}
+                    @keyframes adea-bounce { 0%,60%,100%{transform:translateY(0);opacity:.4} 30%{transform:translateY(-5px);opacity:1} }
+                    #adea-chat-wrap .adea-badge { display:inline-flex; align-items:center; gap:7px; background:#F0F4F8; border:1px solid #E0E5EC; border-radius:8px; padding:5px 10px; margin-bottom:9px; }
+                    #adea-chat-wrap .adea-badge-icon { width:18px; height:18px; background:#34A853; border-radius:4px; display:flex; align-items:center; justify-content:center; }
+                    #adea-chat-wrap .adea-badge-icon svg { width:10px; height:10px; fill:#fff; }
+                    #adea-chat-wrap .adea-badge-text { font-size:11px; color:#5A6170; font-family:'Inter',sans-serif; }
+                    #adea-chat-wrap .adea-badge-text strong { display:block; font-size:12px; color:#2D3140; font-weight:500; }
+                    #adea-chat-wrap .adea-ans-bold { font-weight:600; color:#1A1D23; }
+                    #adea-chat-wrap .adea-ans-blue { color:#0D6EFD; }
+                    #adea-chat-wrap .adea-follow { color:#5A6170; font-size:12.5px; margin-top:8px; }
+                    #adea-chat-wrap .adea-status { margin:0 14px; padding:9px 16px; border-radius:10px; border:1.5px solid #E8835A; background:#FFF9F6; display:flex; justify-content:space-between; align-items:center; }
+                    #adea-chat-wrap .adea-status-l { display:flex; align-items:center; gap:9px; font-family:'Inter',sans-serif; font-size:13px; font-weight:500; color:#2D3140; }
+                    #adea-chat-wrap .adea-dot { width:9px; height:9px; border-radius:50%; background:#0D6EFD; flex-shrink:0; }
+                    #adea-chat-wrap .adea-dot.spin { background:transparent; border:2px solid #0D6EFD; border-top-color:transparent; animation:adea-spin .9s linear infinite; }
+                    @keyframes adea-spin { to{transform:rotate(360deg)} }
+                    #adea-chat-wrap .adea-status-r { font-family:'Inter',sans-serif; font-size:12px; color:#A0A7B4; }
+                    #adea-chat-wrap .adea-input-bar { padding:10px 14px 14px; display:flex; align-items:center; gap:9px; }
+                    #adea-chat-wrap .adea-input { flex:1; border:1.5px solid #DDE1E8; border-radius:12px; padding:10px 14px; font-family:'Inter',sans-serif; font-size:13px; color:#2D3140; outline:none; background:#FFF; min-height:42px; }
+                    #adea-chat-wrap .adea-input.focused { border-color:#0D6EFD; box-shadow:0 0 0 3px rgba(13,110,253,.12); }
+                    #adea-chat-wrap .adea-send { width:42px; height:42px; border-radius:50%; border:none; background:#0D6EFD; display:flex; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0; }
+                    #adea-chat-wrap .adea-send.off { background:#DDE1E8; }
+                    #adea-chat-wrap .adea-send svg { fill:#fff; }
+                    #adea-chat-wrap .adea-cursor { display:inline-block; width:2px; height:16px; background:#2D3140; vertical-align:text-bottom; margin-left:1px; animation:adea-blink 1s step-end infinite; }
+                    @keyframes adea-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+                    @keyframes adea-fadeup { to{opacity:1;transform:translateY(0)} }
+                </style>
+
+                <div id="adea-chat-wrap">
+                    <div class="adea-container">
+                        <div class="adea-messages" id="adea-msgs">
+                            <div class="adea-welcome">
+                                <div class="adea-welcome-title"><span class="adea-welcome-wave">👋</span> Welcome to AH Insights AI</div>
+                                <div class="adea-welcome-desc">I'm your AI data analyst. Ask me anything about your health system data in plain English.</div>
+                            </div>
+                            <div class="adea-user-row" id="adea-user" style="display:none;">
+                                <div class="adea-user-bubble">
+                                    <span id="adea-bubble-text">What is the average pharmacy wait time for patients who arrived in the morning vs the afternoon?</span>
+                                    <span class="adea-ts" id="adea-ts">12:30 PM</span>
+                                </div>
+                            </div>
+                            <div class="adea-ai-row" id="adea-typing" style="display:none;">
+                                <div class="adea-ai-bubble"><div class="adea-dots"><span></span><span></span><span></span></div></div>
+                            </div>
+                            <div class="adea-ai-row" id="adea-resp" style="display:none;">
+                                <div class="adea-ai-bubble">
+                                    <div class="adea-badge">
+                                        <div class="adea-badge-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM14 8V3l5 5h-5zM8 13h8v2H8v-2zm0 4h8v2H8v-2zm0-8h3v2H8V9z"/></svg></div>
+                                        <div class="adea-badge-text"><strong>Avg wait time.csv</strong><span style="font-size:10px;color:#8B93A1;">23 B · Done</span></div>
+                                    </div>
+                                    <div>The average pharmacy wait time for morning arrivals is <span class="adea-ans-bold adea-ans-blue">2 hrs 16 mins</span> and afternoon arrivals is <span class="adea-ans-bold adea-ans-blue">1 hr 49 mins</span>.</div>
+                                    <div class="adea-follow">Do you want me to break this down by speciality, hospital, or month?</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="adea-status" id="adea-status">
+                            <div class="adea-status-l"><div class="adea-dot" id="adea-dot"></div><span id="adea-status-txt">Ready</span></div>
+                            <div class="adea-status-r" id="adea-status-r">Choose an option or type a message</div>
+                        </div>
+                        <div class="adea-input-bar">
+                            <div class="adea-input" id="adea-input">
+                                <span id="adea-ph" style="color:#A0A7B4;">Ask a question...</span>
+                                <span id="adea-typed" style="display:none;"></span>
+                                <span class="adea-cursor" id="adea-cur" style="display:none;"></span>
+                            </div>
+                            <button class="adea-send off" id="adea-send">
+                                <svg width="16" height="16" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                (function() {
+                    const Q = "What is the average pharmacy wait time for patients who arrived in the morning vs the afternoon?";
+                    const SPEED=18, PAUSE=600, PROC=2800, AI_WAIT=1600, LOOP=4500;
+                    const msgs=document.getElementById('adea-msgs');
+                    const ph=document.getElementById('adea-ph');
+                    const typed=document.getElementById('adea-typed');
+                    const cur=document.getElementById('adea-cur');
+                    const sendBtn=document.getElementById('adea-send');
+                    const userRow=document.getElementById('adea-user');
+                    const typingRow=document.getElementById('adea-typing');
+                    const respRow=document.getElementById('adea-resp');
+                    const dot=document.getElementById('adea-dot');
+                    const stxt=document.getElementById('adea-status-txt');
+                    const srgt=document.getElementById('adea-status-r');
+                    const inp=document.getElementById('adea-input');
+                    function sleep(ms){return new Promise(r=>setTimeout(r,ms));}
+                    function scroll(){msgs.scrollTo({top:msgs.scrollHeight,behavior:'smooth'});}
+                    function reset(){
+                        userRow.classList.remove('adea-vis'); userRow.style.display='none';
+                        typingRow.classList.remove('adea-vis'); typingRow.style.display='none';
+                        respRow.classList.remove('adea-vis'); respRow.style.display='none';
+                        ph.style.display=''; ph.textContent='Ask a question...';
+                        typed.style.display='none'; typed.textContent='';
+                        cur.style.display='none';
+                        inp.classList.remove('focused');
+                        sendBtn.classList.add('off');
+                        dot.className='adea-dot'; stxt.textContent='Ready'; srgt.textContent='Choose an option or type a message';
+                    }
+                    async function run(){
+                        reset(); await sleep(1200);
+                        inp.classList.add('focused'); ph.style.display='none';
+                        typed.style.display='inline'; cur.style.display='inline-block';
+                        for(let i=0;i<Q.length;i++){typed.textContent=Q.substring(0,i+1);if(i>20)sendBtn.classList.remove('off');await sleep(SPEED);}
+                        sendBtn.classList.remove('off'); await sleep(PAUSE);
+                        typed.style.display='none'; typed.textContent=''; cur.style.display='none';
+                        ph.style.display=''; inp.classList.remove('focused'); sendBtn.classList.add('off');
+                        userRow.style.display='flex'; await sleep(50); userRow.classList.add('adea-vis'); scroll();
+                        await sleep(400);
+                        dot.className='adea-dot spin'; stxt.textContent='Processing your request...'; srgt.textContent='Analyzing query';
+                        typingRow.style.display='flex'; await sleep(50); typingRow.classList.add('adea-vis'); scroll();
+                        await sleep(PROC);
+                        typingRow.classList.remove('adea-vis'); await sleep(200); typingRow.style.display='none';
+                        respRow.style.display='flex'; await sleep(50); respRow.classList.add('adea-vis'); scroll();
+                        dot.className='adea-dot'; stxt.textContent='Response complete'; srgt.textContent='Ready for next message';
+                        ph.textContent='Ask a follow-up question...';
+                        await sleep(LOOP);
+                        run();
+                    }
+                    run();
+                })();
+                </script>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
      SECTION 5: NUMBERS THAT MATTER
 ═══════════════════════════════════════════════════ -->
 <section id="scale" class="py-24 bg-gray-50 border-t border-gray-100">
