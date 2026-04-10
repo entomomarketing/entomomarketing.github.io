@@ -371,15 +371,7 @@
       50% { opacity: 0.5; transform: scale(1.5); }
     }
     .hero-wordmark {
-      background-color: var(--sunrise-yellow);
-      background-image: none;
-      color: var(--black);
-      border-radius: 12px;
-      padding: 0.05em 0.35em;
-      line-height: 1;
-      font-weight: 700;
-      -webkit-box-decoration-break: clone;
-      box-decoration-break: clone;
+      display: block;
     }
     .hero-wordmark img {
       height: 72px;
@@ -922,6 +914,80 @@
       line-height: 1.5;
       margin: 0;
       text-transform: none;
+    }
+
+    /* ===== AGENT MARQUEE (scrolling strip) ===== */
+    .agent-marquee-wrapper {
+      position: relative;
+      overflow: hidden;
+      margin-top: 2.5rem;
+      padding: 1rem 0 1.5rem;
+    }
+    .agent-marquee-wrapper::before,
+    .agent-marquee-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .agent-marquee-wrapper::before { left: 0; background: linear-gradient(to right, #1a1f26, transparent); }
+    .agent-marquee-wrapper::after  { right: 0; background: linear-gradient(to left, #1a1f26, transparent); }
+    .agent-marquee-track {
+      display: flex;
+      gap: 1rem;
+      width: max-content;
+      animation: agent-scroll 36s linear infinite;
+    }
+    .agent-marquee-track:hover { animation-play-state: paused; }
+    @keyframes agent-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .agent-mq-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-medium);
+      padding: 1.5rem 1.25rem 1.25rem;
+      width: 220px;
+      flex-shrink: 0;
+      transition: transform 0.2s, background 0.2s;
+      cursor: default;
+    }
+    .agent-mq-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.11);
+    }
+    .agent-mq-card img {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-bottom: 12px;
+    }
+    .agent-mq-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 2px;
+    }
+    .agent-mq-role {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 10px;
+    }
+    .agent-mq-desc {
+      font-size: 13px;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.6);
     }
 
     /* ===== WORKWISE SECTION ===== */
@@ -1875,35 +1941,43 @@
         </p>
       </div>
 
-      <!-- Tier 1: Primary Agents -->
-      <div class="agent-category">
-        <div class="agent-category-header">
-          <span class="category-chip blue">role &amp; skills intelligence</span>
-          <span class="category-desc">role architecture, skill mapping, and org design intelligence</span>
-        </div>
-        <div class="agents-grid">
-          <div class="agent-card blue">
-            <div class="agent-name">talentatlas</div>
-            <div class="agent-role-label">role intelligence</div>
-            <p class="agent-mech">Builds a live intelligence layer across all roles, identifying skill adjacencies, role clusters, and talent mobility paths.</p>
-          </div>
-          <div class="agent-card blue">
-            <div class="agent-name">rolearchitect</div>
-            <div class="agent-role-label">role design, systematized</div>
-            <p class="agent-mech">Designs and evolves job architectures by aligning role definitions to business strategy and market benchmarks.</p>
-          </div>
-          <div class="agent-card blue">
-            <div class="agent-name">skillmatrix</div>
-            <div class="agent-role-label">proficiency, mapped at scale</div>
-            <p class="agent-mech">Tracks individual and team proficiency levels across skills, enabling targeted development and deployment decisions.</p>
-          </div>
-          <div class="agent-card blue">
-            <div class="agent-name">flowgen</div>
-            <div class="agent-role-label">structure <span class="keep-case">AI</span></div>
-            <p class="agent-mech">Generates org structure recommendations and role flow architectures benchmarked to industry demand signals.</p>
-          </div>
-        </div>
+      <!-- Scrolling agent strip -->
+    </div><!-- /container -->
+
+    <div class="agent-marquee-wrapper">
+      <div class="agent-marquee-track">
+
+        <div class="agent-mq-card"><img src="Images/agents/talentatlas.png" alt="TalentAtlas"><div class="agent-mq-name">TalentAtlas</div><div class="agent-mq-role">role intelligence</div><div class="agent-mq-desc">Maps industry-benchmarked role architectures and competency frameworks with market-aligned precision.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/skillmatrix.png" alt="SkillMatrix"><div class="agent-mq-name">SkillMatrix</div><div class="agent-mq-role">proficiency intelligence</div><div class="agent-mq-desc">Surfaces proficiency gaps and maps capability across teams — aligned to real-time market signals.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/Goalforge.png" alt="GoalForge"><div class="agent-mq-name">GoalForge</div><div class="agent-mq-role">goal intelligence</div><div class="agent-mq-desc">Generates role-aligned performance goals that reflect strategic priorities and validates quality automatically.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/pulse360.png" alt="Pulse360"><div class="agent-mq-name">Pulse360</div><div class="agent-mq-role">sentiment analytics</div><div class="agent-mq-desc">Analyzes feedback tone, alignment, and perception gaps to uncover blind spots and leadership risks.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/Insight360.png" alt="Insight360"><div class="agent-mq-name">Insight360</div><div class="agent-mq-role">feedback intelligence</div><div class="agent-mq-desc">Surfaces perception gaps, strengths, and growth priorities from 360-degree feedback data in real time.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/growthplanner.png" alt="GrowthPlanner"><div class="agent-mq-name">GrowthPlanner</div><div class="agent-mq-role">development engine</div><div class="agent-mq-desc">Translates performance insights into personalised growth plans with clear career paths and skill milestones.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/assescraft.png" alt="AssesCraft"><div class="agent-mq-name">AssesCraft</div><div class="agent-mq-role">assessment engine</div><div class="agent-mq-desc">Designs structured, role-aligned assessments that evaluate skills, proficiency, and job readiness at scale.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/convocraft.png" alt="ConvoCraft"><div class="agent-mq-name">ConvoCraft</div><div class="agent-mq-role">conversation design</div><div class="agent-mq-desc">Structures high-impact manager conversations with clarity and intent — from performance talks to feedback reviews.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/rolearchitect.png" alt="RoleArchitect"><div class="agent-mq-name">RoleArchitect</div><div class="agent-mq-role">role design</div><div class="agent-mq-desc">Builds and evolves role definitions that align to organisational strategy and workforce capability needs.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/profilecraft.png" alt="ProfileCraft"><div class="agent-mq-name">ProfileCraft</div><div class="agent-mq-role">profile intelligence</div><div class="agent-mq-desc">Crafts rich talent profiles from skills, history, and ambition — powering smarter hiring and mobility decisions.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/flowgen.png" alt="FlowGen"><div class="agent-mq-name">FlowGen</div><div class="agent-mq-role">workflow automation</div><div class="agent-mq-desc">Automates HR workflows end-to-end — from goal setting to reviews — without manual intervention.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/TeamInsight.png" alt="TeamInsight"><div class="agent-mq-name">TeamInsight</div><div class="agent-mq-role">team analytics</div><div class="agent-mq-desc">Tracks team health, collaboration patterns, and performance dynamics to surface risks before they escalate.</div></div>
+
+        <!-- Duplicate for seamless loop -->
+        <div class="agent-mq-card"><img src="Images/agents/talentatlas.png" alt="TalentAtlas"><div class="agent-mq-name">TalentAtlas</div><div class="agent-mq-role">role intelligence</div><div class="agent-mq-desc">Maps industry-benchmarked role architectures and competency frameworks with market-aligned precision.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/skillmatrix.png" alt="SkillMatrix"><div class="agent-mq-name">SkillMatrix</div><div class="agent-mq-role">proficiency intelligence</div><div class="agent-mq-desc">Surfaces proficiency gaps and maps capability across teams — aligned to real-time market signals.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/Goalforge.png" alt="GoalForge"><div class="agent-mq-name">GoalForge</div><div class="agent-mq-role">goal intelligence</div><div class="agent-mq-desc">Generates role-aligned performance goals that reflect strategic priorities and validates quality automatically.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/pulse360.png" alt="Pulse360"><div class="agent-mq-name">Pulse360</div><div class="agent-mq-role">sentiment analytics</div><div class="agent-mq-desc">Analyzes feedback tone, alignment, and perception gaps to uncover blind spots and leadership risks.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/Insight360.png" alt="Insight360"><div class="agent-mq-name">Insight360</div><div class="agent-mq-role">feedback intelligence</div><div class="agent-mq-desc">Surfaces perception gaps, strengths, and growth priorities from 360-degree feedback data in real time.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/growthplanner.png" alt="GrowthPlanner"><div class="agent-mq-name">GrowthPlanner</div><div class="agent-mq-role">development engine</div><div class="agent-mq-desc">Translates performance insights into personalised growth plans with clear career paths and skill milestones.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/assescraft.png" alt="AssesCraft"><div class="agent-mq-name">AssesCraft</div><div class="agent-mq-role">assessment engine</div><div class="agent-mq-desc">Designs structured, role-aligned assessments that evaluate skills, proficiency, and job readiness at scale.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/convocraft.png" alt="ConvoCraft"><div class="agent-mq-name">ConvoCraft</div><div class="agent-mq-role">conversation design</div><div class="agent-mq-desc">Structures high-impact manager conversations with clarity and intent — from performance talks to feedback reviews.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/rolearchitect.png" alt="RoleArchitect"><div class="agent-mq-name">RoleArchitect</div><div class="agent-mq-role">role design</div><div class="agent-mq-desc">Builds and evolves role definitions that align to organisational strategy and workforce capability needs.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/profilecraft.png" alt="ProfileCraft"><div class="agent-mq-name">ProfileCraft</div><div class="agent-mq-role">profile intelligence</div><div class="agent-mq-desc">Crafts rich talent profiles from skills, history, and ambition — powering smarter hiring and mobility decisions.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/flowgen.png" alt="FlowGen"><div class="agent-mq-name">FlowGen</div><div class="agent-mq-role">workflow automation</div><div class="agent-mq-desc">Automates HR workflows end-to-end — from goal setting to reviews — without manual intervention.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/TeamInsight.png" alt="TeamInsight"><div class="agent-mq-name">TeamInsight</div><div class="agent-mq-role">team analytics</div><div class="agent-mq-desc">Tracks team health, collaboration patterns, and performance dynamics to surface risks before they escalate.</div></div>
+
       </div>
+    </div>
+
+    <div class="container">
 
       <!-- Tier 2: Extended Intelligence Agents -->
       <div class="agents-tier2">
