@@ -1,0 +1,3451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>entomo — Agentic Workforce Intelligence Platform</title>
+  <meta name="description" content="AI agents that coach every employee, advise every leader, and automate HR workflows — delivering enterprise outcomes at scale. Powering 30M+ users globally.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.383.0/umd/lucide.min.js"></script>
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Nunito Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #1a1f26;
+      background-color: #ffffff;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --cg-red: #e43d30;
+      --cg-gold: #f4b223;
+      --spanish-blue: #0064bf;
+      --sea-green: #2c9942;
+      --sunrise-yellow: #ffda00;
+      --white: #ffffff;
+      --black: #000000;
+      --ebony-clay: #1a1f26;
+      --black-haze: #fafbfb;
+      --silver-sand: #c0c2c3;
+      --floral-white: #fefbf4;
+      --lavender: #e6f0f9;
+      --pistachio: #eaf5ed;
+      --polar-white: #f2f7fc;
+      --gradient-cta: linear-gradient(90deg, #f4b223, #e43d30);
+      --radius-semi: 5px;
+      --radius-standard: 10px;
+      --radius-medium: 15px;
+      --radius-large: 25px;
+      --shadow-sm: 0px 5px 10px rgba(0,0,0,0.10);
+      --shadow-md: 0px 15px 25px rgba(0,0,0,0.10);
+      --max-width: 1280px;
+    }
+
+    /* ===== UTILITY ===== */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .text-center { text-align: center; }
+    mark {
+      background-color: var(--sunrise-yellow);
+      background-image: none;
+      color: var(--black);
+      border-radius: 12px;
+      padding: 0.05em 0.35em;
+      line-height: 1;
+      font-weight: 700;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn-primary {
+      background-image: var(--gradient-cta);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-semi);
+      padding: 12px 36px;
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: 600;
+      text-transform: lowercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
+
+    .btn-secondary {
+      background-color: var(--sunrise-yellow);
+      color: var(--ebony-clay);
+      border: none;
+      border-radius: var(--radius-semi);
+      padding: 12px 32px;
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: 700;
+      text-transform: lowercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* ===== SECTION SPACING ===== */
+    section { padding: 4.5rem 0; }
+    @media (max-width: 768px) { section { padding: 3rem 0; } }
+
+    /* Section label / eyebrow */
+    .section-eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--cg-red);
+      margin-bottom: 0.75rem;
+    }
+
+    /* Section heading */
+    .section-heading {
+      font-size: 38px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    @media (max-width: 768px) { .section-heading { font-size: 28px; } }
+
+    .section-subheading {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: rgba(26,31,38,0.72);
+      max-width: 680px;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid rgba(26,31,38,0.08);
+      backdrop-filter: blur(12px);
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: lowercase;
+    }
+    .logo-icon {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      width: 28px;
+      height: 28px;
+    }
+    .logo-icon span {
+      border-radius: 3px;
+    }
+    .logo-icon .tl { background: var(--spanish-blue); }
+    .logo-icon .tr { background: var(--cg-gold); }
+    .logo-icon .bl { background: var(--cg-red); }
+    .logo-icon .br { background: var(--sea-green); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: lowercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--cg-red); }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+     flex-shrink: 0; }
+    .nav-cta {
+      background-image: var(--gradient-cta);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-semi);
+      padding: 8px 20px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: lowercase;
+      cursor: pointer;
+    }
+
+    /* Mobile nav toggle */
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-toggle svg { width: 24px; height: 24px; }
+    /* ===== SOLUTIONS MEGA DROPDOWN ===== */
+    .nav-dropdown-wrap {
+      position: relative;
+    }
+    .nav-dropdown-wrap > a {
+      display: flex; align-items: center; gap: 4px;
+    }
+    .nav-dropdown-wrap > a::after {
+      content: '';
+      border: solid currentColor; border-width: 0 1.5px 1.5px 0;
+      display: inline-block; padding: 2.5px;
+      transform: rotate(45deg); margin-top: -3px;
+      transition: transform 0.2s;
+    }
+    .nav-dropdown-wrap:hover > a::after {
+      transform: rotate(-135deg); margin-top: 2px;
+    }
+    .nav-mega {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.08);
+      border-radius: var(--radius-medium);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12), 0 0 0 1px rgba(26,31,38,0.04);
+      padding: 1.25rem;
+      width: 680px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+      transform: translateX(-50%) translateY(14px);
+      z-index: 200;
+    }
+    .nav-dropdown-wrap:hover .nav-mega {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(8px);
+    }
+    .nav-mega-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+    }
+    .nav-mega-item {
+      display: flex; flex-direction: row; align-items: flex-start; gap: 12px;
+      padding: 12px 14px; border-radius: var(--radius-standard);
+      transition: background 0.15s; text-decoration: none; color: inherit;
+    }
+    .nav-mega-icon {
+      width: 40px; height: 40px; border-radius: 9px; flex-shrink: 0;
+      background: rgba(26,31,38,0.05);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+    }
+    .nav-mega-icon svg {
+      width: 18px; height: 18px; stroke: rgba(26,31,38,0.45); fill: none;
+      transition: stroke 0.15s;
+    }
+    .nav-mega-text { display: flex; flex-direction: column; gap: 2px; }
+    .nav-mega-item:hover { background: rgba(228,61,48,0.04); }
+    .nav-mega-item:hover .nav-mega-icon { background: rgba(228,61,48,0.08); }
+    .nav-mega-item:hover .nav-mega-icon svg { stroke: var(--cg-red); }
+    .nav-mega-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      margin-bottom: 3px;
+      line-height: 1.3;
+    }
+    .nav-mega-desc {
+      font-size: 12px;
+      color: rgba(26,31,38,0.45);
+      line-height: 1.4;
+      font-weight: 500;
+    }
+    .nav-mega-item:hover .nav-mega-name {
+      color: var(--cg-red);
+    }
+    .nav-right-group { display: flex; flex-direction: row; align-items: center; gap: 1.5rem; flex-wrap: nowrap; }
+    @media (max-width: 900px) {
+      .nav-mega { display: none; }
+    }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, rgba(234,245,237,0.6) 0%, rgba(230,240,249,0.5) 40%, rgba(254,251,244,0.6) 100%);
+      padding: 5rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(244,178,35,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero .container {
+      position: relative;
+      z-index: 1;
+    }
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(244,178,35,0.12);
+      border: 1px solid rgba(244,178,35,0.25);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ebony-clay);
+      margin-bottom: 1.5rem;
+    }
+    .hero-badge .dot {
+      width: 7px; height: 7px;
+      background: var(--cg-gold);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 68px);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -1px;
+      margin-bottom: 0.6rem;
+    }
+    .hero h1 span {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .hero-subline {
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      color: var(--ebony-clay);
+      opacity: 0.72;
+      margin-bottom: 1.75rem;
+    }
+    @media (max-width: 1024px) { .hero-subline { font-size: 28px; } }
+    @media (max-width: 768px)  { .hero-subline { font-size: 22px; } }
+
+    .hero-sub {
+      font-size: 18px;
+      line-height: 1.65;
+      color: rgba(26,31,38,0.6);
+      max-width: 580px;
+      margin: 0 auto 2.25rem;
+    }
+    .hero-ctas {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ===== TRUST BAR ===== */
+    .trust-bar {
+      background: var(--white);
+      padding: 3.5rem 0 3rem;
+      border-bottom: 1px solid rgba(26,31,38,0.06);
+    }
+    .trust-bar-header {
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .trust-bar-heading {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--ebony-clay);
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+    }
+    .trust-bar-sub {
+      font-size: 17px;
+      color: rgba(26,31,38,0.6);
+      margin-bottom: 2.5rem;
+    }
+    .trust-bar-sub mark {
+      background-color: var(--sunrise-yellow);
+      background-image: none;
+      color: var(--black);
+      border-radius: 12px;
+      padding: 0.05em 0.35em;
+      line-height: 1;
+      font-weight: 700;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    /* Marquee */
+    .marquee-wrapper {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      margin-bottom: 2.75rem;
+    }
+    .marquee-wrapper::before,
+    .marquee-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .marquee-wrapper::before { left: 0;  background: linear-gradient(to right,  #ffffff, transparent); }
+    .marquee-wrapper::after  { right: 0; background: linear-gradient(to left, #ffffff, transparent); }
+    .marquee-track {
+      display: flex;
+      gap: 3.5rem;
+      width: max-content;
+      animation: marquee 32s linear infinite;
+      align-items: center;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-logo {
+      height: 38px;
+      width: auto;
+      max-width: 130px;
+      object-fit: contain;
+      opacity: 0.6;
+      filter: grayscale(100%);
+      transition: opacity 0.3s, filter 0.3s;
+      flex-shrink: 0;
+    }
+    .marquee-logo:hover {
+      opacity: 1;
+      filter: grayscale(0%);
+    }
+
+    /* Metrics row */
+    .trust-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .metric {
+      text-align: center;
+      padding: 1rem;
+    }
+    .metric-number {
+      font-size: 36px;
+      font-weight: 700;
+      background: var(--gradient-cta);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+    }
+    .metric-label {
+      font-size: 14px;
+      color: rgba(26,31,38,0.6);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+    @media (max-width: 600px) {
+      .trust-metrics { grid-template-columns: 1fr; gap: 1rem; }
+    }
+
+    /* ===== CHALLENGE SECTION ===== */
+    .challenge-section {
+      background: var(--polar-white);
+      padding: 5rem 0;
+      text-align: center;
+    }
+
+    .challenge-dismiss {
+      font-size: clamp(20px, 2.6vw, 30px);
+      font-weight: 600;
+      line-height: 1.35;
+      color: rgba(26,31,38,0.45);
+      margin-bottom: 1.5rem;
+    }
+
+    .challenge-answer-line {
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--ebony-clay);
+      margin-bottom: 2.75rem;
+    }
+    .challenge-answer-line strong {
+      color: var(--spanish-blue);
+    }
+
+    /* Outcome cards */
+    .challenge-outcomes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    @media (max-width: 700px) {
+      .challenge-outcomes { grid-template-columns: 1fr; max-width: 400px; }
+    }
+    .outcome-card {
+      background: var(--white);
+      border-radius: var(--radius-large);
+      padding: 2.25rem 1.5rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .outcome-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .outcome-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+    }
+    .outcome-card.oc-blue::before  { background: var(--spanish-blue); }
+    .outcome-card.oc-green::before { background: var(--sea-green); }
+    .outcome-card.oc-gold::before  { background: var(--cg-gold); }
+
+    .outcome-card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-standard);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+    .oc-blue .outcome-card-icon  { background: rgba(0,100,191,0.08);  color: var(--spanish-blue); }
+    .oc-green .outcome-card-icon { background: rgba(44,153,66,0.08);  color: var(--sea-green); }
+    .oc-gold .outcome-card-icon  { background: rgba(244,178,35,0.1);  color: #b8860b; }
+
+    .outcome-card h4 {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--ebony-clay);
+      line-height: 1.3;
+    }
+    .outcome-card p {
+      font-size: 14px;
+      color: rgba(26,31,38,0.55);
+      margin-top: 0.4rem;
+      line-height: 1.5;
+    }
+
+    /* ===== VALUE PILLARS ===== */
+    .pillars-section {
+      background: var(--polar-white);
+      padding: 5rem 0;
+    }
+    /* ===== STAKEHOLDER CARDS ===== */
+    .stakeholder-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.75rem;
+    }
+    @media (max-width: 900px) { .stakeholder-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 550px) { .stakeholder-grid { grid-template-columns: 1fr; } }
+
+    .stk-card {
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.07);
+      border-radius: var(--radius-large);
+      padding: 2rem 1.5rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .stk-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .stk-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-standard);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .stk-card:nth-child(1) .stk-icon { background: rgba(0,100,191,0.08); color: var(--spanish-blue); }
+    .stk-card:nth-child(2) .stk-icon { background: rgba(228,61,48,0.06); color: var(--cg-red); }
+    .stk-card:nth-child(3) .stk-icon { background: rgba(44,153,66,0.08); color: var(--sea-green); }
+    .stk-card:nth-child(4) .stk-icon { background: rgba(244,178,35,0.1); color: #b8860b; }
+
+    .stk-card:nth-child(1) .stk-persona { color: var(--spanish-blue); opacity: 1; }
+    .stk-card:nth-child(2) .stk-persona { color: var(--cg-red); opacity: 1; }
+    .stk-card:nth-child(3) .stk-persona { color: var(--sea-green); opacity: 1; }
+    .stk-card:nth-child(4) .stk-persona { color: #b8860b; opacity: 1; }
+
+    .stk-persona {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.75rem;
+      opacity: 0.5;
+    }
+    .stk-card h3 {
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--ebony-clay);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+      text-transform: lowercase;
+    }
+    .stk-card p {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: rgba(26,31,38,0.65);
+      flex-grow: 1;
+    }
+    .hl-blue { color: var(--spanish-blue); font-weight: 600; }
+    .hl-red { color: var(--cg-red); font-weight: 600; }
+    .hl-green { color: var(--sea-green); font-weight: 600; }
+    .hl-gold { color: #b8860b; font-weight: 600; }
+
+    .stk-link {
+      margin-top: 1.25rem;
+      font-size: 14px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap 0.2s;
+    }
+    .stk-card:nth-child(1) .stk-link { color: var(--spanish-blue); }
+    .stk-card:nth-child(2) .stk-link { color: var(--cg-red); }
+    .stk-card:nth-child(3) .stk-link { color: var(--sea-green); }
+    .stk-card:nth-child(4) .stk-link { color: #b8860b; }
+    .stk-link:hover { gap: 8px; }
+
+    .dia-headline {
+      text-align: center;
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--ebony-clay);
+      margin-top: 4rem;
+      margin-bottom: 2rem;
+      line-height: 1.2;
+      text-transform: lowercase;
+    }
+    @media (max-width: 768px) { .dia-headline { font-size: 28px; } }
+
+    /* ===== DIA DEMO ===== */
+    .dia-demo {
+      margin-top: 4rem;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(26,31,38,0.04);
+      overflow: hidden;
+      max-width: 820px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top bar */
+    .dia-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+      border-bottom: 1px solid rgba(26,31,38,0.06);
+      background: var(--polar-white);
+      flex-shrink: 0;
+    }
+    .dia-topbar-left { display: flex; align-items: center; gap: 10px; }
+    .dia-avatar {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--spanish-blue), #00a1e0);
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 11px; font-weight: 700;
+    }
+    .dia-topbar-title { font-size: 14px; font-weight: 700; color: var(--ebony-clay); }
+    .dia-topbar-sub { font-size: 11px; color: rgba(26,31,38,0.4); font-weight: 500; }
+
+    /* Chat area */
+    .dia-chat {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px 24px 16px;
+      min-height: 340px;
+      overflow: hidden;
+    }
+
+    /* Chat messages — all hidden by default, JS reveals */
+    .dia-msg {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.35s, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      margin-bottom: 12px;
+    }
+    .dia-msg.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* User question bubble */
+    .dia-user-q {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .dia-user-q span {
+      background: var(--spanish-blue);
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 16px;
+      border-radius: 16px 16px 4px 16px;
+      max-width: 80%;
+    }
+
+    /* Phase message (data foundation / agents) */
+    .dia-phase {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .dia-phase-dot {
+      width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 2px;
+    }
+    .dia-phase-dot.foundation { background: rgba(26,31,38,0.08); }
+    .dia-phase-dot.agents { background: rgba(0,100,191,0.1); }
+    .dia-phase-dot svg { width: 12px; height: 12px; }
+    .dia-phase-body {}
+    .dia-phase-label {
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.8px; color: rgba(26,31,38,0.35); margin-bottom: 5px;
+    }
+    .dia-phase-pills { display: flex; flex-wrap: wrap; gap: 5px; }
+    .dia-phase-pill {
+      font-size: 11px; font-weight: 600; padding: 3px 10px;
+      border-radius: 6px; white-space: nowrap;
+    }
+    .dia-phase-pill.dark {
+      background: rgba(26,31,38,0.06); color: rgba(26,31,38,0.45);
+    }
+    .dia-phase-pill.blue {
+      background: rgba(0,100,191,0.07); color: rgba(0,100,191,0.6);
+    }
+
+    /* Thinking dots */
+    .dia-dots {
+      display: flex; align-items: center; gap: 5px;
+      padding: 4px 0;
+    }
+    .dia-dots span {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--spanish-blue); opacity: 0.25;
+      animation: dia-pulse 1s infinite;
+    }
+    .dia-dots span:nth-child(2) { animation-delay: 0.15s; }
+    .dia-dots span:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes dia-pulse {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 0.9; transform: scale(1.35); }
+    }
+
+    /* Outcome card */
+    .dia-outcome {
+      background: linear-gradient(135deg, #0064bf 0%, #00a1e0 100%);
+      border-radius: 16px;
+      padding: 24px 28px;
+      color: white;
+    }
+    .dia-outcome-label {
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 1px; opacity: 0.65; margin-bottom: 4px;
+    }
+    .dia-outcome-row {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .dia-outcome-score {
+      font-size: 56px; font-weight: 700; line-height: 1; letter-spacing: -2px;
+    }
+    .dia-outcome-badge {
+      display: flex; align-items: center; gap: 5px;
+      background: rgba(255,255,255,0.18); padding: 5px 11px;
+      border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 6px;
+    }
+    .dia-outcome-divider {
+      height: 1px; background: rgba(255,255,255,0.18); margin: 12px 0;
+    }
+    .dia-outcome-detail {
+      font-size: 13px; line-height: 1.55; opacity: 0.85;
+    }
+
+    /* Bottom: prompt chips + input */
+    .dia-bottom {
+      border-top: 1px solid rgba(26,31,38,0.06);
+      padding: 12px 24px 16px;
+      flex-shrink: 0;
+    }
+    .dia-prompt-chips {
+      display: flex; gap: 6px; margin-bottom: 10px; overflow-x: auto;
+    }
+    .dia-prompt-chip {
+      white-space: nowrap; font-size: 11px; font-weight: 500;
+      color: rgba(26,31,38,0.45); padding: 6px 12px;
+      border-radius: 18px; border: 1px solid rgba(26,31,38,0.09);
+      background: white;
+    }
+    .dia-input-row {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(26,31,38,0.03); border: 1px solid rgba(26,31,38,0.08);
+      border-radius: 12px; padding: 10px 12px 10px 16px;
+    }
+    .dia-input-text {
+      flex: 1; font-size: 14px; color: var(--ebony-clay);
+      font-family: inherit; overflow: hidden; white-space: nowrap;
+      min-height: 20px;
+    }
+    .dia-cursor {
+      display: inline-block; width: 2px; height: 16px;
+      background: var(--spanish-blue); vertical-align: text-bottom;
+      animation: dia-blink 0.7s step-end infinite;
+    }
+    @keyframes dia-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .dia-send-btn {
+      width: 34px; height: 34px; border-radius: 9px;
+      background: var(--spanish-blue); display: flex;
+      align-items: center; justify-content: center; flex-shrink: 0;
+      opacity: 0.3; transition: opacity 0.2s;
+    }
+    .dia-send-btn.active { opacity: 1; }
+
+    /* ===== AI AGENTS ===== */
+    .agents-section {
+      background: var(--floral-white);
+    }
+    .agents-intro {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .agents-eyebrow {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--cg-gold), var(--cg-red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-transform: none;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+    .agents-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 1000px) { .agents-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 550px) { .agents-grid { grid-template-columns: 1fr; } }
+
+    .agent-card {
+      background: var(--white);
+      border-radius: var(--radius-medium);
+      padding: 1.5rem 1.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid rgba(26,31,38,0.05);
+    }
+    .agent-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .agent-category {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+    .cat-roles { background: rgba(0,100,191,0.08); color: var(--spanish-blue); }
+    .cat-performance { background: rgba(244,178,35,0.1); color: #b8860b; }
+    .cat-growth { background: rgba(44,153,66,0.08); color: var(--sea-green); }
+    .cat-assess { background: rgba(228,61,48,0.06); color: var(--cg-red); }
+
+    .agent-name {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .agent-role {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: rgba(26,31,38,0.45);
+      margin-bottom: 0.6rem;
+    }
+    .agent-desc {
+      font-size: 13.5px;
+      line-height: 1.5;
+      color: rgba(26,31,38,0.65);
+    }
+
+    /* ===== AGENT MARQUEE ===== */
+    .agent-marquee-wrapper {
+      position: relative;
+      overflow: hidden;
+      margin-top: 2.5rem;
+      padding: 1rem 0 1.5rem;
+    }
+    .agent-marquee-wrapper::before,
+    .agent-marquee-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .agent-marquee-wrapper::before { left: 0; background: linear-gradient(to right, var(--floral-white), transparent); }
+    .agent-marquee-wrapper::after  { right: 0; background: linear-gradient(to left, var(--floral-white), transparent); }
+
+    .agent-marquee-track {
+      display: flex;
+      gap: 1rem;
+      width: max-content;
+      animation: agent-scroll 36s linear infinite;
+    }
+    .agent-marquee-track:hover { animation-play-state: paused; }
+    @keyframes agent-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .agent-mq-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.06);
+      border-radius: var(--radius-medium);
+      padding: 1.5rem 1.25rem 1.25rem;
+      width: 220px;
+      flex-shrink: 0;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: default;
+    }
+    .agent-mq-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .agent-mq-card img {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-bottom: 12px;
+    }
+    .agent-mq-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ebony-clay);
+      line-height: 1.2;
+      margin-bottom: 2px;
+    }
+    .agent-mq-role {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: rgba(26,31,38,0.4);
+      margin-bottom: 10px;
+    }
+    .agent-mq-desc {
+      font-size: 13px;
+      line-height: 1.5;
+      color: rgba(26,31,38,0.6);
+    }
+
+    /* ===== WORKWISE DEMO ===== */
+    .ww-headline {
+      text-align: center;
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--ebony-clay);
+      margin-bottom: 2rem;
+      line-height: 1.2;
+    }
+    @media (max-width: 768px) { .ww-headline { font-size: 28px; } }
+
+    .ww-demo {
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(26,31,38,0.04);
+      overflow: hidden;
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      height: 520px;
+    }
+    .ww-topbar {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 24px;
+      border-bottom: 1px solid rgba(26,31,38,0.06);
+      background: var(--polar-white); flex-shrink: 0;
+    }
+    .ww-topbar-avatar {
+      width: 30px; height: 30px; border-radius: 50%;
+      overflow: hidden; flex-shrink: 0;
+    }
+    .ww-topbar-avatar img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .ww-topbar-title { font-size: 14px; font-weight: 700; color: var(--ebony-clay); }
+
+    /* Fixed-height stage area — stages swap in place */
+    .ww-stage {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    .ww-panel {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      padding: 24px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+    }
+    .ww-panel.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    /* Panel 1: greeting splash */
+    .ww-greeting-photo {
+      width: 88px; height: 88px; border-radius: 50%;
+      overflow: hidden; position: relative;
+      margin-bottom: 16px;
+      border: 3px solid rgba(0,100,191,0.1);
+    }
+    .ww-greeting-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .ww-greeting-online {
+      width: 14px; height: 14px; border-radius: 50%;
+      background: #2c9942; border: 3px solid white;
+      position: absolute; bottom: 4px; right: 4px;
+    }
+    .ww-greeting-title {
+      font-size: 26px; font-weight: 700; color: var(--ebony-clay);
+      margin-bottom: 8px;
+    }
+    .ww-greeting-title span { color: var(--spanish-blue); }
+    .ww-greeting-sub {
+      font-size: 14px; color: rgba(26,31,38,0.5);
+      line-height: 1.55; max-width: 400px; text-align: center;
+    }
+
+    /* Panel 2: chat with bubble + dynamic content area below */
+    .ww-chat-panel {
+      justify-content: flex-start;
+      align-items: stretch;
+      padding: 20px 24px;
+    }
+    .ww-user-q {
+      display: flex; justify-content: flex-end; margin-bottom: 16px;
+      flex-shrink: 0;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.3s 0.05s, transform 0.3s 0.05s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .ww-panel.active .ww-user-q {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .ww-user-q span {
+      background: var(--sunrise-yellow);
+      color: var(--ebony-clay); font-size: 14px; font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 16px 16px 4px 16px;
+    }
+    /* Sub-stages within the chat panel — swap in same space */
+    .ww-response-area {
+      flex: 1; position: relative;
+    }
+    .ww-sub {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.35s, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .ww-sub.active { opacity: 1; transform: translateY(0); }
+
+    /* Sub-stage: assembling */
+    .ww-assemble-icon {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(0,100,191,0.08);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 10px;
+    }
+    .ww-assemble-icon svg { width: 20px; height: 20px; }
+    .ww-assemble-title {
+      font-size: 17px; font-weight: 700; color: var(--ebony-clay);
+      margin-bottom: 4px;
+    }
+    .ww-assemble-sub {
+      font-size: 13px; color: rgba(26,31,38,0.45); margin-bottom: 12px;
+    }
+    .ww-assemble-dots {
+      display: flex; align-items: center; gap: 5px;
+    }
+    .ww-assemble-dots span {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--spanish-blue); opacity: 0.25;
+      animation: ww-pulse 1s infinite;
+    }
+    .ww-assemble-dots span:nth-child(2) { animation-delay: 0.15s; }
+    .ww-assemble-dots span:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes ww-pulse {
+      0%,100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 0.9; transform: scale(1.35); }
+    }
+
+    /* Sub-stage: agent team */
+    .ww-team-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: rgba(0,100,191,0.5);
+      margin-bottom: 12px;
+    }
+    .ww-agents-row {
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ww-agent-card {
+      display: flex; flex-direction: column; align-items: center;
+      background: var(--white);
+      border: 1.5px solid rgba(0,100,191,0.12);
+      border-radius: 14px;
+      padding: 14px 10px 10px;
+      width: 150px;
+      box-shadow: 0 2px 10px rgba(0,100,191,0.06);
+    }
+    .ww-agent-card img {
+      width: 42px; height: 42px; border-radius: 10px;
+      object-fit: cover; margin-bottom: 6px;
+    }
+    .ww-agent-card .ww-agent-name {
+      font-size: 12px; font-weight: 700; color: var(--ebony-clay);
+      text-align: center; line-height: 1.2; margin-bottom: 3px;
+    }
+    .ww-agent-card .ww-agent-desc {
+      font-size: 10px; color: rgba(26,31,38,0.45);
+      text-align: center; line-height: 1.3; font-weight: 500;
+    }
+    .ww-flow-arrow {
+      display: flex; align-items: center; padding: 0 6px; gap: 3px;
+    }
+    .ww-flow-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--spanish-blue);
+      animation: ww-flow 0.8s infinite;
+    }
+    .ww-flow-arrow .ww-flow-dot:nth-child(2) { animation-delay: 0.15s; }
+    .ww-flow-arrow .ww-flow-dot:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes ww-flow {
+      0%,100% { opacity: 0.12; }
+      50% { opacity: 1; }
+    }
+
+    /* Sub-stage: output */
+    .ww-output-wrap {
+      width: 100%; max-width: 100%;
+    }
+    .ww-output {
+      background: var(--white);
+      border: 1px solid rgba(0,100,191,0.12);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .ww-output-header {
+      background: linear-gradient(135deg, #0064bf 0%, #00a1e0 100%);
+      color: white; padding: 12px 20px;
+      font-size: 14px; font-weight: 700;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .ww-output-badge {
+      font-size: 10px; font-weight: 600;
+      background: rgba(255,255,255,0.2);
+      padding: 2px 8px; border-radius: 10px;
+    }
+    .ww-goal-table {
+      width: 100%; border-collapse: collapse;
+    }
+    .ww-goal-table th {
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.8px; color: rgba(26,31,38,0.4);
+      padding: 8px 16px; text-align: left;
+      border-bottom: 1px solid rgba(26,31,38,0.06);
+      background: rgba(0,100,191,0.02);
+    }
+    .ww-goal-table td {
+      font-size: 12px; padding: 8px 16px;
+      border-bottom: 1px solid rgba(26,31,38,0.04);
+      color: var(--ebony-clay);
+    }
+    .ww-goal-table tr:last-child td { border-bottom: none; }
+    .ww-goal-name { font-weight: 600; }
+    .ww-weight {
+      font-size: 11px; font-weight: 700;
+      background: rgba(0,100,191,0.08); color: var(--spanish-blue);
+      padding: 2px 8px; border-radius: 8px;
+      display: inline-block;
+    }
+    .ww-target { color: rgba(26,31,38,0.55); font-size: 11px; }
+
+    /* Bottom bar */
+    .ww-bottom {
+      border-top: 1px solid rgba(26,31,38,0.06);
+      padding: 10px 24px 14px;
+      flex-shrink: 0;
+    }
+    .ww-chips {
+      display: flex; gap: 6px; margin-bottom: 8px; overflow-x: auto;
+    }
+    .ww-chip {
+      white-space: nowrap; font-size: 11px; font-weight: 500;
+      color: rgba(26,31,38,0.45); padding: 6px 12px;
+      border-radius: 18px; border: 1px solid rgba(26,31,38,0.09);
+      background: white;
+    }
+    .ww-input-row {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(26,31,38,0.03); border: 1px solid rgba(26,31,38,0.08);
+      border-radius: 12px; padding: 10px 12px 10px 16px;
+    }
+    .ww-input-text {
+      flex: 1; font-size: 14px; color: var(--ebony-clay);
+      font-family: inherit; overflow: hidden; white-space: nowrap;
+      min-height: 20px;
+    }
+    .ww-cursor {
+      display: inline-block; width: 2px; height: 16px;
+      background: var(--spanish-blue); vertical-align: text-bottom;
+      animation: ww-blink 0.7s step-end infinite;
+    }
+    @keyframes ww-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .ww-send-btn {
+      width: 34px; height: 34px; border-radius: 9px;
+      background: var(--spanish-blue); display: flex;
+      align-items: center; justify-content: center; flex-shrink: 0;
+      opacity: 0.3; transition: opacity 0.2s;
+    }
+    .ww-send-btn.active { opacity: 1; }
+
+    /* ===== PERSONAS ===== */
+    .personas-section {
+      background: var(--white);
+    }
+    .persona-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin: 2rem 0 0;
+      flex-wrap: wrap;
+    }
+    .persona-tab {
+      padding: 10px 22px;
+      border: 1.5px solid rgba(26,31,38,0.12);
+      border-radius: 25px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: lowercase;
+      cursor: pointer;
+      background: transparent;
+      color: var(--ebony-clay);
+      transition: all 0.2s;
+    }
+    .persona-tab:hover { border-color: var(--cg-gold); }
+    .persona-tab.active {
+      background: var(--ebony-clay);
+      color: var(--white);
+      border-color: var(--ebony-clay);
+    }
+    .persona-panels { margin-top: 2rem; }
+    .persona-panel {
+      display: none;
+      animation: fadeIn 0.35s ease;
+    }
+    .persona-panel.active { display: grid; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    .persona-panel {
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (max-width: 768px) { .persona-panel { grid-template-columns: 1fr; } }
+
+    .persona-text h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+    .persona-text > p {
+      font-size: 16px;
+      line-height: 1.65;
+      color: rgba(26,31,38,0.7);
+      margin-bottom: 1.5rem;
+    }
+    .persona-capabilities {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65rem;
+    }
+    @media (max-width: 768px) { .persona-capabilities { grid-template-columns: 1fr; } }
+    .persona-capabilities li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 13.5px;
+      line-height: 1.45;
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.07);
+      border-radius: var(--radius-standard);
+      padding: 0.65rem 0.75rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .persona-check {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+    .persona-check svg { width: 11px; height: 11px; stroke-width: 2.5; }
+    .persona-visual {
+      border-radius: var(--radius-large);
+      padding: 2rem 1.5rem;
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .pv-employee { background: rgba(244,178,35,0.06); }
+    .pv-talent { background: rgba(0,100,191,0.06); }
+    .pv-business { background: rgba(44,153,66,0.06); }
+    .pv-analytics { background: rgba(228,61,48,0.05); }
+    .persona-visual svg.pv-diagram { width: 100%; max-width: 380px; height: auto; }
+    .persona-visual-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .persona-visual-sub {
+      font-size: 14px;
+      color: rgba(26,31,38,0.6);
+      max-width: 260px;
+    }
+
+    /* ===== SOLUTIONS OVERVIEW ===== */
+    .solutions-section {
+      background: var(--pistachio);
+    }
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 900px) { .solutions-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 550px) { .solutions-grid { grid-template-columns: 1fr; } }
+
+    .solution-card {
+      background: var(--white);
+      border-radius: var(--radius-medium);
+      padding: 1.75rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .solution-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .solution-icon {
+      width: 42px; height: 42px;
+      border-radius: var(--radius-standard);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      background: rgba(244,178,35,0.08);
+    }
+    .solution-icon svg { width: 20px; height: 20px; stroke: var(--cg-red); stroke-width: 1.75; }
+    .solution-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-transform: lowercase;
+    }
+    .solution-card p {
+      font-size: 14px;
+      line-height: 1.55;
+      color: rgba(26,31,38,0.65);
+      flex-grow: 1;
+    }
+    .solution-card ul {
+      font-size: 13px;
+      line-height: 1.55;
+      color: rgba(26,31,38,0.6);
+      flex-grow: 1;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .solution-card ul li {
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 6px;
+    }
+    .solution-card ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--cg-red);
+    }
+    .solution-link {
+      margin-top: 1rem;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--cg-red);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .solution-link:hover { gap: 8px; }
+
+    /* ===== CASE STUDY / PROOF ===== */
+    .proof-section {
+      background: var(--white);
+    }
+    .proof-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 768px) { .proof-cards { grid-template-columns: 1fr; } }
+
+    .proof-card {
+      border-radius: var(--radius-large);
+      padding: 2.75rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .proof-card-1 { background: linear-gradient(135deg, #c8dff5 0%, #7fb3e8 60%, #4a90d9 100%); }
+    .proof-card-2 { background: linear-gradient(135deg, #c8e8d0 0%, #7dc49a 60%, #4aab6d 100%); }
+
+    /* Background graphic */
+    .proof-bg-img {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 55%;
+      max-width: 280px;
+      height: 100%;
+      object-fit: contain;
+      object-position: right bottom;
+      opacity: 0.18;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .proof-content {
+      position: relative;
+      z-index: 1;
+      max-width: 58%;
+    }
+    .proof-source {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: rgba(26,31,38,0.5);
+      margin-bottom: 1rem;
+    }
+    .proof-headline {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      margin-bottom: 0;
+    }
+    .proof-download {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 1.75rem;
+      padding: 9px 20px;
+      background: var(--white);
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ebony-clay);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      text-decoration: none;
+      width: fit-content;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .proof-download:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.18); transform: translateY(-1px); }
+
+    /* ===== AWARD STRIP ===== */
+    .awards-section {
+      background: var(--floral-white);
+      padding: 4rem 0 3.5rem;
+      overflow: hidden;
+    }
+    .awards-headline {
+      text-align: center;
+      font-size: 38px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--ebony-clay);
+      margin-bottom: 2.5rem;
+      text-transform: lowercase;
+    }
+    /* Carousel */
+    .awards-carousel {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .awards-viewport {
+      overflow: hidden;
+      border-radius: var(--radius-large);
+    }
+    .awards-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .awards-slide {
+      min-width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .awards-slide img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: contain;
+      border-radius: var(--radius-medium);
+    }
+    /* Nav arrows */
+    .awards-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: none;
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: var(--ebony-clay);
+      transition: background 0.2s, transform 0.2s;
+      z-index: 3;
+    }
+    .awards-nav:hover { background: var(--ebony-clay); color: var(--white); transform: translateY(-50%) scale(1.08); }
+    .awards-nav--prev { left: -22px; }
+    .awards-nav--next { right: -22px; }
+    /* Dots */
+    .awards-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 1.5rem;
+    }
+    .awards-dot {
+      width: 32px;
+      height: 4px;
+      border-radius: 2px;
+      border: none;
+      background: var(--silver-sand);
+      cursor: pointer;
+      transition: background 0.25s, width 0.25s;
+      padding: 0;
+    }
+    .awards-dot.active {
+      background: var(--cg-red);
+      width: 48px;
+    }
+    .award-icon {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+      font-size: 18px;
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials-section {
+      background: var(--white);
+      padding: 4rem 0;
+      overflow: hidden;
+    }
+    .testimonials-wrap {
+      position: relative;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .testimonials-quote-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 280px;
+      font-family: Georgia, serif;
+      line-height: 1;
+      color: var(--cg-red);
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 0;
+      user-select: none;
+    }
+    .testimonials-viewport {
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+    .testimonials-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .testimonial-slide {
+      min-width: 100%;
+      padding: 1.5rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .testimonial-quote {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--ebony-clay);
+      font-style: italic;
+      max-width: 680px;
+      margin-bottom: 1.25rem;
+    }
+    .testimonial-quote::before {
+      content: '\201C';
+      font-family: Georgia, serif;
+      font-size: 28px;
+      color: var(--cg-red);
+      margin-right: 2px;
+      vertical-align: -2px;
+    }
+    .testimonial-quote::after {
+      content: '\201D';
+      font-family: Georgia, serif;
+      font-size: 28px;
+      color: var(--cg-red);
+      margin-left: 2px;
+      vertical-align: -2px;
+    }
+    .testimonial-author {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ebony-clay);
+    }
+    .testimonial-role {
+      font-size: 12.5px;
+      color: rgba(26,31,38,0.5);
+      margin-top: 2px;
+    }
+    .testimonials-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(26,31,38,0.1);
+      background: var(--white);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: var(--ebony-clay);
+      transition: background 0.2s, transform 0.2s;
+      z-index: 3;
+    }
+    .testimonials-nav:hover { background: var(--ebony-clay); color: var(--white); border-color: var(--ebony-clay); transform: translateY(-50%) scale(1.08); }
+    .testimonials-nav--prev { left: -20px; }
+    .testimonials-nav--next { right: -20px; }
+    .testimonials-dots {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 1.25rem;
+      position: relative;
+      z-index: 1;
+    }
+    .testimonials-dot {
+      width: 28px;
+      height: 3px;
+      border-radius: 2px;
+      border: none;
+      background: var(--silver-sand);
+      cursor: pointer;
+      transition: background 0.25s, width 0.25s;
+      padding: 0;
+    }
+    .testimonials-dot.active {
+      background: var(--cg-red);
+      width: 40px;
+    }
+    @media (max-width: 768px) {
+      .testimonial-slide { padding: 1rem 1rem; }
+      .testimonial-quote { font-size: 15px; }
+      .testimonials-nav--prev { left: -8px; }
+      .testimonials-nav--next { right: -8px; }
+      .testimonials-quote-bg { font-size: 180px; }
+    }
+
+    /* ===== ENTERPRISE READY ===== */
+    .enterprise-section {
+      background: var(--ebony-clay);
+      color: var(--white);
+    }
+    .enterprise-section .section-eyebrow { color: var(--cg-gold); }
+    .enterprise-section .section-heading { color: var(--white); }
+    .enterprise-section .section-subheading { color: rgba(255,255,255,0.6); }
+
+    .enterprise-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 768px) { .enterprise-grid { grid-template-columns: 1fr; } }
+
+    .enterprise-item {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-medium);
+      padding: 1.75rem 1.5rem;
+    }
+    .enterprise-item-icon {
+      margin-bottom: 0.75rem;
+      display: flex;
+    }
+    .enterprise-item-icon svg { width: 24px; height: 24px; stroke: var(--cg-gold); stroke-width: 1.75; }
+    .enterprise-item h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+    .enterprise-item p {
+      font-size: 14px;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ===== FINAL CTA ===== */
+    .final-cta {
+      background: linear-gradient(135deg, rgba(244,178,35,0.08) 0%, rgba(228,61,48,0.08) 50%, rgba(0,100,191,0.06) 100%);
+      text-align: center;
+      padding: 5rem 0;
+    }
+    .final-cta h2 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    @media (max-width: 768px) { .final-cta h2 { font-size: 28px; } }
+    .final-cta p {
+      font-size: 18px;
+      color: rgba(26,31,38,0.65);
+      max-width: 540px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+    .final-cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--black-haze);
+      padding: 3.5rem 0 1.5rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(26,31,38,0.6);
+      margin-top: 0.75rem;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: lowercase;
+      margin-bottom: 1rem;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .footer-col a {
+      font-size: 14px;
+      color: rgba(26,31,38,0.6);
+      text-transform: lowercase;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--cg-red); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(26,31,38,0.08);
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-bottom p {
+      font-size: 13px;
+      color: rgba(26,31,38,0.45);
+    }
+    .footer-socials {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .footer-socials a {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(26,31,38,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--ebony-clay);
+      transition: background 0.2s, color 0.2s;
+    }
+    .footer-socials a:hover {
+      background: var(--ebony-clay);
+      color: var(--white);
+    }
+
+    /* ===== GLOBAL RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .hero { padding: 3rem 0 2.5rem; }
+      .section-heading { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="logo">
+        <img src="Images/entomo.svg" alt="entomo" style="height:36px; width:auto;">
+      </a>
+                  <div class="nav-right-group">
+        <ul class="nav-links">
+          <li class="nav-dropdown-wrap">
+            <a href="#">solutions</a>
+            <div class="nav-mega" style="width:720px;">
+              <div class="nav-mega-grid">
+                <a href="solutions/performance-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">maximize employee performance</div>
+                    <div class="nav-mega-desc">real-time signals, coaching, and scorecards</div>
+                  </div>
+                </a>
+                <a href="solutions/skill-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">unlock skills, accelerate growth</div>
+                    <div class="nav-mega-desc">skill maps, career paths, and growth plans</div>
+                  </div>
+                </a>
+                <a href="solutions/engagement-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">build engagement that lasts</div>
+                    <div class="nav-mega-desc">pulse surveys, recognition, and culture signals</div>
+                  </div>
+                </a>
+                <a href="solutions/workforce-insights.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">turn intelligence into decisions</div>
+                    <div class="nav-mega-desc">natural language analytics and board-ready reports</div>
+                  </div>
+                </a>
+                <a href="solutions/wellness-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">protect wellness, prevent burnout</div>
+                    <div class="nav-mega-desc">burnout detection, sentiment, and intervention</div>
+                  </div>
+                </a>
+                <a href="solutions/strategic-planning.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">align your workforce to strategy</div>
+                    <div class="nav-mega-desc">demand modeling, 4B engine, and succession</div>
+                  </div>
+                </a>
+                <a href="solutions/hire-to-retire.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">simplify hire to retire</div>
+                    <div class="nav-mega-desc">recruitment, onboarding, payroll, and exit</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#">platform</a>
+            <div class="nav-mega" style="width:480px;">
+              <div class="nav-mega-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <a href="workwise_platform.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">WorkWise</div>
+                    <div class="nav-mega-desc">your AI coworker for HR workflows and operations</div>
+                  </div>
+                </a>
+                <a href="#" class="nav-mega-item" style="opacity:0.55;pointer-events:none;">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">TMRW</div>
+                    <div class="nav-mega-desc">AI-powered career growth for employees — coming soon</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li><a href="#">inspiration</a></li>
+          <li><a href="#">about</a></li>
+          <li><a href="#">contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <button class="nav-cta">request a demo →</button>
+        </div>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          powering 30 million+ users globally
+        </div>
+        <h1>
+          <span>agentic workforce intelligence</span>
+          <span>in the <mark>flow-of-work</mark></span>
+        </h1>
+        <p class="hero-subline">driving enterprise outcomes</p>
+        <p class="hero-sub">
+          Agentic Intelligence that lives in your flow of work, delivering sharper decisions for leaders, smarter workflows for talent architects and real growth for employees.
+        </p>
+        <div class="hero-ctas">
+          <button class="btn-primary">see it in action →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRUST BAR ===== -->
+  <section class="trust-bar">
+    <div class="container">
+      <div class="trust-bar-header">
+        <h2 class="trust-bar-heading">Global Fortune 500 brands worldwide choose entomo</h2>
+        <p class="trust-bar-sub">powering <mark><strong>30M+</strong></mark> users worldwide</p>
+      </div>
+    </div>
+
+    <!-- Scrolling logo marquee (full-width, outside container) -->
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+        <!-- First set -->
+        <img class="marquee-logo" src="Images/client_logos/tata-elxsi.png"       alt="Tata Elxsi">
+        <img class="marquee-logo" src="Images/client_logos/ey.png"               alt="EY">
+        <img class="marquee-logo" src="Images/client_logos/cigna.png"            alt="Cigna">
+        <img class="marquee-logo" src="Images/client_logos/nttdata.png"          alt="NTT Data">
+        <img class="marquee-logo" src="Images/client_logos/ntuc-learning-hub.png" alt="NTUC Learning Hub">
+        <img class="marquee-logo" src="Images/client_logos/generalli.png"        alt="Generali">
+        <img class="marquee-logo" src="Images/client_logos/Carelon.jpeg"         alt="Carelon">
+        <img class="marquee-logo" src="Images/client_logos/soiitz.png"           alt="Soiitz">
+        <img class="marquee-logo" src="Images/client_logos/drreddys.png"         alt="Dr Reddy's">
+        <img class="marquee-logo" src="Images/client_logos/Digital_Dubai.png"    alt="Digital Dubai">
+        <img class="marquee-logo" src="Images/client_logos/uob.png"              alt="UOB">
+        <!-- Duplicate set for seamless loop -->
+        <img class="marquee-logo" src="Images/client_logos/tata-elxsi.png"       alt="Tata Elxsi">
+        <img class="marquee-logo" src="Images/client_logos/ey.png"               alt="EY">
+        <img class="marquee-logo" src="Images/client_logos/cigna.png"            alt="Cigna">
+        <img class="marquee-logo" src="Images/client_logos/nttdata.png"          alt="NTT Data">
+        <img class="marquee-logo" src="Images/client_logos/ntuc-learning-hub.png" alt="NTUC Learning Hub">
+        <img class="marquee-logo" src="Images/client_logos/generalli.png"        alt="Generali">
+        <img class="marquee-logo" src="Images/client_logos/Carelon.jpeg"         alt="Carelon">
+        <img class="marquee-logo" src="Images/client_logos/soiitz.png"           alt="Soiitz">
+        <img class="marquee-logo" src="Images/client_logos/drreddys.png"         alt="Dr Reddy's">
+        <img class="marquee-logo" src="Images/client_logos/Digital_Dubai.png"    alt="Digital Dubai">
+        <img class="marquee-logo" src="Images/client_logos/uob.png"              alt="UOB">
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="trust-metrics" style="grid-template-columns: repeat(2,1fr); max-width: 580px;">
+        <div class="metric">
+          <div class="metric-number">103%</div>
+          <div class="metric-label">ROI over 3 years,<br>validated by Forrester TEI</div>
+        </div>
+        <div class="metric">
+          <div class="metric-number">$26.8M</div>
+          <div class="metric-label">in measurable value delivered<br>over 3 years for a government entity</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="testimonials-wrap">
+        <div class="testimonials-quote-bg">&ldquo;</div>
+
+        <div class="testimonials-viewport">
+          <div class="testimonials-track" id="testimonialsTrack">
+
+            <div class="testimonial-slide">
+              <p class="testimonial-quote">We're beating the market quarter on quarter. entomo has taken us to the next level of engagement with substantial increase in the number of active agents and revenue</p>
+              <div class="testimonial-author">Mukesh Dhawan</div>
+              <div class="testimonial-role">CEO, Zurich Takaful Malaysia Bhd</div>
+            </div>
+
+            <div class="testimonial-slide">
+              <p class="testimonial-quote">Agency Leaders and Agents are empowered with relevant insights that has taken both of their individual and team performance to a much higher level. The dashboards give us a round the clock real-time knowledge of our performance, anytime, everywhere.</p>
+              <div class="testimonial-author">Kornsiam Nontarat</div>
+              <div class="testimonial-role">Chief Agency Officer, Generali</div>
+            </div>
+
+            <div class="testimonial-slide">
+              <p class="testimonial-quote">entomo effectively helps us in seeing district activities by providing updated production data during on-going discussions between leaders and agents. The CMP makes it easy for us to monitor the Group's activities.</p>
+              <div class="testimonial-author">Adrian</div>
+              <div class="testimonial-role">Activation &amp; Technical Mastery, PT Asuransi Jiwa Manulife Indonesia</div>
+            </div>
+
+            <div class="testimonial-slide">
+              <p class="testimonial-quote">entomo enabled a 31% productivity increase for our 7000 plus front-liners with a cost reduction of 14%, placing TM in the top quartile of telcos globally.</p>
+              <div class="testimonial-author">Nasri Mohamed</div>
+              <div class="testimonial-role">Ex. Vice President, Telekom Malaysia</div>
+            </div>
+
+            <div class="testimonial-slide">
+              <p class="testimonial-quote">the daily feed of key insights and intuitive dashboards at our fingertips has greatly improved our decision-making process, our performance and made us more efficient.</p>
+              <div class="testimonial-author">Mochtar Suhadi</div>
+              <div class="testimonial-role">Chief Organization &amp; Development Officer, Sinarmas Mining</div>
+            </div>
+
+            <div class="testimonial-slide">
+              <p class="testimonial-quote">entomo helps us manage and be appraised with the performance of our 3500+ employees in real-time. Teams are better equipped to track and streamline their performances. entomo has enhanced overall productivity and performance across the organization in a very short period of time.</p>
+              <div class="testimonial-author">Ashanthi Fernando</div>
+              <div class="testimonial-role">Head of Group Human Resources, Dialog</div>
+            </div>
+
+            <div class="testimonial-slide">
+              <p class="testimonial-quote">entomo has enabled substantial goal clarity and performance expectations for our people. Some of the features like Task management are particularly impactful in helping us track and measure delivery timelines. Simply put, there is clear progress in goal orientation, engagement, and people.</p>
+              <div class="testimonial-author">Elson Kho</div>
+              <div class="testimonial-role">Executive Director, Maxx Media</div>
+            </div>
+
+          </div>
+        </div>
+
+        <button class="testimonials-nav testimonials-nav--prev" id="testPrev">&#8249;</button>
+        <button class="testimonials-nav testimonials-nav--next" id="testNext">&#8250;</button>
+
+        <div class="testimonials-dots" id="testDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VALUE PILLARS ===== -->
+  <section class="pillars-section" id="platform">
+    <div class="container">
+      <div class="text-center">
+        <p class="challenge-dismiss">Adding yet another dashboard, tool or HR system doesn't drive outcomes.</p>
+        <h2 class="section-heading">Your organization needs <span style="color:var(--spanish-blue);">Agentic Intelligence</span> that speaks every stakeholder's language, precisely and at the right moment.</h2>
+      </div>
+
+      <div class="stakeholder-grid">
+
+        <!-- Enterprise Analytics (DIA++) -->
+        <div class="stk-card">
+          <div class="stk-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3>decisions, not dashboards</h3>
+          <p class="stk-persona">Enterprise Analytics · DIA++</p>
+          <p>One <span class="hl-blue">intelligence layer</span> across performance, skills, engagement, and wellness. Ask any question in <span class="hl-blue">plain language</span> — <span class="hl-blue">DIA</span> responds with a <span class="hl-blue">recommendation</span>, not a chart.</p>
+        </div>
+
+        <!-- Business Leaders -->
+        <div class="stk-card">
+          <div class="stk-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3>workforce impact, measured in revenue</h3>
+          <p class="stk-persona">Business Leaders</p>
+          <p>Translates workforce data into <span class="hl-red">business impact</span> — in <span class="hl-red">real time</span>. Leaders see revenue exposure before it surfaces in quarterly results.</p>
+        </div>
+
+        <!-- Talent Architects -->
+        <div class="stk-card">
+          <div class="stk-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          </div>
+          <h3>shape talent before gaps appear</h3>
+          <p class="stk-persona">Talent Architects</p>
+          <p>Spots <span class="hl-green">succession risks</span> before they become vacancies. Tracks <span class="hl-green">capability gaps</span> and aligns workforce supply to strategy — powered by the <span class="hl-green">4B decision engine</span>.</p>
+        </div>
+
+        <!-- Employees -->
+        <div class="stk-card">
+          <div class="stk-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h3>growth that finds you every day</h3>
+          <p class="stk-persona">The Employee</p>
+          <p>AI agents that <span class="hl-gold">coach</span> <span class="hl-gold">performance</span>, <span class="hl-gold">build skills</span>, <span class="hl-gold">map</span> <span class="hl-gold">career growth</span>, and <span class="hl-gold">support</span> <span class="hl-gold">wellness</span> — right inside the tools employees already use.</p>
+        </div>
+
+      </div>
+
+      <h3 class="dia-headline">Ask anything. In your own words.<br>Get intelligence that drives action.</h3>
+
+      <!-- DIA++ Interactive Demo -->
+      <div class="dia-demo" id="diaDemo">
+
+        <!-- Top bar -->
+        <div class="dia-topbar">
+          <div class="dia-topbar-left">
+            <div class="dia-avatar">DIA</div>
+            <div>
+              <div class="dia-topbar-title">Ask DIA — your Workforce Intelligence Agent</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat area — messages bubble up here -->
+        <div class="dia-chat" id="diaChat">
+
+          <!-- 1. User question -->
+          <div class="dia-msg dia-user-q" id="diaQ">
+            <span>What's our AI readiness score?</span>
+          </div>
+
+          <!-- 2. Data foundation phase -->
+          <div class="dia-msg dia-phase" id="diaFoundation">
+            <div class="dia-phase-dot foundation">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#1a1f26" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+            </div>
+            <div class="dia-phase-body">
+              <div class="dia-phase-label">querying data foundation</div>
+              <div class="dia-phase-pills">
+                <span class="dia-phase-pill dark">KSAT</span>
+                <span class="dia-phase-pill dark">Skill Heatmap</span>
+                <span class="dia-phase-pill dark">Demand Modelling</span>
+                <span class="dia-phase-pill dark">4B Decision Engine</span>
+              </div>
+              <div class="dia-dots"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+
+          <!-- 3. Agents phase -->
+          <div class="dia-msg dia-phase" id="diaAgents">
+            <div class="dia-phase-dot agents">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#0064bf" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            </div>
+            <div class="dia-phase-body">
+              <div class="dia-phase-label">agents analysing</div>
+              <div class="dia-phase-pills">
+                <span class="dia-phase-pill blue">AI Readiness Agent</span>
+                <span class="dia-phase-pill blue">Role Craft Agent++</span>
+                <span class="dia-phase-pill blue">Strategy Execution Agent</span>
+              </div>
+              <div class="dia-dots"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+
+          <!-- 4. Outcome -->
+          <div class="dia-msg" id="diaOutcome">
+            <div class="dia-outcome">
+              <div class="dia-outcome-label">Workforce AI Readiness Score</div>
+              <div class="dia-outcome-row">
+                <div class="dia-outcome-score">78%</div>
+                <div class="dia-outcome-badge">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                  ↑ 12% from last quarter
+                </div>
+              </div>
+              <div class="dia-outcome-divider"></div>
+              <div class="dia-outcome-detail">
+                720 of 900 employees meet skill requirements for current roles. 34 critical roles flagged with emerging gaps in AI &amp; automation — upskilling paths generated.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom: chips + input -->
+        <div class="dia-bottom">
+          <div class="dia-prompt-chips">
+            <span class="dia-prompt-chip">Show me succession risk for critical roles</span>
+            <span class="dia-prompt-chip">Analyze skill gaps in Engineering</span>
+            <span class="dia-prompt-chip">Predict attrition for Q2 2025</span>
+          </div>
+          <div class="dia-input-row">
+            <div class="dia-input-text" id="diaInput"><span class="dia-cursor"></span></div>
+            <div class="dia-send-btn" id="diaSend">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== AI AGENTS ===== -->
+  <section class="agents-section" id="agents">
+    <div class="container">
+      <div class="agents-intro">
+        <div class="section-eyebrow agents-eyebrow">Your AI workforce</div>
+      </div>
+
+      <div style="text-align: center;">
+        <h2 class="section-heading">meet the <mark>agents</mark> that work for you</h2>
+        <p class="section-subheading" style="margin: 0 auto;">Specialized AI agents designed to optimize performance, growth, and enterprise alignment. Ask your question — multiple agents collaborate to deliver the answer.</p>
+      </div>
+
+    </div><!-- /container -->
+
+    <!-- Full-width agent marquee -->
+    <div class="agent-marquee-wrapper">
+      <div class="agent-marquee-track">
+
+        <div class="agent-mq-card"><img src="Images/agents/talentatlas.png" alt="TalentAtlas"><div class="agent-mq-name">TalentAtlas</div><div class="agent-mq-role">role intelligence</div><div class="agent-mq-desc">Maps industry-benchmarked role architectures and competency frameworks with market-aligned precision.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/skillmatrix.png" alt="SkillMatrix"><div class="agent-mq-name">SkillMatrix</div><div class="agent-mq-role">proficiency intelligence</div><div class="agent-mq-desc">Surfaces proficiency gaps and maps capability across teams — aligned to real-time market signals.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/Goalforge.png" alt="GoalForge"><div class="agent-mq-name">GoalForge</div><div class="agent-mq-role">goal intelligence</div><div class="agent-mq-desc">Generates role-aligned performance goals that reflect strategic priorities and validates quality automatically.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/pulse360.png" alt="Pulse360"><div class="agent-mq-name">Pulse360</div><div class="agent-mq-role">sentiment analytics</div><div class="agent-mq-desc">Analyzes feedback tone, alignment, and perception gaps to uncover blind spots and leadership risks.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/Insight360.png" alt="Insight360"><div class="agent-mq-name">Insight360</div><div class="agent-mq-role">feedback intelligence</div><div class="agent-mq-desc">Surfaces perception gaps, strengths, and growth priorities from 360-degree feedback data in real time.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/growthplanner.png" alt="GrowthPlanner"><div class="agent-mq-name">GrowthPlanner</div><div class="agent-mq-role">development engine</div><div class="agent-mq-desc">Translates performance insights into personalised growth plans with clear career paths and skill milestones.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/assescraft.png" alt="AssesCraft"><div class="agent-mq-name">AssesCraft</div><div class="agent-mq-role">assessment engine</div><div class="agent-mq-desc">Designs structured, role-aligned assessments that evaluate skills, proficiency, and job readiness at scale.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/convocraft.png" alt="ConvoCraft"><div class="agent-mq-name">ConvoCraft</div><div class="agent-mq-role">conversation design</div><div class="agent-mq-desc">Structures high-impact manager conversations with clarity and intent — from performance talks to feedback reviews.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/rolearchitect.png" alt="RoleArchitect"><div class="agent-mq-name">RoleArchitect</div><div class="agent-mq-role">role design</div><div class="agent-mq-desc">Builds and evolves role definitions that align to organisational strategy and workforce capability needs.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/profilecraft.png" alt="ProfileCraft"><div class="agent-mq-name">ProfileCraft</div><div class="agent-mq-role">profile intelligence</div><div class="agent-mq-desc">Crafts rich talent profiles from skills, history, and ambition — powering smarter hiring and mobility decisions.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/flowgen.png" alt="FlowGen"><div class="agent-mq-name">FlowGen</div><div class="agent-mq-role">workflow automation</div><div class="agent-mq-desc">Automates HR workflows end-to-end — from goal setting to reviews — without manual intervention.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/TeamInsight.png" alt="TeamInsight"><div class="agent-mq-name">TeamInsight</div><div class="agent-mq-role">team analytics</div><div class="agent-mq-desc">Tracks team health, collaboration patterns, and performance dynamics to surface risks before they escalate.</div></div>
+
+        <!-- Duplicate for seamless loop -->
+        <div class="agent-mq-card"><img src="Images/agents/talentatlas.png" alt="TalentAtlas"><div class="agent-mq-name">TalentAtlas</div><div class="agent-mq-role">role intelligence</div><div class="agent-mq-desc">Maps industry-benchmarked role architectures and competency frameworks with market-aligned precision.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/skillmatrix.png" alt="SkillMatrix"><div class="agent-mq-name">SkillMatrix</div><div class="agent-mq-role">proficiency intelligence</div><div class="agent-mq-desc">Surfaces proficiency gaps and maps capability across teams — aligned to real-time market signals.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/Goalforge.png" alt="GoalForge"><div class="agent-mq-name">GoalForge</div><div class="agent-mq-role">goal intelligence</div><div class="agent-mq-desc">Generates role-aligned performance goals that reflect strategic priorities and validates quality automatically.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/pulse360.png" alt="Pulse360"><div class="agent-mq-name">Pulse360</div><div class="agent-mq-role">sentiment analytics</div><div class="agent-mq-desc">Analyzes feedback tone, alignment, and perception gaps to uncover blind spots and leadership risks.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/Insight360.png" alt="Insight360"><div class="agent-mq-name">Insight360</div><div class="agent-mq-role">feedback intelligence</div><div class="agent-mq-desc">Surfaces perception gaps, strengths, and growth priorities from 360-degree feedback data in real time.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/growthplanner.png" alt="GrowthPlanner"><div class="agent-mq-name">GrowthPlanner</div><div class="agent-mq-role">development engine</div><div class="agent-mq-desc">Translates performance insights into personalised growth plans with clear career paths and skill milestones.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/assescraft.png" alt="AssesCraft"><div class="agent-mq-name">AssesCraft</div><div class="agent-mq-role">assessment engine</div><div class="agent-mq-desc">Designs structured, role-aligned assessments that evaluate skills, proficiency, and job readiness at scale.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/convocraft.png" alt="ConvoCraft"><div class="agent-mq-name">ConvoCraft</div><div class="agent-mq-role">conversation design</div><div class="agent-mq-desc">Structures high-impact manager conversations with clarity and intent — from performance talks to feedback reviews.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/rolearchitect.png" alt="RoleArchitect"><div class="agent-mq-name">RoleArchitect</div><div class="agent-mq-role">role design</div><div class="agent-mq-desc">Builds and evolves role definitions that align to organisational strategy and workforce capability needs.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/profilecraft.png" alt="ProfileCraft"><div class="agent-mq-name">ProfileCraft</div><div class="agent-mq-role">profile intelligence</div><div class="agent-mq-desc">Crafts rich talent profiles from skills, history, and ambition — powering smarter hiring and mobility decisions.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/flowgen.png" alt="FlowGen"><div class="agent-mq-name">FlowGen</div><div class="agent-mq-role">workflow automation</div><div class="agent-mq-desc">Automates HR workflows end-to-end — from goal setting to reviews — without manual intervention.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/TeamInsight.png" alt="TeamInsight"><div class="agent-mq-name">TeamInsight</div><div class="agent-mq-role">team analytics</div><div class="agent-mq-desc">Tracks team health, collaboration patterns, and performance dynamics to surface risks before they escalate.</div></div>
+
+      </div>
+    </div>
+
+    <div class="container">
+
+      <h3 class="ww-headline" style="margin-top: 3.5rem;">You define the action. Your AI Coworker builds the team.<br>The agents do the work.</h3>
+
+      <div class="ww-demo" id="wwDemo">
+
+        <!-- Top bar -->
+        <div class="ww-topbar">
+          <div class="ww-topbar-avatar"><img src="Images/agents/workwise.png" alt="WorkWise"></div>
+          <div class="ww-topbar-title">WorkWise — your digital co-worker</div>
+        </div>
+
+        <!-- Fixed stage area — panels swap in place -->
+        <div class="ww-stage">
+
+          <!-- Panel 1: Greeting splash -->
+          <div class="ww-panel active" id="wwPanelGreet">
+            <div class="ww-greeting-photo">
+              <img src="Images/agents/workwise.png" alt="WorkWise">
+              <div class="ww-greeting-online"></div>
+            </div>
+            <div class="ww-greeting-title">Hi, I'm <span>WorkWise</span></div>
+            <div class="ww-greeting-sub">Your AI workforce strategist. Tell me what you need and I'll assign the right agents to get it done.</div>
+          </div>
+
+          <!-- Panel 2: Chat — bubble stays, sub-stages swap below it -->
+          <div class="ww-panel ww-chat-panel" id="wwPanelChat">
+            <div class="ww-user-q">
+              <span>Create a goal sheet for my sales team</span>
+            </div>
+            <div class="ww-response-area">
+              <div class="ww-sub" id="wwSubAssemble">
+                <div class="ww-assemble-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#0064bf" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+                </div>
+                <div class="ww-assemble-title">Assembling your agent team</div>
+                <div class="ww-assemble-sub">Finding the right agents that can help you do this.</div>
+                <div class="ww-assemble-dots"><span></span><span></span><span></span></div>
+              </div>
+              <div class="ww-sub" id="wwSubAgents">
+                <div class="ww-team-label">agents collaborating</div>
+                <div class="ww-agents-row">
+                  <div class="ww-agent-card"><img src="Images/agents/talentatlas.png" alt="TalentAtlas"><div class="ww-agent-name">TalentAtlas</div><div class="ww-agent-desc">role architecture &amp; competency mapping</div></div>
+                  <div class="ww-flow-arrow"><span class="ww-flow-dot"></span><span class="ww-flow-dot"></span><span class="ww-flow-dot"></span></div>
+                  <div class="ww-agent-card"><img src="Images/agents/Goalforge.png" alt="GoalForge"><div class="ww-agent-name">GoalForge</div><div class="ww-agent-desc">goal generation &amp; quality validation</div></div>
+                  <div class="ww-flow-arrow"><span class="ww-flow-dot"></span><span class="ww-flow-dot"></span><span class="ww-flow-dot"></span></div>
+                  <div class="ww-agent-card"><img src="Images/agents/skillmatrix.png" alt="SkillMatrix"><div class="ww-agent-name">SkillMatrix</div><div class="ww-agent-desc">proficiency gaps &amp; skill alignment</div></div>
+                </div>
+              </div>
+              <div class="ww-sub" id="wwSubOutput" style="justify-content:flex-start;padding-top:8px;">
+                <div class="ww-output-wrap">
+                  <div class="ww-output">
+                    <div class="ww-output-header">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+                      Sales Team — Goal Sheet <span class="ww-output-badge">Q2 2026</span>
+                    </div>
+                    <table class="ww-goal-table">
+                      <thead><tr><th>Goal</th><th>Weight</th><th>Target</th><th>Measure</th></tr></thead>
+                      <tbody>
+                        <tr><td class="ww-goal-name">Quarterly revenue attainment</td><td><span class="ww-weight">35%</span></td><td class="ww-target">$1.2M ARR</td><td class="ww-target">Closed-won bookings</td></tr>
+                        <tr><td class="ww-goal-name">Pipeline generation</td><td><span class="ww-weight">25%</span></td><td class="ww-target">3× pipeline coverage</td><td class="ww-target">Qualified opportunities</td></tr>
+                        <tr><td class="ww-goal-name">New logo acquisition</td><td><span class="ww-weight">20%</span></td><td class="ww-target">8 new accounts</td><td class="ww-target">Net-new signed contracts</td></tr>
+                        <tr><td class="ww-goal-name">Cross-sell / upsell revenue</td><td><span class="ww-weight">20%</span></td><td class="ww-target">$400K expansion</td><td class="ww-target">Existing account bookings</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="ww-bottom">
+          <div class="ww-chips">
+            <span class="ww-chip">Draft a job description</span>
+            <span class="ww-chip">Create a performance review</span>
+            <span class="ww-chip">Build a skill assessment</span>
+            <span class="ww-chip">Design an engagement survey</span>
+          </div>
+          <div class="ww-input-row">
+            <div class="ww-input-text" id="wwInput"><span class="ww-cursor"></span></div>
+            <div class="ww-send-btn" id="wwSend">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div><!-- /container -->
+
+  </section>
+
+  <!-- ===== PERSONAS ===== -->
+  <section class="personas-section" id="personas">
+    <div class="container">
+      <div class="section-eyebrow">built for every stakeholder</div>
+      <h2 class="section-heading">the right intelligence, for the right role</h2>
+      <p class="section-subheading">
+        entomo speaks a different language to every stakeholder, delivering exactly the insights, actions and growth each role needs.
+      </p>
+
+      <div class="persona-tabs">
+        <button class="persona-tab active" data-tab="analytics">for enterprise analytics</button>
+        <button class="persona-tab" data-tab="business">for business leaders</button>
+        <button class="persona-tab" data-tab="talent">for talent architects</button>
+        <button class="persona-tab" data-tab="employee">for employees</button>
+      </div>
+
+      <div class="persona-panels">
+
+        <!-- EMPLOYEE -->
+        <div class="persona-panel" id="panel-employee">
+          <div class="persona-text">
+            <h3>get AI in everyday flow-of-work,<br>for real career growth and performance</h3>
+            <p>Every employee receives AI-driven guidance on goals, skills, career progression, and wellness — embedded in their daily workflow, not hidden in an HR portal they never open.</p>
+            <ul class="persona-capabilities">
+              <li>
+                <span class="persona-check" style="background:rgba(244,178,35,0.1);color:#b8860b;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                AI-generated goal sheets with role-specific KPIs and nudges
+              </li>
+              <li>
+                <span class="persona-check" style="background:rgba(244,178,35,0.1);color:#b8860b;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Personalized career journeys with real-time skill gap analysis
+              </li>
+              <li>
+                <span class="persona-check" style="background:rgba(244,178,35,0.1);color:#b8860b;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Digital coaches for performance, learning, and wellness
+              </li>
+              <li>
+                <span class="persona-check" style="background:rgba(244,178,35,0.1);color:#b8860b;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Learning pathways tailored to individual aspirations and role demands
+              </li>
+            </ul>
+          </div>
+          <div class="persona-visual pv-employee">
+            <svg class="pv-diagram" viewBox="0 0 380 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <style>
+                @keyframes ef{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+                @keyframes eg{from{stroke-dashoffset:var(--from)}to{stroke-dashoffset:var(--to)}}
+                @keyframes eb{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+                .ec{animation:ef .5s ease both}
+              </style>
+              <defs><filter id="es"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.05"/></filter></defs>
+              <rect width="380" height="340" rx="14" fill="white" stroke="#b8860b" stroke-width="0.5" stroke-opacity="0.15"/>
+              <rect width="380" height="32" rx="14" fill="#b8860b" fill-opacity="0.06"/>
+              <rect y="14" width="380" height="18" fill="#b8860b" fill-opacity="0.06"/>
+              <circle cx="18" cy="16" r="3" fill="#b8860b" fill-opacity="0.25"/><circle cx="28" cy="16" r="3" fill="#b8860b" fill-opacity="0.15"/><circle cx="38" cy="16" r="3" fill="#b8860b" fill-opacity="0.1"/>
+              <text x="190" y="20" text-anchor="middle" font-size="9" font-weight="700" fill="#b8860b" opacity="0.7">My Dashboard</text>
+
+              <!-- R1C1: Goal Progress -->
+              <g class="ec" style="animation-delay:.1s">
+                <rect x="12" y="42" width="172" height="86" rx="8" fill="white" filter="url(#es)"/>
+                <text x="24" y="58" font-size="8" font-weight="600" fill="#1a1f26" opacity="0.5">GOAL PROGRESS</text>
+                <text x="24" y="80" font-size="22" font-weight="700" fill="#b8860b">3 / 4</text>
+                <text x="24" y="94" font-size="8" fill="#1a1f26" opacity="0.4">objectives on track</text>
+                <rect x="24" y="106" width="148" height="4" rx="2" fill="#b8860b" fill-opacity="0.1"/>
+                <rect x="24" y="106" width="111" height="4" rx="2" fill="#b8860b" transform-origin="24px 108px" style="animation:eb .8s ease .3s both"/>
+              </g>
+              <!-- R1C2: Career Growth gauge -->
+              <g class="ec" style="animation-delay:.2s">
+                <rect x="196" y="42" width="172" height="86" rx="8" fill="white" filter="url(#es)"/>
+                <text x="282" y="58" text-anchor="middle" font-size="8" font-weight="600" fill="#1a1f26" opacity="0.5">CAREER GROWTH</text>
+                <circle cx="282" cy="88" r="20" fill="none" stroke="#b8860b" stroke-opacity="0.1" stroke-width="4"/>
+                <circle cx="282" cy="88" r="20" fill="none" stroke="#b8860b" stroke-width="4" stroke-dasharray="125.6" stroke-linecap="round" transform="rotate(-90 282 88)" style="--from:125.6;--to:35.2;animation:eg .9s ease .4s both"/>
+                <text x="282" y="93" text-anchor="middle" font-size="13" font-weight="700" fill="#b8860b">7.2</text>
+                <text x="282" y="118" text-anchor="middle" font-size="7" fill="#1a1f26" opacity="0.4">out of 10</text>
+              </g>
+
+              <!-- R2C1: Skill Proficiency bars -->
+              <g class="ec" style="animation-delay:.3s">
+                <rect x="12" y="138" width="172" height="86" rx="8" fill="white" filter="url(#es)"/>
+                <text x="24" y="154" font-size="8" font-weight="600" fill="#1a1f26" opacity="0.5">SKILL PROFICIENCY</text>
+                <text x="172" y="154" text-anchor="end" font-size="8" fill="#b8860b" font-weight="600">6/8</text>
+                <text x="24" y="170" font-size="7" fill="#1a1f26" opacity="0.4">Strategic Thinking</text>
+                <rect x="24" y="174" width="148" height="3.5" rx="1.5" fill="#b8860b" fill-opacity="0.08"/>
+                <rect x="24" y="174" width="132" height="3.5" rx="1.5" fill="#b8860b" fill-opacity="0.6" transform-origin="24px 176px" style="animation:eb .7s ease .5s both"/>
+                <text x="24" y="188" font-size="7" fill="#1a1f26" opacity="0.4">Data Analysis</text>
+                <rect x="24" y="192" width="148" height="3.5" rx="1.5" fill="#b8860b" fill-opacity="0.08"/>
+                <rect x="24" y="192" width="118" height="3.5" rx="1.5" fill="#b8860b" fill-opacity="0.6" transform-origin="24px 194px" style="animation:eb .7s ease .6s both"/>
+                <text x="24" y="206" font-size="7" fill="#1a1f26" opacity="0.4">Leadership</text>
+                <rect x="24" y="210" width="148" height="3.5" rx="1.5" fill="#b8860b" fill-opacity="0.08"/>
+                <rect x="24" y="210" width="100" height="3.5" rx="1.5" fill="#b8860b" fill-opacity="0.6" transform-origin="24px 212px" style="animation:eb .7s ease .7s both"/>
+              </g>
+              <!-- R2C2: Learning -->
+              <g class="ec" style="animation-delay:.4s">
+                <rect x="196" y="138" width="172" height="86" rx="8" fill="white" filter="url(#es)"/>
+                <text x="208" y="154" font-size="8" font-weight="600" fill="#1a1f26" opacity="0.5">LEARNING COMPLETION</text>
+                <text x="282" y="192" text-anchor="middle" font-size="28" font-weight="700" fill="#b8860b">68%</text>
+                <text x="282" y="208" text-anchor="middle" font-size="8" fill="#1a1f26" opacity="0.4">of assigned courses</text>
+              </g>
+
+              <!-- R3C1: Wellness -->
+              <g class="ec" style="animation-delay:.5s">
+                <rect x="12" y="234" width="172" height="94" rx="8" fill="white" filter="url(#es)"/>
+                <text x="24" y="250" font-size="8" font-weight="600" fill="#1a1f26" opacity="0.5">WELLNESS INDEX</text>
+                <circle cx="68" cy="290" r="18" fill="none" stroke="#b8860b" stroke-opacity="0.1" stroke-width="3.5"/>
+                <circle cx="68" cy="290" r="18" fill="none" stroke="#2c9942" stroke-width="3.5" stroke-dasharray="113" stroke-linecap="round" transform="rotate(-90 68 290)" style="--from:113;--to:25;animation:eg .9s ease .7s both"/>
+                <text x="68" y="295" text-anchor="middle" font-size="11" font-weight="700" fill="#2c9942">7.8</text>
+                <text x="125" y="284" font-size="8" fill="#1a1f26" opacity="0.4">Balanced</text>
+                <text x="125" y="298" font-size="8" fill="#2c9942" font-weight="600">Healthy</text>
+              </g>
+              <!-- R3C2: Next Role -->
+              <g class="ec" style="animation-delay:.6s">
+                <rect x="196" y="234" width="172" height="94" rx="8" fill="white" filter="url(#es)"/>
+                <text x="208" y="250" font-size="8" font-weight="600" fill="#1a1f26" opacity="0.5">NEXT ROLE READINESS</text>
+                <text x="282" y="290" text-anchor="middle" font-size="22" font-weight="700" fill="#b8860b">6 mo</text>
+                <text x="282" y="306" text-anchor="middle" font-size="8" fill="#1a1f26" opacity="0.4">to promotion eligibility</text>
+                <rect x="226" y="314" width="112" height="4" rx="2" fill="#b8860b" fill-opacity="0.08"/>
+                <rect x="226" y="314" width="75" height="4" rx="2" fill="#b8860b" fill-opacity="0.5" transform-origin="226px 316px" style="animation:eb .7s ease .8s both"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- TALENT ARCHITECTS -->
+        <div class="persona-panel" id="panel-talent">
+          <div class="persona-text">
+            <h3>plan your workforce intelligently.<br>action your plan with the AI coworker.</h3>
+            <p>Talent architects receive AI-powered insights for strategic workforce decisions — spanning skill readiness, succession risk, demand projection, and the 4B decision engine.</p>
+            <ul class="persona-capabilities">
+              <li>
+                <span class="persona-check" style="background:rgba(0,100,191,0.1);color:var(--spanish-blue);"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                KSAT framework: Knowledge, Skills, Abilities, Traits mapping
+              </li>
+              <li>
+                <span class="persona-check" style="background:rgba(0,100,191,0.1);color:var(--spanish-blue);"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Succession intelligence with concentration risk and skill agility
+              </li>
+              <li>
+                <span class="persona-check" style="background:rgba(0,100,191,0.1);color:var(--spanish-blue);"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Skill half-life tracking and AI readiness assessment
+              </li>
+              <li>
+                <span class="persona-check" style="background:rgba(0,100,191,0.1);color:var(--spanish-blue);"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                4B Decision Engine: Build, Buy, Borrow, or Bot every role
+              </li>
+            </ul>
+          </div>
+          <div class="persona-visual pv-talent">
+            <svg class="pv-diagram" viewBox="0 0 380 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <style>
+                @keyframes tf{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+                @keyframes tg{from{stroke-dashoffset:var(--from)}to{stroke-dashoffset:var(--to)}}
+                @keyframes tb{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+                @keyframes tby{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+                .tc{animation:tf .5s ease both}
+              </style>
+              <defs><filter id="ts"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.05"/></filter></defs>
+              <rect width="380" height="340" rx="14" fill="white" stroke="#0064bf" stroke-width="0.5" stroke-opacity="0.15"/>
+              <rect width="380" height="32" rx="14" fill="#0064bf" fill-opacity="0.04"/>
+              <rect y="14" width="380" height="18" fill="#0064bf" fill-opacity="0.04"/>
+              <circle cx="18" cy="16" r="3" fill="#0064bf" fill-opacity="0.2"/><circle cx="28" cy="16" r="3" fill="#0064bf" fill-opacity="0.12"/><circle cx="38" cy="16" r="3" fill="#0064bf" fill-opacity="0.08"/>
+              <text x="190" y="20" text-anchor="middle" font-size="9" font-weight="700" fill="#0064bf" opacity="0.7">Workforce Planning</text>
+
+              <!-- R1C1: Critical Skill Gaps -->
+              <g class="tc" style="animation-delay:.1s">
+                <rect x="12" y="42" width="172" height="86" rx="8" fill="white" filter="url(#ts)"/>
+                <text x="24" y="58" font-size="8" font-weight="600" fill="#1a1f26" opacity="0.5">CRITICAL SKILL GAPS</text>
+                <text x="98" y="86" text-anchor="middle" font-size="24" font-weight="700" fill="#0064bf">47</text>
+                <text x="98" y="100" text-anchor="middle" font-size="8" fill="#1a1f26" opacity="0.4">positions</text>
+                <text x="98" y="118" text-anchor="middle" font-size="10" font-weight="600" fill="#0064bf" opacity="0.6">156 shortfalls</text>
+              </g>
+              <!-- R1C2: Succession Pipeline gauge -->
+              <g class="tc" style="animation-delay:.2s">
+                <rect x="196" y="42" width="172" height="86" rx="8" fill="white" filter="url(#ts)"/>
+                <text x="282" y="58" text-anchor="middle" font-size="8" font-weight="600" fill="#1a1f26" opacity="0.5">SUCCESSION PIPELINE</text>
+                <circle cx="282" cy="88" r="20" fill="none" stroke="#0064bf" stroke-opacity="0.1" stroke-width="4"/>
+                <circle cx="282" cy="88" r="20" fill="none" stroke="#0064bf" stroke-width="4" stroke-dasharray="125.6" stroke-linecap="round" transform="rotate(-90 282 88)" style="--from:125.6;--to:34;animation:tg .9s ease .4s both"/>
+                <text x="282" y="93" text-anchor="middle" font-size="13" font-weight="700" fill="#0064bf">73%</text>
+                <text x="282" y="118" text-anchor="middle" font-size="7" fill="#1a1f26" opacity="0.4">roles covered</text>
+              </g>
+
+              <!-- R2C1: Skill Half-Life -->
+              <g class="tc" style="animation-delay:.3s">
+                <rect x="12" y="138" width="172" height="86" rx="8" fill="white" filter="url(#ts)"/>
+                <text x="24" y="154" font-size="8" font-weight="600" fill="#1a1f26" opacity="0.5">SKILL HALF-LIFE</text>
+                <text x="98" y="190" text-anchor="middle" font-size="28" font-weight="700" fill="#0064bf">4.1</text>
+                <text x="98" y="208" text-anchor="middle" font-size="8" fill="#1a1f26" opacity="0.4">avg years</text>
+              </g>
+              <!-- R2C2: AI Readiness gauge -->
+              <g class="tc" style="animation-delay:.4s">
+                <rect x="196" y="138" width="172" height="86" rx="8" fill="white" filter="url(#ts)"/>
+                <text x="282" y="154" text-anchor="middle" font-size="8" font-weight="600" fill="#1a1f26" opacity="0.5">AI READINESS</text>
+                <circle cx="282" cy="186" r="20" fill="none" stroke="#0064bf" stroke-opacity="0.1" stroke-width="4"/>
+                <circle cx="282" cy="186" r="20" fill="none" stroke="#0064bf" stroke-width="4" stroke-dasharray="125.6" stroke-linecap="round" transform="rotate(-90 282 186)" style="--from:125.6;--to:47.7;animation:tg .9s ease .5s both"/>
+                <text x="282" y="191" text-anchor="middle" font-size="13" font-weight="700" fill="#0064bf">62%</text>
+                <text x="282" y="216" text-anchor="middle" font-size="7" fill="#1a1f26" opacity="0.4">workforce trained</text>
+              </g>
+
+              <!-- R3C1: 4B Decision Mix -->
+              <g class="tc" style="animation-delay:.5s">
+                <rect x="12" y="234" width="172" height="94" rx="8" fill="white" filter="url(#ts)"/>
+                <text x="24" y="250" font-size="8" font-weight="600" fill="#1a1f26" opacity="0.5">4B DECISION MIX</text>
+                <rect x="24" y="264" width="148" height="14" rx="4" fill="#0064bf" fill-opacity="0.06"/>
+                <rect x="24" y="264" width="66.6" height="14" rx="4" fill="#0064bf" transform-origin="24px 271px" style="animation:tb .7s ease .6s both"/>
+                <rect x="90.6" y="264" width="41.4" height="14" rx="0" fill="#0064bf" fill-opacity="0.65" transform-origin="90.6px 271px" style="animation:tb .7s ease .7s both"/>
+                <rect x="132" y="264" width="26.6" height="14" rx="0" fill="#0064bf" fill-opacity="0.4" transform-origin="132px 271px" style="animation:tb .7s ease .8s both"/>
+                <rect x="158.6" y="264" width="13.3" height="14" rx="4" fill="#0064bf" fill-opacity="0.25" transform-origin="158.6px 271px" style="animation:tb .7s ease .9s both"/>
+                <text x="57" y="292" text-anchor="middle" font-size="7" fill="#0064bf" font-weight="600">Build 45%</text>
+                <text x="111" y="292" text-anchor="middle" font-size="7" fill="#0064bf" font-weight="600" opacity="0.7">Buy 28%</text>
+                <text x="145" y="306" text-anchor="middle" font-size="7" fill="#0064bf" font-weight="600" opacity="0.5">Borrow 18%</text>
+                <text x="165" y="318" text-anchor="middle" font-size="7" fill="#0064bf" font-weight="600" opacity="0.3">Bot 9%</text>
+              </g>
+              <!-- R3C2: Demand Forecast bars -->
+              <g class="tc" style="animation-delay:.6s">
+                <rect x="196" y="234" width="172" height="94" rx="8" fill="white" filter="url(#ts)"/>
+                <text x="208" y="250" font-size="8" font-weight="600" fill="#1a1f26" opacity="0.5">DEMAND FORECAST</text>
+                <text x="356" y="250" text-anchor="end" font-size="8" fill="#0064bf" font-weight="600">320 hires</text>
+                <rect x="216" y="296" width="24" height="28" rx="3" fill="#0064bf" fill-opacity="0.7" transform-origin="228px 324px" style="animation:tby .5s ease .7s both"/>
+                <rect x="248" y="282" width="24" height="42" rx="3" fill="#0064bf" fill-opacity="0.8" transform-origin="260px 324px" style="animation:tby .5s ease .8s both"/>
+                <rect x="280" y="270" width="24" height="54" rx="3" fill="#0064bf" fill-opacity="0.9" transform-origin="292px 324px" style="animation:tby .5s ease .9s both"/>
+                <rect x="312" y="290" width="24" height="34" rx="3" fill="#0064bf" fill-opacity="0.6" transform-origin="324px 324px" style="animation:tby .5s ease 1s both"/>
+                <text x="228" y="318" text-anchor="middle" font-size="6.5" fill="#1a1f26" opacity="0.4">Q1</text>
+                <text x="260" y="318" text-anchor="middle" font-size="6.5" fill="#1a1f26" opacity="0.4">Q2</text>
+                <text x="292" y="318" text-anchor="middle" font-size="6.5" fill="#1a1f26" opacity="0.4">Q3</text>
+                <text x="324" y="318" text-anchor="middle" font-size="6.5" fill="#1a1f26" opacity="0.4">Q4</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- BUSINESS LEADERS -->
+        <div class="persona-panel" id="panel-business">
+          <div class="persona-text">
+            <h3>optimize for business outcomes<br>with the right intelligence</h3>
+            <p>Business leaders receive performance-linked workforce optimization — ensuring the right talent, with the right skills, drives the right business outcomes.</p>
+            <ul class="persona-capabilities">
+              <li>
+                <span class="persona-check" style="background:rgba(44,153,66,0.1);color:var(--sea-green);"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Strategy execution agent linking KPIs to workforce readiness
+              </li>
+              <li>
+                <span class="persona-check" style="background:rgba(44,153,66,0.1);color:var(--sea-green);"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Performance impact modelling with demand-supply-gap analysis
+              </li>
+              <li>
+                <span class="persona-check" style="background:rgba(44,153,66,0.1);color:var(--sea-green);"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Change readiness and execution intelligence
+              </li>
+              <li>
+                <span class="persona-check" style="background:rgba(44,153,66,0.1);color:var(--sea-green);"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                4B simulation for Build, Buy, Borrow, Bot decisions
+              </li>
+            </ul>
+          </div>
+          <div class="persona-visual pv-business">
+            <svg class="pv-diagram" viewBox="0 0 380 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <style>
+                @keyframes bf{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+                @keyframes bg2{from{stroke-dashoffset:var(--from)}to{stroke-dashoffset:var(--to)}}
+                @keyframes bb{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+                @keyframes bp{0%,100%{opacity:1}50%{opacity:.6}}
+                .bc{animation:bf .5s ease both}
+              </style>
+              <defs><filter id="bs"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.05"/></filter></defs>
+              <rect width="380" height="340" rx="14" fill="white" stroke="#2c9942" stroke-width="0.5" stroke-opacity="0.15"/>
+              <rect width="380" height="32" rx="14" fill="#2c9942" fill-opacity="0.04"/>
+              <rect y="14" width="380" height="18" fill="#2c9942" fill-opacity="0.04"/>
+              <circle cx="18" cy="16" r="3" fill="#2c9942" fill-opacity="0.2"/><circle cx="28" cy="16" r="3" fill="#2c9942" fill-opacity="0.12"/><circle cx="38" cy="16" r="3" fill="#2c9942" fill-opacity="0.08"/>
+              <text x="190" y="20" text-anchor="middle" font-size="9" font-weight="700" fill="#2c9942" opacity="0.7">Business Intelligence</text>
+
+              <!-- R1C1: Revenue Impact -->
+              <g class="bc" style="animation-delay:.1s">
+                <rect x="12" y="42" width="172" height="86" rx="8" fill="white" filter="url(#bs)"/>
+                <text x="24" y="58" font-size="8" font-weight="600" fill="#1a1f26" opacity="0.5">REVENUE IMPACT</text>
+                <text x="98" y="90" text-anchor="middle" font-size="26" font-weight="700" fill="#2c9942">$2.3M</text>
+                <text x="98" y="108" text-anchor="middle" font-size="8" fill="#1a1f26" opacity="0.4">YTD productivity gain</text>
+              </g>
+              <!-- R1C2: Strategy Execution gauge -->
+              <g class="bc" style="animation-delay:.2s">
+                <rect x="196" y="42" width="172" height="86" rx="8" fill="white" filter="url(#bs)"/>
+                <text x="282" y="58" text-anchor="middle" font-size="8" font-weight="600" fill="#1a1f26" opacity="0.5">STRATEGY EXECUTION</text>
+                <circle cx="282" cy="88" r="20" fill="none" stroke="#2c9942" stroke-opacity="0.1" stroke-width="4"/>
+                <circle cx="282" cy="88" r="20" fill="none" stroke="#2c9942" stroke-width="4" stroke-dasharray="125.6" stroke-linecap="round" transform="rotate(-90 282 88)" style="--from:125.6;--to:22.6;animation:bg2 .9s ease .4s both"/>
+                <text x="282" y="93" text-anchor="middle" font-size="13" font-weight="700" fill="#2c9942">82%</text>
+                <text x="282" y="118" text-anchor="middle" font-size="7" fill="#1a1f26" opacity="0.4">on track</text>
+              </g>
+
+              <!-- R2C1: Continuity Risk -->
+              <g class="bc" style="animation-delay:.3s">
+                <rect x="12" y="138" width="172" height="86" rx="8" fill="white" stroke="#e43d30" stroke-width="0.5" stroke-opacity="0.12" filter="url(#bs)"/>
+                <text x="24" y="154" font-size="8" font-weight="600" fill="#e43d30" opacity="0.6">CONTINUITY RISK</text>
+                <text x="98" y="190" text-anchor="middle" font-size="28" font-weight="700" fill="#e43d30" style="animation:bp 2s ease .5s infinite">3</text>
+                <text x="98" y="208" text-anchor="middle" font-size="8" fill="#1a1f26" opacity="0.4">critical roles under-covered</text>
+              </g>
+              <!-- R2C2: Turnover Cost Saved -->
+              <g class="bc" style="animation-delay:.4s">
+                <rect x="196" y="138" width="172" height="86" rx="8" fill="white" filter="url(#bs)"/>
+                <text x="208" y="154" font-size="8" font-weight="600" fill="#1a1f26" opacity="0.5">TURNOVER COST SAVED</text>
+                <text x="282" y="190" text-anchor="middle" font-size="26" font-weight="700" fill="#2c9942">$580K</text>
+                <text x="282" y="208" text-anchor="middle" font-size="8" fill="#1a1f26" opacity="0.4">prevented departures</text>
+              </g>
+
+              <!-- R3C1: Performance Uplift with sparkline -->
+              <g class="bc" style="animation-delay:.5s">
+                <rect x="12" y="234" width="172" height="94" rx="8" fill="white" filter="url(#bs)"/>
+                <text x="24" y="250" font-size="8" font-weight="600" fill="#1a1f26" opacity="0.5">PERFORMANCE UPLIFT</text>
+                <text x="60" y="290" text-anchor="middle" font-size="26" font-weight="700" fill="#2c9942">+14%</text>
+                <text x="60" y="310" text-anchor="middle" font-size="8" fill="#1a1f26" opacity="0.4">vs baseline</text>
+                <polyline points="110,304 120,298 130,294 140,288 150,280 160,272" stroke="#2c9942" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+                <circle cx="160" cy="272" r="2.5" fill="#2c9942" opacity="0.5"/>
+              </g>
+              <!-- R3C2: Time-to-Productivity -->
+              <g class="bc" style="animation-delay:.6s">
+                <rect x="196" y="234" width="172" height="94" rx="8" fill="white" filter="url(#bs)"/>
+                <text x="208" y="250" font-size="8" font-weight="600" fill="#1a1f26" opacity="0.5">TIME-TO-PRODUCTIVITY</text>
+                <text x="282" y="286" text-anchor="middle" font-size="20" font-weight="700" fill="#2c9942">8.2 wks</text>
+                <text x="282" y="302" text-anchor="middle" font-size="8" fill="#1a1f26" opacity="0.4">target: 10 weeks</text>
+                <rect x="224" y="312" width="116" height="4" rx="2" fill="#2c9942" fill-opacity="0.1"/>
+                <rect x="224" y="312" width="95" height="4" rx="2" fill="#2c9942" transform-origin="224px 314px" style="animation:bb .8s ease .7s both"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- ENTERPRISE ANALYTICS -->
+        <div class="persona-panel active" id="panel-analytics">
+          <div class="persona-text">
+            <h3>get predictive insights for things<br>that matter the most.</h3>
+            <p>The DIA++ engine orchestrates signals across every module — performance, skills, engagement, wellness — delivering predictive analytics that surface what matters before it becomes urgent.</p>
+            <ul class="persona-capabilities">
+              <li>
+                <span class="persona-check" style="background:rgba(228,61,48,0.08);color:var(--cg-red);"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Cross-module signal orchestration across the entire platform
+              </li>
+              <li>
+                <span class="persona-check" style="background:rgba(228,61,48,0.08);color:var(--cg-red);"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Predictive analytics on retention, engagement, and skill health
+              </li>
+              <li>
+                <span class="persona-check" style="background:rgba(228,61,48,0.08);color:var(--cg-red);"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Natural language queries across workforce data
+              </li>
+              <li>
+                <span class="persona-check" style="background:rgba(228,61,48,0.08);color:var(--cg-red);"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                ISO 30414 compliant human capital reporting
+              </li>
+            </ul>
+          </div>
+          <div class="persona-visual pv-analytics">
+            <svg class="pv-diagram" viewBox="0 0 380 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <style>
+                @keyframes af{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+                @keyframes ag{from{stroke-dashoffset:var(--from)}to{stroke-dashoffset:var(--to)}}
+                @keyframes ab{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+                @keyframes al{from{stroke-dashoffset:60}to{stroke-dashoffset:0}}
+                .ac{animation:af .5s ease both}
+              </style>
+              <defs><filter id="as"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.05"/></filter></defs>
+              <rect width="380" height="340" rx="14" fill="white" stroke="#e43d30" stroke-width="0.5" stroke-opacity="0.15"/>
+              <rect width="380" height="32" rx="14" fill="#e43d30" fill-opacity="0.06"/>
+              <rect y="14" width="380" height="18" fill="#e43d30" fill-opacity="0.06"/>
+              <circle cx="18" cy="16" r="3" fill="#e43d30" fill-opacity="0.25"/><circle cx="28" cy="16" r="3" fill="#e43d30" fill-opacity="0.15"/><circle cx="38" cy="16" r="3" fill="#e43d30" fill-opacity="0.1"/>
+              <text x="190" y="20" text-anchor="middle" font-size="9" font-weight="700" fill="#e43d30" opacity="0.7">DIA++ Analytics</text>
+
+              <!-- R1C1: Workforce Readiness gauge -->
+              <g class="ac" style="animation-delay:.1s">
+                <rect x="12" y="42" width="172" height="86" rx="8" fill="white" filter="url(#as)"/>
+                <text x="24" y="58" font-size="8" font-weight="600" fill="#1a1f26" opacity="0.5">WORKFORCE READINESS</text>
+                <circle cx="98" cy="88" r="20" fill="none" stroke="#e43d30" stroke-opacity="0.1" stroke-width="4"/>
+                <circle cx="98" cy="88" r="20" fill="none" stroke="#e43d30" stroke-width="4" stroke-dasharray="125.6" stroke-linecap="round" transform="rotate(-90 98 88)" style="--from:125.6;--to:27.6;animation:ag .9s ease .4s both"/>
+                <text x="98" y="93" text-anchor="middle" font-size="13" font-weight="700" fill="#e43d30">78%</text>
+                <text x="98" y="118" text-anchor="middle" font-size="7" fill="#1a1f26" opacity="0.4">readiness index</text>
+              </g>
+              <!-- R1C2: Attrition Risk -->
+              <g class="ac" style="animation-delay:.2s">
+                <rect x="196" y="42" width="172" height="86" rx="8" fill="white" filter="url(#as)"/>
+                <text x="208" y="58" font-size="8" font-weight="600" fill="#1a1f26" opacity="0.5">ATTRITION RISK (90D)</text>
+                <circle cx="282" cy="78" r="4" fill="#e43d30" fill-opacity="0.15"/>
+                <circle cx="282" cy="78" r="2.5" fill="#e43d30"/>
+                <text x="282" y="100" text-anchor="middle" font-size="22" font-weight="700" fill="#1a1f26">12</text>
+                <text x="282" y="114" text-anchor="middle" font-size="7" fill="#1a1f26" opacity="0.4">employees flagged</text>
+              </g>
+
+              <!-- R2C1: Engagement Health with trend line -->
+              <g class="ac" style="animation-delay:.3s">
+                <rect x="12" y="138" width="172" height="86" rx="8" fill="white" filter="url(#as)"/>
+                <text x="24" y="154" font-size="8" font-weight="600" fill="#1a1f26" opacity="0.5">ENGAGEMENT HEALTH</text>
+                <text x="24" y="178" font-size="20" font-weight="700" fill="#e43d30">6.8</text>
+                <text x="68" y="178" font-size="8" fill="#1a1f26" opacity="0.4">/10</text>
+                <!-- Mini trend line (6 months up) -->
+                <line x1="24" y1="206" x2="160" y2="206" stroke="#e43d30" stroke-width="0.4" opacity="0.15"/>
+                <polyline points="30,204 52,202 74,203 96,199 118,197 140,193" fill="none" stroke="#e43d30" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="60" stroke-dashoffset="60" style="animation:al .8s ease .6s both"/>
+                <circle cx="140" cy="193" r="2.5" fill="#e43d30" opacity="0" style="animation:af .3s ease 1.2s both"/>
+              </g>
+              <!-- R2C2: Retention Accuracy -->
+              <g class="ac" style="animation-delay:.4s">
+                <rect x="196" y="138" width="172" height="86" rx="8" fill="white" filter="url(#as)"/>
+                <text x="208" y="154" font-size="8" font-weight="600" fill="#1a1f26" opacity="0.5">RETENTION ACCURACY</text>
+                <text x="282" y="192" text-anchor="middle" font-size="28" font-weight="700" fill="#e43d30">94%</text>
+                <text x="282" y="208" text-anchor="middle" font-size="8" fill="#1a1f26" opacity="0.4">model accuracy</text>
+              </g>
+
+              <!-- R3C1: High-Performer Risk with bars -->
+              <g class="ac" style="animation-delay:.5s">
+                <rect x="12" y="234" width="172" height="94" rx="8" fill="white" filter="url(#as)"/>
+                <text x="24" y="250" font-size="8" font-weight="600" fill="#1a1f26" opacity="0.5">HIGH-PERFORMER RISK</text>
+                <text x="24" y="278" font-size="18" font-weight="700" fill="#1a1f26">23</text>
+                <text x="24" y="292" font-size="7" fill="#1a1f26" opacity="0.4">flagged</text>
+                <!-- 5 horizontal bars by department -->
+                <rect x="70" y="258" width="100" height="4" rx="2" fill="#e43d30" fill-opacity="0.08"/>
+                <rect x="70" y="258" width="78" height="4" rx="2" fill="#e43d30" fill-opacity="0.6" transform-origin="70px 260px" style="animation:ab .6s ease .7s both"/>
+                <rect x="70" y="268" width="100" height="4" rx="2" fill="#e43d30" fill-opacity="0.08"/>
+                <rect x="70" y="268" width="60" height="4" rx="2" fill="#e43d30" fill-opacity="0.6" transform-origin="70px 270px" style="animation:ab .6s ease .78s both"/>
+                <rect x="70" y="278" width="100" height="4" rx="2" fill="#e43d30" fill-opacity="0.08"/>
+                <rect x="70" y="278" width="90" height="4" rx="2" fill="#e43d30" fill-opacity="0.6" transform-origin="70px 280px" style="animation:ab .6s ease .86s both"/>
+                <rect x="70" y="288" width="100" height="4" rx="2" fill="#e43d30" fill-opacity="0.08"/>
+                <rect x="70" y="288" width="72" height="4" rx="2" fill="#e43d30" fill-opacity="0.6" transform-origin="70px 290px" style="animation:ab .6s ease .94s both"/>
+                <rect x="70" y="298" width="100" height="4" rx="2" fill="#e43d30" fill-opacity="0.08"/>
+                <rect x="70" y="298" width="50" height="4" rx="2" fill="#e43d30" fill-opacity="0.6" transform-origin="70px 300px" style="animation:ab .6s ease 1.02s both"/>
+                <!-- Department labels -->
+                <text x="172" y="262" text-anchor="end" font-size="6" fill="#1a1f26" opacity="0.35">Sales</text>
+                <text x="172" y="272" text-anchor="end" font-size="6" fill="#1a1f26" opacity="0.35">Eng</text>
+                <text x="172" y="282" text-anchor="end" font-size="6" fill="#1a1f26" opacity="0.35">Ops</text>
+                <text x="172" y="292" text-anchor="end" font-size="6" fill="#1a1f26" opacity="0.35">Mkt</text>
+                <text x="172" y="302" text-anchor="end" font-size="6" fill="#1a1f26" opacity="0.35">Fin</text>
+              </g>
+              <!-- R3C2: Skill Obsolescence gauge -->
+              <g class="ac" style="animation-delay:.6s">
+                <rect x="196" y="234" width="172" height="94" rx="8" fill="white" filter="url(#as)"/>
+                <text x="208" y="250" font-size="8" font-weight="600" fill="#1a1f26" opacity="0.5">SKILL OBSOLESCENCE</text>
+                <circle cx="282" cy="286" r="20" fill="none" stroke="#e43d30" stroke-opacity="0.1" stroke-width="4"/>
+                <circle cx="282" cy="286" r="20" fill="none" stroke="#e43d30" stroke-width="4" stroke-dasharray="125.6" stroke-linecap="round" transform="rotate(-90 282 286)" style="--from:125.6;--to:102.9;animation:ag .9s ease .8s both"/>
+                <text x="282" y="291" text-anchor="middle" font-size="13" font-weight="700" fill="#e43d30">18%</text>
+                <text x="282" y="316" text-anchor="middle" font-size="7" fill="#1a1f26" opacity="0.4">at risk of obsolescence</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOLUTIONS ===== -->
+  <section class="solutions-section" id="solutions">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-eyebrow">solutions</div>
+        <h2 class="section-heading">agentic intelligence across<br>hire to retire</h2>
+        <p class="section-subheading" style="margin: 0 auto;">
+          Agentic Intelligence and AI Agents curated to deliver specific business outcomes.
+        </p>
+      </div>
+      <div class="solutions-grid">
+
+        <a href="solutions/performance-intelligence.html" class="solution-card">
+          <div class="solution-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cg-red)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <h3>maximize employee <span style="color:var(--spanish-blue)">performance</span></h3>
+          <ul>
+            <li>Real-time performance signals and revenue-linked scorecards for leaders</li>
+            <li>Auto-generated goal programs, reviews, and improvement plans</li>
+            <li>Daily coaching nudges and check-ins for every employee</li>
+          </ul>
+          <span class="solution-link">explore →</span>
+        </a>
+
+        <a href="solutions/skill-intelligence.html" class="solution-card">
+          <div class="solution-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cg-red)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></div>
+          <h3>unlock <span style="color:var(--spanish-blue)">skills</span>, accelerate growth</h3>
+          <ul>
+            <li>Skill heatmaps, succession risk, and HiPo identification for leaders</li>
+            <li>Auto-built competency frameworks, career paths, and IDPs</li>
+            <li>Personalized skill-gap analysis and learning nudges for employees</li>
+          </ul>
+          <span class="solution-link">explore →</span>
+        </a>
+
+        <a href="solutions/engagement-intelligence.html" class="solution-card">
+          <div class="solution-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cg-red)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></div>
+          <h3>build <span style="color:var(--spanish-blue)">engagement</span> that lasts</h3>
+          <ul>
+            <li>Engagement health and manager quality signals for leaders</li>
+            <li>Auto-designed pulse surveys, action plans, and recognition programs</li>
+            <li>Continuous feedback, peer recognition, and mentorship for employees</li>
+          </ul>
+          <span class="solution-link">explore →</span>
+        </a>
+
+        <a href="solutions/workforce-insights.html" class="solution-card">
+          <div class="solution-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cg-red)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <h3>turn <span style="color:var(--spanish-blue)">intelligence</span> into decisions</h3>
+          <ul>
+            <li>Ask any workforce question in plain language — get recommendations, not charts</li>
+            <li>Auto-generated reports, ISO 30414 disclosures, and board-ready summaries</li>
+            <li>Role-specific intelligence for every stakeholder, C-suite to frontline</li>
+          </ul>
+          <span class="solution-link">explore →</span>
+        </a>
+
+        <a href="solutions/wellness-intelligence.html" class="solution-card">
+          <div class="solution-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cg-red)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>
+          <h3>protect <span style="color:var(--spanish-blue)">wellness</span>, prevent burnout</h3>
+          <ul>
+            <li>Burnout risk and sentiment signals surfaced before they escalate</li>
+            <li>Auto-built wellness programs and anonymized sentiment surveys</li>
+            <li>Personalized wellness nudges and guided support for employees</li>
+          </ul>
+          <span class="solution-link">explore →</span>
+        </a>
+
+        <a href="solutions/strategic-planning.html" class="solution-card">
+          <div class="solution-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cg-red)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0Z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></div>
+          <h3>align your <span style="color:var(--spanish-blue)">workforce</span> to strategy</h3>
+          <ul>
+            <li>Demand-supply gaps, role evolution, and 4B decisions for leaders</li>
+            <li>Scenario simulation, skill-gap mapping, and change readiness tracking</li>
+            <li>Workforce capacity aligned to strategy — with intelligence, not spreadsheets</li>
+          </ul>
+          <span class="solution-link">explore →</span>
+        </a>
+
+        <a href="solutions/hire-to-retire.html" class="solution-card">
+          <div class="solution-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cg-red)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg></div>
+          <h3>simplify <span style="color:var(--spanish-blue)">hire to retire</span></h3>
+          <ul>
+            <li>End-to-end visibility across recruitment, payroll, attendance, and exit</li>
+            <li>Automated onboarding, leave approvals, payslips, and compliance</li>
+            <li>Employee self-service for attendance, leave, and documents — one experience</li>
+          </ul>
+          <span class="solution-link">explore →</span>
+        </a>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROOF / CASE STUDIES ===== -->
+  <section class="proof-section" id="customers">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-eyebrow">proven results</div>
+        <h2 class="section-heading">validated outcomes, at scale</h2>
+      </div>
+      <div class="proof-cards">
+        <div class="proof-card proof-card-1">
+          <img class="proof-bg-img" src="Images/Forrester/forrester_govt.png" alt="">
+          <div class="proof-content">
+            <div class="proof-source">Forrester Total Economic Impact™ Study</div>
+            <p class="proof-headline">large government entity reaps benefits of over $26.8 million and roi of 103% in a 3-year period.</p>
+          </div>
+          <a class="proof-download" href="#">↓ download report</a>
+        </div>
+        <div class="proof-card proof-card-2">
+          <img class="proof-bg-img" src="Images/Forrester/forrester_insurer.png" alt="">
+          <div class="proof-content">
+            <div class="proof-source">Forrester Total Economic Impact™ Study</div>
+            <p class="proof-headline">fortune 500 insurer sees up to 32.8% increase in annual insurance premiums in a 3-year period.</p>
+          </div>
+          <a class="proof-download" href="#">↓ download report</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AWARDS ===== -->
+  <section class="awards-section">
+    <div class="container">
+      <h2 class="awards-headline">outcomes we deliver are<br>recognized in the industry</h2>
+      <div class="awards-carousel" id="awardsCarousel">
+        <div class="awards-viewport">
+          <div class="awards-track" id="awardsTrack">
+            <!-- Slides populated dynamically from Images/awards/ -->
+          </div>
+        </div>
+        <button class="awards-nav awards-nav--prev" id="awardsPrev">&#8249;</button>
+        <button class="awards-nav awards-nav--next" id="awardsNext">&#8250;</button>
+        <div class="awards-dots" id="awardsDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ENTERPRISE READY ===== -->
+  <section class="enterprise-section">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-eyebrow">enterprise ready</div>
+        <h2 class="section-heading" style="color: var(--white);">built for the world's<br>most demanding enterprises</h2>
+        <p class="section-subheading" style="margin: 0 auto; color: rgba(255,255,255,0.55);">
+          Architected for security, scale, and seamless integration with your existing technology stack.
+        </p>
+      </div>
+      <div class="enterprise-grid">
+        <div class="enterprise-item">
+          <div class="enterprise-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></div>
+          <h4>security &amp; compliance</h4>
+          <p>ISO 27001, SOC 2 certified. SSO/SAML authentication. Complete audit trails and role-based access control.</p>
+        </div>
+        <div class="enterprise-item">
+          <div class="enterprise-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 1 1 0 10h-2"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+          <h4>seamless integrations</h4>
+          <p>Connects with Workday, SAP SuccessFactors, Oracle HCM, BambooHR — syncing data in real time, not in batches.</p>
+        </div>
+        <div class="enterprise-item">
+          <div class="enterprise-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
+          <h4>global scale</h4>
+          <p>Multilingual support across Southeast Asia, India, Middle East, and beyond. Regional data residency and local compliance.</p>
+        </div>
+        <div class="enterprise-item">
+          <div class="enterprise-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg></div>
+          <h4>in-workflow delivery</h4>
+          <p>Intelligence delivered inside the tools employees already use — Teams, Slack, mobile, and embedded within existing enterprise apps.</p>
+        </div>
+        <div class="enterprise-item">
+          <div class="enterprise-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg></div>
+          <h4>API-first architecture</h4>
+          <p>Extensible platform with open APIs, configurable workflows, and a low-code engine for custom approval and process flows.</p>
+        </div>
+        <div class="enterprise-item">
+          <div class="enterprise-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <h4>live market intelligence</h4>
+          <p>Continuously updated with real-world market data on roles, skills, and demand — keeping your workforce architecture current.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section class="final-cta">
+    <div class="container">
+      <h2>ready for agentic intelligence<br>in your <mark>flow-of-work</mark>?</h2>
+      <div class="final-cta-buttons">
+        <button class="btn-primary">request a demo →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <img src="Images/entomo.svg" alt="entomo" style="height:32px; width:auto;">
+          </div>
+          <p>Agentic workforce intelligence platform powering 30M+ users across global enterprise brands.</p>
+        </div>
+        <div class="footer-col">
+          <h4>platform</h4>
+          <ul>
+            <li><a href="#">AI agents</a></li>
+            <li><a href="#">intelligence architecture</a></li>
+            <li><a href="#">integrations</a></li>
+            <li><a href="#">security</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>solutions</h4>
+          <ul>
+            <li><a href="#">performance intelligence</a></li>
+            <li><a href="#">skill &amp; talent intelligence</a></li>
+            <li><a href="#">engagement intelligence</a></li>
+            <li><a href="#">workforce insights</a></li>
+            <li><a href="#">wellness intelligence</a></li>
+            <li><a href="#">strategic planning</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>resources</h4>
+          <ul>
+            <li><a href="#">Forrester TEI study</a></li>
+            <li><a href="#">case studies</a></li>
+            <li><a href="#">blog</a></li>
+            <li><a href="#">webinars</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>company</h4>
+          <ul>
+            <li><a href="#">about us</a></li>
+            <li><a href="#">careers</a></li>
+            <li><a href="#">contact</a></li>
+            <li><a href="#">privacy policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 entomo. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== PERSONA TAB INTERACTION ===== -->
+  <script>
+    document.querySelectorAll('.persona-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.persona-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.persona-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+
+  <!-- ===== DIA++ CHAT DEMO LOOP ===== -->
+  <script>
+  (function() {
+    const question = "What's our AI readiness score?";
+    const inputEl  = document.getElementById('diaInput');
+    const sendBtn  = document.getElementById('diaSend');
+    const msgQ     = document.getElementById('diaQ');
+    const msgF     = document.getElementById('diaFoundation');
+    const msgA     = document.getElementById('diaAgents');
+    const msgO     = document.getElementById('diaOutcome');
+    const allMsgs  = [msgQ, msgF, msgA, msgO];
+
+    function reset() {
+      allMsgs.forEach(m => m.classList.remove('show'));
+      inputEl.innerHTML = '<span class="dia-cursor"></span>';
+      sendBtn.classList.remove('active');
+    }
+
+    function typeText(cb) {
+      let i = 0;
+      const speed = 22;  // fast typing
+      function tick() {
+        if (i < question.length) {
+          inputEl.innerHTML = question.slice(0, i + 1) + '<span class="dia-cursor"></span>';
+          i++;
+          setTimeout(tick, speed);
+        } else {
+          sendBtn.classList.add('active');
+          setTimeout(cb, 200);
+        }
+      }
+      tick();
+    }
+
+    function sendAndAnimate() {
+      // Clear input, show user question bubble
+      inputEl.innerHTML = '<span class="dia-cursor"></span>';
+      sendBtn.classList.remove('active');
+      msgQ.classList.add('show');
+
+      // Phase 1: data foundation (after 300ms, show for 1.5s)
+      setTimeout(() => { msgF.classList.add('show'); }, 300);
+      setTimeout(() => { msgF.classList.remove('show'); }, 1800);
+
+      // Phase 2: agents (at 1.9s, show for 1.5s)
+      setTimeout(() => { msgA.classList.add('show'); }, 1900);
+      setTimeout(() => { msgA.classList.remove('show'); }, 3400);
+
+      // Phase 3: outcome (at 3.5s, show for 2.5s)
+      setTimeout(() => { msgO.classList.add('show'); }, 3500);
+
+      // Reset everything at 6s, then restart loop
+      setTimeout(() => {
+        allMsgs.forEach(m => m.classList.remove('show'));
+      }, 6000);
+
+      setTimeout(() => {
+        reset();
+        runLoop();
+      }, 6500);
+    }
+
+    function runLoop() {
+      reset();
+      // Small pause before typing starts
+      setTimeout(() => {
+        typeText(sendAndAnimate);
+      }, 400);
+    }
+
+    // Start on load
+    runLoop();
+  })();
+  </script>
+
+  <!-- ===== WORKWISE CHAT DEMO LOOP ===== -->
+  <script>
+  (function() {
+    const question = "Create a goal sheet for my sales team";
+    const inputEl  = document.getElementById('wwInput');
+    const sendBtn  = document.getElementById('wwSend');
+    const panelGreet = document.getElementById('wwPanelGreet');
+    const panelChat  = document.getElementById('wwPanelChat');
+    const subAssem   = document.getElementById('wwSubAssemble');
+    const subAgents  = document.getElementById('wwSubAgents');
+    const subOutput  = document.getElementById('wwSubOutput');
+    const allSubs    = [subAssem, subAgents, subOutput];
+
+    function showPanel(p) {
+      [panelGreet, panelChat].forEach(el => el.classList.remove('active'));
+      p.classList.add('active');
+    }
+    function showSub(s) {
+      allSubs.forEach(el => el.classList.remove('active'));
+      if (s) s.classList.add('active');
+    }
+
+    function reset() {
+      showPanel(panelGreet);
+      showSub(null);
+      inputEl.innerHTML = '<span class="ww-cursor"></span>';
+      sendBtn.classList.remove('active');
+    }
+
+    function typeText(cb) {
+      let i = 0;
+      const speed = 18;
+      function tick() {
+        if (i < question.length) {
+          inputEl.innerHTML = question.slice(0, i + 1) + '<span class="ww-cursor"></span>';
+          i++;
+          setTimeout(tick, speed);
+        } else {
+          sendBtn.classList.add('active');
+          setTimeout(cb, 200);
+        }
+      }
+      tick();
+    }
+
+    function sendAndAnimate() {
+      // Clear input, switch to chat panel (shows user bubble)
+      inputEl.innerHTML = '<span class="ww-cursor"></span>';
+      sendBtn.classList.remove('active');
+      showPanel(panelChat);
+
+      // Sub A: assembling (at 0.3s, for 1.2s)
+      setTimeout(() => { showSub(subAssem); }, 300);
+
+      // Sub B: agent team (at 1.5s, for 2s)
+      setTimeout(() => { showSub(subAgents); }, 1500);
+
+      // Sub C: output (at 3.5s, for 2.5s)
+      setTimeout(() => { showSub(subOutput); }, 3500);
+
+      // Reset and loop (at 6s)
+      setTimeout(() => { reset(); }, 6000);
+      setTimeout(() => { runLoop(); }, 6400);
+    }
+
+    function runLoop() {
+      reset();
+      // Greeting visible, start typing after 0.5s
+      setTimeout(() => {
+        typeText(sendAndAnimate);
+      }, 500);
+    }
+
+    runLoop();
+  })();
+  </script>
+
+  <!-- ===== AWARDS CAROUSEL (dynamic) ===== -->
+  <script>
+  (function() {
+    // ── Add or remove filenames here — the carousel adapts automatically ──
+    const awardImages = [
+      'award 1.png',
+      'award 2.png',
+      'award 3.png',
+      'award 4.png',
+      'award 5.png'
+    ];
+
+    const track = document.getElementById('awardsTrack');
+    const dotsWrap = document.getElementById('awardsDots');
+    const prevBtn = document.getElementById('awardsPrev');
+    const nextBtn = document.getElementById('awardsNext');
+    if (!track || awardImages.length === 0) return;
+
+    // Build slides
+    awardImages.forEach(src => {
+      const slide = document.createElement('div');
+      slide.className = 'awards-slide';
+      const img = document.createElement('img');
+      img.src = 'Images/awards/' + src;
+      img.alt = src.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
+      img.loading = 'lazy';
+      slide.appendChild(img);
+      track.appendChild(slide);
+    });
+
+    // Build dots
+    awardImages.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'awards-dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+
+    let current = 0;
+    let autoTimer;
+    const total = awardImages.length;
+
+    // Hide arrows and dots if only one image
+    if (total <= 1) {
+      prevBtn.style.display = 'none';
+      nextBtn.style.display = 'none';
+      dotsWrap.style.display = 'none';
+    }
+
+    function goTo(index) {
+      current = ((index % total) + total) % total;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dotsWrap.querySelectorAll('.awards-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    prevBtn.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+    nextBtn.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+
+    // Auto-advance every 4 seconds
+    function startAuto() { autoTimer = setInterval(() => goTo(current + 1), 4000); }
+    function resetAuto() { clearInterval(autoTimer); startAuto(); }
+    startAuto();
+  })();
+  </script>
+
+  <!-- Testimonials carousel -->
+  <script>
+  (function() {
+    const track = document.getElementById('testimonialsTrack');
+    const slides = track.querySelectorAll('.testimonial-slide');
+    const total = slides.length;
+    const dotsWrap = document.getElementById('testDots');
+    const prevBtn = document.getElementById('testPrev');
+    const nextBtn = document.getElementById('testNext');
+    let current = 0, autoTimer;
+
+    // Build dots
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'testimonials-dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => { goTo(i); resetAuto(); });
+      dotsWrap.appendChild(dot);
+    }
+
+    function goTo(index) {
+      current = ((index % total) + total) % total;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dotsWrap.querySelectorAll('.testimonials-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    prevBtn.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+    nextBtn.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+
+    function startAuto() { autoTimer = setInterval(() => goTo(current + 1), 5000); }
+    function resetAuto() { clearInterval(autoTimer); startAuto(); }
+    startAuto();
+  })();
+  </script>
+
+  <script>lucide.createIcons();</script>
+
+</body>
+</html>

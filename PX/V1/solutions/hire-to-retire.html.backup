@@ -1,0 +1,1961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hire to Retire — entomo</title>
+  <meta name="description" content="Simplify the entire employee journey. Agentic intelligence that unifies recruitment, onboarding, payroll, attendance, and exit — one seamless experience for HR and employees.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Nunito Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #1a1f26;
+      background-color: #ffffff;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --cg-red: #e43d30;
+      --cg-gold: #f4b223;
+      --spanish-blue: #0064bf;
+      --sea-green: #2c9942;
+      --sunrise-yellow: #ffda00;
+      --white: #ffffff;
+      --black: #000000;
+      --ebony-clay: #1a1f26;
+      --black-haze: #fafbfb;
+      --silver-sand: #c0c2c3;
+      --floral-white: #fefbf4;
+      --lavender: #e6f0f9;
+      --pistachio: #eaf5ed;
+      --polar-white: #f2f7fc;
+      --gradient-cta: linear-gradient(90deg, #f4b223, #e43d30);
+      --radius-semi: 5px;
+      --radius-standard: 10px;
+      --radius-medium: 15px;
+      --radius-large: 25px;
+      --shadow-sm: 0px 5px 10px rgba(0,0,0,0.10);
+      --shadow-md: 0px 15px 25px rgba(0,0,0,0.10);
+      --max-width: 1280px;
+    }
+
+    /* ===== UTILITY ===== */
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+    .text-center { text-align: center; }
+    .keep-case { text-transform: none !important; }
+    mark {
+      background-color: transparent;
+      background-image: linear-gradient(transparent 10%, var(--sunrise-yellow) 10%, var(--sunrise-yellow) 88%, transparent 88%);
+      color: var(--black); border-radius: 4px; padding: 0 10px; font-weight: 700;
+      -webkit-box-decoration-break: clone; box-decoration-break: clone;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn-primary {
+      background-image: var(--gradient-cta); color: var(--white); border: none;
+      border-radius: var(--radius-semi); padding: 12px 36px; font-family: inherit;
+      font-size: 17px; font-weight: 600; text-transform: lowercase; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
+
+    /* ===== SECTION SPACING ===== */
+    section { padding: 4.5rem 0; }
+    @media (max-width: 768px) { section { padding: 3rem 0; } }
+
+    .section-eyebrow {
+      font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: lowercase; color: var(--cg-red); margin-bottom: 0.75rem;
+    }
+    .section-heading {
+      font-size: 36px; font-weight: 700; line-height: 1.2;
+      text-transform: lowercase; color: var(--ebony-clay); margin-bottom: 1rem;
+    }
+    .section-subheading {
+      font-size: 17px; color: rgba(26,31,38,0.6); max-width: 680px; line-height: 1.65;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .navbar {
+      position: sticky; top: 0; z-index: 100; background: var(--white);
+      border-bottom: 1px solid rgba(26,31,38,0.08); backdrop-filter: blur(12px);
+    }
+    .navbar .container {
+      display: flex; align-items: center; justify-content: space-between; height: 68px;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 700; text-transform: lowercase; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 15px; font-weight: 500; text-transform: lowercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--cg-red); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-cta {
+      background-image: var(--gradient-cta); color: var(--white); border: none;
+      border-radius: var(--radius-semi); padding: 8px 20px; font-family: inherit;
+      font-size: 14px; font-weight: 600; text-transform: lowercase; cursor: pointer;
+    }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-toggle svg { width: 24px; height: 24px; }
+    /* ===== SOLUTIONS MEGA DROPDOWN ===== */
+    .nav-dropdown-wrap {
+      position: relative;
+    }
+    .nav-dropdown-wrap > a {
+      display: flex; align-items: center; gap: 4px;
+    }
+    .nav-dropdown-wrap > a::after {
+      content: '';
+      border: solid currentColor; border-width: 0 1.5px 1.5px 0;
+      display: inline-block; padding: 2.5px;
+      transform: rotate(45deg); margin-top: -3px;
+      transition: transform 0.2s;
+    }
+    .nav-dropdown-wrap:hover > a::after {
+      transform: rotate(-135deg); margin-top: 2px;
+    }
+    .nav-mega {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.08);
+      border-radius: var(--radius-medium);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12), 0 0 0 1px rgba(26,31,38,0.04);
+      padding: 1.25rem;
+      width: 680px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+      transform: translateX(-50%) translateY(14px);
+      z-index: 200;
+    }
+    .nav-dropdown-wrap:hover .nav-mega {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(8px);
+    }
+    .nav-mega-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+    }
+    .nav-mega-item {
+      display: flex;
+      flex-direction: column;
+      padding: 14px 16px;
+      border-radius: var(--radius-standard);
+      transition: background 0.15s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .nav-mega-item:hover {
+      background: rgba(228,61,48,0.04);
+    }
+    .nav-mega-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      margin-bottom: 3px;
+      line-height: 1.3;
+    }
+    .nav-mega-desc {
+      font-size: 12px;
+      color: rgba(26,31,38,0.45);
+      line-height: 1.4;
+      font-weight: 500;
+    }
+    .nav-mega-item:hover .nav-mega-name {
+      color: var(--cg-red);
+    }
+    @media (max-width: 900px) {
+      .nav-mega { display: none; }
+    }
+
+    @media (max-width: 900px) { .nav-links { display: none; } .nav-toggle { display: block; } }
+
+    /* ===== HERO ===== */
+    .sol-hero {
+      background: linear-gradient(135deg, rgba(228,61,48,0.04) 0%, rgba(244,178,35,0.06) 40%, rgba(254,251,244,0.6) 100%);
+      padding: 5rem 0 4.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .sol-hero::before {
+      content: '';
+      position: absolute; top: -30%; right: -5%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(228,61,48,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .sol-hero .container { position: relative; z-index: 1; }
+    .sol-hero-content { max-width: 860px; margin: 0 auto; text-align: center; }
+    .sol-breadcrumb {
+      font-size: 13px; color: rgba(26,31,38,0.5); margin-bottom: 1.5rem;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .sol-breadcrumb a { color: var(--cg-red); font-weight: 600; }
+    .sol-breadcrumb a:hover { text-decoration: underline; }
+    .sol-hero h1 {
+      font-size: clamp(36px, 5vw, 68px); font-weight: 700; line-height: 1.12;
+      text-transform: lowercase; color: var(--ebony-clay); margin-bottom: 1.25rem;
+    }
+    .sol-hero-sub {
+      font-size: 18px; line-height: 1.65; color: rgba(26,31,38,0.65);
+      max-width: 640px; margin: 0 auto 2rem;
+    }
+    .sol-hero-proof {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; color: rgba(26,31,38,0.5); margin-top: 1.25rem;
+    }
+    .sol-hero-proof svg { width: 14px; height: 14px; stroke: var(--cg-red); }
+
+    /* ===== DIA DEMO CSS ===== */
+    .dia-demo {
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(26,31,38,0.04);
+      overflow: hidden;
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      height: 480px;
+    }
+    .dia-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+      border-bottom: 1px solid rgba(26,31,38,0.06);
+      background: var(--polar-white);
+      flex-shrink: 0;
+    }
+    .dia-topbar-left { display: flex; align-items: center; gap: 10px; }
+    .dia-avatar {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--spanish-blue), #00a1e0);
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 11px; font-weight: 700;
+    }
+    .dia-topbar-title { font-size: 14px; font-weight: 700; color: var(--ebony-clay); }
+    .dia-topbar-sub { font-size: 11px; color: rgba(26,31,38,0.4); font-weight: 500; }
+    .dia-chat {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px 24px 16px;
+      overflow: hidden;
+    }
+    .dia-msg {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.35s, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                  max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                  margin 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      max-height: 0;
+      overflow: hidden;
+      margin-bottom: 0;
+    }
+    .dia-msg.show {
+      opacity: 1;
+      transform: translateY(0);
+      max-height: 350px;
+      margin-bottom: 12px;
+    }
+    .dia-user-q {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .dia-user-q span {
+      background: var(--spanish-blue);
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 16px;
+      border-radius: 16px 16px 4px 16px;
+      max-width: 80%;
+    }
+    .dia-phase {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .dia-phase-dot {
+      width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 2px;
+    }
+    .dia-phase-dot.foundation { background: rgba(26,31,38,0.08); }
+    .dia-phase-dot.agents { background: rgba(0,100,191,0.1); }
+    .dia-phase-dot svg { width: 12px; height: 12px; }
+    .dia-phase-body {}
+    .dia-phase-label {
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.8px; color: rgba(26,31,38,0.35); margin-bottom: 5px;
+    }
+    .dia-phase-pills { display: flex; flex-wrap: wrap; gap: 5px; }
+    .dia-phase-pill {
+      font-size: 11px; font-weight: 600; padding: 3px 10px;
+      border-radius: 6px; white-space: nowrap;
+    }
+    .dia-phase-pill.dark {
+      background: rgba(26,31,38,0.06); color: rgba(26,31,38,0.45);
+    }
+    .dia-phase-pill.blue {
+      background: rgba(0,100,191,0.07); color: rgba(0,100,191,0.6);
+    }
+    .dia-dots {
+      display: flex; align-items: center; gap: 5px;
+      padding: 4px 0;
+    }
+    .dia-dots span {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--spanish-blue); opacity: 0.25;
+      animation: dia-pulse 1s infinite;
+    }
+    .dia-dots span:nth-child(2) { animation-delay: 0.15s; }
+    .dia-dots span:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes dia-pulse {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 0.9; transform: scale(1.35); }
+    }
+    .dia-greeting {
+      font-size: 13.5px; font-weight: 600; color: var(--ebony-clay);
+      margin-bottom: 10px;
+    }
+    .dia-outcome {
+      background: linear-gradient(135deg, #0064bf 0%, #00a1e0 100%);
+      border-radius: 16px;
+      padding: 24px 28px;
+      color: white;
+    }
+    .dia-outcome-label {
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 1px; opacity: 0.65; margin-bottom: 4px;
+    }
+    .dia-outcome-row {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .dia-outcome-score {
+      font-size: 56px; font-weight: 700; line-height: 1; letter-spacing: -2px;
+    }
+    .dia-outcome-badge {
+      display: flex; align-items: center; gap: 5px;
+      background: rgba(255,255,255,0.18); padding: 5px 11px;
+      border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 6px;
+    }
+    .dia-outcome-divider {
+      height: 1px; background: rgba(255,255,255,0.18); margin: 12px 0;
+    }
+    .dia-outcome-detail {
+      font-size: 13px; line-height: 1.55; opacity: 0.85;
+    }
+    .dia-bottom {
+      border-top: 1px solid rgba(26,31,38,0.06);
+      padding: 12px 24px 16px;
+      flex-shrink: 0;
+    }
+    .dia-prompt-chips {
+      display: flex; gap: 6px; margin-bottom: 10px; overflow-x: auto;
+    }
+    .dia-prompt-chip {
+      white-space: nowrap; font-size: 11px; font-weight: 500;
+      background: rgba(26,31,38,0.06); color: rgba(26,31,38,0.6);
+      padding: 4px 10px; border-radius: 4px; cursor: pointer; transition: all 0.2s;
+    }
+    .dia-prompt-chip:hover { background: rgba(26,31,38,0.1); }
+    .dia-input-row {
+      display: flex; align-items: center; gap: 8px;
+      padding: 0;
+    }
+    .dia-cursor {
+      width: 8px; height: 14px; background: var(--spanish-blue);
+      border-radius: 2px; animation: dia-blink 1s infinite;
+    }
+    @keyframes dia-blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .dia-send-btn {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--spanish-blue); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 14px; flex-shrink: 0;
+    }
+
+    /* ===== WORKWISE DEMO CSS ===== */
+    .ww-demo {
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(26,31,38,0.04);
+      overflow: hidden;
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      height: 480px;
+    }
+    .ww-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+      border-bottom: 1px solid rgba(26,31,38,0.06);
+      background: var(--polar-white);
+      flex-shrink: 0;
+    }
+    .ww-topbar-left { display: flex; align-items: center; gap: 12px; }
+    .ww-avatar {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: #f0f1f2;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+    }
+    .ww-topbar-title { font-size: 14px; font-weight: 700; color: var(--ebony-clay); }
+    .ww-topbar-sub { font-size: 11px; color: rgba(26,31,38,0.4); font-weight: 500; }
+    .ww-stage {
+      position: relative;
+      flex: 1;
+      overflow: hidden;
+    }
+    .ww-panel {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s, transform 0.4s;
+      pointer-events: none;
+    }
+    .ww-panel.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .ww-chat-panel {
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 16px 24px;
+    }
+    .ww-panel-greet {
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+    .ww-greet-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: #f0f1f2;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .ww-greet-hi {
+      font-size: 16px; font-weight: 700;
+      color: var(--ebony-clay); margin-bottom: 6px;
+    }
+    .ww-greet-desc {
+      font-size: 13px; color: rgba(26,31,38,0.6);
+      line-height: 1.5;
+    }
+    .ww-user-q {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 12px;
+      width: 100%;
+    }
+    .ww-user-q span {
+      background: #ffda00;
+      color: #000000;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 14px;
+      border-radius: 12px 12px 4px 12px;
+      max-width: 80%;
+    }
+    .ww-response-area {
+      position: relative;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .ww-sub {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s, transform 0.4s;
+      pointer-events: none;
+    }
+    .ww-sub.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .ww-sub.output {
+      align-items: stretch;
+      justify-content: flex-start;
+      text-align: left;
+      padding: 0 16px;
+    }
+    .ww-thinking {
+      font-size: 13px; font-weight: 600;
+      color: rgba(26,31,38,0.7);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .ww-dots {
+      display: flex; align-items: center; gap: 3px;
+    }
+    .ww-dots span {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: rgba(26,31,38,0.4);
+      animation: ww-pulse 1.2s infinite;
+    }
+    .ww-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .ww-dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes ww-pulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+    .ww-agent-stage {
+      display: flex; align-items: center; gap: 16px; justify-content: center;
+    }
+    .ww-agent-card {
+      background: white; border: 1px solid rgba(26,31,38,0.08);
+      border-radius: 12px; padding: 12px;
+      display: flex; flex-direction: column; align-items: center;
+      width: 120px; font-size: 11px;
+    }
+    .ww-agent-img {
+      width: 40px; height: 40px; border-radius: 8px;
+      background: rgba(26,31,38,0.06);
+      margin-bottom: 6px;
+    }
+    .ww-agent-name {
+      font-weight: 700; color: var(--ebony-clay);
+      text-align: center; margin-bottom: 2px;
+    }
+    .ww-agent-role {
+      font-size: 9px; color: rgba(26,31,38,0.5);
+      text-align: center;
+    }
+    .ww-arrow { font-size: 16px; color: rgba(26,31,38,0.2); }
+    .ww-output-card {
+      background: white; border: 1px solid rgba(26,31,38,0.08);
+      border-radius: 14px; overflow: hidden; width: 100%;
+    }
+    .ww-output-header {
+      background: linear-gradient(135deg, #0064bf 0%, #00a1e0 100%);
+      color: white; padding: 12px 16px;
+      font-size: 13px; font-weight: 700;
+    }
+    .ww-output-body {
+      padding: 16px;
+    }
+    .ww-output-greeting {
+      font-size: 12px; font-weight: 600;
+      color: var(--ebony-clay); margin-bottom: 12px;
+    }
+    .ww-output-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .ww-output-field {
+      display: flex; flex-direction: column;
+    }
+    .ww-output-label {
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      color: rgba(26,31,38,0.4); letter-spacing: 0.5px;
+      margin-bottom: 3px;
+    }
+    .ww-output-value {
+      font-size: 13px; font-weight: 600; color: var(--ebony-clay);
+    }
+    /* WorkWise output form styling - pww prefix */
+    .pww-greeting {
+      font-size: 13.5px; font-weight: 600; color: var(--ebony-clay);
+      margin-bottom: 10px;
+    }
+    .pww-form-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      width: 100%;
+      max-width: 100%;
+      border: 1px solid rgba(0,100,191,0.12);
+    }
+    .pww-form-header {
+      background: linear-gradient(135deg, #0064bf 0%, #00a1e0 100%);
+      color: white;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pww-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      padding: 16px 20px;
+    }
+    .pww-form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .pww-form-label {
+      font-size: 10px; font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: rgba(0,100,191,0.5);
+    }
+    .pww-form-value {
+      font-size: 13px; font-weight: 600;
+      color: var(--ebony-clay);
+    }
+    .ww-bottom {
+      border-top: 1px solid rgba(26,31,38,0.06);
+      padding: 12px 24px 16px;
+      flex-shrink: 0;
+    }
+    .ww-prompt-chips {
+      display: flex; gap: 6px; margin-bottom: 10px; overflow-x: auto;
+    }
+    .ww-prompt-chip {
+      white-space: nowrap; font-size: 11px; font-weight: 500;
+      background: rgba(26,31,38,0.06); color: rgba(26,31,38,0.6);
+      padding: 4px 10px; border-radius: 4px; cursor: pointer; transition: all 0.2s;
+    }
+    .ww-prompt-chip:hover { background: rgba(26,31,38,0.1); }
+    .ww-input-row {
+      display: flex; align-items: center; gap: 8px;
+    }
+    .ww-cursor {
+      width: 8px; height: 14px; background: rgba(26,31,38,0.3);
+      border-radius: 2px; animation: ww-blink 1s infinite;
+    }
+    @keyframes ww-blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .ww-send-btn {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: rgba(26,31,38,0.1); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(26,31,38,0.5); font-size: 14px; flex-shrink: 0;
+    }
+
+    /* ===== COACH DEMO CSS ===== */
+    .coach-demo {
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(26,31,38,0.04);
+      overflow: hidden;
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      height: 480px;
+    }
+    .coach-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+      border-bottom: 1px solid rgba(26,31,38,0.06);
+      background: var(--polar-white);
+      flex-shrink: 0;
+    }
+    .coach-topbar-left { display: flex; align-items: center; gap: 10px; }
+    .coach-avatar {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: var(--spanish-blue);
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 11px; font-weight: 700;
+    }
+    .coach-topbar-title { font-size: 14px; font-weight: 700; color: var(--ebony-clay); }
+    .coach-topbar-sub { font-size: 11px; color: rgba(26,31,38,0.4); font-weight: 500; }
+    .coach-stage {
+      position: relative;
+      flex: 1;
+      overflow: hidden;
+    }
+    .coach-panel {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s, transform 0.4s;
+      pointer-events: none;
+    }
+    .coach-panel.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .coach-chat-panel {
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 16px 24px;
+    }
+    .coach-panel-greet {
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+    .coach-greet-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--spanish-blue);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      color: white;
+      margin-bottom: 10px;
+    }
+    .coach-greet-hi {
+      font-size: 16px; font-weight: 700;
+      color: var(--ebony-clay); margin-bottom: 6px;
+    }
+    .coach-greet-desc {
+      font-size: 13px; color: rgba(26,31,38,0.6);
+      line-height: 1.5;
+    }
+    .coach-user-q {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 12px;
+      width: 100%;
+    }
+    .coach-user-q span {
+      background: var(--spanish-blue);
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 14px;
+      border-radius: 12px 12px 4px 12px;
+      max-width: 80%;
+    }
+    .coach-response-area {
+      position: relative;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      overflow-y: auto;
+    }
+    .coach-sub {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s, transform 0.4s;
+      pointer-events: none;
+      padding: 12px 16px;
+    }
+    .coach-sub.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .coach-sub.response {
+      align-items: flex-start;
+      justify-content: flex-start;
+      text-align: left;
+      padding: 0;
+    }
+    .coach-thinking {
+      font-size: 13px; font-weight: 600;
+      color: rgba(26,31,38,0.7);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .coach-dots {
+      display: flex; align-items: center; gap: 3px;
+    }
+    .coach-dots span {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: var(--spanish-blue);
+      animation: coach-pulse 1.2s infinite;
+    }
+    .coach-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .coach-dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes coach-pulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+    .coach-response-box {
+      background: rgba(0,100,191,0.05);
+      border-radius: 14px;
+      padding: 16px;
+      width: 100%;
+    }
+    .coach-greeting {
+      font-size: 12px; font-weight: 600;
+      color: var(--ebony-clay); margin-bottom: 10px;
+    }
+    .coach-bullets {
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .coach-bullet {
+      font-size: 12.5px; line-height: 1.55;
+      color: rgba(26,31,38,0.8);
+      display: flex; gap: 8px;
+    }
+    .coach-bullet::before {
+      content: '';
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--spanish-blue);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+    .coach-bullet strong {
+      color: var(--ebony-clay); font-weight: 700;
+    }
+    .coach-actions {
+      display: flex; gap: 8px; margin-top: 10px;
+    }
+    .coach-action-btn {
+      font-size: 11px; font-weight: 600; padding: 6px 12px;
+      border-radius: 5px; border: none; cursor: pointer;
+      text-transform: lowercase; transition: all 0.2s;
+    }
+    .coach-action-primary {
+      background: var(--spanish-blue); color: white;
+    }
+    .coach-action-primary:hover { opacity: 0.9; }
+    .coach-action-outline {
+      background: transparent; color: var(--spanish-blue);
+      border: 1px solid var(--spanish-blue);
+    }
+    .coach-action-outline:hover { background: rgba(0,100,191,0.05); }
+    .coach-bottom {
+      border-top: 1px solid rgba(26,31,38,0.06);
+      padding: 12px 24px 16px;
+      flex-shrink: 0;
+    }
+    .coach-prompt-chips {
+      display: flex; gap: 6px; margin-bottom: 10px; overflow-x: auto;
+    }
+    .coach-prompt-chip {
+      white-space: nowrap; font-size: 11px; font-weight: 500;
+      background: rgba(26,31,38,0.06); color: rgba(26,31,38,0.6);
+      padding: 4px 10px; border-radius: 4px; cursor: pointer; transition: all 0.2s;
+    }
+    .coach-prompt-chip:hover { background: rgba(26,31,38,0.1); }
+    .coach-input-row {
+      display: flex; align-items: center; gap: 8px;
+    }
+    .coach-cursor {
+      width: 8px; height: 14px; background: var(--spanish-blue);
+      border-radius: 2px; animation: coach-blink 1s infinite;
+    }
+    @keyframes coach-blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .coach-send-btn {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--spanish-blue); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 14px; flex-shrink: 0;
+    }
+
+    /* ===== PERSONA SECTIONS ===== */
+    .persona-sec {
+      background: white;
+    }
+    .persona-sec.sec-employees {
+      background: var(--polar-white);
+    }
+    .persona-sec .container { max-width: 1240px; }
+    .persona-sec-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    @media (max-width: 900px) {
+      .persona-sec-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+    .persona-sec-text {}
+    .persona-sec-demo {}
+    .persona-sec-text .section-eyebrow {
+      color: var(--cg-red);
+      margin-bottom: 0.75rem;
+    }
+    .persona-sec-text h2 {
+      font-size: 32px; font-weight: 700; line-height: 1.25;
+      text-transform: lowercase; color: var(--ebony-clay);
+      margin-bottom: 1rem;
+    }
+    .persona-sec-text h2 span {
+      color: var(--cg-red);
+    }
+    .persona-sec-text p {
+      font-size: 16px; line-height: 1.65; color: rgba(26,31,38,0.6);
+    }
+
+    .sec-coworker .persona-sec-inner {
+      direction: rtl;
+    }
+    .sec-coworker .persona-sec-inner > * {
+      direction: ltr;
+    }
+    .sec-coworker .persona-sec-text .section-eyebrow {
+      color: #b8860b;
+    }
+    .sec-coworker .persona-sec-text h2 span {
+      color: #b8860b;
+    }
+    .sec-leaders .dia-avatar { background: linear-gradient(135deg, #e43d30, #f4b223); }
+    .sec-leaders .dia-user-q span { background: #e43d30; }
+    .sec-leaders .dia-phase-dot.agents { background: rgba(228,61,48,0.1); }
+    .sec-leaders .dia-phase-pill.blue { background: rgba(228,61,48,0.07); color: rgba(228,61,48,0.6); }
+    .sec-leaders .dia-outcome { background: linear-gradient(135deg, #e43d30, #f4b223); }
+    .sec-leaders .dia-dots span { background: #e43d30; }
+    .sec-leaders .dia-send-btn { background: #e43d30; }
+    .sec-leaders .dia-cursor { background: #e43d30; }
+
+    /* ===== AGENT MARQUEE ===== */
+    .agent-marquee {
+      background: var(--floral-white);
+      padding: 4.5rem 0;
+    }
+    .agent-marquee .container { text-align: center; }
+    .agent-marquee-heading {
+      font-size: 36px; font-weight: 700; line-height: 1.2;
+      text-transform: lowercase; color: var(--ebony-clay); margin-bottom: 3rem;
+    }
+    .agent-marquee-heading mark { background-image: linear-gradient(transparent 10%, var(--sunrise-yellow) 10%, var(--sunrise-yellow) 88%, transparent 88%); }
+    .agent-scroll {
+      overflow: hidden;
+      position: relative;
+    }
+    .agent-scroll::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 40px; background: linear-gradient(to right, var(--floral-white), transparent);
+      z-index: 10;
+    }
+    .agent-scroll::after {
+      content: '';
+      position: absolute; right: 0; top: 0; bottom: 0;
+      width: 40px; background: linear-gradient(to left, var(--floral-white), transparent);
+      z-index: 10;
+    }
+    .agent-track {
+      display: flex; gap: 1.5rem; width: max-content;
+      animation: scroll-loop 22s linear infinite;
+      padding: 0 1.5rem;
+    }
+    .agent-track:hover {
+      animation-play-state: paused;
+    }
+    @keyframes scroll-loop {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-50% - 0.75rem)); }
+    }
+    .agent-card {
+      width: 300px; flex-shrink: 0;
+      background: white; border: 1px solid rgba(26,31,38,0.06);
+      border-radius: 15px; padding: 24px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .agent-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    }
+    .agent-img {
+      width: 60px; height: 60px; border-radius: 14px;
+      background: rgba(26,31,38,0.06);
+      margin: 0 auto 12px;
+    }
+    .agent-name {
+      font-size: 20px; font-weight: 700; color: var(--ebony-clay);
+      text-transform: lowercase;
+      margin-bottom: 4px;
+    }
+    .agent-role {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      color: rgba(26,31,38,0.4); letter-spacing: 0.8px;
+      margin-bottom: 10px;
+    }
+    .agent-desc {
+      font-size: 14px; line-height: 1.5; color: rgba(26,31,38,0.6);
+    }
+
+    /* ===== FEATURES GRID ===== */
+    .features-sec {
+      background: var(--floral-white);
+      padding: 4.5rem 0;
+    }
+    .features-sec .container { text-align: center; }
+    .features-sec .section-eyebrow { margin-bottom: 1rem; }
+    .features-heading {
+      font-size: 36px; font-weight: 700; line-height: 1.2;
+      text-transform: lowercase; color: var(--ebony-clay); margin-bottom: 3rem;
+    }
+    .features-heading mark { background-image: linear-gradient(transparent 10%, var(--sunrise-yellow) 10%, var(--sunrise-yellow) 88%, transparent 88%); }
+    .features-tabs {
+      display: flex; justify-content: center; gap: 12px;
+      margin-bottom: 3rem; flex-wrap: wrap;
+    }
+    .features-tab {
+      background: transparent;
+      border: 2px solid rgba(26,31,38,0.1);
+      color: rgba(26,31,38,0.6);
+      border-radius: 30px;
+      padding: 10px 24px;
+      font-size: 14px; font-weight: 600;
+      text-transform: lowercase;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .features-tab:hover {
+      border-color: var(--cg-red);
+      color: var(--cg-red);
+    }
+    .features-tab.active {
+      background: var(--cg-red);
+      color: white;
+      border-color: var(--cg-red);
+    }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    @media (max-width: 900px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .features-grid { grid-template-columns: 1fr; }
+    }
+    .feature-card {
+      background: white; border: 1px solid rgba(26,31,38,0.06);
+      border-radius: 25px; padding: 28px 24px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .feature-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .feature-icon {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: rgba(228,61,48,0.08);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+      color: var(--cg-red); font-size: 18px;
+    }
+    .feature-title {
+      font-size: 15px; font-weight: 700; color: var(--ebony-clay);
+      text-transform: lowercase; margin-bottom: 8px;
+    }
+    .feature-desc {
+      font-size: 13.5px; line-height: 1.55; color: rgba(26,31,38,0.6);
+    }
+
+    /* ===== BOTTOM CTA ===== */
+    .bottom-cta {
+      background: var(--ebony-clay);
+      position: relative;
+      overflow: hidden;
+      padding: 5rem 0;
+    }
+    .bottom-cta::before {
+      content: '';
+      position: absolute; bottom: -20%; left: 10%;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(228,61,48,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .bottom-cta .container { position: relative; z-index: 1; max-width: 800px; }
+    .bottom-cta-heading {
+      font-size: 48px; font-weight: 700; line-height: 1.15;
+      text-transform: lowercase; color: white; text-align: center;
+      margin-bottom: 2rem;
+    }
+    .bottom-cta-heading mark {
+      background-image: linear-gradient(transparent 10%, var(--sunrise-yellow) 10%, var(--sunrise-yellow) 88%, transparent 88%);
+      color: var(--black);
+    }
+    .bottom-cta-proof {
+      font-size: 13.5px; line-height: 1.65;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .bottom-cta-actions {
+      display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
+    }
+    .bottom-cta-btn {
+      background-image: var(--gradient-cta);
+      color: var(--white); border: none;
+      border-radius: var(--radius-semi);
+      padding: 14px 32px; font-family: inherit;
+      font-size: 16px; font-weight: 600; text-transform: lowercase;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .bottom-cta-btn:hover { opacity: 0.92; }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--white);
+      border-top: 1px solid rgba(26,31,38,0.06);
+      padding: 3rem 0;
+    }
+    .footer .container { max-width: 1240px; }
+    .footer-content {
+      display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    @media (max-width: 900px) {
+      .footer-content { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    }
+    @media (max-width: 600px) {
+      .footer-content { grid-template-columns: 1fr; gap: 1rem; }
+    }
+    .footer-section h4 {
+      font-size: 13px; font-weight: 700; text-transform: uppercase;
+      color: var(--ebony-clay); margin-bottom: 12px; letter-spacing: 0.8px;
+    }
+    .footer-section ul { list-style: none; }
+    .footer-section li { margin-bottom: 8px; }
+    .footer-section a {
+      font-size: 13px; color: rgba(26,31,38,0.6);
+      transition: color 0.2s;
+    }
+    .footer-section a:hover { color: var(--cg-red); }
+    .footer-bottom {
+      margin-top: 2rem; padding-top: 2rem;
+      border-top: 1px solid rgba(26,31,38,0.06);
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 12px; color: rgba(26,31,38,0.5);
+    }
+    @media (max-width: 600px) {
+      .footer-bottom { flex-direction: column; text-align: center; gap: 1rem; }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .sol-hero h1 { font-size: 36px; }
+      .sol-hero-sub { font-size: 16px; }
+      section { padding: 3rem 0; }
+      .section-heading { font-size: 28px; }
+      .features-heading { font-size: 28px; }
+      .bottom-cta-heading { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="logo">
+        <img src="../Images/entomo.svg" alt="entomo" style="height:36px; width:auto;">
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html#platform">platform</a></li>
+        <li class="nav-dropdown-wrap">
+            <a href="../index.html#solutions">solutions</a>
+            <div class="nav-mega">
+              <div class="nav-mega-grid">
+            <a href="performance-intelligence.html" class="nav-mega-item">
+              <div class="nav-mega-name">performance intelligence</div>
+              <div class="nav-mega-desc">real-time signals, coaching, and scorecards</div>
+            </a>
+            <a href="skill-intelligence.html" class="nav-mega-item">
+              <div class="nav-mega-name">skill &amp; talent intelligence</div>
+              <div class="nav-mega-desc">skill maps, career paths, and growth plans</div>
+            </a>
+            <a href="engagement-intelligence.html" class="nav-mega-item">
+              <div class="nav-mega-name">engagement intelligence</div>
+              <div class="nav-mega-desc">pulse surveys, recognition, and culture signals</div>
+            </a>
+            <a href="workforce-insights.html" class="nav-mega-item">
+              <div class="nav-mega-name">workforce insights</div>
+              <div class="nav-mega-desc">natural language analytics and board-ready reports</div>
+            </a>
+            <a href="wellness-intelligence.html" class="nav-mega-item">
+              <div class="nav-mega-name">wellness intelligence</div>
+              <div class="nav-mega-desc">burnout detection, sentiment, and intervention</div>
+            </a>
+            <a href="strategic-planning.html" class="nav-mega-item">
+              <div class="nav-mega-name">strategic planning</div>
+              <div class="nav-mega-desc">demand modeling, 4B engine, and succession</div>
+            </a>
+            <a href="hire-to-retire.html" class="nav-mega-item">
+              <div class="nav-mega-name">hire to retire</div>
+              <div class="nav-mega-desc">recruitment, onboarding, payroll, and exit</div>
+            </a>
+              </div>
+            </div>
+          </li>
+        <li><a href="../index.html#customers">customers</a></li>
+        <li><a href="../index.html#resources">resources</a></li>
+        <li><a href="../index.html#company">company</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="nav-cta">request a demo &rarr;</button>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="sol-hero">
+    <div class="container">
+      <div class="sol-hero-content">
+        <div class="sol-breadcrumb">
+          <a href="/">solutions</a>
+          <span>/</span>
+          <span>hire to retire</span>
+        </div>
+        <h1>simplify the entire <mark>employee</mark> journey</h1>
+        <p class="sol-hero-sub">hire to retire shouldn't feel like a dozen disconnected tools. unify recruitment, onboarding, payroll, attendance, and exit in one seamless experience.</p>
+        <button class="btn-primary">get started →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LEADERS SECTION (DIA DEMO) ===== -->
+  <section class="persona-sec sec-leaders">
+    <div class="container">
+      <div class="persona-sec-inner">
+        <div class="persona-sec-text">
+          <div class="section-eyebrow">agentic intelligence for leaders</div>
+          <h2>full visibility across the <span>employee lifecycle</span> — in one question</h2>
+          <p>ask <span class="keep-case">DIA</span> about your hire-to-retire pipeline and get instant visibility into bottlenecks, cost, and quality across the entire journey.</p>
+        </div>
+        <div class="persona-sec-demo">
+          <div class="dia-demo">
+            <div class="dia-topbar">
+              <div class="dia-topbar-left">
+                <div class="dia-avatar">D</div>
+                <div>
+                  <div class="dia-topbar-title">ask <span class="keep-case">DIA</span> — hire to retire</div>
+                  <div class="dia-topbar-sub">workspace</div>
+                </div>
+              </div>
+            </div>
+            <div class="dia-chat" id="pdiaChat">
+              <!-- Messages populated by JS -->
+            </div>
+            <div class="dia-bottom">
+              <div class="dia-prompt-chips">
+                <button class="dia-prompt-chip">show recruitment funnel by department</button>
+                <button class="dia-prompt-chip">payroll cost trending</button>
+                <button class="dia-prompt-chip">exit interview themes</button>
+              </div>
+              <div class="dia-input-row">
+                <div class="dia-cursor"></div>
+                <span id="pdiaInput"></span>
+                <button class="dia-send-btn">⏎</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HR COWORKER SECTION (WORKWISE DEMO) ===== -->
+  <section class="persona-sec sec-coworker">
+    <div class="container">
+      <div class="persona-sec-inner">
+        <div class="persona-sec-text">
+          <div class="section-eyebrow">hr's digital coworker</div>
+          <h2>get your <span class="keep-case">AI</span> coworker to automate your <span>hr operations</span></h2>
+          <p>your <span class="keep-case">AI</span> coworker automates onboarding, leave workflows, payroll, and compliance — eliminating manual hr operations entirely.</p>
+        </div>
+        <div class="persona-sec-demo">
+          <div class="ww-demo">
+            <div class="ww-topbar">
+              <div class="ww-topbar-left">
+                <div class="ww-avatar">👤</div>
+                <div>
+                  <div class="ww-topbar-title">workwise — your digital co-worker</div>
+                </div>
+              </div>
+            </div>
+            <div class="ww-stage" id="pwwStage">
+              <div class="ww-panel ww-panel-greet active" id="pwwPanelGreet">
+                <div class="ww-greet-avatar">👤</div>
+                <div class="ww-greet-hi">hi, i'm workwise</div>
+                <div class="ww-greet-desc">your <span class="keep-case">ai</span> coworker that automates onboarding, leave workflows, payroll, and compliance end to end</div>
+              </div>
+              <div class="ww-panel ww-chat-panel" id="pwwPanelChat">
+                <div class="ww-user-q" id="pwwUserQ"></div>
+                <div class="ww-response-area" id="pwwResponseArea">
+                  <div class="ww-sub active" id="pwwSubThink">
+                    <div class="ww-thinking">setting up your onboarding workflow <div class="ww-dots"><span></span><span></span><span></span></div></div>
+                  </div>
+                  <div class="ww-sub" id="pwwSubAssemble">
+                    <div class="ww-agent-stage">
+                      <div class="ww-agent-card">
+                        <div class="ww-agent-img" style="background-image: url('../Images/agents/flowgen.png'); background-size: cover;"></div>
+                        <div class="ww-agent-name">flowgen</div>
+                        <div class="ww-agent-role">workflow automation</div>
+                      </div>
+                      <div class="ww-arrow">→</div>
+                      <div class="ww-agent-card">
+                        <div class="ww-agent-img" style="background-image: url('../Images/agents/profilecraft.png'); background-size: cover;"></div>
+                        <div class="ww-agent-name">profilecraft</div>
+                        <div class="ww-agent-role">employee profiles</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ww-sub" id="pwwSubOutput">
+                    <div class="pww-greeting">Hi David, your onboarding workflow is live.</div>
+                    <div class="pww-form-card">
+                      <div class="pww-form-header">onboarding workflow — april 2026 cohort</div>
+                      <div class="pww-form-grid">
+                        <div class="pww-form-field">
+                          <div class="pww-form-label">batch</div>
+                          <div class="pww-form-value">april 14 cohort (15 new hires)</div>
+                        </div>
+                        <div class="pww-form-field">
+                          <div class="pww-form-label">departments</div>
+                          <div class="pww-form-value">engineering (8), sales (4), marketing (3)</div>
+                        </div>
+                        <div class="pww-form-field">
+                          <div class="pww-form-label">workflow steps</div>
+                          <div class="pww-form-value">24 automated steps across 4 weeks</div>
+                        </div>
+                        <div class="pww-form-field">
+                          <div class="pww-form-label">it provisioning</div>
+                          <div class="pww-form-value">auto-triggered for all 15 on apr 10</div>
+                        </div>
+                        <div class="pww-form-field">
+                          <div class="pww-form-label">compliance docs</div>
+                          <div class="pww-form-value">auto-generated and sent for e-signature</div>
+                        </div>
+                        <div class="pww-form-field">
+                          <div class="pww-form-label">buddy assignment</div>
+                          <div class="pww-form-value">auto-matched by department and role level</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ww-bottom">
+              <div class="ww-prompt-chips">
+                <button class="ww-prompt-chip">process payroll for march</button>
+                <button class="ww-prompt-chip">generate exit clearance workflow</button>
+                <button class="ww-prompt-chip">automate leave approval routing</button>
+              </div>
+              <div class="ww-input-row">
+                <div class="ww-cursor"></div>
+                <span id="pwwInput"></span>
+                <button class="ww-send-btn">⏎</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AGENT MARQUEE ===== -->
+  <section class="agent-marquee">
+    <div class="container">
+      <div class="section-eyebrow" style="color: var(--ebony-clay);">your <span class="keep-case">ai</span> workforce for hire to retire</div>
+      <h2 class="agent-marquee-heading">meet the operations <mark>agents</mark> that work for you</h2>
+      <div class="agent-scroll">
+        <div class="agent-track" id="agentTrack">
+          <div class="agent-card">
+            <div class="agent-img" style="background-image: url('../Images/agents/flowgen.png'); background-size: cover;"></div>
+            <div class="agent-name">flowgen</div>
+            <div class="agent-role">workflow automation</div>
+            <div class="agent-desc">orchestrates end-to-end hr processes from recruitment to exit with zero manual handoffs</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-img" style="background-image: url('../Images/agents/profilecraft.png'); background-size: cover;"></div>
+            <div class="agent-name">profilecraft</div>
+            <div class="agent-role">profile intelligence</div>
+            <div class="agent-desc">manages employee records, documents, and compliance data across the full lifecycle</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-img" style="background-image: url('../Images/agents/assescraft.png'); background-size: cover;"></div>
+            <div class="agent-name">assescraft</div>
+            <div class="agent-role">assessment intelligence</div>
+            <div class="agent-desc">designs and deploys pre-hire assessments, probation evaluations, and exit surveys</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-img" style="background-image: url('../Images/agents/convocraft.png'); background-size: cover;"></div>
+            <div class="agent-name">convocraft</div>
+            <div class="agent-role">conversation intelligence</div>
+            <div class="agent-desc">structures onboarding conversations, performance dialogues, and exit interviews at scale</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-img" style="background-image: url('../Images/agents/insight360.png'); background-size: cover;"></div>
+            <div class="agent-name">insight360</div>
+            <div class="agent-role">workforce analytics</div>
+            <div class="agent-desc">connects hire-to-retire data points to surface operational bottlenecks and improvement opportunities</div>
+          </div>
+          <!-- Duplicated for seamless loop -->
+          <div class="agent-card">
+            <div class="agent-img" style="background-image: url('../Images/agents/flowgen.png'); background-size: cover;"></div>
+            <div class="agent-name">flowgen</div>
+            <div class="agent-role">workflow automation</div>
+            <div class="agent-desc">orchestrates end-to-end hr processes from recruitment to exit with zero manual handoffs</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-img" style="background-image: url('../Images/agents/profilecraft.png'); background-size: cover;"></div>
+            <div class="agent-name">profilecraft</div>
+            <div class="agent-role">profile intelligence</div>
+            <div class="agent-desc">manages employee records, documents, and compliance data across the full lifecycle</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-img" style="background-image: url('../Images/agents/assescraft.png'); background-size: cover;"></div>
+            <div class="agent-name">assescraft</div>
+            <div class="agent-role">assessment intelligence</div>
+            <div class="agent-desc">designs and deploys pre-hire assessments, probation evaluations, and exit surveys</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-img" style="background-image: url('../Images/agents/convocraft.png'); background-size: cover;"></div>
+            <div class="agent-name">convocraft</div>
+            <div class="agent-role">conversation intelligence</div>
+            <div class="agent-desc">structures onboarding conversations, performance dialogues, and exit interviews at scale</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-img" style="background-image: url('../Images/agents/insight360.png'); background-size: cover;"></div>
+            <div class="agent-name">insight360</div>
+            <div class="agent-role">workforce analytics</div>
+            <div class="agent-desc">connects hire-to-retire data points to surface operational bottlenecks and improvement opportunities</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EMPLOYEES SECTION (COACH DEMO) ===== -->
+  <section class="persona-sec sec-employees">
+    <div class="container">
+      <div class="persona-sec-inner">
+        <div class="persona-sec-text">
+          <div class="section-eyebrow" style="color: var(--spanish-blue);">ai in the flow of work</div>
+          <h2>self-service for every employee need, right in the <span>flow-of-work</span></h2>
+          <p>employees shouldn't chase hr for basic needs. give every employee instant self-service for leave, payslips, documents, and policy questions — handled by <span class="keep-case">AI</span>, resolved in seconds.</p>
+        </div>
+        <div class="persona-sec-demo">
+          <div class="coach-demo">
+            <div class="coach-topbar">
+              <div class="coach-topbar-left">
+                <div class="coach-avatar">C</div>
+                <div>
+                  <div class="coach-topbar-title">your work assistant</div>
+                  <div class="coach-topbar-sub">self-service</div>
+                </div>
+              </div>
+            </div>
+            <div class="coach-stage" id="pcoachStage">
+              <div class="coach-panel coach-panel-greet active" id="pcoachPanelGreet">
+                <div class="coach-greet-avatar">👋</div>
+                <div class="coach-greet-hi">hi, i'm your work assistant</div>
+                <div class="coach-greet-desc">get instant answers to your leave questions, download documents, check policies — all in seconds</div>
+              </div>
+              <div class="coach-panel coach-chat-panel" id="pcoachPanelChat">
+                <div class="coach-user-q" id="pcoachUserQ"></div>
+                <div class="coach-response-area" id="pcoachResponseArea">
+                  <div class="coach-sub active" id="pcoachSubThink">
+                    <div class="coach-thinking">checking your leave balance and team calendar <div class="coach-dots"><span></span><span></span><span></span></div></div>
+                  </div>
+                  <div class="coach-sub response" id="pcoachSubResponse">
+                    <div class="coach-response-box">
+                      <div class="coach-greeting">hi aaron, here's your leave status.</div>
+                      <div class="coach-bullets">
+                        <div class="coach-bullet"><strong>balance:</strong> you have 8 casual leave days and 4 sick leave days remaining for fy 2026-27</div>
+                        <div class="coach-bullet"><strong>availability:</strong> no team conflicts on april 18 — your manager's calendar is also clear</div>
+                        <div class="coach-bullet"><strong>quick action:</strong> i can submit the leave request for april 18 right now — just confirm</div>
+                        <div class="coach-bullet"><strong>reminder:</strong> you have 3 comp-off days expiring may 31 — consider using them before they lapse</div>
+                      </div>
+                      <div class="coach-actions">
+                        <button class="coach-action-btn coach-action-primary">submit leave request →</button>
+                        <button class="coach-action-btn coach-action-outline">view full balance</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="coach-bottom">
+              <div class="coach-prompt-chips">
+                <button class="coach-prompt-chip">download my latest payslip</button>
+                <button class="coach-prompt-chip">what's the work-from-home policy?</button>
+                <button class="coach-prompt-chip">show my attendance this month</button>
+              </div>
+              <div class="coach-input-row">
+                <div class="coach-cursor"></div>
+                <span id="pcoachInput"></span>
+                <button class="coach-send-btn">⏎</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="features-sec">
+    <div class="container">
+      <div class="section-eyebrow" style="color: var(--ebony-clay);">capabilities</div>
+      <h2 class="features-heading">everything hire to retire needs. nothing it doesn't.</h2>
+      <div class="features-tabs">
+        <button class="features-tab active" data-tab="tab1">recruitment & onboarding</button>
+        <button class="features-tab" data-tab="tab2">payroll & attendance</button>
+        <button class="features-tab" data-tab="tab3">lifecycle & exit</button>
+      </div>
+      <div class="features-grid" id="featuresTab1">
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <div class="feature-title">ai-powered candidate screening</div>
+          <div class="feature-desc">identify top candidates faster with skills-based assessments and matching algorithms</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📅</div>
+          <div class="feature-title">automated interview scheduling</div>
+          <div class="feature-desc">eliminate scheduling friction with <span class="keep-case">AI</span>-coordinated interview calendars across all parties</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✅</div>
+          <div class="feature-title">structured onboarding workflows</div>
+          <div class="feature-desc">execute consistent, compliant onboarding processes that set new hires up for success</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤝</div>
+          <div class="feature-title">buddy matching & assignment</div>
+          <div class="feature-desc">automatically match new hires with mentors based on role, experience, and team culture fit</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💻</div>
+          <div class="feature-title">it provisioning automation</div>
+          <div class="feature-desc">orchestrate equipment, accounts, and access provisioning before day one arrives</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <div class="feature-title">new hire experience surveys</div>
+          <div class="feature-desc">capture onboarding feedback early to continuously improve the new hire experience</div>
+        </div>
+      </div>
+      <div class="features-grid" id="featuresTab2" style="display: none;">
+        <div class="feature-card">
+          <div class="feature-icon">🧮</div>
+          <div class="feature-title">automated payroll processing</div>
+          <div class="feature-desc">process payroll accurately and on time with zero manual data entry or spreadsheets</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📆</div>
+          <div class="feature-title">leave management & approvals</div>
+          <div class="feature-desc">streamline leave requests, approvals, and tracking with intelligent workflow routing</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📍</div>
+          <div class="feature-title">attendance tracking & geofencing</div>
+          <div class="feature-desc">capture attendance with optional location verification for field and hybrid teams</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⏱️</div>
+          <div class="feature-title">comp-off & overtime calculations</div>
+          <div class="feature-desc">automatically calculate and track compensatory time and overtime across all policies</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✍️</div>
+          <div class="feature-title">statutory compliance automation</div>
+          <div class="feature-desc">embed local tax, benefits, and compliance rules into payroll and leave workflows</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔐</div>
+          <div class="feature-title">employee self-service portal</div>
+          <div class="feature-desc">empower employees with secure access to payslips, tax documents, leave status, and more</div>
+        </div>
+      </div>
+      <div class="features-grid" id="featuresTab3" style="display: none;">
+        <div class="feature-card">
+          <div class="feature-icon">📋</div>
+          <div class="feature-title">probation management & evaluation</div>
+          <div class="feature-desc">structure probation reviews and track readiness for confirmation systematically</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔄</div>
+          <div class="feature-title">internal transfer workflows</div>
+          <div class="feature-desc">facilitate lateral moves, promotions, and role changes with transparent process workflows</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📄</div>
+          <div class="feature-title">document management & e-signatures</div>
+          <div class="feature-desc">maintain compliant document repositories and collect e-signatures on the fly</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🚪</div>
+          <div class="feature-title">exit process automation</div>
+          <div class="feature-desc">orchestrate resignations, retirements, and terminations end to end with zero gaps</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">☑️</div>
+          <div class="feature-title">clearance workflow orchestration</div>
+          <div class="feature-desc">coordinate final payroll, equipment return, knowledge transfer, and compliance sign-offs</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌐</div>
+          <div class="feature-title">alumni network management</div>
+          <div class="feature-desc">maintain relationships with former employees for rehire potential and community</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BOTTOM CTA ===== -->
+  <section class="bottom-cta">
+    <div class="container">
+      <h2 class="bottom-cta-heading">ready to run hr operations<br>that just <mark>work</mark>?</h2>
+      <p class="bottom-cta-proof">join the enterprises powering 30m+ users globally — forrester-validated: $26.8m in value, 103% roi over 3 years.</p>
+      <div class="bottom-cta-actions">
+        <button class="bottom-cta-btn">request a demo →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>product</h4>
+          <ul>
+            <li><a href="/">platform</a></li>
+            <li><a href="/">solutions</a></li>
+            <li><a href="/">pricing</a></li>
+            <li><a href="/">security</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>resources</h4>
+          <ul>
+            <li><a href="/">blog</a></li>
+            <li><a href="/">documentation</a></li>
+            <li><a href="/">case studies</a></li>
+            <li><a href="/">webinars</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>company</h4>
+          <ul>
+            <li><a href="/">about</a></li>
+            <li><a href="/">careers</a></li>
+            <li><a href="/">press</a></li>
+            <li><a href="/">contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>legal</h4>
+          <ul>
+            <li><a href="/">privacy</a></li>
+            <li><a href="/">terms</a></li>
+            <li><a href="/">cookies</a></li>
+            <li><a href="/">compliance</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 entomo. all rights reserved.</p>
+        <p>powered by agentic intelligence</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== DIA DEMO ANIMATION =====
+    (function() {
+      const question = "what's our time-to-productivity for new hires this quarter?";
+      const dataSource = ["recruitment pipeline", "onboarding metrics", "payroll data", "attrition trends"];
+      const agents = ["profilecraft", "flowgen", "insight360"];
+
+      function runDiaLoop() {
+        const chatEl = document.getElementById('pdiaChat');
+        const inputEl = document.getElementById('pdiaInput');
+
+        // Reset
+        chatEl.innerHTML = '';
+        inputEl.textContent = '';
+
+        // 1. Greeting (400ms pause)
+        setTimeout(() => {
+          const greetMsg = document.createElement('div');
+          greetMsg.className = 'dia-msg show';
+          greetMsg.innerHTML = `<div class="dia-greeting">hi sharon, here's your onboarding analysis.</div>`;
+          chatEl.appendChild(greetMsg);
+        }, 400);
+
+        // 2. Question typing (character by character, 22ms/char)
+        let charIndex = 0;
+        const typeInterval = setInterval(() => {
+          inputEl.textContent = question.substring(0, charIndex + 1);
+          charIndex++;
+          if (charIndex >= question.length) {
+            clearInterval(typeInterval);
+            setTimeout(() => sendQuestion(), 300);
+          }
+        }, 22);
+
+        function sendQuestion() {
+          // User question bubble
+          const userMsg = document.createElement('div');
+          userMsg.className = 'dia-msg show dia-user-q';
+          userMsg.innerHTML = `<span>${question}</span>`;
+          chatEl.appendChild(userMsg);
+          inputEl.textContent = '';
+
+          // Data source phase
+          setTimeout(() => {
+            const dataMsg = document.createElement('div');
+            dataMsg.className = 'dia-msg show dia-phase';
+            let dataHTML = `<div class="dia-phase-dot foundation">📊</div><div class="dia-phase-body">`;
+            dataHTML += `<div class="dia-phase-label">querying data</div><div class="dia-phase-pills">`;
+            dataSource.forEach(d => {
+              dataHTML += `<span class="dia-phase-pill dark">${d}</span>`;
+            });
+            dataHTML += `</div></div>`;
+            dataMsg.innerHTML = dataHTML;
+            chatEl.appendChild(dataMsg);
+          }, 800);
+
+          // Agent phase
+          setTimeout(() => {
+            const agentMsg = document.createElement('div');
+            agentMsg.className = 'dia-msg show dia-phase';
+            let agentHTML = `<div class="dia-phase-dot agents">🤖</div><div class="dia-phase-body">`;
+            agentHTML += `<div class="dia-phase-label">agents analysing</div><div class="dia-phase-pills">`;
+            agents.forEach(a => {
+              agentHTML += `<span class="dia-phase-pill blue">${a}</span>`;
+            });
+            agentHTML += `</div></div>`;
+            agentMsg.innerHTML = agentHTML;
+            chatEl.appendChild(agentMsg);
+          }, 1400);
+
+          // Collapse previous messages
+          setTimeout(() => {
+            const allMsgs = chatEl.querySelectorAll('.dia-msg');
+            allMsgs.forEach((msg, idx) => {
+              if (idx < allMsgs.length - 2) {
+                msg.classList.remove('show');
+              }
+            });
+          }, 2000);
+
+          // Show outcome
+          setTimeout(() => {
+            chatEl.innerHTML = `
+              <div class="dia-msg show">
+                <div class="dia-greeting">hi sharon, here's your onboarding analysis.</div>
+              </div>
+              <div class="dia-msg show">
+                <div class="dia-outcome">
+                  <div class="dia-outcome-label">new hire productivity assessment</div>
+                  <div class="dia-outcome-row">
+                    <div class="dia-outcome-score">58</div>
+                    <div class="dia-outcome-badge">📍 days avg</div>
+                  </div>
+                  <div class="dia-outcome-divider"></div>
+                  <div class="dia-outcome-detail">average time-to-productivity is 58 days — 12 days above benchmark. engineering onboarding taking 74 days (it provisioning delay). sales onboarding at 45 days (best in class). 23% of new hires report unclear role expectations in week-1 survey. recommend: automate it provisioning in engineering, implement structured week-1 role clarity sessions.</div>
+                </div>
+              </div>
+            `;
+          }, 2500);
+
+          // Reset loop after delay
+          setTimeout(runDiaLoop, 6000);
+        }
+      }
+
+      runDiaLoop();
+    })();
+
+    // ===== WORKWISE DEMO ANIMATION =====
+    (function() {
+      const question = "set up onboarding workflow for 15 new hires starting april 14";
+
+      function runWwLoop() {
+        const panelGreet = document.getElementById('pwwPanelGreet');
+        const panelChat = document.getElementById('pwwPanelChat');
+        const inputEl = document.getElementById('pwwInput');
+        const userQEl = document.getElementById('pwwUserQ');
+        const responseArea = document.getElementById('pwwResponseArea');
+        const subThink = document.getElementById('pwwSubThink');
+        const subAssemble = document.getElementById('pwwSubAssemble');
+        const subOutput = document.getElementById('pwwSubOutput');
+
+        // Reset
+        panelGreet.classList.add('active');
+        panelChat.classList.remove('active');
+        inputEl.textContent = '';
+        userQEl.innerHTML = '';
+
+        // 1. Greeting visible
+        setTimeout(() => {
+          // 2. Question typing
+          let charIndex = 0;
+          const typeInterval = setInterval(() => {
+            inputEl.textContent = question.substring(0, charIndex + 1);
+            charIndex++;
+            if (charIndex >= question.length) {
+              clearInterval(typeInterval);
+              setTimeout(() => sendQuestion(), 400);
+            }
+          }, 18);
+        }, 600);
+
+        function sendQuestion() {
+          // Switch panels
+          panelGreet.classList.remove('active');
+          panelChat.classList.add('active');
+
+          // User question
+          setTimeout(() => {
+            userQEl.innerHTML = `<span>${question}</span>`;
+          }, 200);
+
+          // Thinking sub
+          setTimeout(() => {
+            subThink.classList.add('active');
+          }, 600);
+
+          // Assemble agents
+          setTimeout(() => {
+            subThink.classList.remove('active');
+            subAssemble.classList.add('active');
+          }, 2000);
+
+          // Output
+          setTimeout(() => {
+            subAssemble.classList.remove('active');
+            subOutput.classList.add('active');
+          }, 3200);
+
+          // Reset
+          setTimeout(runWwLoop, 6500);
+        }
+      }
+
+      runWwLoop();
+    })();
+
+    // ===== COACH DEMO ANIMATION =====
+    (function() {
+      const question = "how many leave days do i have left and can i take next friday off?";
+
+      function runCoachLoop() {
+        const panelGreet = document.getElementById('pcoachPanelGreet');
+        const panelChat = document.getElementById('pcoachPanelChat');
+        const inputEl = document.getElementById('pcoachInput');
+        const userQEl = document.getElementById('pcoachUserQ');
+        const responseArea = document.getElementById('pcoachResponseArea');
+        const subThink = document.getElementById('pcoachSubThink');
+        const subResponse = document.getElementById('pcoachSubResponse');
+
+        // Reset
+        panelGreet.classList.add('active');
+        panelChat.classList.remove('active');
+        inputEl.textContent = '';
+        userQEl.innerHTML = '';
+
+        // 1. Greeting visible
+        setTimeout(() => {
+          // 2. Question typing
+          let charIndex = 0;
+          const typeInterval = setInterval(() => {
+            inputEl.textContent = question.substring(0, charIndex + 1);
+            charIndex++;
+            if (charIndex >= question.length) {
+              clearInterval(typeInterval);
+              setTimeout(() => sendQuestion(), 400);
+            }
+          }, 18);
+        }, 600);
+
+        function sendQuestion() {
+          // Switch panels
+          panelGreet.classList.remove('active');
+          panelChat.classList.add('active');
+
+          // User question
+          setTimeout(() => {
+            userQEl.innerHTML = `<span>${question}</span>`;
+          }, 200);
+
+          // Thinking sub
+          setTimeout(() => {
+            subThink.classList.add('active');
+          }, 600);
+
+          // Response
+          setTimeout(() => {
+            subThink.classList.remove('active');
+            subResponse.classList.add('active');
+          }, 2200);
+
+          // Reset
+          setTimeout(runCoachLoop, 6000);
+        }
+      }
+
+      runCoachLoop();
+    })();
+
+    // ===== FEATURES TAB SWITCHING =====
+    document.querySelectorAll('.features-tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        const tabId = this.getAttribute('data-tab');
+
+        document.querySelectorAll('.features-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.features-grid').forEach(grid => grid.style.display = 'none');
+
+        this.classList.add('active');
+        document.getElementById('features' + tabId.charAt(0).toUpperCase() + tabId.slice(1)).style.display = 'grid';
+      });
+    });
+  </script>
+</body>
+</html>

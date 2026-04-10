@@ -1,0 +1,2265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>the platform — entomo agentic intelligence</title>
+  <meta name="description" content="One architecture. Twelve AI agents. Zero silos. entomo connects your workforce data, intelligence, and AI agents into a single operating architecture — coaching every stakeholder, every day.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.383.0/umd/lucide.min.js"></script>
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Nunito Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #1a1f26;
+      background-color: #ffffff;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --cg-red: #e43d30;
+      --cg-gold: #f4b223;
+      --spanish-blue: #0064bf;
+      --sea-green: #2c9942;
+      --sunrise-yellow: #ffda00;
+      --white: #ffffff;
+      --black: #000000;
+      --ebony-clay: #1a1f26;
+      --black-haze: #fafbfb;
+      --silver-sand: #c0c2c3;
+      --floral-white: #fefbf4;
+      --lavender: #e6f0f9;
+      --pistachio: #eaf5ed;
+      --polar-white: #f2f7fc;
+      --gradient-cta: linear-gradient(90deg, #f4b223, #e43d30);
+      --radius-semi: 5px;
+      --radius-standard: 10px;
+      --radius-medium: 15px;
+      --radius-large: 25px;
+      --shadow-sm: 0px 5px 10px rgba(0,0,0,0.10);
+      --shadow-md: 0px 15px 25px rgba(0,0,0,0.10);
+      --max-width: 1280px;
+    }
+
+    /* ===== UTILITY ===== */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .text-center { text-align: center; }
+
+    /* ===== MARK / HIGHLIGHT ===== */
+    mark {
+      background-color: var(--sunrise-yellow);
+      background-image: none;
+      color: var(--black);
+      border-radius: 12px;
+      padding: 0.05em 0.35em;
+      line-height: 1;
+      font-weight: 700;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+    /* mark inside dark sections — yellow stripe still shows, text dark for legibility */
+    .dark-section mark {
+      background-color: var(--sunrise-yellow);
+      background-image: none;
+      color: var(--black);
+      border-radius: 12px;
+      padding: 0.05em 0.35em;
+      line-height: 1;
+      font-weight: 700;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    /* ===== CASE OVERRIDE ===== */
+    .keep-case { text-transform: none !important; }
+
+    /* ===== HEADINGS LOWERCASE ===== */
+    h1, h2, h3, h4, h5, h6 { text-transform: lowercase; }
+
+    /* ===== BUTTONS ===== */
+    .btn-primary {
+      background-image: var(--gradient-cta);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-semi);
+      padding: 14px 36px;
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: 600;
+      text-transform: lowercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
+    .btn-primary-lg {
+      padding: 16px 44px;
+      font-size: 19px;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--ebony-clay);
+      border: 2px solid rgba(26,31,38,0.2);
+      border-radius: var(--radius-semi);
+      padding: 14px 36px;
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: 600;
+      text-transform: lowercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--ebony-clay); transform: translateY(-1px); }
+    .btn-ghost-white {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.3);
+    }
+    .btn-ghost-white:hover { border-color: var(--white); color: var(--white); }
+
+    /* ===== SECTION SPACING ===== */
+    section { padding: 5rem 0; }
+    @media (max-width: 768px) { section { padding: 3.5rem 0; } }
+
+    /* ===== EYEBROW ===== */
+    .section-eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--cg-red);
+      margin-bottom: 0.75rem;
+    }
+    .section-eyebrow-white {
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ===== SECTION HEADINGS ===== */
+    .section-heading {
+      font-size: clamp(30px, 3.5vw, 44px);
+      font-weight: 700;
+      line-height: 1.18;
+      margin-bottom: 1rem;
+    }
+    .section-subheading {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: rgba(26,31,38,0.68);
+      max-width: 720px;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid rgba(26,31,38,0.08);
+      backdrop-filter: blur(12px);
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: lowercase;
+    }
+    .nav-right-group { display: flex; flex-direction: row; align-items: center; gap: 1.5rem; flex-wrap: nowrap; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: lowercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--cg-red); }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-shrink: 0; }
+    .nav-cta {
+      background-image: var(--gradient-cta);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-semi);
+      padding: 8px 20px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: lowercase;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.9; }
+
+    /* Dropdown */
+    .nav-dropdown-wrap { position: relative; }
+    .nav-dropdown-wrap > a {
+      display: flex; align-items: center; gap: 4px;
+    }
+    .nav-dropdown-wrap > a::after {
+      content: '';
+      border: solid currentColor; border-width: 0 1.5px 1.5px 0;
+      display: inline-block; padding: 2.5px;
+      transform: rotate(45deg); margin-top: -3px;
+      transition: transform 0.2s;
+    }
+    .nav-dropdown-wrap:hover > a::after {
+      transform: rotate(-135deg); margin-top: 2px;
+    }
+    .nav-mega {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(14px);
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.08);
+      border-radius: var(--radius-medium);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12), 0 0 0 1px rgba(26,31,38,0.04);
+      padding: 1.25rem;
+      width: 680px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+      z-index: 200;
+    }
+    .nav-dropdown-wrap:hover .nav-mega {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(8px);
+    }
+    .nav-mega-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+    }
+    .nav-mega-item {
+      display: flex; flex-direction: row; align-items: flex-start; gap: 12px;
+      padding: 12px 14px; border-radius: var(--radius-standard);
+      transition: background 0.15s; text-decoration: none; color: inherit;
+    }
+    .nav-mega-icon {
+      width: 40px; height: 40px; border-radius: 9px; flex-shrink: 0;
+      background: rgba(26,31,38,0.05);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+    }
+    .nav-mega-icon svg {
+      width: 18px; height: 18px; stroke: rgba(26,31,38,0.45); fill: none;
+      transition: stroke 0.15s;
+    }
+    .nav-mega-text { display: flex; flex-direction: column; gap: 2px; }
+    .nav-mega-item:hover { background: rgba(228,61,48,0.04); }
+    .nav-mega-item:hover .nav-mega-icon { background: rgba(228,61,48,0.08); }
+    .nav-mega-item:hover .nav-mega-icon svg { stroke: var(--cg-red); }
+    .nav-mega-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      margin-bottom: 3px;
+      line-height: 1.3;
+    }
+    .nav-mega-desc {
+      font-size: 12px;
+      color: rgba(26,31,38,0.45);
+      line-height: 1.4;
+      font-weight: 500;
+    }
+    .nav-mega-item:hover .nav-mega-name { color: var(--cg-red); }
+
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-toggle svg { width: 24px; height: 24px; }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      .nav-mega { display: none; }
+    }
+
+    /* ===== SECTION 1 — HERO ===== */
+    .hero-platform {
+      background-color: var(--floral-white);
+      padding: 6rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-platform::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -8%;
+      width: 650px;
+      height: 650px;
+      background: radial-gradient(circle, rgba(244,178,35,0.14) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-platform::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -5%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0,100,191,0.07) 0%, transparent 65%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-platform .container { position: relative; z-index: 1; }
+    .hero-platform-content {
+      max-width: 960px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(244,178,35,0.12);
+      border: 1px solid rgba(244,178,35,0.28);
+      border-radius: 20px;
+      padding: 6px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      margin-bottom: 1.75rem;
+      letter-spacing: 0.3px;
+    }
+    .hero-badge .pulse-dot {
+      width: 7px; height: 7px;
+      background: var(--cg-gold);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.5); }
+    }
+    .hero-wordmark {
+      background-color: var(--sunrise-yellow);
+      background-image: none;
+      color: var(--black);
+      border-radius: 12px;
+      padding: 0.05em 0.35em;
+      line-height: 1;
+      font-weight: 700;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+    .hero-wordmark img {
+      height: 72px;
+      width: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    @media (max-width: 640px) {
+      .hero-wordmark img { height: 48px; }
+    }
+    .hero-platform h1 {
+      font-size: clamp(38px, 5.5vw, 72px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 1.25rem;
+      color: var(--ebony-clay);
+    }
+    .hero-tagline {
+      font-size: clamp(22px, 3vw, 40px);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      margin-bottom: 1.25rem;
+      color: var(--ebony-clay);
+    }
+    .hero-platform-sub {
+      font-size: 19px;
+      line-height: 1.65;
+      color: rgba(26,31,38,0.62);
+      max-width: 660px;
+      margin: 0 auto 2rem;
+    }
+    .hero-stat-chips {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.75rem;
+    }
+    .stat-chip {
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.1);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ebony-clay);
+    }
+    .hero-ctas {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+
+    .hero-trust { margin: 1.5rem 0; text-align: center; }
+    .trust-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(26,31,38,0.35); margin-bottom: 12px; font-weight: 600; }
+    .trust-logos { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    .trust-logo-pill { background: rgba(26,31,38,0.05); border: 1px solid rgba(26,31,38,0.1); border-radius: 25px; padding: 6px 16px; font-size: 13px; font-weight: 600; color: rgba(26,31,38,0.45); }
+
+    .hero-subline {
+      font-size: 19px;
+      line-height: 1.65;
+      color: rgba(26,31,38,0.62);
+      max-width: 660px;
+      margin: 0 auto 1.25rem;
+    }
+    .hero-proof-line {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(26,31,38,0.45);
+      letter-spacing: 0.5px;
+      margin-bottom: 1.5rem;
+      text-transform: lowercase;
+    }
+
+    /* Pipeline flow */
+    .pipeline-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.08);
+      border-radius: var(--radius-large);
+      padding: 1.25rem 1.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .pipeline-pill {
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+      white-space: nowrap;
+      text-transform: lowercase;
+    }
+    .pipeline-pill.data-sources { background: var(--spanish-blue); }
+    .pipeline-pill.data-foundation { background: var(--cg-gold); color: var(--ebony-clay); }
+    .pipeline-pill.intelligence-layer { background: var(--cg-red); }
+    .pipeline-pill.ai-agents {
+      background-image: linear-gradient(90deg, var(--cg-gold), var(--cg-red));
+    }
+    .pipeline-pill.outcomes { background: var(--sea-green); }
+    .pipeline-arrow {
+      font-size: 18px;
+      color: rgba(26,31,38,0.3);
+      padding: 0 10px;
+      font-weight: 300;
+    }
+    @media (max-width: 640px) {
+      .pipeline-flow { gap: 0.5rem; }
+      .pipeline-arrow { display: none; }
+    }
+
+    /* ===== SECTION 2 — DATA FLOW ARCHITECTURE ===== */
+    .arch-diagram {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      margin-top: 3rem;
+      border: 1px solid rgba(26,31,38,0.08);
+      border-radius: var(--radius-large);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .arch-col {
+      position: relative;
+      padding: 2rem 1.5rem;
+      background: var(--white);
+      border-right: 1px solid rgba(26,31,38,0.07);
+      transition: background 0.2s;
+      cursor: default;
+    }
+    .arch-col:last-child { border-right: none; }
+    .arch-col:hover { background: rgba(244,178,35,0.04); }
+    .arch-col-header {
+      font-size: 15px;
+      font-weight: 800;
+      text-transform: lowercase;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.2px;
+    }
+    .arch-col-desc {
+      font-size: 13px;
+      color: rgba(26,31,38,0.6);
+      line-height: 1.55;
+    }
+    .arch-col-arrow {
+      position: absolute;
+      top: 50%;
+      right: -14px;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 28px;
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: rgba(26,31,38,0.4);
+      z-index: 2;
+    }
+    .arch-col:last-child .arch-col-arrow { display: none; }
+
+    /* Tooltip panel */
+    .arch-tooltip {
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      background: var(--ebony-clay);
+      color: var(--white);
+      font-size: 13px;
+      line-height: 1.55;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-standard);
+      width: 230px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 50;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    .arch-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 7px solid transparent;
+      border-top-color: var(--ebony-clay);
+    }
+    .arch-col:hover .arch-tooltip {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    .arch-color-data-sources { color: var(--spanish-blue); }
+    .arch-color-foundation { color: var(--cg-gold); }
+    .arch-color-intelligence { color: var(--cg-red); }
+    .arch-color-agents {
+      background: linear-gradient(90deg, var(--cg-gold), var(--cg-red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .arch-color-outcomes { color: var(--sea-green); }
+
+    @media (max-width: 900px) {
+      .arch-diagram { grid-template-columns: 1fr 1fr; }
+      .arch-col { border-right: none; border-bottom: 1px solid rgba(26,31,38,0.07); }
+      .arch-col-arrow { display: none; }
+    }
+    @media (max-width: 550px) {
+      .arch-diagram { grid-template-columns: 1fr; }
+    }
+
+    /* ===== SECTION 3 — DATA SOURCES ===== */
+    .integrations-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .integration-card {
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.09);
+      border-radius: var(--radius-medium);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .integration-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .integration-card.market-card {
+      grid-column: 1 / -1;
+      border: 2px solid var(--cg-gold);
+      background: #fff8e8;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .integration-card-title {
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: lowercase;
+      margin-bottom: 0.75rem;
+      color: var(--ebony-clay);
+    }
+    .integration-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    .integration-pill, .int-pill {
+      background: rgba(26,31,38,0.06);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(26,31,38,0.7);
+    }
+    .unique-badge {
+      display: inline-block;
+      background: var(--cg-gold);
+      color: var(--ebony-clay);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .market-card-body { font-size: 14.5px; line-height: 1.6; color: rgba(26,31,38,0.7); }
+    .tech-chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 2.5rem;
+    }
+    .tech-chip {
+      background: var(--polar-white);
+      border: 1px solid rgba(26,31,38,0.1);
+      border-radius: 20px;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(26,31,38,0.75);
+    }
+    @media (max-width: 768px) {
+      .integrations-grid { grid-template-columns: 1fr; }
+      .integration-card.market-card { grid-template-columns: 1fr; }
+    }
+
+    /* ===== SECTION 4 — DATA FOUNDATION ===== */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .pillar-card {
+      background: var(--white);
+      border-radius: var(--radius-medium);
+      border-top: 4px solid var(--cg-gold);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .pillar-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .pillar-name {
+      font-size: 17px;
+      font-weight: 800;
+      text-transform: lowercase;
+      color: var(--ebony-clay);
+      margin-bottom: 0.4rem;
+    }
+    .pillar-sublabel {
+      display: inline-block;
+      background: rgba(244,178,35,0.12);
+      border: 1px solid rgba(244,178,35,0.25);
+      border-radius: 20px;
+      padding: 3px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: rgba(26,31,38,0.6);
+      margin-bottom: 0.9rem;
+    }
+    .pillar-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(26,31,38,0.7);
+      margin-bottom: 1rem;
+    }
+    .pillar-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .pillar-bullets li {
+      font-size: 13.5px;
+      color: rgba(26,31,38,0.65);
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.5;
+    }
+    .pillar-bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--cg-gold);
+      font-weight: 700;
+    }
+    @media (max-width: 900px) { .pillars-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 550px) { .pillars-grid { grid-template-columns: 1fr; } }
+
+    .pillar-tagline {
+      font-size: 13px;
+      font-style: italic;
+      color: var(--cg-gold);
+      font-weight: 600;
+      margin: 4px 0 10px;
+      text-transform: none;
+    }
+    .pillar-desc {
+      font-size: 15px;
+      color: rgba(26,31,38,0.7);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+
+    /* ===== SECTION 5 — AI AGENTS ECOSYSTEM ===== */
+    .dark-section {
+      background: #1a1f26;
+      color: var(--white);
+    }
+    .dark-section .section-eyebrow { color: rgba(255,255,255,0.55); }
+    .dark-section .section-heading { color: var(--white); }
+    .dark-section .section-subheading { color: rgba(255,255,255,0.65); }
+    .dark-section h2, .dark-section h3, .dark-section h4 { color: var(--white); }
+
+    .agents-intro {
+      font-size: 18px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.65);
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+    }
+
+    .agent-category {
+      margin-bottom: 2.5rem;
+    }
+    .agent-category-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .category-chip {
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .category-chip.blue { background: rgba(0,100,191,0.18); color: #5aadff; }
+    .category-chip.red { background: rgba(228,61,48,0.18); color: #ff7f75; }
+    .category-chip.green { background: rgba(44,153,66,0.18); color: #5dd97a; }
+    .category-chip.gold { background: rgba(244,178,35,0.18); color: #f4b223; }
+
+    .category-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .agents-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .agent-card {
+      background: rgba(255,255,255,0.06);
+      border-radius: var(--radius-medium);
+      padding: 1.5rem;
+      transition: background 0.2s, transform 0.2s;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .agent-card:hover {
+      background: rgba(255,255,255,0.10);
+      transform: translateY(-2px);
+    }
+    .agent-name {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--white);
+      text-transform: lowercase;
+      margin-bottom: 0.25rem;
+    }
+    .agent-role-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: rgba(255,255,255,0.38);
+      margin-bottom: 0.75rem;
+    }
+    .agent-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .agent-bullets li {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.45;
+    }
+    .agent-bullets li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: rgba(255,255,255,0.3);
+      font-size: 16px;
+      line-height: 1.1;
+    }
+    /* Accent left borders per category */
+    .agent-card.blue { border-left: 3px solid rgba(0,100,191,0.5); }
+    .agent-card.red { border-left: 3px solid rgba(228,61,48,0.5); }
+    .agent-card.green { border-left: 3px solid rgba(44,153,66,0.5); }
+    .agent-card.gold { border-left: 3px solid rgba(244,178,35,0.5); }
+
+    .agents-footnote { text-align: center; font-size: 13px; color: rgba(255,255,255,0.3); margin-top: 2rem; font-style: italic; text-transform: none; }
+
+    .agents-tier2 {
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .agents-tier2-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .agents-tier2-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .agent-compact {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .agent-compact-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      text-transform: none;
+    }
+    .agent-compact-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.4;
+      text-transform: none;
+    }
+    .agent-mech {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+      margin: 0;
+      text-transform: none;
+    }
+
+    /* ===== WORKWISE SECTION ===== */
+    .workwise-section { background: var(--floral-white); padding: 96px 0; }
+    .workwise-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .workwise-text h2 { font-size: clamp(28px, 3.5vw, 42px); font-weight: 700; line-height: 1.2; margin: 0.5rem 0 1.25rem; }
+    .workwise-list { list-style: none; padding: 0; margin: 0 0 2rem; display: flex; flex-direction: column; gap: 12px; }
+    .workwise-list li { padding-left: 24px; position: relative; font-size: 16px; color: rgba(26,31,38,0.7); line-height: 1.5; }
+    .workwise-list li::before { content: '→'; position: absolute; left: 0; color: var(--cg-red); font-weight: 700; }
+    .ww-card { background: var(--ebony-clay); border-radius: 25px; padding: 28px; box-shadow: 0px 15px 25px rgba(0,0,0,0.15); }
+    .ww-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .ww-avatar { width: 40px; height: 40px; background: linear-gradient(90deg, #f4b223, #e43d30); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff; font-size: 16px; flex-shrink: 0; text-transform: uppercase; }
+    .ww-name { font-weight: 700; color: #fff; font-size: 15px; text-transform: lowercase; }
+    .ww-status { font-size: 12px; color: rgba(255,255,255,0.45); display: flex; align-items: center; gap: 5px; }
+    .ww-dot { width: 6px; height: 6px; background: #2c9942; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+    .ww-messages { display: flex; flex-direction: column; gap: 12px; }
+    .ww-msg { background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 16px; }
+    .ww-msg p { font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.5; margin: 0 0 6px; text-transform: none; }
+    .ww-msg p:last-child { margin-bottom: 0; }
+    .ww-msg-sub { color: rgba(255,255,255,0.45) !important; font-size: 12px !important; }
+    .ww-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+    .ww-chip { background: rgba(244,178,35,0.12); border: 1px solid rgba(244,178,35,0.25); color: var(--cg-gold); padding: 6px 14px; border-radius: 25px; font-size: 12px; font-weight: 600; cursor: pointer; text-transform: lowercase; }
+    @media (max-width: 900px) { .workwise-inner { grid-template-columns: 1fr; gap: 3rem; } }
+
+    /* ===== SECTION 6 — ORCHESTRATION ===== */
+    .orchestration-scenarios {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .scenario-card {
+      background: var(--white);
+      border-radius: var(--radius-large);
+      padding: 2.25rem 2.5rem;
+      box-shadow: var(--shadow-md);
+    }
+    .scenario-trigger-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--cg-red);
+      margin-bottom: 0.5rem;
+    }
+    .scenario-trigger {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ebony-clay);
+      margin-bottom: 1.25rem;
+      line-height: 1.4;
+    }
+    .scenario-agents {
+      margin: 0 0 1.25rem;
+      padding-left: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .scenario-agents li {
+      font-size: 14.5px;
+      color: rgba(26,31,38,0.7);
+      line-height: 1.55;
+    }
+    .scenario-agents li strong {
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+    }
+    .scenario-result {
+      background: rgba(44,153,66,0.08);
+      border-left: 3px solid var(--sea-green);
+      border-radius: var(--radius-semi);
+      padding: 0.85rem 1.1rem;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--ebony-clay);
+      line-height: 1.5;
+    }
+    .orchestration-chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 2.5rem;
+    }
+    .orch-chip {
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.1);
+      border-radius: 20px;
+      padding: 7px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(26,31,38,0.7);
+      box-shadow: var(--shadow-sm);
+    }
+    .orchestration-callout {
+      background: rgba(0,100,191,0.06);
+      border: 1px solid rgba(0,100,191,0.15);
+      border-radius: var(--radius-medium);
+      padding: 1.75rem 2rem;
+      margin-top: 2.5rem;
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(26,31,38,0.75);
+      text-align: center;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===== ORCHESTRATION FLOW DIAGRAM ===== */
+    .orch-flows {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .orch-flow-card {
+      background: var(--white);
+      border-radius: var(--radius-large);
+      padding: 1.75rem 2rem;
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: 200px 1fr auto;
+      align-items: center;
+      gap: 2rem;
+    }
+    .orch-flow-trigger {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .orch-trigger-icon { font-size: 20px; flex-shrink: 0; }
+    .orch-trigger-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      line-height: 1.3;
+    }
+    .orch-flow-diagram {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .orch-agent-pill {
+      padding: 5px 14px;
+      border-radius: 25px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: lowercase;
+      white-space: nowrap;
+    }
+    .orch-agent-pill.blue { background: rgba(0,100,191,0.1); color: var(--spanish-blue); }
+    .orch-agent-pill.red  { background: rgba(228,61,48,0.1); color: var(--cg-red); }
+    .orch-agent-pill.green{ background: rgba(44,153,66,0.1); color: var(--sea-green); }
+    .orch-arrow { color: rgba(26,31,38,0.25); font-size: 14px; font-weight: 600; }
+    .orch-flow-result {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--sea-green);
+      text-transform: lowercase;
+      white-space: nowrap;
+      background: rgba(44,153,66,0.08);
+      padding: 6px 14px;
+      border-radius: 25px;
+    }
+    @media (max-width: 900px) {
+      .orch-flow-card { grid-template-columns: 1fr; gap: 1rem; }
+      .orch-flow-result { white-space: normal; }
+    }
+
+    /* ===== UX SIMPLE GRID ===== */
+    .ux-simple-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .ux-simple-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 1.75rem;
+      background: var(--white);
+      border-radius: var(--radius-medium);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(26,31,38,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .ux-simple-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .ux-simple-icon {
+      width: 40px; height: 40px;
+      background: rgba(228,61,48,0.08);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--cg-red);
+    }
+    .ux-simple-icon svg { width: 20px; height: 20px; }
+    .ux-simple-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      line-height: 1.25;
+    }
+    .ux-simple-sub {
+      font-size: 13px;
+      color: rgba(26,31,38,0.5);
+      text-transform: lowercase;
+      line-height: 1.4;
+    }
+    @media (max-width: 900px) { .ux-simple-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 550px) { .ux-simple-grid { grid-template-columns: 1fr; } }
+
+    /* ===== PERSONA SIMPLE GRID ===== */
+    .persona-simple-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    .persona-simple-card {
+      background: var(--white);
+      border-radius: var(--radius-medium);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .persona-simple-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .persona-simple-top {
+      padding: 1.5rem 1.5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .green-top { background: rgba(44,153,66,0.08); border-bottom: 3px solid var(--sea-green); }
+    .red-top   { background: rgba(228,61,48,0.08); border-bottom: 3px solid var(--cg-red); }
+    .blue-top  { background: rgba(0,100,191,0.08); border-bottom: 3px solid var(--spanish-blue); }
+    .gold-top  { background: rgba(244,178,35,0.12); border-bottom: 3px solid var(--cg-gold); }
+    .persona-simple-role {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: rgba(26,31,38,0.45);
+    }
+    .persona-simple-headline {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      line-height: 1.2;
+    }
+    .persona-tags {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .ptag {
+      font-size: 13px;
+      color: rgba(26,31,38,0.65);
+      padding: 5px 12px;
+      background: rgba(26,31,38,0.04);
+      border-radius: 25px;
+      display: inline-block;
+      text-transform: lowercase;
+      font-weight: 500;
+      width: fit-content;
+    }
+    @media (max-width: 1024px) { .persona-simple-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 600px)  { .persona-simple-grid { grid-template-columns: 1fr; } }
+
+
+    /* ===== SECTION 7 — UX DESIGN ===== */
+    .ux-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .ux-card {
+      background: var(--white);
+      border-radius: var(--radius-medium);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(26,31,38,0.07);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .ux-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+    .ux-icon-wrap {
+      width: 44px; height: 44px;
+      background: rgba(228,61,48,0.08);
+      border-radius: var(--radius-standard);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      color: var(--cg-red);
+    }
+    .ux-icon-wrap svg { width: 22px; height: 22px; }
+    .ux-card-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+    .ux-card-desc {
+      font-size: 14px;
+      color: rgba(26,31,38,0.65);
+      line-height: 1.6;
+    }
+    @media (max-width: 900px) { .ux-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 550px) { .ux-grid { grid-template-columns: 1fr; } }
+
+    /* ===== SECTION 8 — PERSONAS ===== */
+    .persona-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .persona-card {
+      background: var(--white);
+      border-radius: var(--radius-medium);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(26,31,38,0.07);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .persona-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .persona-card.border-green { border-top: 4px solid var(--sea-green); }
+    .persona-card.border-red { border-top: 4px solid var(--cg-red); }
+    .persona-card.border-blue { border-top: 4px solid var(--spanish-blue); }
+    .persona-card.border-gold { border-top: 4px solid var(--cg-gold); }
+    .persona-chip {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+    }
+    .persona-chip.green { background: rgba(44,153,66,0.1); color: var(--sea-green); }
+    .persona-chip.red { background: rgba(228,61,48,0.1); color: var(--cg-red); }
+    .persona-chip.blue { background: rgba(0,100,191,0.1); color: var(--spanish-blue); }
+    .persona-chip.gold { background: rgba(244,178,35,0.15); color: #b8860b; }
+    .persona-heading {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    .persona-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .persona-bullets li {
+      font-size: 13.5px;
+      color: rgba(26,31,38,0.65);
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.5;
+    }
+    .persona-bullets li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: rgba(26,31,38,0.3);
+      font-size: 12px;
+      top: 2px;
+    }
+    @media (max-width: 1024px) { .persona-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 550px) { .persona-grid { grid-template-columns: 1fr; } }
+
+    /* ===== SECTION 9 — SECURITY ===== */
+    .security-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .security-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .security-icon-wrap {
+      width: 48px; height: 48px;
+      background: rgba(255,255,255,0.08);
+      border-radius: var(--radius-standard);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+    }
+    .security-icon-wrap svg { width: 22px; height: 22px; }
+    .security-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: none;
+    }
+    .security-desc {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+    }
+    @media (max-width: 900px) { .security-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 550px) { .security-grid { grid-template-columns: 1fr; } }
+
+    /* ===== SECTION 10 — FINAL CTA ===== */
+    .final-cta-section {
+      background: var(--floral-white);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .final-cta-section::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 600px;
+      background: radial-gradient(ellipse, rgba(244,178,35,0.12) 0%, rgba(228,61,48,0.06) 40%, transparent 70%);
+      pointer-events: none;
+    }
+    .final-cta-section .container { position: relative; z-index: 1; }
+    .final-cta-section h2 {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700;
+      line-height: 1.18;
+      margin-bottom: 1.25rem;
+      color: var(--ebony-clay);
+    }
+    .final-cta-supporting {
+      font-size: 18px;
+      line-height: 1.65;
+      color: rgba(26,31,38,0.62);
+      max-width: 580px;
+      margin: 0 auto 2.25rem;
+    }
+    .final-cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .proof-chips {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .proof-chip {
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.1);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: rgba(26,31,38,0.65);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--black-haze);
+      padding: 3.5rem 0 1.5rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(26,31,38,0.6);
+      margin-top: 0.75rem;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: lowercase;
+      margin-bottom: 1rem;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .footer-col a {
+      font-size: 14px;
+      color: rgba(26,31,38,0.6);
+      text-transform: lowercase;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--cg-red); }
+    .footer-bottom {
+      border-top: 1px solid rgba(26,31,38,0.08);
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-bottom p {
+      font-size: 13px;
+      color: rgba(26,31,38,0.45);
+    }
+    .footer-socials {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .footer-socials a {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(26,31,38,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--ebony-clay);
+      transition: background 0.2s, color 0.2s;
+    }
+    .footer-socials a:hover {
+      background: var(--ebony-clay);
+      color: var(--white);
+    }
+
+    /* ===== HERO MARQUEE ===== */
+    .marquee-wrapper {
+      overflow: hidden;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+    .marquee-wrapper::before,
+    .marquee-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .marquee-wrapper::before { left: 0;  background: linear-gradient(to right, var(--floral-white), transparent); }
+    .marquee-wrapper::after  { right: 0; background: linear-gradient(to left,  var(--floral-white), transparent); }
+    .marquee-track {
+      display: flex;
+      gap: 3.5rem;
+      width: max-content;
+      animation: marquee 32s linear infinite;
+      align-items: center;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-logo {
+      height: 34px;
+      width: auto;
+      max-width: 120px;
+      opacity: 0.45;
+      filter: grayscale(100%);
+      object-fit: contain;
+      flex-shrink: 0;
+      transition: opacity 0.3s, filter 0.3s;
+    }
+    .marquee-logo:hover { opacity: 1; filter: grayscale(0%); }
+
+    /* ===== GLOBAL RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .hero-platform { padding: 4rem 0 3.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="logo">
+        <img src="Images/entomo.svg" alt="entomo" style="height:36px; width:auto;">
+      </a>
+                  <div class="nav-right-group">
+        <ul class="nav-links">
+          <li class="nav-dropdown-wrap">
+            <a href="#">solutions</a>
+            <div class="nav-mega" style="width:720px;">
+              <div class="nav-mega-grid">
+                <a href="solutions/performance-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">maximize employee performance</div>
+                    <div class="nav-mega-desc">real-time signals, coaching, and scorecards</div>
+                  </div>
+                </a>
+                <a href="solutions/skill-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">unlock skills, accelerate growth</div>
+                    <div class="nav-mega-desc">skill maps, career paths, and growth plans</div>
+                  </div>
+                </a>
+                <a href="solutions/engagement-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">build engagement that lasts</div>
+                    <div class="nav-mega-desc">pulse surveys, recognition, and culture signals</div>
+                  </div>
+                </a>
+                <a href="solutions/workforce-insights.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">turn intelligence into decisions</div>
+                    <div class="nav-mega-desc">natural language analytics and board-ready reports</div>
+                  </div>
+                </a>
+                <a href="solutions/wellness-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">protect wellness, prevent burnout</div>
+                    <div class="nav-mega-desc">burnout detection, sentiment, and intervention</div>
+                  </div>
+                </a>
+                <a href="solutions/strategic-planning.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">align your workforce to strategy</div>
+                    <div class="nav-mega-desc">demand modeling, 4B engine, and succession</div>
+                  </div>
+                </a>
+                <a href="solutions/hire-to-retire.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">simplify hire to retire</div>
+                    <div class="nav-mega-desc">recruitment, onboarding, payroll, and exit</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#">platform</a>
+            <div class="nav-mega" style="width:480px;">
+              <div class="nav-mega-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <a href="workwise_platform.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">WorkWise</div>
+                    <div class="nav-mega-desc">your AI coworker for HR workflows and operations</div>
+                  </div>
+                </a>
+                <a href="#" class="nav-mega-item" style="opacity:0.55;pointer-events:none;">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">TMRW</div>
+                    <div class="nav-mega-desc">AI-powered career growth for employees — coming soon</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li><a href="#">inspiration</a></li>
+          <li><a href="#">about</a></li>
+          <li><a href="#">contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <button class="nav-cta">request a demo →</button>
+        </div>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== SECTION 1 — HERO ===== -->
+  <section class="hero-platform">
+    <div class="container">
+      <div class="hero-platform-content">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          the agentic intelligence platform
+        </div>
+        <div class="hero-wordmark">
+          <img src="Images/workwise.svg" alt="WorkWise">
+        </div>
+        <h1 class="hero-tagline">the agentic workforce intelligence platform<br><mark>that simply works</mark></h1>
+        <p class="hero-subline">entomo connects workforce data and <span class="keep-case">AI</span> agents into one operating system — delivering personalized intelligence to every employee, every leader, and every <span class="keep-case">HR</span> team, every day.</p>
+        <div class="hero-ctas">
+          <a href="#" class="btn-primary">see the platform in action →</a>
+        </div>
+      </div>
+    </div>
+    <!-- Scrolling logo marquee — full width, outside container -->
+    <div class="marquee-wrapper" style="margin-top:2.5rem;">
+      <div class="marquee-track">
+        <img class="marquee-logo" src="Images/client_logos/tata-elxsi.png"        alt="Tata Elxsi">
+        <img class="marquee-logo" src="Images/client_logos/ey.png"                alt="EY">
+        <img class="marquee-logo" src="Images/client_logos/cigna.png"             alt="Cigna">
+        <img class="marquee-logo" src="Images/client_logos/nttdata.png"           alt="NTT Data">
+        <img class="marquee-logo" src="Images/client_logos/ntuc-learning-hub.png" alt="NTUC Learning Hub">
+        <img class="marquee-logo" src="Images/client_logos/generalli.png"         alt="Generali">
+        <img class="marquee-logo" src="Images/client_logos/Carelon.jpeg"          alt="Carelon">
+        <img class="marquee-logo" src="Images/client_logos/soiitz.png"            alt="Soiitz">
+        <img class="marquee-logo" src="Images/client_logos/drreddys.png"          alt="Dr Reddy's">
+        <img class="marquee-logo" src="Images/client_logos/Digital_Dubai.png"     alt="Digital Dubai">
+        <img class="marquee-logo" src="Images/client_logos/uob.png"               alt="UOB">
+        <!-- Duplicate set for seamless loop -->
+        <img class="marquee-logo" src="Images/client_logos/tata-elxsi.png"        alt="Tata Elxsi">
+        <img class="marquee-logo" src="Images/client_logos/ey.png"                alt="EY">
+        <img class="marquee-logo" src="Images/client_logos/cigna.png"             alt="Cigna">
+        <img class="marquee-logo" src="Images/client_logos/nttdata.png"           alt="NTT Data">
+        <img class="marquee-logo" src="Images/client_logos/ntuc-learning-hub.png" alt="NTUC Learning Hub">
+        <img class="marquee-logo" src="Images/client_logos/generalli.png"         alt="Generali">
+        <img class="marquee-logo" src="Images/client_logos/Carelon.jpeg"          alt="Carelon">
+        <img class="marquee-logo" src="Images/client_logos/soiitz.png"            alt="Soiitz">
+        <img class="marquee-logo" src="Images/client_logos/drreddys.png"          alt="Dr Reddy's">
+        <img class="marquee-logo" src="Images/client_logos/Digital_Dubai.png"     alt="Digital Dubai">
+        <img class="marquee-logo" src="Images/client_logos/uob.png"               alt="UOB">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 2 — DATA FLOW ARCHITECTURE ===== -->
+  <section style="background: var(--white);">
+    <div class="container">
+      <div class="text-center" style="max-width:800px; margin:0 auto;">
+        <p class="section-eyebrow">the architecture</p>
+        <h2 class="section-heading">data flows in. intelligence flows out.</h2>
+        <p class="section-subheading" style="margin:0 auto;">
+          workforce data flows in. <span class="keep-case">AI</span> agents act on it. outcomes flow out — to every stakeholder, continuously.
+        </p>
+      </div>
+
+      <div class="arch-diagram">
+        <!-- Col 1 -->
+        <div class="arch-col">
+          <div class="arch-col-header arch-color-data-sources">data sources</div>
+          <div class="arch-col-desc">HRIS, performance, learning, collaboration, and live market intelligence feeds — all ingested continuously.</div>
+          <div class="arch-col-arrow">→</div>
+          <div class="arch-tooltip">Ingests structured and unstructured signals from HRIS, performance, learning, collaboration, and real-world market intelligence feeds.</div>
+        </div>
+        <!-- Col 2 -->
+        <div class="arch-col">
+          <div class="arch-col-header arch-color-foundation">data foundation</div>
+          <div class="arch-col-desc">Intelligence pillars normalize, enrich, and structure raw data into workforce-grade intelligence.</div>
+          <div class="arch-col-arrow">→</div>
+          <div class="arch-tooltip">Intelligence pillars normalize, enrich, and structure raw data into workforce-grade intelligence.</div>
+        </div>
+        <!-- Col 3 -->
+        <div class="arch-col">
+          <div class="arch-col-header arch-color-intelligence">intelligence layer</div>
+          <div class="arch-col-desc">Cross-module orchestration and the DIA++ engine convert structured data into context-aware decisions.</div>
+          <div class="arch-col-arrow">→</div>
+          <div class="arch-tooltip">Cross-module signal orchestration, predictive analytics, and the DIA++ engine (entomo's cross-module orchestration layer) convert structured data into context-aware decisions.</div>
+        </div>
+        <!-- Col 4 -->
+        <div class="arch-col">
+          <div class="arch-col-header arch-color-agents"><span class="keep-case">AI</span> agents</div>
+          <div class="arch-col-desc">Purpose-built agents execute workflows, surface insights, and coach stakeholders in real time.</div>
+          <div class="arch-col-arrow">→</div>
+          <div class="arch-tooltip">Purpose-built agents execute workflows, surface insights, and coach stakeholders in real time.</div>
+        </div>
+        <!-- Col 5 -->
+        <div class="arch-col">
+          <div class="arch-col-header arch-color-outcomes">outcomes</div>
+          <div class="arch-col-desc">Workforce readiness, performance optimization, and strategic intelligence — delivered to every stakeholder.</div>
+          <div class="arch-tooltip" style="left:auto; right:0; transform:none;">Workforce readiness, performance optimization, and strategic intelligence — delivered to every stakeholder.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 3 — DATA SOURCES ===== -->
+  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
+    <div class="container">
+      <div class="text-center" style="max-width:760px; margin:0 auto;">
+        <p class="section-eyebrow">data sources</p>
+        <h2 class="section-heading">connects to every data type that matters.</h2>
+        <p class="section-subheading" style="margin: 0 auto;">
+          entomo ingests structured and unstructured workforce data from across your organization — turning fragmented records into a unified intelligence foundation.
+        </p>
+      </div>
+
+      <div class="integrations-grid">
+        <!-- Card 1 -->
+        <div class="integration-card">
+          <div class="integration-card-title">employee &amp; org records</div>
+          <div class="integration-pill-row">
+            <span class="integration-pill">employee profiles</span>
+            <span class="integration-pill">employment history</span>
+            <span class="integration-pill">org charts</span>
+            <span class="integration-pill">headcount data</span>
+          </div>
+        </div>
+        <div class="integration-card">
+          <div class="integration-card-title">performance &amp; goals data</div>
+          <div class="integration-pill-row">
+            <span class="integration-pill">performance ratings</span>
+            <span class="integration-pill">goal completions</span>
+            <span class="integration-pill">manager assessments</span>
+            <span class="integration-pill">check-in records</span>
+          </div>
+        </div>
+        <div class="integration-card">
+          <div class="integration-card-title">skills &amp; learning data</div>
+          <div class="integration-pill-row">
+            <span class="integration-pill">skill assessments</span>
+            <span class="integration-pill">proficiency records</span>
+            <span class="integration-pill">course completions</span>
+            <span class="integration-pill">certifications</span>
+          </div>
+        </div>
+        <div class="integration-card">
+          <div class="integration-card-title">engagement &amp; survey data</div>
+          <div class="integration-pill-row">
+            <span class="integration-pill">pulse surveys</span>
+            <span class="integration-pill">engagement scores</span>
+            <span class="integration-pill">eNPS data</span>
+            <span class="integration-pill">wellbeing signals</span>
+          </div>
+        </div>
+        <div class="integration-card">
+          <div class="integration-card-title">360 &amp; feedback data</div>
+          <div class="integration-pill-row">
+            <span class="integration-pill">360 responses</span>
+            <span class="integration-pill">peer feedback</span>
+            <span class="integration-pill">upward feedback</span>
+            <span class="integration-pill">review data</span>
+          </div>
+        </div>
+        <div class="integration-card">
+          <div class="integration-card-title">org structure &amp; hierarchy</div>
+          <div class="integration-pill-row">
+            <span class="integration-pill">reporting lines</span>
+            <span class="integration-pill">team structures</span>
+            <span class="integration-pill">span of control</span>
+            <span class="integration-pill">hierarchy maps</span>
+          </div>
+        </div>
+        <div class="integration-card">
+          <div class="integration-card-title">role &amp; job architecture data</div>
+          <div class="integration-pill-row">
+            <span class="integration-pill">job definitions</span>
+            <span class="integration-pill">success profiles</span>
+            <span class="integration-pill">competency frameworks</span>
+            <span class="integration-pill">role taxonomy</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-chips-row">
+        <span class="tech-chip">unified data ingestion across your org</span>
+        <span class="tech-chip">real-time data sync, not batch processing</span>
+        <span class="tech-chip">api-first architecture for enterprise integration</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 4 — DATA FOUNDATION ===== -->
+  <section style="background: var(--polar-white);">
+    <div class="container">
+      <div class="text-center" style="max-width:800px; margin:0 auto;">
+        <p class="section-eyebrow">data foundation</p>
+        <h2 class="section-heading">the intelligence foundation. one version of workforce truth.</h2>
+        <p class="section-subheading" style="margin:0 auto;">
+          Raw workforce signals, structured and enriched into a unified foundation — one every agent draws from, and every decision rests on.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        <!-- Pillar 1 -->
+        <div class="pillar-card">
+          <div class="pillar-name"><span class="keep-case">KSAT</span></div>
+          <p class="pillar-tagline">The role taxonomy foundation</p>
+          <p class="pillar-desc">Maps knowledge, skills, abilities, and traits into a structured framework for every role in the organization.</p>
+        </div>
+        <!-- Pillar 2 -->
+        <div class="pillar-card">
+          <div class="pillar-name">demand modelling</div>
+          <p class="pillar-tagline">Workforce demand, projected forward</p>
+          <p class="pillar-desc">Forecasts future workforce requirements by role, skill, and geography based on business growth signals.</p>
+        </div>
+        <!-- Pillar 3 -->
+        <div class="pillar-card">
+          <div class="pillar-name">skill heatmap</div>
+          <p class="pillar-tagline">Skills visualized across the organization</p>
+          <p class="pillar-desc">Surfaces skill distribution, concentration, and gaps across teams, functions, and business units.</p>
+        </div>
+        <!-- Pillar 4 -->
+        <div class="pillar-card">
+          <div class="pillar-name">skill half-life engine</div>
+          <p class="pillar-tagline">Skills aging, tracked in real time</p>
+          <p class="pillar-desc">Monitors the obsolescence rate of skills across the workforce and surfaces reskilling priorities automatically.</p>
+        </div>
+        <!-- Pillar 5 -->
+        <div class="pillar-card">
+          <div class="pillar-name">succession intelligence</div>
+          <p class="pillar-tagline">Critical role continuity planning</p>
+          <p class="pillar-desc">Identifies and develops successors for high-impact roles before the need becomes a crisis.</p>
+        </div>
+        <!-- Pillar 6 -->
+        <div class="pillar-card">
+          <div class="pillar-name">4B decision engine</div>
+          <p class="pillar-tagline">Build, Buy, Borrow, or Bot</p>
+          <p class="pillar-desc">Recommends the optimal talent sourcing strategy for every role based on skills data and business context.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 5 — AI AGENTS ECOSYSTEM ===== -->
+  <section class="dark-section" id="agents-section">
+    <div class="container">
+      <div class="text-center" style="max-width:800px; margin:0 auto;">
+        <p class="section-eyebrow section-eyebrow-white">the <span class="keep-case">AI</span> workforce</p>
+        <h2 class="section-heading">meet the agents.</h2>
+        <p class="agents-intro">
+          They don't just operate. They collaborate — reading each other's outputs, coordinating across modules, and delivering results that no single agent could surface alone.
+        </p>
+      </div>
+
+      <!-- Tier 1: Primary Agents -->
+      <div class="agent-category">
+        <div class="agent-category-header">
+          <span class="category-chip blue">role &amp; skills intelligence</span>
+          <span class="category-desc">role architecture, skill mapping, and org design intelligence</span>
+        </div>
+        <div class="agents-grid">
+          <div class="agent-card blue">
+            <div class="agent-name">talentatlas</div>
+            <div class="agent-role-label">role intelligence</div>
+            <p class="agent-mech">Builds a live intelligence layer across all roles, identifying skill adjacencies, role clusters, and talent mobility paths.</p>
+          </div>
+          <div class="agent-card blue">
+            <div class="agent-name">rolearchitect</div>
+            <div class="agent-role-label">role design, systematized</div>
+            <p class="agent-mech">Designs and evolves job architectures by aligning role definitions to business strategy and market benchmarks.</p>
+          </div>
+          <div class="agent-card blue">
+            <div class="agent-name">skillmatrix</div>
+            <div class="agent-role-label">proficiency, mapped at scale</div>
+            <p class="agent-mech">Tracks individual and team proficiency levels across skills, enabling targeted development and deployment decisions.</p>
+          </div>
+          <div class="agent-card blue">
+            <div class="agent-name">flowgen</div>
+            <div class="agent-role-label">structure <span class="keep-case">AI</span></div>
+            <p class="agent-mech">Generates org structure recommendations and role flow architectures benchmarked to industry demand signals.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tier 2: Extended Intelligence Agents -->
+      <div class="agents-tier2">
+        <p class="agents-tier2-label">extended intelligence agents</p>
+        <div class="agents-tier2-grid">
+          <div class="agent-compact">
+            <span class="agent-compact-name">AI Readiness Agent</span>
+            <span class="agent-compact-desc">Assesses organizational readiness for AI-augmented roles and workflows.</span>
+          </div>
+          <div class="agent-compact">
+            <span class="agent-compact-name">Skill Half-Life Agent</span>
+            <span class="agent-compact-desc">Tracks skill obsolescence rates and surfaces reskilling priorities in real time.</span>
+          </div>
+          <div class="agent-compact">
+            <span class="agent-compact-name">Succession Intelligence Agent</span>
+            <span class="agent-compact-desc">Maps succession pipelines for critical roles and flags readiness gaps.</span>
+          </div>
+          <div class="agent-compact">
+            <span class="agent-compact-name">4B Decision Agent</span>
+            <span class="agent-compact-desc">Recommends Build, Buy, Borrow, or Bot decisions for every open talent need.</span>
+          </div>
+          <div class="agent-compact">
+            <span class="agent-compact-name">Role Craft Agent++</span>
+            <span class="agent-compact-desc">Evolves role definitions continuously as business demands and market benchmarks shift.</span>
+          </div>
+          <div class="agent-compact">
+            <span class="agent-compact-name">Strategy Execution Agent</span>
+            <span class="agent-compact-desc">Models the performance impact of strategic workforce decisions before they are made.</span>
+          </div>
+          <div class="agent-compact">
+            <span class="agent-compact-name">Execution Intelligence Agent</span>
+            <span class="agent-compact-desc">Monitors change readiness and execution progress across business units.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WORKWISE SECTION ===== -->
+  <section class="workwise-section">
+    <div class="container">
+      <div class="workwise-inner">
+        <div class="workwise-text">
+          <p class="section-eyebrow">the experience layer</p>
+          <h2>workwise — the intelligence that finds you</h2>
+          <p class="section-subheading">most platforms require users to navigate to intelligence. workwise inverts this — surfacing the right agent, the right insight, and the right next action, before you know to look for it.</p>
+          <a href="#" class="btn-primary" style="margin-top:1.5rem;">see workwise in action →</a>
+        </div>
+        <div class="workwise-visual">
+          <div class="ww-card">
+            <div class="ww-card-header">
+              <div class="ww-avatar">W</div>
+              <div>
+                <div class="ww-name">workwise</div>
+                <div class="ww-status"><span class="ww-dot"></span> active in your workflow</div>
+              </div>
+            </div>
+            <div class="ww-messages">
+              <div class="ww-msg">
+                <p>good morning. your Q3 performance cycle opens in 3 days. GoalForge has pre-built draft goals for 12 of your direct reports based on their role profiles and last cycle's gaps.</p>
+                <p class="ww-msg-sub">4 goals need your review before they go live.</p>
+              </div>
+              <div class="ww-msg">
+                <p>Pulse360 also flagged 2 team members showing early disengagement signals. i've prepared conversation guides for both — want to review them now?</p>
+              </div>
+              <div class="ww-actions">
+                <span class="ww-chip">review goals</span>
+                <span class="ww-chip">see engagement flags</span>
+                <span class="ww-chip">open cycle dashboard</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 6 — ORCHESTRATION ===== -->
+  <section style="background: var(--pistachio);">
+    <div class="container">
+      <div class="text-center" style="max-width:680px; margin:0 auto 4rem;">
+        <p class="section-eyebrow">orchestration</p>
+        <h2 class="section-heading">agents that coordinate first, and then execute.</h2>
+        <p class="section-subheading" style="margin:0 auto;">one event. multiple agents. a coordinated response — in seconds, not weeks.</p>
+      </div>
+
+      <div style="max-width:860px; margin:0 auto; text-align:center;">
+        <img src="Images/orchestration.svg" alt="agent orchestration diagram" style="width:100%; height:auto; display:block;">
+      </div>
+
+      <div class="orchestration-chips" style="margin-top:3rem;">
+        <span class="orch-chip">cross-agent signal sharing</span>
+        <span class="orch-chip">context-aware sequencing</span>
+        <span class="orch-chip"><span class="keep-case">DIA++</span> orchestration engine</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 8 — STAKEHOLDER PERSONAS ===== -->
+  <section style="background: var(--lavender);">
+    <div class="container">
+      <div class="text-center" style="max-width:680px; margin:0 auto 4rem;">
+        <p class="section-eyebrow">built for every stakeholder</p>
+        <h2 class="section-heading">one platform. every person.</h2>
+      </div>
+
+      <div class="persona-simple-grid">
+
+        <div class="persona-simple-card">
+          <div class="persona-simple-top green-top">
+            <span class="persona-simple-role">employee</span>
+            <span class="persona-simple-headline">grow. every day.</span>
+          </div>
+          <div class="persona-tags">
+            <span class="ptag">personalized growth plan</span>
+            <span class="ptag">daily coaching nudges</span>
+            <span class="ptag">clear career path</span>
+            <span class="ptag">skill gap visibility</span>
+          </div>
+        </div>
+
+        <div class="persona-simple-card">
+          <div class="persona-simple-top red-top">
+            <span class="persona-simple-role">hr leader</span>
+            <span class="persona-simple-headline">automate. at scale.</span>
+          </div>
+          <div class="persona-tags">
+            <span class="ptag">workforce demand projections</span>
+            <span class="ptag">succession risk alerts</span>
+            <span class="ptag">automated cycle workflows</span>
+            <span class="ptag">4B talent decisions</span>
+          </div>
+        </div>
+
+        <div class="persona-simple-card">
+          <div class="persona-simple-top blue-top">
+            <span class="persona-simple-role">chro</span>
+            <span class="persona-simple-headline">decide. with clarity.</span>
+          </div>
+          <div class="persona-tags">
+            <span class="ptag">strategy-linked intelligence</span>
+            <span class="ptag">org health in one view</span>
+            <span class="ptag">board-ready insights</span>
+            <span class="ptag">103% Forrester ROI</span>
+          </div>
+        </div>
+
+        <div class="persona-simple-card">
+          <div class="persona-simple-top gold-top">
+            <span class="persona-simple-role">it &amp; architecture</span>
+            <span class="persona-simple-headline">deploy. with confidence.</span>
+          </div>
+          <div class="persona-tags">
+            <span class="ptag">API-first architecture</span>
+            <span class="ptag">SOC 2 Type II certified</span>
+            <span class="ptag">enterprise SSO</span>
+            <span class="ptag">full audit trails</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 9 — SECURITY ===== -->
+  <section class="dark-section">
+    <div class="container">
+      <div class="text-center" style="max-width:800px; margin:0 auto;">
+        <p class="section-eyebrow" style="color: rgba(255,255,255,0.45);">security &amp; compliance</p>
+        <h2 class="section-heading" style="font-size:clamp(28px,3.5vw,44px); margin-bottom:1rem;">built for enterprises that cannot afford to compromise.</h2>
+        <p style="font-size:18px; line-height:1.65; color:rgba(255,255,255,0.62); max-width:680px; margin:0 auto 3rem;">
+          entomo meets the security, privacy, and compliance requirements of the world's most regulated industries — without exceptions and without workarounds.
+        </p>
+      </div>
+
+      <div class="security-grid">
+        <!-- 1 -->
+        <div class="security-item">
+          <div class="security-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          </div>
+          <div class="security-title">SOC 2 Type II</div>
+          <div class="security-desc">Independently audited — security, availability, and privacy controls verified.</div>
+        </div>
+        <!-- 2 -->
+        <div class="security-item">
+          <div class="security-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div class="security-title">GDPR</div>
+          <div class="security-desc">Full European data protection compliance with privacy-by-design at its core.</div>
+        </div>
+        <!-- 3 -->
+        <div class="security-item">
+          <div class="security-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div class="security-title">regional compliance</div>
+          <div class="security-desc">PDPA, PDPL, and DPDP compliance built in — across Southeast Asia, Middle East, and India.</div>
+        </div>
+        <!-- 4 -->
+        <div class="security-item">
+          <div class="security-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="security-title">data residency</div>
+          <div class="security-desc">Employee data stays within your required geography — no exceptions.</div>
+        </div>
+        <!-- 5 -->
+        <div class="security-item">
+          <div class="security-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="M21 2l-9.6 9.6"/><path d="M15.5 7.5l3 3L22 7l-3-3"/></svg>
+          </div>
+          <div class="security-title">SSO</div>
+          <div class="security-desc">SAML 2.0 and OAuth 2.0 — connects to your existing identity provider seamlessly.</div>
+        </div>
+        <!-- 6 -->
+        <div class="security-item">
+          <div class="security-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="security-title">role-based access</div>
+          <div class="security-desc">Granular controls across every data view, agent action, and admin function.</div>
+        </div>
+        <!-- 7 -->
+        <div class="security-item">
+          <div class="security-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div class="security-title">API-first</div>
+          <div class="security-desc">Every capability exposed via documented REST APIs — no data silos, no middleware.</div>
+        </div>
+        <!-- 8 -->
+        <div class="security-item">
+          <div class="security-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <div class="security-title">audit trails</div>
+          <div class="security-desc">Immutable logs of every platform action — access, execution, and permission changes.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 10 — FINAL CTA ===== -->
+  <section class="final-cta-section">
+    <div class="container">
+      <h2>ready to explore the <span class="keep-case">WorkWise</span> platform?</h2>
+      <p class="final-cta-supporting">
+        One architecture. Agents that coordinate. Intelligence that acts — and a live demo that shows exactly how it works for your organization.
+      </p>
+      <div class="final-cta-buttons">
+        <a href="#" class="btn-primary btn-primary-lg">book a platform demo →</a>
+      </div>
+      <div class="proof-chips">
+        <span class="proof-chip">SOC 2 Type II certified</span>
+        <span class="proof-chip">enterprise-grade security &amp; compliance</span>
+        <span class="proof-chip">deployed across Southeast Asia, Middle East &amp; India</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <img src="Images/entomo.svg" alt="entomo" style="height:32px; width:auto;">
+          </div>
+          <p>Agentic workforce intelligence platform powering 30M+ users across global enterprise brands.</p>
+        </div>
+        <div class="footer-col">
+          <h4>platform</h4>
+          <ul>
+            <li><a href="#">AI agents</a></li>
+            <li><a href="#">intelligence architecture</a></li>
+            <li><a href="#">integrations</a></li>
+            <li><a href="#">security</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>solutions</h4>
+          <ul>
+            <li><a href="#">performance intelligence</a></li>
+            <li><a href="#">skill &amp; talent intelligence</a></li>
+            <li><a href="#">engagement intelligence</a></li>
+            <li><a href="#">workforce insights</a></li>
+            <li><a href="#">wellness intelligence</a></li>
+            <li><a href="#">strategic planning</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>resources</h4>
+          <ul>
+            <li><a href="#">Forrester TEI study</a></li>
+            <li><a href="#">case studies</a></li>
+            <li><a href="#">blog</a></li>
+            <li><a href="#">webinars</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>company</h4>
+          <ul>
+            <li><a href="#">about us</a></li>
+            <li><a href="#">careers</a></li>
+            <li><a href="#">contact</a></li>
+            <li><a href="#">privacy policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 entomo. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Mobile nav toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = navLinks.style.display === 'flex';
+        navLinks.style.display = isOpen ? 'none' : 'flex';
+        navLinks.style.flexDirection = isOpen ? '' : 'column';
+        navLinks.style.position = isOpen ? '' : 'absolute';
+        navLinks.style.top = isOpen ? '' : '68px';
+        navLinks.style.left = isOpen ? '' : '0';
+        navLinks.style.right = isOpen ? '' : '0';
+        navLinks.style.background = isOpen ? '' : 'var(--white)';
+        navLinks.style.padding = isOpen ? '' : '1.5rem';
+        navLinks.style.borderBottom = isOpen ? '' : '1px solid rgba(26,31,38,0.08)';
+        navLinks.style.boxShadow = isOpen ? '' : 'var(--shadow-md)';
+        navLinks.style.zIndex = isOpen ? '' : '99';
+      });
+    }
+
+    // Smooth scroll for pipeline "explore agents" button
+    document.querySelectorAll('a[href="#agents-section"]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.getElementById('agents-section');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
