@@ -1985,6 +1985,49 @@
       .hero { padding: 3rem 0 2.5rem; }
       .section-heading { font-size: 26px; }
     }
+
+    /* ===== PLACEHOLDER TOOLTIPS — TEMPORARY, REMOVE WHEN PAGES ARE BUILT =====
+       To revert: delete this entire CSS block and remove class="nav-placeholder-tooltip"
+       + data-tooltip attributes from the 4 nav elements in every page. ===== */
+    .nav-placeholder-tooltip {
+      position: relative;
+    }
+    .nav-placeholder-tooltip::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(26,31,38,0.88);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 500;
+      white-space: nowrap;
+      padding: 5px 10px;
+      border-radius: 5px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      z-index: 999;
+    }
+    .nav-placeholder-tooltip::before {
+      content: '';
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 50%;
+      transform: translateX(-50%);
+      border: 4px solid transparent;
+      border-bottom-color: rgba(26,31,38,0.88);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      z-index: 999;
+    }
+    .nav-placeholder-tooltip:hover::after,
+    .nav-placeholder-tooltip:hover::before {
+      opacity: 1;
+    }
+    /* ===== END PLACEHOLDER TOOLTIPS ===== */
   </style>
 </head>
 <body>
@@ -2074,12 +2117,12 @@
               </div>
             </div>
           </li>
-          <li><a href="#">inspiration</a></li>
-          <li><a href="#">about</a></li>
-          <li><a href="#">contact</a></li>
+          <li class="nav-placeholder-tooltip" data-tooltip="retain existing pages"><a href="#">inspiration</a></li>
+          <li class="nav-placeholder-tooltip" data-tooltip="retain existing pages"><a href="#">about</a></li>
+          <li class="nav-placeholder-tooltip" data-tooltip="retain existing pages"><a href="#">contact</a></li>
         </ul>
         <div class="nav-right">
-          <button class="nav-cta">request a demo →</button>
+          <button class="nav-cta nav-placeholder-tooltip" data-tooltip="retain existing pages">request a demo →</button>
         </div>
       </div>
       <button class="nav-toggle" aria-label="Menu">
@@ -3197,7 +3240,7 @@
           <ul>
             <li><a href="#">about us</a></li>
             <li><a href="#">careers</a></li>
-            <li><a href="#">contact</a></li>
+            <li class="nav-placeholder-tooltip" data-tooltip="retain existing pages"><a href="#">contact</a></li>
             <li><a href="#">privacy policy</a></li>
           </ul>
         </div>
