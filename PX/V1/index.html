@@ -302,7 +302,7 @@
     /* ===== HERO ===== */
     .hero {
       background: linear-gradient(135deg, rgba(234,245,237,0.6) 0%, rgba(230,240,249,0.5) 40%, rgba(254,251,244,0.6) 100%);
-      padding: 5rem 0 4rem;
+      padding: 5rem 0 5.5rem;
       position: relative;
       overflow: hidden;
     }
@@ -374,26 +374,31 @@
 
     .hero-subline-ww {
       display: flex;
-      align-items: center;
+      align-items: baseline;
       justify-content: center;
-      gap: 10px;
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 28px;
+      gap: 0;
+      font-size: 26px;
       font-weight: 600;
-      line-height: 1.15;
-      letter-spacing: 0.5px;
+      line-height: 1.3;
       color: var(--ebony-clay);
-      opacity: 0.82;
+      opacity: 0.78;
       margin-bottom: 1.75rem;
     }
     .hero-subline-ww img {
-      height: 30px;
+      height: 38px;
       width: auto;
       display: inline-block;
-      vertical-align: middle;
+      vertical-align: baseline;
+      position: relative;
+      top: 5px;
+      margin-right: 2px;
     }
-    @media (max-width: 1024px) { .hero-subline-ww { font-size: 22px; } .hero-subline-ww img { height: 24px; } }
-    @media (max-width: 768px)  { .hero-subline-ww { font-size: 18px; } .hero-subline-ww img { height: 20px; } }
+    .hero-subline-ww .ww-text {
+      font-family: 'Courier New', Courier, monospace;
+      letter-spacing: 0.3px;
+    }
+    @media (max-width: 1024px) { .hero-subline-ww { font-size: 22px; } .hero-subline-ww img { height: 32px; top: 4px; } }
+    @media (max-width: 768px)  { .hero-subline-ww { font-size: 18px; } .hero-subline-ww img { height: 26px; top: 3px; } }
 
     .hero-sub {
       font-size: 18px;
@@ -2095,7 +2100,7 @@
           <span>agentic intelligence</span>
           <span>in the <mark>flow-of-work</mark></span>
         </h1>
-        <div class="hero-subline-ww"><img src="Images/workwise.svg" alt="WorkWise">, your intelligent coworker</div>
+        <div class="hero-subline-ww"><img src="Images/workwise.svg" alt="WorkWise"><span class="ww-text">, your intelligent coworker</span></div>
         <p class="hero-sub">
           accelerates performance and talent growth, turns workforce data into action, and enables smarter workforce decisions, <em>all in the flow-of-work</em>
         </p>
