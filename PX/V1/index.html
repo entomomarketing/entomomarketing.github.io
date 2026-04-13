@@ -407,24 +407,18 @@
       max-width: 620px;
       margin: 0 auto 2.25rem;
     }
-    /* Inline WorkWise logo — crops the SVG to just the letter band.
-       SVG analysis: letters occupy y=165–286.5 out of 309.75 total height.
-       Top whitespace (icon dots) = 53.3%, text band = 39.2%, bottom gap = 7.5%.
-       Wrapper clips to the text band; img is sized so text band = cap-height (0.72em). */
-    .ww-logo-wrap {
+    /* Inline WorkWise logo — full logo shown, sized so the letter portion matches
+       cap-height of surrounding text. SVG analysis: letters span y=165–286.5 out
+       of 309.75 total height (39.2%). Height = 0.72em ÷ 0.392 = 1.84em so letters
+       = cap-height. vertical-align: -0.14em seats the letter baseline on the text
+       baseline; the icon dots naturally extend above the text line. */
+    .ww-inline {
       display: inline-block;
-      overflow: hidden;
-      height: 0.72em;        /* cap-height of surrounding text */
-      vertical-align: baseline;
-      margin: 0 3px;
-      line-height: 0;
-    }
-    .ww-logo-wrap img {
-      display: block;
-      height: 1.84em;        /* full SVG sized so text band = 0.72em (0.72/0.392) */
+      height: 1.84em;
       width: auto;
       max-width: none;
-      margin-top: -0.98em;   /* shift image up so text band aligns to top of wrapper (53.3% × 1.84em) */
+      vertical-align: -0.14em;
+      margin: 0 2px;
     }
     .hero-ctas {
       display: flex;
@@ -2163,7 +2157,7 @@
           <span>in the <mark>flow-of-work</mark></span>
         </h1>
         <p class="hero-sub">
-          with <span class="ww-logo-wrap"><img src="Images/workwise.svg" alt="WorkWise"></span>, your intelligent coworker that accelerates performance and talent growth, puts data into action, and enables smarter workforce decisions, <em>all in the flow-of-work</em>
+          <img class="ww-inline" src="Images/workwise.svg" alt="WorkWise"> is your intelligent coworker that accelerates performance and talent growth, puts data into action, and enables smarter workforce decisions, <em>all in the flow-of-work</em>
         </p>
         <div class="hero-ctas">
           <button class="btn-primary">see it in action →</button>
@@ -2176,7 +2170,7 @@
   <section class="trust-bar">
     <div class="container">
       <div class="trust-bar-header">
-        <h2 class="trust-bar-heading">global brands worldwide power their talent with <span class="ww-logo-wrap"><img src="Images/workwise.svg" alt="WorkWise"></span></h2>
+        <h2 class="trust-bar-heading">global brands worldwide power their talent with <img class="ww-inline" src="Images/workwise.svg" alt="WorkWise"></h2>
       </div>
     </div>
 
@@ -2484,7 +2478,7 @@
 
     <div class="container">
 
-      <h3 class="ww-headline" style="margin-top: 3.5rem;">You define the objective, <span class="ww-logo-wrap"><img src="Images/workwise.svg" alt="WorkWise"></span> builds the right agent team that gets the work done</h3>
+      <h3 class="ww-headline" style="margin-top: 3.5rem;">You define the objective, <img class="ww-inline" src="Images/workwise.svg" alt="WorkWise"> builds the right agent team that gets the work done</h3>
 
       <div class="ww-demo" id="wwDemo">
 
@@ -3206,7 +3200,7 @@
   <!-- ===== FINAL CTA ===== -->
   <section class="final-cta">
     <div class="container">
-      <h2>usher in <mark>Agentic Intelligence</mark> with <span class="ww-logo-wrap"><img src="Images/workwise.svg" alt="WorkWise"></span></h2>
+      <h2>usher in <mark>Agentic Intelligence</mark> with <img class="ww-inline" src="Images/workwise.svg" alt="WorkWise"></h2>
       <p class="final-cta-sub">join global brands in making your workforce AI-first</p>
       <div class="final-cta-buttons">
         <button class="btn-primary">request a demo →</button>
