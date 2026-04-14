@@ -1014,6 +1014,24 @@
       animation: agent-scroll 36s linear infinite;
     }
     .agent-marquee-track:hover { animation-play-state: paused; }
+    .agent-areas-wrapper {
+      overflow: hidden; position: relative; margin-top: 1rem;
+    }
+    .agent-areas-track {
+      display: flex; gap: 2.5rem; width: max-content;
+      animation: agent-areas-scroll 40s linear infinite;
+    }
+    .agent-area-pill {
+      padding: 12px 40px; border-radius: 8px;
+      background: rgba(244, 178, 35, 0.08);
+      color: rgba(26, 31, 38, 0.32);
+      font-size: 16px; font-weight: 600; white-space: nowrap;
+      text-transform: lowercase; letter-spacing: 0.3px;
+    }
+    @keyframes agent-areas-scroll {
+      from { transform: translateX(-50%); }
+      to   { transform: translateX(0); }
+    }
     @keyframes agent-scroll {
       from { transform: translateX(0); }
       to   { transform: translateX(-50%); }
@@ -2558,6 +2576,40 @@
         <div class="agent-mq-card"><img src="Images/agents/flowgen.png" alt="FlowGen"><div class="agent-mq-name">FlowGen</div><div class="agent-mq-role">workflow automation</div><div class="agent-mq-desc">Automates HR workflows end-to-end, from goal setting to reviews, without manual intervention.</div></div>
         <div class="agent-mq-card"><img src="Images/agents/TeamInsight.png" alt="TeamInsight"><div class="agent-mq-name">TeamInsight</div><div class="agent-mq-role">team analytics</div><div class="agent-mq-desc">Tracks team health, collaboration patterns, and performance dynamics to surface risks before they escalate.</div></div>
 
+      </div>
+    </div>
+
+    <!-- Areas marquee (reverse direction) -->
+    <div class="agent-areas-wrapper">
+      <div class="agent-areas-track">
+        <span class="agent-area-pill">performance</span>
+        <span class="agent-area-pill">skills &amp; growth</span>
+        <span class="agent-area-pill">engagement</span>
+        <span class="agent-area-pill">learning</span>
+        <span class="agent-area-pill">wellness</span>
+        <span class="agent-area-pill">insights</span>
+        <span class="agent-area-pill">core HR</span>
+        <span class="agent-area-pill">performance</span>
+        <span class="agent-area-pill">skills &amp; growth</span>
+        <span class="agent-area-pill">engagement</span>
+        <span class="agent-area-pill">learning</span>
+        <span class="agent-area-pill">wellness</span>
+        <span class="agent-area-pill">insights</span>
+        <span class="agent-area-pill">core HR</span>
+        <span class="agent-area-pill">performance</span>
+        <span class="agent-area-pill">skills &amp; growth</span>
+        <span class="agent-area-pill">engagement</span>
+        <span class="agent-area-pill">learning</span>
+        <span class="agent-area-pill">wellness</span>
+        <span class="agent-area-pill">insights</span>
+        <span class="agent-area-pill">core HR</span>
+        <span class="agent-area-pill">performance</span>
+        <span class="agent-area-pill">skills &amp; growth</span>
+        <span class="agent-area-pill">engagement</span>
+        <span class="agent-area-pill">learning</span>
+        <span class="agent-area-pill">wellness</span>
+        <span class="agent-area-pill">insights</span>
+        <span class="agent-area-pill">core HR</span>
       </div>
     </div>
 
