@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wellness Intelligence | entomo</title>
+  <meta name="description" content="Protect your people's wellbeing. Agentic intelligence that senses wellness signals early, nudges proactively, and protects your workforce before stress becomes attrition.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Nunito Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #1a1f26;
+      background-color: #ffffff;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --cg-red: #e43d30;
+      --cg-gold: #f4b223;
+      --spanish-blue: #0064bf;
+      --sea-green: #2c9942;
+      --sunrise-yellow: #ffda00;
+      --white: #ffffff;
+      --black: #000000;
+      --ebony-clay: #1a1f26;
+      --black-haze: #fafbfb;
+      --silver-sand: #c0c2c3;
+      --floral-white: #fefbf4;
+      --lavender: #e6f0f9;
+      --pistachio: #eaf5ed;
+      --polar-white: #f2f7fc;
+      --gradient-cta: linear-gradient(90deg, #f4b223, #e43d30);
+      --radius-semi: 5px;
+      --radius-standard: 10px;
+      --radius-medium: 15px;
+      --radius-large: 25px;
+      --shadow-sm: 0px 5px 10px rgba(0,0,0,0.10);
+      --shadow-md: 0px 15px 25px rgba(0,0,0,0.10);
+      --max-width: 1280px;
+    }
+
+    /* ===== UTILITY ===== */
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+    .text-center { text-align: center; }
+    .keep-case { text-transform: none !important; }
+    mark {
+      background-color: var(--sunrise-yellow);
+      background-image: none;
+      color: var(--black);
+      border-radius: 12px;
+      padding: 0.05em 0.35em;
+      line-height: 1;
+      font-weight: 700;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn-primary {
+      background-image: var(--gradient-cta); color: var(--white); border: none;
+      border-radius: var(--radius-semi); padding: 12px 36px; font-family: inherit;
+      font-size: 17px; font-weight: 600; text-transform: lowercase; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
+
+    /* ===== SECTION SPACING ===== */
+    section { padding: 4.5rem 0; }
+    @media (max-width: 768px) { section { padding: 3rem 0; } }
+
+    .section-eyebrow {
+      font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: lowercase; color: var(--cg-red); margin-bottom: 0.75rem;
+    }
+    .section-heading {
+      font-size: 36px; font-weight: 700; line-height: 1.2;
+      text-transform: lowercase; color: var(--ebony-clay); margin-bottom: 1rem;
+    }
+    .section-subheading {
+      font-size: 17px; color: rgba(26,31,38,0.6); max-width: 680px; line-height: 1.65;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .navbar {
+      position: sticky; top: 0; z-index: 100; background: var(--white);
+      border-bottom: 1px solid rgba(26,31,38,0.08); backdrop-filter: blur(12px);
+    }
+    .navbar .container {
+      display: flex; align-items: center; justify-content: space-between; height: 68px;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 700; text-transform: lowercase; }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-size: 16px; font-weight: 500; text-transform: lowercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--cg-red); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+    .nav-cta {
+      background-image: var(--gradient-cta); color: var(--white); border: none;
+      border-radius: var(--radius-semi); padding: 8px 20px; font-family: inherit;
+      font-size: 14px; font-weight: 600; text-transform: lowercase; cursor: pointer;
+    }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-toggle svg { width: 24px; height: 24px; }
+    /* ===== SOLUTIONS MEGA DROPDOWN ===== */
+    .nav-dropdown-wrap {
+      position: relative;
+    }
+    .nav-dropdown-wrap > a {
+      display: flex; align-items: center; gap: 4px;
+    }
+    .nav-dropdown-wrap > a::after {
+      content: '';
+      border: solid currentColor; border-width: 0 1.5px 1.5px 0;
+      display: inline-block; padding: 2.5px;
+      transform: rotate(45deg); margin-top: -3px;
+      transition: transform 0.2s;
+    }
+    .nav-dropdown-wrap:hover > a::after {
+      transform: rotate(-135deg); margin-top: 2px;
+    }
+    .nav-mega {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.08);
+      border-radius: var(--radius-medium);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12), 0 0 0 1px rgba(26,31,38,0.04);
+      padding: 1.25rem;
+      width: 680px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+      transform: translateX(-50%) translateY(14px);
+      z-index: 200;
+    }
+    .nav-dropdown-wrap:hover .nav-mega {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(8px);
+    }
+    .nav-mega-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+    }
+    .nav-mega-item {
+      display: flex; flex-direction: row; align-items: flex-start; gap: 12px;
+      padding: 12px 14px; border-radius: var(--radius-standard);
+      transition: background 0.15s; text-decoration: none; color: inherit;
+    }
+    .nav-mega-icon {
+      width: 40px; height: 40px; border-radius: 9px; flex-shrink: 0;
+      background: rgba(26,31,38,0.05);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+    }
+    .nav-mega-icon svg {
+      width: 18px; height: 18px; stroke: rgba(26,31,38,0.45); fill: none;
+      transition: stroke 0.15s;
+    }
+    .nav-mega-text { display: flex; flex-direction: column; gap: 2px; }
+    .nav-mega-item:hover { background: rgba(228,61,48,0.04); }
+    .nav-mega-item:hover .nav-mega-icon { background: rgba(228,61,48,0.08); }
+    .nav-mega-item:hover .nav-mega-icon svg { stroke: var(--cg-red); }
+    .nav-mega-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      margin-bottom: 3px;
+      line-height: 1.3;
+    }
+    .nav-mega-desc {
+      font-size: 12px;
+      color: rgba(26,31,38,0.45);
+      line-height: 1.4;
+      font-weight: 500;
+    }
+    .nav-mega-item:hover .nav-mega-name {
+      color: var(--cg-red);
+    }
+    .nav-right-group { display: flex; flex-direction: row; align-items: center; gap: 1.5rem; flex-wrap: nowrap; }
+    @media (max-width: 900px) {
+      .nav-mega { display: none; }
+    }
+
+    @media (max-width: 900px) { .nav-links { display: none; } .nav-toggle { display: block; } }
+
+    /* ===== HERO ===== */
+    .sol-hero {
+      background: linear-gradient(135deg, rgba(228,61,48,0.04) 0%, rgba(244,178,35,0.06) 40%, rgba(254,251,244,0.6) 100%);
+      padding: 5rem 0 4.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .sol-hero::before {
+      content: '';
+      position: absolute; top: -30%; right: -5%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(228,61,48,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .sol-hero .container { position: relative; z-index: 1; }
+    .sol-hero-content { max-width: 860px; margin: 0 auto; text-align: center; }
+    .sol-breadcrumb {
+      font-size: 13px; color: rgba(26,31,38,0.5); margin-bottom: 1.5rem;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .sol-breadcrumb a { color: var(--cg-red); font-weight: 600; }
+    .sol-breadcrumb a:hover { text-decoration: underline; }
+    .sol-hero h1 {
+      font-size: clamp(36px, 5vw, 68px); font-weight: 700; line-height: 1.12;
+      text-transform: lowercase; color: var(--ebony-clay); margin-bottom: 1.25rem;
+    }
+    .sol-hero-sub {
+      font-size: 18px; line-height: 1.65; color: rgba(26,31,38,0.65);
+      max-width: 640px; margin: 0 auto 2rem;
+    }
+    .sol-hero-proof {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; color: rgba(26,31,38,0.5); margin-top: 1.25rem;
+    }
+    .sol-hero-proof svg { width: 14px; height: 14px; stroke: var(--cg-red); }
+
+    /* ===== OUTCOMES ===== */
+    /* ===== DIA DEMO CSS (for performance intelligence page) ===== */
+    .dia-demo {
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(26,31,38,0.04);
+      overflow: hidden;
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      height: 480px;
+    }
+    .dia-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+      border-bottom: 1px solid rgba(26,31,38,0.06);
+      background: var(--polar-white);
+      flex-shrink: 0;
+    }
+    .dia-topbar-left { display: flex; align-items: center; gap: 10px; }
+    .dia-avatar {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--spanish-blue), #00a1e0);
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 11px; font-weight: 700;
+    }
+    .dia-topbar-title { font-size: 14px; font-weight: 700; color: var(--ebony-clay); }
+    .dia-topbar-sub { font-size: 11px; color: rgba(26,31,38,0.4); font-weight: 500; }
+    .dia-chat {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px 24px 16px;
+      overflow: hidden;
+    }
+    .dia-msg {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.35s, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                  max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                  margin 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      max-height: 0;
+      overflow: hidden;
+      margin-bottom: 0;
+    }
+    .dia-msg.show {
+      opacity: 1;
+      transform: translateY(0);
+      max-height: 350px;
+      margin-bottom: 12px;
+    }
+    .dia-user-q {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .dia-user-q span {
+      background: var(--spanish-blue);
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 16px;
+      border-radius: 16px 16px 4px 16px;
+      max-width: 80%;
+    }
+    .dia-phase {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .dia-phase-dot {
+      width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 2px;
+    }
+    .dia-phase-dot.foundation { background: rgba(26,31,38,0.08); }
+    .dia-phase-dot.agents { background: rgba(0,100,191,0.1); }
+    .dia-phase-dot svg { width: 12px; height: 12px; }
+    .dia-phase-body {}
+    .dia-phase-label {
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.8px; color: rgba(26,31,38,0.35); margin-bottom: 5px;
+    }
+    .dia-phase-pills { display: flex; flex-wrap: wrap; gap: 5px; }
+    .dia-phase-pill {
+      font-size: 11px; font-weight: 600; padding: 3px 10px;
+      border-radius: 6px; white-space: nowrap;
+    }
+    .dia-phase-pill.dark {
+      background: rgba(26,31,38,0.06); color: rgba(26,31,38,0.45);
+    }
+    .dia-phase-pill.blue {
+      background: rgba(0,100,191,0.07); color: rgba(0,100,191,0.6);
+    }
+    .dia-dots {
+      display: flex; align-items: center; gap: 5px;
+      padding: 4px 0;
+    }
+    .dia-dots span {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--spanish-blue); opacity: 0.25;
+      animation: dia-pulse 1s infinite;
+    }
+    .dia-dots span:nth-child(2) { animation-delay: 0.15s; }
+    .dia-dots span:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes dia-pulse {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 0.9; transform: scale(1.35); }
+    }
+    .dia-greeting {
+      font-size: 13.5px; font-weight: 600; color: var(--ebony-clay);
+      margin-bottom: 10px;
+    }
+    .dia-outcome {
+      background: linear-gradient(135deg, #0064bf 0%, #00a1e0 100%);
+      border-radius: 16px;
+      padding: 24px 28px;
+      color: white;
+    }
+    .dia-outcome-label {
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 1px; opacity: 0.65; margin-bottom: 4px;
+    }
+    .dia-outcome-row {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .dia-outcome-score {
+      font-size: 56px; font-weight: 700; line-height: 1; letter-spacing: -2px;
+    }
+    .dia-outcome-badge {
+      display: flex; align-items: center; gap: 5px;
+      background: rgba(255,255,255,0.18); padding: 5px 11px;
+      border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 6px;
+    }
+    .dia-outcome-divider {
+      height: 1px; background: rgba(255,255,255,0.18); margin: 12px 0;
+    }
+    .dia-outcome-detail {
+      font-size: 13px; line-height: 1.55; opacity: 0.85;
+    }
+    .dia-bottom {
+      border-top: 1px solid rgba(26,31,38,0.06);
+      padding: 12px 24px 16px;
+      flex-shrink: 0;
+    }
+    .dia-prompt-chips {
+      display: flex; gap: 6px; margin-bottom: 10px; overflow-x: auto;
+    }
+    .dia-prompt-chip {
+      white-space: nowrap; font-size: 11px; font-weight: 500;
+      color: rgba(26,31,38,0.45); padding: 6px 12px;
+      border-radius: 18px; border: 1px solid rgba(26,31,38,0.09);
+      background: white;
+    }
+    .dia-input-row {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(26,31,38,0.03); border: 1px solid rgba(26,31,38,0.08);
+      border-radius: 12px; padding: 10px 12px 10px 16px;
+    }
+    .dia-input-text {
+      flex: 1; font-size: 14px; color: var(--ebony-clay);
+      font-family: inherit; overflow: hidden; white-space: nowrap;
+      min-height: 20px;
+    }
+    .dia-cursor {
+      display: inline-block; width: 2px; height: 16px;
+      background: var(--spanish-blue); vertical-align: text-bottom;
+      animation: dia-blink 0.7s step-end infinite;
+    }
+    @keyframes dia-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .dia-send-btn {
+      width: 34px; height: 34px; border-radius: 9px;
+      background: var(--spanish-blue); display: flex;
+      align-items: center; justify-content: center; flex-shrink: 0;
+      opacity: 0.3; transition: opacity 0.2s;
+    }
+    .dia-send-btn.active { opacity: 1; }
+
+    /* ===== WORKWISE DEMO CSS ===== */
+    .ww-demo {
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(26,31,38,0.04);
+      overflow: hidden;
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      height: 480px;
+    }
+    .ww-topbar {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 24px;
+      border-bottom: 1px solid rgba(26,31,38,0.06);
+      background: var(--polar-white); flex-shrink: 0;
+    }
+    .ww-topbar-avatar {
+      width: 30px; height: 30px; border-radius: 50%;
+      overflow: hidden; flex-shrink: 0;
+    }
+    .ww-topbar-avatar img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .ww-topbar-title { font-size: 14px; font-weight: 700; color: var(--ebony-clay); }
+    .ww-stage {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    .ww-panel {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      padding: 24px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+    }
+    .ww-panel.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .ww-greeting-photo {
+      width: 88px; height: 88px; border-radius: 50%;
+      overflow: hidden; position: relative;
+      margin-bottom: 16px;
+      border: 3px solid rgba(0,100,191,0.1);
+    }
+    .ww-greeting-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .ww-greeting-online {
+      width: 14px; height: 14px; border-radius: 50%;
+      background: #2c9942; border: 3px solid white;
+      position: absolute; bottom: 4px; right: 4px;
+    }
+    .ww-greeting-title {
+      font-size: 26px; font-weight: 700; color: var(--ebony-clay);
+      margin-bottom: 8px;
+    }
+    .ww-greeting-title span { color: var(--spanish-blue); }
+    .ww-greeting-sub {
+      font-size: 14px; color: rgba(26,31,38,0.5);
+      line-height: 1.55; max-width: 400px; text-align: center;
+    }
+    .ww-chat-panel {
+      justify-content: flex-start;
+      align-items: stretch;
+      padding: 20px 24px;
+    }
+    .ww-user-q {
+      display: flex; justify-content: flex-end; margin-bottom: 16px;
+      flex-shrink: 0;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.3s 0.05s, transform 0.3s 0.05s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .ww-panel.active .ww-user-q {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .ww-user-q span {
+      background: var(--sunrise-yellow);
+      color: var(--ebony-clay); font-size: 14px; font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 16px 16px 4px 16px;
+    }
+    .ww-response-area {
+      flex: 1; position: relative;
+    }
+    .ww-sub {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.35s, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+    }
+    .ww-sub.active { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .ww-assemble-icon {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(0,100,191,0.08);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 10px;
+    }
+    .ww-assemble-icon svg { width: 20px; height: 20px; }
+    .ww-assemble-title {
+      font-size: 17px; font-weight: 700; color: var(--ebony-clay);
+      margin-bottom: 4px; white-space: nowrap;
+    }
+    .ww-assemble-sub {
+      font-size: 13px; color: rgba(26,31,38,0.45); margin-bottom: 12px;
+      white-space: nowrap;
+    }
+    .ww-assemble-dots {
+      display: flex; align-items: center; gap: 5px;
+    }
+    .ww-assemble-dots span {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--spanish-blue); opacity: 0.25;
+      animation: ww-pulse 1s infinite;
+    }
+    .ww-assemble-dots span:nth-child(2) { animation-delay: 0.15s; }
+    .ww-assemble-dots span:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes ww-pulse {
+      0%,100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 0.9; transform: scale(1.35); }
+    }
+    .ww-team-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: rgba(0,100,191,0.5);
+      margin-bottom: 12px;
+    }
+    .ww-agents-row {
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ww-agent-card {
+      display: flex; flex-direction: column; align-items: center;
+      background: var(--white);
+      border: 1.5px solid rgba(0,100,191,0.12);
+      border-radius: 14px;
+      padding: 12px 8px 8px;
+      width: 130px; flex-shrink: 0;
+      box-shadow: 0 2px 10px rgba(0,100,191,0.06);
+    }
+    .ww-agent-card img {
+      width: 42px; height: 42px; border-radius: 10px;
+      object-fit: cover; margin-bottom: 6px;
+    }
+    .ww-agent-name {
+      font-size: 12px; font-weight: 700; color: var(--ebony-clay);
+      text-align: center; line-height: 1.2; margin-bottom: 3px;
+    }
+    .ww-agent-desc {
+      font-size: 10px; color: rgba(26,31,38,0.45);
+      text-align: center; line-height: 1.3; font-weight: 500;
+    }
+    .ww-flow-arrow {
+      display: flex; align-items: center; padding: 0 6px; gap: 3px;
+    }
+    .ww-flow-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--spanish-blue);
+      animation: ww-flow 0.8s infinite;
+    }
+    .ww-flow-arrow .ww-flow-dot:nth-child(2) { animation-delay: 0.15s; }
+    .ww-flow-arrow .ww-flow-dot:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes ww-flow {
+      0%,100% { opacity: 0.12; }
+      50% { opacity: 1; }
+    }
+    #pwwSubOutput {
+      align-items: stretch;
+      justify-content: flex-start;
+      padding-top: 8px;
+      text-align: left;
+    }
+    .pww-greeting {
+      font-size: 13.5px; font-weight: 600; color: var(--ebony-clay);
+      margin-bottom: 10px;
+    }
+    .pww-form-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      width: 100%;
+      max-width: 100%;
+      border: 1px solid rgba(0,100,191,0.12);
+    }
+    .pww-form-header {
+      background: linear-gradient(135deg, #0064bf 0%, #00a1e0 100%);
+      color: white;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pww-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px 16px;
+      padding: 16px;
+    }
+    .pww-form-field {
+      display: flex;
+      flex-direction: column;
+    }
+    .pww-form-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: rgba(26,31,38,0.4);
+      margin-bottom: 5px;
+    }
+    .pww-form-value {
+      font-size: 13px;
+      color: var(--ebony-clay);
+      font-weight: 600;
+    }
+    .ww-bottom {
+      border-top: 1px solid rgba(26,31,38,0.06);
+      padding: 10px 24px 14px;
+      flex-shrink: 0;
+    }
+    .ww-chips {
+      display: flex; gap: 6px; margin-bottom: 8px; overflow-x: auto;
+    }
+    .ww-chip {
+      white-space: nowrap; font-size: 11px; font-weight: 500;
+      color: rgba(26,31,38,0.45); padding: 6px 12px;
+      border-radius: 18px; border: 1px solid rgba(26,31,38,0.09);
+      background: white;
+    }
+    .ww-input-row {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(26,31,38,0.03); border: 1px solid rgba(26,31,38,0.08);
+      border-radius: 12px; padding: 10px 12px 10px 16px;
+    }
+    .ww-input-text {
+      flex: 1; font-size: 14px; color: var(--ebony-clay);
+      font-family: inherit; overflow: hidden; white-space: nowrap;
+      min-height: 20px;
+    }
+    .ww-cursor {
+      display: inline-block; width: 2px; height: 16px;
+      background: var(--spanish-blue); vertical-align: text-bottom;
+      animation: ww-blink 0.7s step-end infinite;
+    }
+    @keyframes ww-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .ww-send-btn {
+      width: 34px; height: 34px; border-radius: 9px;
+      background: var(--spanish-blue); display: flex;
+      align-items: center; justify-content: center; flex-shrink: 0;
+      opacity: 0.3; transition: opacity 0.2s;
+    }
+    .ww-send-btn.active { opacity: 1; }
+
+    /* ===== COACH DEMO CSS ===== */
+    .coach-demo {
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(26,31,38,0.04);
+      overflow: hidden;
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      height: 480px;
+    }
+    .coach-topbar {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 24px;
+      border-bottom: 1px solid rgba(26,31,38,0.06);
+      background: var(--polar-white); flex-shrink: 0;
+    }
+    .coach-avatar {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: linear-gradient(135deg, #0064bf, #00a1e0);
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 11px; font-weight: 700;
+    }
+    .coach-topbar-title { font-size: 14px; font-weight: 700; color: var(--ebony-clay); }
+    .coach-stage {
+      flex: 1; position: relative; overflow: hidden;
+    }
+    .coach-panel {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      padding: 24px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+    }
+    .coach-panel.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .coach-greeting-text {
+      text-align: center;
+    }
+    .coach-greeting-title {
+      font-size: 26px; font-weight: 700; color: var(--ebony-clay);
+      margin-bottom: 8px;
+    }
+    .coach-greeting-sub {
+      font-size: 14px; color: rgba(26,31,38,0.5);
+      line-height: 1.55; max-width: 400px;
+    }
+    .coach-chat-panel {
+      justify-content: flex-start;
+      align-items: stretch;
+      padding: 20px 24px;
+    }
+    .coach-user-q {
+      display: flex; justify-content: flex-end; margin-bottom: 16px;
+      flex-shrink: 0;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.3s 0.05s, transform 0.3s 0.05s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .coach-panel.active .coach-user-q {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .coach-user-q span {
+      background: #0064bf;
+      color: white; font-size: 14px; font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 16px 16px 4px 16px;
+    }
+    .coach-response-area {
+      flex: 1; position: relative;
+    }
+    .coach-sub {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.35s, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+    }
+    .coach-sub.active { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .coach-think-icon {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(0,100,191,0.08);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 10px;
+    }
+    .coach-think-title {
+      font-size: 14px; font-weight: 600; color: var(--ebony-clay);
+      margin-bottom: 8px; white-space: nowrap;
+    }
+    .coach-think-dots {
+      display: flex; align-items: center; gap: 5px;
+    }
+    .coach-think-dots span {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #0064bf; opacity: 0.25;
+      animation: coach-pulse 1s infinite;
+    }
+    .coach-think-dots span:nth-child(2) { animation-delay: 0.15s; }
+    .coach-think-dots span:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes coach-pulse {
+      0%,100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 0.9; transform: scale(1.35); }
+    }
+    #pcoachSubResponse {
+      align-items: stretch;
+      justify-content: flex-start;
+      padding-top: 8px;
+      text-align: left;
+    }
+    .coach-response {
+      background: rgba(0,100,191,0.05);
+      border-radius: 14px;
+      padding: 18px 20px;
+      width: 100%;
+      max-width: 100%;
+    }
+    .coach-greeting {
+      font-size: 13.5px; font-weight: 600; color: var(--ebony-clay);
+      margin-bottom: 10px;
+    }
+    .coach-bullets {
+      list-style: none; padding: 0; margin: 0 0 12px 0;
+    }
+    .coach-bullets li {
+      font-size: 12.5px; line-height: 1.55; color: rgba(26,31,38,0.72);
+      padding: 4px 0 4px 16px; position: relative;
+    }
+    .coach-bullets li::before {
+      content: ""; position: absolute; left: 0; top: 11px;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #0064bf; opacity: 0.45;
+    }
+    .coach-bullets li strong {
+      color: var(--ebony-clay); font-weight: 700;
+    }
+    .coach-actions-row {
+      display: flex; gap: 8px;
+    }
+    .coach-action-btn {
+      font-size: 12px; font-weight: 600; color: white;
+      background: #0064bf; padding: 6px 14px;
+      border-radius: 8px; cursor: pointer;
+    }
+    .coach-action-btn.outline {
+      background: transparent; color: #0064bf;
+      border: 1.5px solid rgba(0,100,191,0.25);
+    }
+    .coach-bottom {
+      border-top: 1px solid rgba(26,31,38,0.06);
+      padding: 10px 24px 14px;
+      flex-shrink: 0;
+    }
+    .coach-chips {
+      display: flex; gap: 6px; margin-bottom: 8px; overflow-x: auto;
+    }
+    .coach-chip {
+      white-space: nowrap; font-size: 11px; font-weight: 500;
+      color: rgba(26,31,38,0.45); padding: 6px 12px;
+      border-radius: 18px; border: 1px solid rgba(26,31,38,0.09);
+      background: white;
+    }
+    .coach-input-row {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(26,31,38,0.03); border: 1px solid rgba(26,31,38,0.08);
+      border-radius: 12px; padding: 10px 12px 10px 16px;
+    }
+    .coach-input-text {
+      flex: 1; font-size: 14px; color: var(--ebony-clay);
+      font-family: inherit; overflow: hidden; white-space: nowrap;
+      min-height: 20px;
+    }
+    .coach-cursor {
+      display: inline-block; width: 2px; height: 16px;
+      background: #0064bf; vertical-align: text-bottom;
+      animation: coach-blink 0.7s step-end infinite;
+    }
+    @keyframes coach-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .coach-send-btn {
+      width: 34px; height: 34px; border-radius: 9px;
+      background: #0064bf; display: flex;
+      align-items: center; justify-content: center; flex-shrink: 0;
+      opacity: 0.3; transition: opacity 0.2s;
+    }
+    .coach-send-btn.active { opacity: 1; }
+
+    /* ===== PERSONA SECTIONS (shared) ===== */
+    .persona-sec {
+      padding: 4.5rem 0;
+    }
+    .persona-sec-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center;
+    }
+    @media (max-width: 900px) { .persona-sec-inner { grid-template-columns: 1fr; } }
+    .persona-sec-text h2 {
+      font-size: 32px; font-weight: 700; line-height: 1.2;
+      text-transform: lowercase; color: var(--ebony-clay); margin-bottom: 1rem;
+    }
+    .persona-sec-text > p {
+      font-size: 16px; line-height: 1.65; color: rgba(26,31,38,0.6);
+      margin-bottom: 1.75rem;
+    }
+    .persona-caps {
+      list-style: none; display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .persona-caps li {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      font-size: 14.5px; line-height: 1.55; color: var(--ebony-clay);
+    }
+    .persona-caps-icon {
+      flex-shrink: 0; width: 24px; height: 24px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center; margin-top: 1px;
+    }
+    .persona-caps-icon svg { width: 13px; height: 13px; }
+    .persona-agents {
+      display: flex; gap: 0.6rem; margin-top: 1.5rem; flex-wrap: wrap;
+    }
+    .persona-agent-tag {
+      font-size: 12px; font-weight: 600; padding: 5px 12px;
+      border-radius: 20px; display: inline-flex; align-items: center; gap: 5px;
+    }
+    .persona-agent-tag img { width: 16px; height: 16px; border-radius: 50%; }
+
+    /* Visual cards for persona sections */
+    .persona-visual-card {
+      border-radius: var(--radius-large);
+      padding: 2.5rem 2rem;
+      position: relative; overflow: hidden;
+      min-height: 340px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ===== LEADERS SECTION ===== */
+    .sec-leaders { background: var(--floral-white); }
+    .sec-leaders .persona-caps-icon { background: rgba(228,61,48,0.08); color: var(--cg-red); }
+    .sec-leaders .persona-caps-icon svg { stroke: var(--cg-red); }
+    .sec-leaders .persona-agent-tag { background: rgba(228,61,48,0.06); color: var(--cg-red); }
+    .sec-leaders .persona-visual-card { background: rgba(228,61,48,0.04); }
+    .sec-leaders .persona-sec-text h2 span { color: var(--cg-red); }
+    .sec-leaders .dia-avatar { background: linear-gradient(135deg, #e43d30, #f4b223); }
+    .sec-leaders .dia-user-q span { background: #e43d30; }
+    .sec-leaders .dia-phase-dot.agents { background: rgba(228,61,48,0.1); }
+    .sec-leaders .dia-phase-dot.agents svg { stroke: #e43d30; }
+    .sec-leaders .dia-phase-pill.blue { background: rgba(228,61,48,0.07); color: rgba(228,61,48,0.6); }
+    .sec-leaders .dia-outcome { background: linear-gradient(135deg, #e43d30, #f4b223); }
+    .sec-leaders .dia-dots span { background: #e43d30; }
+    .sec-leaders .dia-send-btn { background: #e43d30; }
+    .sec-leaders .dia-cursor { background: #e43d30; }
+
+    /* ===== COWORKER SECTION ===== */
+    .sec-coworker { background: var(--white); }
+    .sec-coworker .persona-caps-icon { background: rgba(244,178,35,0.1); color: #b8860b; }
+    .sec-coworker .persona-caps-icon svg { stroke: #b8860b; }
+    .sec-coworker .persona-agent-tag { background: rgba(244,178,35,0.08); color: #b8860b; }
+    .sec-coworker .persona-visual-card { background: rgba(244,178,35,0.04); }
+    .sec-coworker .persona-sec-text h2 span { color: #b8860b; }
+
+    /* ===== EMPLOYEES SECTION ===== */
+    /* ===== PERFORMANCE AGENTS MARQUEE ===== */
+    .perf-agents-section {
+      background: var(--floral-white);
+      padding: 4.5rem 0;
+      overflow: hidden;
+    }
+    .perf-agents-section .section-eyebrow { text-align: center; }
+    .perf-agents-section h2 {
+      text-align: center;
+      font-size: 36px; font-weight: 700; line-height: 1.2;
+      text-transform: lowercase; color: var(--ebony-clay);
+      margin-bottom: 2.5rem;
+    }
+    .perf-mq-wrapper {
+      position: relative;
+      overflow: hidden;
+      padding: 0.5rem 0 1rem;
+    }
+    .perf-mq-wrapper::before,
+    .perf-mq-wrapper::after {
+      content: '';
+      position: absolute; top: 0; bottom: 0;
+      width: 140px; z-index: 2; pointer-events: none;
+    }
+    .perf-mq-wrapper::before { left: 0; background: linear-gradient(to right, var(--floral-white), transparent); }
+    .perf-mq-wrapper::after  { right: 0; background: linear-gradient(to left,  var(--floral-white), transparent); }
+    .perf-mq-track {
+      display: flex;
+      gap: 1.5rem;
+      width: max-content;
+      animation: perf-scroll 22s linear infinite;
+    }
+    .perf-mq-track:hover { animation-play-state: paused; }
+    @keyframes perf-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .perf-mq-card {
+      display: flex; flex-direction: column; align-items: flex-start;
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.06);
+      border-radius: var(--radius-medium);
+      padding: 1.75rem 1.5rem 1.5rem;
+      width: 300px; flex-shrink: 0;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: default;
+    }
+    .perf-mq-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .perf-mq-card img {
+      width: 60px; height: 60px;
+      border-radius: 14px; object-fit: cover; margin-bottom: 14px;
+    }
+    .perf-mq-name { font-size: 20px; font-weight: 700; color: var(--ebony-clay); margin-bottom: 3px; }
+    .perf-mq-role {
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.8px; color: rgba(26,31,38,0.4); margin-bottom: 12px;
+    }
+    .perf-mq-desc { font-size: 14px; line-height: 1.55; color: rgba(26,31,38,0.6); }
+
+    .sec-employees { background: var(--polar-white); }
+    .sec-employees .persona-caps-icon { background: rgba(0,100,191,0.08); color: var(--spanish-blue); }
+    .sec-employees .persona-caps-icon svg { stroke: var(--spanish-blue); }
+    .sec-employees .persona-agent-tag { background: rgba(0,100,191,0.06); color: var(--spanish-blue); }
+    .sec-employees .persona-visual-card { background: rgba(0,100,191,0.04); }
+    .sec-employees .persona-sec-text h2 span { color: var(--spanish-blue); }
+
+    /* ===== FEATURES GRID ===== */
+    .features-section { background: var(--floral-white); }
+    .features-tabs {
+      display: flex; gap: 0.5rem; margin-bottom: 2.5rem; flex-wrap: wrap;
+      justify-content: center;
+    }
+    .features-tab {
+      font-family: inherit; font-size: 13.5px; font-weight: 600;
+      text-transform: lowercase; padding: 8px 20px;
+      border-radius: 30px; border: 1px solid rgba(26,31,38,0.12);
+      background: var(--white); color: var(--ebony-clay);
+      cursor: pointer; transition: all 0.2s;
+    }
+    .features-tab.active { background: var(--cg-red); color: var(--white); border-color: var(--cg-red); }
+    .features-tab:hover:not(.active) { border-color: var(--cg-red); color: var(--cg-red); }
+    .features-panel { display: none; }
+    .features-panel.active { display: grid; }
+    .features-grid {
+      grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+    }
+    @media (max-width: 900px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .features-grid { grid-template-columns: 1fr; } }
+    .feature-card {
+      background: var(--white);
+      border-radius: var(--radius-large);
+      padding: 1.5rem;
+      border: 1px solid rgba(26,31,38,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+    .feature-card-icon {
+      width: 40px; height: 40px; border-radius: var(--radius-standard);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 0.85rem; background: rgba(228,61,48,0.06);
+    }
+    .feature-card-icon svg { width: 20px; height: 20px; stroke: var(--cg-red); stroke-width: 1.75; fill: none; }
+    .feature-card h4 {
+      font-size: 15px; font-weight: 700; text-transform: lowercase;
+      margin-bottom: 0.4rem; color: var(--ebony-clay);
+    }
+    .feature-card p {
+      font-size: 13.5px; line-height: 1.6; color: rgba(26,31,38,0.55);
+    }
+
+    /* ===== BOTTOM CTA ===== */
+    .bottom-cta {
+      background: var(--ebony-clay);
+      padding: 4rem 0;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .bottom-cta::before {
+      content: ''; position: absolute; top: -40%; left: -10%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(228,61,48,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .bottom-cta .container { position: relative; z-index: 1; }
+    .bottom-cta h2 {
+      font-size: 34px; font-weight: 700; line-height: 1.2;
+      color: var(--white); text-transform: lowercase; margin-bottom: 1rem;
+    }
+    .bottom-cta p {
+      font-size: 16px; color: rgba(255,255,255,0.6);
+      max-width: 560px; margin: 0 auto 2rem;
+    }
+    .bottom-cta .btn-primary { font-size: 18px; padding: 14px 42px; }
+
+    /* ===== FOOTER ===== */
+    .footer { background: var(--black-haze); padding: 3.5rem 0 1.5rem; }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 2rem; margin-bottom: 3rem;
+    }
+    @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    .footer-brand p {
+      font-size: 14px; line-height: 1.6; color: rgba(26,31,38,0.6);
+      margin-top: 0.75rem; max-width: 280px;
+    }
+    .footer-col h4 { font-size: 15px; font-weight: 700; text-transform: lowercase; margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col a { font-size: 14px; color: rgba(26,31,38,0.6); text-transform: lowercase; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--cg-red); }
+    .footer-bottom {
+      border-top: 1px solid rgba(26,31,38,0.08); padding-top: 1.5rem;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-bottom p { font-size: 13px; color: rgba(26,31,38,0.45); }
+    .footer-socials { display: flex; gap: 0.75rem; }
+    .footer-socials a {
+      width: 36px; height: 36px; border: 1px solid rgba(26,31,38,0.15); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; color: var(--ebony-clay); transition: background 0.2s, color 0.2s;
+    }
+    .footer-socials a:hover { background: var(--ebony-clay); color: var(--white); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .sol-hero h1 { font-size: clamp(28px, 8vw, 36px); }
+      .section-heading { font-size: 26px; }
+      .persona-sec-text h2 { font-size: 26px; }
+    }
+
+    /* ===== PLACEHOLDER TOOLTIPS — TEMPORARY, REMOVE WHEN PAGES ARE BUILT =====
+       To revert: delete this entire CSS block and remove class="nav-placeholder-tooltip"
+       + data-tooltip attributes from the 4 nav elements in every page. ===== */
+    .nav-placeholder-tooltip {
+      position: relative;
+    }
+    .nav-placeholder-tooltip::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(26,31,38,0.88);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 500;
+      white-space: nowrap;
+      padding: 5px 10px;
+      border-radius: 5px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      z-index: 999;
+    }
+    .nav-placeholder-tooltip::before {
+      content: '';
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 50%;
+      transform: translateX(-50%);
+      border: 4px solid transparent;
+      border-bottom-color: rgba(26,31,38,0.88);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      z-index: 999;
+    }
+    .nav-placeholder-tooltip:hover::after,
+    .nav-placeholder-tooltip:hover::before {
+      opacity: 1;
+    }
+    /* ===== END PLACEHOLDER TOOLTIPS ===== */
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="logo">
+        <img src="../Images/entomo.svg" alt="entomo" style="height:36px; width:auto;">
+      </a>
+                  <div class="nav-right-group">
+        <ul class="nav-links">
+          <li class="nav-dropdown-wrap">
+            <a href="#">solutions</a>
+            <div class="nav-mega" style="width:720px;">
+              <div class="nav-mega-grid">
+                <a href="performance-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">maximize employee performance</div>
+                    <div class="nav-mega-desc">real-time signals, coaching, and scorecards</div>
+                  </div>
+                </a>
+                <a href="skill-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">unlock skills, accelerate growth</div>
+                    <div class="nav-mega-desc">skill maps, career paths, and growth plans</div>
+                  </div>
+                </a>
+                <a href="engagement-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">build engagement that lasts</div>
+                    <div class="nav-mega-desc">pulse surveys, recognition, and culture signals</div>
+                  </div>
+                </a>
+                <a href="workforce-insights.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">turn intelligence into decisions</div>
+                    <div class="nav-mega-desc">natural language analytics and board-ready reports</div>
+                  </div>
+                </a>
+                <a href="wellness-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">protect wellness, prevent burnout</div>
+                    <div class="nav-mega-desc">burnout detection, sentiment, and intervention</div>
+                  </div>
+                </a>
+                <a href="strategic-planning.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">align your workforce to strategy</div>
+                    <div class="nav-mega-desc">demand modeling, 4B engine, and succession</div>
+                  </div>
+                </a>
+                <a href="hire-to-retire.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">simplify hire to retire</div>
+                    <div class="nav-mega-desc">recruitment, onboarding, payroll, and exit</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#">platform</a>
+            <div class="nav-mega" style="width:480px;">
+              <div class="nav-mega-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <a href="../workwise_platform.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">WorkWise</div>
+                    <div class="nav-mega-desc">your AI coworker for HR workflows and operations</div>
+                  </div>
+                </a>
+                <a href="#" class="nav-mega-item" style="opacity:0.55;pointer-events:none;">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">TMRW</div>
+                    <div class="nav-mega-desc">AI-powered career growth for employees (coming soon)</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-placeholder-tooltip" data-tooltip="retain existing pages"><a href="#">inspiration</a></li>
+          <li class="nav-placeholder-tooltip" data-tooltip="retain existing pages"><a href="#">about</a></li>
+          <li class="nav-placeholder-tooltip" data-tooltip="retain existing pages"><a href="#">contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <button class="nav-cta nav-placeholder-tooltip" data-tooltip="retain existing pages">request a demo →</button>
+        </div>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="sol-hero">
+    <div class="container">
+      <div class="sol-hero-content">
+        <div class="sol-breadcrumb">
+          <a href="../index.html">home</a>
+          <span>/</span>
+          <a href="../index.html#solutions">solutions</a>
+          <span>/</span>
+          <span>wellness intelligence</span>
+        </div>
+        <h1>protect your people before <mark>burnout</mark> strikes</h1>
+        <p class="sol-hero-sub">
+          By the time an employee says they're burned out, you've already lost months of productivity and trust. Entomo's agentic intelligence detects the early signals, workload spikes, sentiment shifts, disengagement patterns and intervenes before it's too late.
+        </p>
+        <button class="btn-primary">get started &rarr;</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== WHAT EMPLOYEES GET ===== -->
+  <section class="persona-sec sec-employees">
+    <div class="container">
+      <div class="persona-sec-inner">
+        <div class="persona-sec-text">
+          <div class="section-eyebrow" style="color:var(--spanish-blue);"><span class="keep-case">AI</span> in the flow of wellbeing</div>
+          <h2>someone who notices when you're struggling, <span>before you have to say anything</span></h2>
+          <p>
+            Nobody likes asking for help. Your personal <span class="keep-case">AI</span> wellness coach doesn't wait to be asked, it reads your workload signals, tracks your patterns, and quietly surfaces support when the data says you need it. Confidential, proactive, and always there.
+          </p>
+        </div>
+        <div>
+          <div class="coach-demo">
+            <div class="coach-topbar">
+              <div class="coach-avatar">AI</div>
+              <div class="coach-topbar-title">Your Wellness Coach</div>
+            </div>
+            <div class="coach-stage">
+              <div class="coach-panel active" id="pcoachPanelGreet">
+                <div class="coach-greeting-text">
+                  <div class="coach-greeting-title">Hi, I'm your Wellness Coach</div>
+                  <div class="coach-greeting-sub">Your AI guide for goals, growth, and daily performance. Ask me anything.</div>
+                </div>
+              </div>
+              <div class="coach-panel coach-chat-panel" id="pcoachPanelChat">
+                <div class="coach-user-q">
+                  <span>How can I close the gap on my Q2 revenue target?</span>
+                </div>
+                <div class="coach-response-area">
+                  <div class="coach-sub active" id="pcoachSubThink">
+                    <div class="coach-think-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/>
+                      </svg>
+                    </div>
+                    <div class="coach-think-title">Analysing your goals and progress...</div>
+                    <div class="coach-think-dots">
+                      <span></span><span></span><span></span>
+                    </div>
+                  </div>
+                  <div class="coach-sub" id="pcoachSubResponse">
+                    <div class="coach-response">
+                      <div class="coach-greeting">I can see you're overwhelmed. Let's work through this together.</div>
+                      <ul class="coach-bullets">
+                        <li><strong>What's happening:</strong> You've logged 62 hours this week with minimal breaks, your body and mind need recovery</li>
+                        <li><strong>Immediate actions:</strong> Take a proper lunch break today, schedule a day off this week, and I'll adjust your sprint timeline</li>
+                        <li><strong>This week:</strong> Try the 25-min focused work blocks with 5-min breathing breaks, it cuts stress while maintaining output</li>
+                        <li><strong>Support:</strong> I've connected you with our wellness coach for 1-on-1 strategies; crisis line available anytime</li>
+                      </ul>
+                      <div class="coach-actions-row">
+                        <span class="coach-action-btn">Schedule recovery time →</span>
+                        <span class="coach-action-btn outline">Wellness resources</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="coach-bottom">
+              <div class="coach-chips">
+                <div class="coach-chip">What helps with stress management?</div>
+                <div class="coach-chip">Connect me with mental health resources</div>
+                <div class="coach-chip">How can I better balance my workload?</div>
+              </div>
+              <div class="coach-input-row">
+                <div class="coach-input-text" id="pcoachInput"><span class="coach-cursor"></span></div>
+                <button class="coach-send-btn" id="pcoachSend">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                    <path d="M16.6915026,12.4744748 L3.50612381,13.2599618 C3.19218622,13.2599618 3.03521743,13.4170592 3.03521743,13.5741566 L1.15159189,20.0151496 C0.8376543,20.8006365 0.99,21.89 1.77946707,22.52 C2.41,22.99 3.50612381,23.1 4.13399899,22.8429026 L21.714504,14.0454487 C22.6563168,13.5741566 23.1272231,12.6315722 22.9702544,11.6889879 L4.13399899,1.16151496 C3.34915502,0.9 2.40734225,1.00636533 1.77946707,1.4776575 C0.994623095,2.10604706 0.837654326,3.0486314 1.15159189,3.98722303 L3.03521743,10.4282161 C3.03521743,10.5853135 3.19218622,10.7424109 3.50612381,10.7424109 L16.6915026,11.5279 C16.6915026,11.5279 17.1624089,11.5279 17.1624089,12.0992031 C17.1624089,12.6705063 16.6915026,12.4744748 16.6915026,12.4744748 Z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PERFORMANCE AGENTS ===== -->
+  <section class="perf-agents-section">
+    <div class="container">
+      <div class="section-eyebrow">Your <span class="keep-case">AI</span> workforce for employee wellbeing</div>
+      <h2>meet the wellness <mark>agents</mark> that work for you</h2>
+    </div>
+
+    <div class="perf-mq-wrapper">
+      <div class="perf-mq-track">
+
+        <div class="perf-mq-card"><img src="../Images/agents/pulse360.png" alt="Pulse360"><div class="perf-mq-name">Pulse360</div><div class="perf-mq-role">wellbeing sensing</div><div class="perf-mq-desc">detects early burnout signals, tracks emotional wellbeing, and flags team health risk before it becomes a crisis</div></div>
+        <div class="perf-mq-card"><img src="../Images/agents/TeamInsight.png" alt="TeamInsight"><div class="perf-mq-name">TeamInsight</div><div class="perf-mq-role">team health</div><div class="perf-mq-desc">monitors workload patterns, collaboration stress, and belonging signals across every team in real time</div></div>
+        <div class="perf-mq-card"><img src="../Images/agents/convocraft.png" alt="ConvoCraft"><div class="perf-mq-name">ConvoCraft</div><div class="perf-mq-role">supportive conversations</div><div class="perf-mq-desc">structures manager conversations around wellbeing and recovery, turning early signals into meaningful dialogue</div></div>
+        <div class="perf-mq-card"><img src="../Images/agents/assescraft.png" alt="AssessCraft"><div class="perf-mq-name">AssessCraft</div><div class="perf-mq-role">wellbeing assessment</div><div class="perf-mq-desc">runs structured wellbeing check-ins that surface what surveys miss and inform targeted interventions</div></div>
+        <div class="perf-mq-card"><img src="../Images/agents/Insight360.png" alt="Insight360"><div class="perf-mq-name">Insight360</div><div class="perf-mq-role">perception intelligence</div><div class="perf-mq-desc">reveals how employees experience their work environment, from psychological safety to recognition to growth</div></div>
+        <div class="perf-mq-card"><img src="../Images/agents/growthplanner.png" alt="GrowthPlanner"><div class="perf-mq-name">GrowthPlanner</div><div class="perf-mq-role">sustainable development</div><div class="perf-mq-desc">links wellbeing signals to development planning, ensuring growth doesn't come at the cost of health</div></div>
+
+        <!-- Duplicate for seamless loop -->
+        <div class="perf-mq-card"><img src="../Images/agents/pulse360.png" alt="Pulse360"><div class="perf-mq-name">Pulse360</div><div class="perf-mq-role">wellbeing sensing</div><div class="perf-mq-desc">detects early burnout signals, tracks emotional wellbeing, and flags team health risk before it becomes a crisis</div></div>
+        <div class="perf-mq-card"><img src="../Images/agents/TeamInsight.png" alt="TeamInsight"><div class="perf-mq-name">TeamInsight</div><div class="perf-mq-role">team health</div><div class="perf-mq-desc">monitors workload patterns, collaboration stress, and belonging signals across every team in real time</div></div>
+        <div class="perf-mq-card"><img src="../Images/agents/convocraft.png" alt="ConvoCraft"><div class="perf-mq-name">ConvoCraft</div><div class="perf-mq-role">supportive conversations</div><div class="perf-mq-desc">structures manager conversations around wellbeing and recovery, turning early signals into meaningful dialogue</div></div>
+        <div class="perf-mq-card"><img src="../Images/agents/assescraft.png" alt="AssessCraft"><div class="perf-mq-name">AssessCraft</div><div class="perf-mq-role">wellbeing assessment</div><div class="perf-mq-desc">runs structured wellbeing check-ins that surface what surveys miss and inform targeted interventions</div></div>
+        <div class="perf-mq-card"><img src="../Images/agents/Insight360.png" alt="Insight360"><div class="perf-mq-name">Insight360</div><div class="perf-mq-role">perception intelligence</div><div class="perf-mq-desc">reveals how employees experience their work environment, from psychological safety to recognition to growth</div></div>
+        <div class="perf-mq-card"><img src="../Images/agents/growthplanner.png" alt="GrowthPlanner"><div class="perf-mq-name">GrowthPlanner</div><div class="perf-mq-role">sustainable development</div><div class="perf-mq-desc">links wellbeing signals to development planning, ensuring growth doesn't come at the cost of health</div></div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HR'S DIGITAL COWORKER ===== -->
+  <section class="persona-sec sec-coworker">
+    <div class="container">
+      <div class="persona-sec-inner" style="direction:rtl;">
+        <div class="persona-sec-text" style="direction:ltr;">
+          <div class="section-eyebrow" style="color:#b8860b;">HR's digital coworker</div>
+          <h2>spot the warning signs. <span>build the intervention. deploy it, before anyone breaks.</span></h2>
+          <p>
+            Most wellness programs are reactive, they kick in after someone raises their hand. By then, the damage is done. Entomo's AI Coworker monitors workload patterns, sentiment shifts, and overtime signals continuously and when thresholds are crossed, it builds and deploys the right intervention automatically.<br><br>No program launch required. No manual triage. The Coworker runs the entire response and reports back on what moved.
+          </p>
+        </div>
+        <div style="direction:ltr;">
+          <div class="ww-demo">
+            <div class="ww-topbar">
+              <div class="ww-topbar-avatar">
+                <img src="../Images/agents/workwise.png" alt="WorkWise">
+              </div>
+              <div class="ww-topbar-title">WorkWise: your digital co-worker</div>
+            </div>
+            <div class="ww-stage">
+              <div class="ww-panel active" id="pwwPanelGreet">
+                <div class="ww-greeting-photo">
+                  <img src="../Images/agents/workwise.png" alt="WorkWise">
+                  <div class="ww-greeting-online"></div>
+                </div>
+                <div class="ww-greeting-title">Hi, I'm WorkWise</div>
+                <div class="ww-greeting-sub">i monitor workload signals and build wellness programs, so burnout gets caught before it happens</div>
+              </div>
+              <div class="ww-panel ww-chat-panel" id="pwwPanelChat">
+                <div class="ww-user-q">
+                  <span>Create a burnout prevention program for engineering</span>
+                </div>
+                <div class="ww-response-area">
+                  <div class="ww-sub active" id="pwwSubAssemble">
+                    <div class="ww-assemble-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/>
+                      </svg>
+                    </div>
+                    <div class="ww-assemble-title">Assembling your agent team</div>
+                    <div class="ww-assemble-sub">Finding the right agents...</div>
+                    <div class="ww-assemble-dots">
+                      <span></span><span></span><span></span>
+                    </div>
+                  </div>
+                  <div class="ww-sub" id="pwwSubAgents">
+                    <div class="ww-team-label">agents collaborating</div>
+                    <div class="ww-agents-row">
+                      <div class="ww-agent-card">
+                        <img src="../Images/agents/Goalforge.png" alt="GoalForge">
+                        <div class="ww-agent-name">GoalForge</div>
+                        <div class="ww-agent-desc">goal generation & program design</div>
+                      </div>
+                      <div class="ww-flow-arrow">
+                        <div class="ww-flow-dot"></div>
+                        <div class="ww-flow-dot"></div>
+                        <div class="ww-flow-dot"></div>
+                      </div>
+                      <div class="ww-agent-card">
+                        <img src="../Images/agents/flowgen.png" alt="FlowGen">
+                        <div class="ww-agent-name">FlowGen</div>
+                        <div class="ww-agent-desc">workflow automation & configuration</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ww-sub" id="pwwSubOutput">
+                    <div class="pww-greeting">Hi Sarah, your burnout prevention program is ready.</div>
+                    <div class="pww-form-card">
+                      <div class="pww-form-header">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                          <rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/>
+                        </svg>
+                        Burnout Prevention Program, Engineering
+                      </div>
+                      <div class="pww-form-grid">
+                        <div class="pww-form-field">
+                          <div class="pww-form-label">Program Name</div>
+                          <div class="pww-form-value">Burnout Prevention, Engineering Q2</div>
+                        </div>
+                        <div class="pww-form-field">
+                          <div class="pww-form-label">Target Team</div>
+                          <div class="pww-form-value">Engineering Division (42 people)</div>
+                        </div>
+                        <div class="pww-form-field">
+                          <div class="pww-form-label">Focus Areas</div>
+                          <div class="pww-form-value">Workload rebalancing + mental health resources</div>
+                        </div>
+                        <div class="pww-form-field">
+                          <div class="pww-form-label">Key Metrics</div>
+                          <div class="pww-form-value">Absenteeism rate, meeting load, sentiment score</div>
+                        </div>
+                        <div class="pww-form-field">
+                          <div class="pww-form-label">Duration</div>
+                          <div class="pww-form-value">8 weeks</div>
+                        </div>
+                        <div class="pww-form-field">
+                          <div class="pww-form-label">Launch Date</div>
+                          <div class="pww-form-value">Apr 14 2026</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ww-bottom">
+              <div class="ww-chips">
+                <div class="ww-chip">Build a 360 feedback cycle</div>
+                <div class="ww-chip">Design a calibration workflow</div>
+                <div class="ww-chip">Generate PIP documentation</div>
+              </div>
+              <div class="ww-input-row">
+                <div class="ww-input-text" id="pwwInput"><span class="ww-cursor"></span></div>
+                <button class="ww-send-btn" id="pwwSend">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                    <path d="M16.6915026,12.4744748 L3.50612381,13.2599618 C3.19218622,13.2599618 3.03521743,13.4170592 3.03521743,13.5741566 L1.15159189,20.0151496 C0.8376543,20.8006365 0.99,21.89 1.77946707,22.52 C2.41,22.99 3.50612381,23.1 4.13399899,22.8429026 L21.714504,14.0454487 C22.6563168,13.5741566 23.1272231,12.6315722 22.9702544,11.6889879 L4.13399899,1.16151496 C3.34915502,0.9 2.40734225,1.00636533 1.77946707,1.4776575 C0.994623095,2.10604706 0.837654326,3.0486314 1.15159189,3.98722303 L3.03521743,10.4282161 C3.03521743,10.5853135 3.19218622,10.7424109 3.50612381,10.7424109 L16.6915026,11.5279 C16.6915026,11.5279 17.1624089,11.5279 17.1624089,12.0992031 C17.1624089,12.6705063 16.6915026,12.4744748 16.6915026,12.4744748 Z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AGENTIC INTELLIGENCE FOR LEADERS ===== -->
+  <section class="persona-sec sec-leaders">
+    <div class="container">
+      <div class="section-eyebrow">agentic intelligence for leaders</div>
+      <div class="persona-sec-inner">
+        <div class="persona-sec-text">
+          <h2>detect burnout signals across your workforce, <span>before they escalate</span></h2>
+          <p>
+            Most burnout data arrives as a resignation letter. DIA monitors workload intensity, sentiment drift, and absence patterns across your entire organization, telling you where pressure is building, which teams are at risk, and what to do about it before someone walks out the door.
+          </p>
+        </div>
+        <div>
+          <div class="dia-demo">
+            <div class="dia-topbar">
+              <div class="dia-topbar-left">
+                <div class="dia-avatar">AI</div>
+                <div>
+                  <div class="dia-topbar-title">Ask DIA: Wellness Intelligence</div>
+                  <div class="dia-topbar-sub">workspace</div>
+                </div>
+              </div>
+            </div>
+            <div class="dia-chat">
+              <div class="dia-msg dia-user-q" id="pdiaQ">
+                <span>Which teams show the highest burnout risk signals this month?</span>
+              </div>
+              <div class="dia-msg" id="pdiaFoundation">
+                <div class="dia-phase">
+                  <div class="dia-phase-dot foundation"></div>
+                  <div class="dia-phase-body">
+                    <div class="dia-phase-label">querying wellness signals</div>
+                    <div class="dia-phase-pills">
+                      <div class="dia-phase-pill dark">Workload Index</div>
+                      <div class="dia-phase-pill dark">Sentiment Score</div>
+                      <div class="dia-phase-pill dark">Overtime Patterns</div>
+                      <div class="dia-phase-pill dark">Wellness Pulse</div>
+                    </div>
+                    <div class="dia-dots">
+                      <span></span><span></span><span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="dia-msg" id="pdiaAgents">
+                <div class="dia-phase">
+                  <div class="dia-phase-dot agents">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/>
+                    </svg>
+                  </div>
+                  <div class="dia-phase-body">
+                    <div class="dia-phase-label">agents analysing</div>
+                    <div class="dia-phase-pills">
+                      <div class="dia-phase-pill blue">Pulse360</div>
+                      <div class="dia-phase-pill blue">TeamInsight</div>
+                      <div class="dia-phase-pill blue">GoalForge</div>
+                    </div>
+                    <div class="dia-dots">
+                      <span></span><span></span><span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="dia-msg" id="pdiaOutcome">
+                <div class="dia-greeting">Hi Sharon, here's what I found.</div>
+                <div class="dia-outcome">
+                  <div class="dia-outcome-label">Burnout Risk Assessment, April</div>
+                  <div class="dia-outcome-row">
+                    <div class="dia-outcome-score">3</div>
+                    <div class="dia-outcome-badge">teams in the red zone</div>
+                  </div>
+                  <div class="dia-outcome-divider"></div>
+                  <div class="dia-outcome-detail">Engineering (APAC): workload index 2.1x average, 6-week overtime trend, sentiment declining. 3 high performers showing early flight risk signals. DevOps: weekend work pattern for 8 weeks straight. Recommend: immediate workload rebalancing + confidential wellness check-ins.</div>
+                </div>
+              </div>
+            </div>
+            <div class="dia-bottom">
+              <div class="dia-prompt-chips">
+                <div class="dia-prompt-chip">Show overtime patterns by team</div>
+                <div class="dia-prompt-chip">Absenteeism trending</div>
+                <div class="dia-prompt-chip">Wellness survey response rate</div>
+              </div>
+              <div class="dia-input-row">
+                <div class="dia-input-text" id="pdiaInput"><span class="dia-cursor"></span></div>
+                <button class="dia-send-btn" id="pdiaSend">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                    <path d="M16.6915026,12.4744748 L3.50612381,13.2599618 C3.19218622,13.2599618 3.03521743,13.4170592 3.03521743,13.5741566 L1.15159189,20.0151496 C0.8376543,20.8006365 0.99,21.89 1.77946707,22.52 C2.41,22.99 3.50612381,23.1 4.13399899,22.8429026 L21.714504,14.0454487 C22.6563168,13.5741566 23.1272231,12.6315722 22.9702544,11.6889879 L4.13399899,1.16151496 C3.34915502,0.9 2.40734225,1.00636533 1.77946707,1.4776575 C0.994623095,2.10604706 0.837654326,3.0486314 1.15159189,3.98722303 L3.03521743,10.4282161 C3.03521743,10.5853135 3.19218622,10.7424109 3.50612381,10.7424109 L16.6915026,11.5279 C16.6915026,11.5279 17.1624089,11.5279 17.1624089,12.0992031 C17.1624089,12.6705063 16.6915026,12.4744748 16.6915026,12.4744748 Z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="features-section">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-eyebrow">capabilities</div>
+        <h2 class="section-heading">everything wellness intelligence needs. nothing it doesn't.</h2>
+      </div>
+
+      <div class="features-tabs">
+        <button class="features-tab active" data-panel="enterprise">burnout & stress detection</button>
+        <button class="features-tab" data-panel="sales">wellbeing programs</button>
+        <button class="features-tab" data-panel="strategic">mental health & support</button>
+      </div>
+
+      <!-- Burnout & Stress Detection -->
+      <div class="features-panel features-grid active" id="panel-enterprise">
+
+        <div class="feature-card">
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <h4>burnout caught before it compounds</h4>
+          <p>AI scores each employee's burnout risk by combining workload, overtime, and sentiment signals into an early-warning indicator managers can act on.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <h4>stress detected, anonymously and early</h4>
+          <p>Employees self-assess stress and fatigue anonymously; the platform surfaces patterns and delivers targeted interventions before situations escalate.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+          <h4>health risks surfaced before they worsen</h4>
+          <p>Personalized health surveys identify individual risk factors early, giving employees and HR a clear picture of where attention is needed most.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <h4>work patterns that signal overload</h4>
+          <p>After-hours logins, skipped breaks, and rising meeting density are tracked automatically, generating alerts when chronic overwork patterns emerge.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></div>
+          <h4>mood tracked across the whole workforce</h4>
+          <p>Continuous sentiment analysis from pulse check-ins and surveys tracks wellbeing trajectories across teams, flagging declines the moment they begin.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0Z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></div>
+          <h4>team heat maps for targeted action</h4>
+          <p>Visual burnout dashboards reveal which teams, projects, or departments are most at risk, letting managers direct support where it matters most.</p>
+        </div>
+
+      </div>
+
+      <!-- Wellbeing Programs -->
+      <div class="features-panel features-grid" id="panel-sales">
+
+        <div class="feature-card">
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg></div>
+          <h4>wellbeing surveys that feel personal</h4>
+          <p>Curated assessments adapt to each employee's profile, measuring physical and mental wellbeing and nudging individuals toward proactive, positive habits.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></div>
+          <h4>a coach for every employee's wellbeing</h4>
+          <p>An AI-powered wellness coach nudges individuals with timely suggestions that foster a positive mindset, sustain motivation, and improve everyday workplace happiness.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></div>
+          <h4>health communications that show you care</h4>
+          <p>Share wellness updates, best practice reminders, and friendly health nudges organization-wide, keeping employees informed and feeling genuinely supported.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <h4>wellness challenges that build habits</h4>
+          <p>Organization-wide fitness, mindfulness, and nutrition challenges drive sustained participation, build team cohesion, and turn healthy behaviors into lasting routines.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h4>interest groups that reduce isolation</h4>
+          <p>Employee-led wellbeing communities form around shared interests, building genuine connection and mutual support networks that span teams and geographies.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <h4>rewards that reinforce healthy choices</h4>
+          <p>Points, recognition, and tangible rewards are tied to wellness participation, creating positive reinforcement loops that sustain long-term engagement with programs.</p>
+        </div>
+
+      </div>
+
+      <!-- Mental Health & Support -->
+      <div class="features-panel features-grid" id="panel-strategic">
+
+        <div class="feature-card">
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+          <h4>health risks shared where they matter</h4>
+          <p>Employees capture survey results and share them directly with their physicians, turning health check-ins into actionable clinical conversations with zero friction.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
+          <h4>care facilities found in seconds</h4>
+          <p>Employees locate and contact the nearest health facilities instantly, removing barriers to care and ensuring prompt access when physical intervention is needed.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></div>
+          <h4>a coach helping people embrace their work</h4>
+          <p>The wellness coach meets individuals where they are, reinforcing positive mindsets and nudging daily habits that make work feel meaningful and sustainable.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0Z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></div>
+          <h4>confidential check-ins, no stigma attached</h4>
+          <p>Anonymous mental health check-ins give employees a safe space to signal how they are really doing, with the platform routing support without exposing identity.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></div>
+          <h4>EAP access, one tap away</h4>
+          <p>Employee assistance programs surface directly in the platform, employees reach counseling, legal, and financial support services without navigating outside systems.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h4>managers guided to the right conversation</h4>
+          <p>When signals flag an employee at risk, managers receive specific conversation prompts and curated resources, so support feels human, not procedural.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== BOTTOM CTA ===== -->
+  <section class="bottom-cta">
+    <div class="container">
+      <h2>ready to build a workplace where people <mark>thrive</mark>?</h2>
+      <p>Join the enterprises powering 30M+ users with agentic wellness intelligence. Forrester-validated: $26.8M in value, 103% ROI over 3 years.</p>
+      <button class="btn-primary">request a demo &rarr;</button>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <img src="../Images/entomo.svg" alt="entomo" style="height:32px; width:auto;">
+          </div>
+          <p>Agentic workforce intelligence platform powering 30M+ users across global enterprise brands.</p>
+        </div>
+        <div class="footer-col">
+          <h4>platform</h4>
+          <ul>
+            <li><a href="#">AI agents</a></li>
+            <li><a href="#">intelligence architecture</a></li>
+            <li><a href="#">integrations</a></li>
+            <li><a href="#">security</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>solutions</h4>
+          <ul>
+            <li><a href="#">performance intelligence</a></li>
+            <li><a href="#">skill &amp; talent intelligence</a></li>
+            <li><a href="#">engagement intelligence</a></li>
+            <li><a href="#">workforce insights</a></li>
+            <li><a href="#">wellness intelligence</a></li>
+            <li><a href="#">strategic planning</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>resources</h4>
+          <ul>
+            <li><a href="#">Forrester TEI study</a></li>
+            <li><a href="#">case studies</a></li>
+            <li><a href="#">blog</a></li>
+            <li><a href="#">webinars</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>company</h4>
+          <ul>
+            <li><a href="#">about us</a></li>
+            <li><a href="#">careers</a></li>
+            <li class="nav-placeholder-tooltip" data-tooltip="retain existing pages"><a href="#">contact</a></li>
+            <li><a href="#">privacy policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 entomo. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Twitter">&#120143;</a>
+          <a href="#" aria-label="YouTube">&#9654;</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== FEATURE TABS JS ===== -->
+  <script>
+    document.querySelectorAll('.features-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.features-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.features-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
+      });
+    });
+  </script>
+
+  <!-- ===== DIA DEMO LOOP (Performance Intelligence Leaders) ===== -->
+  <script>
+  (function() {
+    const question = "What are the burnout risk signals across my APAC teams?";
+    const inputEl  = document.getElementById('pdiaInput');
+    const sendBtn  = document.getElementById('pdiaSend');
+    const msgQ     = document.getElementById('pdiaQ');
+    const msgF     = document.getElementById('pdiaFoundation');
+    const msgA     = document.getElementById('pdiaAgents');
+    const msgO     = document.getElementById('pdiaOutcome');
+    const allMsgs  = [msgQ, msgF, msgA, msgO];
+
+    function reset() {
+      allMsgs.forEach(m => m.classList.remove('show'));
+      inputEl.innerHTML = '<span class="dia-cursor"></span>';
+      sendBtn.classList.remove('active');
+    }
+
+    function typeText(cb) {
+      let i = 0;
+      const speed = 22;
+      function tick() {
+        if (i < question.length) {
+          inputEl.innerHTML = question.slice(0, i + 1) + '<span class="dia-cursor"></span>';
+          i++;
+          setTimeout(tick, speed);
+        } else {
+          sendBtn.classList.add('active');
+          setTimeout(cb, 200);
+        }
+      }
+      tick();
+    }
+
+    function sendAndAnimate() {
+      inputEl.innerHTML = '<span class="dia-cursor"></span>';
+      sendBtn.classList.remove('active');
+      msgQ.classList.add('show');
+
+      setTimeout(() => { msgF.classList.add('show'); }, 300);
+      setTimeout(() => { msgA.classList.add('show'); }, 1800);
+
+      // Hide earlier messages, then show outcome clean
+      setTimeout(() => {
+        msgQ.classList.remove('show');
+        msgF.classList.remove('show');
+        msgA.classList.remove('show');
+      }, 3300);
+      setTimeout(() => { msgO.classList.add('show'); }, 3600);
+
+      setTimeout(() => {
+        msgO.classList.remove('show');
+      }, 7100);
+
+      setTimeout(() => {
+        reset();
+        runLoop();
+      }, 7600);
+    }
+
+    function runLoop() {
+      reset();
+      setTimeout(() => {
+        typeText(sendAndAnimate);
+      }, 400);
+    }
+
+    runLoop();
+  })();
+  </script>
+
+  <!-- ===== WORKWISE DEMO LOOP (HR's Coworker) ===== -->
+  <script>
+  (function() {
+    const question = "Create a burnout prevention program for engineering";
+    const inputEl  = document.getElementById('pwwInput');
+    const sendBtn  = document.getElementById('pwwSend');
+    const panelGreet = document.getElementById('pwwPanelGreet');
+    const panelChat  = document.getElementById('pwwPanelChat');
+    const subAssem   = document.getElementById('pwwSubAssemble');
+    const subAgents  = document.getElementById('pwwSubAgents');
+    const subOutput  = document.getElementById('pwwSubOutput');
+    const allSubs    = [subAssem, subAgents, subOutput];
+
+    function showPanel(p) {
+      [panelGreet, panelChat].forEach(el => el.classList.remove('active'));
+      p.classList.add('active');
+    }
+    function showSub(s) {
+      allSubs.forEach(el => el.classList.remove('active'));
+      if (s) s.classList.add('active');
+    }
+
+    function reset() {
+      showPanel(panelGreet);
+      showSub(null);
+      inputEl.innerHTML = '<span class="ww-cursor"></span>';
+      sendBtn.classList.remove('active');
+    }
+
+    function typeText(cb) {
+      let i = 0;
+      const speed = 18;
+      function tick() {
+        if (i < question.length) {
+          inputEl.innerHTML = question.slice(0, i + 1) + '<span class="ww-cursor"></span>';
+          i++;
+          setTimeout(tick, speed);
+        } else {
+          sendBtn.classList.add('active');
+          setTimeout(cb, 200);
+        }
+      }
+      tick();
+    }
+
+    function sendAndAnimate() {
+      inputEl.innerHTML = '<span class="ww-cursor"></span>';
+      sendBtn.classList.remove('active');
+      showPanel(panelChat);
+
+      setTimeout(() => { showSub(subAssem); }, 300);
+      setTimeout(() => { showSub(subAgents); }, 1500);
+      setTimeout(() => { showSub(subOutput); }, 3500);
+
+      setTimeout(() => { reset(); }, 6500);
+      setTimeout(() => { runLoop(); }, 6900);
+    }
+
+    function runLoop() {
+      reset();
+      setTimeout(() => {
+        typeText(sendAndAnimate);
+      }, 500);
+    }
+
+    runLoop();
+  })();
+  </script>
+
+  <!-- ===== COACH DEMO LOOP (Employee Flow) ===== -->
+  <script>
+  (function() {
+    const question = "I've been feeling overwhelmed. How do I manage better?";
+    const inputEl  = document.getElementById('pcoachInput');
+    const sendBtn  = document.getElementById('pcoachSend');
+    const panelGreet = document.getElementById('pcoachPanelGreet');
+    const panelChat  = document.getElementById('pcoachPanelChat');
+    const subThink   = document.getElementById('pcoachSubThink');
+    const subResponse = document.getElementById('pcoachSubResponse');
+    const allSubs    = [subThink, subResponse];
+
+    function showPanel(p) {
+      [panelGreet, panelChat].forEach(el => el.classList.remove('active'));
+      p.classList.add('active');
+    }
+    function showSub(s) {
+      allSubs.forEach(el => el.classList.remove('active'));
+      if (s) s.classList.add('active');
+    }
+
+    function reset() {
+      showPanel(panelGreet);
+      showSub(null);
+      inputEl.innerHTML = '<span class="coach-cursor"></span>';
+      sendBtn.classList.remove('active');
+    }
+
+    function typeText(cb) {
+      let i = 0;
+      const speed = 18;
+      function tick() {
+        if (i < question.length) {
+          inputEl.innerHTML = question.slice(0, i + 1) + '<span class="coach-cursor"></span>';
+          i++;
+          setTimeout(tick, speed);
+        } else {
+          sendBtn.classList.add('active');
+          setTimeout(cb, 200);
+        }
+      }
+      tick();
+    }
+
+    function sendAndAnimate() {
+      inputEl.innerHTML = '<span class="coach-cursor"></span>';
+      sendBtn.classList.remove('active');
+      showPanel(panelChat);
+
+      setTimeout(() => { showSub(subThink); }, 300);
+      setTimeout(() => { showSub(subResponse); }, 1400);
+
+      setTimeout(() => { reset(); }, 6000);
+      setTimeout(() => { runLoop(); }, 6500);
+    }
+
+    function runLoop() {
+      reset();
+      setTimeout(() => {
+        typeText(sendAndAnimate);
+      }, 500);
+    }
+
+    runLoop();
+  })();
+  </script>
+
+</body>
+</html>
