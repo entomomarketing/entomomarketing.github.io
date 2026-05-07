@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jobs at entomo | join the team building tomorrow's HR</title>
+  <meta name="description" content="open roles at entomo. we're building the agentic intelligence platform powering 30M+ users worldwide. engineering, product, design, sales, and more — across India, SEA, Middle East, and beyond.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Nunito Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px; line-height: 1.5; color: #1a1f26;
+      background-color: #ffffff; -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; }
+
+    :root {
+      --cg-red: #e43d30;
+      --cg-gold: #f4b223;
+      --spanish-blue: #0064bf;
+      --sea-green: #2c9942;
+      --sunrise-yellow: #ffda00;
+      --white: #ffffff;
+      --ebony-clay: #1a1f26;
+      --floral-white: #fefbf4;
+      --polar-white: #f2f7fc;
+      --black-haze: #fafbfb;
+      --gradient-cta: linear-gradient(90deg, #f4b223, #e43d30);
+      --max-width: 1200px;
+    }
+
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+    .text-center { text-align: center; }
+
+    h1, h2, h3, h4 { text-transform: lowercase; color: var(--ebony-clay); line-height: 1.15; }
+    h1 {
+      font-size: clamp(36px, 5vw, 68px);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -1px;
+    }
+    h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0.01px; }
+    h3 { font-size: 1.25rem; font-weight: 800; }
+    h4 { font-weight: 700; }
+    .keep-case { text-transform: none !important; }
+
+    mark {
+      background: var(--sunrise-yellow);
+      color: var(--ebony-clay);
+      padding: 0 6px; border-radius: 3px;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid rgba(26,31,38,0.08);
+      backdrop-filter: blur(12px);
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: lowercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: lowercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--cg-red); }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+    .nav-cta {
+      background-image: var(--gradient-cta);
+      color: var(--white);
+      border: none;
+      border-radius: 5px;
+      padding: 8px 20px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: lowercase;
+      cursor: pointer;
+    }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-toggle svg { width: 24px; height: 24px; }
+
+    .nav-dropdown-wrap { position: relative; }
+    .nav-dropdown-wrap > a {
+      display: flex; align-items: center; gap: 4px;
+    }
+    .nav-dropdown-wrap > a::after {
+      content: '';
+      border: solid currentColor; border-width: 0 1.5px 1.5px 0;
+      display: inline-block; padding: 2.5px;
+      transform: rotate(45deg); margin-top: -3px;
+      transition: transform 0.2s;
+    }
+    .nav-dropdown-wrap:hover > a::after {
+      transform: rotate(-135deg); margin-top: 2px;
+    }
+    .nav-mega {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(14px);
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.08);
+      border-radius: 15px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12), 0 0 0 1px rgba(26,31,38,0.04);
+      padding: 1.25rem;
+      width: 680px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+      z-index: 200;
+    }
+    .nav-dropdown-wrap:hover .nav-mega {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(8px);
+    }
+    .nav-mega-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+    }
+    .nav-mega-item {
+      display: flex; flex-direction: row; align-items: flex-start; gap: 12px;
+      padding: 12px 14px; border-radius: 10px;
+      transition: background 0.15s; text-decoration: none; color: inherit;
+    }
+    .nav-mega-icon {
+      width: 40px; height: 40px; border-radius: 9px; flex-shrink: 0;
+      background: rgba(26,31,38,0.05);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+    }
+    .nav-mega-icon svg {
+      width: 18px; height: 18px; stroke: rgba(26,31,38,0.45); fill: none;
+      transition: stroke 0.15s;
+    }
+    .nav-mega-text { display: flex; flex-direction: column; gap: 2px; }
+    .nav-mega-item:hover { background: rgba(228,61,48,0.04); }
+    .nav-mega-item:hover .nav-mega-icon { background: rgba(228,61,48,0.08); }
+    .nav-mega-item:hover .nav-mega-icon svg { stroke: var(--cg-red); }
+    .nav-mega-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      margin-bottom: 3px;
+      line-height: 1.3;
+    }
+    .nav-mega-desc {
+      font-size: 12px;
+      color: rgba(26,31,38,0.45);
+      line-height: 1.4;
+      font-weight: 500;
+    }
+    .nav-mega-item:hover .nav-mega-name { color: var(--cg-red); }
+    .nav-right-group { display: flex; flex-direction: row; align-items: center; gap: 1.5rem; flex-wrap: nowrap; }
+    @media (max-width: 900px) {
+      .nav-mega { display: none; }
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+    }
+
+    /* Placeholder tooltips */
+    .nav-placeholder-tooltip { position: relative; }
+    .nav-placeholder-tooltip::after {
+      content: attr(data-tooltip);
+      position: absolute; top: calc(100% + 8px); left: 50%;
+      transform: translateX(-50%);
+      background: rgba(26,31,38,0.88); color: #fff;
+      font-size: 11px; font-weight: 500; white-space: nowrap;
+      padding: 5px 10px; border-radius: 5px;
+      pointer-events: none; opacity: 0;
+      transition: opacity 0.15s ease; z-index: 999;
+    }
+    .nav-placeholder-tooltip::before {
+      content: ''; position: absolute; top: calc(100% + 4px); left: 50%;
+      transform: translateX(-50%);
+      border: 4px solid transparent;
+      border-bottom-color: rgba(26,31,38,0.88);
+      pointer-events: none; opacity: 0;
+      transition: opacity 0.15s ease; z-index: 999;
+    }
+    .nav-placeholder-tooltip:hover::after,
+    .nav-placeholder-tooltip:hover::before { opacity: 1; }
+
+    /* ===== HERO ===== */
+    .jobs-hero {
+      background: linear-gradient(180deg, var(--floral-white) 0%, white 100%);
+      padding: 5rem 0 4rem;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: rgba(228, 61, 48, 0.08);
+      color: var(--cg-red);
+      font-size: 0.85rem; font-weight: 700;
+      padding: 6px 16px; border-radius: 20px;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .jobs-hero h1 { margin-bottom: 1.25rem; max-width: 880px; margin-left: auto; margin-right: auto; }
+    .jobs-hero .lede {
+      font-size: 1.2rem; color: rgba(26,31,38,0.65);
+      max-width: 720px; margin: 0 auto 2rem; line-height: 1.55;
+    }
+    .hero-meta {
+      display: inline-flex; align-items: center; gap: 1.25rem;
+      flex-wrap: wrap; justify-content: center;
+      font-size: 0.95rem; color: rgba(26,31,38,0.6);
+      font-weight: 500;
+    }
+    .hero-meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
+    .hero-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cg-red); display: inline-block; }
+    .hero-meta .dot.gold { background: var(--cg-gold); }
+    .hero-meta .dot.blue { background: var(--spanish-blue); }
+    .hero-meta .dot.green { background: var(--sea-green); }
+
+    /* ===== SECTION BASE ===== */
+    section { padding: 5rem 0; }
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 13px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      background: linear-gradient(90deg, var(--cg-gold), var(--cg-red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+    .section-heading { margin-bottom: 1rem; }
+    .section-subheading {
+      font-size: 1.1rem; color: rgba(26,31,38,0.65);
+      max-width: 760px; line-height: 1.6;
+    }
+
+    /* ===== WHY WORK HERE ===== */
+    .why-work-section { background: white; }
+    .why-work-intro { text-align: center; max-width: 800px; margin: 0 auto 3rem; }
+    .why-work-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .why-card {
+      background: white;
+      border: 1px solid rgba(26,31,38,0.08);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .why-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.07);
+      border-color: rgba(26,31,38,0.12);
+    }
+    .why-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .why-card.c1 .why-icon { background: rgba(228, 61, 48, 0.1); color: var(--cg-red); }
+    .why-card.c2 .why-icon { background: rgba(0, 100, 191, 0.1); color: var(--spanish-blue); }
+    .why-card.c3 .why-icon { background: rgba(244, 178, 35, 0.12); color: #b8860b; }
+    .why-card.c4 .why-icon { background: rgba(44, 153, 66, 0.1); color: var(--sea-green); }
+    .why-card h3 { margin-bottom: 0.5rem; font-size: 1.15rem; }
+    .why-card p {
+      font-size: 0.95rem; color: rgba(26,31,38,0.65);
+      line-height: 1.55;
+    }
+
+    /* ===== OPEN ROLES ===== */
+    .roles-section { background: var(--polar-white); }
+    .roles-intro { text-align: center; max-width: 800px; margin: 0 auto 2.5rem; }
+    .roles-toolbar {
+      display: flex; flex-direction: column; gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .roles-search {
+      width: 100%;
+      background: white;
+      border: 1px solid rgba(26,31,38,0.12);
+      border-radius: 12px;
+      padding: 14px 18px 14px 46px;
+      font-family: inherit;
+      font-size: 1rem;
+      color: var(--ebony-clay);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%231a1f26' stroke-opacity='0.45' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: 16px center;
+    }
+    .roles-search:focus {
+      outline: none;
+      border-color: var(--cg-red);
+      box-shadow: 0 0 0 3px rgba(228,61,48,0.12);
+    }
+    .roles-search::placeholder { color: rgba(26,31,38,0.4); }
+
+    .filter-row {
+      display: flex; flex-direction: column; gap: 0.85rem;
+    }
+    .filter-label {
+      font-size: 0.78rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: rgba(26,31,38,0.5);
+    }
+    .filter-pills {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+    }
+    .filter-pill {
+      background: white;
+      border: 1px solid rgba(26,31,38,0.12);
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: rgba(26,31,38,0.7);
+      cursor: pointer;
+      text-transform: lowercase;
+      transition: all 0.15s;
+    }
+    .filter-pill:hover {
+      border-color: var(--cg-red);
+      color: var(--cg-red);
+    }
+    .filter-pill.active {
+      background: var(--ebony-clay);
+      border-color: var(--ebony-clay);
+      color: white;
+    }
+
+    .roles-list {
+      display: flex; flex-direction: column;
+      gap: 1rem;
+    }
+    .role-card {
+      background: white;
+      border: 1px solid rgba(26,31,38,0.08);
+      border-radius: 14px;
+      padding: 1.5rem 1.75rem;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .role-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+      border-color: rgba(26,31,38,0.14);
+    }
+    .role-main h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+      font-weight: 800;
+    }
+    .role-main p {
+      font-size: 0.92rem;
+      color: rgba(26,31,38,0.6);
+      line-height: 1.5;
+      margin-bottom: 0.85rem;
+      max-width: 620px;
+    }
+    .role-pills {
+      display: flex; flex-wrap: wrap; gap: 0.45rem;
+    }
+    .role-pill {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 0.78rem; font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-transform: lowercase;
+    }
+    .pill-dept-eng { background: rgba(228,61,48,0.1); color: var(--cg-red); }
+    .pill-dept-product { background: rgba(0,100,191,0.1); color: var(--spanish-blue); }
+    .pill-dept-design { background: rgba(244,178,35,0.16); color: #b8860b; }
+    .pill-dept-sales { background: rgba(44,153,66,0.1); color: var(--sea-green); }
+    .pill-dept-marketing { background: rgba(170,80,200,0.1); color: #8c3ea3; }
+    .pill-dept-cs { background: rgba(0,150,160,0.1); color: #007a82; }
+    .pill-dept-presales { background: rgba(60,90,180,0.1); color: #2f4eb0; }
+    .pill-loc { background: rgba(26,31,38,0.06); color: rgba(26,31,38,0.7); }
+    .pill-type { background: rgba(26,31,38,0.04); color: rgba(26,31,38,0.55); border: 1px solid rgba(26,31,38,0.08); }
+
+    .role-apply {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--ebony-clay);
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: background 0.2s, transform 0.2s;
+      text-transform: lowercase;
+      white-space: nowrap;
+    }
+    .role-apply:hover {
+      background: var(--cg-red);
+      transform: translateX(2px);
+    }
+    .roles-empty {
+      display: none;
+      text-align: center;
+      padding: 3rem 1rem;
+      background: white;
+      border: 1px dashed rgba(26,31,38,0.15);
+      border-radius: 14px;
+      color: rgba(26,31,38,0.55);
+      font-size: 0.95rem;
+    }
+
+    /* ===== HIRING PROCESS ===== */
+    .process-section { background: white; }
+    .process-intro { text-align: center; max-width: 800px; margin: 0 auto 3rem; }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      position: relative;
+    }
+    .process-card {
+      background: var(--floral-white);
+      border-radius: 16px;
+      padding: 2rem 1.75rem;
+      position: relative;
+      border: 1px solid rgba(26,31,38,0.05);
+    }
+    .process-step {
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--gradient-cta);
+      color: white;
+      font-size: 0.95rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .process-card h3 { margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .process-card p {
+      font-size: 0.92rem;
+      color: rgba(26,31,38,0.65);
+      line-height: 1.55;
+    }
+    .process-card .duration {
+      display: inline-block;
+      margin-top: 0.85rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--cg-red);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ===== TALENT NETWORK ===== */
+    .talent-section {
+      background: linear-gradient(135deg, var(--polar-white) 0%, var(--floral-white) 100%);
+    }
+    .talent-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      background: white;
+      border-radius: 24px;
+      padding: 3rem;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.04);
+      border: 1px solid rgba(26,31,38,0.05);
+    }
+    .talent-text h2 { margin-bottom: 1rem; }
+    .talent-text p {
+      font-size: 1.05rem; color: rgba(26,31,38,0.7);
+      line-height: 1.65; margin-bottom: 1.75rem;
+    }
+    .talent-form {
+      display: flex; gap: 0.6rem;
+      max-width: 520px;
+    }
+    .talent-form input {
+      flex: 1;
+      padding: 12px 16px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      border: 1px solid rgba(26,31,38,0.15);
+      border-radius: 8px;
+      color: var(--ebony-clay);
+    }
+    .talent-form input:focus {
+      outline: none;
+      border-color: var(--cg-red);
+      box-shadow: 0 0 0 3px rgba(228,61,48,0.12);
+    }
+    .talent-form button {
+      background: var(--gradient-cta);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0 22px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-transform: lowercase;
+      white-space: nowrap;
+    }
+    .talent-visual {
+      background: var(--floral-white);
+      border-radius: 18px;
+      padding: 2rem;
+      text-align: center;
+      border: 1px dashed rgba(228,61,48,0.2);
+    }
+    .talent-visual .big-number {
+      font-size: 3rem; font-weight: 800;
+      background: linear-gradient(90deg, var(--cg-gold), var(--cg-red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .talent-visual p {
+      font-size: 0.95rem; color: rgba(26,31,38,0.7);
+      font-weight: 500;
+    }
+
+    /* ===== LIFE CALLOUT ===== */
+    .life-callout {
+      background: var(--ebony-clay);
+      color: white;
+      padding: 4rem 0;
+      text-align: center;
+    }
+    .life-callout h2 {
+      color: white;
+      margin-bottom: 1rem;
+      max-width: 720px; margin-left: auto; margin-right: auto;
+    }
+    .life-callout p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.05rem;
+      max-width: 600px; margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+    .life-callout .btn-life {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gradient-cta);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .life-callout .btn-life:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(228, 61, 48, 0.3);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--black-haze);
+      padding: 3.5rem 0 1.5rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(26,31,38,0.6);
+      margin-top: 0.75rem;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: lowercase;
+      margin-bottom: 1rem;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .footer-col a {
+      font-size: 14px;
+      color: rgba(26,31,38,0.6);
+      text-transform: lowercase;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--cg-red); }
+    .footer-bottom {
+      border-top: 1px solid rgba(26,31,38,0.08);
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-bottom p {
+      font-size: 13px;
+      color: rgba(26,31,38,0.45);
+    }
+    .footer-socials {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .footer-socials a {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(26,31,38,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--ebony-clay);
+      transition: background 0.2s, color 0.2s;
+    }
+    .footer-socials a:hover {
+      background: var(--ebony-clay);
+      color: var(--white);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .why-work-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+      .talent-grid { grid-template-columns: 1fr; padding: 2rem; }
+    }
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .role-card { grid-template-columns: 1fr; gap: 1rem; }
+      .role-apply { justify-self: start; }
+    }
+    @media (max-width: 540px) {
+      .why-work-grid { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 1rem; }
+      .talent-form { flex-direction: column; }
+      .talent-form button { padding: 12px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="logo">
+        <img src="../Images/entomo.svg" alt="entomo" style="height:36px; width:auto;">
+      </a>
+      <div class="nav-right-group">
+        <ul class="nav-links">
+          <li class="nav-dropdown-wrap">
+            <a href="#">solutions</a>
+            <div class="nav-mega" style="width:720px;">
+              <div class="nav-mega-grid">
+                <a href="../solutions/performance-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">maximize employee performance</div>
+                    <div class="nav-mega-desc">real-time signals, coaching, and scorecards</div>
+                  </div>
+                </a>
+                <a href="../solutions/skill-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">unlock skills, accelerate growth</div>
+                    <div class="nav-mega-desc">skill maps, career paths, and growth plans</div>
+                  </div>
+                </a>
+                <a href="../solutions/engagement-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">build engagement that lasts</div>
+                    <div class="nav-mega-desc">pulse surveys, recognition, and culture signals</div>
+                  </div>
+                </a>
+                <a href="../solutions/workforce-insights.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">turn intelligence into decisions</div>
+                    <div class="nav-mega-desc">natural language analytics and board-ready reports</div>
+                  </div>
+                </a>
+                <a href="../solutions/wellness-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">protect wellness, prevent burnout</div>
+                    <div class="nav-mega-desc">burnout detection, sentiment, and intervention</div>
+                  </div>
+                </a>
+                <a href="../solutions/strategic-planning.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">align your workforce to strategy</div>
+                    <div class="nav-mega-desc">demand modeling, 4B engine, and succession</div>
+                  </div>
+                </a>
+                <a href="../solutions/hire-to-retire.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">simplify hire to retire</div>
+                    <div class="nav-mega-desc">recruitment, onboarding, payroll, and exit</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#">platform</a>
+            <div class="nav-mega" style="width:480px;">
+              <div class="nav-mega-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <a href="../workwise_platform.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">WorkWise</div>
+                    <div class="nav-mega-desc">your AI coworker for HR workflows and operations</div>
+                  </div>
+                </a>
+                <a href="#" class="nav-mega-item" style="opacity:0.55;pointer-events:none;">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">TMRW</div>
+                    <div class="nav-mega-desc">AI powered career growth platform</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#">inspiration</a>
+            <div class="nav-mega" style="width:720px;">
+              <div class="nav-mega-grid">
+                <a href="#" class="nav-mega-item nav-placeholder-tooltip" data-tooltip="page coming soon">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">blog</div>
+                    <div class="nav-mega-desc">insights on agentic AI and the future of work</div>
+                  </div>
+                </a>
+                <a href="#" class="nav-mega-item nav-placeholder-tooltip" data-tooltip="page coming soon">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">ebooks &amp; whitepapers</div>
+                    <div class="nav-mega-desc">in-depth research and POV reports</div>
+                  </div>
+                </a>
+                <a href="#" class="nav-mega-item nav-placeholder-tooltip" data-tooltip="page coming soon">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">success stories</div>
+                    <div class="nav-mega-desc">how Fortune 500s and governments use entomo</div>
+                  </div>
+                </a>
+                <a href="#" class="nav-mega-item nav-placeholder-tooltip" data-tooltip="page coming soon">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">entomo community</div>
+                    <div class="nav-mega-desc">connect with HR leaders shaping the future</div>
+                  </div>
+                </a>
+                <a href="#" class="nav-mega-item nav-placeholder-tooltip" data-tooltip="page coming soon">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">events &amp; webinars</div>
+                    <div class="nav-mega-desc">live sessions, roundtables, and roadshows</div>
+                  </div>
+                </a>
+                <a href="#" class="nav-mega-item nav-placeholder-tooltip" data-tooltip="page coming soon">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">templates</div>
+                    <div class="nav-mega-desc">ready-to-use HR frameworks and playbooks</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#">about</a>
+            <div class="nav-mega" style="width:720px;">
+              <div class="nav-mega-grid">
+                <a href="why-entomo.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">why entomo</div>
+                    <div class="nav-mega-desc">our story and what makes us different</div>
+                  </div>
+                </a>
+                <a href="life-at-entomo.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">life@entomo</div>
+                    <div class="nav-mega-desc">culture, values, and what makes us tick</div>
+                  </div>
+                </a>
+                <a href="#" class="nav-mega-item nav-placeholder-tooltip" data-tooltip="page coming soon">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">our team</div>
+                    <div class="nav-mega-desc">leadership and the people behind entomo</div>
+                  </div>
+                </a>
+                <a href="#" class="nav-mega-item nav-placeholder-tooltip" data-tooltip="page coming soon">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">security@entomo</div>
+                    <div class="nav-mega-desc">enterprise-grade security and compliance</div>
+                  </div>
+                </a>
+                <a href="#" class="nav-mega-item nav-placeholder-tooltip" data-tooltip="page coming soon">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">news &amp; press release</div>
+                    <div class="nav-mega-desc">latest announcements and media coverage</div>
+                  </div>
+                </a>
+                <a href="jobs-at-entomo.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">jobs@entomo</div>
+                    <div class="nav-mega-desc">join the team building tomorrow's HR</div>
+                  </div>
+                </a>
+                <a href="#" class="nav-mega-item nav-placeholder-tooltip" data-tooltip="page coming soon">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">partner with entomo</div>
+                    <div class="nav-mega-desc">SI, consulting, and ecosystem partnerships</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-placeholder-tooltip" data-tooltip="retain existing pages"><a href="#">contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <button class="nav-cta nav-placeholder-tooltip" data-tooltip="retain existing pages">request a demo →</button>
+        </div>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="jobs-hero">
+    <div class="container">
+      <span class="hero-eyebrow">jobs @ entomo</span>
+      <h1>join the team building <mark>tomorrow's HR</mark>.</h1>
+      <p class="lede">
+        we're HR experts who built an agentic intelligence platform — now powering 30M+ users worldwide. if you want to ship work that actually changes how people grow, you'll feel at home here.
+      </p>
+      <div class="hero-meta">
+        <span><span class="dot"></span>india</span>
+        <span><span class="dot gold"></span>southeast asia</span>
+        <span><span class="dot blue"></span>middle east</span>
+        <span><span class="dot green"></span>united states</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY WORK AT ENTOMO ===== -->
+  <section class="why-work-section">
+    <div class="container">
+      <div class="why-work-intro">
+        <div class="section-eyebrow">why entomo</div>
+        <h2 class="section-heading">work that matters. teams that trust. tech at the frontier.</h2>
+        <p class="section-subheading" style="margin: 1rem auto 0;">
+          we're a category-defining company at the intersection of HR and agentic AI. that means real responsibility, real ownership, and real outcomes — for tens of millions of people.
+        </p>
+      </div>
+
+      <div class="why-work-grid">
+        <div class="why-card c1">
+          <div class="why-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3>HR-first thinking</h3>
+          <p>we are HR experts who built tech — not a tech company that added HR. functional depth shapes every decision.</p>
+        </div>
+
+        <div class="why-card c2">
+          <div class="why-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/>
+            </svg>
+          </div>
+          <h3>agentic mindset</h3>
+          <p>we're at the frontier of agentic AI for the enterprise. you'll work on problems most teams haven't seen yet.</p>
+        </div>
+
+        <div class="why-card c3">
+          <div class="why-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+            </svg>
+          </div>
+          <h3>real impact, at scale</h3>
+          <p>30M+ users. fortune 500s and governments. forrester-validated outcomes. the work you ship shows up in the world.</p>
+        </div>
+
+        <div class="why-card c4">
+          <div class="why-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <h3>distributed by design</h3>
+          <p>teams across india, SEA, middle east, and the US. we hire for talent, not zip code — and build rituals that respect time zones.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OPEN ROLES ===== -->
+  <section class="roles-section" id="open-roles">
+    <div class="container">
+      <div class="roles-intro">
+        <div class="section-eyebrow">open roles</div>
+        <h2 class="section-heading">find the role that fits you</h2>
+        <p class="section-subheading" style="margin: 1rem auto 0;">
+          search by title, filter by department or location. every role here is one we're actively hiring for.
+        </p>
+      </div>
+
+      <div class="roles-toolbar">
+        <input type="search" class="roles-search" id="roleSearch" placeholder="search roles by title or keyword…">
+
+        <div class="filter-row">
+          <span class="filter-label">department</span>
+          <div class="filter-pills" data-filter-group="dept">
+            <button class="filter-pill active" data-value="all">all</button>
+            <button class="filter-pill" data-value="engineering">engineering</button>
+            <button class="filter-pill" data-value="product">product</button>
+            <button class="filter-pill" data-value="design">design</button>
+            <button class="filter-pill" data-value="sales">sales</button>
+            <button class="filter-pill" data-value="presales">pre-sales</button>
+            <button class="filter-pill" data-value="marketing">marketing</button>
+            <button class="filter-pill" data-value="cs">customer success</button>
+          </div>
+        </div>
+
+        <div class="filter-row">
+          <span class="filter-label">location</span>
+          <div class="filter-pills" data-filter-group="loc">
+            <button class="filter-pill active" data-value="all">all</button>
+            <button class="filter-pill" data-value="bangalore">bangalore</button>
+            <button class="filter-pill" data-value="singapore">singapore</button>
+            <button class="filter-pill" data-value="dubai">dubai</button>
+            <button class="filter-pill" data-value="remote">remote</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="roles-list" id="rolesList">
+        <article class="role-card" data-dept="engineering" data-loc="bangalore" data-keywords="senior software engineer engineering bangalore full-time">
+          <div class="role-main">
+            <h3>senior software engineer</h3>
+            <p>build core platform services powering our agentic intelligence engine. work across distributed systems, data pipelines, and real-time signals at scale.</p>
+            <div class="role-pills">
+              <span class="role-pill pill-dept-eng">engineering</span>
+              <span class="role-pill pill-loc">bangalore</span>
+              <span class="role-pill pill-type">full-time</span>
+            </div>
+          </div>
+          <a href="#" class="role-apply">apply →</a>
+        </article>
+
+        <article class="role-card" data-dept="presales" data-loc="singapore" data-keywords="solution consultant pre-sales presales singapore full-time">
+          <div class="role-main">
+            <h3>solution consultant</h3>
+            <p>partner with enterprise sales teams across SEA. translate CHRO priorities into tailored entomo demos, workshops, and value cases that close.</p>
+            <div class="role-pills">
+              <span class="role-pill pill-dept-presales">pre-sales</span>
+              <span class="role-pill pill-loc">singapore</span>
+              <span class="role-pill pill-type">full-time</span>
+            </div>
+          </div>
+          <a href="#" class="role-apply">apply →</a>
+        </article>
+
+        <article class="role-card" data-dept="product" data-loc="bangalore" data-keywords="product manager AI product bangalore full-time">
+          <div class="role-main">
+            <h3>product manager (AI)</h3>
+            <p>own the roadmap for one of our specialized AI agents. shape how agents reason, coach, and act — in the daily flow-of-work of millions.</p>
+            <div class="role-pills">
+              <span class="role-pill pill-dept-product">product</span>
+              <span class="role-pill pill-loc">bangalore</span>
+              <span class="role-pill pill-type">full-time</span>
+            </div>
+          </div>
+          <a href="#" class="role-apply">apply →</a>
+        </article>
+
+        <article class="role-card" data-dept="cs" data-loc="dubai" data-keywords="customer success manager CSM dubai full-time">
+          <div class="role-main">
+            <h3>customer success manager</h3>
+            <p>drive adoption and outcomes for fortune 500 customers across the middle east. own the relationship from kickoff to expansion.</p>
+            <div class="role-pills">
+              <span class="role-pill pill-dept-cs">customer success</span>
+              <span class="role-pill pill-loc">dubai</span>
+              <span class="role-pill pill-type">full-time</span>
+            </div>
+          </div>
+          <a href="#" class="role-apply">apply →</a>
+        </article>
+
+        <article class="role-card" data-dept="marketing" data-loc="bangalore" data-keywords="marketing manager demand generation gen bangalore full-time">
+          <div class="role-main">
+            <h3>marketing manager (demand gen)</h3>
+            <p>build pipelines that match our category-defining ambition. own integrated campaigns across paid, content, ABM, and field marketing.</p>
+            <div class="role-pills">
+              <span class="role-pill pill-dept-marketing">marketing</span>
+              <span class="role-pill pill-loc">bangalore</span>
+              <span class="role-pill pill-type">full-time</span>
+            </div>
+          </div>
+          <a href="#" class="role-apply">apply →</a>
+        </article>
+
+        <article class="role-card" data-dept="product" data-loc="remote" data-keywords="HR domain expert product remote full-time">
+          <div class="role-main">
+            <h3>HR domain expert</h3>
+            <p>bring deep functional HR expertise into product design. shape how performance, skills, and engagement actually work for enterprise HR leaders.</p>
+            <div class="role-pills">
+              <span class="role-pill pill-dept-product">product</span>
+              <span class="role-pill pill-loc">remote</span>
+              <span class="role-pill pill-type">full-time</span>
+            </div>
+          </div>
+          <a href="#" class="role-apply">apply →</a>
+        </article>
+
+        <article class="role-card" data-dept="design" data-loc="bangalore" data-keywords="senior designer design product UX UI bangalore full-time">
+          <div class="role-main">
+            <h3>senior designer</h3>
+            <p>design experiences for HR leaders, managers, and employees. craft interfaces where AI agents feel helpful, transparent, and trustworthy.</p>
+            <div class="role-pills">
+              <span class="role-pill pill-dept-design">design</span>
+              <span class="role-pill pill-loc">bangalore</span>
+              <span class="role-pill pill-type">full-time</span>
+            </div>
+          </div>
+          <a href="#" class="role-apply">apply →</a>
+        </article>
+
+        <article class="role-card" data-dept="sales" data-loc="dubai" data-keywords="sales director middle east ME dubai full-time">
+          <div class="role-main">
+            <h3>sales director (middle east)</h3>
+            <p>lead enterprise sales across the GCC. own pipeline, named accounts, and partnerships with our largest fortune 500 and government customers in the region.</p>
+            <div class="role-pills">
+              <span class="role-pill pill-dept-sales">sales</span>
+              <span class="role-pill pill-loc">dubai</span>
+              <span class="role-pill pill-type">full-time</span>
+            </div>
+          </div>
+          <a href="#" class="role-apply">apply →</a>
+        </article>
+      </div>
+
+      <div class="roles-empty" id="rolesEmpty">no roles match those filters. try clearing filters or check back soon — we're hiring all the time.</div>
+    </div>
+  </section>
+
+  <!-- ===== HIRING PROCESS ===== -->
+  <section class="process-section">
+    <div class="container">
+      <div class="process-intro">
+        <div class="section-eyebrow">our hiring process</div>
+        <h2 class="section-heading">transparent, fast, and respectful of your time</h2>
+        <p class="section-subheading" style="margin: 1rem auto 0;">
+          four steps. no surprise rounds. you'll know where you stand at every stage.
+        </p>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-card">
+          <div class="process-step">1</div>
+          <h3>apply</h3>
+          <p>send us your application for a specific role — or join our talent network. we read every one.</p>
+          <span class="duration">~5 min</span>
+        </div>
+
+        <div class="process-card">
+          <div class="process-step">2</div>
+          <h3>intro call</h3>
+          <p>a 30-minute conversation with our talent team — to learn about you, share context on the role, and answer your questions.</p>
+          <span class="duration">30 min</span>
+        </div>
+
+        <div class="process-card">
+          <div class="process-step">3</div>
+          <h3>skill deep-dive</h3>
+          <p>working sessions with the hiring manager and 1–2 future teammates. real problems, real conversation — no trick questions.</p>
+          <span class="duration">2–3 sessions</span>
+        </div>
+
+        <div class="process-card">
+          <div class="process-step">4</div>
+          <h3>culture &amp; decision</h3>
+          <p>a final conversation with leadership on values, ambition, and fit. we make a decision within a week.</p>
+          <span class="duration">~1 hr</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TALENT NETWORK ===== -->
+  <section class="talent-section">
+    <div class="container">
+      <div class="talent-grid">
+        <div class="talent-text">
+          <div class="section-eyebrow">don't see your role?</div>
+          <h2>we're growing fast. we'd still like to meet you.</h2>
+          <p>
+            join our talent network and we'll reach out when a role opens that fits your skills, experience, and ambition. no spam, no recruiter blasts — just a real conversation when there's a real fit.
+          </p>
+          <form class="talent-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='thanks — we\'ll be in touch'; this.querySelector('input').value='';">
+            <input type="email" placeholder="your work email" required>
+            <button type="submit">join network →</button>
+          </form>
+        </div>
+        <div class="talent-visual">
+          <div class="big-number">30M+</div>
+          <p>users powered by what you'd help build</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LIFE CALLOUT ===== -->
+  <section class="life-callout">
+    <div class="container">
+      <h2>want a peek inside?</h2>
+      <p>see how we work, what we believe, and the people who make entomo what it is.</p>
+      <a href="life-at-entomo.html" class="btn-life">see life @ entomo →</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <img src="../Images/entomo.svg" alt="entomo" style="height:32px; width:auto;">
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>platform</h4>
+          <ul>
+            <li><a href="#">AI agents</a></li>
+            <li><a href="#">intelligence architecture</a></li>
+            <li><a href="#">integrations</a></li>
+            <li><a href="#">security</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>solutions</h4>
+          <ul>
+            <li><a href="../solutions/performance-intelligence.html">performance intelligence</a></li>
+            <li><a href="../solutions/skill-intelligence.html">skill &amp; talent intelligence</a></li>
+            <li><a href="../solutions/engagement-intelligence.html">engagement intelligence</a></li>
+            <li><a href="../solutions/workforce-insights.html">workforce insights</a></li>
+            <li><a href="../solutions/wellness-intelligence.html">wellness intelligence</a></li>
+            <li><a href="../solutions/strategic-planning.html">strategic planning</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>resources</h4>
+          <ul>
+            <li><a href="#">Forrester TEI study</a></li>
+            <li><a href="#">case studies</a></li>
+            <li><a href="#">blog</a></li>
+            <li><a href="#">webinars</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>company</h4>
+          <ul>
+            <li><a href="why-entomo.html">why entomo</a></li>
+            <li><a href="life-at-entomo.html">life @ entomo</a></li>
+            <li><a href="jobs-at-entomo.html">jobs @ entomo</a></li>
+            <li><a href="#">contact</a></li>
+            <li><a href="#">privacy policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 entomo. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const search = document.getElementById('roleSearch');
+      const list = document.getElementById('rolesList');
+      const empty = document.getElementById('rolesEmpty');
+      const cards = Array.from(list.querySelectorAll('.role-card'));
+      const filterGroups = document.querySelectorAll('[data-filter-group]');
+      const state = { dept: 'all', loc: 'all', q: '' };
+
+      filterGroups.forEach(group => {
+        group.addEventListener('click', (e) => {
+          const btn = e.target.closest('.filter-pill');
+          if (!btn) return;
+          group.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          state[group.dataset.filterGroup] = btn.dataset.value;
+          render();
+        });
+      });
+
+      search.addEventListener('input', () => {
+        state.q = search.value.trim().toLowerCase();
+        render();
+      });
+
+      function render() {
+        let visible = 0;
+        cards.forEach(card => {
+          const matchDept = state.dept === 'all' || card.dataset.dept === state.dept;
+          const matchLoc = state.loc === 'all' || card.dataset.loc === state.loc;
+          const matchQ = !state.q || card.dataset.keywords.includes(state.q);
+          const show = matchDept && matchLoc && matchQ;
+          card.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        empty.style.display = visible === 0 ? 'block' : 'none';
+      }
+    })();
+  </script>
+
+</body>
+</html>
