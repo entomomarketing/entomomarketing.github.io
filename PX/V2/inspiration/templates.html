@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>templates | ready-to-use HR playbooks from entomo</title>
-  <meta name="description" content="free, expert-built HR templates for goals, reviews, skill maps, succession planning, and more. download and adapt for your organization.">
+  <title>RFP template | performance &amp; talent management vendor selection from entomo</title>
+  <meta name="description" content="a comprehensive RFP template for performance, career, and succession management. use it to evaluate vendors and shortlist the right performance & talent management system for your organization.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
@@ -276,13 +276,9 @@
       font-size: 14px;
       font-weight: 600;
       color: rgba(26,31,38,0.75);
-      cursor: pointer;
       transition: all 0.2s;
       text-transform: lowercase;
-    }
-    .filter-pill:hover {
-      border-color: var(--cg-red);
-      color: var(--cg-red);
+      display: inline-block;
     }
     .filter-pill.active {
       background: var(--ebony-clay);
@@ -298,6 +294,58 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.75rem;
+    }
+    .templates-grid.single {
+      grid-template-columns: minmax(0, 720px);
+      justify-content: center;
+    }
+    .tpl-card.featured .tpl-thumb { height: 200px; }
+    .tpl-card.featured .tpl-body { padding: 2rem 2rem 2rem; }
+    .tpl-card.featured .featured-title {
+      font-size: 1.5rem;
+      line-height: 1.25;
+      margin-bottom: 0.85rem;
+    }
+    .tpl-card.featured .featured-desc {
+      font-size: 1rem;
+      color: rgba(26,31,38,0.7);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+    .featured-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .featured-bullets li {
+      position: relative;
+      padding-left: 1.5rem;
+      font-size: 0.95rem;
+      color: rgba(26,31,38,0.78);
+      line-height: 1.5;
+    }
+    .featured-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0.55rem;
+      width: 14px; height: 8px;
+      border-left: 2px solid var(--cg-red);
+      border-bottom: 2px solid var(--cg-red);
+      transform: rotate(-45deg);
+      border-radius: 1px;
+    }
+    .more-coming {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: rgba(26,31,38,0.55);
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
     }
     .tpl-card {
       background: var(--white);
@@ -778,10 +826,10 @@
   <!-- ===== HERO ===== -->
   <section class="tpl-hero">
     <div class="container">
-      <span class="hero-eyebrow">templates &amp; frameworks</span>
-      <h1>ready-to-use playbooks for the modern <mark>HR team</mark>.</h1>
+      <span class="hero-eyebrow">vendor selection toolkit</span>
+      <h1>the <mark>RFP template</mark> for choosing your next performance &amp; talent system.</h1>
       <p class="lede">
-        skip the blank page. start from frameworks built by HR experts who've shipped them inside Fortune 500 companies and governments.
+        a comprehensive request-for-proposal template for performance, career, and succession management. drop it into your vendor selection process and shortlist the right system without starting from scratch.
       </p>
     </div>
   </section>
@@ -790,247 +838,66 @@
   <section class="intro-strip">
     <div class="container">
       <p>
-        free, expert-built templates for goals, reviews, skill maps, succession planning, and more. adapt them or use them as inspiration.
+        built from how Fortune 500 HR and procurement teams actually evaluate enterprise performance &amp; talent management systems. comprehensive requirements, capability checklists, and scoring criteria — ready to send to vendors.
       </p>
     </div>
   </section>
 
-  <!-- ===== FILTERS ===== -->
+  <!-- ===== COVERAGE PILLS ===== -->
   <section class="filters">
     <div class="container">
-      <div class="filter-row" id="filterRow">
-        <button class="filter-pill active" data-filter="all">all</button>
-        <button class="filter-pill" data-filter="performance">performance</button>
-        <button class="filter-pill" data-filter="skills">skills</button>
-        <button class="filter-pill" data-filter="engagement">engagement</button>
-        <button class="filter-pill" data-filter="workforce">workforce planning</button>
-        <button class="filter-pill" data-filter="career">career growth</button>
-        <button class="filter-pill" data-filter="hiring">hiring</button>
+      <div class="filter-row" id="filterRow" role="list" aria-label="what this RFP covers">
+        <span class="filter-pill active" role="listitem">performance management</span>
+        <span class="filter-pill" role="listitem">career &amp; succession</span>
+        <span class="filter-pill" role="listitem">skills &amp; learning</span>
+        <span class="filter-pill" role="listitem">continuous engagement</span>
+        <span class="filter-pill" role="listitem">workforce insights</span>
+        <span class="filter-pill" role="listitem">hire-to-retire</span>
       </div>
     </div>
   </section>
 
-  <!-- ===== TEMPLATES GRID ===== -->
+  <!-- ===== ASSET CARD ===== -->
   <section class="grid-section">
     <div class="container">
-      <div class="templates-grid" id="templatesGrid">
+      <div class="templates-grid single" id="templatesGrid">
 
-        <!-- 1 -->
-        <div class="tpl-card" data-cat="performance">
+        <div class="tpl-card featured">
           <div class="tpl-thumb cat-performance">
-            <span class="tpl-format-badge">Excel</span>
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            <span class="tpl-format-badge">DOCX</span>
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
           </div>
           <div class="tpl-body">
-            <span class="tpl-tag cat-performance">performance</span>
-            <h3>OKR goal-setting template for HR teams</h3>
-            <p>quarterly objectives and key results worksheet with cascading alignment from company to individual.</p>
+            <span class="tpl-tag cat-performance">RFP template</span>
+            <h3 class="featured-title">RFP template — performance, career &amp; succession management</h3>
+            <p class="featured-desc">a vendor-ready request for proposal covering everything you need to evaluate a performance &amp; talent management system. requirements, capability questions, scope, and feasibility checklists for your HR programs — designed so vendors return comparable, decision-grade responses.</p>
+            <ul class="featured-bullets">
+              <li>structured requirements across performance, career, and succession</li>
+              <li>capability questions vendors must answer in detail</li>
+              <li>scope and feasibility framework for your shortlist</li>
+              <li>scoring guidance for procurement and HR panels</li>
+            </ul>
             <div class="tpl-meta">
-              <span class="tpl-format">Excel · 6 sheets</span>
-              <button class="tpl-download">download →</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 2 -->
-        <div class="tpl-card" data-cat="performance">
-          <div class="tpl-thumb cat-performance">
-            <span class="tpl-format-badge">PDF</span>
-            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          </div>
-          <div class="tpl-body">
-            <span class="tpl-tag cat-performance">performance</span>
-            <h3>continuous feedback conversation guide</h3>
-            <p>prompts, scripts, and frameworks for high-quality feedback conversations that don't wait for review season.</p>
-            <div class="tpl-meta">
-              <span class="tpl-format">PDF · 14 pages</span>
-              <button class="tpl-download">download →</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3 -->
-        <div class="tpl-card" data-cat="skills">
-          <div class="tpl-thumb cat-skills">
-            <span class="tpl-format-badge">Excel</span>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-          </div>
-          <div class="tpl-body">
-            <span class="tpl-tag cat-skills">skills</span>
-            <h3>skill map builder for engineering teams</h3>
-            <p>a structured taxonomy of technical and behavioral skills with proficiency rubrics, ready to drop in.</p>
-            <div class="tpl-meta">
-              <span class="tpl-format">Excel · 4 sheets</span>
-              <button class="tpl-download">download →</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4 -->
-        <div class="tpl-card" data-cat="career">
-          <div class="tpl-thumb cat-career">
-            <span class="tpl-format-badge">PDF</span>
-            <svg viewBox="0 0 24 24"><path d="M3 21l6-6m0 0l4 4 8-8M9 15v-4h4"/><path d="M14 3h7v7"/></svg>
-          </div>
-          <div class="tpl-body">
-            <span class="tpl-tag cat-career">career growth</span>
-            <h3>career path framework for first-time managers</h3>
-            <p>step-by-step framework covering competencies, milestones, and development plans for new people leaders.</p>
-            <div class="tpl-meta">
-              <span class="tpl-format">PDF · 18 pages</span>
-              <button class="tpl-download">download →</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 5 -->
-        <div class="tpl-card" data-cat="workforce">
-          <div class="tpl-thumb cat-workforce">
-            <span class="tpl-format-badge">Excel</span>
-            <svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
-          </div>
-          <div class="tpl-body">
-            <span class="tpl-tag cat-workforce">workforce planning</span>
-            <h3>succession planning 4B worksheet</h3>
-            <p>build, buy, borrow, and bot — the four-lever model for filling critical roles before they go vacant.</p>
-            <div class="tpl-meta">
-              <span class="tpl-format">Excel · 5 sheets</span>
-              <button class="tpl-download">download →</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 6 -->
-        <div class="tpl-card" data-cat="workforce">
-          <div class="tpl-thumb cat-workforce">
-            <span class="tpl-format-badge">Excel</span>
-            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-          </div>
-          <div class="tpl-body">
-            <span class="tpl-tag cat-workforce">workforce planning</span>
-            <h3>9-box talent review template</h3>
-            <p>performance vs. potential grid with calibration prompts and action plans for each quadrant.</p>
-            <div class="tpl-meta">
-              <span class="tpl-format">Excel · 3 sheets</span>
-              <button class="tpl-download">download →</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 7 -->
-        <div class="tpl-card" data-cat="performance">
-          <div class="tpl-thumb cat-performance">
-            <span class="tpl-format-badge">PDF</span>
-            <svg viewBox="0 0 24 24"><path d="M8 12h8M8 8h8M8 16h5"/><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
-          </div>
-          <div class="tpl-body">
-            <span class="tpl-tag cat-performance">performance</span>
-            <h3>manager check-in conversation script</h3>
-            <p>weekly and monthly 1:1 templates with prompts that surface blockers, growth, and recognition.</p>
-            <div class="tpl-meta">
-              <span class="tpl-format">PDF · 10 pages</span>
-              <button class="tpl-download">download →</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 8 -->
-        <div class="tpl-card" data-cat="skills">
-          <div class="tpl-thumb cat-skills">
-            <span class="tpl-format-badge">Excel</span>
-            <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-          </div>
-          <div class="tpl-body">
-            <span class="tpl-tag cat-skills">skills</span>
-            <h3>skills gap analysis template</h3>
-            <p>map current capability against future demand by team, role, and function — with a prioritized action plan.</p>
-            <div class="tpl-meta">
-              <span class="tpl-format">Excel · 6 sheets</span>
-              <button class="tpl-download">download →</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 9 -->
-        <div class="tpl-card" data-cat="performance">
-          <div class="tpl-thumb cat-performance">
-            <span class="tpl-format-badge">PDF</span>
-            <svg viewBox="0 0 24 24"><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6"/></svg>
-          </div>
-          <div class="tpl-body">
-            <span class="tpl-tag cat-performance">performance</span>
-            <h3>quarterly review calibration framework</h3>
-            <p>a step-by-step calibration playbook to reduce manager bias and align ratings across teams.</p>
-            <div class="tpl-meta">
-              <span class="tpl-format">PDF · 22 pages</span>
-              <button class="tpl-download">download →</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 10 -->
-        <div class="tpl-card" data-cat="engagement">
-          <div class="tpl-thumb cat-engagement">
-            <span class="tpl-format-badge">Excel</span>
-            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          </div>
-          <div class="tpl-body">
-            <span class="tpl-tag cat-engagement">engagement</span>
-            <h3>engagement survey question bank</h3>
-            <p>120+ validated questions across belonging, growth, manager quality, recognition, and wellbeing.</p>
-            <div class="tpl-meta">
-              <span class="tpl-format">Excel · 8 sheets</span>
-              <button class="tpl-download">download →</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 11 -->
-        <div class="tpl-card" data-cat="hiring">
-          <div class="tpl-thumb cat-hiring">
-            <span class="tpl-format-badge">PDF</span>
-            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-          </div>
-          <div class="tpl-body">
-            <span class="tpl-tag cat-hiring">hiring</span>
-            <h3>first 90-day onboarding playbook</h3>
-            <p>day-by-day onboarding plan, manager checklists, and milestone reviews for any new hire.</p>
-            <div class="tpl-meta">
-              <span class="tpl-format">PDF · 28 pages</span>
-              <button class="tpl-download">download →</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 12 -->
-        <div class="tpl-card" data-cat="career">
-          <div class="tpl-thumb cat-career">
-            <span class="tpl-format-badge">PDF</span>
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <div class="tpl-body">
-            <span class="tpl-tag cat-career">career growth</span>
-            <h3>promotion justification template</h3>
-            <p>a structured business case for promotions covering impact, scope, and readiness — built for calibration panels.</p>
-            <div class="tpl-meta">
-              <span class="tpl-format">PDF · 6 pages</span>
-              <button class="tpl-download">download →</button>
+              <span class="tpl-format">DOCX · editable</span>
+              <button class="tpl-download">download the RFP →</button>
             </div>
           </div>
         </div>
 
       </div>
+
+      <p class="more-coming">more frameworks and playbooks coming soon — drop your email below and we'll send them as we publish.</p>
     </div>
   </section>
 
   <!-- ===== LEAD CAPTURE ===== -->
   <section class="lead-section" id="download">
     <div class="container">
-      <h2>get the full template library.</h2>
-      <p>drop your email and we'll send you the complete pack — plus first access to new templates as we publish them.</p>
+      <h2>get the RFP template.</h2>
+      <p>drop your email and we'll send you the editable RFP — plus first access to new frameworks, playbooks, and benchmarks as we publish them.</p>
       <form class="lead-form" onsubmit="event.preventDefault();">
         <input type="email" placeholder="your work email" required>
-        <button type="submit">send me the pack →</button>
+        <button type="submit">send me the RFP →</button>
       </form>
       <p class="lead-fineprint">we'll only email you about templates and new resources. unsubscribe anytime.</p>
     </div>
@@ -1098,22 +965,6 @@
 
   <script>
     (function(){
-      var pills = document.querySelectorAll('.filter-pill');
-      var cards = document.querySelectorAll('.tpl-card');
-      pills.forEach(function(pill){
-        pill.addEventListener('click', function(){
-          pills.forEach(function(p){ p.classList.remove('active'); });
-          pill.classList.add('active');
-          var f = pill.getAttribute('data-filter');
-          cards.forEach(function(card){
-            if (f === 'all' || card.getAttribute('data-cat') === f) {
-              card.style.display = '';
-            } else {
-              card.style.display = 'none';
-            }
-          });
-        });
-      });
       // download buttons scroll to lead capture
       document.querySelectorAll('.tpl-download').forEach(function(btn){
         btn.addEventListener('click', function(){
