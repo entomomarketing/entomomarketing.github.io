@@ -302,38 +302,64 @@
       border-color: rgba(26,31,38,0.12);
     }
     .leader-avatar {
-      width: 96px; height: 96px;
+      width: 128px; height: 128px;
       border-radius: 50%;
       margin: 0 auto 1.25rem;
-      display: flex; align-items: center; justify-content: center;
-      color: white;
-      font-weight: 800;
-      font-size: 1.6rem;
-      letter-spacing: 0.5px;
+      overflow: hidden;
+      background: var(--polar-white);
       box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      border: 3px solid white;
     }
-    .leader-card.l1 .leader-avatar { background: linear-gradient(135deg, var(--cg-red), var(--cg-gold)); }
-    .leader-card.l2 .leader-avatar { background: linear-gradient(135deg, var(--spanish-blue), var(--sea-green)); }
-    .leader-card.l3 .leader-avatar { background: linear-gradient(135deg, var(--cg-gold), var(--sea-green)); }
-    .leader-card.l4 .leader-avatar { background: linear-gradient(135deg, var(--spanish-blue), #4ba3e0); }
-    .leader-card.l5 .leader-avatar { background: linear-gradient(135deg, var(--sea-green), #6abf7d); }
-    .leader-card.l6 .leader-avatar { background: linear-gradient(135deg, var(--cg-red), #ff7a5c); }
-    .leader-card.l7 .leader-avatar { background: linear-gradient(135deg, var(--cg-gold), #ffd966); }
-    .leader-card.l8 .leader-avatar { background: linear-gradient(135deg, #2a3038, var(--spanish-blue)); }
+    .leader-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    /* Group label between leadership clusters */
+    .group-label {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.5rem 0 0.5rem;
+    }
+    .group-label:first-child { margin-top: 0; }
+    .group-label-text {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: rgba(26,31,38,0.55);
+      white-space: nowrap;
+    }
+    .group-label-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(26,31,38,0.1);
+    }
     .leader-name {
       font-size: 1.05rem;
       font-weight: 800;
       text-transform: lowercase;
       margin-bottom: 0.25rem;
       color: var(--ebony-clay);
+      line-height: 1.25;
+      min-height: 2.6em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .leader-title {
-      font-size: 0.85rem;
+      font-size: 0.78rem;
       font-weight: 700;
       color: var(--cg-red);
       text-transform: uppercase;
       letter-spacing: 0.5px;
       margin-bottom: 1rem;
+      line-height: 1.35;
+      min-height: 2.7em;
     }
     .leader-bio {
       font-size: 0.9rem;
@@ -828,7 +854,7 @@
       <span class="hero-eyebrow">our team</span>
       <h1>the people building <mark>tomorrow's HR</mark>.</h1>
       <p class="lede">
-        HR experts. systems engineers. AI researchers. designers who've sat across the table from CHROs. the team behind entomo is part scientist, part craftsperson — building the agentic intelligence platform powering 30M+ users worldwide.
+        founders, operators, and engineers who've spent careers transforming how enterprises run HR. the people behind entomo span Singapore, Bangalore, Kuala Lumpur, Dubai, and beyond — building the agentic intelligence platform powering 30M+ users worldwide.
       </p>
     </div>
   </section>
@@ -840,155 +866,235 @@
         <div class="section-eyebrow">leadership</div>
         <h2 class="section-heading">leaders with depth, not just titles</h2>
         <p class="section-subheading">
-          decades in enterprise HR, AI, and large-scale platform engineering. shipping in Singapore, Bangalore, Dubai, and beyond — with one obsession: outcomes for the workforce of tomorrow.
+          decades in enterprise HR, AI, and large-scale platform engineering. shipping in Singapore, Bangalore, Kuala Lumpur, Dubai, and beyond — with one obsession: outcomes for the workforce of tomorrow.
         </p>
       </div>
 
       <div class="leaders-grid">
-        <div class="leader-card l1">
-          <div class="leader-avatar">AK</div>
-          <div class="leader-name">arun k.</div>
+
+        <!-- group: entomo people experience leadership -->
+        <div class="group-label">
+          <span class="group-label-text">entomo people experience</span>
+          <span class="group-label-line"></span>
+        </div>
+
+        <div class="leader-card">
+          <div class="leader-avatar"><img src="https://entomo.co/static/Kavitha-e16ac2c00c6497c7af33a115bc1296cf.png" alt="Kavitha Venkatachalam" loading="lazy"></div>
+          <div class="leader-name keep-case">Kavitha Venkatachalam</div>
           <div class="leader-title">chief executive officer</div>
-          <p class="leader-bio">three decades reshaping how enterprises run HR. founder's instinct, operator's discipline, customer-first compass.</p>
-          <a href="#" class="leader-linkedin" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/kavithavchalam/" target="_blank" rel="noopener" class="leader-linkedin" aria-label="LinkedIn — Kavitha Venkatachalam">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           </a>
         </div>
 
-        <div class="leader-card l2">
-          <div class="leader-avatar">RS</div>
-          <div class="leader-name">ravi s.</div>
+        <div class="leader-card">
+          <div class="leader-avatar"><img src="https://entomo.co/static/Arun-8fa0aa605291d901df8334af82afb6c9.png" alt="Arun Sundar" loading="lazy"></div>
+          <div class="leader-name keep-case">Arun Sundar</div>
+          <div class="leader-title">chief revenue officer</div>
+          <a href="https://www.linkedin.com/in/arun-sundar-2290237/" target="_blank" rel="noopener" class="leader-linkedin" aria-label="LinkedIn — Arun Sundar">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+        </div>
+
+        <div class="leader-card">
+          <div class="leader-avatar"><img src="https://entomo.co/static/Suman-3539fb9bcd0f1dca83a62a2bf6267dd7.png" alt="Suman Akkiraju" loading="lazy"></div>
+          <div class="leader-name keep-case">Suman Akkiraju</div>
+          <div class="leader-title">chief operating officer</div>
+          <a href="https://www.linkedin.com/in/amsuman/" target="_blank" rel="noopener" class="leader-linkedin" aria-label="LinkedIn — Suman Akkiraju">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+        </div>
+
+        <div class="leader-card">
+          <div class="leader-avatar"><img src="https://entomo.co/static/Ayan-Gupta-13b304336ff2fa68e41f354431d0c28a.png" alt="Ayan Gupta" loading="lazy"></div>
+          <div class="leader-name keep-case">Ayan Gupta</div>
           <div class="leader-title">chief technology officer</div>
-          <p class="leader-bio">agentic AI architect with 20+ years across HR-tech and large-scale enterprise systems. believes elegance ships better than complexity.</p>
-          <a href="#" class="leader-linkedin" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/ayangupta/" target="_blank" rel="noopener" class="leader-linkedin" aria-label="LinkedIn — Ayan Gupta">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           </a>
         </div>
 
-        <div class="leader-card l3">
-          <div class="leader-avatar">MN</div>
-          <div class="leader-name">meera n.</div>
-          <div class="leader-title">chief people officer</div>
-          <p class="leader-bio">former Fortune 500 CHRO who lived the workforce problem before solving it. now translates HR pain into product depth.</p>
-          <a href="#" class="leader-linkedin" aria-label="LinkedIn">
+        <div class="leader-card">
+          <div class="leader-avatar"><img src="https://entomo.co/static/Ruchi-87e77b262e68a4e67a90be7c4d85adf5.png" alt="Ruchi Sharma" loading="lazy"></div>
+          <div class="leader-name keep-case">Ruchi Sharma</div>
+          <div class="leader-title">global head of product success</div>
+          <a href="https://www.linkedin.com/in/ruchi-sharma-57973756/" target="_blank" rel="noopener" class="leader-linkedin" aria-label="LinkedIn — Ruchi Sharma">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           </a>
         </div>
 
-        <div class="leader-card l4">
-          <div class="leader-avatar">JT</div>
-          <div class="leader-name">jason t.</div>
-          <div class="leader-title">chief marketing officer</div>
-          <p class="leader-bio">brand storyteller who's launched HR-tech across APAC, Middle East, and beyond. translates platform depth into stories CHROs remember.</p>
-          <a href="#" class="leader-linkedin" aria-label="LinkedIn">
+        <div class="leader-card">
+          <div class="leader-avatar"><img src="https://entomo.co/static/Omar-d8d867e3ca06aa687b31a3ce05f0d51a.png" alt="Omar Alshamsi" loading="lazy"></div>
+          <div class="leader-name keep-case">Omar Alshamsi</div>
+          <div class="leader-title">regional executive director — entomo MEA</div>
+          <a href="https://www.linkedin.com/in/omar-alshamsi-51bb7924/" target="_blank" rel="noopener" class="leader-linkedin" aria-label="LinkedIn — Omar Alshamsi">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           </a>
         </div>
 
-        <div class="leader-card l5">
-          <div class="leader-avatar">VG</div>
-          <div class="leader-name">vikram g.</div>
-          <div class="leader-title">vp engineering</div>
-          <p class="leader-bio">led platform teams from startup to scale. obsessed with reliability at 30M+ user volume — and the kind of code reviews that make engineers better.</p>
-          <a href="#" class="leader-linkedin" aria-label="LinkedIn">
+        <div class="leader-card">
+          <div class="leader-avatar"><img src="https://entomo.co/static/Nalin-941366e3af9b811817ca373ef10c3223.png" alt="Nalin Advani" loading="lazy"></div>
+          <div class="leader-name keep-case">Nalin Advani</div>
+          <div class="leader-title">regional executive director — Japan</div>
+          <a href="https://www.linkedin.com/in/nalinadvani/" target="_blank" rel="noopener" class="leader-linkedin" aria-label="LinkedIn — Nalin Advani">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           </a>
         </div>
 
-        <div class="leader-card l6">
-          <div class="leader-avatar">LH</div>
-          <div class="leader-name">lina h.</div>
-          <div class="leader-title">vp product</div>
-          <p class="leader-bio">PM lifer who started in HR consulting and never left the workforce question alone. ships frameworks first, features second.</p>
-          <a href="#" class="leader-linkedin" aria-label="LinkedIn">
+        <div class="leader-card">
+          <div class="leader-avatar"><img src="https://entomo.co/static/Mohid-afc1181ab4b6abfaf4d40a75981cdff5.png" alt="Mohid Sayed" loading="lazy"></div>
+          <div class="leader-name keep-case">Mohid Sayed</div>
+          <div class="leader-title">market leader — MEA &amp; new markets</div>
+          <a href="https://www.linkedin.com/in/mohid-sayed/" target="_blank" rel="noopener" class="leader-linkedin" aria-label="LinkedIn — Mohid Sayed">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           </a>
         </div>
 
-        <div class="leader-card l7">
-          <div class="leader-avatar">SP</div>
-          <div class="leader-name">samira p.</div>
-          <div class="leader-title">vp customer success</div>
-          <p class="leader-bio">led enterprise rollouts from Jakarta to Riyadh. measures her week in the customer outcomes she helps unlock — never in tickets.</p>
-          <a href="#" class="leader-linkedin" aria-label="LinkedIn">
+        <!-- group: entomo founders & labs -->
+        <div class="group-label">
+          <span class="group-label-text">entomo founders &amp; labs</span>
+          <span class="group-label-line"></span>
+        </div>
+
+        <div class="leader-card">
+          <div class="leader-avatar"><img src="https://entomo.co/static/Ravee-36181a822cf746309a2a7e0cd75d1e7e.png" alt="Ravee Ramamoothie" loading="lazy"></div>
+          <div class="leader-name keep-case">Ravee Ramamoothie</div>
+          <div class="leader-title">founder</div>
+          <p class="leader-bio">led performance improvement programs for multinationals and governments globally. core philosophy: democratize analytics for everyone in the organization.</p>
+          <a href="https://www.linkedin.com/in/ravee-ramamoothie-3b756b24/" target="_blank" rel="noopener" class="leader-linkedin" aria-label="LinkedIn — Ravee Ramamoothie">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           </a>
         </div>
 
-        <div class="leader-card l8">
-          <div class="leader-avatar">DM</div>
-          <div class="leader-name">david m.</div>
-          <div class="leader-title">vp finance</div>
-          <p class="leader-bio">scaled finance ops at two HR-tech companies through hyper-growth. brings investor discipline and operator empathy in equal measure.</p>
-          <a href="#" class="leader-linkedin" aria-label="LinkedIn">
+        <div class="leader-card">
+          <div class="leader-avatar"><img src="https://entomo.co/static/Naveen-85013a3761788b41c70c37fb52367543.png" alt="Naveen Deshpande" loading="lazy"></div>
+          <div class="leader-name keep-case">Naveen Deshpande</div>
+          <div class="leader-title">co-founder</div>
+          <p class="leader-bio">technology and business development leader with deep expertise in product engineering, business intelligence, and global enterprise scale-up.</p>
+          <a href="https://www.linkedin.com/in/pande85/" target="_blank" rel="noopener" class="leader-linkedin" aria-label="LinkedIn — Naveen Deshpande">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           </a>
         </div>
+
+        <div class="leader-card">
+          <div class="leader-avatar"><img src="https://entomo.co/static/Anar-7b43acc9bbb1bd3c02ee9532428ff0bf.png" alt="Anuar Rozhan" loading="lazy"></div>
+          <div class="leader-name keep-case">Anuar Rozhan</div>
+          <div class="leader-title">CEO — APAC, entomo Labs</div>
+          <a href="https://www.linkedin.com/in/anuar-rozhan/" target="_blank" rel="noopener" class="leader-linkedin" aria-label="LinkedIn — Anuar Rozhan">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+        </div>
+
+        <div class="leader-card">
+          <div class="leader-avatar"><img src="https://entomo.co/static/Yogaraj-dacfc115bf626bc3cc1fe211ab1fd977.png" alt="Yogaraj Thuraisingam" loading="lazy"></div>
+          <div class="leader-name keep-case">Yogaraj Thuraisingam</div>
+          <div class="leader-title">chief finance officer</div>
+          <a href="https://www.linkedin.com/in/yogaraj-t-86211929/" target="_blank" rel="noopener" class="leader-linkedin" aria-label="LinkedIn — Yogaraj Thuraisingam">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+        </div>
+
+        <div class="leader-card">
+          <div class="leader-avatar"><img src="https://entomo.co/static/MasronMohamad-4cf9e9e5738040ed6b120502f560da3f.png" alt="Masron Mohamad" loading="lazy"></div>
+          <div class="leader-name keep-case">Masron Mohamad</div>
+          <div class="leader-title">vice president — partner engagement</div>
+          <a href="https://www.linkedin.com/in/masron-mohamad/" target="_blank" rel="noopener" class="leader-linkedin" aria-label="LinkedIn — Masron Mohamad">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+        </div>
+
+        <div class="leader-card">
+          <div class="leader-avatar"><img src="https://entomo.co/static/Vinod-Pulluru-d6f4a944aadf0101009f0cd308700db0.png" alt="Vinod Pulluru" loading="lazy"></div>
+          <div class="leader-name keep-case">Vinod Pulluru</div>
+          <div class="leader-title">vice president — engineering</div>
+          <a href="https://www.linkedin.com/in/vinodpulluru/" target="_blank" rel="noopener" class="leader-linkedin" aria-label="LinkedIn — Vinod Pulluru">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+        </div>
+
+        <div class="leader-card">
+          <div class="leader-avatar"><img src="https://entomo.co/static/NithyanandanNatchimuthu-4836f0952fc607c5e25d811fb10f58dc.png" alt="Nithyanandan Natchimuthu" loading="lazy"></div>
+          <div class="leader-name keep-case">Nithyanandan Natchimuthu</div>
+          <div class="leader-title">head of R&amp;D</div>
+          <a href="https://www.linkedin.com/in/nithyanandan-natchimuthu-b3737244/" target="_blank" rel="noopener" class="leader-linkedin" aria-label="LinkedIn — Nithyanandan Natchimuthu">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+        </div>
+
+        <div class="leader-card">
+          <div class="leader-avatar"><img src="https://entomo.co/static/RajaAhmadShazli-84d6fec05cfc0d24c8be36a21a110608.png" alt="Raja Ahmad Shazli" loading="lazy"></div>
+          <div class="leader-name keep-case">Raja Ahmad Shazli</div>
+          <div class="leader-title">director — product management</div>
+          <a href="https://www.linkedin.com/in/rajashazli/" target="_blank" rel="noopener" class="leader-linkedin" aria-label="LinkedIn — Raja Ahmad Shazli">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+        </div>
+
+        <div class="leader-card">
+          <div class="leader-avatar"><img src="https://entomo.co/static/MohdSyukranMohdYusof-2c20933192d32c60d8dac82c6f807a2c.png" alt="Mohd Syukran Mohd Yusof" loading="lazy"></div>
+          <div class="leader-name keep-case">Mohd Syukran Mohd Yusof</div>
+          <div class="leader-title">customer experience manager</div>
+          <a href="https://www.linkedin.com/in/syukran/" target="_blank" rel="noopener" class="leader-linkedin" aria-label="LinkedIn — Mohd Syukran Mohd Yusof">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+        </div>
+
+        <div class="leader-card">
+          <div class="leader-avatar"><img src="https://entomo.co/static/NurSyamsuriaBintiMohdArshad-5573ce0992b2163546b9bc4b6094c85e.png" alt="Nur Syamsuria Binti Mohd Arshad" loading="lazy"></div>
+          <div class="leader-name keep-case">Nur Syamsuria Binti Mohd Arshad</div>
+          <div class="leader-title">people operations manager</div>
+          <a href="https://www.linkedin.com/in/nur-syamsuria-mohd-arshad-03b7bb183/" target="_blank" rel="noopener" class="leader-linkedin" aria-label="LinkedIn — Nur Syamsuria Binti Mohd Arshad">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+        </div>
+
+        <div class="leader-card">
+          <div class="leader-avatar"><img src="https://entomo.co/static/ValerieChong-6873ea4baf89aede0e2767e6195695d3.png" alt="Valerie Chong" loading="lazy"></div>
+          <div class="leader-name keep-case">Valerie Chong</div>
+          <div class="leader-title">group legal manager</div>
+          <a href="https://www.linkedin.com/in/valerie-chong-ma/" target="_blank" rel="noopener" class="leader-linkedin" aria-label="LinkedIn — Valerie Chong">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+        </div>
+
+        <!-- group: tomorrow -->
+        <div class="group-label">
+          <span class="group-label-text">tomorrow</span>
+          <span class="group-label-line"></span>
+        </div>
+
+        <div class="leader-card">
+          <div class="leader-avatar"><img src="https://entomo.co/static/Prithvi-e4e99e9d9c5231ed38a8bb1cc7289d28.png" alt="Prithvi Singh Shergill" loading="lazy"></div>
+          <div class="leader-name keep-case">Prithvi Singh Shergill</div>
+          <div class="leader-title">partner — entomo, CEO — Tomorrow</div>
+          <p class="leader-bio">three decades enhancing intrapreneurial cultures. seeds and scales human capital innovation across industries and geographies.</p>
+          <a href="https://www.linkedin.com/in/prithvishergill/" target="_blank" rel="noopener" class="leader-linkedin" aria-label="LinkedIn — Prithvi Singh Shergill">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+        </div>
+
+        <div class="leader-card">
+          <div class="leader-avatar"><img src="https://entomo.co/static/Christopher-81f06df77d04f6b89671d936780c1e7b.png" alt="Christoph Schmidt-Mårtensson" loading="lazy"></div>
+          <div class="leader-name keep-case">Christoph Schmidt-Mårtensson</div>
+          <div class="leader-title">CEO — LearnTomorrow</div>
+          <a href="https://www.linkedin.com/in/christoph-schmidt-martensson/" target="_blank" rel="noopener" class="leader-linkedin" aria-label="LinkedIn — Christoph Schmidt-Mårtensson">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ===== ADVISORS ===== -->
+  <!-- ===== entomo LABS NOTE ===== -->
   <section class="advisors-section">
     <div class="container">
       <div class="advisors-intro">
-        <div class="section-eyebrow">advisors</div>
-        <h2 class="section-heading">guided by people who've been there</h2>
+        <div class="section-eyebrow">entomo labs</div>
+        <h2 class="section-heading">envisioning the future, now</h2>
         <p class="section-subheading">
-          CHROs, AI researchers, and enterprise operators who shape how we think about the workforce of tomorrow — and challenge us when we drift.
+          entomo Labs incubates new digital businesses that transform how problems are solved with technology, augmented analytics, and behavioural science. our work spans nations, industries, and enterprises — including platforms for enterprise-scale performance transformation, national talent transformation, and population-grade public health (most notably Malaysia's MySejahtera app).
         </p>
-      </div>
-
-      <div class="advisors-grid">
-        <div class="advisor-card a1">
-          <div class="advisor-avatar">RP</div>
-          <div class="advisor-text">
-            <div class="advisor-name">rohit p.</div>
-            <div class="advisor-title">former CHRO, global bank • board advisor</div>
-          </div>
-        </div>
-        <div class="advisor-card a2">
-          <div class="advisor-avatar">EW</div>
-          <div class="advisor-text">
-            <div class="advisor-name">elena w.</div>
-            <div class="advisor-title">AI researcher, ex-Stanford • product advisor</div>
-          </div>
-        </div>
-        <div class="advisor-card a3">
-          <div class="advisor-avatar">KT</div>
-          <div class="advisor-text">
-            <div class="advisor-name">kenji t.</div>
-            <div class="advisor-title">ex-CEO, enterprise SaaS • GTM advisor</div>
-          </div>
-        </div>
-        <div class="advisor-card a4">
-          <div class="advisor-avatar">NA</div>
-          <div class="advisor-text">
-            <div class="advisor-name">nadia a.</div>
-            <div class="advisor-title">workforce strategist, MENA • industry advisor</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== INVESTORS ===== -->
-  <section class="investors-section">
-    <div class="container">
-      <div class="investors-intro">
-        <div class="section-eyebrow">backed by</div>
-        <h2 class="section-heading">investors who back the long arc</h2>
-        <p class="section-subheading">
-          patient capital from firms that understand enterprise HR — and the years it takes to build a platform Fortune 500s and governments can trust.
-        </p>
-      </div>
-
-      <div class="investors-grid">
-        <div class="investor-tile">investor one</div>
-        <div class="investor-tile">investor two</div>
-        <div class="investor-tile">investor three</div>
-        <div class="investor-tile">investor four</div>
-        <div class="investor-tile">investor five</div>
       </div>
     </div>
   </section>
