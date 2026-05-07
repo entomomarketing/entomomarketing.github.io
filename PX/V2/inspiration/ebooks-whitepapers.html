@@ -422,52 +422,19 @@
     }
 
     .resource-thumb {
-      height: 180px;
+      height: 200px;
       position: relative;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
+      background: linear-gradient(135deg, #f2f7fc 0%, #fefbf4 100%);
     }
-    .resource-thumb::before {
-      content: '';
-      position: absolute;
-      top: -40px; right: -40px;
-      width: 140px; height: 140px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.18);
+    .resource-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.4s ease;
     }
-    .resource-thumb::after {
-      content: '';
-      position: absolute;
-      bottom: -50px; left: -50px;
-      width: 160px; height: 160px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.12);
-    }
-    .resource-thumb svg {
-      width: 56px; height: 56px;
-      color: rgba(255,255,255,0.92);
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* thumb gradient variants */
-    .thumb-red { background: linear-gradient(135deg, #e43d30 0%, #c41e2a 100%); }
-    .thumb-gold { background: linear-gradient(135deg, #f4b223 0%, #d97706 100%); }
-    .thumb-blue { background: linear-gradient(135deg, #0064bf 0%, #003a7a 100%); }
-    .thumb-green { background: linear-gradient(135deg, #2c9942 0%, #1a6b2e 100%); }
-    .thumb-dark { background: linear-gradient(135deg, #1a1f26 0%, #2a3038 100%); }
-    .thumb-plum { background: linear-gradient(135deg, #6b2c8c 0%, #3d1854 100%); }
-    .thumb-coral { background: linear-gradient(135deg, #ff6b6b 0%, #e43d30 100%); }
-    .thumb-teal { background: linear-gradient(135deg, #0e8b8b 0%, #064a4a 100%); }
-    .thumb-sunset { background: linear-gradient(135deg, #f4b223 0%, #e43d30 50%, #6b2c8c 100%); }
+    .resource-card:hover .resource-thumb img { transform: scale(1.04); }
 
     .resource-body {
       padding: 1.5rem;
@@ -941,7 +908,7 @@
       <span class="hero-eyebrow">ebooks &amp; whitepapers</span>
       <h1>deep dives. real research. for HR leaders shaping <mark>what's next</mark>.</h1>
       <p class="lede">
-        analyst reports, frameworks, and POVs from the team building agentic intelligence for the enterprise of tomorrow. download what you need, when you need it.
+        whitepapers, ebooks, and customer stories from the team building agentic intelligence for the enterprise of tomorrow. download what you need, when you need it.
       </p>
     </div>
   </section>
@@ -970,15 +937,15 @@
           </div>
         </div>
         <div class="featured-content">
-          <span class="featured-tag">featured · analyst report</span>
-          <h2>the total economic impact™ of entomo</h2>
+          <span class="featured-tag">featured &middot; case study</span>
+          <h2 class="keep-case">Large government entity: $26.8M in benefits, 103% ROI</h2>
           <p>
-            forrester consulting interviewed enterprise customers and modeled a composite organization to quantify entomo's economic impact. the verdict: <strong>103% ROI over three years</strong> and $26.8M in present value benefits — driven by performance gains, manager productivity, and reduced attrition.
+            a real entomo customer story: a large government entity reaps benefits of over <strong>$26.8 million and an ROI of 103%</strong> in a three-year period &mdash; through an integrated approach to organizational performance management across the enterprise.
           </p>
-          <button class="btn-primary">
-            download the study
-            <span class="arrow">→</span>
-          </button>
+          <a class="btn-primary" href="https://entomo.co/resources/e-book-and-whitepapers/large-government-entity-reaps-benefits-of-over-usd26-8-million-and-roi-of/" target="_blank" rel="noopener">
+            read the story
+            <span class="arrow">&rarr;</span>
+          </a>
         </div>
       </div>
     </div>
@@ -988,12 +955,11 @@
   <section class="filter-section">
     <div class="container">
       <div class="filter-bar">
-        <button class="filter-pill active">all</button>
-        <button class="filter-pill">whitepapers</button>
-        <button class="filter-pill">ebooks</button>
-        <button class="filter-pill">research reports</button>
-        <button class="filter-pill">analyst reports</button>
-        <button class="filter-pill">POVs</button>
+        <button class="filter-pill active" data-filter="all">all</button>
+        <button class="filter-pill" data-filter="ebook">ebooks &amp; guides</button>
+        <button class="filter-pill" data-filter="whitepaper">whitepapers</button>
+        <button class="filter-pill" data-filter="case-study">case studies</button>
+        <button class="filter-pill" data-filter="self-assessment">self assessments</button>
       </div>
     </div>
   </section>
@@ -1003,173 +969,173 @@
     <div class="container">
       <div class="resource-grid">
 
-        <!-- Card 1 -->
-        <article class="resource-card">
-          <div class="resource-thumb thumb-red">
-            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-          </div>
-          <div class="resource-body">
-            <span class="resource-tag tag-whitepaper">whitepaper</span>
-            <h3>agentic AI in HR: a practical guide for CHROs</h3>
-            <p class="desc">a step-by-step framework for moving from copilots to agents — what to deploy first, how to measure impact, and the pitfalls that derail rollouts.</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                28 pages
-              </span>
-              <button class="btn-download">download <span>→</span></button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 2 -->
-        <article class="resource-card">
-          <div class="resource-thumb thumb-blue">
-            <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-          </div>
-          <div class="resource-body">
-            <span class="resource-tag tag-research">research report</span>
-            <h3>the future of workforce intelligence</h3>
-            <p class="desc">survey of 500+ enterprise HR leaders on how dashboards, agents, and decision intelligence are reshaping workforce planning through 2028.</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                18 min read
-              </span>
-              <button class="btn-download">download <span>→</span></button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 3 -->
-        <article class="resource-card">
-          <div class="resource-thumb thumb-dark">
-            <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z"/></svg>
-          </div>
-          <div class="resource-body">
-            <span class="resource-tag tag-analyst">analyst report</span>
-            <h3>forrester TEI: 103% ROI from entomo</h3>
-            <p class="desc">forrester's full economic impact analysis — composite organization modeling, benefit categories, and the path to $26.8M in three-year value.</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                42 pages
-              </span>
-              <button class="btn-download">download <span>→</span></button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 4 -->
-        <article class="resource-card">
-          <div class="resource-thumb thumb-gold">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        <!-- Card 1 — Leveraging HRTech to create best-in-class Talent Engagement -->
+        <article class="resource-card" data-category="ebook">
+          <div class="resource-thumb">
+            <img src="https://images.ctfassets.net/si080b4yy4kx/2JPmfhFb5RPQSW2Vcg8X3j/411d54f8089af8732de6d20fa0bc8fc5/book.webp" alt="Leveraging HRTech to create best-in-class Talent Engagement" loading="lazy">
           </div>
           <div class="resource-body">
             <span class="resource-tag tag-ebook">ebook</span>
-            <h3>from annual reviews to continuous performance</h3>
-            <p class="desc">the playbook for retiring the annual review. how to design feedback loops, manager rituals, and AI-assisted coaching that actually move performance.</p>
+            <h3 class="keep-case">Leveraging HRTech to create best-in-class &ldquo;Talent Engagement&rdquo;</h3>
+            <p class="desc">a 4-part webinar series on the latest trends and platforms transforming the digital HR space — for HR teams laying the foundations of a new digital workplace and workforce.</p>
             <div class="resource-meta">
               <span class="resource-readtime">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                52 pages
+                webinar series
               </span>
-              <button class="btn-download">download <span>→</span></button>
+              <a class="btn-download" href="https://entomo.co/resources/e-book-and-whitepapers/Leveraging-HRTech-to-create-best-in-class-Talent-Engagement/" target="_blank" rel="noopener">download <span>→</span></a>
             </div>
           </div>
         </article>
 
-        <!-- Card 5 -->
-        <article class="resource-card">
-          <div class="resource-thumb thumb-green">
-            <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        <!-- Card 2 — Reform and Reimagine Workplace Practices -->
+        <article class="resource-card" data-category="ebook">
+          <div class="resource-thumb">
+            <img src="https://images.ctfassets.net/si080b4yy4kx/6cIRnjXU2PUhVbF84bIzCH/7814f046846435545bd1da281e771d27/Screenshot-2020-10-05-at-12.40_1__1_.png" alt="Reform and Reimagine Workplace Practices in post-Covid world" loading="lazy">
+          </div>
+          <div class="resource-body">
+            <span class="resource-tag tag-ebook">ebook</span>
+            <h3 class="keep-case">Reform and Reimagine Workplace Practices in post-Covid world: A Roadmap for Leaders</h3>
+            <p class="desc">a distinct strategy for each phase of the journey — how organisations evolve from the &lsquo;react and respond&rsquo; sprint to the &lsquo;reform and reimagine&rsquo; marathon, and finish strong in the next normal.</p>
+            <div class="resource-meta">
+              <span class="resource-readtime">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                roadmap report
+              </span>
+              <a class="btn-download" href="https://entomo.co/resources/e-book-and-whitepapers/Reform-and-Reimagine-Workplace-Practices-in-post-Covid-world-A-Roadmap-for-Leaders/" target="_blank" rel="noopener">download <span>→</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 — Driving Business Value: Augmenting HCM with AI -->
+        <article class="resource-card" data-category="whitepaper">
+          <div class="resource-thumb">
+            <img src="https://images.ctfassets.net/si080b4yy4kx/4Sk08ldhdrmxX9cUN68lwH/395166942a9d745c42128256c58959fe/Screenshot-2020-09-25-at-11.44_1__1_.png" alt="Driving Business Value: Augmenting Human Capital Management With AI" loading="lazy">
           </div>
           <div class="resource-body">
             <span class="resource-tag tag-whitepaper">whitepaper</span>
-            <h3>building skills frameworks that scale</h3>
-            <p class="desc">how Fortune 500s are moving from job descriptions to skills graphs — taxonomy choices, AI-assisted mapping, and the role of skill ontologies.</p>
+            <h3 class="keep-case">Driving Business Value: Augmenting Human Capital Management With AI</h3>
+            <p class="desc">how digitalization is elevating the HR function — and why agile-oriented businesses are placing a premium on the workforce value AI-augmented HCM creates in the post-digital age.</p>
             <div class="resource-meta">
               <span class="resource-readtime">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                34 pages
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                15 min read
               </span>
-              <button class="btn-download">download <span>→</span></button>
+              <a class="btn-download" href="https://entomo.co/resources/e-book-and-whitepapers/Driving-Business-Value-Augmenting-Human-Capital-Management-With-AI/" target="_blank" rel="noopener">download <span>→</span></a>
             </div>
           </div>
         </article>
 
-        <!-- Card 6 -->
-        <article class="resource-card">
-          <div class="resource-thumb thumb-plum">
-            <svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+        <!-- Card 4 — Evolution of Career Readiness: Singapore -->
+        <article class="resource-card" data-category="whitepaper">
+          <div class="resource-thumb">
+            <img src="https://images.ctfassets.net/si080b4yy4kx/4xpXhwyyqfAThnTCmjlvlV/33527686c4ed1a0ef4805c00d203c103/Screenshot-2020-10-05-at-12.21_1__1_.png" alt="Evolution of Career Readiness Singapore" loading="lazy">
           </div>
           <div class="resource-body">
-            <span class="resource-tag tag-pov">POV</span>
-            <h3>the 4B decision framework for workforce planning</h3>
-            <p class="desc">build, buy, borrow, or bot — how to make the right talent decision at every role level, with worked examples from financial services and manufacturing.</p>
+            <span class="resource-tag tag-whitepaper">whitepaper</span>
+            <h3 class="keep-case">Evolution of Career Readiness: Singapore</h3>
+            <p class="desc">how the pandemic redefined where, how, and what we work on — and what skills and career frameworks Singapore&rsquo;s workforce needs to stay in demand in the post-Covid economy.</p>
+            <div class="resource-meta">
+              <span class="resource-readtime">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                regional study
+              </span>
+              <a class="btn-download" href="https://entomo.co/resources/e-book-and-whitepapers/Evolution-of-Career-Readiness-Singapore/" target="_blank" rel="noopener">download <span>→</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5 — 30 Revolutionary Ideas for Our Remote Age -->
+        <article class="resource-card" data-category="ebook">
+          <div class="resource-thumb">
+            <img src="https://images.ctfassets.net/si080b4yy4kx/5lJxbF9Ey8nOsahqyAgCjw/f88e1cee98e27eb253285c650b7a45f6/chris-montgomery-smgTvepind4-unsplash-scaled_1__1_.png" alt="30 Revolutionary Ideas for Our Remote Age" loading="lazy">
+          </div>
+          <div class="resource-body">
+            <span class="resource-tag tag-ebook">ebook</span>
+            <h3 class="keep-case">30 Revolutionary Ideas for Our Remote Age</h3>
+            <p class="desc">as businesses go 100% remote overnight, here are unique, practical ideas for navigating the new world of work — from team rituals to performance signals to digital culture.</p>
+            <div class="resource-meta">
+              <span class="resource-readtime">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                30 ideas
+              </span>
+              <a class="btn-download" href="https://entomo.co/resources/e-book-and-whitepapers/30-revolutionary-ideas-for-our-remote-age/" target="_blank" rel="noopener">download <span>→</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 6 — Mastering Risk and Performance in the Next Normal -->
+        <article class="resource-card" data-category="whitepaper">
+          <div class="resource-thumb">
+            <img src="https://images.ctfassets.net/si080b4yy4kx/4zoPpDha1gYlETF9buozyV/4c087fddaf0294b9f0cefdad96be8399/Mastering_risk-1_1__1_.png" alt="Mastering Risk and Performance in the Next Normal" loading="lazy">
+          </div>
+          <div class="resource-body">
+            <span class="resource-tag tag-whitepaper">whitepaper</span>
+            <h3 class="keep-case">Mastering Risk and Performance in the Next Normal</h3>
+            <p class="desc">the working professional emerges into a hybrid world of owned offices, shared workspaces, and virtual teams. how to master risk and performance across all of them.</p>
             <div class="resource-meta">
               <span class="resource-readtime">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 12 min read
               </span>
-              <button class="btn-download">download <span>→</span></button>
+              <a class="btn-download" href="https://entomo.co/resources/e-book-and-whitepapers/mastering-risk-and-performance-in-the-next-normal/" target="_blank" rel="noopener">download <span>→</span></a>
             </div>
           </div>
         </article>
 
-        <!-- Card 7 -->
-        <article class="resource-card">
-          <div class="resource-thumb thumb-coral">
-            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <!-- Card 7 — Self Assessment Test for Returning to Work -->
+        <article class="resource-card" data-category="self-assessment">
+          <div class="resource-thumb">
+            <img src="https://images.ctfassets.net/si080b4yy4kx/7Lu67AFkXaFrOkuY5r8ncn/84def62a750c9bbf62e6ac793298003e/eBooks_COVID_headerimage__2_.png" alt="Self assessment test for returning to work in post-covid world" loading="lazy">
           </div>
           <div class="resource-body">
-            <span class="resource-tag tag-pov">POV</span>
-            <h3>why HRIS alone won't solve your skills crisis</h3>
-            <p class="desc">an honest take on the limits of systems of record — and what an intelligence layer needs to do that your HRIS, ATS, and LMS can't.</p>
+            <span class="resource-tag tag-recognition">self assessment</span>
+            <h3 class="keep-case">Are you ready to return to work? A self-assessment for leaders</h3>
+            <p class="desc">high performance can&rsquo;t come from a workforce that doesn&rsquo;t trust or feel safe. take this self-assessment to gauge your organisation&rsquo;s readiness for the post-covid workplace.</p>
             <div class="resource-meta">
               <span class="resource-readtime">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                9 min read
+                5 min test
               </span>
-              <button class="btn-download">download <span>→</span></button>
+              <a class="btn-download" href="https://entomo.co/resources/e-book-and-whitepapers/take-a-self-assessment-test-to-check-if-youre-ready-to-returning-to-work-in/" target="_blank" rel="noopener">take it <span>→</span></a>
             </div>
           </div>
         </article>
 
-        <!-- Card 8 -->
-        <article class="resource-card">
-          <div class="resource-thumb thumb-sunset">
-            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <!-- Card 8 — Fortune 500 insurer case study -->
+        <article class="resource-card" data-category="case-study">
+          <div class="resource-thumb">
+            <img src="https://images.ctfassets.net/si080b4yy4kx/21FXFDGlg5sUfYVOUfbAvg/dd2ee62d05faa6f34f0bdda68ef09ff6/Mask_group__2_.png" alt="Fortune 500 insurer case study" loading="lazy">
           </div>
           <div class="resource-body">
-            <span class="resource-tag tag-recognition">recognition</span>
-            <h3>aegis graham bell award: innovation in AI</h3>
-            <p class="desc">why entomo's agentic intelligence platform was recognized with the aegis graham bell award — and what the judges said about agentic HR.</p>
+            <span class="resource-tag tag-research">case study</span>
+            <h3 class="keep-case">Fortune 500 insurer sees up to 32.8% increase in annual premiums over 3 years</h3>
+            <p class="desc">a framework to identify the cost, benefit, flexibility, and risk factors that drive workforce technology investment decisions — applied to a Fortune 500 insurer.</p>
             <div class="resource-meta">
               <span class="resource-readtime">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                8 pages
+                customer story
               </span>
-              <button class="btn-download">download <span>→</span></button>
+              <a class="btn-download" href="https://entomo.co/resources/e-book-and-whitepapers/fortune-500-insurer-sees-up-to-32-8-increase-in-annual-insurance-premiums-in/" target="_blank" rel="noopener">download <span>→</span></a>
             </div>
           </div>
         </article>
 
-        <!-- Card 9 -->
-        <article class="resource-card">
-          <div class="resource-thumb thumb-teal">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <!-- Card 9 — Large government entity ROI case study -->
+        <article class="resource-card" data-category="case-study">
+          <div class="resource-thumb">
+            <img src="https://images.ctfassets.net/si080b4yy4kx/6cSXrIkLtDgiJjg7EUcWHQ/de70d1862ed1487b24a6cb4e7eb981ec/Mask_group__1___1_.png" alt="Government entity ROI case study" loading="lazy">
           </div>
           <div class="resource-body">
-            <span class="resource-tag tag-research">research</span>
-            <h3>how Fortune 500s are adopting agentic HR</h3>
-            <p class="desc">qualitative interviews with 30 enterprise CHROs on rollout pace, agent prioritization, change management, and what's working in year one.</p>
+            <span class="resource-tag tag-analyst">case study</span>
+            <h3 class="keep-case">Large government entity reaps $26.8M in benefits and 103% ROI over 3 years</h3>
+            <p class="desc">an integrated approach to organizational performance management — and the path to $26.8 million in benefits and 103% ROI over a three-year period.</p>
             <div class="resource-meta">
               <span class="resource-readtime">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                36 pages
+                customer story
               </span>
-              <button class="btn-download">download <span>→</span></button>
+              <a class="btn-download" href="https://entomo.co/resources/e-book-and-whitepapers/large-government-entity-reaps-benefits-of-over-usd26-8-million-and-roi-of/" target="_blank" rel="noopener">download <span>→</span></a>
             </div>
           </div>
         </article>
@@ -1185,7 +1151,7 @@
         <div class="lead-text">
           <div class="section-eyebrow">unlock the library</div>
           <h2>get full access to every report</h2>
-          <p>one short form. lifetime access to entomo's research vault — including embargoed analyst reports, executive briefings, and frameworks before they're published.</p>
+          <p>one short form. unlimited access to entomo's research library &mdash; whitepapers, ebooks, customer stories, and frameworks for HR leaders shaping the agentic enterprise.</p>
           <ul class="lead-points">
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -1193,7 +1159,7 @@
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              early access to new whitepapers and POVs.
+              early access to new whitepapers and customer stories.
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -1314,11 +1280,18 @@
   </footer>
 
   <script>
-    // Filter pill toggle
-    document.querySelectorAll('.filter-pill').forEach(pill => {
+    // Filter pill toggle + card filtering
+    const pills = document.querySelectorAll('.filter-pill');
+    const cards = document.querySelectorAll('.resource-card[data-category]');
+    pills.forEach(pill => {
       pill.addEventListener('click', () => {
-        document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+        pills.forEach(p => p.classList.remove('active'));
         pill.classList.add('active');
+        const filter = pill.dataset.filter;
+        cards.forEach(card => {
+          const match = filter === 'all' || card.dataset.category === filter;
+          card.style.display = match ? '' : 'none';
+        });
       });
     });
   </script>
