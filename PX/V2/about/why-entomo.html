@@ -31,6 +31,7 @@
       --ebony-clay: #1a1f26;
       --floral-white: #fefbf4;
       --polar-white: #f2f7fc;
+      --black-haze: #fafbfb;
       --gradient-cta: linear-gradient(90deg, #f4b223, #e43d30);
       --max-width: 1200px;
     }
@@ -38,10 +39,16 @@
     .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
     .text-center { text-align: center; }
 
-    h1, h2, h3, h4 { text-transform: lowercase; font-weight: 800; color: var(--ebony-clay); line-height: 1.15; }
-    h1 { font-size: clamp(2.4rem, 4.8vw, 3.6rem); letter-spacing: -0.02px; }
-    h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); letter-spacing: -0.01px; }
-    h3 { font-size: 1.25rem; }
+    h1, h2, h3, h4 { text-transform: lowercase; color: var(--ebony-clay); line-height: 1.15; }
+    h1 {
+      font-size: clamp(36px, 5vw, 68px);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -1px;
+    }
+    h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0.01px; }
+    h3 { font-size: 1.25rem; font-weight: 800; }
+    h4 { font-weight: 700; }
     .keep-case { text-transform: none !important; }
 
     mark {
@@ -123,13 +130,13 @@
     .story-visual {
       background: var(--floral-white);
       border-radius: 20px;
-      padding: 3rem;
+      padding: 2.5rem;
       display: flex; align-items: center; justify-content: center;
       min-height: 380px;
       position: relative; overflow: hidden;
     }
-    .story-visual svg {
-      width: 100%; max-width: 360px;
+    .story-visual img {
+      width: 100%; max-width: 420px; height: auto;
     }
 
     /* ===== POSITIONING (what entomo is now) ===== */
@@ -255,38 +262,72 @@
 
     /* ===== FOOTER ===== */
     .footer {
-      background: var(--ebony-clay); color: white;
-      padding: 4rem 0 2rem;
+      background: var(--black-haze);
+      padding: 3.5rem 0 1.5rem;
     }
     .footer-grid {
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-      gap: 3rem; margin-bottom: 3rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
     }
-    .footer-brand { font-size: 0.95rem; color: rgba(255,255,255,0.6); }
-    .footer-brand .logo { margin-bottom: 1rem; }
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(26,31,38,0.6);
+      margin-top: 0.75rem;
+      max-width: 280px;
+    }
     .footer-col h4 {
-      color: white; font-size: 0.9rem;
-      margin-bottom: 1rem; text-transform: lowercase;
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: lowercase;
+      margin-bottom: 1rem;
     }
-    .footer-col ul { list-style: none; }
-    .footer-col li { margin-bottom: 0.6rem; }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
     .footer-col a {
-      color: rgba(255,255,255,0.6); font-size: 0.9rem;
-      transition: color 0.15s;
+      font-size: 14px;
+      color: rgba(26,31,38,0.6);
+      text-transform: lowercase;
+      transition: color 0.2s;
     }
-    .footer-col a:hover { color: white; }
+    .footer-col a:hover { color: var(--cg-red); }
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 2rem; display: flex;
-      justify-content: space-between; align-items: center;
-      color: rgba(255,255,255,0.5); font-size: 0.85rem;
+      border-top: 1px solid rgba(26,31,38,0.08);
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-bottom p {
+      font-size: 13px;
+      color: rgba(26,31,38,0.45);
+    }
+    .footer-socials {
+      display: flex;
+      gap: 0.75rem;
     }
     .footer-socials a {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 32px; height: 32px; border-radius: 50%;
-      background: rgba(255,255,255,0.08);
-      color: white; margin-left: 0.5rem;
-      font-size: 0.85rem; font-weight: 700;
+      width: 36px; height: 36px;
+      border: 1px solid rgba(26,31,38,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--ebony-clay);
+      transition: background 0.2s, color 0.2s;
+    }
+    .footer-socials a:hover {
+      background: var(--ebony-clay);
+      color: var(--white);
     }
 
     /* ===== RESPONSIVE ===== */
@@ -349,28 +390,7 @@
           </p>
         </div>
         <div class="story-visual">
-          <svg viewBox="0 0 360 320" xmlns="http://www.w3.org/2000/svg">
-            <!-- Honeycomb pattern symbolizing teamwork & nature -->
-            <defs>
-              <pattern id="hex" x="0" y="0" width="60" height="52" patternUnits="userSpaceOnUse">
-                <polygon points="30,2 56,17 56,47 30,62 4,47 4,17" fill="none" stroke="#f4b223" stroke-width="1.2" opacity="0.5"/>
-              </pattern>
-            </defs>
-            <rect x="0" y="0" width="360" height="320" fill="url(#hex)"/>
-            <!-- Center honeycomb cluster -->
-            <g transform="translate(180,160)">
-              <polygon points="0,-50 43,-25 43,25 0,50 -43,25 -43,-25" fill="#f4b223" opacity="0.18"/>
-              <polygon points="0,-50 43,-25 43,25 0,50 -43,25 -43,-25" fill="none" stroke="#f4b223" stroke-width="2.5"/>
-              <polygon points="-43,-75 0,-50 0,0 -43,25 -86,0 -86,-50" fill="#e43d30" opacity="0.12"/>
-              <polygon points="-43,-75 0,-50 0,0 -43,25 -86,0 -86,-50" fill="none" stroke="#e43d30" stroke-width="2"/>
-              <polygon points="43,-75 86,-50 86,0 43,25 0,0 0,-50" fill="#0064bf" opacity="0.12"/>
-              <polygon points="43,-75 86,-50 86,0 43,25 0,0 0,-50" fill="none" stroke="#0064bf" stroke-width="2"/>
-              <polygon points="-43,25 0,50 0,100 -43,125 -86,100 -86,50" fill="#2c9942" opacity="0.12"/>
-              <polygon points="-43,25 0,50 0,100 -43,125 -86,100 -86,50" fill="none" stroke="#2c9942" stroke-width="2"/>
-              <polygon points="43,25 86,50 86,100 43,125 0,100 0,50" fill="#1a1f26" opacity="0.08"/>
-              <polygon points="43,25 86,50 86,100 43,125 0,100 0,50" fill="none" stroke="#1a1f26" stroke-width="2"/>
-            </g>
-          </svg>
+          <img src="../Images/butterfly.png" alt="butterfly">
         </div>
       </div>
     </div>
@@ -527,8 +547,8 @@
         <div class="footer-col">
           <h4>platform</h4>
           <ul>
-            <li><a href="../workwise_platform.html">WorkWise</a></li>
             <li><a href="#">AI agents</a></li>
+            <li><a href="#">intelligence architecture</a></li>
             <li><a href="#">integrations</a></li>
             <li><a href="#">security</a></li>
           </ul>
@@ -540,6 +560,7 @@
             <li><a href="../solutions/skill-intelligence.html">skill &amp; talent intelligence</a></li>
             <li><a href="../solutions/engagement-intelligence.html">engagement intelligence</a></li>
             <li><a href="../solutions/workforce-insights.html">workforce insights</a></li>
+            <li><a href="../solutions/wellness-intelligence.html">wellness intelligence</a></li>
             <li><a href="../solutions/strategic-planning.html">strategic planning</a></li>
           </ul>
         </div>
@@ -549,6 +570,7 @@
             <li><a href="#">Forrester TEI study</a></li>
             <li><a href="#">case studies</a></li>
             <li><a href="#">blog</a></li>
+            <li><a href="#">webinars</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -558,6 +580,7 @@
             <li><a href="#">about us</a></li>
             <li><a href="#">careers</a></li>
             <li><a href="#">contact</a></li>
+            <li><a href="#">privacy policy</a></li>
           </ul>
         </div>
       </div>
