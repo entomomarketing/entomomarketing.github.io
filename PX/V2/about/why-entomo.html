@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>why entomo | enterprises of tomorrow, powered by agentic intelligence</title>
+  <meta name="description" content="entomo is the agentic intelligence platform for performance and skills. Inspired by nature, built for the enterprise of tomorrow. Powering 30M+ users worldwide.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Nunito Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px; line-height: 1.5; color: #1a1f26;
+      background-color: #ffffff; -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    :root {
+      --cg-red: #e43d30;
+      --cg-gold: #f4b223;
+      --spanish-blue: #0064bf;
+      --sea-green: #2c9942;
+      --sunrise-yellow: #ffda00;
+      --white: #ffffff;
+      --ebony-clay: #1a1f26;
+      --floral-white: #fefbf4;
+      --polar-white: #f2f7fc;
+      --gradient-cta: linear-gradient(90deg, #f4b223, #e43d30);
+      --max-width: 1200px;
+    }
+
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+    .text-center { text-align: center; }
+
+    h1, h2, h3, h4 { text-transform: lowercase; font-weight: 800; color: var(--ebony-clay); line-height: 1.15; }
+    h1 { font-size: clamp(2.4rem, 4.8vw, 3.6rem); letter-spacing: -0.02px; }
+    h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); letter-spacing: -0.01px; }
+    h3 { font-size: 1.25rem; }
+    .keep-case { text-transform: none !important; }
+
+    mark {
+      background: var(--sunrise-yellow);
+      color: var(--ebony-clay);
+      padding: 0 6px; border-radius: 3px;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .navbar {
+      position: sticky; top: 0; z-index: 100;
+      background: white;
+      border-bottom: 1px solid rgba(26,31,38,0.06);
+      padding: 1rem 0;
+    }
+    .navbar .container {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { display: flex; align-items: center; }
+    .nav-links {
+      display: flex; gap: 2rem; list-style: none; align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.95rem; font-weight: 600; color: var(--ebony-clay);
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--spanish-blue); }
+    .nav-cta {
+      background: var(--gradient-cta); color: white !important;
+      padding: 10px 22px; border-radius: 8px;
+      font-weight: 700; font-size: 0.9rem;
+    }
+
+    /* ===== HERO ===== */
+    .why-hero {
+      background: linear-gradient(180deg, var(--floral-white) 0%, white 100%);
+      padding: 5rem 0 4rem;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: rgba(228, 61, 48, 0.08);
+      color: var(--cg-red);
+      font-size: 0.85rem; font-weight: 700;
+      padding: 6px 16px; border-radius: 20px;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .why-hero h1 { margin-bottom: 1.25rem; max-width: 850px; margin-left: auto; margin-right: auto; }
+    .why-hero .lede {
+      font-size: 1.2rem; color: rgba(26,31,38,0.65);
+      max-width: 720px; margin: 0 auto; line-height: 1.55;
+    }
+
+    /* ===== SECTION BASE ===== */
+    section { padding: 5rem 0; }
+    .section-eyebrow {
+      font-size: 0.85rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      color: var(--spanish-blue);
+      margin-bottom: 1rem;
+    }
+    .section-heading { margin-bottom: 1rem; }
+    .section-subheading {
+      font-size: 1.1rem; color: rgba(26,31,38,0.65);
+      max-width: 760px; line-height: 1.6;
+    }
+
+    /* ===== STORY (entomology) ===== */
+    .story-section { background: white; }
+    .story-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+    }
+    .story-text p {
+      font-size: 1.05rem; color: rgba(26,31,38,0.75);
+      line-height: 1.7; margin-bottom: 1.25rem;
+    }
+    .story-visual {
+      background: var(--floral-white);
+      border-radius: 20px;
+      padding: 3rem;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 380px;
+      position: relative; overflow: hidden;
+    }
+    .story-visual svg {
+      width: 100%; max-width: 360px;
+    }
+
+    /* ===== POSITIONING (what entomo is now) ===== */
+    .positioning-section { background: var(--polar-white); }
+    .positioning-section .container { max-width: 900px; }
+    .positioning-section .text-center { text-align: center; }
+    .positioning-block {
+      background: white; border-radius: 20px;
+      padding: 3rem; margin-top: 2rem;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.04);
+      border: 1px solid rgba(26,31,38,0.05);
+    }
+    .positioning-block p {
+      font-size: 1.05rem; color: rgba(26,31,38,0.78);
+      line-height: 1.75; margin-bottom: 1.25rem;
+    }
+    .positioning-block p:last-child { margin-bottom: 0; }
+    .positioning-block strong { color: var(--ebony-clay); font-weight: 700; }
+
+    /* ===== ENTERPRISE OF TOMORROW (outcomes grid) ===== */
+    .tomorrow-section { background: white; }
+    .tomorrow-intro { text-align: center; max-width: 800px; margin: 0 auto 3rem; }
+    .tomorrow-intro .section-subheading { margin: 1rem auto 0; }
+    .outcome-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .outcome-card {
+      background: white;
+      border: 1px solid rgba(26,31,38,0.08);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .outcome-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.07);
+      border-color: rgba(26,31,38,0.12);
+    }
+    .outcome-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .outcome-card.c1 .outcome-icon { background: rgba(228, 61, 48, 0.1); color: var(--cg-red); }
+    .outcome-card.c2 .outcome-icon { background: rgba(0, 100, 191, 0.1); color: var(--spanish-blue); }
+    .outcome-card.c3 .outcome-icon { background: rgba(244, 178, 35, 0.12); color: #b8860b; }
+    .outcome-card.c4 .outcome-icon { background: rgba(44, 153, 66, 0.1); color: var(--sea-green); }
+    .outcome-card h3 { margin-bottom: 0.5rem; font-size: 1.15rem; }
+    .outcome-card p {
+      font-size: 0.95rem; color: rgba(26,31,38,0.65);
+      line-height: 1.55;
+    }
+
+    /* ===== PROOF BAR ===== */
+    .proof-bar {
+      background: var(--ebony-clay); color: white;
+      padding: 4rem 0;
+    }
+    .proof-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2rem; text-align: center;
+    }
+    .proof-stat .stat-number {
+      font-size: 2.5rem; font-weight: 800;
+      color: var(--cg-gold); line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+    .proof-stat .stat-label {
+      font-size: 0.95rem; color: rgba(255,255,255,0.7);
+      line-height: 1.4;
+    }
+
+    /* ===== DIFFERENCE (what makes entomo different) ===== */
+    .difference-section { background: var(--floral-white); }
+    .difference-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2rem; margin-top: 3rem;
+    }
+    .difference-card {
+      background: white; border-radius: 16px;
+      padding: 2.5rem 2rem;
+      border: 1px solid rgba(26,31,38,0.06);
+    }
+    .difference-num {
+      font-size: 0.85rem; font-weight: 700;
+      color: var(--cg-red); letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+    }
+    .difference-card h3 { margin-bottom: 0.75rem; }
+    .difference-card p {
+      font-size: 0.95rem; color: rgba(26,31,38,0.7);
+      line-height: 1.6;
+    }
+
+    /* ===== FINAL CTA ===== */
+    .final-cta {
+      background: linear-gradient(135deg, var(--ebony-clay) 0%, #2a3038 100%);
+      color: white; text-align: center;
+      padding: 5rem 1.5rem;
+    }
+    .final-cta h2 {
+      color: white; margin-bottom: 1rem;
+      max-width: 720px; margin-left: auto; margin-right: auto;
+    }
+    .final-cta p {
+      color: rgba(255,255,255,0.75); font-size: 1.1rem;
+      margin-bottom: 2rem; max-width: 600px;
+      margin-left: auto; margin-right: auto;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--gradient-cta); color: white;
+      padding: 14px 32px; border-radius: 10px;
+      font-weight: 700; font-size: 1rem;
+      border: none; cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(228, 61, 48, 0.3);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--ebony-clay); color: white;
+      padding: 4rem 0 2rem;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 3rem; margin-bottom: 3rem;
+    }
+    .footer-brand { font-size: 0.95rem; color: rgba(255,255,255,0.6); }
+    .footer-brand .logo { margin-bottom: 1rem; }
+    .footer-col h4 {
+      color: white; font-size: 0.9rem;
+      margin-bottom: 1rem; text-transform: lowercase;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.6rem; }
+    .footer-col a {
+      color: rgba(255,255,255,0.6); font-size: 0.9rem;
+      transition: color 0.15s;
+    }
+    .footer-col a:hover { color: white; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 2rem; display: flex;
+      justify-content: space-between; align-items: center;
+      color: rgba(255,255,255,0.5); font-size: 0.85rem;
+    }
+    .footer-socials a {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      color: white; margin-left: 0.5rem;
+      font-size: 0.85rem; font-weight: 700;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .story-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .outcome-grid { grid-template-columns: repeat(2, 1fr); }
+      .proof-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
+      .difference-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 540px) {
+      .outcome-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="logo">
+        <img src="../Images/entomo.svg" alt="entomo" style="height:36px; width:auto;">
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html">home</a></li>
+        <li><a href="../workwise_platform.html">platform</a></li>
+        <li><a href="../solutions/performance-intelligence.html">solutions</a></li>
+        <li><a href="why-entomo.html" style="color: var(--spanish-blue);">why entomo</a></li>
+        <li><a href="#cta" class="nav-cta">request a demo →</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="why-hero">
+    <div class="container">
+      <span class="hero-eyebrow">why entomo</span>
+      <h1>it's not about surviving.<br>it's about <mark>thriving</mark>.</h1>
+      <p class="lede">
+        the enterprise of tomorrow doesn't run on dashboards or annual reviews. it runs on agentic intelligence — built for performance, skills, and growth in the daily flow-of-work.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== ORIGIN STORY ===== -->
+  <section class="story-section">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-text">
+          <div class="section-eyebrow">our origin</div>
+          <h2 class="section-heading">inspired by nature's most resilient creators</h2>
+          <p>
+            entomo takes its name from <em>entomology</em> — the study of insects. the modestly sized wonders of nature survive, adapt, and evolve through resilience, teamwork, and persistence.
+          </p>
+          <p>
+            the enterprise of tomorrow reflects this same capability: thriving, adapting, and evolving continuously in a world that never stops changing. that's the philosophy that built entomo, and the philosophy that drives every agent, every workflow, every outcome on our platform.
+          </p>
+        </div>
+        <div class="story-visual">
+          <svg viewBox="0 0 360 320" xmlns="http://www.w3.org/2000/svg">
+            <!-- Honeycomb pattern symbolizing teamwork & nature -->
+            <defs>
+              <pattern id="hex" x="0" y="0" width="60" height="52" patternUnits="userSpaceOnUse">
+                <polygon points="30,2 56,17 56,47 30,62 4,47 4,17" fill="none" stroke="#f4b223" stroke-width="1.2" opacity="0.5"/>
+              </pattern>
+            </defs>
+            <rect x="0" y="0" width="360" height="320" fill="url(#hex)"/>
+            <!-- Center honeycomb cluster -->
+            <g transform="translate(180,160)">
+              <polygon points="0,-50 43,-25 43,25 0,50 -43,25 -43,-25" fill="#f4b223" opacity="0.18"/>
+              <polygon points="0,-50 43,-25 43,25 0,50 -43,25 -43,-25" fill="none" stroke="#f4b223" stroke-width="2.5"/>
+              <polygon points="-43,-75 0,-50 0,0 -43,25 -86,0 -86,-50" fill="#e43d30" opacity="0.12"/>
+              <polygon points="-43,-75 0,-50 0,0 -43,25 -86,0 -86,-50" fill="none" stroke="#e43d30" stroke-width="2"/>
+              <polygon points="43,-75 86,-50 86,0 43,25 0,0 0,-50" fill="#0064bf" opacity="0.12"/>
+              <polygon points="43,-75 86,-50 86,0 43,25 0,0 0,-50" fill="none" stroke="#0064bf" stroke-width="2"/>
+              <polygon points="-43,25 0,50 0,100 -43,125 -86,100 -86,50" fill="#2c9942" opacity="0.12"/>
+              <polygon points="-43,25 0,50 0,100 -43,125 -86,100 -86,50" fill="none" stroke="#2c9942" stroke-width="2"/>
+              <polygon points="43,25 86,50 86,100 43,125 0,100 0,50" fill="#1a1f26" opacity="0.08"/>
+              <polygon points="43,25 86,50 86,100 43,125 0,100 0,50" fill="none" stroke="#1a1f26" stroke-width="2"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT ENTOMO IS NOW ===== -->
+  <section class="positioning-section">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-eyebrow">what entomo is</div>
+        <h2 class="section-heading">the agentic intelligence platform for performance and skills</h2>
+      </div>
+      <div class="positioning-block">
+        <p>
+          entomo is the agentic intelligence platform for performance and skills. powering <strong>30M+ users worldwide</strong>, entomo brings together a central agent and specialized agent teams that work in the daily flow-of-work — coaching every employee, equipping every manager, and giving leaders the workforce intelligence to make better decisions, faster.
+        </p>
+        <p>
+          our customers include <strong>Fortune 500 enterprises</strong>, large conglomerates, and <strong>governments</strong> embarking on enterprise, industry, and national-scale workforce transformation. entomo is recognized as a leader on G2 across multiple categories and validated by <strong>Forrester TEI</strong> for delivering measurable enterprise outcomes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ENTERPRISE OF TOMORROW ===== -->
+  <section class="tomorrow-section">
+    <div class="container">
+      <div class="tomorrow-intro">
+        <div class="section-eyebrow">enterprises of tomorrow</div>
+        <h2 class="section-heading">built for a workforce that's distributed, hybrid, and digital</h2>
+        <p class="section-subheading">
+          tomorrow's enterprises operate with workforces that span geographies, time zones, and ways of working. dashboards and annual reviews can't keep up. they need agentic intelligence — AI that doesn't sit in a separate tool, but works alongside employees and managers every day.
+        </p>
+      </div>
+
+      <div class="outcome-grid">
+        <div class="outcome-card c1">
+          <div class="outcome-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+            </svg>
+          </div>
+          <h3>drive performance</h3>
+          <p>goals, feedback, and reviews powered by agents that work continuously, not once a year.</p>
+        </div>
+
+        <div class="outcome-card c2">
+          <div class="outcome-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>
+            </svg>
+          </div>
+          <h3>scale skills</h3>
+          <p>skill mapping, learning paths, and career growth that adapt to every employee.</p>
+        </div>
+
+        <div class="outcome-card c3">
+          <div class="outcome-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <h3>strengthen engagement</h3>
+          <p>real-time sensing of team and individual signals, not annual surveys nobody reads.</p>
+        </div>
+
+        <div class="outcome-card c4">
+          <div class="outcome-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+            </svg>
+          </div>
+          <h3>plan with intelligence</h3>
+          <p>workforce planning, succession, and 4B decisions backed by data, not guesswork.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROOF BAR ===== -->
+  <section class="proof-bar">
+    <div class="container">
+      <div class="proof-grid">
+        <div class="proof-stat">
+          <div class="stat-number">30M+</div>
+          <div class="stat-label">users<br>worldwide</div>
+        </div>
+        <div class="proof-stat">
+          <div class="stat-number">Fortune 500</div>
+          <div class="stat-label">enterprises<br>and governments</div>
+        </div>
+        <div class="proof-stat">
+          <div class="stat-number">G2 leader</div>
+          <div class="stat-label">across multiple<br>categories</div>
+        </div>
+        <div class="proof-stat">
+          <div class="stat-number">103% ROI</div>
+          <div class="stat-label">validated by<br>Forrester TEI</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== THE ENTOMO DIFFERENCE ===== -->
+  <section class="difference-section">
+    <div class="container">
+      <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+        <div class="section-eyebrow">the entomo difference</div>
+        <h2 class="section-heading">what makes us different</h2>
+        <p class="section-subheading" style="margin: 1rem auto 0;">
+          everyone is talking about agentic AI. we're the ones explaining how it actually works for your workforce.
+        </p>
+      </div>
+
+      <div class="difference-grid">
+        <div class="difference-card">
+          <div class="difference-num">01</div>
+          <h3>HR experts who built tech</h3>
+          <p>we are not a technology company that added HR. we are HR experts who built an agentic intelligence platform. functional depth is our differentiator, not feature count.</p>
+        </div>
+
+        <div class="difference-card">
+          <div class="difference-num">02</div>
+          <h3>agentic AI in the flow-of-work</h3>
+          <p>others talk about agentic without saying how. we put a central agent and specialized agent teams where work actually happens — coaching, nudging, and acting every day.</p>
+        </div>
+
+        <div class="difference-card">
+          <div class="difference-num">03</div>
+          <h3>enterprise-scale outcomes</h3>
+          <p>built for the world's most demanding enterprises. proven across financial services, government, manufacturing, and more — at the scale of 30M+ users.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section class="final-cta" id="cta">
+    <div class="container">
+      <h2>ready to build your enterprise of tomorrow?</h2>
+      <p>see how entomo's agentic intelligence transforms performance, skills, and growth — across every employee, every manager, every day.</p>
+      <a href="../index.html#cta" class="btn-primary">see entomo in action →</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <img src="../Images/entomo.svg" alt="entomo" style="height:32px; width:auto;">
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>platform</h4>
+          <ul>
+            <li><a href="../workwise_platform.html">WorkWise</a></li>
+            <li><a href="#">AI agents</a></li>
+            <li><a href="#">integrations</a></li>
+            <li><a href="#">security</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>solutions</h4>
+          <ul>
+            <li><a href="../solutions/performance-intelligence.html">performance intelligence</a></li>
+            <li><a href="../solutions/skill-intelligence.html">skill &amp; talent intelligence</a></li>
+            <li><a href="../solutions/engagement-intelligence.html">engagement intelligence</a></li>
+            <li><a href="../solutions/workforce-insights.html">workforce insights</a></li>
+            <li><a href="../solutions/strategic-planning.html">strategic planning</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>resources</h4>
+          <ul>
+            <li><a href="#">Forrester TEI study</a></li>
+            <li><a href="#">case studies</a></li>
+            <li><a href="#">blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>company</h4>
+          <ul>
+            <li><a href="why-entomo.html">why entomo</a></li>
+            <li><a href="#">about us</a></li>
+            <li><a href="#">careers</a></li>
+            <li><a href="#">contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 entomo. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
