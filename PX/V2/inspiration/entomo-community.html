@@ -195,29 +195,6 @@
       .nav-toggle { display: block; }
     }
 
-    /* Placeholder tooltips */
-    .nav-placeholder-tooltip { position: relative; }
-    .nav-placeholder-tooltip::after {
-      content: attr(data-tooltip);
-      position: absolute; top: calc(100% + 8px); left: 50%;
-      transform: translateX(-50%);
-      background: rgba(26,31,38,0.88); color: #fff;
-      font-size: 11px; font-weight: 500; white-space: nowrap;
-      padding: 5px 10px; border-radius: 5px;
-      pointer-events: none; opacity: 0;
-      transition: opacity 0.15s ease; z-index: 999;
-    }
-    .nav-placeholder-tooltip::before {
-      content: ''; position: absolute; top: calc(100% + 4px); left: 50%;
-      transform: translateX(-50%);
-      border: 4px solid transparent;
-      border-bottom-color: rgba(26,31,38,0.88);
-      pointer-events: none; opacity: 0;
-      transition: opacity 0.15s ease; z-index: 999;
-    }
-    .nav-placeholder-tooltip:hover::after,
-    .nav-placeholder-tooltip:hover::before { opacity: 1; }
-
     /* ===== HERO ===== */
     .community-hero {
       background: linear-gradient(180deg, var(--floral-white) 0%, white 100%);
@@ -259,25 +236,6 @@
       font-size: 1.2rem; color: rgba(26,31,38,0.65);
       max-width: 720px; margin: 0 auto 2rem; line-height: 1.55;
     }
-    .hero-stats {
-      display: inline-flex;
-      gap: 2.5rem;
-      padding: 1.25rem 2rem;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.06);
-      border: 1px solid rgba(26,31,38,0.06);
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .hero-stat .stat-num {
-      font-size: 1.8rem; font-weight: 800; color: var(--cg-red);
-      line-height: 1;
-    }
-    .hero-stat .stat-lbl {
-      font-size: 0.85rem; color: rgba(26,31,38,0.6);
-      margin-top: 4px;
-    }
 
     /* ===== SECTION BASE ===== */
     section { padding: 5rem 0; }
@@ -310,204 +268,6 @@
     }
     .intro-block p:last-child { margin-bottom: 0; }
 
-    /* ===== PILLARS ===== */
-    .pillars-section { background: var(--polar-white); }
-    .pillars-intro { text-align: center; max-width: 800px; margin: 0 auto 3rem; }
-    .pillars-intro .section-subheading { margin: 1rem auto 0; }
-    .pillars-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-    }
-    .pillar-card {
-      background: white;
-      border: 1px solid rgba(26,31,38,0.06);
-      border-radius: 16px;
-      padding: 2rem 1.5rem;
-      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-    }
-    .pillar-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
-      border-color: rgba(26,31,38,0.12);
-    }
-    .pillar-icon {
-      width: 48px; height: 48px; border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1.25rem;
-    }
-    .pillar-card.p1 .pillar-icon { background: rgba(228, 61, 48, 0.1); color: var(--cg-red); }
-    .pillar-card.p2 .pillar-icon { background: rgba(0, 100, 191, 0.1); color: var(--spanish-blue); }
-    .pillar-card.p3 .pillar-icon { background: rgba(244, 178, 35, 0.14); color: #b8860b; }
-    .pillar-card.p4 .pillar-icon { background: rgba(44, 153, 66, 0.1); color: var(--sea-green); }
-    .pillar-card h3 { margin-bottom: 0.5rem; font-size: 1.1rem; }
-    .pillar-card p {
-      font-size: 0.95rem; color: rgba(26,31,38,0.68);
-      line-height: 1.55;
-    }
-
-    /* ===== FEATURED PROGRAMS ===== */
-    .programs-section { background: white; }
-    .programs-intro { text-align: center; max-width: 820px; margin: 0 auto 3rem; }
-    .programs-intro .section-subheading { margin: 1rem auto 0; }
-    .programs-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-    .program-card {
-      background: var(--floral-white);
-      border-radius: 18px;
-      padding: 2.25rem 2rem;
-      border: 1px solid rgba(26,31,38,0.05);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .program-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.08);
-    }
-    .program-tag {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 4px 10px;
-      border-radius: 6px;
-      background: rgba(228,61,48,0.1);
-      color: var(--cg-red);
-      margin-bottom: 1rem;
-    }
-    .program-card.pg2 .program-tag { background: rgba(0,100,191,0.1); color: var(--spanish-blue); }
-    .program-card.pg3 .program-tag { background: rgba(44,153,66,0.1); color: var(--sea-green); }
-    .program-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.75rem;
-    }
-    .program-card p {
-      font-size: 0.98rem;
-      color: rgba(26,31,38,0.72);
-      line-height: 1.6;
-      margin-bottom: 1.25rem;
-    }
-    .program-meta {
-      display: flex; gap: 1rem; flex-wrap: wrap;
-      font-size: 0.82rem;
-      color: rgba(26,31,38,0.55);
-      font-weight: 600;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(26,31,38,0.08);
-    }
-    .program-meta span::before {
-      content: '•';
-      margin-right: 6px;
-      color: var(--cg-gold);
-    }
-
-    /* ===== VOICES ===== */
-    .voices-section {
-      background: var(--ebony-clay);
-      color: white;
-    }
-    .voices-section h2 { color: white; }
-    .voices-intro { text-align: center; max-width: 800px; margin: 0 auto 3rem; }
-    .voices-intro .section-subheading { color: rgba(255,255,255,0.7); margin: 1rem auto 0; }
-    .voices-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-    .voice-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 2rem 1.75rem;
-      position: relative;
-    }
-    .voice-quote-mark {
-      font-size: 3rem; line-height: 1;
-      color: var(--cg-gold);
-      font-family: Georgia, serif;
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-    .voice-quote {
-      font-size: 1rem;
-      line-height: 1.65;
-      color: rgba(255,255,255,0.88);
-      margin-bottom: 1.5rem;
-    }
-    .voice-author {
-      display: flex; align-items: center; gap: 0.85rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-    .voice-avatar {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--cg-gold), var(--cg-red));
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 1rem;
-      color: white;
-      flex-shrink: 0;
-    }
-    .voice-name {
-      font-size: 0.95rem; font-weight: 700;
-      text-transform: lowercase;
-    }
-    .voice-role {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.55);
-      margin-top: 2px;
-    }
-
-    /* ===== EVENTS TEASER ===== */
-    .events-section { background: var(--floral-white); }
-    .events-header {
-      display: flex; justify-content: space-between; align-items: flex-end;
-      flex-wrap: wrap; gap: 1.5rem;
-      margin-bottom: 2.5rem;
-    }
-    .events-header-text { max-width: 600px; }
-    .events-link {
-      font-size: 0.95rem; font-weight: 700;
-      color: var(--cg-red);
-      text-transform: lowercase;
-      display: inline-flex; align-items: center; gap: 6px;
-      transition: gap 0.2s;
-    }
-    .events-link:hover { gap: 10px; }
-    .events-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-    .event-card {
-      background: white;
-      border-radius: 14px;
-      padding: 1.75rem;
-      border: 1px solid rgba(26,31,38,0.06);
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: block;
-    }
-    .event-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.07);
-    }
-    .event-date {
-      font-size: 0.78rem; font-weight: 700;
-      letter-spacing: 1px; text-transform: uppercase;
-      color: var(--cg-red);
-      margin-bottom: 0.75rem;
-    }
-    .event-card h4 {
-      font-size: 1.05rem;
-      margin-bottom: 0.5rem;
-      line-height: 1.3;
-    }
-    .event-meta {
-      font-size: 0.85rem;
-      color: rgba(26,31,38,0.55);
-    }
-
     /* ===== JOIN FORM ===== */
     .join-section {
       background: linear-gradient(135deg, var(--polar-white) 0%, white 100%);
@@ -522,26 +282,6 @@
       color: rgba(26,31,38,0.7);
       line-height: 1.7;
       margin-bottom: 1.5rem;
-    }
-    .join-benefits {
-      list-style: none;
-      display: flex; flex-direction: column; gap: 0.75rem;
-    }
-    .join-benefits li {
-      display: flex; align-items: center; gap: 12px;
-      font-size: 0.98rem;
-      color: rgba(26,31,38,0.78);
-    }
-    .join-benefits li::before {
-      content: '';
-      width: 22px; height: 22px;
-      flex-shrink: 0;
-      border-radius: 50%;
-      background: var(--gradient-cta);
-      background-image: var(--gradient-cta), url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover, 60%;
     }
     .join-form {
       background: white;
@@ -680,20 +420,14 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
-      .pillars-grid { grid-template-columns: repeat(2, 1fr); }
-      .programs-grid { grid-template-columns: 1fr; }
-      .voices-grid { grid-template-columns: 1fr; }
-      .events-grid { grid-template-columns: 1fr; }
       .join-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
       .nav-links { display: none; }
     }
     @media (max-width: 540px) {
-      .pillars-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; gap: 1rem; }
-      .hero-stats { gap: 1.5rem; padding: 1rem 1.25rem; }
     }
   </style>
 </head>
@@ -907,222 +641,23 @@
       <span class="hero-eyebrow">entomo community</span>
       <h1>where HR leaders shape the <mark>future</mark>, together.</h1>
       <p class="lede">
-        a global network of CHROs, heads of HR, talent leaders, and practitioners — connecting, learning, and co-creating the next era of agentic HR.
+        a space for CHROs, heads of HR, talent leaders, and practitioners to connect, learn, and shape the next era of agentic HR with entomo.
       </p>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="stat-num">2,500+</div>
-          <div class="stat-lbl">HR leaders</div>
-        </div>
-        <div class="hero-stat">
-          <div class="stat-num">40+</div>
-          <div class="stat-lbl">countries</div>
-        </div>
-        <div class="hero-stat">
-          <div class="stat-num">100+</div>
-          <div class="stat-lbl">events a year</div>
-        </div>
-      </div>
     </div>
   </section>
 
-  <!-- ===== WHAT IS THE COMMUNITY ===== -->
+  <!-- ===== INTRO ===== -->
   <section class="intro-section">
     <div class="container">
       <div class="intro-block">
         <div class="section-eyebrow">about the community</div>
-        <h2>a place to think out loud, with people who get it.</h2>
+        <h2>conversations with people who get it.</h2>
         <p>
-          the entomo community is a global gathering of CHROs, heads of HR, talent architects, and HR practitioners using entomo to transform how their enterprises work. it's where peers go to <mark>connect</mark>, learn, and share what's working — and what isn't — in the move toward agentic HR.
+          we're building a space for HR leaders to think out loud — about agentic AI, performance, skills, and the work of transforming an enterprise. peer to peer, off the record, in the open with the team that builds the platform.
         </p>
         <p>
-          no vendor pitches. no panel theatre. just real conversations between leaders solving real problems, supported by the team that builds the platform you rely on.
+          if you'd like to be part of it, leave your details below and we'll reach out as we open up new sessions and programs.
         </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PILLARS ===== -->
-  <section class="pillars-section">
-    <div class="container">
-      <div class="pillars-intro">
-        <div class="section-eyebrow">what you get</div>
-        <h2 class="section-heading">four ways the community works for you</h2>
-        <p class="section-subheading">
-          membership is more than a mailing list. it's a working network of peers, programs, and product access.
-        </p>
-      </div>
-
-      <div class="pillars-grid">
-        <div class="pillar-card p1">
-          <div class="pillar-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
-          </div>
-          <h3>peer connection</h3>
-          <p>private CXO roundtables and practitioner circles where HR leaders trade playbooks with peers across regions and industries.</p>
-        </div>
-
-        <div class="pillar-card p2">
-          <div class="pillar-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-            </svg>
-          </div>
-          <h3>exclusive content</h3>
-          <p>members-first access to ebooks, original research, benchmark reports, and frameworks before they go public.</p>
-        </div>
-
-        <div class="pillar-card p3">
-          <div class="pillar-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-            </svg>
-          </div>
-          <h3>events &amp; meet-ups</h3>
-          <p>in-person summits, regional roadshows, and virtual deep-dives — designed around what HR leaders actually want to talk about.</p>
-        </div>
-
-        <div class="pillar-card p4">
-          <div class="pillar-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-            </svg>
-          </div>
-          <h3>product co-creation</h3>
-          <p>product roundtables, beta access, and a direct line to entomo's PM team — your input shapes what ships next.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FEATURED PROGRAMS ===== -->
-  <section class="programs-section">
-    <div class="container">
-      <div class="programs-intro">
-        <div class="section-eyebrow">featured programs</div>
-        <h2 class="section-heading">three flagship programs, built around real conversations</h2>
-        <p class="section-subheading">
-          each program is curated, invite-led, and designed for depth — not scale.
-        </p>
-      </div>
-
-      <div class="programs-grid">
-        <div class="program-card pg1">
-          <span class="program-tag">flagship</span>
-          <h3>CXO roundtables</h3>
-          <p>invite-only, closed-door sessions for CHROs and senior HR leaders across India, southeast asia, and the middle east. small groups, chatham house rules, real talk on workforce transformation.</p>
-          <div class="program-meta">
-            <span>quarterly</span>
-            <span>in-person</span>
-            <span>by invitation</span>
-          </div>
-        </div>
-
-        <div class="program-card pg2">
-          <span class="program-tag">deep dive</span>
-          <h3>practitioner forums</h3>
-          <p>quarterly virtual deep-dives where HR practitioners working on agentic AI, performance, and skills exchange tactics, demos, and lessons learned from active rollouts.</p>
-          <div class="program-meta">
-            <span>quarterly</span>
-            <span>virtual</span>
-            <span>open to members</span>
-          </div>
-        </div>
-
-        <div class="program-card pg3">
-          <span class="program-tag">co-create</span>
-          <h3>customer advisory board</h3>
-          <p>a select group of customers who help shape the entomo product roadmap. quarterly working sessions with the leadership and product teams, plus early access to what's next.</p>
-          <div class="program-meta">
-            <span>quarterly</span>
-            <span>hybrid</span>
-            <span>nominated</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== MEMBER VOICES ===== -->
-  <section class="voices-section">
-    <div class="container">
-      <div class="voices-intro">
-        <div class="section-eyebrow" style="background: linear-gradient(90deg, var(--cg-gold), var(--sunrise-yellow)); -webkit-background-clip: text; background-clip: text;">member voices</div>
-        <h2 class="section-heading">why HR leaders show up.</h2>
-        <p class="section-subheading">
-          a few words from the people inside the room.
-        </p>
-      </div>
-
-      <div class="voices-grid">
-        <div class="voice-card">
-          <span class="voice-quote-mark">"</span>
-          <p class="voice-quote">the CXO roundtable was the most candid HR conversation i've been part of in years. we left with three things to try the next week — not a slide deck.</p>
-          <div class="voice-author">
-            <div class="voice-avatar">PR</div>
-            <div>
-              <div class="voice-name">priya r.</div>
-              <div class="voice-role">CHRO, financial services · india</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="voice-card">
-          <span class="voice-quote-mark">"</span>
-          <p class="voice-quote">getting beta access to new agents and being able to feed back to the product team has changed how we think about adoption. it feels like a partnership, not a vendor relationship.</p>
-          <div class="voice-author">
-            <div class="voice-avatar">AK</div>
-            <div>
-              <div class="voice-name">ahmed k.</div>
-              <div class="voice-role">head of HR tech · UAE</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="voice-card">
-          <span class="voice-quote-mark">"</span>
-          <p class="voice-quote">the practitioner forums are gold. our skills team picked up a workflow from another member's rollout and shipped it the same quarter. that kind of reuse is rare.</p>
-          <div class="voice-author">
-            <div class="voice-avatar">SL</div>
-            <div>
-              <div class="voice-name">sarah l.</div>
-              <div class="voice-role">director of talent · singapore</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== UPCOMING EVENTS ===== -->
-  <section class="events-section">
-    <div class="container">
-      <div class="events-header">
-        <div class="events-header-text">
-          <div class="section-eyebrow">upcoming events</div>
-          <h2 class="section-heading">what's on the calendar</h2>
-        </div>
-        <a href="#" class="events-link">see all events →</a>
-      </div>
-
-      <div class="events-grid">
-        <a href="#" class="event-card">
-          <div class="event-date">jun 12 · mumbai</div>
-          <h4>CXO roundtable: agentic HR in the indian enterprise</h4>
-          <div class="event-meta">in-person · invite-only</div>
-        </a>
-        <a href="#" class="event-card">
-          <div class="event-date">jun 26 · virtual</div>
-          <h4>practitioner forum: rolling out skill intelligence at scale</h4>
-          <div class="event-meta">virtual · members</div>
-        </a>
-        <a href="#" class="event-card">
-          <div class="event-date">jul 18 · dubai</div>
-          <h4>middle east HR leaders summit</h4>
-          <div class="event-meta">in-person · open registration</div>
-        </a>
       </div>
     </div>
   </section>
@@ -1135,14 +670,8 @@
           <div class="section-eyebrow">join the community</div>
           <h2>step in. <mark>shape</mark> what comes next.</h2>
           <p>
-            membership is free for HR leaders and practitioners at entomo customers and partners. tell us a little about yourself and we'll be in touch with the next steps.
+            tell us a little about yourself and we'll be in touch as new conversations, sessions, and programs go live.
           </p>
-          <ul class="join-benefits">
-            <li>access to CXO roundtables and practitioner forums</li>
-            <li>members-first ebooks, research, and frameworks</li>
-            <li>invitations to in-person and virtual events</li>
-            <li>direct line to the entomo product team</li>
-          </ul>
         </div>
 
         <form class="join-form" onsubmit="event.preventDefault(); alert('thank you — we will be in touch shortly.');">
@@ -1192,7 +721,7 @@
             </select>
           </div>
           <button type="submit" class="form-submit">request to join →</button>
-          <p class="form-note">we review every request. expect a response within 3 business days.</p>
+          <p class="form-note">we review every request and will be in touch shortly.</p>
         </form>
       </div>
     </div>
