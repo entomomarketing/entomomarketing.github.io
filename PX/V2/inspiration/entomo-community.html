@@ -258,6 +258,69 @@
     /* ===== INTRO ===== */
     .intro-section { background: white; }
     .intro-section .container { max-width: 880px; }
+
+    /* ===== VIDEOS SECTION ===== */
+    .videos-section { background: var(--floral-white); padding: 5rem 0; }
+    .videos-section .section-eyebrow {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--cg-gold), var(--cg-red));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 13px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      margin-bottom: 1rem;
+    }
+    .videos-section h2 { margin-bottom: 0.75rem; }
+    .videos-section .lead {
+      font-size: 1.05rem; color: rgba(26,31,38,0.6);
+      max-width: 720px; margin: 0 auto 3rem; line-height: 1.6; text-align: center;
+    }
+    .videos-section .text-center { text-align: center; }
+    .videos-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; max-width: 1100px; margin: 0 auto;
+    }
+    .video-card {
+      background: white; border-radius: 14px; overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex; flex-direction: column;
+    }
+    .video-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.1);
+    }
+    .video-thumb {
+      position: relative; padding-top: 56.25%;
+      background: #000; overflow: hidden;
+    }
+    .video-thumb iframe {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%; border: 0;
+    }
+    .video-info { padding: 16px 18px 20px; }
+    .video-tag {
+      display: inline-block;
+      font-size: 10px; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--cg-red);
+      margin-bottom: 8px;
+    }
+    .video-title {
+      font-size: 14px; font-weight: 700;
+      color: var(--ebony-clay); line-height: 1.35;
+      text-transform: lowercase;
+    }
+    .videos-cta { text-align: center; margin-top: 2.5rem; }
+    .videos-cta a {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--cg-gold), var(--cg-red));
+      color: white; font-weight: 700;
+      padding: 12px 28px; border-radius: 8px;
+      font-size: 14px; text-transform: lowercase;
+    }
+    @media (max-width: 900px) {
+      .videos-grid { grid-template-columns: 1fr; }
+    }
     .intro-block {
       text-align: center;
     }
@@ -658,6 +721,113 @@
         <p>
           if you'd like to be part of it, leave your details below and we'll reach out as we open up new sessions and programs.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VIDEOS ===== -->
+  <section class="videos-section">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 1rem;">
+        <span class="section-eyebrow">enterprise tomorrow series</span>
+        <h2>conversations with the people shaping work.</h2>
+        <p class="lead">our ongoing series brings global HR leaders, CHROs and operators on the record about the future of work, performance, skills, and agentic intelligence.</p>
+      </div>
+
+      <div class="videos-grid">
+        <div class="video-card">
+          <div class="video-thumb">
+            <iframe src="https://www.youtube.com/embed/8UYGaUIQClE" title="entomo product overview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-info">
+            <div class="video-tag">product overview</div>
+            <div class="video-title">entomo — product overview</div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-thumb">
+            <iframe src="https://www.youtube.com/embed/7g72eBJOPAQ" title="enterprise tomorrow conversation series with Subhankar Roy Chowdhury (Lenovo)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-info">
+            <div class="video-tag">conversation series</div>
+            <div class="video-title">subhankar roy chowdhury, lenovo</div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-thumb">
+            <iframe src="https://www.youtube.com/embed/5UhszH3YoOQ" title="enterprise tomorrow conversation series with Regan Taikitsadaporn (Marriott International)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-info">
+            <div class="video-tag">conversation series</div>
+            <div class="video-title">regan taikitsadaporn, marriott international</div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-thumb">
+            <iframe src="https://www.youtube.com/embed/eFh5V4J5zhg" title="enterprise tomorrow conversation series with Augustus Azariah (IBM)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-info">
+            <div class="video-tag">conversation series</div>
+            <div class="video-title">augustus azariah, IBM</div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-thumb">
+            <iframe src="https://www.youtube.com/embed/aEtszlM9R24" title="enterprise tomorrow conversation series with Mukta Arya (Société Générale)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-info">
+            <div class="video-tag">conversation series</div>
+            <div class="video-title">mukta arya, société générale</div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-thumb">
+            <iframe src="https://www.youtube.com/embed/Ih2LogatriA" title="enterprise tomorrow conversation series with Dr. CJ Meadows (S P Jain School of Global Management)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-info">
+            <div class="video-tag">conversation series</div>
+            <div class="video-title">dr. cj meadows, s p jain school of global management</div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-thumb">
+            <iframe src="https://www.youtube.com/embed/QxLd1yBQHZ4" title="enterprise tomorrow conversation series with Trisha Pathak (Motul Asia-Pacific)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-info">
+            <div class="video-tag">conversation series</div>
+            <div class="video-title">trisha pathak, motul asia-pacific</div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-thumb">
+            <iframe src="https://www.youtube.com/embed/ieXngLDp_YM" title="enterprise tomorrow conversation series with Jacqueline Gwee (aAdvantage Consulting Group)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-info">
+            <div class="video-tag">conversation series</div>
+            <div class="video-title">jacqueline gwee, aadvantage consulting group</div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-thumb">
+            <iframe src="https://www.youtube.com/embed/fJUl8K-_wfk" title="enterprise tomorrow conversation series with Andrew Chan (ACI HR Solutions)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-info">
+            <div class="video-tag">conversation series</div>
+            <div class="video-title">andrew chan, ACI HR solutions</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="videos-cta">
+        <a href="https://www.youtube.com/channel/UCmbuyaJf6bddBRwYT7fYjNA" target="_blank" rel="noopener">see the full series on youtube →</a>
       </div>
     </div>
   </section>
