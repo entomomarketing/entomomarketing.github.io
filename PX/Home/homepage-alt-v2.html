@@ -20,10 +20,10 @@
   .ea-arch .ea-dnode:focus-visible{outline:none}
   .ea-arch .ea-dlabel{font-weight:800;font-size:14.5px;letter-spacing:.8px}
   .ea-arch .ea-dq{font-weight:600;font-size:14px}
-  .ea-arch .ea-rail-title{fill:#fff;font-weight:800;letter-spacing:-.3px;text-transform:lowercase}
-  .ea-arch .ea-rail-sub{fill:rgba(255,255,255,.92);font-weight:600;text-transform:lowercase}
-  .ea-arch .ea-db-label{fill:rgba(15,23,41,.66);font-weight:700;font-size:15px;text-transform:lowercase}
-  .ea-arch .ea-section-title{fill:#0f1729;font-weight:800;font-size:22px;letter-spacing:-.3px;text-transform:lowercase}
+  .ea-arch .ea-rail-title{fill:#fff;font-weight:800;letter-spacing:-.3px}
+  .ea-arch .ea-rail-sub{fill:rgba(255,255,255,.92);font-weight:600}
+  .ea-arch .ea-db-label{fill:rgba(15,23,41,.66);font-weight:700;font-size:15px}
+  .ea-arch .ea-section-title{fill:#0f1729;font-weight:800;font-size:22px;letter-spacing:-.3px}
   #ea-tooltip{position:fixed;z-index:99999;max-width:320px;pointer-events:none;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#0f1729;border-radius:16px;padding:14px 16px;border:1px solid rgba(15,23,41,.08);box-shadow:0 12px 44px rgba(15,23,41,.18),0 0 0 1px rgba(15,23,41,.03);opacity:0;transform:translateY(6px);transition:opacity .14s ease, transform .14s ease;font-family:"Nunito Sans",system-ui,sans-serif}
   #ea-tooltip.ea-show{opacity:1;transform:translateY(0)}
   #ea-tooltip .ea-tt-title{font-weight:800;font-size:15.5px;margin-bottom:5px;display:flex;align-items:center;gap:8px;text-transform:lowercase}
@@ -117,8 +117,10 @@ const LAYER={
   core: {accent:"#16a34a",tint:"rgba(22,163,74,.09)",glow:"rgba(22,163,74,.30)",grad:"url(#ea-gCore)"}
 };
 const COLX=[198,399,600,801,1002,1203,1404];
+const EXPX=[198,500,801,1103,1404];
 const CARDW=172, CH=150;
 function cx(i){return COLX[i]+CARDW/2;}
+function exc(i){return EXPX[i]+CARDW/2;}
 const intelLeft=[
   {x:194,icon:"cpu",label:"Market Intelligence",desc:"Agentic AI continuously scans external talent markets, benchmarks and skills trends, turning the outside world into context for every people decision."},
   {x:376,icon:"report",label:"Human Capital Reporting",desc:"Real-time, AI-generated people analytics and boardroom-ready reporting across your entire workforce — no manual spreadsheets."}
@@ -132,21 +134,19 @@ const decision=[
   {label:"PREVENTION",  q:"What can I avoid?",            grad:"url(#ea-dPrevention)",  glow:"rgba(126,92,192,.35)",text:"#ffffff", dot:"#7e5cc0", desc:"Flags emerging risks early so leaders can act to prevent attrition, burnout and disengagement."}
 ];
 const experience=[
-  {icon:"heart",   label:"Employee Wellbeing",      desc:"Continuously senses sentiment and engagement, nudging proactive, personalised wellbeing interventions."},
-  {icon:"userplus",label:"Onboarding Platform",     desc:"Delivers personalised, AI-guided onboarding journeys that accelerate time-to-productivity for new hires."},
   {icon:"gauge",   label:"Performance Management",  desc:"Continuous, agentic performance management — real-time goals, feedback and coaching, not annual reviews."},
-  {icon:"trend",   label:"Career Management",       desc:"Maps internal opportunities and growth paths, matching people to roles using live skills intelligence."},
+  {icon:"trend",   label:"Talent Development",      desc:"Grows and mobilises your people with skills-based talent development, internal opportunities and personalised growth paths."},
   {icon:"branch",  label:"Succession Planning",     desc:"Identifies and develops future leaders with AI-driven succession, readiness and bench-strength insights."},
   {icon:"book",    label:"Learning Management",     desc:"Recommends personalised learning aligned to each employee's role, skills and aspirations."},
   {icon:"users",   label:"Mentoring & Development", desc:"Connects employees with the right mentors and development experiences at exactly the right moment."}
 ];
 const core=[
   {icon:"search",  label:"Recruitment Platform",       desc:"Streamlines hiring from requisition to offer with AI-assisted sourcing, screening and scheduling."},
+  {icon:"userplus",label:"Onboarding Platform",        desc:"Delivers personalised, AI-guided onboarding journeys that accelerate time-to-productivity for new hires."},
   {icon:"phone",   label:"Employee Self-Service Portal",desc:"A single mobile-first portal where employees manage their entire work life, end to end."},
   {icon:"org",     label:"Org Resource Management",    desc:"Manages organisation structures, positions and workforce planning in one connected place."},
   {icon:"clock",   label:"Time, Attendance & Leave",   desc:"Automates time, attendance and leave with intelligent, policy-aware workflows."},
   {icon:"plane",   label:"Travel & Expense Management",desc:"Simplifies travel and expense with automated approvals and built-in policy compliance."},
-  {icon:"wallet",  label:"Payroll Processing",         desc:"Accurate, compliant payroll processing integrated directly with your core HR data."},
   {icon:"logout",  label:"Separation & Final Settlement",desc:"Manages graceful exits with automated full-and-final settlements and structured offboarding."}
 ];
 const gBg=svg.querySelector(".ea-g-bg");
@@ -176,14 +176,14 @@ function rail(y,h,grad,title,sub,L,desc){
   words.forEach(function(w){if((cur+" "+w).trim().length>11&&cur){lines.push(cur);cur=w;}else cur=(cur?cur+" ":"")+w;});
   if(cur)lines.push(cur);
   lines.forEach(function(ln,i){el("tspan",{x:32,dy:i===0?0:23},tt).textContent=ln;});
-  el("text",{x:32,y:y+h-18,class:"ea-rail-sub",style:"font-size:13px"},lift).textContent=sub;
+  el("text",{x:32,y:y+h-18,class:"ea-rail-sub",style:"font-size:12px"},lift).textContent=sub;
 }
-rail(16,224,"url(#ea-gIntel)","Intelligence Layer","powered by genai",LAYER.intel,"The brains of the platform: GenAI fuses market intelligence with your human-capital data into a single Employee 360° source of truth that drives every decision.");
-rail(300,182,"url(#ea-gExp)","Experience Layer","strategic systems",LAYER.exp,"Strategic, employee-facing systems that engage, enable and empower your people across the full talent lifecycle.");
-rail(634,182,"url(#ea-gCore)","Core HRIS","transactional systems",LAYER.core,"The transactional system of record. entomo complements your existing HRIS (SAP, Oracle, Workday) rather than replacing it.");
+rail(16,224,"url(#ea-gIntel)","intelligence layer","powered by Agentic AI",LAYER.intel,"The brains of the platform: Agentic AI fuses market intelligence with your human-capital data into a single Employee 360° source of truth that drives every decision.");
+rail(300,182,"url(#ea-gExp)","experience layer","strategic systems",LAYER.exp,"Strategic, employee-facing systems that engage, enable and empower your people across the full talent lifecycle.");
+rail(634,182,"url(#ea-gCore)","core HRIS","transactional systems",LAYER.core,"The transactional system of record. entomo complements your existing HRIS (SAP, Oracle, Workday) rather than replacing it.");
 const dds=el("g",{},gPanels);
 drawIcon(dds,"chart",592,46,24,"#e0a21c");
-el("text",{x:616,y:54,class:"ea-section-title"},dds).textContent="Data Driven Decision Support";
+el("text",{x:616,y:54,class:"ea-section-title"},dds).textContent="data driven decision support with DIA";
 const DX0=584,DW=155,DGAP=10,DY=72,DH=152;
 decision.forEach(function(d,i){
   const x=DX0+i*(DW+DGAP);
@@ -218,9 +218,9 @@ function moduleCard(m,x,y,L){
   wrapLabel(lift,m.label,x+CARDW/2,y+88,13,17);
 }
 const EXPY=316, CORY=650;
-experience.forEach(function(m,i){moduleCard(m,COLX[i],EXPY,LAYER.exp);});
-el("rect",{x:COLX[1]-14,y:CORY-14,width:(COLX[5]+CARDW)-COLX[1]+28,height:CH+28,rx:20,fill:"rgba(22,163,74,.05)"},gPanels);
-el("rect",{x:COLX[1]-14,y:CORY-14,width:(COLX[5]+CARDW)-COLX[1]+28,height:CH+28,rx:20,fill:"none",stroke:"#16a34a","stroke-width":1.5,opacity:.4},gPanels);
+experience.forEach(function(m,i){moduleCard(m,EXPX[i],EXPY,LAYER.exp);});
+el("rect",{x:COLX[2]-14,y:CORY-14,width:(COLX[5]+CARDW)-COLX[2]+28,height:CH+28,rx:20,fill:"rgba(22,163,74,.05)"},gPanels);
+el("rect",{x:COLX[2]-14,y:CORY-14,width:(COLX[5]+CARDW)-COLX[2]+28,height:CH+28,rx:20,fill:"none",stroke:"#16a34a","stroke-width":1.5,opacity:.4},gPanels);
 core.forEach(function(m,i){moduleCard(m,COLX[i],CORY,LAYER.core);});
 function cylinder(cxx,topY,w,h,title,desc,labelText,labelX,labelY){
   const g=el("g",{class:"ea-node",tabindex:"0",style:"--ea-accent:#4f46e5;--ea-tint:rgba(79,70,229,.07);--ea-glow:rgba(79,70,229,.30)"},gDb);
@@ -234,7 +234,7 @@ function cylinder(cxx,topY,w,h,title,desc,labelText,labelX,labelY){
   el("text",{x:labelX,y:labelY,class:"ea-db-label"},lift).textContent=labelText;
 }
 cylinder(430,216,80,76,"Employee 360° — Single Source of Truth","One unified, trusted data foundation across every HR system, giving every layer a complete Employee 360° view.","single source of truth · employee 360°",480,260);
-cylinder(860,514,80,78,"Competencies, Skills & HRIS Database","A living skills-and-competencies graph, synced with your HRIS, that powers matching, learning and talent decisions across the platform.","competencies, skills & hris database",910,558);
+cylinder(860,514,80,78,"Competencies, Skills & HRIS Database","A living skills-and-competencies graph, synced with your HRIS, that powers matching, learning and talent decisions across the platform.","competencies, skills & HRIS database",910,558);
 (function(){
   const L=LAYER.exp;
   const g=el("g",{class:"ea-node",tabindex:"0",style:"--ea-accent:"+L.accent+";--ea-tint:"+L.tint+";--ea-glow:"+L.glow},gNodes);
@@ -256,15 +256,15 @@ function arrow(d,opts){
   if(opts.dash)a.setAttribute("stroke-dasharray","5 6");
 }
 const eY=EXPY+CH/2;
-for(let i=0;i<6;i++){
-  if(i===2) arrow("M"+(COLX[2]+CARDW)+","+eY+" L"+COLX[3]+","+eY,{both:true});
-  else      arrow("M"+(COLX[i]+CARDW+2)+","+eY+" L"+(COLX[i+1]-2)+","+eY);
+for(let i=0;i<4;i++){
+  if(i===0) arrow("M"+(EXPX[0]+CARDW)+","+eY+" L"+EXPX[1]+","+eY,{both:true});
+  else      arrow("M"+(EXPX[i]+CARDW+2)+","+eY+" L"+(EXPX[i+1]-2)+","+eY);
 }
 const EXB=EXPY+CH;
-arrow("M"+cx(0)+","+EXB+" C 320,500 452,518 500,520");
-arrow("M"+cx(1)+","+EXB+" C 487,494 508,506 512,518");
+arrow("M"+exc(0)+","+EXB+" C 320,500 452,518 500,520");
+arrow("M"+exc(1)+","+EXB+" C 586,496 540,512 524,520");
 arrow("M"+cx(0)+","+CORY+" C 320,618 452,612 500,612");
-const ssX=cx(1), sepX=cx(6), yRoute=CORY+CH+12;
+const ssX=cx(2), sepX=cx(6), yRoute=CORY+CH+12;
 arrow("M"+ssX+","+(CORY+CH)+" L"+ssX+","+yRoute+" L"+sepX+","+yRoute+" L"+sepX+","+(CORY+CH+2));
 arrow("M430,292 L430,313",{dash:true,both:true});
 arrow("M860,514 L860,480",{dash:true,both:true});
