@@ -805,29 +805,6 @@
     .pdw-slider::before { left: 0; } .pdw-slider::after { right: 0; }
     .pdw-note { font-size: clamp(7.5px, 1.02cqw, 11.5px); color: #7a7e88; line-height: 1.55; }
 
-    /* --- LEARNING --- */
-    .pdl-search { display: flex; align-items: center; gap: 10px; padding: 2.8% 3.6%; flex-shrink: 0; }
-    .pdl-search .q { flex: 1; font-size: clamp(8px, 1.15cqw, 12.5px); color: #a0a4ad; }
-    .pdl-search .sb { background: #FAE9A8; border-radius: 18px; font-size: clamp(7.5px, 1.1cqw, 12px); font-weight: 700; color: #8a7414; padding: clamp(3px, 0.5cqw, 6px) clamp(11px, 1.6cqw, 18px); }
-    .pdl-stats { display: grid; grid-template-columns: repeat(4, 1fr); flex-shrink: 0; }
-    .pdl-stat { display: flex; align-items: center; gap: 9px; padding: 3.2% 4.5%; }
-    .pdl-stat + .pdl-stat { border-left: 1px solid rgba(23,24,28,0.05); }
-    .pdl-stat .ic { width: 24%; max-width: 34px; aspect-ratio: 1; border-radius: 50%; background: #FAE9A8; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .pdl-stat .ic svg { width: 52%; height: 52%; stroke: #17181c; fill: none; stroke-width: 1.8; }
-    .pdl-stat .lb { font-size: clamp(6.5px, 0.95cqw, 10px); font-weight: 700; color: #3a3d45; line-height: 1.3; }
-    .pdl-stat .nb { font-size: clamp(9.5px, 1.4cqw, 14.5px); font-weight: 800; color: #e8b71a; }
-    .pdl-title { font-size: clamp(11px, 1.7cqw, 18px); font-weight: 800; color: #17181c; flex-shrink: 0; }
-    .pdl-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3%; flex: 1; min-height: 0; }
-    .pdl-card { border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
-    .pdl-img { height: 28%; background: linear-gradient(120deg, #cdb8a0, #8f9d86); }
-    .pdl-img.i2 { background: linear-gradient(120deg, #9aa8b8, #5d6c80); }
-    .pdl-img.i3 { background: linear-gradient(120deg, #c5a9b4, #7d6a88); }
-    .pdl-body { padding: 5.5% 7%; display: flex; flex-direction: column; gap: 3%; flex: 1; }
-    .pdl-t { font-size: clamp(9px, 1.32cqw, 14px); font-weight: 800; color: #17181c; }
-    .pdl-d { font-size: clamp(7.5px, 1.02cqw, 11.5px); color: #7a7e88; line-height: 1.45; }
-    .pdl-m { font-size: clamp(6.5px, 0.95cqw, 10px); color: #55585f; font-weight: 600; }
-    .pdl-body .pd-btn-y { margin-top: auto; font-size: clamp(7.5px, 1.1cqw, 12px); padding: 4.2% 0; border-radius: 7px; }
-
     /* --- JOBS --- */
     .pdj-search { display: flex; align-items: center; gap: 10px; padding: 2.6% 3.6%; flex-shrink: 0; }
     .pdj-search .q { flex: 1; font-size: clamp(8px, 1.15cqw, 12.5px); color: #a0a4ad; }
@@ -930,21 +907,6 @@
     @keyframes pd-word { to { opacity: 1; } }
     .pdm-foot { display: flex; justify-content: flex-end; }
     .pdm-foot .pd-btn-y { font-size: clamp(7.5px, 1.1cqw, 12px); padding: clamp(5px, 0.8cqw, 9px) clamp(12px, 1.9cqw, 20px); }
-
-    /* --- INTERVIEW IQ --- */
-    .pdq-wrap { flex: 1; display: flex; align-items: center; justify-content: center; }
-    .pdq-card { width: 74%; padding: 5% 5.5%; border-radius: 18px; box-shadow: 0 16px 40px rgba(0,0,0,0.08); display: flex; flex-direction: column; gap: 4%; }
-    .pdq-top { display: flex; justify-content: space-between; align-items: center; }
-    .pdq-n { font-size: clamp(7.5px, 1.02cqw, 11.5px); font-weight: 800; letter-spacing: 0.8px; color: #e8b71a; }
-    .pdq-tag { font-size: clamp(6.5px, 0.95cqw, 10px); color: #55585f; border: 1px solid rgba(23,24,28,0.14); border-radius: 14px; padding: clamp(2px, 0.4cqw, 4px) clamp(8px, 1.2cqw, 13px); }
-    .pdq-q { font-size: clamp(10.5px, 1.6cqw, 17px); font-weight: 800; color: #17181c; line-height: 1.45; }
-    .pdq-btnrow { display: flex; justify-content: center; }
-    .pdq-show { background: #F7D64A; border-radius: 9px; font-size: clamp(8.5px, 1.2cqw, 13px); font-weight: 800; color: #17181c; padding: clamp(6px, 0.9cqw, 10px) clamp(14px, 2.2cqw, 26px); }
-    .pdq-ans { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s 0.1s; border: 1px solid rgba(23,24,28,0.07); border-radius: 12px; }
-    .pdq-ans.open { max-height: 260px; opacity: 1; }
-    .pdq-ans-in { padding: 5% 6%; }
-    .pdq-ans-in .al { font-size: clamp(8px, 1.15cqw, 12.5px); font-weight: 800; color: #e8b71a; margin-bottom: 4px; }
-    .pdq-ans-in .at { font-size: clamp(7.5px, 1.06cqw, 11.5px); color: #3a3d45; line-height: 1.55; }
 
     /* demo section shells */
     .demo-section { background: var(--white); }
@@ -1964,66 +1926,65 @@
         <div class="pdemo" data-pdemo>
           <div class="pdemo-bar">
             <div class="pdemo-dots"><span></span><span></span><span></span></div>
-            <div class="pdemo-url">app.entomo.co &mdash; learning &amp; jobs</div>
+            <div class="pdemo-url">app.entomo.co &mdash; from skills to employment</div>
           </div>
           <div class="pdemo-stage">
 
-            <!-- SCREEN: LEARNING -->
-            <div class="pd-screen" data-name="learning matched to each citizen’s skill gaps">
+            <!-- SCREEN: CAREER PATH -->
+            <div class="pd-screen" data-name="a career path mapped from the citizen&rsquo;s verified skills">
               <div class="pd-nav" data-li style="--li:0;">
                   <span class="pd-nav-logo"><i></i><b>entomo</b></span>
-                  <span class="pd-nav-item act">Learning</span>
+                  <span class="pd-nav-item act">Career Path</span>
                   <span class="pd-nav-item" data-ct>Jobs</span>
                   <span class="pd-nav-item">Applications</span>
                   <span class="pd-nav-ava">JP</span>
                 </div>
-              <div class="pd-card pdl-search" data-li style="--li:1;">
-                <span class="q">&#128269; Search by Courses or Skills</span>
-                <span class="sb">Search</span>
-              </div>
-              <div class="pd-card pdl-stats" data-li style="--li:2;">
-                <div class="pdl-stat"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5z"/></svg></span><span><span class="nb">04</span><br><span class="lb">Enrolled Courses</span></span></div>
-                <div class="pdl-stat"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg></span><span><span class="nb">02</span><br><span class="lb">Active Courses</span></span></div>
-                <div class="pdl-stat"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg></span><span><span class="nb">02</span><br><span class="lb">Completed</span></span></div>
-                <div class="pdl-stat"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M9 13l-2 8 5-3 5 3-2-8"/></svg></span><span><span class="nb">01</span><br><span class="lb">Certificates</span></span></div>
-              </div>
-              <div class="pdl-title" data-li style="--li:3;">Handpicked for You</div>
-              <div class="pdl-cards">
-                <div class="pd-card pdl-card" data-li style="--li:4;">
-                  <div class="pdl-img"></div>
-                  <div class="pdl-body">
-                    <div class="pdl-t">React Fundamentals</div>
-                    <div class="pdl-d">Build component-driven UIs with React and hooks.</div>
-                    <div class="pdl-m">5.3k+ Professionals &middot; Frontend</div>
-                    <span class="pd-btn-y">View Course</span>
+              <div class="pdp-crumb" data-li style="--li:1;">Home &rsaquo; Career Path &rsaquo; <b>Details</b></div>
+              <div class="pdw-grid">
+                <div class="pdw-rail">
+                  <div class="pd-card pdw-node" data-li style="--li:2;"><div class="num">1</div><div class="ph">Current Role</div><div class="nm">Business Analyst Intern</div></div>
+                  <div class="pd-card pdw-node act" data-li style="--li:3;"><div class="num">2</div><div class="ph">Phase 1</div><div class="nm">Business Analyst</div></div>
+                  <div class="pd-card pdw-node" data-li style="--li:4;"><div class="num">3</div><div class="ph">Phase 2</div><div class="nm">Senior Business Analyst</div></div>
+                  <div class="pd-card pdw-node" data-li style="--li:5;"><div class="num">4</div><div class="ph">Phase 3</div><div class="nm">Lead Business Analyst</div></div>
+                </div>
+                <div class="pdw-mid">
+                  <div class="pd-card pdw-head" data-li style="--li:3;">
+                    <div class="tt">Business Analyst</div>
+                    <div class="mt"><b>72%</b><i>Role Match</i></div>
+                  </div>
+                  <div class="pd-card pdw-skills" data-li style="--li:4;">
+                    <div class="st">Required Skills</div>
+                    <div class="pdw-chips">
+                      <span class="pd-chip">Storytelling</span>
+                      <span class="pd-chip">Stakeholder Management</span>
+                      <span class="pd-chip">Analytical Thinking</span>
+                      <span class="pd-chip">Requirements Elicitation</span>
+                      <span class="pd-chip">SQL</span>
+                      <span class="pd-chip">Visual Analytics</span>
+                      <span class="pd-chip">KPIs</span>
+                      <span class="pd-chip">Scrum</span>
+                      <span class="pd-chip">Wireframing</span>
+                    </div>
                   </div>
                 </div>
-                <div class="pd-card pdl-card" data-li style="--li:5;">
-                  <div class="pdl-img i2"></div>
-                  <div class="pdl-body">
-                    <div class="pdl-t">Python for Data Analysis</div>
-                    <div class="pdl-d">Wrangle, analyse, and visualise data with pandas.</div>
-                    <div class="pdl-m">4.2k+ Professionals &middot; Data Science</div>
-                    <span class="pd-btn-y">View Course</span>
-                  </div>
-                </div>
-                <div class="pd-card pdl-card" data-li style="--li:6;">
-                  <div class="pdl-img i3"></div>
-                  <div class="pdl-body">
-                    <div class="pdl-t">Machine Learning Foundations</div>
-                    <div class="pdl-d">Supervised learning, evaluation, model selection.</div>
-                    <div class="pdl-m">3.9k+ Professionals &middot; Data Science</div>
-                    <span class="pd-btn-y">View Course</span>
+                <div class="pdw-side">
+                  <div class="pdw-save" data-li style="--li:5;">Save Path &#9873;</div>
+                  <div class="pd-card pdw-market" data-li style="--li:6;">
+                    <div class="mtt">Market insights</div>
+                    <div class="lab">Average Salary Range</div>
+                    <div class="pdw-sal">USD 58,351 <span class="pd-mut">to</span> <b>USD 140,417</b></div>
+                    <div class="pdw-slider"></div>
+                    <div class="pdw-note">Demand for Business Analyst roles is stable to strong in 2026 &mdash; SQL and requirements documentation co-occur most.</div>
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- SCREEN: JOBS -->
-            <div class="pd-screen" data-name="openings ranked by how well the citizen matches">
+            <div class="pd-screen" data-name="openings ranked by how well the citizen&rsquo;s skills match">
               <div class="pd-nav" data-li style="--li:0;">
                   <span class="pd-nav-logo"><i></i><b>entomo</b></span>
-                  <span class="pd-nav-item">Learning</span>
+                  <span class="pd-nav-item">Career Path</span>
                   <span class="pd-nav-item act">Jobs</span>
                   <span class="pd-nav-item">Applications</span>
                   <span class="pd-nav-ava">JP</span>
@@ -2062,7 +2023,7 @@
             <div class="pd-screen" data-name="applying takes one click with a verified profile">
               <div class="pd-nav" data-li style="--li:0;">
                   <span class="pd-nav-logo"><i></i><b>entomo</b></span>
-                  <span class="pd-nav-item">Learning</span>
+                  <span class="pd-nav-item">Career Path</span>
                   <span class="pd-nav-item">Jobs</span>
                   <span class="pd-nav-item act">Applications</span>
                   <span class="pd-nav-ava">JP</span>
@@ -2091,7 +2052,7 @@
             <div class="pd-click"></div>
           </div>
           <div class="pdemo-cap">
-            <div class="pdemo-cap-label">learning matched to each citizen’s skill gaps</div>
+            <div class="pdemo-cap-label">a career path mapped from the citizen’s verified skills</div>
             <div class="pdemo-cap-dots"><span class="on"></span><span></span><span></span></div>
           </div>
         </div>
@@ -2476,24 +2437,90 @@
         <div class="section-eyebrow" style="color:var(--spanish-blue);">the student experience</div>
         <h2 class="section-heading">students graduate with skills they can prove and careers they can <mark>start</mark></h2>
         <p class="section-subheading">
-          Each student knows their skills and gaps, follows a mapped career path, and builds what the market wants. The supporting tools &mdash; resume, mock interviews, model answers &mdash; all draw from that same verified skills profile, while career services sees every score and gap along the way.
+          Each student knows their skills and gaps, follows a mapped career path, and builds what the market wants. The supporting tools &mdash; resume, mock interviews, interview prep &mdash; all draw from that same verified skills profile, while career services sees every score and gap along the way.
         </p>
       </div>
       <div class="pdemo-wrap pdemo-xl">
         <div class="pdemo" data-pdemo>
           <div class="pdemo-bar">
             <div class="pdemo-dots"><span></span><span></span><span></span></div>
-            <div class="pdemo-url">app.entomo.co &mdash; readiness studio</div>
+            <div class="pdemo-url">app.entomo.co &mdash; prove your skills</div>
           </div>
           <div class="pdemo-stage">
+
+            <!-- SCREEN: SKILLS PROFILE -->
+            <div class="pd-screen" data-name="a verified skills profile &mdash; every skill mapped and scored">
+              <div class="pd-nav" data-li style="--li:0;">
+                  <span class="pd-nav-logo"><i></i><b>entomo</b></span>
+                  <span class="pd-nav-item act">Profile</span>
+                  <span class="pd-nav-item" data-ct>Resume</span>
+                  <span class="pd-nav-item">Mock Interview</span>
+                  <span class="pd-nav-ava">JP</span>
+                </div>
+              <div class="pdp-crumb" data-li style="--li:1;">Home &rsaquo; <b>Master Profile</b></div>
+              <div class="pdp-grid">
+                <div class="pdp-left">
+                  <div class="pd-card pdp-id" data-li style="--li:2;">
+                    <div class="pdp-ava"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0 1 14 0v1"/></svg></div>
+                    <div class="pdp-name">John Parker</div>
+                    <div class="pdp-role">Add Role</div>
+                  </div>
+                  <div class="pd-card pdp-strength" data-li style="--li:3;">
+                    <div class="pdp-strength-t">Profile Strength</div>
+                    <div class="pdp-ring">
+                      <svg viewBox="0 0 40 40"><circle class="bgc" cx="20" cy="20" r="15.9"/><circle class="fgc" cx="20" cy="20" r="15.9"/></svg>
+                      <b>88%</b>
+                    </div>
+                  </div>
+                </div>
+                <div class="pd-card pdp-steps" data-li style="--li:3;">
+                  <div class="pdp-step act"><span class="dt"></span><span><span class="nm">Education</span><br><span class="ct">3 Entries</span></span></div>
+                  <div class="pdp-step"><span class="dt"></span><span><span class="nm">Experience</span><br><span class="ct">1 Entry</span></span></div>
+                  <div class="pdp-step"><span class="dt"></span><span><span class="nm">Certifications</span><br><span class="ct">2 Entries</span></span></div>
+                  <div class="pdp-step"><span class="dt"></span><span><span class="nm">Projects</span><br><span class="ct">2 Entries</span></span></div>
+                  <div class="pdp-step"><span class="dt"></span><span><span class="nm">Skills</span><br><span class="ct">5 Entries</span></span></div>
+                  <div class="pdp-step"><span class="dt"></span><span><span class="nm">Achievements</span><br><span class="ct">1 Entry</span></span></div>
+                </div>
+                <div class="pd-card pdp-main" data-li style="--li:4;">
+                  <div class="pdp-main-head">
+                    <div class="pdp-main-t">Education</div>
+                    <span class="pdp-add">+ Add</span>
+                  </div>
+                  <div class="pdp-entry" data-li style="--li:5;">
+                    <div class="ic"><svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+                    <div>
+                      <div class="tt">Harvard University</div>
+                      <div class="ss">Postgraduate diploma in Business management</div>
+                      <div class="dd">Apr 2026 &ndash; Jul 2028</div>
+                    </div>
+                  </div>
+                  <div class="pdp-entry" data-li style="--li:6;">
+                    <div class="ic"><svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+                    <div>
+                      <div class="tt">Al Noor Institute of Technology &amp; Management</div>
+                      <div class="ss">M.Sc. in Business Analytics &middot; Predictive modeling</div>
+                      <div class="dd">Apr 2024 &ndash; Mar 2026</div>
+                    </div>
+                  </div>
+                  <div class="pdp-entry" data-li style="--li:7;">
+                    <div class="ic"><svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+                    <div>
+                      <div class="tt">St. Xavier's College of Commerce</div>
+                      <div class="ss">Bachelor of Commerce (Honours) &middot; Accounting</div>
+                      <div class="dd">Jun 2020 &ndash; Jul 2026</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <!-- SCREEN: RESUME -->
             <div class="pd-screen" data-name="a polished resume generated from the master profile">
               <div class="pd-nav" data-li style="--li:0;">
                   <span class="pd-nav-logo"><i></i><b>entomo</b></span>
+                  <span class="pd-nav-item">Profile</span>
                   <span class="pd-nav-item act">Resume</span>
                   <span class="pd-nav-item" data-ct>Mock Interview</span>
-                  <span class="pd-nav-item">Interview IQ</span>
                   <span class="pd-nav-ava">JP</span>
                 </div>
               <div class="pdr-top" data-li style="--li:1;">
@@ -2548,9 +2575,9 @@
             <div class="pd-screen" data-name="a mock interview with voice, video, and AI feedback">
               <div class="pd-nav" data-li style="--li:0;">
                   <span class="pd-nav-logo"><i></i><b>entomo</b></span>
+                  <span class="pd-nav-item">Profile</span>
                   <span class="pd-nav-item">Resume</span>
                   <span class="pd-nav-item act">Mock Interview</span>
-                  <span class="pd-nav-item" data-ct>Interview IQ</span>
                   <span class="pd-nav-ava">JP</span>
                 </div>
               <div class="pdm-top" data-li style="--li:1;">
@@ -2574,34 +2601,7 @@
                   <div class="pdm-speech">
                     <span class="w" style="--wi:0;">I’d&nbsp;</span><span class="w" style="--wi:1;">start&nbsp;</span><span class="w" style="--wi:2;">by&nbsp;</span><span class="w" style="--wi:3;">validating&nbsp;</span><span class="w" style="--wi:4;">the&nbsp;</span><span class="w" style="--wi:5;">data&nbsp;</span><span class="w" style="--wi:6;">pipeline&nbsp;</span><span class="w" style="--wi:7;">end&nbsp;</span><span class="w" style="--wi:8;">to&nbsp;</span><span class="w" style="--wi:9;">end,&nbsp;</span><span class="w" style="--wi:10;">then&nbsp;</span><span class="w" style="--wi:11;">break&nbsp;</span><span class="w" style="--wi:12;">the&nbsp;</span><span class="w" style="--wi:13;">decline&nbsp;</span><span class="w" style="--wi:14;">into&nbsp;</span><span class="w" style="--wi:15;">drivers&nbsp;</span><span class="w" style="--wi:16;">by&nbsp;</span><span class="w" style="--wi:17;">segment&hellip;</span>
                   </div>
-                  <div class="pdm-foot"><span class="pd-btn-y">Save &amp; Continue</span></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- SCREEN: INTERVIEW IQ -->
-            <div class="pd-screen" data-name="interview IQ reveals the model answer behind every question" data-iq>
-              <div class="pd-nav" data-li style="--li:0;">
-                  <span class="pd-nav-logo"><i></i><b>entomo</b></span>
-                  <span class="pd-nav-item">Resume</span>
-                  <span class="pd-nav-item">Mock Interview</span>
-                  <span class="pd-nav-item act">Interview IQ</span>
-                  <span class="pd-nav-ava">JP</span>
-                </div>
-              <div class="pdq-wrap">
-                <div class="pd-card pdq-card" data-li style="--li:1;">
-                  <div class="pdq-top">
-                    <span class="pdq-n">QUESTION 1 OF 20</span>
-                    <span class="pdq-tag">Technical</span>
-                  </div>
-                  <div class="pdq-q" data-li style="--li:2;">Walk me through how you would evaluate whether a reported month-over-month sales decline is a true business issue or a data issue.</div>
-                  <div class="pdq-btnrow" data-li style="--li:3;"><span class="pdq-show" data-ct>Show Answer</span></div>
-                  <div class="pdq-ans">
-                    <div class="pdq-ans-in">
-                      <div class="al">Answer</div>
-                      <div class="at">I’d confirm the business context, validate the data pipeline end to end &mdash; source totals vs warehouse, missing records, definition changes &mdash; then break the decline into drivers by product, region, and channel to see whether it’s a real business shift&hellip;</div>
-                    </div>
-                  </div>
+                  <div class="pdm-foot"><span class="pd-btn-y" data-ct>Save &amp; Continue</span></div>
                 </div>
               </div>
             </div>
@@ -2610,7 +2610,7 @@
             <div class="pd-click"></div>
           </div>
           <div class="pdemo-cap">
-            <div class="pdemo-cap-label">a polished resume generated from the master profile</div>
+            <div class="pdemo-cap-label">a verified skills profile — every skill mapped and scored</div>
             <div class="pdemo-cap-dots"><span class="on"></span><span></span><span></span></div>
           </div>
         </div>
