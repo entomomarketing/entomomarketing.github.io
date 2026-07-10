@@ -950,6 +950,68 @@
     .case-arrow:hover { background: var(--ebony-clay); border-color: var(--ebony-clay); }
     .case-arrow svg { width: 18px; height: 18px; stroke: var(--ebony-clay); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
     .case-arrow:hover svg { stroke: var(--white); }
+
+    /* ===== AWARD SPOTLIGHT ===== */
+    .award-section {
+      background: linear-gradient(135deg, #fdf6e9 0%, #fbeede 55%, #fdf6e9 100%);
+      position: relative; overflow: hidden;
+    }
+    .award-section::before {
+      content: ''; position: absolute; top: -40%; right: -8%;
+      width: 460px; height: 460px;
+      background: radial-gradient(circle, rgba(244,178,35,0.18) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .award-inner {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 3.5rem; align-items: center;
+      max-width: 1000px; margin: 0 auto;
+    }
+    @media (max-width: 860px) { .award-inner { grid-template-columns: 1fr; text-align: center; gap: 2.5rem; } }
+    .award-medallion {
+      position: relative; width: 100%; max-width: 260px; margin: 0 auto; aspect-ratio: 1;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .award-seal {
+      width: 74%; aspect-ratio: 1; border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #ffe9a8, #f4b223 55%, #d68a12 100%);
+      box-shadow: 0 18px 44px rgba(214,138,18,0.4), inset 0 0 0 6px rgba(255,255,255,0.35), inset 0 0 0 8px rgba(214,138,18,0.35);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: #5a3d06; position: relative; z-index: 2;
+    }
+    .award-seal svg { width: 38%; height: 38%; stroke: #5a3d06; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 3px; }
+    .award-seal .yr { font-size: 20px; font-weight: 800; letter-spacing: 1px; line-height: 1; }
+    .award-seal .wn { font-size: 9px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-top: 3px; }
+    .award-laurel { position: absolute; top: 50%; transform: translateY(-50%); width: 20%; z-index: 1; }
+    .award-laurel svg { width: 100%; height: auto; fill: #e0a520; stroke: none; }
+    .award-laurel.l { left: 3%; }
+    .award-laurel.r { right: 3%; transform: translateY(-50%) scaleX(-1); }
+    .award-ribbon {
+      position: absolute; bottom: 4%; left: 50%; transform: translateX(-50%);
+      background: linear-gradient(90deg, #e43d30, #f4b223); color: #fff;
+      font-size: 10px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase;
+      padding: 5px 16px; border-radius: 20px; white-space: nowrap; z-index: 3;
+      box-shadow: 0 6px 16px rgba(228,61,48,0.35);
+    }
+    .award-text .section-eyebrow { color: #c8901a; }
+    .award-text .section-heading { margin-bottom: 1.1rem; }
+    .award-text > p {
+      font-size: 16px; line-height: 1.68; color: rgba(26,31,38,0.66); margin-bottom: 1.5rem;
+      max-width: 560px;
+    }
+    @media (max-width: 860px) { .award-text > p { margin-left: auto; margin-right: auto; } }
+    .award-text > p strong { color: var(--ebony-clay); font-weight: 700; }
+    .award-meta { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+    @media (max-width: 860px) { .award-meta { justify-content: center; } }
+    .award-meta-badge {
+      display: inline-flex; flex-direction: column;
+      background: var(--white); border: 1px solid rgba(214,138,18,0.28);
+      border-radius: var(--radius-medium); padding: 12px 18px;
+      box-shadow: 0 4px 14px rgba(214,138,18,0.12);
+    }
+    .award-meta-badge .t { font-size: 13.5px; font-weight: 800; color: var(--ebony-clay); text-transform: lowercase; }
+    .award-meta-badge .s { font-size: 12px; color: rgba(26,31,38,0.55); text-transform: lowercase; margin-top: 2px; }
+    .award-meta-logo { height: 38px; width: auto; opacity: 0.92; }
     /* ===================== END PRODUCT DEMO ENGINE ===================== */
 
     .delivery-strip {
@@ -1801,10 +1863,10 @@
           <div class="section-eyebrow">for governments &amp; national agencies</div>
           <h2 class="section-heading">the workforce infrastructure a <mark>nation</mark> can run on</h2>
           <p>
-            Many countries are moving toward skills-based employment models, where citizens, employers, and education providers all speak a common skills language. entomo is the digital infrastructure that makes it real &mdash; national skills frameworks, workforce analytics, employability pathways, and employer engagement at scale.
+            Every nation's workforce runs on skills &mdash; but the frameworks that define them freeze the day they're published. entomo builds a living skills framework for your economy, specific to each domain and each country, then turns it into the infrastructure a nation runs on: assessments, credentials, jobs, and workforce intelligence, all speaking one language.
           </p>
           <p>
-            This isn't a departmental tool. It's nation-building infrastructure, already delivered with ministries and national institutions across Asia and the Gulf.
+            It isn't a learning platform, a job board, or an assessment tool &mdash; the point solutions that each answer one slice. It's the connective layer that brings them together, already delivered with ministries and national institutions across Asia and the Gulf.
           </p>
         </div>
         <div class="split-img">
@@ -1827,7 +1889,7 @@
             <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
           </div>
           <h3>the skills mismatch costs billions</h3>
-          <p>Industry transforms faster than education systems can respond. The widening gap between the skills available and the skills employers demand drains economies every single year.</p>
+          <p>Millions are educated yet unqualified for the jobs sitting open. By 2030, 40% of the core skills each role needs will have changed &mdash; and education systems can't move fast enough to keep up.</p>
         </div>
         <div class="story-card">
           <div class="story-card-icon">
@@ -1869,14 +1931,14 @@
         <div class="section-eyebrow">how we do it</div>
         <h2 class="section-heading">everything a national skills ecosystem needs, working as one <mark>system</mark></h2>
         <p class="section-subheading">
-          Skills frameworks feed assessments, assessments feed credentials, credentials feed jobs &mdash; and government, employers, universities, training providers, and citizens all work from the same live picture of skills.
+          A learning platform, a job board, an assessment engine &mdash; each solves one layer. entomo connects all seven on a single contextual skills framework, so government, employers, universities, training providers, and citizens finally work from one live picture of skills.
         </p>
       </div>
       <div class="pillar-grid">
         <div class="pillar-card k1">
           <div class="layer-num">pillar 01</div>
-          <h3>skills frameworks</h3>
-          <p>National occupational standards, digitized and alive &mdash; localized to your economy, bilingual, refreshed from live market data instead of ageing as <span class="keep-case">PDF</span>s.</p>
+          <h3>contextual skills framework</h3>
+          <p>The brain of the platform &mdash; occupational standards built for each domain and each country, not a one-size template. Where standard frameworks freeze the day they publish, this one reads live demand and refreshes continuously.</p>
         </div>
         <div class="pillar-card k2">
           <div class="layer-num">pillar 02</div>
@@ -2068,14 +2130,14 @@
         <div class="section-eyebrow">the path to national scale</div>
         <h2 class="section-heading">skill transformation that compounds, from the first sector to the whole <mark>nation</mark></h2>
         <p class="section-subheading">
-          Every engagement follows the same proven arc: launch where the workforce agenda is most urgent, measure employment outcomes from day one, and extend the same skills language across the economy.
+          Every engagement follows the same proven arc: launch where the workforce agenda is most urgent &mdash; live in weeks, not years &mdash; measure employment outcomes from day one, then extend the same skills language across the economy.
         </p>
       </div>
       <div class="journey-grid">
         <div class="journey-card">
           <div class="journey-num">01</div>
           <h3>launch in a priority sector</h3>
-          <p>Deployment begins where the workforce agenda is most urgent &mdash; with skills frameworks, assessments, and pathways live from the start.</p>
+          <p>Deployment begins where the workforce agenda is most urgent &mdash; a contextual framework, assessments, and pathways live in weeks, not the months a national build usually takes.</p>
           <div class="sector-chips">
             <span>cybersecurity</span><span>healthcare</span><span>digital economy</span><span>manufacturing</span><span>tourism</span>
           </div>
@@ -2100,6 +2162,7 @@
           <span class="delivery-chip"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>open <span class="keep-case">API</span>s to national registries &amp; systems</span>
           <span class="delivery-chip"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>mobile-first, low-bandwidth inclusive</span>
           <span class="delivery-chip"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>knowledge transfer to full national custody</span>
+          <span class="delivery-chip"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>live in weeks, not years</span>
         </div>
       </div>
     </div>
@@ -2113,7 +2176,7 @@
     <div class="container">
       <div class="cases-head">
         <div class="section-eyebrow">proven at national scale</div>
-        <h2 class="section-heading">three nations are already building on <mark>entomo</mark></h2>
+        <h2 class="section-heading">leading governments are already building on <mark>entomo</mark></h2>
         <p class="section-subheading">
           Singapore mobilized its workforce, the Philippines is upskilling for the digital economy, and Oman is architecting the skills framework of Vision 2040 &mdash; different agendas, running on the same infrastructure.
         </p>
@@ -2297,6 +2360,38 @@
     </div>
   </section>
 
+  <!-- ===== AWARD SPOTLIGHT ===== -->
+  <section class="award-section">
+    <div class="container">
+      <div class="award-inner">
+        <div class="award-medallion">
+          <span class="award-laurel l"><svg viewBox="0 0 40 120"><path d="M34 6c-10 6-18 16-20 28-1 8 1 16 6 22 2-9 6-17 12-24 1 8-1 16-5 23 6-4 11-11 13-19 1 9-2 18-8 25 7-3 13-9 16-17 0 10-4 19-12 26 8-1 16-6 20-14-1 12-9 22-21 26 3 2 7 3 11 3-6 4-14 5-21 3z"/></svg></span>
+          <div class="award-seal">
+            <svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+            <span class="yr">2022</span>
+            <span class="wn">winner</span>
+          </div>
+          <span class="award-laurel r"><svg viewBox="0 0 40 120"><path d="M34 6c-10 6-18 16-20 28-1 8 1 16 6 22 2-9 6-17 12-24 1 8-1 16-5 23 6-4 11-11 13-19 1 9-2 18-8 25 7-3 13-9 16-17 0 10-4 19-12 26 8-1 16-6 20-14-1 12-9 22-21 26 3 2 7 3 11 3-6 4-14 5-21 3z"/></svg></span>
+          <span class="award-ribbon">SBR technology excellence</span>
+        </div>
+        <div class="award-text">
+          <div class="section-eyebrow">recognition</div>
+          <h2 class="section-heading">recognized for transforming an entire nation's <mark>workforce</mark></h2>
+          <p>
+            entomo's work with <strong><span class="keep-case">NTUC</span> LearningHub</strong> &mdash; the training arm of Singapore's national labour movement &mdash; won the <strong>Singapore Business Review Technology Excellence Award 2022</strong> for <span class="keep-case">AI</span> in human resource technology. The Career Agility Hub gave every Singaporean one place to see their skills, close their gaps, and move toward the roles the economy needs next.
+          </p>
+          <div class="award-meta">
+            <div class="award-meta-badge">
+              <span class="t">technology excellence awards 2022</span>
+              <span class="s">singapore business review &middot; <span class="keep-case">AI</span> &ndash; <span class="keep-case">HR</span> technology</span>
+            </div>
+            <img class="award-meta-logo" src="assets/ntt/ntuc-learning-hub.png" alt="NTUC LearningHub">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== PROOF ===== -->
   <section class="proof-section" id="proof">
     <div class="container">
@@ -2344,10 +2439,10 @@
           <div class="section-eyebrow" style="color:var(--spanish-blue);">for universities</div>
           <h2 class="section-heading">from career counselling to career <mark>intelligence</mark></h2>
           <p>
-            Employers hire on demonstrated skills and readiness &mdash; not credentials alone. entomo connects skills profiling, market demand insight, personalised development pathways, and employer engagement into one integrated ecosystem, built on the infrastructure you already own.
+            Employers now hire on proven skills, not credentials alone &mdash; yet most students only chase the careers they can already see in their own families and networks. entomo shows them the roles the market is actually creating, maps the skills each one needs, and closes the gap with credentials employers trust.
           </p>
           <p>
-            It amplifies the infrastructure you already own &mdash; it doesn't replace it.
+            It isn't a learning platform or a careers tool bolted on. It's the intelligence layer that sits on top of everything you already own, turning it into one engine for skills and employability.
           </p>
         </div>
         <div class="split-img">
@@ -2371,7 +2466,7 @@
         <div class="story-card">
           <div class="story-card-icon u1"><svg viewBox="0 0 24 24"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></div>
           <h3>placement rates are public and unforgiving</h3>
-          <p>Graduate employment metrics are tied to reputation, rankings, and funding. When they slip, everything slips with them.</p>
+          <p>Graduate employment metrics are tied to reputation, rankings, funding &mdash; and, increasingly, to accreditation and licence renewal. When they slip, everything slips with them.</p>
         </div>
         <div class="story-card">
           <div class="story-card-icon u2"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
@@ -2394,7 +2489,7 @@
         <div class="section-eyebrow" style="color:var(--spanish-blue);">the skill transformation suite</div>
         <h2 class="section-heading">entomo carries every student from the skills they have to the skills that <mark>employ them</mark></h2>
         <p class="section-subheading">
-          entomo maps what each student can do, plans the path to what the market wants, builds and verifies the missing skills, and connects them to employment. The systems you already own keep their place &mdash; inside a journey that now leads somewhere.
+          entomo maps each student's skills, plans the path to what the market wants, and proves what they've built &mdash; then connects it to real jobs. A learning platform, a job board, an assessment tool each answer one slice; this is the engine that joins them, and it leaves the systems you own exactly where they are.
         </p>
       </div>
       <div class="lms-grid">
@@ -2889,6 +2984,7 @@
       '.case-text > p', '.case-caps', '.case-eyebrow',
       '.proof-card',
       '.pdemo-wrap',
+      '.award-medallion', '.award-text > p', '.award-meta',
     ];
 
     // Grid-like containers whose children should stagger in
