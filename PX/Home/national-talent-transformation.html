@@ -1012,6 +1012,38 @@
     .award-meta-badge .t { font-size: 13.5px; font-weight: 800; color: var(--ebony-clay); text-transform: lowercase; }
     .award-meta-badge .s { font-size: 12px; color: rgba(26,31,38,0.55); text-transform: lowercase; margin-top: 2px; }
     .award-meta-logo { height: 38px; width: auto; opacity: 0.92; }
+
+    /* ===== AWARD CEREMONY MOMENT ===== */
+    .ceremony-section {
+      background: var(--ebony-clay);
+      position: relative; overflow: hidden;
+      padding: 4rem 0;
+    }
+    .ceremony-section::before {
+      content: ''; position: absolute; top: -35%; left: -8%;
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(244,178,35,0.16) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .ceremony-section::after {
+      content: ''; position: absolute; bottom: -40%; right: -8%;
+      width: 460px; height: 460px;
+      background: radial-gradient(circle, rgba(228,61,48,0.14) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .ceremony-inner { position: relative; z-index: 1; max-width: 960px; margin: 0 auto; text-align: center; }
+    .ceremony-inner .section-eyebrow { color: var(--cg-gold); }
+    .ceremony-figure {
+      margin: 0.5rem 0 0; border-radius: var(--radius-large);
+      overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .ceremony-figure img { width: 100%; height: auto; display: block; }
+    .ceremony-cap {
+      margin-top: 1.25rem; font-size: 14px; line-height: 1.6;
+      color: rgba(255,255,255,0.6); max-width: 680px; margin-left: auto; margin-right: auto;
+    }
+    .ceremony-cap strong { color: rgba(255,255,255,0.9); font-weight: 700; }
     /* ===================== END PRODUCT DEMO ENGINE ===================== */
 
     .delivery-strip {
@@ -2392,6 +2424,21 @@
     </div>
   </section>
 
+  <!-- ===== AWARD CEREMONY MOMENT ===== -->
+  <section class="ceremony-section">
+    <div class="container">
+      <div class="ceremony-inner">
+        <div class="section-eyebrow">the moment</div>
+        <figure class="ceremony-figure">
+          <img src="assets/ntt/sbr-ceremony.jpg" alt="The entomo team accepting the Technology Excellence Award at the Singapore Business Review Awards 2022 in Singapore">
+        </figure>
+        <p class="ceremony-cap">
+          The entomo team collecting the <strong>Technology Excellence Award</strong> for the Career Agility Hub &mdash; Singapore Business Review Awards 2022, Singapore.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== PROOF ===== -->
   <section class="proof-section" id="proof">
     <div class="container">
@@ -2985,6 +3032,7 @@
       '.proof-card',
       '.pdemo-wrap',
       '.award-medallion', '.award-text > p', '.award-meta',
+      '.ceremony-figure', '.ceremony-cap',
     ];
 
     // Grid-like containers whose children should stagger in
