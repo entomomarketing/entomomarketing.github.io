@@ -1,0 +1,2598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>From Skills to Employability | entomo</title>
+  <meta name="description" content="From skills to employability at national scale. TMRW by entomo is the digital infrastructure that operationalises national skills frameworks — connecting skills, learning, credentials, jobs, and mobility into one workforce ecosystem that delivers measurable employment outcomes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Nunito Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #1a1f26;
+      background-color: #ffffff;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --cg-red: #e43d30;
+      --cg-gold: #f4b223;
+      --spanish-blue: #0064bf;
+      --sea-green: #2c9942;
+      --sunrise-yellow: #ffda00;
+      --white: #ffffff;
+      --black: #000000;
+      --ebony-clay: #1a1f26;
+      --black-haze: #fafbfb;
+      --silver-sand: #c0c2c3;
+      --floral-white: #fefbf4;
+      --lavender: #e6f0f9;
+      --pistachio: #eaf5ed;
+      --polar-white: #f2f7fc;
+      --gradient-cta: linear-gradient(90deg, #f4b223, #e43d30);
+      --radius-semi: 5px;
+      --radius-standard: 10px;
+      --radius-medium: 15px;
+      --radius-large: 25px;
+      --shadow-sm: 0px 5px 10px rgba(0,0,0,0.10);
+      --shadow-md: 0px 15px 25px rgba(0,0,0,0.10);
+      --max-width: 1280px;
+    }
+
+    /* ===== UTILITY ===== */
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+    .text-center { text-align: center; }
+    .keep-case { text-transform: none !important; }
+    mark {
+      background-color: var(--sunrise-yellow);
+      background-image: none;
+      color: var(--black);
+      border-radius: 12px;
+      padding: 0.05em 0.35em;
+      line-height: 1;
+      font-weight: 700;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn-primary {
+      background-image: var(--gradient-cta); color: var(--white); border: none;
+      border-radius: var(--radius-semi); padding: 12px 36px; font-family: inherit;
+      font-size: 17px; font-weight: 600; text-transform: lowercase; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
+
+    /* ===== SECTION SPACING ===== */
+    section { padding: 4.5rem 0; }
+    @media (max-width: 768px) { section { padding: 3rem 0; } }
+
+    .section-eyebrow {
+      font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: lowercase; color: var(--cg-red); margin-bottom: 0.75rem;
+    }
+    .section-heading {
+      font-size: 36px; font-weight: 700; line-height: 1.2;
+      text-transform: lowercase; color: var(--ebony-clay); margin-bottom: 1rem;
+    }
+    .section-subheading {
+      font-size: 17px; color: rgba(26,31,38,0.6); max-width: 680px; line-height: 1.65;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .navbar {
+      position: sticky; top: 0; z-index: 100; background: var(--white);
+      border-bottom: 1px solid rgba(26,31,38,0.08); backdrop-filter: blur(12px);
+    }
+    .navbar .container {
+      display: flex; align-items: center; justify-content: space-between; height: 68px;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 700; text-transform: lowercase; }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-size: 16px; font-weight: 500; text-transform: lowercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--cg-red); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+    .nav-cta {
+      background-image: var(--gradient-cta); color: var(--white); border: none;
+      border-radius: var(--radius-semi); padding: 8px 20px; font-family: inherit;
+      font-size: 14px; font-weight: 600; text-transform: lowercase; cursor: pointer;
+    }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-toggle svg { width: 24px; height: 24px; }
+    /* ===== MEGA DROPDOWN ===== */
+    .nav-dropdown-wrap { position: relative; }
+    .nav-dropdown-wrap > a { display: flex; align-items: center; gap: 4px; }
+    .nav-dropdown-wrap > a::after {
+      content: '';
+      border: solid currentColor; border-width: 0 1.5px 1.5px 0;
+      display: inline-block; padding: 2.5px;
+      transform: rotate(45deg); margin-top: -3px;
+      transition: transform 0.2s;
+    }
+    .nav-dropdown-wrap:hover > a::after { transform: rotate(-135deg); margin-top: 2px; }
+    .nav-mega {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.08);
+      border-radius: var(--radius-medium);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12), 0 0 0 1px rgba(26,31,38,0.04);
+      padding: 1.25rem;
+      width: 680px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+      transform: translateX(-50%) translateY(14px);
+      z-index: 200;
+    }
+    .nav-dropdown-wrap:hover .nav-mega {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(8px);
+    }
+    .nav-mega-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+    .nav-mega-item {
+      display: flex; flex-direction: row; align-items: flex-start; gap: 12px;
+      padding: 12px 14px; border-radius: var(--radius-standard);
+      transition: background 0.15s; text-decoration: none; color: inherit;
+    }
+    .nav-mega-icon {
+      width: 40px; height: 40px; border-radius: 9px; flex-shrink: 0;
+      background: rgba(26,31,38,0.05);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+    }
+    .nav-mega-icon svg {
+      width: 18px; height: 18px; stroke: rgba(26,31,38,0.45); fill: none;
+      transition: stroke 0.15s;
+    }
+    .nav-mega-text { display: flex; flex-direction: column; gap: 2px; }
+    .nav-mega-item:hover { background: rgba(228,61,48,0.04); }
+    .nav-mega-item:hover .nav-mega-icon { background: rgba(228,61,48,0.08); }
+    .nav-mega-item:hover .nav-mega-icon svg { stroke: var(--cg-red); }
+    .nav-mega-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      margin-bottom: 3px;
+      line-height: 1.3;
+    }
+    .nav-mega-desc {
+      font-size: 12px;
+      color: rgba(26,31,38,0.45);
+      line-height: 1.4;
+      font-weight: 500;
+    }
+    .nav-mega-item:hover .nav-mega-name { color: var(--cg-red); }
+    .nav-right-group { display: flex; flex-direction: row; align-items: center; gap: 1.5rem; flex-wrap: nowrap; }
+    @media (max-width: 900px) { .nav-mega { display: none; } }
+    @media (max-width: 900px) { .nav-links { display: none; } .nav-toggle { display: block; } }
+
+    /* ===== PLACEHOLDER TOOLTIPS ===== */
+    .nav-placeholder-tooltip { position: relative; }
+    .nav-placeholder-tooltip::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(26,31,38,0.88);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 500;
+      white-space: nowrap;
+      padding: 5px 10px;
+      border-radius: 5px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      z-index: 999;
+    }
+    .nav-placeholder-tooltip::before {
+      content: '';
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 50%;
+      transform: translateX(-50%);
+      border: 4px solid transparent;
+      border-bottom-color: rgba(26,31,38,0.88);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      z-index: 999;
+    }
+    .nav-placeholder-tooltip:hover::after,
+    .nav-placeholder-tooltip:hover::before { opacity: 1; }
+
+    /* ===== HERO ===== */
+    .sol-hero {
+      background: linear-gradient(135deg, rgba(228,61,48,0.04) 0%, rgba(244,178,35,0.06) 40%, rgba(254,251,244,0.6) 100%);
+      padding: 5rem 0 4.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .sol-hero::before {
+      content: '';
+      position: absolute; top: -30%; right: -5%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(228,61,48,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .sol-hero::after {
+      content: '';
+      position: absolute; bottom: -45%; left: -8%;
+      width: 560px; height: 560px;
+      background: radial-gradient(circle, rgba(0,100,191,0.06) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .sol-hero .container { position: relative; z-index: 1; }
+    .sol-hero-content { max-width: 880px; margin: 0 auto; text-align: center; }
+    .sol-breadcrumb {
+      font-size: 13px; color: rgba(26,31,38,0.5); margin-bottom: 1.5rem;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .sol-breadcrumb a { color: var(--cg-red); font-weight: 600; }
+    .sol-breadcrumb a:hover { text-decoration: underline; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.1);
+      border-radius: 30px;
+      padding: 7px 16px;
+      font-size: 13px; font-weight: 600; text-transform: lowercase;
+      color: rgba(26,31,38,0.7);
+      margin-bottom: 1.75rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .hero-badge .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--sea-green);
+      animation: badge-pulse 2s infinite;
+    }
+    @keyframes badge-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(44,153,66,0.35); }
+      50% { box-shadow: 0 0 0 6px rgba(44,153,66,0); }
+    }
+    .sol-hero h1 {
+      font-size: clamp(36px, 5vw, 68px); font-weight: 700; line-height: 1.12;
+      text-transform: lowercase; color: var(--ebony-clay); margin-bottom: 1.25rem;
+    }
+    .sol-hero-sub {
+      font-size: 18px; line-height: 1.65; color: rgba(26,31,38,0.65);
+      max-width: 680px; margin: 0 auto 2rem;
+    }
+    .sol-hero-proof {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; color: rgba(26,31,38,0.5); margin-top: 1.5rem;
+    }
+    .sol-hero-proof svg { width: 14px; height: 14px; stroke: var(--sea-green); flex-shrink: 0; }
+
+    /* ===== LOGO MARQUEE ===== */
+    .trust-section { padding: 3.25rem 0 3rem; background: var(--white); }
+    .trust-heading {
+      text-align: center;
+      font-size: 15px; font-weight: 700; letter-spacing: 1px;
+      text-transform: lowercase; color: rgba(26,31,38,0.45);
+      margin-bottom: 2rem;
+    }
+    .marquee-wrapper {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+    .marquee-wrapper::before,
+    .marquee-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .marquee-wrapper::before { left: 0;  background: linear-gradient(to right,  #ffffff, transparent); }
+    .marquee-wrapper::after  { right: 0; background: linear-gradient(to left, #ffffff, transparent); }
+    .marquee-track {
+      display: flex;
+      gap: 3.5rem;
+      width: max-content;
+      animation: marquee 32s linear infinite;
+      align-items: center;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-logo {
+      height: 38px;
+      width: auto;
+      max-width: 130px;
+      object-fit: contain;
+      opacity: 0.6;
+      filter: grayscale(100%);
+      transition: opacity 0.3s, filter 0.3s;
+      flex-shrink: 0;
+    }
+    .marquee-logo:hover { opacity: 1; filter: grayscale(0%); }
+
+    /* ===== THE STORY ===== */
+    .story-section { background: var(--floral-white); }
+    .story-head { max-width: 760px; margin: 0 auto 3rem; text-align: center; }
+    .story-head .section-subheading { margin: 0 auto; }
+    .story-turn {
+      max-width: 720px; margin: 0 auto; text-align: center;
+      font-size: 24px; font-weight: 700; line-height: 1.4;
+      text-transform: lowercase; color: var(--ebony-clay);
+    }
+    .story-turn .keep-case { text-transform: none; }
+
+    /* ===== HOW WE DO IT ===== */
+    .how-section { background: var(--white); }
+    .how-head { max-width: 760px; margin: 0 auto 3rem; text-align: center; }
+    .how-head .section-subheading { margin: 0 auto; }
+    .layer-num {
+      font-size: 13px; font-weight: 800; letter-spacing: 1.5px;
+      color: rgba(26,31,38,0.35); margin-bottom: 0.9rem;
+    }
+
+    /* ===== HERO AUDIENCE BUTTONS ===== */
+    .hero-aud-btns { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; }
+    .btn-ghost {
+      background: var(--white); color: var(--ebony-clay);
+      border: 1.5px solid rgba(26,31,38,0.18); border-radius: var(--radius-semi);
+      padding: 12px 36px; font-family: inherit; font-size: 17px; font-weight: 600;
+      text-transform: lowercase; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--cg-red); color: var(--cg-red); transform: translateY(-1px); }
+
+    /* ===== AUDIENCE TAB BAR ===== */
+    .tabbar-wrap {
+      position: sticky; top: 68px; z-index: 90;
+      background: var(--ebony-clay);
+      padding: 1rem 0 1.15rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    }
+    .tabbar-title {
+      text-align: center; font-size: 11.5px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: lowercase; color: rgba(255,255,255,0.5); margin-bottom: 0.6rem;
+    }
+    .tabbar { display: flex; gap: 0.75rem; justify-content: center; }
+    .tabbar-btn {
+      font-family: inherit; cursor: pointer;
+      font-size: 15.5px; font-weight: 700; text-transform: lowercase;
+      padding: 11px 32px; border-radius: 30px;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      background: transparent; color: rgba(255,255,255,0.75);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .tabbar-btn:hover { border-color: var(--white); color: var(--white); }
+    .tabbar-btn.active { background-image: var(--gradient-cta); border-color: transparent; color: var(--white); }
+    @media (max-width: 480px) { .tabbar-btn { padding: 9px 20px; font-size: 14px; } }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ===== SPLIT INTRO ===== */
+    .split-section { background: var(--white); padding-bottom: 2.5rem; }
+    .split-inner { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 3.5rem; align-items: center; }
+    @media (max-width: 900px) { .split-inner { grid-template-columns: 1fr; } }
+    .split-text p {
+      font-size: 15.5px; line-height: 1.68; color: rgba(26,31,38,0.62);
+      margin-bottom: 1.1rem; max-width: 560px;
+    }
+    .split-img img {
+      width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+      border-radius: var(--radius-large); box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+    }
+
+    /* ===== SHIFT STRIP (old vs new metrics) ===== */
+    /* ===== SEVEN PILLARS ===== */
+    .pillar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+    @media (max-width: 1080px) { .pillar-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .pillar-grid { grid-template-columns: 1fr; } }
+    .pillar-card {
+      position: relative; background: var(--white);
+      border: 1px solid rgba(26,31,38,0.08); border-radius: var(--radius-medium);
+      padding: 1.6rem 1.4rem 1.5rem; overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .pillar-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .pillar-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+    .pillar-card.k1::before { background: linear-gradient(90deg, #e43d30, #f4b223); }
+    .pillar-card.k2::before { background: linear-gradient(90deg, #f4b223, #ffda00); }
+    .pillar-card.k3::before { background: linear-gradient(90deg, #0064bf, #00a1e0); }
+    .pillar-card.k4::before { background: linear-gradient(90deg, #2c9942, #6dc47f); }
+    .pillar-card.k5::before { background: linear-gradient(90deg, #e43d30, #f4b223); }
+    .pillar-card.k6::before { background: linear-gradient(90deg, #0064bf, #00a1e0); }
+    .pillar-card.k7::before { background: linear-gradient(90deg, #1a1f26, #5a6472); }
+    .pillar-card .layer-num { font-size: 11px; margin-bottom: 0.7rem; }
+    .pillar-card h3 {
+      font-size: 17.5px; font-weight: 700; line-height: 1.25;
+      text-transform: lowercase; color: var(--ebony-clay); margin-bottom: 0.5rem;
+    }
+    .pillar-card p { font-size: 13.5px; line-height: 1.6; color: rgba(26,31,38,0.6); }
+    .pillar-card.k8 {
+      border: none; background: transparent; box-shadow: none; padding: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pillar-card.k8::before { display: none; }
+    .pillar-card.k8:hover { transform: none; box-shadow: none; }
+
+    /* ===== MEASURES ===== */
+    .measure-section { background: var(--floral-white); }
+    .measure-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.75rem; }
+    @media (max-width: 768px) { .measure-grid { grid-template-columns: 1fr; } }
+    .measure-box { border-radius: var(--radius-large); padding: 2rem 1.9rem; }
+    .measure-old { background: var(--white); border: 1px solid rgba(26,31,38,0.08); }
+    .measure-new { background: linear-gradient(135deg, rgba(0,100,191,0.06), rgba(0,161,224,0.11)); border: 1px solid rgba(0,100,191,0.18); }
+    .measure-tag { font-size: 11px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; }
+    .measure-old .measure-tag { color: rgba(26,31,38,0.4); }
+    .measure-new .measure-tag { color: var(--spanish-blue); }
+    .measure-q { font-size: 21px; font-weight: 800; text-transform: lowercase; line-height: 1.3; color: var(--ebony-clay); margin: 0.6rem 0 0.7rem; }
+    .measure-box p { font-size: 14px; line-height: 1.6; color: rgba(26,31,38,0.6); }
+    .measure-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin-bottom: 2.75rem; }
+    .measure-chips span {
+      font-size: 13px; font-weight: 600; text-transform: lowercase;
+      padding: 7px 16px; border-radius: 20px;
+      background: rgba(0,100,191,0.07); color: rgba(0,100,191,0.9);
+    }
+
+    /* ===================== PRODUCT DEMO ENGINE ===================== */
+    .sol-hero-content-wide { max-width: 1380px; }
+    .sol-hero .container { max-width: 1420px; }
+    .sol-hero-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center;
+      text-align: left; max-width: none; margin: 0;
+    }
+    @media (max-width: 1024px) { .sol-hero-grid { grid-template-columns: 1fr; } }
+    .sol-hero-grid h1 { font-size: clamp(34px, 3.8vw, 54px); margin-bottom: 1.1rem; }
+    .sol-hero-grid .sol-hero-sub { margin: 0 0 1.9rem; font-size: 17px; max-width: 540px; }
+    .sol-hero-grid .hero-badge { font-size: 12.5px; padding: 7px 16px; margin-bottom: 1.5rem; }
+    .sol-hero-grid .hero-aud-btns { justify-content: flex-start; }
+    .sol-hero-grid .btn-primary, .sol-hero-grid .btn-ghost { font-size: 16px; padding: 12px 30px; }
+    .sol-hero-grid .sol-hero-proof { margin-top: 1.25rem; font-size: 13px; }
+    .hero-logo { margin-bottom: 1.7rem; }
+    .hero-logo img { height: 82px; width: auto; display: block; }
+    @media (max-width: 1024px) { .hero-logo img { height: 68px; } }
+    @media (max-width: 480px) { .hero-logo img { height: 56px; } }
+
+    .pdemo-wrap { position: relative; }
+    .pdemo-xl { max-width: 1080px; margin: 3rem auto 0; }
+    .pdemo {
+      background: #1a1f26; border-radius: 16px;
+      box-shadow: 0 28px 70px rgba(0,0,0,0.24);
+      overflow: hidden;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      text-transform: none;
+      container-type: inline-size;
+    }
+    .pdemo-bar {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 16px; background: #1a1f26;
+    }
+    .pdemo-dots { display: flex; gap: 5px; }
+    .pdemo-dots span { width: 10px; height: 10px; border-radius: 50%; }
+    .pdemo-dots span:nth-child(1) { background: #e43d30; }
+    .pdemo-dots span:nth-child(2) { background: #f4b223; }
+    .pdemo-dots span:nth-child(3) { background: #2c9942; }
+    .pdemo-url {
+      flex: 1; max-width: 360px; margin: 0 auto;
+      background: rgba(255,255,255,0.1); border-radius: 6px;
+      font-size: 11px; color: rgba(255,255,255,0.6);
+      padding: 4px 14px; text-align: center;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .pdemo-stage {
+      position: relative; width: 100%; aspect-ratio: 16 / 10;
+      background: #f4f4f6; overflow: hidden;
+    }
+    .pdemo-cap {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: 12px 18px; background: #1a1f26;
+    }
+    .pdemo-cap-label {
+      font-size: 13.5px; font-weight: 600; color: rgba(255,255,255,0.85);
+      font-family: "Nunito Sans", sans-serif; text-transform: lowercase;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      transition: opacity 0.3s;
+    }
+    .pdemo-cap-dots { display: flex; gap: 6px; flex-shrink: 0; }
+    .pdemo-cap-dots span {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: rgba(255,255,255,0.25); transition: background 0.3s, transform 0.3s;
+    }
+    .pdemo-cap-dots span.on { background: var(--cg-gold); transform: scale(1.25); }
+
+    /* in-app navigation bar (drives screen-to-screen clicks) */
+    .pd-nav {
+      display: flex; align-items: center; gap: 3.2%;
+      background: #fff; border-bottom: 1px solid rgba(23,24,28,0.07);
+      padding: 1.9% 3.4%; margin: -4.8% -4.8% 0; flex-shrink: 0;
+    }
+    .pd-nav-logo { display: flex; align-items: center; gap: 7px; margin-right: 2%; }
+    .pd-nav-logo i { width: clamp(11px, 1.5cqw, 17px); aspect-ratio: 1; border-radius: 4px; background: #F7D64A; display: block; }
+    .pd-nav-logo b { font-size: clamp(9px, 1.3cqw, 15px); font-weight: 800; color: #17181c; }
+    .pd-nav-item {
+      font-size: clamp(8.5px, 1.2cqw, 14px); font-weight: 600; color: #6c7079;
+      padding: clamp(3px, 0.6cqw, 7px) clamp(8px, 1.4cqw, 16px); border-radius: 20px;
+    }
+    .pd-nav-item.act { background: #FAE9A8; color: #17181c; font-weight: 700; }
+    .pd-nav-ava {
+      margin-left: auto; width: clamp(16px, 2.2cqw, 26px); aspect-ratio: 1; border-radius: 50%;
+      background: #e8eaef; display: flex; align-items: center; justify-content: center;
+      font-size: clamp(7px, 1cqw, 11px); font-weight: 800; color: #55585f;
+    }
+
+    /* screens */
+    .pd-screen {
+      position: absolute; inset: 0; padding: 4.8%;
+      opacity: 0; transform: translateX(26px); pointer-events: none;
+      transition: opacity 0.4s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex; flex-direction: column; gap: 3.2%;
+    }
+    .pd-screen.on { opacity: 1; transform: translateX(0); }
+    .pd-screen.out { opacity: 0; transform: translateX(-26px); }
+    .pd-screen [data-li] { opacity: 0; transform: translateY(10px); }
+    .pd-screen.on [data-li] {
+      animation: pd-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation-delay: calc(var(--li) * 0.11s + 0.05s);
+    }
+    @keyframes pd-in { to { opacity: 1; transform: translateY(0); } }
+
+    /* cursor */
+    .pd-cursor {
+      position: absolute; z-index: 40; width: 22px; height: 22px;
+      left: 0; top: 0; pointer-events: none; opacity: 0;
+      transition: transform 0.65s cubic-bezier(0.45, 0.05, 0.35, 1), opacity 0.3s;
+      filter: drop-shadow(0 2px 5px rgba(0,0,0,0.35));
+    }
+    .pd-cursor.show { opacity: 1; }
+    .pd-click {
+      position: absolute; z-index: 39; width: 34px; height: 34px;
+      border-radius: 50%; border: 2.5px solid var(--cg-red);
+      left: 0; top: 0; pointer-events: none; opacity: 0; transform: scale(0.3);
+    }
+    .pd-click.go { animation: pd-ripple 0.5s ease-out; }
+    @keyframes pd-ripple {
+      0% { opacity: 0.9; transform: scale(0.3); }
+      100% { opacity: 0; transform: scale(1.5); }
+    }
+    .pd-press { animation: pd-press 0.35s ease; }
+    @keyframes pd-press { 40% { transform: scale(0.95); } }
+
+    /* shared mini-ui atoms */
+    .pd-card { background: #fff; border-radius: 12px; border: 1px solid rgba(23,24,28,0.06); box-shadow: 0 1px 3px rgba(23,24,28,0.04); }
+    .pd-btn-y { background: #F7D64A; color: #17181c; border-radius: 8px; font-weight: 700; text-align: center; }
+    .pd-btn-k { background: #17181c; color: #fff; border-radius: 8px; font-weight: 600; text-align: center; }
+    .pd-chip {
+      display: inline-flex; align-items: center;
+      border: 1px solid rgba(23,24,28,0.13); border-radius: 20px;
+      background: #fff; color: #3a3d45; font-weight: 600; white-space: nowrap;
+    }
+    .pd-h { color: #17181c; font-weight: 700; }
+    .pd-mut { color: #7a7e88; }
+    .pd-row { display: flex; align-items: center; }
+
+    /* --- HOME --- */
+    .pdh-banner {
+      background: #F2C230; border-radius: 12px; padding: 4.5% 5%;
+      display: flex; justify-content: space-between; align-items: center; flex-shrink: 0;
+    }
+    .pdh-banner-title { font-size: clamp(14px, 2.6cqw, 27px); font-weight: 800; color: #17181c; margin-bottom: 0.6%; }
+    .pdh-banner-sub { font-size: clamp(8.5px, 1.35cqw, 14px); color: rgba(23,24,28,0.72); line-height: 1.5; max-width: 94%; }
+    .pdh-banner .pd-btn-k { margin-top: 2.4%; display: inline-block; font-size: clamp(8.5px, 1.3cqw, 13.5px); padding: clamp(4px, 0.8cqw, 9px) clamp(11px, 1.8cqw, 20px); }
+    .pdh-art { width: 15%; aspect-ratio: 1; background: rgba(255,255,255,0.4); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .pdh-art svg { width: 52%; height: 52%; stroke: #17181c; fill: none; stroke-width: 1.6; }
+    .pdh-grid { display: grid; grid-template-columns: 1.85fr 1fr; gap: 3%; flex: 1; min-height: 0; }
+    .pdh-courses { padding: 3.6% 4%; display: flex; flex-direction: column; min-height: 0; }
+    .pdh-sec-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 3%; }
+    .pdh-sec-title { font-size: clamp(11px, 1.8cqw, 19px); font-weight: 800; color: #17181c; }
+    .pdh-view { font-size: clamp(8px, 1.15cqw, 12px); color: #55585f; font-weight: 600; }
+    .pdh-course-row { display: grid; grid-template-columns: 1fr 1fr; gap: 4%; flex: 1; min-height: 0; }
+    .pdh-course { border: 1px solid rgba(23,24,28,0.07); border-radius: 11px; overflow: hidden; display: flex; flex-direction: column; }
+    .pdh-course-img { height: 32%; background: linear-gradient(120deg, #cdb8a0, #8f9d86); }
+    .pdh-course-img.i2 { background: linear-gradient(120deg, #9aa8b8, #5d6c80); }
+    .pdh-course-body { padding: 5.5% 7%; display: flex; flex-direction: column; gap: 3.5%; flex: 1; }
+    .pdh-course-t { font-size: clamp(9.5px, 1.45cqw, 15px); font-weight: 800; color: #17181c; }
+    .pdh-course-d { font-size: clamp(7.5px, 1.1cqw, 11.5px); color: #7a7e88; line-height: 1.45; }
+    .pdh-course .pd-btn-y { margin-top: auto; font-size: clamp(8px, 1.15cqw, 12.5px); padding: 4.5% 0; border-radius: 7px; }
+    .pdh-side { padding: 5% 6%; display: flex; flex-direction: column; min-height: 0; }
+    .pdh-side-title { font-size: clamp(10px, 1.5cqw, 16px); font-weight: 800; color: #17181c; margin-bottom: 5.5%; }
+    .pdh-skillchip { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 6.5%; }
+    .pdh-skillchip .ic { width: clamp(14px, 1.9cqw, 22px); aspect-ratio: 1; border-radius: 6px; background: #E9E6FB; display: flex; align-items: center; justify-content: center; font-size: clamp(6.5px, 0.85cqw, 10px); color: #5B4FE8; font-weight: 800; }
+    .pdh-skillchip .tx { font-size: clamp(7.5px, 1.1cqw, 11.5px); font-weight: 800; letter-spacing: 0.5px; color: #17181c; }
+    .pdh-bar-row { margin-bottom: 5.5%; }
+    .pdh-bar-lab { display: flex; justify-content: space-between; font-size: clamp(7.5px, 1.05cqw, 11.5px); color: #3a3d45; font-weight: 600; margin-bottom: 3px; }
+    .pdh-bar-lab b { color: #5B4FE8; }
+    .pdh-bar { height: clamp(4px, 0.6cqw, 7px); border-radius: 4px; background: #ececf1; overflow: hidden; }
+    .pdh-bar i { display: block; height: 100%; border-radius: 4px; background: #5B4FE8; transform-origin: left; transform: scaleX(0); }
+    .pd-screen.on .pdh-bar i { animation: pd-bar 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards; animation-delay: calc(var(--li) * 0.13s + 0.4s); }
+    @keyframes pd-bar { to { transform: scaleX(var(--w)); } }
+
+    /* --- PROFILE --- */
+    .pdp-crumb { font-size: clamp(8px, 1.15cqw, 12px); color: #7a7e88; flex-shrink: 0; }
+    .pdp-crumb b { color: #17181c; font-weight: 700; }
+    .pdp-grid { display: grid; grid-template-columns: 1fr 1.05fr 1.9fr; gap: 2.8%; flex: 1; min-height: 0; }
+    .pdp-left { display: flex; flex-direction: column; gap: 7%; min-height: 0; }
+    .pdp-id { padding: 8% 8%; text-align: center; }
+    .pdp-ava { width: 32%; aspect-ratio: 1; border-radius: 50%; background: #eef0f3; margin: 0 auto 7%; display: flex; align-items: center; justify-content: center; }
+    .pdp-ava svg { width: 52%; height: 52%; stroke: #9aa0ab; fill: none; stroke-width: 1.8; }
+    .pdp-name { font-size: clamp(10.5px, 1.6cqw, 17px); font-weight: 800; color: #17181c; }
+    .pdp-role { font-size: clamp(7.5px, 1.05cqw, 11px); color: #a0a4ad; margin-top: 3px; }
+    .pdp-strength { padding: 7% 8%; text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    .pdp-strength-t { font-size: clamp(8.5px, 1.3cqw, 13.5px); font-weight: 800; color: #17181c; margin-bottom: 7%; }
+    .pdp-ring { position: relative; width: 50%; margin: 0 auto; aspect-ratio: 1; }
+    .pdp-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+    .pdp-ring .bgc { fill: none; stroke: #ececf1; stroke-width: 3.4; }
+    .pdp-ring .fgc { fill: none; stroke: #3fae5a; stroke-width: 3.4; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; }
+    .pd-screen.on .pdp-ring .fgc { animation: pd-ring 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards; animation-delay: 0.55s; }
+    @keyframes pd-ring { to { stroke-dashoffset: 12; } }
+    .pdp-ring b { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: clamp(11px, 1.8cqw, 19px); color: #17181c; }
+    .pdp-steps { padding: 5% 0; display: flex; flex-direction: column; justify-content: space-around; min-height: 0; overflow: hidden; }
+    .pdp-step { display: flex; align-items: center; gap: 9px; padding: 3.2% 10%; border-left: 3px solid transparent; }
+    .pdp-step .dt { width: clamp(8px, 1.1cqw, 12px); aspect-ratio: 1; border-radius: 50%; border: 2px solid #c6cad2; flex-shrink: 0; }
+    .pdp-step .nm { font-size: clamp(8.5px, 1.2cqw, 13px); font-weight: 700; color: #3a3d45; }
+    .pdp-step .ct { font-size: clamp(7px, 1cqw, 10.5px); color: #a0a4ad; }
+    .pdp-step.act { border-left-color: #F2C230; background: #fffdf4; }
+    .pdp-step.act .dt { border-color: #F2C230; background: #F2C230; box-shadow: inset 0 0 0 2px #fff; }
+    .pdp-main { padding: 5% 5.5%; display: flex; flex-direction: column; min-height: 0; }
+    .pdp-main-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4.5%; }
+    .pdp-main-t { font-size: clamp(11px, 1.7cqw, 18px); font-weight: 800; color: #17181c; }
+    .pdp-add { font-size: clamp(8px, 1.15cqw, 12.5px); font-weight: 700; color: #17181c; border: 1px solid rgba(23,24,28,0.15); border-radius: 8px; padding: clamp(3px, 0.5cqw, 6px) clamp(9px, 1.3cqw, 14px); }
+    .pdp-entry { display: flex; gap: 3.8%; padding: 4% 0; border-bottom: 1px solid rgba(23,24,28,0.05); }
+    .pdp-entry .ic { width: 10.5%; aspect-ratio: 1; border-radius: 50%; background: #f5f6f8; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .pdp-entry .ic svg { width: 50%; height: 50%; stroke: #d9a514; fill: none; stroke-width: 1.7; }
+    .pdp-entry .tt { font-size: clamp(9.5px, 1.4cqw, 14.5px); font-weight: 800; color: #17181c; }
+    .pdp-entry .ss { font-size: clamp(8px, 1.1cqw, 12px); color: #55585f; margin-top: 2px; }
+    .pdp-entry .dd { font-size: clamp(7px, 1cqw, 10.5px); color: #a0a4ad; margin-top: 3px; }
+
+    /* --- PATHWAYS --- */
+    .pdw-grid { display: grid; grid-template-columns: 1.05fr 2fr 1.35fr; gap: 2.8%; flex: 1; min-height: 0; }
+    .pdw-rail { display: flex; flex-direction: column; justify-content: space-between; gap: 4%; min-height: 0; position: relative; }
+    .pdw-rail::before { content: ''; position: absolute; left: 50%; top: 6%; bottom: 6%; width: 2px; background: #dfe2e8; }
+    .pdw-node { position: relative; padding: 6% 8%; text-align: center; z-index: 1; }
+    .pdw-node .ph { font-size: clamp(6.5px, 0.92cqw, 9.5px); font-weight: 800; letter-spacing: 0.6px; color: #8b8f99; text-transform: uppercase; }
+    .pdw-node .nm { font-size: clamp(8.5px, 1.2cqw, 13px); font-weight: 800; color: #17181c; margin-top: 3px; line-height: 1.3; }
+    .pdw-node .num { width: clamp(14px, 1.8cqw, 20px); aspect-ratio: 1; margin: 0 auto 5px; border-radius: 6px; background: #F7D64A; color: #17181c; font-size: clamp(8px, 1cqw, 11px); font-weight: 800; display: flex; align-items: center; justify-content: center; }
+    .pdw-node.act { background: linear-gradient(135deg, #F7D64A, #f0c22e); border-color: transparent; box-shadow: 0 8px 20px rgba(240,194,46,0.45); }
+    .pdw-node.act .ph { color: rgba(23,24,28,0.6); }
+    .pdw-mid { display: flex; flex-direction: column; gap: 3.2%; min-height: 0; }
+    .pdw-head { padding: 4.5% 6%; display: flex; justify-content: space-between; align-items: center; }
+    .pdw-head .tt { font-size: clamp(12.5px, 1.9cqw, 21px); font-weight: 800; color: #17181c; }
+    .pdw-head .mt { text-align: right; }
+    .pdw-head .mt b { display: block; font-size: clamp(10.5px, 1.5cqw, 16px); color: #2fa14c; }
+    .pdw-head .mt i { font-style: normal; font-size: clamp(6.5px, 0.95cqw, 10px); color: #a0a4ad; }
+    .pdw-skills { padding: 4.5% 6%; flex: 1; min-height: 0; overflow: hidden; }
+    .pdw-skills .st { font-size: clamp(9.5px, 1.4cqw, 14.5px); font-weight: 800; color: #17181c; margin-bottom: 4.5%; }
+    .pdw-chips { display: flex; flex-wrap: wrap; gap: clamp(4px, 0.7cqw, 8px); }
+    .pdw-chips .pd-chip { font-size: clamp(7.5px, 1.02cqw, 11.5px); padding: clamp(3px, 0.45cqw, 6px) clamp(8px, 1.1cqw, 13px); }
+    .pdw-chips .pd-chip::after { content: '+'; margin-left: 5px; color: #8b8f99; }
+    .pdw-side { display: flex; flex-direction: column; gap: 3.2%; min-height: 0; }
+    .pdw-save { border: 1.5px solid #F0C22E; border-radius: 9px; text-align: center; font-size: clamp(8.5px, 1.2cqw, 13px); font-weight: 800; color: #17181c; padding: 4% 0; background: #fff; }
+    .pdw-market { padding: 5.5% 7%; flex: 1; min-height: 0; }
+    .pdw-market .mtt { font-size: clamp(9.5px, 1.4cqw, 14.5px); font-weight: 800; color: #17181c; margin-bottom: 5.5%; }
+    .pdw-market .lab { font-size: clamp(6.5px, 0.95cqw, 10px); font-weight: 800; letter-spacing: 0.7px; color: #8b8f99; text-transform: uppercase; margin-bottom: 3.5%; }
+    .pdw-sal { font-size: clamp(10.5px, 1.55cqw, 17px); font-weight: 800; color: #17181c; }
+    .pdw-sal b { color: #e8b71a; }
+    .pdw-slider { height: clamp(4px, 0.6cqw, 7px); border-radius: 4px; background: #F2C230; margin: 6.5% 0; position: relative; }
+    .pdw-slider::before, .pdw-slider::after { content: ''; position: absolute; top: 50%; transform: translateY(-50%); width: clamp(9px, 1.2cqw, 13px); aspect-ratio: 1; border-radius: 50%; background: #17181c; }
+    .pdw-slider::before { left: 0; } .pdw-slider::after { right: 0; }
+    .pdw-note { font-size: clamp(7.5px, 1.02cqw, 11.5px); color: #7a7e88; line-height: 1.55; }
+
+    /* demo section shells */
+    .demo-section { background: var(--white); }
+    .demo-head { max-width: 760px; margin: 0 auto; text-align: center; }
+    .demo-head .section-subheading { margin: 0 auto; }
+
+    /* ===== CASE CAROUSEL ===== */
+    .cases-section { background: var(--polar-white); }
+    .cases-head { max-width: 780px; margin: 0 auto 2.5rem; text-align: center; }
+    .cases-head .section-subheading { margin: 0 auto; }
+    .case-tabs { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .case-tab {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--white); border: 1.5px solid rgba(26,31,38,0.1);
+      border-radius: var(--radius-medium); padding: 10px 18px;
+      cursor: pointer; font-family: inherit; text-align: left;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .case-tab:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+    .case-tab .code {
+      width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 11.5px; font-weight: 800; color: var(--white); text-transform: uppercase;
+    }
+    .case-tab.t-sg .code { background: linear-gradient(135deg, #e43d30, #f4b223); }
+    .case-tab.t-ph .code { background: linear-gradient(135deg, #0064bf, #00a1e0); }
+    .case-tab.t-om .code { background: linear-gradient(135deg, #2c9942, #6dc47f); }
+    .case-tab .nm { font-size: 15px; font-weight: 800; text-transform: lowercase; color: var(--ebony-clay); line-height: 1.2; display: block; }
+    .case-tab .ds { font-size: 12px; color: rgba(26,31,38,0.5); text-transform: lowercase; }
+    .case-tab.active { border-color: var(--ebony-clay); box-shadow: var(--shadow-sm); }
+    .case-carousel { overflow: hidden; position: relative; overflow-anchor: none; }
+    .case-track { display: flex; width: 500%; transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1); align-items: stretch; }
+    .case-slide {
+      width: 20%; flex-shrink: 0;
+      padding: 2.75rem 3rem;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      border: 1px solid rgba(26,31,38,0.07);
+    }
+    @media (max-width: 900px) { .case-slide { padding: 2rem; } }
+    @media (max-width: 600px) { .case-slide { padding: 1.5rem; } }
+    .case-arrows { display: flex; gap: 0.6rem; justify-content: center; margin-top: 2rem; }
+    .case-arrow {
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 1.5px solid rgba(26,31,38,0.15); background: var(--white);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .case-arrow:hover { background: var(--ebony-clay); border-color: var(--ebony-clay); }
+    .case-arrow svg { width: 18px; height: 18px; stroke: var(--ebony-clay); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .case-arrow:hover svg { stroke: var(--white); }
+
+    /* ===== AWARD SPOTLIGHT ===== */
+    .award-section {
+      background: linear-gradient(135deg, #fdf6e9 0%, #fbeede 55%, #fdf6e9 100%);
+      position: relative; overflow: hidden;
+    }
+    .award-section::before {
+      content: ''; position: absolute; top: -40%; right: -8%;
+      width: 460px; height: 460px;
+      background: radial-gradient(circle, rgba(244,178,35,0.18) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .award-inner {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 3.5rem; align-items: center;
+      max-width: 1080px; margin: 0 auto;
+    }
+    @media (max-width: 860px) { .award-inner { grid-template-columns: 1fr; text-align: center; gap: 2.5rem; } }
+    .award-photo {
+      margin: 0; border-radius: var(--radius-large); overflow: hidden;
+      box-shadow: 0 24px 56px rgba(146,94,10,0.28); border: 1px solid rgba(214,138,18,0.22);
+    }
+    .award-photo img { width: 100%; height: auto; display: block; }
+    .award-photo figcaption {
+      background: var(--white); padding: 11px 18px;
+      font-size: 12.5px; line-height: 1.5; color: rgba(26,31,38,0.6); text-align: left;
+      border-top: 1px solid rgba(214,138,18,0.14);
+    }
+    @media (max-width: 860px) { .award-photo figcaption { text-align: center; } }
+    .award-text .section-eyebrow { color: #c8901a; }
+    .award-text .section-heading { margin-bottom: 1.1rem; }
+    .award-text > p {
+      font-size: 16px; line-height: 1.68; color: rgba(26,31,38,0.66); margin-bottom: 1.5rem;
+      max-width: 560px;
+    }
+    @media (max-width: 860px) { .award-text > p { margin-left: auto; margin-right: auto; } }
+    .award-text > p strong { color: var(--ebony-clay); font-weight: 700; }
+    .award-meta { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+    @media (max-width: 860px) { .award-meta { justify-content: center; } }
+    .award-meta-badge {
+      display: inline-flex; flex-direction: column;
+      background: var(--white); border: 1px solid rgba(214,138,18,0.28);
+      border-radius: var(--radius-medium); padding: 12px 18px;
+      box-shadow: 0 4px 14px rgba(214,138,18,0.12);
+    }
+    .award-meta-badge .t { font-size: 13.5px; font-weight: 800; color: var(--ebony-clay); text-transform: lowercase; }
+    .award-meta-badge .s { font-size: 12px; color: rgba(26,31,38,0.55); text-transform: lowercase; margin-top: 2px; }
+    .award-meta-logo { height: 38px; width: auto; opacity: 0.92; }
+
+    /* ===== EXTRA CASE ACCENTS (FedCenter / ZIMAMI) ===== */
+    .case-tab.t-fc .code { background: linear-gradient(135deg, #f4b223, #b8741a); }
+    .case-tab.t-zm .code { background: linear-gradient(135deg, #5B4FE8, #8f7bff); }
+    .case-fc .case-flagchip { background: linear-gradient(135deg, #f4b223, #b8741a); }
+    .case-zm .case-flagchip { background: linear-gradient(135deg, #5B4FE8, #8f7bff); }
+    .case-fc .case-stage { background: rgba(244,178,35,0.13); color: #9a6a10; }
+    .case-zm .case-stage { background: rgba(91,79,232,0.08); color: #5B4FE8; }
+    .case-fc .case-eyebrow { color: #b8741a; }
+    .case-zm .case-eyebrow { color: #5B4FE8; }
+    .case-fc .case-text h3 .hl { color: #b8741a; }
+    .case-zm .case-text h3 .hl { color: #5B4FE8; }
+    .case-fc .case-cap { background: rgba(244,178,35,0.13); color: #9a6a10; }
+    .case-zm .case-cap { background: rgba(91,79,232,0.07); color: #5B4FE8; }
+    .case-fc .case-panel-top { background: linear-gradient(90deg, rgba(244,178,35,0.08), rgba(184,116,26,0.08)); }
+    .case-zm .case-panel-top { background: linear-gradient(90deg, rgba(91,79,232,0.06), rgba(143,123,255,0.08)); }
+    .case-fc .case-metric-num { color: #b8741a; }
+    .case-zm .case-metric-num { color: #5B4FE8; }
+
+    /* ===== WHY-WE-WIN SUITE TABLE ===== */
+    .suite-section { background: var(--polar-white); }
+    .suite-head { max-width: 860px; margin: 0 auto 2.75rem; text-align: center; }
+    .suite-head .section-subheading { margin: 0 auto; }
+    .suite-table { max-width: 1020px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+    .suite-row {
+      display: grid; grid-template-columns: 0.85fr 1fr 1.4fr; gap: 1.5rem; align-items: center;
+      background: var(--white); border: 1px solid rgba(26,31,38,0.07);
+      border-radius: var(--radius-medium); padding: 18px 26px;
+    }
+    .suite-row-head { background: transparent; border: none; padding: 2px 26px; }
+    .suite-row-head span { font-size: 11.5px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: rgba(26,31,38,0.4); }
+    .suite-name { font-size: 15.5px; font-weight: 800; text-transform: lowercase; color: var(--ebony-clay); }
+    .suite-solves { font-size: 14px; font-weight: 600; color: rgba(26,31,38,0.72); text-transform: lowercase; }
+    .suite-misses { font-size: 13.5px; color: rgba(26,31,38,0.5); text-transform: lowercase; }
+    .suite-misses::before { content: 'misses: '; font-weight: 700; color: rgba(228,61,48,0.65); }
+    .suite-row-hero {
+      background: linear-gradient(90deg, rgba(244,178,35,0.15), rgba(255,218,0,0.17));
+      border: 1.5px solid rgba(244,178,35,0.5);
+      box-shadow: 0 10px 30px rgba(244,178,35,0.18);
+    }
+    .suite-row-hero .suite-name img { height: 30px; width: auto; display: block; }
+    .suite-row-hero .suite-solves { color: var(--ebony-clay); font-weight: 700; }
+    .suite-row-hero .suite-misses::before { content: ''; }
+    .suite-row-hero .suite-misses { color: rgba(26,31,38,0.75); font-weight: 600; }
+    @media (max-width: 760px) {
+      .suite-row { grid-template-columns: 1fr; gap: 6px; }
+      .suite-row-head { display: none; }
+    }
+
+    /* ===== UNI PERSONAS ===== */
+    .persona-section { background: var(--floral-white); }
+    .persona-head { max-width: 780px; margin: 0 auto 3rem; text-align: center; }
+    .persona-head .section-subheading { margin: 0 auto; }
+    .persona-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    @media (max-width: 900px) { .persona-grid { grid-template-columns: 1fr; } }
+    .persona-card {
+      background: var(--white); border: 1px solid rgba(26,31,38,0.07);
+      border-radius: var(--radius-large); padding: 2.25rem 2rem;
+      box-shadow: var(--shadow-sm); transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .persona-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .persona-icon { width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.1rem; }
+    .persona-icon svg { width: 22px; height: 22px; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .persona-card.p-students .persona-icon { background: rgba(0,100,191,0.08); }
+    .persona-card.p-students .persona-icon svg { stroke: var(--spanish-blue); }
+    .persona-card.p-faculty .persona-icon { background: rgba(44,153,66,0.09); }
+    .persona-card.p-faculty .persona-icon svg { stroke: var(--sea-green); }
+    .persona-card.p-alumni .persona-icon { background: rgba(244,178,35,0.15); }
+    .persona-card.p-alumni .persona-icon svg { stroke: #b8741a; }
+    .persona-card h3 { font-size: 21px; font-weight: 700; text-transform: lowercase; color: var(--ebony-clay); margin-bottom: 0.3rem; }
+    .persona-tag { font-size: 13px; font-weight: 700; text-transform: lowercase; margin-bottom: 1.1rem; }
+    .persona-card.p-students .persona-tag { color: var(--spanish-blue); }
+    .persona-card.p-faculty .persona-tag { color: var(--sea-green); }
+    .persona-card.p-alumni .persona-tag { color: #b8741a; }
+    .persona-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; padding: 0; margin: 0; }
+    .persona-card li { position: relative; padding-left: 22px; font-size: 14.5px; line-height: 1.55; color: rgba(26,31,38,0.65); }
+    .persona-card li::before { content: '\2713'; position: absolute; left: 0; top: 0; font-weight: 800; }
+    .persona-card.p-students li::before { color: var(--spanish-blue); }
+    .persona-card.p-faculty li::before { color: var(--sea-green); }
+    .persona-card.p-alumni li::before { color: #b8741a; }
+    /* ===================== END PRODUCT DEMO ENGINE ===================== */
+
+    .delivery-strip {
+      margin-top: 2.5rem;
+      background: var(--polar-white);
+      border: 1px solid rgba(0,100,191,0.1);
+      border-radius: var(--radius-large);
+      padding: 1.75rem 2rem;
+      text-align: center;
+    }
+    .delivery-strip-title {
+      font-size: 14px; font-weight: 700; letter-spacing: 1px;
+      text-transform: lowercase; color: var(--spanish-blue); margin-bottom: 1rem;
+    }
+    .delivery-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; }
+    .delivery-chip {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.08);
+      border-radius: 30px;
+      padding: 8px 16px;
+      font-size: 13.5px; font-weight: 600; text-transform: lowercase;
+      color: rgba(26,31,38,0.75);
+    }
+    .delivery-chip svg { width: 14px; height: 14px; stroke: var(--sea-green); fill: none; stroke-width: 2.25; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+    /* ===== CASE SECTIONS ===== */
+    .case-sec { padding: 4.5rem 0; }
+    .case-sg, .case-ph, .case-om { background: var(--white); }
+    .case-head {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2.25rem;
+    }
+    .case-country {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 15px; font-weight: 800; letter-spacing: 1px;
+      text-transform: lowercase; color: var(--ebony-clay);
+    }
+    .case-flagchip {
+      width: 34px; height: 34px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 11.5px; font-weight: 800; color: var(--white);
+      text-transform: uppercase;
+    }
+    .case-sg .case-flagchip { background: linear-gradient(135deg, #e43d30, #f4b223); }
+    .case-ph .case-flagchip { background: linear-gradient(135deg, #0064bf, #00a1e0); }
+    .case-om .case-flagchip { background: linear-gradient(135deg, #2c9942, #6dc47f); }
+    .case-stage {
+      font-size: 12px; font-weight: 700; letter-spacing: 1px;
+      text-transform: lowercase;
+      padding: 6px 14px; border-radius: 20px;
+    }
+    .case-sg .case-stage { background: rgba(228,61,48,0.07); color: var(--cg-red); }
+    .case-ph .case-stage { background: rgba(0,100,191,0.07); color: var(--spanish-blue); }
+    .case-om .case-stage { background: rgba(44,153,66,0.08); color: var(--sea-green); }
+    .case-inner {
+      display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 3.5rem; align-items: center;
+    }
+    @media (max-width: 900px) { .case-inner { grid-template-columns: 1fr; } }
+    .case-eyebrow {
+      font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: lowercase; margin-bottom: 0.75rem;
+    }
+    .case-sg .case-eyebrow { color: var(--cg-red); }
+    .case-ph .case-eyebrow { color: var(--spanish-blue); }
+    .case-om .case-eyebrow { color: var(--sea-green); }
+    .case-text h3 {
+      font-size: 30px; font-weight: 700; line-height: 1.22;
+      text-transform: lowercase; color: var(--ebony-clay); margin-bottom: 1.1rem;
+    }
+    .case-sg .case-text h3 .hl { color: var(--cg-red); }
+    .case-ph .case-text h3 .hl { color: var(--spanish-blue); }
+    .case-om .case-text h3 .hl { color: var(--sea-green); }
+    .case-text p {
+      font-size: 15.5px; line-height: 1.68; color: rgba(26,31,38,0.62);
+      margin-bottom: 1.1rem;
+    }
+    .case-text p strong { color: var(--ebony-clay); font-weight: 700; }
+    .case-caps { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.4rem; }
+    .case-cap {
+      font-size: 12.5px; font-weight: 600; text-transform: lowercase;
+      padding: 6px 13px; border-radius: 18px;
+    }
+    .case-sg .case-cap { background: rgba(228,61,48,0.06); color: rgba(228,61,48,0.85); }
+    .case-ph .case-cap { background: rgba(0,100,191,0.06); color: rgba(0,100,191,0.85); }
+    .case-om .case-cap { background: rgba(44,153,66,0.07); color: rgba(44,153,66,0.9); }
+
+    .case-panel {
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.07);
+      border-radius: var(--radius-large);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(26,31,38,0.03);
+      overflow: hidden;
+    }
+    .case-panel-top {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: 18px 26px;
+      border-bottom: 1px solid rgba(26,31,38,0.06);
+    }
+    .case-sg .case-panel-top { background: linear-gradient(90deg, rgba(228,61,48,0.05), rgba(244,178,35,0.07)); }
+    .case-ph .case-panel-top { background: linear-gradient(90deg, rgba(0,100,191,0.05), rgba(0,161,224,0.07)); }
+    .case-om .case-panel-top { background: linear-gradient(90deg, rgba(44,153,66,0.06), rgba(109,196,127,0.08)); }
+    .case-panel-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.2px; color: rgba(26,31,38,0.45);
+    }
+    .case-panel-logo img { height: 34px; width: auto; }
+    .case-metrics {
+      display: grid; grid-template-columns: 1fr 1fr;
+    }
+    .case-metric {
+      padding: 24px 26px 22px;
+      border-bottom: 1px solid rgba(26,31,38,0.06);
+    }
+    .case-metric:nth-child(odd) { border-right: 1px solid rgba(26,31,38,0.06); }
+    .case-metric-num {
+      font-size: 34px; font-weight: 800; line-height: 1; letter-spacing: -1px;
+      margin-bottom: 7px;
+    }
+    .case-sg .case-metric-num { color: var(--cg-red); }
+    .case-ph .case-metric-num { color: var(--spanish-blue); }
+    .case-om .case-metric-num { color: var(--sea-green); }
+    .case-metric-label {
+      font-size: 12.5px; line-height: 1.45; color: rgba(26,31,38,0.55);
+      text-transform: lowercase; font-weight: 600;
+    }
+    .case-panel-note {
+      padding: 16px 26px 18px;
+      font-size: 12.5px; line-height: 1.55; color: rgba(26,31,38,0.55);
+    }
+    .case-panel-note strong { color: var(--ebony-clay); }
+
+    .case-award {
+      display: flex; align-items: flex-start; gap: 14px;
+      margin-top: 1.5rem;
+      background: linear-gradient(90deg, rgba(244,178,35,0.1), rgba(255,218,0,0.12));
+      border: 1px solid rgba(244,178,35,0.35);
+      border-radius: var(--radius-medium);
+      padding: 16px 18px;
+    }
+    .case-award-icon {
+      width: 38px; height: 38px; border-radius: 10px; flex-shrink: 0;
+      background: linear-gradient(135deg, #f4b223, #e43d30);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .case-award-icon svg { width: 19px; height: 19px; stroke: var(--white); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .case-award-title {
+      font-size: 14px; font-weight: 800; color: var(--ebony-clay);
+      margin-bottom: 2px;
+    }
+    .case-award-sub { font-size: 12.5px; line-height: 1.5; color: rgba(26,31,38,0.6); }
+
+    /* ===== PROOF ===== */
+    .proof-section { background: var(--white); }
+    .proof-head { max-width: 720px; margin: 0 auto 2.5rem; text-align: center; }
+    .proof-head .section-subheading { margin: 0 auto; }
+    .proof-cards {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+    @media (max-width: 900px) { .proof-cards { grid-template-columns: 1fr; } }
+    .proof-card {
+      border-radius: var(--radius-large);
+      padding: 2.75rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .proof-card-1 { background: linear-gradient(135deg, #c8dff5 0%, #7fb3e8 60%, #4a90d9 100%); }
+    .proof-bg-img {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 55%;
+      max-width: 280px;
+      height: 100%;
+      object-fit: contain;
+      object-position: right bottom;
+      opacity: 0.18;
+      pointer-events: none;
+      user-select: none;
+    }
+    .proof-content { position: relative; z-index: 1; max-width: 70%; }
+    @media (max-width: 600px) { .proof-content { max-width: 100%; } }
+    .proof-source {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: rgba(26,31,38,0.5);
+      margin-bottom: 1rem;
+    }
+    .proof-headline {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      margin-bottom: 0;
+    }
+    .proof-foot {
+      position: relative; z-index: 1;
+      margin-top: 1.75rem;
+      font-size: 13px; font-weight: 600; color: rgba(26,31,38,0.55);
+      text-transform: lowercase;
+    }
+    .stats-grid {
+      display: grid; grid-template-columns: 1fr; gap: 1.25rem;
+    }
+    .stat-tile {
+      background: var(--black-haze);
+      border: 1px solid rgba(26,31,38,0.06);
+      border-radius: var(--radius-medium);
+      padding: 1.5rem 1.75rem;
+      display: flex; align-items: baseline; gap: 14px;
+    }
+    .stat-num {
+      font-size: 34px; font-weight: 800; letter-spacing: -1px; line-height: 1;
+      color: var(--ebony-clay); white-space: nowrap;
+    }
+    .stat-label { font-size: 13.5px; line-height: 1.45; color: rgba(26,31,38,0.55); font-weight: 600; text-transform: lowercase; }
+
+    /* ===== BOTTOM CTA ===== */
+    .bottom-cta {
+      background: var(--ebony-clay);
+      padding: 4rem 0;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .bottom-cta::before {
+      content: ''; position: absolute; top: -40%; left: -10%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(228,61,48,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .bottom-cta .container { position: relative; z-index: 1; }
+    .bottom-cta h2 {
+      font-size: 34px; font-weight: 700; line-height: 1.2;
+      color: var(--white); text-transform: lowercase; margin-bottom: 1rem;
+    }
+    .bottom-cta p {
+      font-size: 16px; color: rgba(255,255,255,0.6);
+      max-width: 620px; margin: 0 auto 2rem;
+    }
+    .bottom-cta .btn-primary { font-size: 18px; padding: 14px 42px; }
+
+    /* ===== FOOTER ===== */
+    .footer { background: var(--black-haze); padding: 3.5rem 0 1.5rem; }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 2rem; margin-bottom: 3rem;
+    }
+    @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    .footer-brand p {
+      font-size: 14px; line-height: 1.6; color: rgba(26,31,38,0.6);
+      margin-top: 0.75rem; max-width: 280px;
+    }
+    .footer-col h4 { font-size: 15px; font-weight: 700; text-transform: lowercase; margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col a { font-size: 14px; color: rgba(26,31,38,0.6); text-transform: lowercase; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--cg-red); }
+    .footer-bottom {
+      border-top: 1px solid rgba(26,31,38,0.08); padding-top: 1.5rem;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-bottom p { font-size: 13px; color: rgba(26,31,38,0.45); }
+    .footer-socials { display: flex; gap: 0.75rem; }
+    .footer-socials a {
+      width: 36px; height: 36px; border: 1px solid rgba(26,31,38,0.15); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; color: var(--ebony-clay); transition: background 0.2s, color 0.2s;
+    }
+    .footer-socials a:hover { background: var(--ebony-clay); color: var(--white); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .sol-hero h1 { font-size: clamp(28px, 8vw, 36px); }
+      .section-heading { font-size: 26px; }
+      .case-text h3 { font-size: 24px; }
+      .story-turn { font-size: 20px; }
+    }
+
+    /* ===== SCROLL ANIMATIONS (modern, gpu-accelerated, accessible) ===== */
+    .anim {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+    .anim-fade        { transform: none; }
+    .anim-fade-up     { transform: translateY(28px); }
+    .anim-fade-down   { transform: translateY(-22px); }
+    .anim-fade-left   { transform: translateX(-32px); }
+    .anim-fade-right  { transform: translateX(32px); }
+    .anim-scale       { transform: scale(0.96); }
+    .anim-blur        { filter: blur(10px); }
+    .anim-rise        { transform: translateY(40px) scale(0.985); }
+    .anim.is-visible {
+      opacity: 1;
+      transform: none;
+      filter: none;
+    }
+    .stagger > * {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+    .stagger.is-visible > *:nth-child(1)  { transition-delay: 0.00s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(2)  { transition-delay: 0.07s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(3)  { transition-delay: 0.14s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(4)  { transition-delay: 0.21s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(5)  { transition-delay: 0.28s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(6)  { transition-delay: 0.35s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(7)  { transition-delay: 0.42s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(8)  { transition-delay: 0.49s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(9)  { transition-delay: 0.56s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(n+10) { transition-delay: 0.63s; opacity: 1; transform: none; }
+    .anim-d-1 { transition-delay: 0.10s; }
+    .anim-d-2 { transition-delay: 0.20s; }
+    .anim-d-3 { transition-delay: 0.30s; }
+    .anim-d-4 { transition-delay: 0.40s; }
+    .anim-d-5 { transition-delay: 0.50s; }
+    .anim-lift {
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .anim-lift:hover { transform: translateY(-4px); }
+    @media (prefers-reduced-motion: reduce) {
+      .anim, .anim *, .stagger, .stagger > *, .anim-lift {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+    /* ===== END SCROLL ANIMATIONS ===== */
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="https://entomomarketing.github.io/PX/V2/index.html" class="logo">
+        <img src="assets/ntt/entomo.svg" alt="entomo" style="height:36px; width:auto;">
+      </a>
+      <div class="nav-right-group">
+        <ul class="nav-links">
+          <li class="nav-dropdown-wrap">
+            <a href="#">solutions</a>
+            <div class="nav-mega" style="width:720px;">
+              <div class="nav-mega-grid">
+                <a href="https://entomomarketing.github.io/PX/V2/solutions/performance-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">maximize employee performance</div>
+                    <div class="nav-mega-desc">real-time signals, coaching, and scorecards</div>
+                  </div>
+                </a>
+                <a href="https://entomomarketing.github.io/PX/V2/solutions/skill-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">unlock skills, accelerate growth</div>
+                    <div class="nav-mega-desc">skill maps, career paths, and growth plans</div>
+                  </div>
+                </a>
+                <a href="https://entomomarketing.github.io/PX/V2/solutions/engagement-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">build engagement that lasts</div>
+                    <div class="nav-mega-desc">pulse surveys, recognition, and culture signals</div>
+                  </div>
+                </a>
+                <a href="https://entomomarketing.github.io/PX/V2/solutions/workforce-insights.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">turn intelligence into decisions</div>
+                    <div class="nav-mega-desc">natural language analytics and board-ready reports</div>
+                  </div>
+                </a>
+                <a href="https://entomomarketing.github.io/PX/V2/solutions/wellness-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">protect wellness, prevent burnout</div>
+                    <div class="nav-mega-desc">burnout detection, sentiment, and intervention</div>
+                  </div>
+                </a>
+                <a href="https://entomomarketing.github.io/PX/V2/solutions/strategic-planning.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">align your workforce to strategy</div>
+                    <div class="nav-mega-desc">demand modeling, 4B engine, and succession</div>
+                  </div>
+                </a>
+                <a href="https://entomomarketing.github.io/PX/V2/solutions/hire-to-retire.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">simplify hire to retire</div>
+                    <div class="nav-mega-desc">recruitment, onboarding, payroll, and exit</div>
+                  </div>
+                </a>
+                <a href="national-talent-transformation.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">from skills to employability</div>
+                    <div class="nav-mega-desc">employability infrastructure for universities and nations</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#">platform</a>
+            <div class="nav-mega" style="width:480px;">
+              <div class="nav-mega-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <a href="https://entomomarketing.github.io/PX/V2/workwise_platform.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name"><span class="keep-case">WorkWise</span></div>
+                    <div class="nav-mega-desc">your AI coworker for HR workflows and operations</div>
+                  </div>
+                </a>
+                <a href="#" class="nav-mega-item" style="opacity:0.55;pointer-events:none;">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name"><span class="keep-case">TMRW</span></div>
+                    <div class="nav-mega-desc">AI powered career growth platform</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#">inspiration</a>
+            <div class="nav-mega" style="width:720px;">
+              <div class="nav-mega-grid">
+                <a href="https://entomomarketing.github.io/PX/V2/about/why-entomo.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">blog</div>
+                    <div class="nav-mega-desc">insights on agentic AI and the future of work</div>
+                  </div>
+                </a>
+                <a href="https://entomomarketing.github.io/PX/V2/about/life-at-entomo.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">ebooks &amp; whitepapers</div>
+                    <div class="nav-mega-desc">in-depth research and POV reports</div>
+                  </div>
+                </a>
+                <a href="https://entomomarketing.github.io/PX/V2/about/our-team.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">success stories</div>
+                    <div class="nav-mega-desc">how Fortune 500s and governments use entomo</div>
+                  </div>
+                </a>
+                <a href="https://entomomarketing.github.io/PX/V2/about/security-at-entomo.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">entomo community</div>
+                    <div class="nav-mega-desc">connect with HR leaders shaping the future</div>
+                  </div>
+                </a>
+                <a href="https://entomomarketing.github.io/PX/V2/about/news-press-releases.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">events &amp; webinars</div>
+                    <div class="nav-mega-desc">live sessions, roundtables, and roadshows</div>
+                  </div>
+                </a>
+                <a href="https://entomomarketing.github.io/PX/V2/about/jobs-at-entomo.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">templates</div>
+                    <div class="nav-mega-desc">ready-to-use HR frameworks and playbooks</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#">about</a>
+            <div class="nav-mega" style="width:720px;">
+              <div class="nav-mega-grid">
+                <a href="https://entomomarketing.github.io/PX/V2/about/why-entomo.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">why entomo</div>
+                    <div class="nav-mega-desc">our story and what makes us different</div>
+                  </div>
+                </a>
+                <a href="https://entomomarketing.github.io/PX/V2/about/partners.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">life@entomo</div>
+                    <div class="nav-mega-desc">culture, values, and what makes us tick</div>
+                  </div>
+                </a>
+                <a href="#" class="nav-mega-item nav-placeholder-tooltip" data-tooltip="page coming soon">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">our team</div>
+                    <div class="nav-mega-desc">leadership and the people behind entomo</div>
+                  </div>
+                </a>
+                <a href="#" class="nav-mega-item nav-placeholder-tooltip" data-tooltip="page coming soon">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">security@entomo</div>
+                    <div class="nav-mega-desc">enterprise-grade security and compliance</div>
+                  </div>
+                </a>
+                <a href="#" class="nav-mega-item nav-placeholder-tooltip" data-tooltip="page coming soon">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">news &amp; press release</div>
+                    <div class="nav-mega-desc">latest announcements and media coverage</div>
+                  </div>
+                </a>
+                <a href="#" class="nav-mega-item nav-placeholder-tooltip" data-tooltip="page coming soon">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">jobs@entomo</div>
+                    <div class="nav-mega-desc">join the team building tomorrow's HR</div>
+                  </div>
+                </a>
+                <a href="#" class="nav-mega-item nav-placeholder-tooltip" data-tooltip="page coming soon">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">partner with entomo</div>
+                    <div class="nav-mega-desc">SI, consulting, and ecosystem partnerships</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li><a href="https://entomomarketing.github.io/PX/V2/contact.html">contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="https://entomomarketing.github.io/PX/V2/request-demo.html" class="nav-cta">request a demo →</a>
+        </div>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="sol-hero">
+    <div class="container">
+      <div class="sol-hero-content sol-hero-content-wide">
+        <div class="sol-breadcrumb">
+          <a href="https://entomomarketing.github.io/PX/V2/index.html">home</a>
+          <span>/</span>
+          <a href="https://entomomarketing.github.io/PX/V2/index.html#solutions">solutions</a>
+          <span>/</span>
+          <span>national talent transformation</span>
+        </div>
+        <div class="sol-hero-grid">
+          <div class="sol-hero-left">
+            <div class="hero-logo">
+              <img src="assets/ntt/tmrw-logo.svg" alt="TMRW — an entomo platform">
+            </div>
+            <div class="hero-badge">
+              <span class="dot"></span>
+              trusted by universities, governments, and associations
+            </div>
+            <h1>from skills to <mark>employability</mark></h1>
+            <p class="sol-hero-sub">
+              Degrees alone no longer signal readiness &mdash; skills do. TMRW connects skills, learning, credentials, jobs, and mobility into one ecosystem, so institutions and nations deliver what they are measured on now: employment outcomes.
+            </p>
+            <div class="hero-aud-btns">
+              <button class="btn-primary" data-tabjump="gov">for governments &amp; associations &rarr;</button>
+              <button class="btn-ghost" data-tabjump="uni">for universities &rarr;</button>
+            </div>
+            <div class="sol-hero-proof">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span><span class="keep-case">ISO</span> 27001 &amp; <span class="keep-case">SOC</span> 2 certified &middot; millions of users powered globally</span>
+            </div>
+          </div>
+          <div class="pdemo-wrap">
+            <div class="pdemo" data-pdemo>
+              <div class="pdemo-bar">
+                <div class="pdemo-dots"><span></span><span></span><span></span></div>
+                <div class="pdemo-url">app.entomo.co &mdash; your career hub</div>
+              </div>
+              <div class="pdemo-stage">
+
+                <!-- SCREEN: HOME -->
+                <div class="pd-screen" data-name="the hub brings every next step into one place">
+                  <div class="pd-nav" data-li style="--li:0;">
+                    <span class="pd-nav-logo"><i></i><b>entomo</b></span>
+                    <span class="pd-nav-item act">Home</span>
+                    <span class="pd-nav-item" data-ct>Profile</span>
+                    <span class="pd-nav-item">Career Path</span>
+                    <span class="pd-nav-ava">JP</span>
+                  </div>
+                  <div class="pdh-banner" data-li style="--li:0;">
+                    <div>
+                      <div class="pdh-banner-title">Jobs</div>
+                      <div class="pdh-banner-sub">You've built a few resumes &mdash; now use the right one for the right job and start applying while your profile is ready.</div>
+                      <span class="pd-btn-k">Apply to Jobs</span>
+                    </div>
+                    <div class="pdh-art"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                  </div>
+                  <div class="pdh-grid">
+                    <div class="pd-card pdh-courses" data-li style="--li:1;">
+                      <div class="pdh-sec-head">
+                        <div class="pdh-sec-title">Courses That Elevate Your Game</div>
+                        <div class="pdh-view">View All Learnings &nearr;</div>
+                      </div>
+                      <div class="pdh-course-row">
+                        <div class="pdh-course">
+                          <div class="pdh-course-img"></div>
+                          <div class="pdh-course-body">
+                            <div class="pdh-course-t">React Fundamentals</div>
+                            <div class="pdh-course-d">Build component-driven UIs with React and hooks.</div>
+                            <span class="pd-btn-y">View Course</span>
+                          </div>
+                        </div>
+                        <div class="pdh-course">
+                          <div class="pdh-course-img i2"></div>
+                          <div class="pdh-course-body">
+                            <div class="pdh-course-t">Python for Data Analysis</div>
+                            <div class="pdh-course-d">Wrangle, analyse, and visualise data with pandas.</div>
+                            <span class="pd-btn-y">View Course</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="pd-card pdh-side" data-li style="--li:2;">
+                      <div class="pdh-side-title">What's Growing Around You</div>
+                      <div class="pdh-skillchip"><span class="ic">&lt;/&gt;</span><span class="tx">SKILL DEMAND</span></div>
+                      <div class="pdh-bar-row" data-li style="--li:3;">
+                        <div class="pdh-bar-lab"><span>JavaScript/TypeScript</span><b>+82%</b></div>
+                        <div class="pdh-bar"><i style="--w:0.82; --li:3;"></i></div>
+                      </div>
+                      <div class="pdh-bar-row" data-li style="--li:4;">
+                        <div class="pdh-bar-lab"><span>Java or Python</span><b>+75%</b></div>
+                        <div class="pdh-bar"><i style="--w:0.75; --li:4;"></i></div>
+                      </div>
+                      <div class="pdh-bar-row" data-li style="--li:5;">
+                        <div class="pdh-bar-lab"><span>APIs</span><b>+68%</b></div>
+                        <div class="pdh-bar"><i style="--w:0.68; --li:5;"></i></div>
+                      </div>
+                      <div class="pdh-bar-row" data-li style="--li:6;">
+                        <div class="pdh-bar-lab"><span>Git</span><b>+62%</b></div>
+                        <div class="pdh-bar"><i style="--w:0.62; --li:6;"></i></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- SCREEN: PROFILE -->
+                <div class="pd-screen" data-name="a master profile the AI assembles in minutes">
+                  <div class="pd-nav" data-li style="--li:0;">
+                    <span class="pd-nav-logo"><i></i><b>entomo</b></span>
+                    <span class="pd-nav-item">Home</span>
+                    <span class="pd-nav-item act">Profile</span>
+                    <span class="pd-nav-item" data-ct>Career Path</span>
+                    <span class="pd-nav-ava">JP</span>
+                  </div>
+                  <div class="pdp-crumb" data-li style="--li:0;">Home &rsaquo; <b>Master Profile</b></div>
+                  <div class="pdp-grid">
+                    <div class="pdp-left">
+                      <div class="pd-card pdp-id" data-li style="--li:1;">
+                        <div class="pdp-ava"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0 1 14 0v1"/></svg></div>
+                        <div class="pdp-name">John Parker</div>
+                        <div class="pdp-role">Add Role</div>
+                      </div>
+                      <div class="pd-card pdp-strength" data-li style="--li:2;">
+                        <div class="pdp-strength-t">Profile Strength</div>
+                        <div class="pdp-ring">
+                          <svg viewBox="0 0 40 40"><circle class="bgc" cx="20" cy="20" r="15.9"/><circle class="fgc" cx="20" cy="20" r="15.9"/></svg>
+                          <b>88%</b>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="pd-card pdp-steps" data-li style="--li:2;">
+                      <div class="pdp-step act"><span class="dt"></span><span><span class="nm">Education</span><br><span class="ct">3 Entries</span></span></div>
+                      <div class="pdp-step"><span class="dt"></span><span><span class="nm">Experience</span><br><span class="ct">1 Entry</span></span></div>
+                      <div class="pdp-step"><span class="dt"></span><span><span class="nm">Certifications</span><br><span class="ct">2 Entries</span></span></div>
+                      <div class="pdp-step"><span class="dt"></span><span><span class="nm">Projects</span><br><span class="ct">2 Entries</span></span></div>
+                      <div class="pdp-step"><span class="dt"></span><span><span class="nm">Skills</span><br><span class="ct">5 Entries</span></span></div>
+                      <div class="pdp-step"><span class="dt"></span><span><span class="nm">Achievements</span><br><span class="ct">1 Entry</span></span></div>
+                    </div>
+                    <div class="pd-card pdp-main" data-li style="--li:3;">
+                      <div class="pdp-main-head">
+                        <div class="pdp-main-t">Education</div>
+                        <span class="pdp-add">+ Add</span>
+                      </div>
+                      <div class="pdp-entry" data-li style="--li:4;">
+                        <div class="ic"><svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+                        <div>
+                          <div class="tt">Harvard University</div>
+                          <div class="ss">Postgraduate diploma in Business management</div>
+                          <div class="dd">Apr 2026 &ndash; Jul 2028</div>
+                        </div>
+                      </div>
+                      <div class="pdp-entry" data-li style="--li:5;">
+                        <div class="ic"><svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+                        <div>
+                          <div class="tt">Al Noor Institute of Technology &amp; Management</div>
+                          <div class="ss">M.Sc. in Business Analytics &middot; Predictive modeling</div>
+                          <div class="dd">Apr 2024 &ndash; Mar 2026</div>
+                        </div>
+                      </div>
+                      <div class="pdp-entry" data-li style="--li:6;">
+                        <div class="ic"><svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+                        <div>
+                          <div class="tt">St. Xavier's College of Commerce</div>
+                          <div class="ss">Bachelor of Commerce (Honours) &middot; Accounting</div>
+                          <div class="dd">Jun 2020 &ndash; Jul 2026</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- SCREEN: PATHWAYS -->
+                <div class="pd-screen" data-name="a career path mapped role by role, salary included">
+                  <div class="pd-nav" data-li style="--li:0;">
+                    <span class="pd-nav-logo"><i></i><b>entomo</b></span>
+                    <span class="pd-nav-item" data-ct>Home</span>
+                    <span class="pd-nav-item">Profile</span>
+                    <span class="pd-nav-item act">Career Path</span>
+                    <span class="pd-nav-ava">JP</span>
+                  </div>
+                  <div class="pdp-crumb" data-li style="--li:0;">Home &rsaquo; Career Path &rsaquo; <b>Details</b></div>
+                  <div class="pdw-grid">
+                    <div class="pdw-rail">
+                      <div class="pd-card pdw-node" data-li style="--li:1;"><div class="num">1</div><div class="ph">Current Role</div><div class="nm">Business Analyst Intern</div></div>
+                      <div class="pd-card pdw-node act" data-li style="--li:2;"><div class="num">2</div><div class="ph">Phase 1</div><div class="nm">Business Analyst</div></div>
+                      <div class="pd-card pdw-node" data-li style="--li:3;"><div class="num">3</div><div class="ph">Phase 2</div><div class="nm">Senior Business Analyst</div></div>
+                      <div class="pd-card pdw-node" data-li style="--li:4;"><div class="num">4</div><div class="ph">Phase 3</div><div class="nm">Lead Business Analyst</div></div>
+                    </div>
+                    <div class="pdw-mid">
+                      <div class="pd-card pdw-head" data-li style="--li:2;">
+                        <div class="tt">Business Analyst</div>
+                        <div class="mt"><b>72%</b><i>Role Match</i></div>
+                      </div>
+                      <div class="pd-card pdw-skills" data-li style="--li:3;">
+                        <div class="st">Required Skills</div>
+                        <div class="pdw-chips">
+                          <span class="pd-chip">Storytelling</span>
+                          <span class="pd-chip">Stakeholder Management</span>
+                          <span class="pd-chip">Analytical Thinking</span>
+                          <span class="pd-chip">Requirements Elicitation</span>
+                          <span class="pd-chip">SQL</span>
+                          <span class="pd-chip">Visual Analytics</span>
+                          <span class="pd-chip">KPIs</span>
+                          <span class="pd-chip">Scrum</span>
+                          <span class="pd-chip">Wireframing</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="pdw-side">
+                      <div class="pdw-save" data-li style="--li:4;">Save Path &#9873;</div>
+                      <div class="pd-card pdw-market" data-li style="--li:5;">
+                        <div class="mtt">Market insights</div>
+                        <div class="lab">Average Salary Range</div>
+                        <div class="pdw-sal">USD 58,351 <span class="pd-mut">to</span> <b>USD 140,417</b></div>
+                        <div class="pdw-slider"></div>
+                        <div class="pdw-note">Demand for Business Analyst roles is stable to strong in 2026 &mdash; SQL and requirements documentation co-occur most.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pd-cursor"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M5.5 3.2 19 11.5l-6.2 1.4-2.7 5.8z" fill="#1a1f26" stroke="#ffffff" stroke-width="1.4"/></svg></div>
+                <div class="pd-click"></div>
+              </div>
+              <div class="pdemo-cap">
+                <div class="pdemo-cap-label">the hub brings every next step into one place</div>
+                <div class="pdemo-cap-dots"><span class="on"></span><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRUST MARQUEE ===== -->
+  <section class="trust-section">
+    <div class="trust-heading">trusted by enterprises, governments, and national institutions worldwide</div>
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+        <img class="marquee-logo" src="assets/ntt/ntuc-learning-hub.png" alt="NTUC LearningHub">
+        <img class="marquee-logo" src="assets/ntt/Digital_Dubai.png"    alt="Digital Dubai">
+        <img class="marquee-logo" src="assets/ntt/uob.png"              alt="UOB">
+        <img class="marquee-logo" src="assets/ntt/ey.png"               alt="EY">
+        <img class="marquee-logo" src="assets/ntt/nttdata.png"          alt="NTT Data">
+        <img class="marquee-logo" src="assets/ntt/cigna.png"            alt="Cigna">
+        <img class="marquee-logo" src="assets/ntt/tata-elxsi.png"       alt="Tata Elxsi">
+        <img class="marquee-logo" src="assets/ntt/generalli.png"        alt="Generali">
+        <img class="marquee-logo" src="assets/ntt/drreddys.png"         alt="Dr Reddy's">
+        <img class="marquee-logo" src="assets/ntt/aldar.png"            alt="Aldar">
+        <img class="marquee-logo" src="assets/ntt/banpu.png"            alt="Banpu">
+        <img class="marquee-logo" src="assets/ntt/seddiqi.png"          alt="Seddiqi">
+        <!-- duplicate for seamless loop -->
+        <img class="marquee-logo" src="assets/ntt/ntuc-learning-hub.png" alt="NTUC LearningHub">
+        <img class="marquee-logo" src="assets/ntt/Digital_Dubai.png"    alt="Digital Dubai">
+        <img class="marquee-logo" src="assets/ntt/uob.png"              alt="UOB">
+        <img class="marquee-logo" src="assets/ntt/ey.png"               alt="EY">
+        <img class="marquee-logo" src="assets/ntt/nttdata.png"          alt="NTT Data">
+        <img class="marquee-logo" src="assets/ntt/cigna.png"            alt="Cigna">
+        <img class="marquee-logo" src="assets/ntt/tata-elxsi.png"       alt="Tata Elxsi">
+        <img class="marquee-logo" src="assets/ntt/generalli.png"        alt="Generali">
+        <img class="marquee-logo" src="assets/ntt/drreddys.png"         alt="Dr Reddy's">
+        <img class="marquee-logo" src="assets/ntt/aldar.png"            alt="Aldar">
+        <img class="marquee-logo" src="assets/ntt/banpu.png"            alt="Banpu">
+        <img class="marquee-logo" src="assets/ntt/seddiqi.png"          alt="Seddiqi">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AUDIENCE TABS ===== -->
+  <div class="tabbar-wrap" id="audience">
+    <div class="container">
+      <div class="tabbar-title">choose the mission you’re building for</div>
+      <div class="tabbar">
+        <button class="tabbar-btn active" data-tab="gov">for governments &amp; associations</button>
+        <button class="tabbar-btn" data-tab="uni">for universities</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== GOVERNMENT PANEL ===================== -->
+  <div class="tab-panel active" id="panel-gov">
+
+  <!-- ===== THE STORY ===== -->
+  <section class="story-section" id="story">
+    <div class="container">
+      <div class="split-inner" style="margin-bottom: 3.5rem;">
+        <div class="split-text">
+          <div class="section-eyebrow">for governments, associations &amp; national agencies</div>
+          <h2 class="section-heading">the workforce infrastructure a <mark>nation</mark> can run on</h2>
+          <p>
+            Every nation's workforce runs on skills &mdash; but the frameworks that define them freeze the day they're published. TMRW builds a living skills framework for your economy, specific to each domain and each country, then turns it into the infrastructure a nation runs on: assessments, credentials, jobs, and workforce intelligence, all speaking one language.
+          </p>
+          <p>
+            It isn't a learning platform, a job board, or an assessment tool &mdash; the point solutions that each answer one slice. It's the connective layer that brings them together, already delivered with ministries and national institutions across Asia and the Gulf.
+          </p>
+        </div>
+        <div class="split-img">
+          <img src="assets/ntt/nation-skyline.jpg" alt="A national skyline at golden hour">
+        </div>
+      </div>
+      <p class="story-turn"><span class="keep-case">TMRW</span> doesn't replace a nation's skilling programmes &mdash; it connects them into one workforce ecosystem that delivers measurable employment outcomes.</p>
+    </div>
+  </section>
+
+  <!-- ===== HOW WE DO IT ===== -->
+  <section class="how-section" id="how">
+    <div class="container">
+      <div class="how-head">
+        <div class="section-eyebrow">how we do it</div>
+        <h2 class="section-heading">everything a national skills ecosystem needs, working as one <mark>system</mark></h2>
+        <p class="section-subheading">
+          A learning platform, a job board, an assessment engine &mdash; each solves one layer. TMRW connects all seven on a single contextual skills framework, so government, employers, universities, training providers, and citizens finally work from one live picture of skills.
+        </p>
+      </div>
+      <div class="pillar-grid">
+        <div class="pillar-card k1">
+          <div class="layer-num">pillar 01</div>
+          <h3>contextual skills framework</h3>
+          <p>The brain of the platform &mdash; occupational standards built for each domain and each country, not a one-size template. Where standard frameworks freeze the day they publish, this one reads live demand and refreshes continuously.</p>
+        </div>
+        <div class="pillar-card k2">
+          <div class="layer-num">pillar 02</div>
+          <h3>skills platform</h3>
+          <p>Citizen and employer tools on one platform. Every citizen builds a verified skills profile in minutes, guided by <span class="keep-case">AI</span>; every employer reads talent in the same language.</p>
+        </div>
+        <div class="pillar-card k3">
+          <div class="layer-num">pillar 03</div>
+          <h3>assessments</h3>
+          <p>Competency validation at population scale &mdash; <span class="keep-case">AI</span>-generated, proctored assessments turn self-claimed skills into proven capability.</p>
+        </div>
+        <div class="pillar-card k4">
+          <div class="layer-num">pillar 04</div>
+          <h3>credentialing</h3>
+          <p>Verified digital credentials citizens own and carry &mdash; recognized across learning, employment, and every programme in between.</p>
+        </div>
+        <div class="pillar-card k5">
+          <div class="layer-num">pillar 05</div>
+          <h3>labour market intelligence</h3>
+          <p>Real-time demand data drawn from millions of job signals &mdash; which skills are scarce, which are emerging, where the economy is heading.</p>
+        </div>
+        <div class="pillar-card k6">
+          <div class="layer-num">pillar 06</div>
+          <h3>employment marketplace</h3>
+          <p>Skill-based matching connects citizens to jobs, gigs, and career mobility &mdash; not just today's vacancies.</p>
+        </div>
+        <div class="pillar-card k7">
+          <div class="layer-num">pillar 07</div>
+          <h3>governance analytics</h3>
+          <p>Policy dashboards for ministries: workforce readiness, localization, programme outcomes &mdash; evidence under every decision.</p>
+        </div>
+      </div>
+      <div class="delivery-strip">
+        <div class="delivery-strip-title">delivered the way governments need it</div>
+        <div class="delivery-chips">
+          <span class="delivery-chip"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>sovereign in-country hosting</span>
+          <span class="delivery-chip"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>bilingual &amp; multilingual by design</span>
+          <span class="delivery-chip"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span class="keep-case">ISO</span> 27001 &amp; <span class="keep-case">SOC</span> 2 certified</span>
+          <span class="delivery-chip"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>open <span class="keep-case">API</span>s to national registries &amp; systems</span>
+          <span class="delivery-chip"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>mobile-first, low-bandwidth inclusive</span>
+          <span class="delivery-chip"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>knowledge transfer to full national custody</span>
+          <span class="delivery-chip"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>live in weeks, not years</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NATIONAL CASE CAROUSEL ===== -->
+  <section class="cases-section">
+    <div class="container">
+      <div class="cases-head">
+        <div class="section-eyebrow">proven at national scale</div>
+        <h2 class="section-heading">leading governments and associations are already building on <mark>entomo</mark></h2>
+        <p class="section-subheading">
+          Singapore mobilized its workforce, the Philippines is upskilling for the digital economy, Oman is architecting the skills framework of Vision 2040 &mdash; and sector associations from Manila to the Gulf run the same infrastructure.
+        </p>
+      </div>
+      <div class="case-tabs">
+        <button class="case-tab t-sg active" data-case="0"><span class="code">sg</span><span><span class="nm"><span class="keep-case">Singapore</span></span><span class="ds">career agility at national scale</span></span></button>
+        <button class="case-tab t-ph" data-case="1"><span class="code">ph</span><span><span class="nm"><span class="keep-case">Philippines</span></span><span class="ds">a nationwide digital workforce hub</span></span></button>
+        <button class="case-tab t-om" data-case="2"><span class="code">om</span><span><span class="nm"><span class="keep-case">Oman</span></span><span class="ds">the skills backbone of <span class="keep-case">Vision 2040</span></span></span></button>
+        <button class="case-tab t-fc" data-case="3"><span class="code">fc</span><span><span class="nm"><span class="keep-case">FedCenter</span></span><span class="ds">finance-sector careers in the <span class="keep-case">Philippines</span></span></span></button>
+        <button class="case-tab t-zm" data-case="4"><span class="code">gcc</span><span><span class="nm"><span class="keep-case">ZIMAMI</span></span><span class="ds">digital health skills across the <span class="keep-case">GCC</span></span></span></button>
+      </div>
+      <div class="case-carousel">
+        <div class="case-track">
+          <div class="case-slide case-sg">
+      <div class="case-head">
+        <div class="case-country"><span class="case-flagchip">sg</span> <span class="keep-case">Singapore</span></div>
+        <div class="case-stage">live at national scale &middot; award-winning</div>
+      </div>
+      <div class="case-inner">
+        <div class="case-text">
+          <div class="case-eyebrow">national career agility &middot; with <span class="keep-case">NTUC LearningHub</span></div>
+          <h3>the career agility movement <span class="keep-case">Singapore&rsquo;s</span> workforce <span class="hl">runs on</span></h3>
+          <p>
+            <strong><span class="keep-case">NTUC</span> LearningHub</strong> is Singapore's leading training services provider &mdash; the learning arm of the national labour movement, focused on improving every Singaporean's employability and growth through relentless economic transformation.
+          </p>
+          <p>
+            It set out to build a platform Singapore's workforce could use to upskill, reskill, and become tomorrow-ready. TMRW powers the answer: the <strong>Career Agility Hub</strong>, where every worker builds a skills profile, sees their gaps against where the economy is heading, and receives personalized pathways, learning recommendations, and job opportunities &mdash; connected to Singapore's employers and the government job bank. Career agility became something a worker does every day, not a campaign they hear about once a year.
+          </p>
+          <div class="case-caps">
+            <span class="case-cap">skill profiler</span>
+            <span class="case-cap">skill gap analyser</span>
+            <span class="case-cap">career pathways</span>
+            <span class="case-cap">jobs and gigs</span>
+            <span class="case-cap">learning recommendations</span>
+          </div>
+          <div class="case-award">
+            <div class="case-award-icon">
+              <svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+            </div>
+            <div>
+              <div class="case-award-title">Singapore Business Review Technology Excellence Award 2022</div>
+              <div class="case-award-sub">winner, <span class="keep-case">AI</span> &mdash; human resource technology: the Career Agility Hub with <span class="keep-case">NTUC</span> LearningHub, recognized for career and learning transformation at national scale</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-panel">
+          <div class="case-panel-top">
+            <div class="case-panel-label">career agility hub &middot; live since 2020</div>
+            <div class="case-panel-logo"><img src="assets/ntt/ntuc-learning-hub.png" alt="NTUC LearningHub"></div>
+          </div>
+          <div class="case-metrics">
+            <div class="case-metric">
+              <div class="case-metric-num">40,000+</div>
+              <div class="case-metric-label">subscribers on the hub</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-num">160+</div>
+              <div class="case-metric-label">employers connected</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-num">100,000+</div>
+              <div class="case-metric-label">job opportunities surfaced</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-num">10,000+</div>
+              <div class="case-metric-label">personalized upskilling pathways</div>
+            </div>
+          </div>
+          <div class="case-panel-note">
+            open to <strong>all Singapore citizens</strong> &mdash; serving five workforce segments, from learners to those returning to work, and connected to the government job bank.
+          </div>
+        </div>
+      </div>
+          </div>
+          <div class="case-slide case-ph">
+      <div class="case-head">
+        <div class="case-country"><span class="case-flagchip">ph</span> <span class="keep-case">Philippines</span></div>
+        <div class="case-stage">nationwide digital upskilling</div>
+      </div>
+      <div class="case-inner">
+        <div class="case-text">
+          <div class="case-eyebrow">national digital workforce hub &middot; <span class="keep-case">Republic of the Philippines</span></div>
+          <h3>one hub for the <span class="keep-case">Philippines&rsquo;</span> <span class="hl">learner-to-earner</span> journey</h3>
+          <p>
+            <strong>The Philippines' national department for information and communications technology</strong> drives the country's digital transformation &mdash; including the digital skills of its people. Its mandate: reskill and upskill professionals, students, and workers nationwide for the jobs of a digital economy.
+          </p>
+          <p>
+            TMRW powers the country's <strong>digital workforce hub</strong> &mdash; a complete skill transformation stack: <span class="keep-case">AI</span> talent profiling and skill-gap analysis, pathways mapped to national competency frameworks, auto-generated assessments and certifications, and an employer interface that turns verified skills into employment. Leadership gets country-wide visibility: live workforce insights, national labor trends, and future-skills forecasting for policy.
+          </p>
+          <div class="case-caps">
+            <span class="case-cap"><span class="keep-case">AI</span> talent profiling</span>
+            <span class="case-cap">skills-framework refresh</span>
+            <span class="case-cap">assessments &amp; certifications</span>
+            <span class="case-cap">employer job matching</span>
+            <span class="case-cap">national skills forecasting</span>
+          </div>
+        </div>
+        <div class="case-panel">
+          <div class="case-panel-top">
+            <div class="case-panel-label">keeping national skills frameworks alive</div>
+          </div>
+          <div class="case-metrics">
+            <div class="case-metric">
+              <div class="case-metric-num">+18</div>
+              <div class="case-metric-label">emerging roles identified for one national skills framework</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-num">+286</div>
+              <div class="case-metric-label">new functional skills recommended from live market data</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-num">+37</div>
+              <div class="case-metric-label">enabling skills added alongside them</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-num">2025</div>
+              <div class="case-metric-label">market scan vs a 2022 framework &mdash; the gap three years opens</div>
+            </div>
+          </div>
+          <div class="case-panel-note">
+            entomo's <strong><span class="keep-case">AI</span> skill graph</strong> analyzes millions of job postings specific to the philippine market &mdash; so national frameworks, learning, and jobs stay current. nationwide, mobile-first, and built for low-bandwidth inclusion.
+          </div>
+        </div>
+      </div>
+          </div>
+          <div class="case-slide case-om">
+      <div class="case-head">
+        <div class="case-country"><span class="case-flagchip">om</span> <span class="keep-case">Oman</span></div>
+        <div class="case-stage">national skills framework &middot; <span class="keep-case">Vision 2040</span></div>
+      </div>
+      <div class="case-inner">
+        <div class="case-text">
+          <div class="case-eyebrow">national skills &amp; employment platform &middot; <span class="keep-case">Sultanate of Oman</span></div>
+          <h3>architecting the skills backbone of <span class="keep-case hl">Vision 2040</span></h3>
+          <p>
+            <strong>Oman's national labour ministry</strong> &mdash; regulator and custodian of the sultanate's skills-based employment framework &mdash; is steering the country's transition to a knowledge economy under Vision 2040, which aims to place Oman among the world's top-20 developed nations.
+          </p>
+          <p>
+            TMRW is the platform behind the initiative: living national occupational standards built on its skill knowledge graph, <span class="keep-case">AI</span>-generated proctored assessments in Arabic and English, personalized learning paths, and a policy cockpit tracking workforce readiness and localization of jobs. Hosted in-country &mdash; citizen data never leaves Oman. A national pilot validated the platform ahead of sector-by-sector scale-up, making skills the common language of employment, training, and growth.
+          </p>
+          <div class="case-caps">
+            <span class="case-cap">national occupational standards</span>
+            <span class="case-cap"><span class="keep-case">Arabic</span>&ndash;<span class="keep-case">English</span> by design</span>
+            <span class="case-cap"><span class="keep-case">AI</span> proctored assessments</span>
+            <span class="case-cap">verified skill passports</span>
+            <span class="case-cap">workforce policy cockpit</span>
+          </div>
+        </div>
+        <div class="case-panel">
+          <div class="case-panel-top">
+            <div class="case-panel-label">national pilot &middot; validated for scale-up</div>
+          </div>
+          <div class="case-metrics">
+            <div class="case-metric">
+              <div class="case-metric-num">88.5%</div>
+              <div class="case-metric-label">of participants completed verified digital skill passports</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-num">&lt;15 min</div>
+              <div class="case-metric-label">to build a complete <span class="keep-case">AI</span>-guided profile</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-num">94%</div>
+              <div class="case-metric-label">chose to continue with the platform</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-num">top 20</div>
+              <div class="case-metric-label">where <span class="keep-case">Vision 2040</span> aims to place <span class="keep-case">Oman</span> among developed nations</div>
+            </div>
+          </div>
+          <div class="case-panel-note">
+            a living framework &mdash; refreshed continuously from live market data, <strong>benchmarked to leading global skills frameworks</strong>, and localized to Oman’s economy in Arabic and English.
+          </div>
+        </div>
+      </div>
+          </div>
+          <div class="case-slide case-fc">
+      <div class="case-head">
+        <div class="case-country"><span class="case-flagchip">fc</span> <span class="keep-case">FedCenter</span> &middot; <span class="keep-case">Philippines</span></div>
+        <div class="case-stage">association-led &middot; finance sector</div>
+      </div>
+      <div class="case-inner">
+        <div class="case-text">
+          <div class="case-eyebrow">career development for the finance sector &middot; with <span class="keep-case">FedCenter</span></div>
+          <h3>bridging classrooms and careers for the <span class="keep-case">Philippines&rsquo;</span> <span class="hl">finance sector</span></h3>
+          <p>
+            <strong>FedCenter</strong> is a social enterprise empowering financial institutions, universities, and corporations across the Philippines. With entomo it built <strong>FedLeader</strong> &mdash; an AI-powered career development platform endorsed by the Junior Confederation of Finance Associations &ndash; Philippines.
+          </p>
+          <p>
+            Students and early professionals build <strong>Skill Passports</strong> &mdash; validated, shareable evidence employers trust &mdash; follow guided learning pathways aligned to industry and certification standards, and step into placements their institutions can finally see and measure.
+          </p>
+          <div class="case-caps">
+            <span class="case-cap">skill passports</span>
+            <span class="case-cap"><span class="keep-case">AI</span>-guided pathways</span>
+            <span class="case-cap">institution dashboards</span>
+            <span class="case-cap">job matching</span>
+          </div>
+        </div>
+        <div class="case-panel">
+          <div class="case-panel-top">
+            <div class="case-panel-label">FedLeader &middot; career development platform</div>
+          </div>
+          <div class="case-metrics">
+            <div class="case-metric">
+              <div class="case-metric-num">JCFAP</div>
+              <div class="case-metric-label">endorsed by the <span class="keep-case">Junior Confederation of Finance Associations &ndash; Philippines</span></div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-num">nationwide</div>
+              <div class="case-metric-label">financial institutions, universities, and corporations on one platform</div>
+            </div>
+          </div>
+          <div class="case-panel-note">
+            <strong>FedLeader</strong> bridges academic learning with industry readiness &mdash; personalized skill assessments, guided learning pathways, and institution-level career enablement.
+          </div>
+        </div>
+      </div>
+          </div>
+          <div class="case-slide case-zm">
+      <div class="case-head">
+        <div class="case-country"><span class="case-flagchip">gcc</span> <span class="keep-case">ZIMAMI</span> &middot; <span class="keep-case">GCC</span></div>
+        <div class="case-stage">association-led &middot; digital health</div>
+      </div>
+      <div class="case-inner">
+        <div class="case-text">
+          <div class="case-eyebrow">digital health talent &middot; across the <span class="keep-case">GCC</span></div>
+          <h3>building the <span class="keep-case">GCC&rsquo;s</span> digital health workforce, one <span class="hl">verified skill</span> at a time</h3>
+          <p>
+            <strong>ZIMAM</strong> is a GCC-based non-profit led by senior healthcare executives. With entomo it launched <strong>ZIMAMI</strong> &mdash; a regional, AI-powered talent development platform for healthcare professionals building digital health skills.
+          </p>
+          <p>
+            A digital health competency framework contextualized for the region powers self-assessment, skill-gap analysis, and personalized learning &mdash; with curated content from leading digital health partners and integration with HIMSS and AHIMA &mdash; giving the region's health systems shared visibility into digital readiness.
+          </p>
+          <div class="case-caps">
+            <span class="case-cap">digital health framework</span>
+            <span class="case-cap">skill-gap analysis</span>
+            <span class="case-cap">personalized learning</span>
+            <span class="case-cap">regional analytics</span>
+          </div>
+        </div>
+        <div class="case-panel">
+          <div class="case-panel-top">
+            <div class="case-panel-label">ZIMAMI &middot; digital eHealth talent platform</div>
+          </div>
+          <div class="case-metrics">
+            <div class="case-metric">
+              <div class="case-metric-num"><span class="keep-case">GCC</span></div>
+              <div class="case-metric-label">one regional platform for healthcare professionals across the gulf</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-num"><span class="keep-case">HIMSS</span></div>
+              <div class="case-metric-label">integrated with <span class="keep-case">HIMSS</span> and <span class="keep-case">AHIMA</span> digital health ecosystems</div>
+            </div>
+          </div>
+          <div class="case-panel-note">
+            centralized visibility into digital competency across the regional healthcare workforce &mdash; connecting professionals, institutions, and content providers on one platform.
+          </div>
+        </div>
+      </div>
+          </div>
+        </div>
+      </div>
+      <div class="case-arrows">
+        <button class="case-arrow case-prev" aria-label="Previous story"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="case-arrow case-next" aria-label="Next story"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AWARD SPOTLIGHT ===== -->
+  <section class="award-section">
+    <div class="container">
+      <div class="award-inner">
+        <figure class="award-photo">
+          <img src="assets/ntt/sbr-ceremony.jpg" alt="The entomo team accepting the Technology Excellence Award at the Singapore Business Review Awards 2022 in Singapore">
+          <figcaption>the entomo team collecting the award for the Career Agility Hub &mdash; Singapore Business Review Technology Excellence Awards 2022, Singapore</figcaption>
+        </figure>
+        <div class="award-text">
+          <div class="section-eyebrow">recognition</div>
+          <h2 class="section-heading">recognized for transforming an entire nation's <mark>workforce</mark></h2>
+          <p>
+            entomo's work with <strong><span class="keep-case">NTUC</span> LearningHub</strong> &mdash; the training arm of Singapore's national labour movement &mdash; won the <strong>Singapore Business Review Technology Excellence Award 2022</strong> for <span class="keep-case">AI</span> in human resource technology. The Career Agility Hub gave every Singaporean one place to see their skills, close their gaps, and move toward the roles the economy needs next.
+          </p>
+          <div class="award-meta">
+            <div class="award-meta-badge">
+              <span class="t"><span class="keep-case">Technology Excellence Awards 2022</span></span>
+              <span class="s"><span class="keep-case">Singapore Business Review</span> &middot; <span class="keep-case">AI</span> &ndash; <span class="keep-case">HR</span> technology</span>
+            </div>
+            <img class="award-meta-logo" src="assets/ntt/ntuc-learning-hub.png" alt="NTUC LearningHub">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROOF ===== -->
+  <section class="proof-section" id="proof">
+    <div class="container">
+      <div class="proof-head">
+        <div class="section-eyebrow">why governments choose entomo</div>
+        <h2 class="section-heading">the numbers behind the platform are independently <mark>validated</mark></h2>
+      </div>
+      <div class="proof-cards">
+        <div class="proof-card proof-card-1">
+          <img class="proof-bg-img" src="assets/ntt/forrester_govt.png" alt="">
+          <div class="proof-content">
+            <div class="proof-source">Forrester Total Economic Impact&trade; Study</div>
+            <p class="proof-headline">large government entity reaps benefits of over $26.8 million and roi of 103% in a 3-year period.</p>
+          </div>
+          <div class="proof-foot">independently validated &middot; 3-year study</div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-tile">
+            <div class="stat-num">millions</div>
+            <div class="stat-label">of users powered globally, across enterprises and governments</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-num">15</div>
+            <div class="stat-label">geographies &mdash; headquartered in <span class="keep-case">Singapore</span> since 2010</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-num"><span class="keep-case">ISO</span>/<span class="keep-case">SOC</span></div>
+            <div class="stat-label"><span class="keep-case">ISO</span> 27001 &amp; <span class="keep-case">SOC</span> 2 certified, with sovereign in-country hosting</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </div><!-- /panel-gov -->
+
+  <!-- ===================== UNIVERSITY PANEL ===================== -->
+  <div class="tab-panel" id="panel-uni">
+
+  <!-- ===== UNI INTRO ===== -->
+  <section class="split-section">
+    <div class="container">
+      <div class="split-inner">
+        <div class="split-text">
+          <div class="section-eyebrow" style="color:var(--spanish-blue);">for universities</div>
+          <h2 class="section-heading">from career counselling to career <mark>intelligence</mark></h2>
+          <p>
+            Employers now hire on proven skills, not credentials alone &mdash; yet most students only chase the careers they can already see in their own families and networks. TMRW shows them the roles the market is actually creating, maps the skills each one needs, and closes the gap with credentials employers trust.
+          </p>
+          <p>
+            It isn't a learning platform or a careers tool bolted on. It's the intelligence layer that sits on top of everything you already own, turning it into one engine for skills and employability.
+          </p>
+        </div>
+        <div class="split-img">
+          <img src="assets/ntt/uni-students.jpg" alt="Students smiling in a university lecture hall">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILL TRANSFORMATION SUITE (why we win) ===== -->
+  <section class="suite-section">
+    <div class="container">
+      <div class="suite-head">
+        <div class="section-eyebrow" style="color:var(--spanish-blue);">the skill transformation suite</div>
+        <h2 class="section-heading"><span class="keep-case">TMRW</span> is not an <span class="keep-case">LMS</span>, a job portal, or an assessment engine &mdash; it's <mark>all of it</mark>, integrated</h2>
+        <p class="section-subheading">
+          Every point solution answers one slice of the journey. TMRW brings skills, learning, career, employment, and market intelligence together as one experience.
+        </p>
+      </div>
+      <div class="suite-table">
+        <div class="suite-row suite-row-head"><span>platform</span><span>what it solves</span><span>what it misses</span></div>
+        <div class="suite-row">
+          <div class="suite-name"><span class="keep-case">LMS</span> platforms</div>
+          <div class="suite-solves">learning delivery</div>
+          <div class="suite-misses">skills validation, employment outcomes, market intelligence</div>
+        </div>
+        <div class="suite-row">
+          <div class="suite-name">job boards</div>
+          <div class="suite-solves">job postings</div>
+          <div class="suite-misses">skill gaps, career pathing, learner readiness</div>
+        </div>
+        <div class="suite-row">
+          <div class="suite-name">assessment platforms</div>
+          <div class="suite-solves">testing &amp; scoring</div>
+          <div class="suite-misses">learning, placement, ongoing career guidance</div>
+        </div>
+        <div class="suite-row">
+          <div class="suite-name">career services tools</div>
+          <div class="suite-solves">counselling workflows</div>
+          <div class="suite-misses"><span class="keep-case">AI</span> intelligence, employer connectivity, analytics</div>
+        </div>
+        <div class="suite-row suite-row-hero">
+          <div class="suite-name"><img src="assets/ntt/tmrw-logo.svg" alt="TMRW"></div>
+          <div class="suite-solves">skills + learning + career + employment + market intelligence</div>
+          <div class="suite-misses">the entire learner-to-earner journey, as one integrated experience</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== UNI PERSONAS ===== -->
+  <section class="persona-section">
+    <div class="container">
+      <div class="persona-head">
+        <div class="section-eyebrow" style="color:var(--spanish-blue);">who it serves</div>
+        <h2 class="section-heading">students, faculty, and alumni each get their own <mark>experience</mark></h2>
+        <p class="section-subheading">
+          Three personas draw on the same skills intelligence &mdash; and each gets a platform that feels built just for them.
+        </p>
+      </div>
+      <div class="persona-grid">
+        <div class="persona-card p-students">
+          <div class="persona-icon"><svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+          <h3>students</h3>
+          <div class="persona-tag">clarity from day one</div>
+          <ul>
+            <li>discover careers beyond their own networks, from year one</li>
+            <li>follow personalized pathways with verified skills employers trust</li>
+            <li>graduate job-ready &mdash; resume, interview prep, and matching built in</li>
+          </ul>
+        </div>
+        <div class="persona-card p-faculty">
+          <div class="persona-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5z"/><path d="M8 8h8M8 12h6"/></svg></div>
+          <h3>faculty</h3>
+          <div class="persona-tag">curriculum that tracks the market</div>
+          <ul>
+            <li>live market intelligence to inform curriculum design</li>
+            <li>visibility into each cohort's skill strengths and gaps</li>
+            <li>evidence ready for accreditation and quality reviews</li>
+          </ul>
+        </div>
+        <div class="persona-card p-alumni">
+          <div class="persona-icon"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+          <h3>alumni</h3>
+          <div class="persona-tag">careers that keep growing</div>
+          <ul>
+            <li>career guidance through the first years of working life</li>
+            <li>continued upskilling and job readiness after graduation</li>
+            <li>come back as mentors and employers for today's students</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== UNI MEASURES ===== -->
+  <section class="measure-section">
+    <div class="container">
+      <div class="story-head">
+        <div class="section-eyebrow" style="color:var(--spanish-blue);">outcomes, upgraded</div>
+        <h2 class="section-heading">stop counting jobs and start measuring <mark>careers</mark></h2>
+      </div>
+      <div class="measure-grid">
+        <div class="measure-box measure-old">
+          <div class="measure-tag">the old question</div>
+          <div class="measure-q">&ldquo;how many students got jobs?&rdquo;</div>
+          <p>Measures quantity. Satisfies accreditation checkboxes. Says nothing about career quality or future readiness.</p>
+        </div>
+        <div class="measure-box measure-new">
+          <div class="measure-tag">the future question</div>
+          <div class="measure-q">&ldquo;how many got the right jobs, in future-ready roles, with clear progression?&rdquo;</div>
+          <p>Measures quality, alignment, and long-term outcomes &mdash; what students, parents, rankings, and regulators actually watch.</p>
+        </div>
+      </div>
+      <div class="measure-chips">
+        <span>skill readiness</span><span>industry alignment</span><span>placement quality</span><span>career progression</span><span>alumni outcomes</span>
+      </div>
+      <p class="story-turn" style="font-size: 20px;">we’re not replacing counsellors &mdash; we’re giving every counsellor a team of <span class="keep-case">AI</span> analysts, so they focus on the human work that matters.</p>
+    </div>
+  </section>
+
+  </div><!-- /panel-uni -->
+
+  <!-- ===== BOTTOM CTA ===== -->
+  <section class="bottom-cta">
+    <div class="container">
+      <h2>ready to move from skills to <mark>employability</mark>?</h2>
+      <p>whether you lead an institution or a nation &mdash; make skills the common language of learning, employment, and growth. forrester-validated: $26.8m in value and 103% roi for a large government entity over 3 years.</p>
+      <button class="btn-primary">talk to our team &rarr;</button>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <img src="assets/ntt/entomo.svg" alt="entomo" style="height:32px; width:auto;">
+          </div>
+          <p>Agentic workforce intelligence platform powering millions of users across global enterprise brands and governments.</p>
+        </div>
+        <div class="footer-col">
+          <h4>platform</h4>
+          <ul>
+            <li><a href="#">AI agents</a></li>
+            <li><a href="#">intelligence architecture</a></li>
+            <li><a href="#">integrations</a></li>
+            <li><a href="#">security</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>solutions</h4>
+          <ul>
+            <li><a href="https://entomomarketing.github.io/PX/V2/solutions/performance-intelligence.html">performance intelligence</a></li>
+            <li><a href="https://entomomarketing.github.io/PX/V2/solutions/skill-intelligence.html">skill &amp; talent intelligence</a></li>
+            <li><a href="https://entomomarketing.github.io/PX/V2/solutions/workforce-insights.html">workforce insights</a></li>
+            <li><a href="https://entomomarketing.github.io/PX/V2/solutions/strategic-planning.html">strategic planning</a></li>
+            <li><a href="national-talent-transformation.html">national talent transformation</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>resources</h4>
+          <ul>
+            <li><a href="#">Forrester TEI study</a></li>
+            <li><a href="#">case studies</a></li>
+            <li><a href="#">blog</a></li>
+            <li><a href="#">webinars</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>company</h4>
+          <ul>
+            <li><a href="#">about us</a></li>
+            <li><a href="#">careers</a></li>
+            <li><a href="https://entomomarketing.github.io/PX/V2/contact.html">contact</a></li>
+            <li><a href="#">privacy policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 entomo. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Twitter">&#120143;</a>
+          <a href="#" aria-label="YouTube">&#9654;</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== CASE CAROUSEL ===== -->
+  <script>
+  (function() {
+    'use strict';
+    var track = document.querySelector('.case-track');
+    if (!track) return;
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.case-tab'));
+    var i = 0;
+    function go(n) {
+      i = (n + tabs.length) % tabs.length;
+      track.style.transform = 'translateX(-' + (i * (100 / tabs.length)) + '%)';
+      tabs.forEach(function(t, k) { t.classList.toggle('active', k === i); });
+    }
+    tabs.forEach(function(t, k) { t.addEventListener('click', function() { go(k); }); });
+    document.querySelector('.case-prev').addEventListener('click', function() { go(i - 1); });
+    document.querySelector('.case-next').addEventListener('click', function() { go(i + 1); });
+  })();
+  </script>
+
+  <!-- ===== PRODUCT DEMO ENGINE ===== -->
+  <script>
+  (function() {
+    'use strict';
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('[data-pdemo]').forEach(initDemo);
+
+    function initDemo(root) {
+      const stage = root.querySelector('.pdemo-stage');
+      const screens = Array.prototype.slice.call(stage.querySelectorAll('.pd-screen'));
+      const cursor = stage.querySelector('.pd-cursor');
+      const ripple = stage.querySelector('.pd-click');
+      const capLabel = root.querySelector('.pdemo-cap-label');
+      const capDots = root.querySelectorAll('.pdemo-cap-dots span');
+      let idx = 0, visible = false, timer = null, lastTick = 0;
+
+      if (reduced || !('IntersectionObserver' in window)) {
+        screens[0].classList.add('on');
+        return;
+      }
+
+      const io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          visible = e.isIntersecting;
+          if (visible && !timer && Date.now() - lastTick > 1500) show(idx);
+          if (!visible) stop();
+        });
+      }, { threshold: 0.25 });
+      io.observe(root);
+
+      // self-healing: restart ONLY when the chain has been silent long enough
+      // to be provably dead (a live chain ticks at least every ~3s).
+      setInterval(function() {
+        if (visible && root.offsetParent !== null && Date.now() - lastTick > 6000) show(idx);
+      }, 3000);
+
+      function stop() { clearTimeout(timer); timer = null; }
+      function wait(ms, fn) {
+        clearTimeout(timer);
+        timer = setTimeout(function() {
+          timer = null;
+          lastTick = Date.now();
+          if (!visible) return;
+          try { fn(); } catch (err) { /* recovered by heartbeat */ }
+        }, ms);
+      }
+
+      function show(i) {
+        lastTick = Date.now();
+        screens.forEach(function(s, k) {
+          s.classList.remove('out');
+          s.classList.toggle('on', k === i);
+        });
+        var iqAns = screens[i].querySelector('.pdq-ans');
+        if (iqAns) iqAns.classList.remove('open');
+        capLabel.textContent = screens[i].getAttribute('data-name');
+        capDots.forEach(function(d, k) { d.classList.toggle('on', k === i); });
+        cursor.classList.remove('show');
+        wait(2300, function() { moveCursor(i); });
+      }
+
+      function center(el) {
+        var s = stage.getBoundingClientRect(), r = el.getBoundingClientRect();
+        return { x: r.left - s.left + r.width / 2, y: r.top - s.top + r.height / 2 };
+      }
+
+      function moveCursor(i) {
+        var target = screens[i].querySelector('[data-ct]');
+        if (!target) return next(i);
+        var s = stage.getBoundingClientRect();
+        cursor.style.transition = 'none';
+        cursor.style.transform = 'translate(' + (s.width * 0.55) + 'px, ' + (s.height * 0.88) + 'px)';
+        cursor.classList.add('show');
+        requestAnimationFrame(function() { requestAnimationFrame(function() {
+          cursor.style.transition = '';
+          var c = center(target);
+          cursor.style.transform = 'translate(' + c.x + 'px, ' + c.y + 'px)';
+          wait(760, function() { click(i, target, c); });
+        }); });
+      }
+
+      function click(i, target, c) {
+        ripple.style.left = (c.x - 17) + 'px';
+        ripple.style.top = (c.y - 17) + 'px';
+        ripple.classList.remove('go');
+        void ripple.offsetWidth;
+        ripple.classList.add('go');
+        target.classList.add('pd-press');
+        setTimeout(function() { target.classList.remove('pd-press'); }, 400);
+        if (screens[i].hasAttribute('data-iq')) {
+          wait(450, function() {
+            screens[i].querySelector('.pdq-ans').classList.add('open');
+            cursor.classList.remove('show');
+            wait(2800, function() { next(i); });
+          });
+        } else {
+          wait(560, function() { next(i); });
+        }
+      }
+
+      function next(i) {
+        cursor.classList.remove('show');
+        screens[i].classList.add('out');
+        screens[i].classList.remove('on');
+        var n = (i + 1) % screens.length;
+        idx = n;
+        wait(400, function() { show(n); });
+      }
+    }
+  })();
+  </script>
+
+  <!-- ===== AUDIENCE TAB SWITCHER ===== -->
+  <script>
+  (function() {
+    'use strict';
+    const btns = document.querySelectorAll('.tabbar-btn');
+    const panels = { gov: document.getElementById('panel-gov'), uni: document.getElementById('panel-uni') };
+    function activate(key, scroll) {
+      btns.forEach(b => b.classList.toggle('active', b.dataset.tab === key));
+      Object.keys(panels).forEach(k => panels[k].classList.toggle('active', k === key));
+      if (history.replaceState) history.replaceState(null, '', '#' + (key === 'gov' ? 'governments' : 'universities'));
+      if (scroll) {
+        const bar = document.querySelector('.tabbar-wrap');
+        const y = bar.getBoundingClientRect().top + window.scrollY - 68;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }
+    btns.forEach(b => b.addEventListener('click', () => activate(b.dataset.tab, false)));
+    document.querySelectorAll('[data-tabjump]').forEach(b => b.addEventListener('click', () => activate(b.dataset.tabjump, true)));
+    const h = (location.hash || '').toLowerCase();
+    if (h.indexOf('universit') !== -1) activate('uni', false);
+    else if (h.indexOf('govern') !== -1) activate('gov', false);
+  })();
+  </script>
+
+  <!-- ===== SCROLL ANIMATION ENGINE ===== -->
+  <script>
+  (function() {
+    'use strict';
+
+    // Selectors for elements that should animate when scrolled into view.
+    const SOLO_SELECTORS = [
+      'h1', 'h2', 'h3',
+      '.section-heading', '.section-subheading', '.section-eyebrow',
+      '.hero-badge', '.sol-hero-sub', '.sol-hero-proof', '.hero-aud-btns',
+      '.btn-primary',
+      '.story-turn',
+      '.delivery-strip',
+      '.split-img', '.split-text > p',
+      '.case-panel', '.case-award',
+      '.case-text > p', '.case-caps', '.case-eyebrow',
+      '.proof-card',
+      '.pdemo-wrap',
+      '.award-photo', '.award-text > p', '.award-meta',
+    ];
+
+    // Grid-like containers whose children should stagger in
+    const STAGGER_SELECTORS = [
+      '.pillar-grid',
+      '.measure-grid', '.measure-chips',
+      '.suite-table', '.persona-grid',
+      '.case-tabs',
+      '.stats-grid',
+      '.case-metrics',
+      '.delivery-chips',
+    ];
+
+    // Ancestors to exclude (don't animate elements inside these)
+    const EXCLUDE_ANCESTORS = ['nav.navbar', 'footer.footer', '.marquee-track', '.pdemo', '.case-track'];
+
+    function isExcluded(el) {
+      for (const sel of EXCLUDE_ANCESTORS) {
+        if (el.closest(sel)) return true;
+      }
+      return false;
+    }
+
+    function tagAnim(el, variant = 'anim-fade-up') {
+      if (el.classList.contains('anim') || el.classList.contains('stagger')) return;
+      if (el.closest('.stagger')) return;
+      el.classList.add('anim', variant);
+    }
+
+    function tagStagger(el) {
+      if (el.classList.contains('stagger')) return;
+      el.classList.add('stagger');
+    }
+
+    // Tag stagger containers first so solo tagging can skip their children
+    STAGGER_SELECTORS.forEach(sel => {
+      document.querySelectorAll(sel).forEach(el => {
+        if (isExcluded(el)) return;
+        tagStagger(el);
+      });
+    });
+
+    // Tag solo elements
+    SOLO_SELECTORS.forEach(sel => {
+      document.querySelectorAll(sel).forEach(el => {
+        if (isExcluded(el)) return;
+        tagAnim(el);
+      });
+    });
+
+    // IntersectionObserver to reveal on scroll
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      document.querySelectorAll('.anim, .stagger').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          setTimeout(() => el.classList.add('is-visible'), 50);
+        } else {
+          io.observe(el);
+        }
+      });
+    } else {
+      document.querySelectorAll('.anim, .stagger').forEach(el => el.classList.add('is-visible'));
+    }
+  })();
+  </script>
+
+</body>
+</html>
