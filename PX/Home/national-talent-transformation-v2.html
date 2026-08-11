@@ -504,6 +504,10 @@
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
       transition: opacity 0.3s;
     }
+    @media (max-width: 700px) {
+      .pdemo-cap { align-items: flex-start; padding: 10px 14px; }
+      .pdemo-cap-label { white-space: normal; overflow: visible; text-overflow: clip; font-size: 12px; line-height: 1.4; }
+    }
     .pdemo-cap-dots { display: flex; gap: 6px; flex-shrink: 0; }
     .pdemo-cap-dots span {
       width: 7px; height: 7px; border-radius: 50%;
@@ -786,6 +790,19 @@
     .award-meta-badge .s { font-size: 12px; color: rgba(26,31,38,0.55); text-transform: lowercase; margin-top: 2px; }
     .award-meta-logo { height: 38px; width: auto; opacity: 0.92; }
 
+    /* ===== CASE FLOW CHAIN ===== */
+    .case-flow {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+      gap: 6px 8px; padding: 16px 22px 4px;
+    }
+    .case-flow span {
+      font-size: 11.5px; font-weight: 700; text-transform: lowercase;
+      color: var(--spanish-blue); background: rgba(0,100,191,0.07);
+      border-radius: 14px; padding: 4px 11px; white-space: nowrap;
+    }
+    .case-flow i { font-style: normal; color: rgba(26,31,38,0.28); font-size: 12px; }
+    @media (max-width: 600px) { .case-flow { padding: 14px 14px 2px; gap: 5px 6px; } .case-flow span { font-size: 10.5px; padding: 3px 9px; } }
+
     /* ===== EXTRA CASE ACCENTS (FedCenter / ZIMAMI) ===== */
     .case-tab.t-fc .code { background: linear-gradient(135deg, #f4b223, #b8741a); }
     .case-tab.t-zm .code { background: linear-gradient(135deg, #5B4FE8, #8f7bff); }
@@ -980,6 +997,13 @@
       border-bottom: 1px solid rgba(26,31,38,0.06);
     }
     .case-metric:nth-child(odd) { border-right: 1px solid rgba(26,31,38,0.06); }
+    @media (max-width: 700px) {
+      .case-metrics { grid-template-columns: 1fr; }
+      .case-metric { padding: 18px 20px 16px; }
+      .case-metric:nth-child(odd) { border-right: none; }
+      .case-metric:last-child { border-bottom: none; }
+      .case-metric-num { font-size: 28px; }
+    }
     .case-metric-num {
       font-size: 34px; font-weight: 800; line-height: 1; letter-spacing: -1px;
       margin-bottom: 7px;
@@ -1890,29 +1914,24 @@
         </div>
         <div class="case-panel">
           <div class="case-panel-top">
-            <div class="case-panel-label">keeping national skills frameworks alive</div>
-          </div>
-          <div class="case-metrics">
-            <div class="case-metric">
-              <div class="case-metric-num">+18</div>
-              <div class="case-metric-label">emerging roles identified for one national skills framework</div>
+              <div class="case-panel-label">national talent &amp; career platform</div>
             </div>
-            <div class="case-metric">
-              <div class="case-metric-num">+286</div>
-              <div class="case-metric-label">new functional skills recommended from live market data</div>
+            <div class="case-metrics">
+              <div class="case-metric">
+                <div class="case-metric-num"><span class="keep-case">AI</span>-powered</div>
+                <div class="case-metric-label">dynamic competency profiles, skill-gap diagnostics, and personalized career pathways</div>
+              </div>
+              <div class="case-metric">
+                <div class="case-metric-num">sector-connected</div>
+                <div class="case-metric-label">individuals, employers, training providers, and government on one common skills ecosystem</div>
+              </div>
             </div>
-            <div class="case-metric">
-              <div class="case-metric-num">+37</div>
-              <div class="case-metric-label">enabling skills added alongside them</div>
+            <div class="case-flow">
+              <span>profile</span><i>&rarr;</i><span>assess</span><i>&rarr;</i><span>develop</span><i>&rarr;</i><span>match</span><i>&rarr;</i><span>hire</span><i>&rarr;</i><span>progress</span>
             </div>
-            <div class="case-metric">
-              <div class="case-metric-num">2025</div>
-              <div class="case-metric-label">market scan vs a 2022 framework — the gap three years opens</div>
+            <div class="case-panel-note">
+              one ecosystem end to end &mdash; individuals continuously build their capabilities, employers reach job-ready talent, and government gains visibility into national and sector-level workforce trends.
             </div>
-          </div>
-          <div class="case-panel-note">
-            entomo's <strong><span class="keep-case">AI</span> skill graph</strong> analyzes millions of job postings specific to the philippine market — so national frameworks, learning, and jobs stay current. nationwide, mobile-first, and built for low-bandwidth inclusion.
-          </div>
         </div>
       </div>
           </div>
