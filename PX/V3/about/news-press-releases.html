@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>news & press releases | entomo</title>
+  <meta name="description" content="latest announcements, product launches, partnerships, and media coverage from entomo — the agentic intelligence platform for performance and skills.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Nunito Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px; line-height: 1.5; color: #1a1f26;
+      background-color: #ffffff; -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    :root {
+      --cg-red: #e43d30;
+      --cg-gold: #f4b223;
+      --spanish-blue: #0064bf;
+      --sea-green: #2c9942;
+      --sunrise-yellow: #ffda00;
+      --white: #ffffff;
+      --ebony-clay: #1a1f26;
+      --floral-white: #fefbf4;
+      --polar-white: #f2f7fc;
+      --black-haze: #fafbfb;
+      --gradient-cta: linear-gradient(90deg, #f4b223, #e43d30);
+      --max-width: 1200px;
+    }
+
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+    .text-center { text-align: center; }
+
+    h1, h2, h3, h4 { text-transform: lowercase; color: var(--ebony-clay); line-height: 1.15; }
+    h1 {
+      font-size: clamp(36px, 5vw, 68px);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -1px;
+    }
+    h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0.01px; }
+    h3 { font-size: 1.25rem; font-weight: 800; }
+    h4 { font-weight: 700; }
+    .keep-case { text-transform: none !important; }
+
+    mark {
+      background: var(--sunrise-yellow);
+      color: var(--ebony-clay);
+      padding: 0 6px; border-radius: 3px;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid rgba(26,31,38,0.08);
+      backdrop-filter: blur(12px);
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: lowercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: lowercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--cg-red); }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+    .nav-cta {
+      background-image: var(--gradient-cta);
+      color: var(--white);
+      border: none;
+      border-radius: 5px;
+      padding: 8px 20px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: lowercase;
+      cursor: pointer;
+    }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-toggle svg { width: 24px; height: 24px; }
+
+    .nav-dropdown-wrap { position: relative; }
+    .nav-dropdown-wrap > a {
+      display: flex; align-items: center; gap: 4px;
+    }
+    .nav-dropdown-wrap > a::after {
+      content: '';
+      border: solid currentColor; border-width: 0 1.5px 1.5px 0;
+      display: inline-block; padding: 2.5px;
+      transform: rotate(45deg); margin-top: -3px;
+      transition: transform 0.2s;
+    }
+    .nav-dropdown-wrap:hover > a::after {
+      transform: rotate(-135deg); margin-top: 2px;
+    }
+    .nav-mega {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(14px);
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.08);
+      border-radius: 15px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12), 0 0 0 1px rgba(26,31,38,0.04);
+      padding: 1.25rem;
+      width: 680px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+      z-index: 200;
+    }
+    .nav-dropdown-wrap:hover .nav-mega {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(8px);
+    }
+    .nav-mega-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+    }
+    .nav-mega-item {
+      display: flex; flex-direction: row; align-items: flex-start; gap: 12px;
+      padding: 12px 14px; border-radius: 10px;
+      transition: background 0.15s; text-decoration: none; color: inherit;
+    }
+    .nav-mega-icon {
+      width: 40px; height: 40px; border-radius: 9px; flex-shrink: 0;
+      background: rgba(26,31,38,0.05);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+    }
+    .nav-mega-icon svg {
+      width: 18px; height: 18px; stroke: rgba(26,31,38,0.45); fill: none;
+      transition: stroke 0.15s;
+    }
+    .nav-mega-text { display: flex; flex-direction: column; gap: 2px; }
+    .nav-mega-item:hover { background: rgba(228,61,48,0.04); }
+    .nav-mega-item:hover .nav-mega-icon { background: rgba(228,61,48,0.08); }
+    .nav-mega-item:hover .nav-mega-icon svg { stroke: var(--cg-red); }
+    .nav-mega-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      margin-bottom: 3px;
+      line-height: 1.3;
+    }
+    .nav-mega-desc {
+      font-size: 12px;
+      color: rgba(26,31,38,0.45);
+      line-height: 1.4;
+      font-weight: 500;
+    }
+    .nav-mega-item:hover .nav-mega-name { color: var(--cg-red); }
+    .nav-right-group { display: flex; flex-direction: row; align-items: center; gap: 1.5rem; flex-wrap: nowrap; }
+    @media (max-width: 900px) {
+      .nav-mega { display: none; }
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+    }
+
+    /* Placeholder tooltips */
+    .nav-placeholder-tooltip { position: relative; }
+    .nav-placeholder-tooltip::after {
+      content: attr(data-tooltip);
+      position: absolute; top: calc(100% + 8px); left: 50%;
+      transform: translateX(-50%);
+      background: rgba(26,31,38,0.88); color: #fff;
+      font-size: 11px; font-weight: 500; white-space: nowrap;
+      padding: 5px 10px; border-radius: 5px;
+      pointer-events: none; opacity: 0;
+      transition: opacity 0.15s ease; z-index: 999;
+    }
+    .nav-placeholder-tooltip::before {
+      content: ''; position: absolute; top: calc(100% + 4px); left: 50%;
+      transform: translateX(-50%);
+      border: 4px solid transparent;
+      border-bottom-color: rgba(26,31,38,0.88);
+      pointer-events: none; opacity: 0;
+      transition: opacity 0.15s ease; z-index: 999;
+    }
+    .nav-placeholder-tooltip:hover::after,
+    .nav-placeholder-tooltip:hover::before { opacity: 1; }
+
+    /* ===== HERO ===== */
+    .news-hero {
+      background: linear-gradient(180deg, var(--floral-white) 0%, white 100%);
+      padding: 5rem 0 4rem;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: rgba(228, 61, 48, 0.08);
+      color: var(--cg-red);
+      font-size: 0.85rem; font-weight: 700;
+      padding: 6px 16px; border-radius: 20px;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .news-hero h1 { margin-bottom: 1.25rem; max-width: 850px; margin-left: auto; margin-right: auto; }
+    .news-hero .lede {
+      font-size: 1.2rem; color: rgba(26,31,38,0.65);
+      max-width: 720px; margin: 0 auto; line-height: 1.55;
+    }
+
+    /* ===== SECTION BASE ===== */
+    section { padding: 5rem 0; }
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 13px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      background: linear-gradient(90deg, var(--cg-gold), var(--cg-red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+    .section-heading { margin-bottom: 1rem; }
+    .section-subheading {
+      font-size: 1.1rem; color: rgba(26,31,38,0.65);
+      max-width: 760px; line-height: 1.6;
+    }
+
+    /* ===== CATEGORY TAGS ===== */
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+    .tag.product { background: rgba(228, 61, 48, 0.1); color: var(--cg-red); }
+    .tag.partnership { background: rgba(0, 100, 191, 0.1); color: var(--spanish-blue); }
+    .tag.award { background: rgba(244, 178, 35, 0.15); color: #b8860b; }
+    .tag.customer { background: rgba(44, 153, 66, 0.1); color: var(--sea-green); }
+    .tag.company { background: rgba(26, 31, 38, 0.08); color: var(--ebony-clay); }
+
+    .meta-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .meta-date {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(26,31,38,0.55);
+    }
+
+    /* ===== FEATURED ===== */
+    .featured-section { background: white; padding-top: 2rem; }
+    .featured-section .container { max-width: 1100px; }
+    .featured-card {
+      background: white;
+      border: 1px solid rgba(26,31,38,0.08);
+      border-radius: 20px;
+      padding: 0;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .featured-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.08);
+    }
+    .featured-visual {
+      background: linear-gradient(135deg, #fff7e6 0%, #ffe1dd 100%);
+      min-height: 360px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .featured-visual::before {
+      content: '';
+      position: absolute;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(244, 178, 35, 0.35), transparent 70%);
+      top: -40px; right: -60px;
+    }
+    .featured-visual::after {
+      content: '';
+      position: absolute;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(228, 61, 48, 0.25), transparent 70%);
+      bottom: -40px; left: -40px;
+    }
+    .featured-visual-label {
+      position: relative;
+      z-index: 2;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--ebony-clay);
+      background: rgba(255,255,255,0.85);
+      padding: 8px 18px;
+      border-radius: 20px;
+      backdrop-filter: blur(8px);
+    }
+    .featured-content {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .featured-content h2 {
+      font-size: clamp(1.5rem, 2.2vw, 2rem);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .featured-content p {
+      font-size: 1rem;
+      color: rgba(26,31,38,0.7);
+      line-height: 1.65;
+      margin-bottom: 1.75rem;
+    }
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--cg-red);
+      text-transform: lowercase;
+      transition: gap 0.2s;
+    }
+    .read-more:hover { gap: 12px; }
+    .read-more::after {
+      content: '→';
+      font-size: 16px;
+    }
+
+    /* ===== NEWS GRID ===== */
+    .grid-section { background: var(--polar-white); }
+    .grid-intro { text-align: center; max-width: 720px; margin: 0 auto 3rem; }
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+    .news-card {
+      background: white;
+      border: 1px solid rgba(26,31,38,0.06);
+      border-radius: 16px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .news-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.07);
+      border-color: rgba(26,31,38,0.12);
+    }
+    .news-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.65rem;
+      line-height: 1.3;
+    }
+    .news-card p {
+      font-size: 0.92rem;
+      color: rgba(26,31,38,0.65);
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .grid-footer {
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .btn-ghost {
+      display: inline-block;
+      background: transparent;
+      color: var(--ebony-clay);
+      padding: 12px 28px;
+      border: 1.5px solid rgba(26,31,38,0.15);
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-transform: lowercase;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover {
+      border-color: var(--cg-red);
+      color: var(--cg-red);
+    }
+
+    /* ===== PRESS KIT ===== */
+    .presskit-section { background: white; }
+    .presskit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .presskit-card {
+      background: var(--floral-white);
+      border-radius: 16px;
+      padding: 2.25rem 2rem;
+      border: 1px solid rgba(26,31,38,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .presskit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+    }
+    .presskit-icon {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      background: white;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.25rem;
+      color: var(--cg-red);
+    }
+    .presskit-card h3 { margin-bottom: 0.6rem; }
+    .presskit-card p {
+      font-size: 0.95rem;
+      color: rgba(26,31,38,0.65);
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+    }
+    .presskit-card .read-more { font-size: 13px; }
+
+    /* ===== SUBSCRIBE ===== */
+    .subscribe-section {
+      background: linear-gradient(135deg, var(--ebony-clay) 0%, #2a3038 100%);
+      color: white;
+      text-align: center;
+    }
+    .subscribe-section .section-eyebrow {
+      background: linear-gradient(90deg, var(--cg-gold), var(--sunrise-yellow));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .subscribe-section h2 {
+      color: white;
+      max-width: 640px;
+      margin: 0 auto 1rem;
+    }
+    .subscribe-section p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.05rem;
+      max-width: 560px;
+      margin: 0 auto 2rem;
+    }
+    .subscribe-form {
+      display: flex;
+      gap: 0.75rem;
+      max-width: 520px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .subscribe-form input {
+      flex: 1;
+      min-width: 240px;
+      padding: 14px 18px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.06);
+      color: white;
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .subscribe-form input::placeholder { color: rgba(255,255,255,0.4); }
+    .subscribe-form input:focus {
+      border-color: var(--cg-gold);
+      background: rgba(255,255,255,0.1);
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--gradient-cta); color: white;
+      padding: 14px 28px; border-radius: 10px;
+      font-weight: 700; font-size: 1rem;
+      border: none; cursor: pointer;
+      font-family: inherit;
+      text-transform: lowercase;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(228, 61, 48, 0.3);
+    }
+    .subscribe-disclaimer {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 1.25rem;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--black-haze);
+      padding: 3.5rem 0 1.5rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(26,31,38,0.6);
+      margin-top: 0.75rem;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: lowercase;
+      margin-bottom: 1rem;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .footer-col a {
+      font-size: 14px;
+      color: rgba(26,31,38,0.6);
+      text-transform: lowercase;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--cg-red); }
+    .footer-bottom {
+      border-top: 1px solid rgba(26,31,38,0.08);
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-bottom p {
+      font-size: 13px;
+      color: rgba(26,31,38,0.45);
+    }
+    .footer-socials {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .footer-socials a {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(26,31,38,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--ebony-clay);
+      transition: background 0.2s, color 0.2s;
+    }
+    .footer-socials a:hover {
+      background: var(--ebony-clay);
+      color: var(--white);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-visual { min-height: 240px; }
+      .featured-content { padding: 2rem; }
+      .news-grid { grid-template-columns: repeat(2, 1fr); }
+      .presskit-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 600px) {
+      .news-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 1rem; }
+      .subscribe-form { flex-direction: column; }
+      .subscribe-form input { min-width: 0; width: 100%; }
+      .btn-primary { width: 100%; }
+    }
+  
+    /* ===== SCROLL ANIMATIONS (modern, gpu-accelerated, accessible) ===== */
+    .anim {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+    .anim-fade        { transform: none; }
+    .anim-fade-up     { transform: translateY(28px); }
+    .anim-fade-down   { transform: translateY(-22px); }
+    .anim-fade-left   { transform: translateX(-32px); }
+    .anim-fade-right  { transform: translateX(32px); }
+    .anim-scale       { transform: scale(0.96); }
+    .anim-blur        { filter: blur(10px); }
+    .anim-rise        { transform: translateY(40px) scale(0.985); }
+    .anim.is-visible {
+      opacity: 1;
+      transform: none;
+      filter: none;
+    }
+
+    /* Stagger children — cascading reveal for grids & rows */
+    .stagger > * {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+    .stagger.is-visible > *:nth-child(1)  { transition-delay: 0.00s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(2)  { transition-delay: 0.07s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(3)  { transition-delay: 0.14s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(4)  { transition-delay: 0.21s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(5)  { transition-delay: 0.28s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(6)  { transition-delay: 0.35s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(7)  { transition-delay: 0.42s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(8)  { transition-delay: 0.49s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(9)  { transition-delay: 0.56s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(n+10) { transition-delay: 0.63s; opacity: 1; transform: none; }
+
+    /* Sequential delays for children of .anim parents (use anim-d-N classes) */
+    .anim-d-1 { transition-delay: 0.10s; }
+    .anim-d-2 { transition-delay: 0.20s; }
+    .anim-d-3 { transition-delay: 0.30s; }
+    .anim-d-4 { transition-delay: 0.40s; }
+    .anim-d-5 { transition-delay: 0.50s; }
+
+    /* Subtle hover lift for cards (modern micro-interaction) */
+    .anim-lift {
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .anim-lift:hover {
+      transform: translateY(-4px);
+    }
+
+    /* Smooth scrolling */
+    html { scroll-behavior: smooth; }
+
+    /* Honor reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      .anim, .anim *, .stagger, .stagger > *, .anim-lift {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+    /* ===== END SCROLL ANIMATIONS ===== */
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="logo">
+        <img src="../Images/entomo.svg" alt="entomo" style="height:36px; width:auto;">
+      </a>
+      <div class="nav-right-group">
+        <ul class="nav-links">
+          <li class="nav-dropdown-wrap">
+            <a href="#">solutions</a>
+            <div class="nav-mega" style="width:720px;">
+              <div class="nav-mega-grid">
+                <a href="../solutions/performance-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">maximize employee performance</div>
+                    <div class="nav-mega-desc">real-time signals, coaching, and scorecards</div>
+                  </div>
+                </a>
+                <a href="../solutions/skill-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">unlock skills, accelerate growth</div>
+                    <div class="nav-mega-desc">skill maps, career paths, and growth plans</div>
+                  </div>
+                </a>
+                <a href="../solutions/engagement-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">build engagement that lasts</div>
+                    <div class="nav-mega-desc">pulse surveys, recognition, and culture signals</div>
+                  </div>
+                </a>
+                <a href="../solutions/workforce-insights.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">turn intelligence into decisions</div>
+                    <div class="nav-mega-desc">natural language analytics and board-ready reports</div>
+                  </div>
+                </a>
+                <a href="../solutions/wellness-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">protect wellness, prevent burnout</div>
+                    <div class="nav-mega-desc">burnout detection, sentiment, and intervention</div>
+                  </div>
+                </a>
+                <a href="../solutions/strategic-planning.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">align your workforce to strategy</div>
+                    <div class="nav-mega-desc">demand modeling, 4B engine, and succession</div>
+                  </div>
+                </a>
+                <a href="../solutions/hire-to-retire.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">simplify hire to retire</div>
+                    <div class="nav-mega-desc">recruitment, onboarding, payroll, and exit</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#">platform</a>
+            <div class="nav-mega" style="width:480px;">
+              <div class="nav-mega-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <a href="../workwise_platform.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">WorkWise</div>
+                    <div class="nav-mega-desc">your AI coworker for HR workflows and operations</div>
+                  </div>
+                </a>
+                <a href="#" class="nav-mega-item" style="opacity:0.55;pointer-events:none;">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">TMRW</div>
+                    <div class="nav-mega-desc">AI powered career growth platform</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#">inspiration</a>
+            <div class="nav-mega" style="width:720px;">
+              <div class="nav-mega-grid">
+                <a href="../inspiration/blog.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">blog</div>
+                    <div class="nav-mega-desc">insights on agentic AI and the future of work</div>
+                  </div>
+                </a>
+                <a href="../inspiration/ebooks-whitepapers.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">ebooks &amp; whitepapers</div>
+                    <div class="nav-mega-desc">in-depth research and POV reports</div>
+                  </div>
+                </a>
+                <a href="../inspiration/success-stories.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">success stories</div>
+                    <div class="nav-mega-desc">how Fortune 500s and governments use entomo</div>
+                  </div>
+                </a>
+                <a href="../inspiration/entomo-community.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">entomo community</div>
+                    <div class="nav-mega-desc">connect with HR leaders shaping the future</div>
+                  </div>
+                </a>
+                <a href="../inspiration/events-webinars.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">events &amp; webinars</div>
+                    <div class="nav-mega-desc">live sessions, roundtables, and roadshows</div>
+                  </div>
+                </a>
+                <a href="../inspiration/templates.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">templates</div>
+                    <div class="nav-mega-desc">ready-to-use HR frameworks and playbooks</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#">about</a>
+            <div class="nav-mega" style="width:720px;">
+              <div class="nav-mega-grid">
+                <a href="why-entomo.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">why entomo</div>
+                    <div class="nav-mega-desc">our story and what makes us different</div>
+                  </div>
+                </a>
+                <a href="life-at-entomo.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">life@entomo</div>
+                    <div class="nav-mega-desc">culture, values, and what makes us tick</div>
+                  </div>
+                </a>
+                <a href="our-team.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">our team</div>
+                    <div class="nav-mega-desc">leadership and the people behind entomo</div>
+                  </div>
+                </a>
+                <a href="security-at-entomo.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">security@entomo</div>
+                    <div class="nav-mega-desc">enterprise-grade security and compliance</div>
+                  </div>
+                </a>
+                <a href="news-press-releases.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">news &amp; press release</div>
+                    <div class="nav-mega-desc">latest announcements and media coverage</div>
+                  </div>
+                </a>
+                <a href="jobs-at-entomo.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">jobs@entomo</div>
+                    <div class="nav-mega-desc">join the team building tomorrow's HR</div>
+                  </div>
+                </a>
+                <a href="partners.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">partner with entomo</div>
+                    <div class="nav-mega-desc">SI, consulting, and ecosystem partnerships</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li><a href="../contact.html">contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="../request-demo.html" class="nav-cta">request a demo →</a>
+        </div>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="news-hero">
+    <div class="container">
+      <span class="hero-eyebrow">news &amp; press</span>
+      <h1>the latest <mark>from entomo</mark>.</h1>
+      <p class="lede">
+        product launches, partnerships, customer wins, and the recognition shaping the agentic intelligence platform for performance and skills.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED ===== -->
+  <section class="featured-section">
+    <div class="container">
+      <a href="#" class="featured-card" style="color:inherit;">
+        <div class="featured-visual">
+          <span class="featured-visual-label">featured announcement</span>
+        </div>
+        <div class="featured-content">
+          <div class="meta-row">
+            <span class="meta-date">april 22, 2026</span>
+            <span class="tag product">product</span>
+          </div>
+          <h2>entomo launches DIA — the always-on workforce intelligence agent</h2>
+          <p>
+            DIA, entomo's central agent, brings agentic intelligence into the daily flow-of-work for 30M+ users worldwide. coaching every employee, equipping every manager, and giving leaders real-time workforce intelligence — without the dashboard sprawl.
+          </p>
+          <span class="read-more">read the full release</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== NEWS GRID ===== -->
+  <section class="grid-section">
+    <div class="container">
+      <div class="grid-intro">
+        <div class="section-eyebrow">all news</div>
+        <h2 class="section-heading">what's happening at entomo</h2>
+        <p class="section-subheading" style="margin: 1rem auto 0;">
+          a running record of what we're building, who we're working with, and where the industry is recognising agentic intelligence in HR.
+        </p>
+      </div>
+
+      <div class="news-grid">
+
+        <a href="#" class="news-card">
+          <div class="meta-row">
+            <span class="meta-date">april 8, 2026</span>
+            <span class="tag award">award</span>
+          </div>
+          <h3>entomo recognized as a g2 leader in performance management software</h3>
+          <p>top marks across ease of use, quality of support, and meets requirements — driven by feedback from enterprise customers in 50+ countries.</p>
+          <span class="read-more">read more</span>
+        </a>
+
+        <a href="#" class="news-card">
+          <div class="meta-row">
+            <span class="meta-date">march 27, 2026</span>
+            <span class="tag partnership">partnership</span>
+          </div>
+          <h3>entomo partners with deloitte to scale agentic HR transformation</h3>
+          <p>a global alliance to help fortune 500s deploy specialized agent teams — from rolearchitect to skillmatrix — across performance, skills, and workforce planning.</p>
+          <span class="read-more">read more</span>
+        </a>
+
+        <a href="#" class="news-card">
+          <div class="meta-row">
+            <span class="meta-date">march 14, 2026</span>
+            <span class="tag customer">customer</span>
+          </div>
+          <h3>a leading southeast asian bank rolls out entomo to 80,000 employees</h3>
+          <p>moving from annual reviews to continuous coaching — with measurable lift in manager effectiveness and frontline performance within the first quarter.</p>
+          <span class="read-more">read more</span>
+        </a>
+
+        <a href="#" class="news-card">
+          <div class="meta-row">
+            <span class="meta-date">february 28, 2026</span>
+            <span class="tag award">award</span>
+          </div>
+          <h3>entomo wins aegis graham bell award for innovation in AI</h3>
+          <p>recognized for applying agentic intelligence to enterprise HR — bringing AI out of dashboards and into the daily flow-of-work.</p>
+          <span class="read-more">read more</span>
+        </a>
+
+        <a href="#" class="news-card">
+          <div class="meta-row">
+            <span class="meta-date">february 12, 2026</span>
+            <span class="tag product">product</span>
+          </div>
+          <h3>introducing skillmatrix — adaptive skill intelligence for every employee</h3>
+          <p>a new specialized agent that maps skills, identifies gaps, and builds personalized growth paths — trained on the world's largest enterprise skills graph.</p>
+          <span class="read-more">read more</span>
+        </a>
+
+        <a href="#" class="news-card">
+          <div class="meta-row">
+            <span class="meta-date">january 30, 2026</span>
+            <span class="tag company">company</span>
+          </div>
+          <h3>forrester TEI study validates 103% ROI from entomo deployments</h3>
+          <p>an independent total economic impact study of entomo customers shows $26.8M in net present value over three years across performance, skills, and engagement gains.</p>
+          <span class="read-more">read more</span>
+        </a>
+
+        <a href="#" class="news-card">
+          <div class="meta-row">
+            <span class="meta-date">january 16, 2026</span>
+            <span class="tag partnership">partnership</span>
+          </div>
+          <h3>entomo and microsoft expand integration across teams and copilot</h3>
+          <p>workwise and DIA now sit natively inside teams and copilot — coaching employees, automating workflows, and surfacing workforce intelligence where work already happens.</p>
+          <span class="read-more">read more</span>
+        </a>
+
+        <a href="#" class="news-card">
+          <div class="meta-row">
+            <span class="meta-date">december 12, 2025</span>
+            <span class="tag customer">customer</span>
+          </div>
+          <h3>a fortune 500 conglomerate adopts entomo for enterprise-wide skill intelligence</h3>
+          <p>250,000 employees across 14 business units now operate on a unified skill graph — closing skill gaps faster and aligning workforce supply to strategy.</p>
+          <span class="read-more">read more</span>
+        </a>
+
+        <a href="#" class="news-card">
+          <div class="meta-row">
+            <span class="meta-date">november 21, 2025</span>
+            <span class="tag company">company</span>
+          </div>
+          <h3>entomo announces expansion into the middle east, opens dubai office</h3>
+          <p>building on momentum across UAE, KSA, and qatar — entomo's regional team will support government and enterprise workforce transformation programs.</p>
+          <span class="read-more">read more</span>
+        </a>
+
+      </div>
+
+      <div class="grid-footer">
+        <a href="#" class="btn-ghost">load more news</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRESS KIT / MEDIA CONTACT ===== -->
+  <section class="presskit-section">
+    <div class="container">
+      <div class="text-center" style="max-width: 720px; margin: 0 auto;">
+        <div class="section-eyebrow">for media &amp; analysts</div>
+        <h2 class="section-heading">press kit, contacts, and resources</h2>
+        <p class="section-subheading" style="margin: 1rem auto 0;">
+          everything you need to cover entomo — brand assets, executive bios, and a direct line to our communications team.
+        </p>
+      </div>
+
+      <div class="presskit-grid">
+        <a href="#" class="presskit-card">
+          <div class="presskit-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+          </div>
+          <h3>download brand assets</h3>
+          <p>logos, product screenshots, brand colors, and approved imagery — packaged for print and digital use.</p>
+          <span class="read-more">download press kit</span>
+        </a>
+
+        <a href="mailto:press@entomo.co" class="presskit-card">
+          <div class="presskit-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <h3>media contact</h3>
+          <p>for interviews, briefings, and analyst inquiries, reach the entomo communications team directly.</p>
+          <span class="read-more">press@entomo.co</span>
+        </a>
+
+        <a href="#" class="presskit-card">
+          <div class="presskit-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3>executive bios</h3>
+          <p>biographies and high-resolution headshots for entomo's leadership team — ready for editorial use.</p>
+          <span class="read-more">view leadership</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SUBSCRIBE ===== -->
+  <section class="subscribe-section">
+    <div class="container">
+      <div class="section-eyebrow">stay in the loop</div>
+      <h2>get press alerts straight to your inbox</h2>
+      <p>be first to hear about product launches, customer wins, and entomo announcements. no marketing — just the news.</p>
+      <form class="subscribe-form" onsubmit="event.preventDefault();">
+        <input type="email" placeholder="your work email" aria-label="your work email" required>
+        <button type="submit" class="btn-primary">subscribe →</button>
+      </form>
+      <p class="subscribe-disclaimer">we'll only send you press releases. unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <img src="../Images/entomo.svg" alt="entomo" style="height:32px; width:auto;">
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>platform</h4>
+          <ul>
+            <li><a href="#">AI agents</a></li>
+            <li><a href="#">intelligence architecture</a></li>
+            <li><a href="#">integrations</a></li>
+            <li><a href="#">security</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>solutions</h4>
+          <ul>
+            <li><a href="../solutions/performance-intelligence.html">performance intelligence</a></li>
+            <li><a href="../solutions/skill-intelligence.html">skill &amp; talent intelligence</a></li>
+            <li><a href="../solutions/engagement-intelligence.html">engagement intelligence</a></li>
+            <li><a href="../solutions/workforce-insights.html">workforce insights</a></li>
+            <li><a href="../solutions/wellness-intelligence.html">wellness intelligence</a></li>
+            <li><a href="../solutions/strategic-planning.html">strategic planning</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>resources</h4>
+          <ul>
+            <li><a href="#">Forrester TEI study</a></li>
+            <li><a href="#">case studies</a></li>
+            <li><a href="#">blog</a></li>
+            <li><a href="#">webinars</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>company</h4>
+          <ul>
+            <li><a href="why-entomo.html">why entomo</a></li>
+            <li><a href="life-at-entomo.html">life@entomo</a></li>
+            <li><a href="news-press-releases.html">news &amp; press</a></li>
+            <li><a href="#">careers</a></li>
+            <li><a href="#">contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 entomo. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ===== SCROLL ANIMATION ENGINE ===== -->
+  <script>
+  (function() {
+    'use strict';
+
+    // Selectors for elements that should animate when scrolled into view.
+    // Excludes nav, footer, and elements that are part of always-visible chrome.
+    const SOLO_SELECTORS = [
+      'h1', 'h2', 'h3',
+      '.section-heading', '.section-subheading', '.section-eyebrow',
+      '.hero-eyebrow', '.hero-badge', '.hero-sub', '.hero-ctas',
+      '.lede', '.challenge-dismiss', '.dia-headline',
+      '.btn-primary', '.path-link',
+      '.coach-demo', '.dia-demo', '.ww-demo',
+      '.story-visual', '.positioning-block',
+      '.video-card', '.outcome-card', '.difference-card',
+      '.path-card', '.proof-card', '.solution-card',
+      '.metric', '.metric-large',
+      '.persona-panel.active',
+      '.sss-card', '.sss-pills-svg',
+      '.tomorrow-intro', '.story-grid',
+      '.flow-pills', '.feature-card',
+      'blockquote',
+    ];
+
+    // Grid-like containers whose children should stagger in
+    const STAGGER_SELECTORS = [
+      '.outcome-grid', '.difference-grid',
+      '.paths-grid', '.path-grid',
+      '.sss-grid',
+      '.proof-cards', '.solution-cards', '.solutions-grid',
+      '.enterprise-grid', '.stakeholder-grid',
+      '.videos-grid', '.video-grid',
+      '.team-grid', '.leaders-grid',
+      '.pillars-grid', '.values-grid',
+      '.benefits-grid', '.perks-grid',
+      '.cards-grid', '.card-grid',
+      '.partners-grid', '.partner-grid',
+      '.story-grid', '.tomorrow-grid',
+      '.testimonial-grid',
+      '.stats-grid',
+    ];
+
+    // Ancestors to exclude (don't animate elements inside these)
+    const EXCLUDE_ANCESTORS = ['nav.navbar', 'footer.footer', '.testimonials-track', '.marquee-track', '.agent-marquee-track', '.agent-areas-track', '.perf-mq-track'];
+
+    function isExcluded(el) {
+      for (const sel of EXCLUDE_ANCESTORS) {
+        if (el.closest(sel)) return true;
+      }
+      return false;
+    }
+
+    function tagAnim(el, variant = 'anim-fade-up') {
+      if (el.classList.contains('anim') || el.classList.contains('stagger')) return;
+      el.classList.add('anim', variant);
+    }
+
+    function tagStagger(el) {
+      if (el.classList.contains('stagger')) return;
+      el.classList.add('stagger');
+    }
+
+    // Tag solo elements
+    SOLO_SELECTORS.forEach(sel => {
+      document.querySelectorAll(sel).forEach(el => {
+        if (isExcluded(el)) return;
+        tagAnim(el);
+      });
+    });
+
+    // Tag stagger containers
+    STAGGER_SELECTORS.forEach(sel => {
+      document.querySelectorAll(sel).forEach(el => {
+        if (isExcluded(el)) return;
+        // Don't double-tag if already a stagger or anim
+        if (el.classList.contains('anim')) {
+          el.classList.remove('anim', 'anim-fade-up', 'anim-fade', 'anim-fade-down', 'anim-fade-left', 'anim-fade-right', 'anim-scale', 'anim-blur', 'anim-rise');
+        }
+        tagStagger(el);
+      });
+    });
+
+    // IntersectionObserver to reveal on scroll
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      document.querySelectorAll('.anim, .stagger').forEach(el => {
+        // Above-the-fold elements: reveal immediately with a tiny delay (gives a soft entrance)
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          // Small staggered delay for elements visible on initial load
+          setTimeout(() => el.classList.add('is-visible'), 50);
+        } else {
+          io.observe(el);
+        }
+      });
+    } else {
+      // Fallback: show everything immediately
+      document.querySelectorAll('.anim, .stagger').forEach(el => el.classList.add('is-visible'));
+    }
+  })();
+  </script>
+
+</body>
+</html>
