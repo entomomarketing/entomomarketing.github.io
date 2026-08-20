@@ -1,0 +1,2705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>entomo strata | the workforce intelligence graph</title>
+  <meta name="description" content="entomo strata is the semantic workforce model connecting knowledge, skills, abilities, and tasks — role by role — into one living graph that every entomo agent reasons on.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.383.0/umd/lucide.min.js"></script>
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Nunito Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #1a1f26;
+      background-color: #ffffff;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --cg-red: #e43d30;
+      --cg-gold: #f4b223;
+      --spanish-blue: #0064bf;
+      --sea-green: #2c9942;
+      --sunrise-yellow: #ffda00;
+      --white: #ffffff;
+      --black: #000000;
+      --ebony-clay: #1a1f26;
+      --black-haze: #fafbfb;
+      --silver-sand: #c0c2c3;
+      --floral-white: #fefbf4;
+      --lavender: #e6f0f9;
+      --pistachio: #eaf5ed;
+      --polar-white: #f2f7fc;
+      --gradient-cta: linear-gradient(90deg, #f4b223, #e43d30);
+      --radius-semi: 5px;
+      --radius-standard: 10px;
+      --radius-medium: 15px;
+      --radius-large: 25px;
+      --shadow-sm: 0px 5px 10px rgba(0,0,0,0.10);
+      --shadow-md: 0px 15px 25px rgba(0,0,0,0.10);
+      --max-width: 1280px;
+    }
+
+    /* ===== UTILITY ===== */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .text-center { text-align: center; }
+
+    /* ===== MARK / HIGHLIGHT ===== */
+    mark {
+      background-color: var(--sunrise-yellow);
+      background-image: none;
+      color: var(--black);
+      border-radius: 12px;
+      padding: 0.05em 0.35em;
+      line-height: 1;
+      font-weight: 700;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+    /* mark inside dark sections — yellow stripe still shows, text dark for legibility */
+    .dark-section mark {
+      background-color: var(--sunrise-yellow);
+      background-image: none;
+      color: var(--black);
+      border-radius: 12px;
+      padding: 0.05em 0.35em;
+      line-height: 1;
+      font-weight: 700;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    /* ===== CASE OVERRIDE ===== */
+    .keep-case { text-transform: none !important; }
+
+    /* ===== HEADINGS LOWERCASE ===== */
+    h1, h2, h3, h4, h5, h6 { text-transform: lowercase; }
+
+    /* ===== BUTTONS ===== */
+    .btn-primary {
+      background-image: var(--gradient-cta);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-semi);
+      padding: 14px 36px;
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: 600;
+      text-transform: lowercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
+    .btn-primary-lg {
+      padding: 16px 44px;
+      font-size: 19px;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--ebony-clay);
+      border: 2px solid rgba(26,31,38,0.2);
+      border-radius: var(--radius-semi);
+      padding: 14px 36px;
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: 600;
+      text-transform: lowercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--ebony-clay); transform: translateY(-1px); }
+    .btn-ghost-white {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.3);
+    }
+    .btn-ghost-white:hover { border-color: var(--white); color: var(--white); }
+
+    /* ===== SECTION SPACING ===== */
+    section { padding: 5rem 0; }
+    @media (max-width: 768px) { section { padding: 3.5rem 0; } }
+
+    /* ===== EYEBROW ===== */
+    .section-eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--cg-red);
+      margin-bottom: 0.75rem;
+    }
+    .section-eyebrow-white {
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ===== SECTION HEADINGS ===== */
+    .section-heading {
+      font-size: clamp(30px, 3.5vw, 44px);
+      font-weight: 700;
+      line-height: 1.18;
+      margin-bottom: 1rem;
+    }
+    .section-subheading {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: rgba(26,31,38,0.68);
+      max-width: 720px;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid rgba(26,31,38,0.08);
+      backdrop-filter: blur(12px);
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: lowercase;
+    }
+    .nav-right-group { display: flex; flex-direction: row; align-items: center; gap: 1.5rem; flex-wrap: nowrap; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: lowercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--cg-red); }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-shrink: 0; }
+    .nav-cta {
+      background-image: var(--gradient-cta);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-semi);
+      padding: 8px 20px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: lowercase;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.9; }
+
+    /* Dropdown */
+    .nav-dropdown-wrap { position: relative; }
+    .nav-dropdown-wrap > a {
+      display: flex; align-items: center; gap: 4px;
+    }
+    .nav-dropdown-wrap > a::after {
+      content: '';
+      border: solid currentColor; border-width: 0 1.5px 1.5px 0;
+      display: inline-block; padding: 2.5px;
+      transform: rotate(45deg); margin-top: -3px;
+      transition: transform 0.2s;
+    }
+    .nav-dropdown-wrap:hover > a::after {
+      transform: rotate(-135deg); margin-top: 2px;
+    }
+    .nav-mega {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(14px);
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.08);
+      border-radius: var(--radius-medium);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12), 0 0 0 1px rgba(26,31,38,0.04);
+      padding: 1.25rem;
+      width: 680px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+      z-index: 200;
+    }
+    .nav-dropdown-wrap:hover .nav-mega {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(8px);
+    }
+    .nav-mega-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+    }
+    .nav-mega-item {
+      display: flex; flex-direction: row; align-items: flex-start; gap: 12px;
+      padding: 12px 14px; border-radius: var(--radius-standard);
+      transition: background 0.15s; text-decoration: none; color: inherit;
+    }
+    .nav-mega-icon {
+      width: 40px; height: 40px; border-radius: 9px; flex-shrink: 0;
+      background: rgba(26,31,38,0.05);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+    }
+    .nav-mega-icon svg {
+      width: 18px; height: 18px; stroke: rgba(26,31,38,0.45); fill: none;
+      transition: stroke 0.15s;
+    }
+    .nav-mega-text { display: flex; flex-direction: column; gap: 2px; }
+    .nav-mega-item:hover { background: rgba(228,61,48,0.04); }
+    .nav-mega-item:hover .nav-mega-icon { background: rgba(228,61,48,0.08); }
+    .nav-mega-item:hover .nav-mega-icon svg { stroke: var(--cg-red); }
+    .nav-mega-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      margin-bottom: 3px;
+      line-height: 1.3;
+    }
+    .nav-mega-desc {
+      font-size: 12px;
+      color: rgba(26,31,38,0.45);
+      line-height: 1.4;
+      font-weight: 500;
+    }
+    .nav-mega-item:hover .nav-mega-name { color: var(--cg-red); }
+
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-toggle svg { width: 24px; height: 24px; }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      .nav-mega { display: none; }
+    }
+
+    /* ===== SECTION 1 — HERO ===== */
+    .hero-platform {
+      background-color: var(--floral-white);
+      padding: 6rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-platform::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -8%;
+      width: 650px;
+      height: 650px;
+      background: radial-gradient(circle, rgba(244,178,35,0.14) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-platform::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -5%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0,100,191,0.07) 0%, transparent 65%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-platform .container { position: relative; z-index: 1; }
+    .hero-platform-content {
+      max-width: 960px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(244,178,35,0.12);
+      border: 1px solid rgba(244,178,35,0.28);
+      border-radius: 20px;
+      padding: 6px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      margin-bottom: 1.75rem;
+      letter-spacing: 0.3px;
+    }
+    .hero-badge .pulse-dot {
+      width: 7px; height: 7px;
+      background: var(--cg-gold);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.5); }
+    }
+    .hero-wordmark {
+      display: block;
+    }
+    .strata-wordmark {
+      display: block;
+      font-size: 56px;
+      font-weight: 800;
+      letter-spacing: -2px;
+      color: var(--ebony-clay);
+      line-height: 1;
+    }
+    .strata-wordmark em {
+      font-style: normal;
+      color: var(--cg-red);
+    }
+    @media (max-width: 640px) {
+      .strata-wordmark { font-size: 38px; }
+    }
+    .hero-platform h1 {
+      font-size: clamp(38px, 5.5vw, 72px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 1.25rem;
+      color: var(--ebony-clay);
+    }
+    .hero-tagline {
+      font-size: clamp(22px, 3vw, 40px);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      margin-bottom: 1.25rem;
+      color: var(--ebony-clay);
+    }
+    .hero-platform-sub {
+      font-size: 19px;
+      line-height: 1.65;
+      color: rgba(26,31,38,0.62);
+      max-width: 660px;
+      margin: 0 auto 2rem;
+    }
+    .hero-stat-chips {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.75rem;
+    }
+    .stat-chip {
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.1);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ebony-clay);
+    }
+    .hero-ctas {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+
+    .hero-trust { margin: 1.5rem 0; text-align: center; }
+    .trust-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(26,31,38,0.35); margin-bottom: 12px; font-weight: 600; }
+    .trust-logos { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    .trust-logo-pill { background: rgba(26,31,38,0.05); border: 1px solid rgba(26,31,38,0.1); border-radius: 25px; padding: 6px 16px; font-size: 13px; font-weight: 600; color: rgba(26,31,38,0.45); }
+
+    .hero-subline {
+      font-size: 19px;
+      line-height: 1.65;
+      color: rgba(26,31,38,0.62);
+      max-width: 660px;
+      margin: 0 auto 1.25rem;
+    }
+    .hero-proof-line {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(26,31,38,0.45);
+      letter-spacing: 0.5px;
+      margin-bottom: 1.5rem;
+      text-transform: lowercase;
+    }
+
+    /* Pipeline flow */
+    .pipeline-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.08);
+      border-radius: var(--radius-large);
+      padding: 1.25rem 1.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .pipeline-pill {
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+      white-space: nowrap;
+      text-transform: lowercase;
+    }
+    .pipeline-pill.data-sources { background: var(--spanish-blue); }
+    .pipeline-pill.data-foundation { background: var(--cg-gold); color: var(--ebony-clay); }
+    .pipeline-pill.intelligence-layer { background: var(--cg-red); }
+    .pipeline-pill.ai-agents {
+      background-image: linear-gradient(90deg, var(--cg-gold), var(--cg-red));
+    }
+    .pipeline-pill.outcomes { background: var(--sea-green); }
+    .pipeline-arrow {
+      font-size: 18px;
+      color: rgba(26,31,38,0.3);
+      padding: 0 10px;
+      font-weight: 300;
+    }
+    @media (max-width: 640px) {
+      .pipeline-flow { gap: 0.5rem; }
+      .pipeline-arrow { display: none; }
+    }
+
+    /* ===== SECTION 2 — DATA FLOW ARCHITECTURE ===== */
+    .arch-diagram {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      margin-top: 3rem;
+      border: 1px solid rgba(26,31,38,0.08);
+      border-radius: var(--radius-large);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .arch-col {
+      position: relative;
+      padding: 2rem 1.5rem;
+      background: var(--white);
+      border-right: 1px solid rgba(26,31,38,0.07);
+      transition: background 0.2s;
+      cursor: default;
+    }
+    .arch-col:last-child { border-right: none; }
+    .arch-col:hover { background: rgba(244,178,35,0.04); }
+    .arch-col-header {
+      font-size: 15px;
+      font-weight: 800;
+      text-transform: lowercase;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.2px;
+    }
+    .arch-col-desc {
+      font-size: 13px;
+      color: rgba(26,31,38,0.6);
+      line-height: 1.55;
+    }
+    .arch-col-arrow {
+      position: absolute;
+      top: 50%;
+      right: -14px;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 28px;
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: rgba(26,31,38,0.4);
+      z-index: 2;
+    }
+    .arch-col:last-child .arch-col-arrow { display: none; }
+
+    /* Tooltip panel */
+    .arch-tooltip {
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      background: var(--ebony-clay);
+      color: var(--white);
+      font-size: 13px;
+      line-height: 1.55;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-standard);
+      width: 230px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 50;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    .arch-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 7px solid transparent;
+      border-top-color: var(--ebony-clay);
+    }
+    .arch-col:hover .arch-tooltip {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    .arch-color-data-sources { color: var(--spanish-blue); }
+    .arch-color-foundation { color: var(--cg-gold); }
+    .arch-color-intelligence { color: var(--cg-red); }
+    .arch-color-agents {
+      background: linear-gradient(90deg, var(--cg-gold), var(--cg-red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .arch-color-outcomes { color: var(--sea-green); }
+
+    @media (max-width: 900px) {
+      .arch-diagram { grid-template-columns: 1fr 1fr; }
+      .arch-col { border-right: none; border-bottom: 1px solid rgba(26,31,38,0.07); }
+      .arch-col-arrow { display: none; }
+    }
+    @media (max-width: 550px) {
+      .arch-diagram { grid-template-columns: 1fr; }
+    }
+
+    /* ===== SECTION 3 — DATA SOURCES ===== */
+    .integrations-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .integration-card {
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.09);
+      border-radius: var(--radius-medium);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .integration-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .integration-card.market-card {
+      grid-column: 1 / -1;
+      border: 2px solid var(--cg-gold);
+      background: #fff8e8;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .integration-card-title {
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: lowercase;
+      margin-bottom: 0.75rem;
+      color: var(--ebony-clay);
+    }
+    .integration-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    .integration-pill, .int-pill {
+      background: rgba(26,31,38,0.06);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(26,31,38,0.7);
+    }
+    .unique-badge {
+      display: inline-block;
+      background: var(--cg-gold);
+      color: var(--ebony-clay);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .market-card-body { font-size: 14.5px; line-height: 1.6; color: rgba(26,31,38,0.7); }
+    .tech-chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 2.5rem;
+    }
+    .tech-chip {
+      background: var(--polar-white);
+      border: 1px solid rgba(26,31,38,0.1);
+      border-radius: 20px;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(26,31,38,0.75);
+    }
+    @media (max-width: 768px) {
+      .integrations-grid { grid-template-columns: 1fr; }
+      .integration-card.market-card { grid-template-columns: 1fr; }
+    }
+
+    /* ===== SECTION 4 — DATA FOUNDATION ===== */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .pillar-card {
+      background: var(--white);
+      border-radius: var(--radius-medium);
+      border-top: 4px solid var(--cg-gold);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .pillar-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .pillar-name {
+      font-size: 17px;
+      font-weight: 800;
+      text-transform: lowercase;
+      color: var(--ebony-clay);
+      margin-bottom: 0.4rem;
+    }
+    .pillar-sublabel {
+      display: inline-block;
+      background: rgba(244,178,35,0.12);
+      border: 1px solid rgba(244,178,35,0.25);
+      border-radius: 20px;
+      padding: 3px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: rgba(26,31,38,0.6);
+      margin-bottom: 0.9rem;
+    }
+    .pillar-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(26,31,38,0.7);
+      margin-bottom: 1rem;
+    }
+    .pillar-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .pillar-bullets li {
+      font-size: 13.5px;
+      color: rgba(26,31,38,0.65);
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.5;
+    }
+    .pillar-bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--cg-gold);
+      font-weight: 700;
+    }
+    @media (max-width: 900px) { .pillars-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 550px) { .pillars-grid { grid-template-columns: 1fr; } }
+
+    .pillar-tagline {
+      font-size: 13px;
+      font-style: italic;
+      color: var(--cg-gold);
+      font-weight: 600;
+      margin: 4px 0 10px;
+      text-transform: none;
+    }
+    .pillar-desc {
+      font-size: 15px;
+      color: rgba(26,31,38,0.7);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+
+    /* ===== SECTION 5 — AI AGENTS ECOSYSTEM ===== */
+    .dark-section {
+      background: #1a1f26;
+      color: var(--white);
+    }
+    .dark-section .section-eyebrow { color: rgba(255,255,255,0.55); }
+    .dark-section .section-heading { color: var(--white); }
+    .dark-section .section-subheading { color: rgba(255,255,255,0.65); }
+    .dark-section h2, .dark-section h3, .dark-section h4 { color: var(--white); }
+
+    .agents-intro {
+      font-size: 18px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.65);
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+    }
+
+    .agent-category {
+      margin-bottom: 2.5rem;
+    }
+    .agent-category-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .category-chip {
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .category-chip.blue { background: rgba(0,100,191,0.18); color: #5aadff; }
+    .category-chip.red { background: rgba(228,61,48,0.18); color: #ff7f75; }
+    .category-chip.green { background: rgba(44,153,66,0.18); color: #5dd97a; }
+    .category-chip.gold { background: rgba(244,178,35,0.18); color: #f4b223; }
+
+    .category-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .agents-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .agent-card {
+      background: rgba(255,255,255,0.06);
+      border-radius: var(--radius-medium);
+      padding: 1.5rem;
+      transition: background 0.2s, transform 0.2s;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .agent-card:hover {
+      background: rgba(255,255,255,0.10);
+      transform: translateY(-2px);
+    }
+    .agent-name {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--white);
+      text-transform: lowercase;
+      margin-bottom: 0.25rem;
+    }
+    .agent-role-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: rgba(255,255,255,0.38);
+      margin-bottom: 0.75rem;
+    }
+    .agent-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .agent-bullets li {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.45;
+    }
+    .agent-bullets li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: rgba(255,255,255,0.3);
+      font-size: 16px;
+      line-height: 1.1;
+    }
+    /* Accent left borders per category */
+    .agent-card.blue { border-left: 3px solid rgba(0,100,191,0.5); }
+    .agent-card.red { border-left: 3px solid rgba(228,61,48,0.5); }
+    .agent-card.green { border-left: 3px solid rgba(44,153,66,0.5); }
+    .agent-card.gold { border-left: 3px solid rgba(244,178,35,0.5); }
+
+    .agents-footnote { text-align: center; font-size: 13px; color: rgba(255,255,255,0.3); margin-top: 2rem; font-style: italic; text-transform: none; }
+
+    .agents-tier2 {
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .agents-tier2-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .agents-tier2-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .agent-compact {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .agent-compact-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      text-transform: none;
+    }
+    .agent-compact-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.4;
+      text-transform: none;
+    }
+    .agent-mech {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+      margin: 0;
+      text-transform: none;
+    }
+
+    /* ===== AGENT MARQUEE (scrolling strip) ===== */
+    .agent-marquee-wrapper {
+      position: relative;
+      overflow: hidden;
+      margin-top: 2.5rem;
+      padding: 1rem 0 1.5rem;
+    }
+    .agent-marquee-wrapper::before,
+    .agent-marquee-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .agent-marquee-wrapper::before { left: 0; background: linear-gradient(to right, #1a1f26, transparent); }
+    .agent-marquee-wrapper::after  { right: 0; background: linear-gradient(to left, #1a1f26, transparent); }
+    .agent-marquee-track {
+      display: flex;
+      gap: 1rem;
+      width: max-content;
+      animation: agent-scroll 36s linear infinite;
+    }
+    .agent-marquee-track:hover { animation-play-state: paused; }
+    @keyframes agent-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .agent-mq-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-medium);
+      padding: 1.5rem 1.25rem 1.25rem;
+      width: 220px;
+      flex-shrink: 0;
+      transition: transform 0.2s, background 0.2s;
+      cursor: default;
+    }
+    .agent-mq-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.11);
+    }
+    .agent-mq-card img {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-bottom: 12px;
+    }
+    .agent-mq-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 2px;
+    }
+    .agent-mq-role {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 10px;
+    }
+    .agent-mq-desc {
+      font-size: 13px;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ===== DIFFERENCE SECTION ===== */
+    .difference-section { background: var(--floral-white); padding: 96px 0; }
+    .difference-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .difference-text h2 { font-size: clamp(28px, 3.5vw, 42px); font-weight: 700; line-height: 1.2; margin: 0.5rem 0 1.25rem; }
+    .difference-list { list-style: none; padding: 0; margin: 0 0 2rem; display: flex; flex-direction: column; gap: 12px; }
+    .difference-list li { padding-left: 24px; position: relative; font-size: 16px; color: rgba(26,31,38,0.7); line-height: 1.5; }
+    .difference-list li::before { content: '→'; position: absolute; left: 0; color: var(--cg-red); font-weight: 700; }
+    .ww-card { background: var(--ebony-clay); border-radius: 25px; padding: 28px; box-shadow: 0px 15px 25px rgba(0,0,0,0.15); }
+    .ww-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .ww-avatar { width: 40px; height: 40px; background: linear-gradient(90deg, #f4b223, #e43d30); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff; font-size: 16px; flex-shrink: 0; text-transform: uppercase; }
+    .ww-name { font-weight: 700; color: #fff; font-size: 15px; text-transform: lowercase; }
+    .ww-status { font-size: 12px; color: rgba(255,255,255,0.45); display: flex; align-items: center; gap: 5px; }
+    .ww-dot { width: 6px; height: 6px; background: #2c9942; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+    .ww-messages { display: flex; flex-direction: column; gap: 12px; }
+    .ww-msg { background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 16px; }
+    .ww-msg p { font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.5; margin: 0 0 6px; text-transform: none; }
+    .ww-msg p:last-child { margin-bottom: 0; }
+    .ww-msg-sub { color: rgba(255,255,255,0.45) !important; font-size: 12px !important; }
+    .ww-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+    .ww-chip { background: rgba(244,178,35,0.12); border: 1px solid rgba(244,178,35,0.25); color: var(--cg-gold); padding: 6px 14px; border-radius: 25px; font-size: 12px; font-weight: 600; cursor: pointer; text-transform: lowercase; }
+    @media (max-width: 900px) { .difference-inner { grid-template-columns: 1fr; gap: 3rem; } }
+
+    /* ===== SECTION 6 — ORCHESTRATION ===== */
+    .orchestration-scenarios {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .scenario-card {
+      background: var(--white);
+      border-radius: var(--radius-large);
+      padding: 2.25rem 2.5rem;
+      box-shadow: var(--shadow-md);
+    }
+    .scenario-trigger-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--cg-red);
+      margin-bottom: 0.5rem;
+    }
+    .scenario-trigger {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ebony-clay);
+      margin-bottom: 1.25rem;
+      line-height: 1.4;
+    }
+    .scenario-agents {
+      margin: 0 0 1.25rem;
+      padding-left: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .scenario-agents li {
+      font-size: 14.5px;
+      color: rgba(26,31,38,0.7);
+      line-height: 1.55;
+    }
+    .scenario-agents li strong {
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+    }
+    .scenario-result {
+      background: rgba(44,153,66,0.08);
+      border-left: 3px solid var(--sea-green);
+      border-radius: var(--radius-semi);
+      padding: 0.85rem 1.1rem;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--ebony-clay);
+      line-height: 1.5;
+    }
+    .orchestration-chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 2.5rem;
+    }
+    .orch-chip {
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.1);
+      border-radius: 20px;
+      padding: 7px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(26,31,38,0.7);
+      box-shadow: var(--shadow-sm);
+    }
+    .orchestration-callout {
+      background: rgba(0,100,191,0.06);
+      border: 1px solid rgba(0,100,191,0.15);
+      border-radius: var(--radius-medium);
+      padding: 1.75rem 2rem;
+      margin-top: 2.5rem;
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(26,31,38,0.75);
+      text-align: center;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===== ORCHESTRATION FLOW DIAGRAM ===== */
+    .orch-flows {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .orch-flow-card {
+      background: var(--white);
+      border-radius: var(--radius-large);
+      padding: 1.75rem 2rem;
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: 200px 1fr auto;
+      align-items: center;
+      gap: 2rem;
+    }
+    .orch-flow-trigger {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .orch-trigger-icon { font-size: 20px; flex-shrink: 0; }
+    .orch-trigger-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      line-height: 1.3;
+    }
+    .orch-flow-diagram {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .orch-agent-pill {
+      padding: 5px 14px;
+      border-radius: 25px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: lowercase;
+      white-space: nowrap;
+    }
+    .orch-agent-pill.blue { background: rgba(0,100,191,0.1); color: var(--spanish-blue); }
+    .orch-agent-pill.red  { background: rgba(228,61,48,0.1); color: var(--cg-red); }
+    .orch-agent-pill.green{ background: rgba(44,153,66,0.1); color: var(--sea-green); }
+    .orch-arrow { color: rgba(26,31,38,0.25); font-size: 14px; font-weight: 600; }
+    .orch-flow-result {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--sea-green);
+      text-transform: lowercase;
+      white-space: nowrap;
+      background: rgba(44,153,66,0.08);
+      padding: 6px 14px;
+      border-radius: 25px;
+    }
+    @media (max-width: 900px) {
+      .orch-flow-card { grid-template-columns: 1fr; gap: 1rem; }
+      .orch-flow-result { white-space: normal; }
+    }
+
+    /* ===== UX SIMPLE GRID ===== */
+    .ux-simple-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .ux-simple-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 1.75rem;
+      background: var(--white);
+      border-radius: var(--radius-medium);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(26,31,38,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .ux-simple-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .ux-simple-icon {
+      width: 40px; height: 40px;
+      background: rgba(228,61,48,0.08);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--cg-red);
+    }
+    .ux-simple-icon svg { width: 20px; height: 20px; }
+    .ux-simple-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      line-height: 1.25;
+    }
+    .ux-simple-sub {
+      font-size: 13px;
+      color: rgba(26,31,38,0.5);
+      text-transform: lowercase;
+      line-height: 1.4;
+    }
+    @media (max-width: 900px) { .ux-simple-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 550px) { .ux-simple-grid { grid-template-columns: 1fr; } }
+
+    /* ===== PERSONA SIMPLE GRID ===== */
+    .persona-simple-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    .persona-simple-card {
+      background: var(--white);
+      border-radius: var(--radius-medium);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .persona-simple-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .persona-simple-top {
+      padding: 1.5rem 1.5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .green-top { background: rgba(44,153,66,0.08); border-bottom: 3px solid var(--sea-green); }
+    .red-top   { background: rgba(228,61,48,0.08); border-bottom: 3px solid var(--cg-red); }
+    .blue-top  { background: rgba(0,100,191,0.08); border-bottom: 3px solid var(--spanish-blue); }
+    .gold-top  { background: rgba(244,178,35,0.12); border-bottom: 3px solid var(--cg-gold); }
+    .persona-simple-role {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: rgba(26,31,38,0.45);
+    }
+    .persona-simple-headline {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      line-height: 1.2;
+    }
+    .persona-tags {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .ptag {
+      font-size: 13px;
+      color: rgba(26,31,38,0.65);
+      padding: 5px 12px;
+      background: rgba(26,31,38,0.04);
+      border-radius: 25px;
+      display: inline-block;
+      text-transform: lowercase;
+      font-weight: 500;
+      width: fit-content;
+    }
+    @media (max-width: 1024px) { .persona-simple-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 600px)  { .persona-simple-grid { grid-template-columns: 1fr; } }
+
+
+    /* ===== SECTION 7 — UX DESIGN ===== */
+    .ux-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .ux-card {
+      background: var(--white);
+      border-radius: var(--radius-medium);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(26,31,38,0.07);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .ux-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+    .ux-icon-wrap {
+      width: 44px; height: 44px;
+      background: rgba(228,61,48,0.08);
+      border-radius: var(--radius-standard);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      color: var(--cg-red);
+    }
+    .ux-icon-wrap svg { width: 22px; height: 22px; }
+    .ux-card-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+    .ux-card-desc {
+      font-size: 14px;
+      color: rgba(26,31,38,0.65);
+      line-height: 1.6;
+    }
+    @media (max-width: 900px) { .ux-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 550px) { .ux-grid { grid-template-columns: 1fr; } }
+
+    /* ===== SECTION 8 — PERSONAS ===== */
+    .persona-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .persona-card {
+      background: var(--white);
+      border-radius: var(--radius-medium);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(26,31,38,0.07);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .persona-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .persona-card.border-green { border-top: 4px solid var(--sea-green); }
+    .persona-card.border-red { border-top: 4px solid var(--cg-red); }
+    .persona-card.border-blue { border-top: 4px solid var(--spanish-blue); }
+    .persona-card.border-gold { border-top: 4px solid var(--cg-gold); }
+    .persona-chip {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+    }
+    .persona-chip.green { background: rgba(44,153,66,0.1); color: var(--sea-green); }
+    .persona-chip.red { background: rgba(228,61,48,0.1); color: var(--cg-red); }
+    .persona-chip.blue { background: rgba(0,100,191,0.1); color: var(--spanish-blue); }
+    .persona-chip.gold { background: rgba(244,178,35,0.15); color: #b8860b; }
+    .persona-heading {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    .persona-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .persona-bullets li {
+      font-size: 13.5px;
+      color: rgba(26,31,38,0.65);
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.5;
+    }
+    .persona-bullets li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: rgba(26,31,38,0.3);
+      font-size: 12px;
+      top: 2px;
+    }
+    @media (max-width: 1024px) { .persona-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 550px) { .persona-grid { grid-template-columns: 1fr; } }
+
+    /* ===== SECTION 9 — SECURITY ===== */
+    .security-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .security-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .security-icon-wrap {
+      width: 48px; height: 48px;
+      background: rgba(255,255,255,0.08);
+      border-radius: var(--radius-standard);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+    }
+    .security-icon-wrap svg { width: 22px; height: 22px; }
+    .security-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: none;
+    }
+    .security-desc {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+    }
+    @media (max-width: 900px) { .security-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 550px) { .security-grid { grid-template-columns: 1fr; } }
+
+    /* ===== SECTION 10 — FINAL CTA ===== */
+    .final-cta-section {
+      background: var(--floral-white);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .final-cta-section::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 600px;
+      background: radial-gradient(ellipse, rgba(244,178,35,0.12) 0%, rgba(228,61,48,0.06) 40%, transparent 70%);
+      pointer-events: none;
+    }
+    .final-cta-section .container { position: relative; z-index: 1; }
+    .final-cta-section h2 {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700;
+      line-height: 1.18;
+      margin-bottom: 1.25rem;
+      color: var(--ebony-clay);
+    }
+    .final-cta-supporting {
+      font-size: 18px;
+      line-height: 1.65;
+      color: rgba(26,31,38,0.62);
+      max-width: 580px;
+      margin: 0 auto 2.25rem;
+    }
+    .final-cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .proof-chips {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .proof-chip {
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.1);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: rgba(26,31,38,0.65);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--black-haze);
+      padding: 3.5rem 0 1.5rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(26,31,38,0.6);
+      margin-top: 0.75rem;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: lowercase;
+      margin-bottom: 1rem;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .footer-col a {
+      font-size: 14px;
+      color: rgba(26,31,38,0.6);
+      text-transform: lowercase;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--cg-red); }
+    .footer-bottom {
+      border-top: 1px solid rgba(26,31,38,0.08);
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-bottom p {
+      font-size: 13px;
+      color: rgba(26,31,38,0.45);
+    }
+    .footer-socials {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .footer-socials a {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(26,31,38,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--ebony-clay);
+      transition: background 0.2s, color 0.2s;
+    }
+    .footer-socials a:hover {
+      background: var(--ebony-clay);
+      color: var(--white);
+    }
+
+    /* ===== HERO MARQUEE ===== */
+    .marquee-wrapper {
+      overflow: hidden;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+    .marquee-wrapper::before,
+    .marquee-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .marquee-wrapper::before { left: 0;  background: linear-gradient(to right, var(--floral-white), transparent); }
+    .marquee-wrapper::after  { right: 0; background: linear-gradient(to left,  var(--floral-white), transparent); }
+    .marquee-track {
+      display: flex;
+      gap: 3.5rem;
+      width: max-content;
+      animation: marquee 32s linear infinite;
+      align-items: center;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-logo {
+      height: 34px;
+      width: auto;
+      max-width: 120px;
+      opacity: 0.45;
+      filter: grayscale(100%);
+      object-fit: contain;
+      flex-shrink: 0;
+      transition: opacity 0.3s, filter 0.3s;
+    }
+    .marquee-logo:hover { opacity: 1; filter: grayscale(0%); }
+
+    /* ===== GLOBAL RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .hero-platform { padding: 4rem 0 3.5rem; }
+    }
+
+    /* ===== PLACEHOLDER TOOLTIPS — TEMPORARY, REMOVE WHEN PAGES ARE BUILT =====
+       To revert: delete this entire CSS block and remove class="nav-placeholder-tooltip"
+       + data-tooltip attributes from the 4 nav elements in every page. ===== */
+    .nav-placeholder-tooltip {
+      position: relative;
+    }
+    .nav-placeholder-tooltip::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(26,31,38,0.88);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 500;
+      white-space: nowrap;
+      padding: 5px 10px;
+      border-radius: 5px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      z-index: 999;
+    }
+    .nav-placeholder-tooltip::before {
+      content: '';
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 50%;
+      transform: translateX(-50%);
+      border: 4px solid transparent;
+      border-bottom-color: rgba(26,31,38,0.88);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      z-index: 999;
+    }
+    .nav-placeholder-tooltip:hover::after,
+    .nav-placeholder-tooltip:hover::before {
+      opacity: 1;
+    }
+    /* ===== END PLACEHOLDER TOOLTIPS ===== */
+  
+    /* ===== SCROLL ANIMATIONS (modern, gpu-accelerated, accessible) ===== */
+    .anim {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+    .anim-fade        { transform: none; }
+    .anim-fade-up     { transform: translateY(28px); }
+    .anim-fade-down   { transform: translateY(-22px); }
+    .anim-fade-left   { transform: translateX(-32px); }
+    .anim-fade-right  { transform: translateX(32px); }
+    .anim-scale       { transform: scale(0.96); }
+    .anim-blur        { filter: blur(10px); }
+    .anim-rise        { transform: translateY(40px) scale(0.985); }
+    .anim.is-visible {
+      opacity: 1;
+      transform: none;
+      filter: none;
+    }
+
+    /* Stagger children — cascading reveal for grids & rows */
+    .stagger > * {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+    .stagger.is-visible > *:nth-child(1)  { transition-delay: 0.00s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(2)  { transition-delay: 0.07s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(3)  { transition-delay: 0.14s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(4)  { transition-delay: 0.21s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(5)  { transition-delay: 0.28s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(6)  { transition-delay: 0.35s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(7)  { transition-delay: 0.42s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(8)  { transition-delay: 0.49s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(9)  { transition-delay: 0.56s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(n+10) { transition-delay: 0.63s; opacity: 1; transform: none; }
+
+    /* Sequential delays for children of .anim parents (use anim-d-N classes) */
+    .anim-d-1 { transition-delay: 0.10s; }
+    .anim-d-2 { transition-delay: 0.20s; }
+    .anim-d-3 { transition-delay: 0.30s; }
+    .anim-d-4 { transition-delay: 0.40s; }
+    .anim-d-5 { transition-delay: 0.50s; }
+
+    /* Subtle hover lift for cards (modern micro-interaction) */
+    .anim-lift {
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .anim-lift:hover {
+      transform: translateY(-4px);
+    }
+
+    /* Smooth scrolling */
+    html { scroll-behavior: smooth; }
+
+    /* Honor reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      .anim, .anim *, .stagger, .stagger > *, .anim-lift {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+    /* ===== END SCROLL ANIMATIONS ===== */
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="Images/entomo.svg" alt="entomo" style="height:36px; width:auto;">
+      </a>
+      <div class="nav-right-group">
+        <ul class="nav-links">
+          <li class="nav-dropdown-wrap">
+            <a href="#">product</a>
+            <div class="nav-mega" style="width:720px;">
+              <div class="nav-mega-grid">
+                <a href="solutions/performance-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">perform</div>
+                    <div class="nav-mega-desc">maximize employee performance</div>
+                  </div>
+                </a>
+                <a href="solutions/skill-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">skills</div>
+                    <div class="nav-mega-desc">unlock skills, accelerate growth</div>
+                  </div>
+                </a>
+                <a href="solutions/engagement-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">engage</div>
+                    <div class="nav-mega-desc">build engagement that lasts</div>
+                  </div>
+                </a>
+                <a href="solutions/workforce-insights.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">insights</div>
+                    <div class="nav-mega-desc">turn intelligence into decisions</div>
+                  </div>
+                </a>
+                <a href="solutions/wellness-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">wellbeing</div>
+                    <div class="nav-mega-desc">protect wellness, prevent burnout</div>
+                  </div>
+                </a>
+                <a href="solutions/strategic-planning.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">plan</div>
+                    <div class="nav-mega-desc">align your workforce to strategy</div>
+                  </div>
+                </a>
+                <a href="solutions/hire-to-retire.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">HCM</div>
+                    <div class="nav-mega-desc">simplify hire to retire</div>
+                  </div>
+                </a>
+                <a href="#" class="nav-mega-item" style="opacity:0.55;pointer-events:none;">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">TMRW</div>
+                    <div class="nav-mega-desc">AI powered career growth platform</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#">ai lab</a>
+            <div class="nav-mega" style="width:420px;">
+              <div class="nav-mega-grid" style="grid-template-columns: 1fr;">
+                <a href="entomo-strata.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.6"/><circle cx="5" cy="19" r="2.6"/><circle cx="19" cy="19" r="2.6"/><line x1="10.8" y1="7.3" x2="6.2" y2="16.7"/><line x1="13.2" y1="7.3" x2="17.8" y2="16.7"/><line x1="7.6" y1="19" x2="16.4" y2="19"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">entomo strata</div>
+                    <div class="nav-mega-desc">the workforce intelligence graph powering entomo.ai</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#">inspiration</a>
+            <div class="nav-mega" style="width:720px;">
+              <div class="nav-mega-grid">
+                <a href="inspiration/blog.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">blog</div>
+                    <div class="nav-mega-desc">insights on agentic AI and the future of work</div>
+                  </div>
+                </a>
+                <a href="inspiration/ebooks-whitepapers.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">ebooks &amp; whitepapers</div>
+                    <div class="nav-mega-desc">in-depth research and POV reports</div>
+                  </div>
+                </a>
+                <a href="inspiration/success-stories.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">success stories</div>
+                    <div class="nav-mega-desc">how Fortune 500s and governments use entomo</div>
+                  </div>
+                </a>
+                <a href="inspiration/entomo-community.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">entomo community</div>
+                    <div class="nav-mega-desc">connect with HR leaders shaping the future</div>
+                  </div>
+                </a>
+                <a href="inspiration/events-webinars.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">events &amp; webinars</div>
+                    <div class="nav-mega-desc">live sessions, roundtables, and roadshows</div>
+                  </div>
+                </a>
+                <a href="inspiration/templates.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">templates</div>
+                    <div class="nav-mega-desc">ready-to-use HR frameworks and playbooks</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#">about</a>
+            <div class="nav-mega" style="width:720px;">
+              <div class="nav-mega-grid">
+                <a href="about/why-entomo.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">why entomo</div>
+                    <div class="nav-mega-desc">our story and what makes us different</div>
+                  </div>
+                </a>
+                <a href="about/life-at-entomo.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">life@entomo</div>
+                    <div class="nav-mega-desc">culture, values, and what makes us tick</div>
+                  </div>
+                </a>
+                <a href="about/our-team.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">our team</div>
+                    <div class="nav-mega-desc">leadership and the people behind entomo</div>
+                  </div>
+                </a>
+                <a href="about/security-at-entomo.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">security@entomo</div>
+                    <div class="nav-mega-desc">enterprise-grade security and compliance</div>
+                  </div>
+                </a>
+                <a href="about/news-press-releases.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">news &amp; press release</div>
+                    <div class="nav-mega-desc">latest announcements and media coverage</div>
+                  </div>
+                </a>
+                <a href="about/jobs-at-entomo.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">jobs@entomo</div>
+                    <div class="nav-mega-desc">join the team building tomorrow's HR</div>
+                  </div>
+                </a>
+                <a href="about/partners.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">partner with entomo</div>
+                    <div class="nav-mega-desc">SI, consulting, and ecosystem partnerships</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li><a href="contact.html" style="color: var(--cg-red); font-weight: 700;">contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="request-demo.html" class="nav-cta">request a demo →</a>
+        </div>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== SECTION 1, HERO ===== -->
+  <section class="hero-platform">
+    <div class="container">
+      <div class="hero-platform-content">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          ai lab · the intelligence layer
+        </div>
+        <div class="hero-wordmark">
+          <span class="strata-wordmark">entomo <em>strata</em></span>
+        </div>
+        <h1 class="hero-tagline">the intelligence graph<br><mark>beneath every decision</mark></h1>
+        <p class="hero-subline">strata connects knowledge, skills, abilities, and tasks — role by role — into one living model of your workforce. every entomo agent reasons on it.</p>
+        <div class="hero-ctas">
+          <a href="request-demo.html" class="btn-primary">see strata in action →</a>
+        </div>
+      </div>
+    </div>
+    <!-- Scrolling logo marquee, full width, outside container -->
+    <div class="marquee-wrapper" style="margin-top:2.5rem;">
+      <div class="marquee-track">
+        <img class="marquee-logo" src="Images/client_logos/tata-elxsi.png"        alt="Tata Elxsi">
+        <img class="marquee-logo" src="Images/client_logos/ey.png"                alt="EY">
+        <img class="marquee-logo" src="Images/client_logos/cigna.png"             alt="Cigna">
+        <img class="marquee-logo" src="Images/client_logos/nttdata.png"           alt="NTT Data">
+        <img class="marquee-logo" src="Images/client_logos/ntuc-learning-hub.png" alt="NTUC Learning Hub">
+        <img class="marquee-logo" src="Images/client_logos/generalli.png"         alt="Generali">
+        <img class="marquee-logo" src="Images/client_logos/Carelon.jpeg"          alt="Carelon">
+        <img class="marquee-logo" src="Images/client_logos/soiitz.png"            alt="Soiitz">
+        <img class="marquee-logo" src="Images/client_logos/drreddys.png"          alt="Dr Reddy's">
+        <img class="marquee-logo" src="Images/client_logos/Digital_Dubai.png"     alt="Digital Dubai">
+        <img class="marquee-logo" src="Images/client_logos/uob.png"               alt="UOB">
+        <!-- Duplicate set for seamless loop -->
+        <img class="marquee-logo" src="Images/client_logos/tata-elxsi.png"        alt="Tata Elxsi">
+        <img class="marquee-logo" src="Images/client_logos/ey.png"                alt="EY">
+        <img class="marquee-logo" src="Images/client_logos/cigna.png"             alt="Cigna">
+        <img class="marquee-logo" src="Images/client_logos/nttdata.png"           alt="NTT Data">
+        <img class="marquee-logo" src="Images/client_logos/ntuc-learning-hub.png" alt="NTUC Learning Hub">
+        <img class="marquee-logo" src="Images/client_logos/generalli.png"         alt="Generali">
+        <img class="marquee-logo" src="Images/client_logos/Carelon.jpeg"          alt="Carelon">
+        <img class="marquee-logo" src="Images/client_logos/soiitz.png"            alt="Soiitz">
+        <img class="marquee-logo" src="Images/client_logos/drreddys.png"          alt="Dr Reddy's">
+        <img class="marquee-logo" src="Images/client_logos/Digital_Dubai.png"     alt="Digital Dubai">
+        <img class="marquee-logo" src="Images/client_logos/uob.png"               alt="UOB">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 2, DATA FLOW ARCHITECTURE ===== -->
+  <section style="background: var(--white);">
+    <div class="container">
+      <div class="text-center" style="max-width:800px; margin:0 auto;">
+        <p class="section-eyebrow">the semantic workforce model</p>
+        <h2 class="section-heading">one connected model of work.</h2>
+        <p class="section-subheading" style="margin:0 auto;">
+          most platforms store skills in a flat list. strata links work, performance, and capability in a single graph.
+        </p>
+      </div>
+
+      <div class="arch-diagram">
+        <!-- Col 1 -->
+        <div class="arch-col">
+          <div class="arch-col-header arch-color-data-sources">role</div>
+          <div class="arch-col-desc">Every role defined as a living profile, benchmarked against the market, not a static job description.</div>
+          <div class="arch-col-arrow">→</div>
+          <div class="arch-tooltip">Roles in strata are living profiles — continuously benchmarked against market data, not documents that expire the day they are written.</div>
+        </div>
+        <!-- Col 2 -->
+        <div class="arch-col">
+          <div class="arch-col-header arch-color-foundation">responsibility</div>
+          <div class="arch-col-desc">Roles decompose into responsibilities that describe how the work is actually organized.</div>
+          <div class="arch-col-arrow">→</div>
+          <div class="arch-tooltip">Responsibilities capture how work is organized inside a role — the layer most skills libraries skip entirely.</div>
+        </div>
+        <!-- Col 3 -->
+        <div class="arch-col">
+          <div class="arch-col-header arch-color-intelligence">task</div>
+          <div class="arch-col-desc">Responsibilities break into observable tasks — the atomic unit of work strata reasons over.</div>
+          <div class="arch-col-arrow">→</div>
+          <div class="arch-tooltip">Tasks are observable and assessable — which is what lets strata connect daily work to skills and evidence.</div>
+        </div>
+        <!-- Col 4 -->
+        <div class="arch-col">
+          <div class="arch-col-header arch-color-agents"><span class="keep-case">KPI</span></div>
+          <div class="arch-col-desc">Tasks link to the KPIs they move, connecting daily work to measurable business outcomes.</div>
+          <div class="arch-col-arrow">→</div>
+          <div class="arch-tooltip">Because tasks link to KPIs, strata can answer the question competitors cannot: which capability gaps are costing you which outcomes.</div>
+        </div>
+        <!-- Col 5 -->
+        <div class="arch-col">
+          <div class="arch-col-header arch-color-outcomes">skill</div>
+          <div class="arch-col-desc">Every task maps to the knowledge, skills, and abilities required to perform it well.</div>
+          <div class="arch-tooltip" style="left:auto; right:0; transform:none;">Skills are attached to the work itself — so development, mobility, and hiring decisions inherit real context, not keywords.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 3, DATA SOURCES ===== -->
+  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
+    <div class="container">
+      <div class="text-center" style="max-width:760px; margin:0 auto;">
+        <p class="section-eyebrow">the building blocks</p>
+        <h2 class="section-heading">knowledge. skills. abilities. tasks.</h2>
+        <p class="section-subheading" style="margin: 0 auto;">
+          four dimensions, mapped for every role in your organization — curated by <span class="keep-case">AI</span>, kept current by live market signals.
+        </p>
+      </div>
+
+      <div class="integrations-grid">
+        <div class="integration-card">
+          <div class="integration-card-title">knowledge</div>
+          <div class="integration-pill-row">
+            <span class="integration-pill">domain expertise</span>
+            <span class="integration-pill">industry regulations</span>
+            <span class="integration-pill">frameworks &amp; standards</span>
+            <span class="integration-pill">qualifications</span>
+          </div>
+        </div>
+        <div class="integration-card">
+          <div class="integration-card-title">skills</div>
+          <div class="integration-pill-row">
+            <span class="integration-pill">technical skills</span>
+            <span class="integration-pill">tools &amp; platforms</span>
+            <span class="integration-pill">project management</span>
+            <span class="integration-pill">communication craft</span>
+          </div>
+        </div>
+        <div class="integration-card">
+          <div class="integration-card-title">abilities</div>
+          <div class="integration-pill-row">
+            <span class="integration-pill">problem-solving</span>
+            <span class="integration-pill">leadership</span>
+            <span class="integration-pill">adaptability</span>
+            <span class="integration-pill">judgment</span>
+          </div>
+        </div>
+        <div class="integration-card">
+          <div class="integration-card-title">tasks</div>
+          <div class="integration-pill-row">
+            <span class="integration-pill">role activities</span>
+            <span class="integration-pill">deliverables</span>
+            <span class="integration-pill">decision rights</span>
+            <span class="integration-pill">collaboration touchpoints</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-chips-row">
+        <span class="tech-chip">700+ skill domains</span>
+        <span class="tech-chip">4,000+ roles in framework</span>
+        <span class="tech-chip">deployed across 40+ countries</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 4, DATA FOUNDATION ===== -->
+  <section style="background: var(--polar-white);">
+    <div class="container">
+      <div class="text-center" style="max-width:800px; margin:0 auto;">
+        <p class="section-eyebrow">what strata powers</p>
+        <h2 class="section-heading">built once. powering everything.</h2>
+        <p class="section-subheading" style="margin:0 auto;">
+          because work, performance, and capability live in one model, every module — and every agent — reasons from the same truth.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-name">performance management</div>
+          <p class="pillar-tagline">Goals grounded in real work</p>
+          <p class="pillar-desc">Goals, reviews, and feedback anchored to what each role actually does — not generic templates.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-name">skills architecture</div>
+          <p class="pillar-tagline">A framework that stays alive</p>
+          <p class="pillar-desc">A living skills framework that updates itself as roles evolve and market demand shifts.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-name">learning recommendations</div>
+          <p class="pillar-tagline">Development that closes real gaps</p>
+          <p class="pillar-desc">Learning targeted at verified gaps, linked to the tasks and outcomes it unlocks.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-name">career mobility</div>
+          <p class="pillar-tagline">Paths computed, not guessed</p>
+          <p class="pillar-desc">Career paths computed from skill adjacency — showing people the roles they are already closest to.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-name">succession planning</div>
+          <p class="pillar-tagline">Readiness scored on evidence</p>
+          <p class="pillar-desc">Successor readiness scored against the real requirements of critical roles, not nominations.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-name">workforce planning</div>
+          <p class="pillar-tagline">Build, Buy, Borrow, or Bot</p>
+          <p class="pillar-desc">Demand modelling and 4B sourcing decisions, grounded in role-level intelligence and market signals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 5, AI AGENTS ECOSYSTEM ===== -->
+  <section class="dark-section" id="agents-section">
+    <div class="container">
+      <div class="text-center" style="max-width:800px; margin:0 auto;">
+        <p class="section-eyebrow section-eyebrow-white">the <span class="keep-case">AI</span> workforce</p>
+        <h2 class="section-heading">meet the agents.</h2>
+        <p class="agents-intro">
+          every agent below reasons on strata. that is why their outputs agree with each other — one graph, one version of workforce truth.
+        </p>
+      </div>
+
+      <!-- Scrolling agent strip -->
+    </div><!-- /container -->
+
+    <div class="agent-marquee-wrapper">
+      <div class="agent-marquee-track">
+
+        <div class="agent-mq-card"><img src="Images/agents/talentatlas.png" alt="TalentAtlas"><div class="agent-mq-name">TalentAtlas</div><div class="agent-mq-role">role intelligence</div><div class="agent-mq-desc">Maps industry-benchmarked role architectures and competency frameworks with market-aligned precision.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/skillmatrix.png" alt="SkillMatrix"><div class="agent-mq-name">SkillMatrix</div><div class="agent-mq-role">proficiency intelligence</div><div class="agent-mq-desc">Surfaces proficiency gaps and maps capability across teams, aligned to real-time market signals.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/Goalforge.png" alt="GoalForge"><div class="agent-mq-name">GoalForge</div><div class="agent-mq-role">goal intelligence</div><div class="agent-mq-desc">Generates role-aligned performance goals that reflect strategic priorities and validates quality automatically.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/pulse360.png" alt="Pulse360"><div class="agent-mq-name">Pulse360</div><div class="agent-mq-role">sentiment analytics</div><div class="agent-mq-desc">Analyzes feedback tone, alignment, and perception gaps to uncover blind spots and leadership risks.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/Insight360.png" alt="Insight360"><div class="agent-mq-name">Insight360</div><div class="agent-mq-role">feedback intelligence</div><div class="agent-mq-desc">Surfaces perception gaps, strengths, and growth priorities from 360-degree feedback data in real time.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/growthplanner.png" alt="GrowthPlanner"><div class="agent-mq-name">GrowthPlanner</div><div class="agent-mq-role">development engine</div><div class="agent-mq-desc">Translates performance insights into personalised growth plans with clear career paths and skill milestones.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/assescraft.png" alt="AssesCraft"><div class="agent-mq-name">AssesCraft</div><div class="agent-mq-role">assessment engine</div><div class="agent-mq-desc">Designs structured, role-aligned assessments that evaluate skills, proficiency, and job readiness at scale.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/convocraft.png" alt="ConvoCraft"><div class="agent-mq-name">ConvoCraft</div><div class="agent-mq-role">conversation design</div><div class="agent-mq-desc">Structures high-impact manager conversations with clarity and intent, from performance talks to feedback reviews.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/rolearchitect.png" alt="RoleArchitect"><div class="agent-mq-name">RoleArchitect</div><div class="agent-mq-role">role design</div><div class="agent-mq-desc">Builds and evolves role definitions that align to organisational strategy and workforce capability needs.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/profilecraft.png" alt="ProfileCraft"><div class="agent-mq-name">ProfileCraft</div><div class="agent-mq-role">profile intelligence</div><div class="agent-mq-desc">Crafts rich talent profiles from skills, history, and ambition, powering smarter hiring and mobility decisions.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/flowgen.png" alt="FlowGen"><div class="agent-mq-name">FlowGen</div><div class="agent-mq-role">workflow automation</div><div class="agent-mq-desc">Automates HR workflows end-to-end, from goal setting to reviews, without manual intervention.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/TeamInsight.png" alt="TeamInsight"><div class="agent-mq-name">TeamInsight</div><div class="agent-mq-role">team analytics</div><div class="agent-mq-desc">Tracks team health, collaboration patterns, and performance dynamics to surface risks before they escalate.</div></div>
+
+        <!-- Duplicate for seamless loop -->
+        <div class="agent-mq-card"><img src="Images/agents/talentatlas.png" alt="TalentAtlas"><div class="agent-mq-name">TalentAtlas</div><div class="agent-mq-role">role intelligence</div><div class="agent-mq-desc">Maps industry-benchmarked role architectures and competency frameworks with market-aligned precision.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/skillmatrix.png" alt="SkillMatrix"><div class="agent-mq-name">SkillMatrix</div><div class="agent-mq-role">proficiency intelligence</div><div class="agent-mq-desc">Surfaces proficiency gaps and maps capability across teams, aligned to real-time market signals.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/Goalforge.png" alt="GoalForge"><div class="agent-mq-name">GoalForge</div><div class="agent-mq-role">goal intelligence</div><div class="agent-mq-desc">Generates role-aligned performance goals that reflect strategic priorities and validates quality automatically.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/pulse360.png" alt="Pulse360"><div class="agent-mq-name">Pulse360</div><div class="agent-mq-role">sentiment analytics</div><div class="agent-mq-desc">Analyzes feedback tone, alignment, and perception gaps to uncover blind spots and leadership risks.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/Insight360.png" alt="Insight360"><div class="agent-mq-name">Insight360</div><div class="agent-mq-role">feedback intelligence</div><div class="agent-mq-desc">Surfaces perception gaps, strengths, and growth priorities from 360-degree feedback data in real time.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/growthplanner.png" alt="GrowthPlanner"><div class="agent-mq-name">GrowthPlanner</div><div class="agent-mq-role">development engine</div><div class="agent-mq-desc">Translates performance insights into personalised growth plans with clear career paths and skill milestones.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/assescraft.png" alt="AssesCraft"><div class="agent-mq-name">AssesCraft</div><div class="agent-mq-role">assessment engine</div><div class="agent-mq-desc">Designs structured, role-aligned assessments that evaluate skills, proficiency, and job readiness at scale.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/convocraft.png" alt="ConvoCraft"><div class="agent-mq-name">ConvoCraft</div><div class="agent-mq-role">conversation design</div><div class="agent-mq-desc">Structures high-impact manager conversations with clarity and intent, from performance talks to feedback reviews.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/rolearchitect.png" alt="RoleArchitect"><div class="agent-mq-name">RoleArchitect</div><div class="agent-mq-role">role design</div><div class="agent-mq-desc">Builds and evolves role definitions that align to organisational strategy and workforce capability needs.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/profilecraft.png" alt="ProfileCraft"><div class="agent-mq-name">ProfileCraft</div><div class="agent-mq-role">profile intelligence</div><div class="agent-mq-desc">Crafts rich talent profiles from skills, history, and ambition, powering smarter hiring and mobility decisions.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/flowgen.png" alt="FlowGen"><div class="agent-mq-name">FlowGen</div><div class="agent-mq-role">workflow automation</div><div class="agent-mq-desc">Automates HR workflows end-to-end, from goal setting to reviews, without manual intervention.</div></div>
+        <div class="agent-mq-card"><img src="Images/agents/TeamInsight.png" alt="TeamInsight"><div class="agent-mq-name">TeamInsight</div><div class="agent-mq-role">team analytics</div><div class="agent-mq-desc">Tracks team health, collaboration patterns, and performance dynamics to surface risks before they escalate.</div></div>
+
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- Tier 2: Extended Intelligence Agents -->
+      <div class="agents-tier2">
+        <p class="agents-tier2-label">extended intelligence agents</p>
+        <div class="agents-tier2-grid">
+          <div class="agent-compact">
+            <span class="agent-compact-name">AI Readiness Agent</span>
+            <span class="agent-compact-desc">Assesses organizational readiness for AI-augmented roles and workflows.</span>
+          </div>
+          <div class="agent-compact">
+            <span class="agent-compact-name">Skill Half-Life Agent</span>
+            <span class="agent-compact-desc">Tracks skill obsolescence rates and surfaces reskilling priorities in real time.</span>
+          </div>
+          <div class="agent-compact">
+            <span class="agent-compact-name">Succession Intelligence Agent</span>
+            <span class="agent-compact-desc">Maps succession pipelines for critical roles and flags readiness gaps.</span>
+          </div>
+          <div class="agent-compact">
+            <span class="agent-compact-name">4B Decision Agent</span>
+            <span class="agent-compact-desc">Recommends Build, Buy, Borrow, or Bot decisions for every open talent need.</span>
+          </div>
+          <div class="agent-compact">
+            <span class="agent-compact-name">Role Craft Agent++</span>
+            <span class="agent-compact-desc">Evolves role definitions continuously as business demands and market benchmarks shift.</span>
+          </div>
+          <div class="agent-compact">
+            <span class="agent-compact-name">Strategy Execution Agent</span>
+            <span class="agent-compact-desc">Models the performance impact of strategic workforce decisions before they are made.</span>
+          </div>
+          <div class="agent-compact">
+            <span class="agent-compact-name">Execution Intelligence Agent</span>
+            <span class="agent-compact-desc">Monitors change readiness and execution progress across business units.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== THE DIFFERENCE: STRATA VS COPILOTS ===== -->
+  <section class="difference-section">
+    <div class="container">
+      <div class="difference-inner">
+        <div class="difference-text">
+          <p class="section-eyebrow">the difference</p>
+          <h2>why strata, not another copilot</h2>
+          <p class="section-subheading">generic copilots reason over documents. strata reasons over your workforce — structured intelligence, governed <span class="keep-case">HR</span> workflows, enterprise context, and decision logic built specifically for talent.</p>
+          <a href="about/security-at-entomo.html" class="btn-primary" style="margin-top:1.5rem;">read the security architecture →</a>
+        </div>
+        <div class="difference-visual">
+          <div class="ww-card">
+            <div class="ww-card-header">
+              <div class="ww-avatar">S</div>
+              <div>
+                <div class="ww-name">strata</div>
+                <div class="ww-status"><span class="ww-dot"></span> reasoning over your workforce graph</div>
+              </div>
+            </div>
+            <div class="ww-messages">
+              <div class="ww-msg">
+                <p>you asked: "are we ready to launch the new service line in Q2?" here is what the graph says: 14 of 18 required skills are covered. 3 roles need reskilling — GrowthPlanner has draft plans ready. 1 role is best filled externally, per the 4B engine.</p>
+                <p class="ww-msg-sub">every claim traceable to your workforce data. nothing invented.</p>
+              </div>
+              <div class="ww-msg">
+                <p>a generic copilot would have guessed. this was computed from 4,000+ role profiles, your org data, and live market signals.</p>
+              </div>
+              <div class="ww-actions">
+                <span class="ww-chip">traceable</span>
+                <span class="ww-chip">governed</span>
+                <span class="ww-chip">context-aware</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MARKET INTELLIGENCE ===== -->
+  <section style="background: var(--pistachio);">
+    <div class="container">
+      <div class="text-center" style="max-width:720px; margin:0 auto;">
+        <p class="section-eyebrow">market intelligence</p>
+        <h2 class="section-heading">benchmarked against the market. continuously.</h2>
+        <p class="section-subheading" style="margin:0 auto;">
+          strata combines your internal workforce data with external demand signals — so every role is benchmarked against the world outside your walls.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-name">benchmark roles</div>
+          <p class="pillar-tagline">Market intelligence at role level</p>
+          <p class="pillar-desc">Compare your role architecture and proficiency bars against live market data, role by role.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-name">anticipate demand</div>
+          <p class="pillar-tagline">See skill shifts before they land</p>
+          <p class="pillar-desc">Track which skills are rising, decaying, or disappearing across your industry — before it reaches your workforce.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-name">certify readiness</div>
+          <p class="pillar-tagline">Grounded in industry frameworks</p>
+          <p class="pillar-desc">Curated certification frameworks define and verify role readiness, aligned with sector requirements.</p>
+        </div>
+      </div>
+
+      <div class="orchestration-chips" style="margin-top:3rem;">
+        <span class="orch-chip">built on <span class="keep-case">SkillsFuture</span></span>
+        <span class="orch-chip"><span class="keep-case">ESCO</span></span>
+        <span class="orch-chip"><span class="keep-case">SFIA</span></span>
+        <span class="orch-chip"><span class="keep-case">SSF</span></span>
+        <span class="orch-chip"><span class="keep-case">FAHR</span>-aligned</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ASSESSMENT ENGINE ===== -->
+  <section style="background: var(--white);">
+    <div class="container">
+      <div class="text-center" style="max-width:760px; margin:0 auto;">
+        <p class="section-eyebrow">the assessment engine</p>
+        <h2 class="section-heading">from role intelligence to assessment. automatically.</h2>
+        <p class="section-subheading" style="margin:0 auto;">
+          strata translates role requirements into assessment blueprints — then generates, delivers, and scores the assessments themselves. technical, behavioral, cognitive, conversational, and 360°.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-name">blueprint</div>
+          <p class="pillar-tagline">Role intelligence becomes structure</p>
+          <p class="pillar-desc">Role requirements translate into structured blueprints covering technical, cognitive, and behavioral competencies.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-name">generate</div>
+          <p class="pillar-tagline">Questions written by AI</p>
+          <p class="pillar-desc">Role-aligned questions with configurable difficulty — regenerated dynamically to protect assessment integrity.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-name">deliver</div>
+          <p class="pillar-tagline">Proctored and trustworthy</p>
+          <p class="pillar-desc">A proctored digital testing environment with real-time monitoring and automated integrity checks.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-name">verify</div>
+          <p class="pillar-tagline">A rounded proficiency picture</p>
+          <p class="pillar-desc">Manager validation and 360° feedback blend with assessment scores — no single source of truth bias.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-name">develop</div>
+          <p class="pillar-tagline">Gaps become growth</p>
+          <p class="pillar-desc">Verified gaps drive learning recommendations, mentorship matches, and individual development plans.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-name">evolve</div>
+          <p class="pillar-tagline">Never drifts from the work</p>
+          <p class="pillar-desc">Blueprints update as roles evolve, so assessments always measure the work as it exists today.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MEASURABLE AI ===== -->
+  <section style="background: var(--lavender);">
+    <div class="container">
+      <div class="text-center" style="max-width:680px; margin:0 auto 4rem;">
+        <p class="section-eyebrow">measured, not claimed</p>
+        <h2 class="section-heading"><span class="keep-case">AI</span> that shows its numbers.</h2>
+      </div>
+
+      <div class="persona-simple-grid">
+
+        <div class="persona-simple-card">
+          <div class="persona-simple-top green-top">
+            <span class="persona-simple-role">data intelligence</span>
+            <span class="persona-simple-headline">90% fewer manual dashboards</span>
+          </div>
+          <div class="persona-tags">
+            <span class="ptag">ask in plain language</span>
+            <span class="ptag">board-ready answers</span>
+            <span class="ptag">no BI backlog</span>
+          </div>
+        </div>
+
+        <div class="persona-simple-card">
+          <div class="persona-simple-top red-top">
+            <span class="persona-simple-role">kpi libraries</span>
+            <span class="persona-simple-headline">generated in under a minute</span>
+          </div>
+          <div class="persona-tags">
+            <span class="ptag">role-aligned KPIs</span>
+            <span class="ptag">strategy-linked</span>
+            <span class="ptag">quality-validated</span>
+          </div>
+        </div>
+
+        <div class="persona-simple-card">
+          <div class="persona-simple-top blue-top">
+            <span class="persona-simple-role">performance reviews</span>
+            <span class="persona-simple-headline">evidence-based, in minutes</span>
+          </div>
+          <div class="persona-tags">
+            <span class="ptag">bias-aware</span>
+            <span class="ptag">development-focused</span>
+            <span class="ptag">balanced feedback</span>
+          </div>
+        </div>
+
+        <div class="persona-simple-card">
+          <div class="persona-simple-top gold-top">
+            <span class="persona-simple-role">role architecture</span>
+            <span class="persona-simple-headline">built in under 5 minutes</span>
+          </div>
+          <div class="persona-tags">
+            <span class="ptag">living intelligence graph</span>
+            <span class="ptag">market-benchmarked</span>
+            <span class="ptag">continuously evolving</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 9, SECURITY ===== -->
+  <section class="dark-section">
+    <div class="container">
+      <div class="text-center" style="max-width:800px; margin:0 auto;">
+        <p class="section-eyebrow" style="color: rgba(255,255,255,0.45);">security &amp; compliance</p>
+        <h2 class="section-heading" style="font-size:clamp(28px,3.5vw,44px); margin-bottom:1rem;">built for enterprises that cannot afford to compromise.</h2>
+        <p style="font-size:18px; line-height:1.65; color:rgba(255,255,255,0.62); max-width:680px; margin:0 auto 3rem;">
+          entomo meets the security, privacy, and compliance requirements of the world's most regulated industries, without exceptions and without workarounds.
+        </p>
+      </div>
+
+      <div class="security-grid">
+        <!-- 1 -->
+        <div class="security-item">
+          <div class="security-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          </div>
+          <div class="security-title">SOC 2 Type II</div>
+          <div class="security-desc">Independently audited, security, availability, and privacy controls verified.</div>
+        </div>
+        <!-- 2 -->
+        <div class="security-item">
+          <div class="security-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div class="security-title">GDPR</div>
+          <div class="security-desc">Full European data protection compliance with privacy-by-design at its core.</div>
+        </div>
+        <!-- 3 -->
+        <div class="security-item">
+          <div class="security-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div class="security-title">regional compliance</div>
+          <div class="security-desc">PDPA, PDPL, and DPDP compliance built in, across Southeast Asia, Middle East, and India.</div>
+        </div>
+        <!-- 4 -->
+        <div class="security-item">
+          <div class="security-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="security-title">data residency</div>
+          <div class="security-desc">Employee data stays within your required geography, no exceptions.</div>
+        </div>
+        <!-- 5 -->
+        <div class="security-item">
+          <div class="security-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="M21 2l-9.6 9.6"/><path d="M15.5 7.5l3 3L22 7l-3-3"/></svg>
+          </div>
+          <div class="security-title">SSO</div>
+          <div class="security-desc">SAML 2.0 and OAuth 2.0, connects to your existing identity provider seamlessly.</div>
+        </div>
+        <!-- 6 -->
+        <div class="security-item">
+          <div class="security-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="security-title">role-based access</div>
+          <div class="security-desc">Granular controls across every data view, agent action, and admin function.</div>
+        </div>
+        <!-- 7 -->
+        <div class="security-item">
+          <div class="security-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div class="security-title">API-first</div>
+          <div class="security-desc">Every capability exposed via documented REST APIs, no data silos, no middleware.</div>
+        </div>
+        <!-- 8 -->
+        <div class="security-item">
+          <div class="security-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <div class="security-title">audit trails</div>
+          <div class="security-desc">Immutable logs of every platform action, access, execution, and permission changes.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 10, FINAL CTA ===== -->
+  <section class="final-cta-section">
+    <div class="container">
+      <h2>ready to see what strata knows about work?</h2>
+      <p class="final-cta-supporting">
+        One graph. Every talent decision. A live demo that shows strata reasoning over a workforce like yours.
+      </p>
+      <div class="final-cta-buttons">
+        <a href="request-demo.html" class="btn-primary btn-primary-lg">book a strata demo →</a>
+      </div>
+      <div class="proof-chips">
+        <span class="proof-chip">ISO 27001 &amp; 27701 certified</span>
+        <span class="proof-chip">GDPR compliant</span>
+        <span class="proof-chip">Brandon Hall Gen-AI excellence 2024 &amp; 2025</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <img src="Images/entomo.svg" alt="entomo" style="height:32px; width:auto;">
+          </div>
+          <p>Agentic workforce intelligence platform powering 30M+ users across global enterprise brands.</p>
+        </div>
+        <div class="footer-col">
+          <h4>platform</h4>
+          <ul>
+            <li><a href="#">AI agents</a></li>
+            <li><a href="#">intelligence architecture</a></li>
+            <li><a href="#">integrations</a></li>
+            <li><a href="#">security</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>solutions</h4>
+          <ul>
+            <li><a href="#">performance intelligence</a></li>
+            <li><a href="#">skill &amp; talent intelligence</a></li>
+            <li><a href="#">engagement intelligence</a></li>
+            <li><a href="#">workforce insights</a></li>
+            <li><a href="#">wellness intelligence</a></li>
+            <li><a href="#">strategic planning</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>resources</h4>
+          <ul>
+            <li><a href="#">Forrester TEI study</a></li>
+            <li><a href="#">case studies</a></li>
+            <li><a href="#">blog</a></li>
+            <li><a href="#">webinars</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>company</h4>
+          <ul>
+            <li><a href="#">about us</a></li>
+            <li><a href="#">careers</a></li>
+            <li><a href="contact.html">contact</a></li>
+            <li><a href="#">privacy policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 entomo. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Mobile nav toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = navLinks.style.display === 'flex';
+        navLinks.style.display = isOpen ? 'none' : 'flex';
+        navLinks.style.flexDirection = isOpen ? '' : 'column';
+        navLinks.style.position = isOpen ? '' : 'absolute';
+        navLinks.style.top = isOpen ? '' : '68px';
+        navLinks.style.left = isOpen ? '' : '0';
+        navLinks.style.right = isOpen ? '' : '0';
+        navLinks.style.background = isOpen ? '' : 'var(--white)';
+        navLinks.style.padding = isOpen ? '' : '1.5rem';
+        navLinks.style.borderBottom = isOpen ? '' : '1px solid rgba(26,31,38,0.08)';
+        navLinks.style.boxShadow = isOpen ? '' : 'var(--shadow-md)';
+        navLinks.style.zIndex = isOpen ? '' : '99';
+      });
+    }
+
+    // Smooth scroll for pipeline "explore agents" button
+    document.querySelectorAll('a[href="#agents-section"]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.getElementById('agents-section');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+  <!-- ===== SCROLL ANIMATION ENGINE ===== -->
+  <script>
+  (function() {
+    'use strict';
+
+    // Selectors for elements that should animate when scrolled into view.
+    // Excludes nav, footer, and elements that are part of always-visible chrome.
+    const SOLO_SELECTORS = [
+      'h1', 'h2', 'h3',
+      '.section-heading', '.section-subheading', '.section-eyebrow',
+      '.hero-eyebrow', '.hero-badge', '.hero-sub', '.hero-ctas',
+      '.lede', '.challenge-dismiss', '.dia-headline',
+      '.btn-primary', '.path-link',
+      '.coach-demo', '.dia-demo', '.ww-demo',
+      '.story-visual', '.positioning-block',
+      '.video-card', '.outcome-card', '.difference-card',
+      '.path-card', '.proof-card', '.solution-card',
+      '.metric', '.metric-large',
+      '.persona-panel.active',
+      '.sss-card', '.sss-pills-svg',
+      '.tomorrow-intro', '.story-grid',
+      '.flow-pills', '.feature-card',
+      'blockquote',
+    ];
+
+    // Grid-like containers whose children should stagger in
+    const STAGGER_SELECTORS = [
+      '.outcome-grid', '.difference-grid',
+      '.paths-grid', '.path-grid',
+      '.sss-grid',
+      '.proof-cards', '.solution-cards', '.solutions-grid',
+      '.enterprise-grid', '.stakeholder-grid',
+      '.videos-grid', '.video-grid',
+      '.team-grid', '.leaders-grid',
+      '.pillars-grid', '.values-grid',
+      '.benefits-grid', '.perks-grid',
+      '.cards-grid', '.card-grid',
+      '.partners-grid', '.partner-grid',
+      '.story-grid', '.tomorrow-grid',
+      '.testimonial-grid',
+      '.stats-grid',
+    ];
+
+    // Ancestors to exclude (don't animate elements inside these)
+    const EXCLUDE_ANCESTORS = ['nav.navbar', 'footer.footer', '.testimonials-track', '.marquee-track', '.agent-marquee-track', '.agent-areas-track', '.perf-mq-track'];
+
+    function isExcluded(el) {
+      for (const sel of EXCLUDE_ANCESTORS) {
+        if (el.closest(sel)) return true;
+      }
+      return false;
+    }
+
+    function tagAnim(el, variant = 'anim-fade-up') {
+      if (el.classList.contains('anim') || el.classList.contains('stagger')) return;
+      el.classList.add('anim', variant);
+    }
+
+    function tagStagger(el) {
+      if (el.classList.contains('stagger')) return;
+      el.classList.add('stagger');
+    }
+
+    // Tag solo elements
+    SOLO_SELECTORS.forEach(sel => {
+      document.querySelectorAll(sel).forEach(el => {
+        if (isExcluded(el)) return;
+        tagAnim(el);
+      });
+    });
+
+    // Tag stagger containers
+    STAGGER_SELECTORS.forEach(sel => {
+      document.querySelectorAll(sel).forEach(el => {
+        if (isExcluded(el)) return;
+        // Don't double-tag if already a stagger or anim
+        if (el.classList.contains('anim')) {
+          el.classList.remove('anim', 'anim-fade-up', 'anim-fade', 'anim-fade-down', 'anim-fade-left', 'anim-fade-right', 'anim-scale', 'anim-blur', 'anim-rise');
+        }
+        tagStagger(el);
+      });
+    });
+
+    // IntersectionObserver to reveal on scroll
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      document.querySelectorAll('.anim, .stagger').forEach(el => {
+        // Above-the-fold elements: reveal immediately with a tiny delay (gives a soft entrance)
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          // Small staggered delay for elements visible on initial load
+          setTimeout(() => el.classList.add('is-visible'), 50);
+        } else {
+          io.observe(el);
+        }
+      });
+    } else {
+      // Fallback: show everything immediately
+      document.querySelectorAll('.anim, .stagger').forEach(el => el.classList.add('is-visible'));
+    }
+  })();
+  </script>
+
+</body>
+</html>
