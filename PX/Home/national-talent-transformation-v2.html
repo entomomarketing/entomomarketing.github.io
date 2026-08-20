@@ -1015,7 +1015,7 @@
       font-size: 12.5px; line-height: 1.45; color: rgba(26,31,38,0.55);
       text-transform: lowercase; font-weight: 600;
     }
-    .case-metric-wide { grid-column: 1 / -1; border-right: none !important; }
+    .case-metric-wide { grid-column: 1 / -1; border-right: none !important; border-bottom: none; }
     .case-panel-logo img { height: 34px; width: auto; }
     @media (max-width: 700px) { .case-panel-logo img { height: 28px; } }
     .case-panel-note {
@@ -1023,6 +1023,31 @@
       font-size: 12.5px; line-height: 1.55; color: rgba(26,31,38,0.55);
     }
     .case-panel-note strong { color: var(--ebony-clay); }
+
+    .case-assure { padding: 16px 26px 18px; border-top: 1px solid rgba(26,31,38,0.06); }
+    .case-assure-title {
+      font-size: 10.5px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 1.2px; margin-bottom: 10px;
+    }
+    .case-assure-list { display: flex; flex-direction: column; gap: 8px; }
+    .case-assure-item {
+      display: flex; align-items: flex-start; gap: 9px;
+      font-size: 13.5px; line-height: 1.45; font-weight: 600;
+      color: rgba(26,31,38,0.78);
+    }
+    .case-assure-item strong { color: var(--ebony-clay); font-weight: 800; }
+    .case-assure-item svg {
+      width: 15px; height: 15px; fill: none; stroke-width: 2;
+      stroke-linecap: round; stroke-linejoin: round;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .case-om .case-assure { background: var(--pistachio); }
+    .case-om .case-assure-title { color: var(--sea-green); }
+    .case-om .case-assure-item svg { stroke: var(--sea-green); }
+    @media (max-width: 700px) {
+      .case-assure { padding: 14px 20px 16px; }
+      .case-assure-item { font-size: 12.5px; }
+    }
 
     .case-award {
       display: flex; align-items: flex-start; gap: 14px;
@@ -1951,17 +1976,15 @@
             <strong><span class="keep-case">Oman&rsquo;s Ministry of Labour</span></strong> &mdash; regulator and custodian of the sultanate&rsquo;s skills-based employment framework &mdash; is steering the country&rsquo;s transition to a knowledge economy under <span class="keep-case">Vision 2040</span>, which aims to place <span class="keep-case">Oman</span> among the world&rsquo;s top-20 developed nations.
           </p>
           <p>
-            TMRW is the platform behind the initiative: living national occupational standards built on its proprietary <span class="keep-case">KSAT</span> Framework, <span class="keep-case">AI</span>-generated proctored assessments, personalized learning paths, and an intelligence cockpit surfacing future trends and skill demand to fuel the growth journey.
+            In partnership with <span class="keep-case">Muscat Technology Investments</span> (<span class="keep-case">MIT</span>), TMRW is enabling the initiative with living national occupational standards built on its proprietary <span class="keep-case">KSAT</span> Framework, <span class="keep-case">AI</span>-generated proctored assessments, personalized learning paths, and an intelligence cockpit surfacing future trends and skill demand.
           </p>
           <p>
-            The experience is bilingual in <span class="keep-case">English</span> and <span class="keep-case">Arabic</span>, and hosted completely within the country &mdash; keeping data secure and processes compliant with national security standards. TMRW is building the complete <span class="keep-case">National Occupational Standards</span> for all of <span class="keep-case">Oman&rsquo;s</span> priority sectors, and executing them on a state-of-the-art platform that carries individuals across their career journey.
+            It is building the complete <span class="keep-case">National Occupational Standards</span> for all of <span class="keep-case">Oman&rsquo;s</span> priority sectors, and executing them on a state-of-the-art platform that carries individuals across their career journey.
           </p>
           <div class="case-caps">
             <span class="case-cap">proprietary <span class="keep-case">KSAT</span> framework</span>
-            <span class="case-cap">national occupational standards</span>
             <span class="case-cap"><span class="keep-case">AI</span> proctored assessments</span>
-            <span class="case-cap">bilingual <span class="keep-case">English</span>&ndash;<span class="keep-case">Arabic</span></span>
-            <span class="case-cap">in-country hosting</span>
+            <span class="case-cap">personalized learning paths</span>
             <span class="case-cap">intelligence cockpit</span>
           </div>
         </div>
@@ -1992,8 +2015,22 @@
               <div class="case-metric-label">to build and deploy an assessment</div>
             </div>
           </div>
-          <div class="case-panel-note">
-            bilingual <strong>English and Arabic</strong>, hosted entirely in-country &mdash; data secure and processes compliant with national security standards.
+          <div class="case-assure">
+            <div class="case-assure-title">sovereign &amp; compliant by design</div>
+            <div class="case-assure-list">
+              <div class="case-assure-item">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <span>bilingual <strong>English and Arabic</strong></span>
+              </div>
+              <div class="case-assure-item">
+                <svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>hosted <strong>entirely in-country</strong></span>
+              </div>
+              <div class="case-assure-item">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                <span>compliant with <strong>national security standards</strong></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
