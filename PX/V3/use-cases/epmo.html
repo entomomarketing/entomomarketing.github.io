@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hire to Retire | entomo</title>
-  <meta name="description" content="Simplify the entire employee journey. Agentic intelligence that unifies recruitment, onboarding, payroll, attendance, and exit, one seamless experience for HR and employees.">
+  <title>epmo, enterprise performance management office | entomo</title>
+  <meta name="description" content="entomo builds your enterprise performance management office: advisory plus platform that aligns every KPI from strategy map to individual scorecard, with agentic AI keeping performance continuous. 30M+ users powered. Forrester-validated: $26.8M value, 103% ROI.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
@@ -235,7 +235,7 @@
     .sol-hero-proof svg { width: 14px; height: 14px; stroke: var(--cg-red); }
 
     /* ===== OUTCOMES ===== */
-    /* ===== DIA DEMO CSS (for hire-to-retire page) ===== */
+    /* ===== DIA DEMO CSS (for performance intelligence page) ===== */
     .dia-demo {
       background: var(--white);
       border-radius: var(--radius-large);
@@ -950,7 +950,7 @@
     .sec-coworker .persona-sec-text h2 span { color: #b8860b; }
 
     /* ===== EMPLOYEES SECTION ===== */
-    /* ===== HR AGENTS MARQUEE ===== */
+    /* ===== PERFORMANCE AGENTS MARQUEE ===== */
     .perf-agents-section {
       background: var(--floral-white);
       padding: 4.5rem 0;
@@ -1235,10 +1235,418 @@
       html { scroll-behavior: auto; }
     }
     /* ===== END SCROLL ANIMATIONS ===== */
+
+    /* ===== IMPORTED FROM ENTOMO-STRATA (shared components) ===== */
+    .arch-diagram {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      margin-top: 3rem;
+      border: 1px solid rgba(26,31,38,0.08);
+      border-radius: var(--radius-large);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .arch-col {
+      position: relative;
+      padding: 2rem 1.5rem;
+      background: var(--white);
+      border-right: 1px solid rgba(26,31,38,0.07);
+      transition: background 0.2s;
+      cursor: default;
+    }
+    .arch-col:last-child { border-right: none; }
+    .arch-col:hover { background: rgba(244,178,35,0.04); }
+    .arch-col-header {
+      font-size: 15px;
+      font-weight: 800;
+      text-transform: lowercase;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.2px;
+    }
+    .arch-col-desc {
+      font-size: 13px;
+      color: rgba(26,31,38,0.6);
+      line-height: 1.55;
+    }
+    .arch-col-arrow {
+      position: absolute;
+      top: 50%;
+      right: -14px;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 28px;
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: rgba(26,31,38,0.4);
+      z-index: 2;
+    }
+    .arch-col:last-child .arch-col-arrow { display: none; }
+    .arch-tooltip {
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      background: var(--ebony-clay);
+      color: var(--white);
+      font-size: 13px;
+      line-height: 1.55;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-standard);
+      width: 230px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 50;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    .arch-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 7px solid transparent;
+      border-top-color: var(--ebony-clay);
+    }
+    .arch-col:hover .arch-tooltip {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    .arch-color-data-sources { color: var(--spanish-blue); }
+    .arch-color-foundation { color: var(--cg-gold); }
+    .arch-color-intelligence { color: var(--cg-red); }
+    .arch-color-agents {
+      background: linear-gradient(90deg, var(--cg-gold), var(--cg-red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .arch-color-outcomes { color: var(--sea-green); }
+    @media (max-width: 900px) {
+      .arch-diagram { grid-template-columns: 1fr 1fr; }
+      .arch-col { border-right: none; border-bottom: 1px solid rgba(26,31,38,0.07); }
+      .arch-col-arrow { display: none; }
+    }
+    @media (max-width: 550px) {
+      .arch-diagram { grid-template-columns: 1fr; }
+    }
+    .integrations-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .integration-card {
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.09);
+      border-radius: var(--radius-medium);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .integration-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .integration-card.market-card {
+      grid-column: 1 / -1;
+      border: 2px solid var(--cg-gold);
+      background: #fff8e8;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .integration-card-title {
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: lowercase;
+      margin-bottom: 0.75rem;
+      color: var(--ebony-clay);
+    }
+    .integration-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    .integration-pill, .int-pill {
+      background: rgba(26,31,38,0.06);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(26,31,38,0.7);
+    }
+    .tech-chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 2.5rem;
+    }
+    .tech-chip {
+      background: var(--polar-white);
+      border: 1px solid rgba(26,31,38,0.1);
+      border-radius: 20px;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(26,31,38,0.75);
+    }
+    @media (max-width: 768px) {
+      .integrations-grid { grid-template-columns: 1fr; }
+      .integration-card.market-card { grid-template-columns: 1fr; }
+    }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .pillar-card {
+      background: var(--white);
+      border-radius: var(--radius-medium);
+      border-top: 4px solid var(--cg-gold);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .pillar-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .pillar-name {
+      font-size: 17px;
+      font-weight: 800;
+      text-transform: lowercase;
+      color: var(--ebony-clay);
+      margin-bottom: 0.4rem;
+    }
+    .pillar-sublabel {
+      display: inline-block;
+      background: rgba(244,178,35,0.12);
+      border: 1px solid rgba(244,178,35,0.25);
+      border-radius: 20px;
+      padding: 3px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: rgba(26,31,38,0.6);
+      margin-bottom: 0.9rem;
+    }
+    .pillar-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(26,31,38,0.7);
+      margin-bottom: 1rem;
+    }
+    .pillar-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .pillar-bullets li {
+      font-size: 13.5px;
+      color: rgba(26,31,38,0.65);
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.5;
+    }
+    .pillar-bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--cg-gold);
+      font-weight: 700;
+    }
+    @media (max-width: 900px) { .pillars-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 550px) { .pillars-grid { grid-template-columns: 1fr; } }
+    .pillar-tagline {
+      font-size: 13px;
+      font-style: italic;
+      color: var(--cg-gold);
+      font-weight: 600;
+      margin: 4px 0 10px;
+      text-transform: none;
+    }
+    .pillar-desc {
+      font-size: 15px;
+      color: rgba(26,31,38,0.7);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .agent-marquee-wrapper {
+      position: relative;
+      overflow: hidden;
+      margin-top: 2.5rem;
+      padding: 1rem 0 1.5rem;
+    }
+    .agent-marquee-wrapper::before,
+    .agent-marquee-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .agent-marquee-wrapper::before { left: 0; background: linear-gradient(to right, #1a1f26, transparent); }
+    .agent-marquee-wrapper::after  { right: 0; background: linear-gradient(to left, #1a1f26, transparent); }
+    .agent-marquee-track {
+      display: flex;
+      gap: 1rem;
+      width: max-content;
+      animation: agent-scroll 36s linear infinite;
+    }
+    .agent-marquee-track:hover { animation-play-state: paused; }
+    .orchestration-chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 2.5rem;
+    }
+    .orch-chip {
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.1);
+      border-radius: 20px;
+      padding: 7px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(26,31,38,0.7);
+      box-shadow: var(--shadow-sm);
+    }
+    .persona-simple-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    .persona-simple-card {
+      background: var(--white);
+      border-radius: var(--radius-medium);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .persona-simple-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .persona-simple-top {
+      padding: 1.5rem 1.5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .green-top { background: rgba(44,153,66,0.08); border-bottom: 3px solid var(--sea-green); }
+    .red-top   { background: rgba(228,61,48,0.08); border-bottom: 3px solid var(--cg-red); }
+    .blue-top  { background: rgba(0,100,191,0.08); border-bottom: 3px solid var(--spanish-blue); }
+    .gold-top  { background: rgba(244,178,35,0.12); border-bottom: 3px solid var(--cg-gold); }
+    .persona-simple-role {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: rgba(26,31,38,0.45);
+    }
+    .persona-simple-headline {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      line-height: 1.2;
+    }
+    .persona-tags {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .ptag {
+      font-size: 13px;
+      color: rgba(26,31,38,0.65);
+      padding: 5px 12px;
+      background: rgba(26,31,38,0.04);
+      border-radius: 25px;
+      display: inline-block;
+      text-transform: lowercase;
+      font-weight: 500;
+      width: fit-content;
+    }
+    @media (max-width: 1024px) { .persona-simple-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 600px)  { .persona-simple-grid { grid-template-columns: 1fr; } }
+    .marquee-wrapper {
+      overflow: hidden;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+    .marquee-wrapper::before,
+    .marquee-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .marquee-wrapper::before { left: 0;  background: linear-gradient(to right, var(--floral-white), transparent); }
+    .marquee-wrapper::after  { right: 0; background: linear-gradient(to left,  var(--floral-white), transparent); }
+    .marquee-track {
+      display: flex;
+      gap: 3.5rem;
+      width: max-content;
+      animation: marquee 32s linear infinite;
+      align-items: center;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-logo {
+      height: 34px;
+      width: auto;
+      max-width: 120px;
+      opacity: 0.45;
+      filter: grayscale(100%);
+      object-fit: contain;
+      flex-shrink: 0;
+      transition: opacity 0.3s, filter 0.3s;
+    }
+    .marquee-logo:hover { opacity: 1; filter: grayscale(0%); }
+    /* ===== USE-CASE PAGE ADDITIONS ===== */
+    .story-quote {
+      font-size: clamp(20px, 2.6vw, 30px);
+      font-weight: 600;
+      line-height: 1.45;
+      max-width: 860px;
+      margin: 0 auto;
+      color: var(--ebony-clay);
+      text-transform: none;
+    }
+    .story-attr {
+      margin-top: 1.25rem;
+      font-size: 14px;
+      color: rgba(26,31,38,0.55);
+      font-weight: 600;
+    }
+    .integration-card .faq-a {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: rgba(26,31,38,0.72);
+      margin-top: 10px;
+      text-transform: none;
+    }
+    .shift-good {
+      border: 1.5px solid rgba(44,153,66,0.4) !important;
+      background: #f2faf4 !important;
+    }
+    a.btn-primary { display: inline-block; text-decoration: none; }
   </style>
 </head>
 <body>
-
   <!-- ===== NAVIGATION ===== -->
   <nav class="navbar">
     <div class="container">
@@ -1251,49 +1659,49 @@
             <a href="#">product</a>
             <div class="nav-mega" style="width:720px;">
               <div class="nav-mega-grid">
-                <a href="performance-intelligence.html" class="nav-mega-item">
+                <a href="../solutions/performance-intelligence.html" class="nav-mega-item">
                   <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">perform</div>
                     <div class="nav-mega-desc">maximize employee performance</div>
                   </div>
                 </a>
-                <a href="skill-intelligence.html" class="nav-mega-item">
+                <a href="../solutions/skill-intelligence.html" class="nav-mega-item">
                   <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">skills</div>
                     <div class="nav-mega-desc">unlock skills, accelerate growth</div>
                   </div>
                 </a>
-                <a href="engagement-intelligence.html" class="nav-mega-item">
+                <a href="../solutions/engagement-intelligence.html" class="nav-mega-item">
                   <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">engage</div>
                     <div class="nav-mega-desc">build engagement that lasts</div>
                   </div>
                 </a>
-                <a href="workforce-insights.html" class="nav-mega-item">
+                <a href="../solutions/workforce-insights.html" class="nav-mega-item">
                   <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">insights</div>
                     <div class="nav-mega-desc">turn intelligence into decisions</div>
                   </div>
                 </a>
-                <a href="wellness-intelligence.html" class="nav-mega-item">
+                <a href="../solutions/wellness-intelligence.html" class="nav-mega-item">
                   <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">wellbeing</div>
                     <div class="nav-mega-desc">protect wellness, prevent burnout</div>
                   </div>
                 </a>
-                <a href="strategic-planning.html" class="nav-mega-item">
+                <a href="../solutions/strategic-planning.html" class="nav-mega-item">
                   <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">plan</div>
                     <div class="nav-mega-desc">align your workforce to strategy</div>
                   </div>
                 </a>
-                <a href="hire-to-retire.html" class="nav-mega-item">
+                <a href="../solutions/hire-to-retire.html" class="nav-mega-item">
                   <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">HCM</div>
@@ -1534,318 +1942,164 @@
           <span>/</span>
           <a href="../index.html#solutions">solutions</a>
           <span>/</span>
-          <span>hire to retire</span>
+          <span>epmo</span>
         </div>
-        <h1>simplify the entire employee <mark>journey</mark></h1>
+        <h1>make every <span class="keep-case">KPI</span> answer to <mark>strategy</mark></h1>
         <p class="sol-hero-sub">
-          From the first job application to the final exit interview, every HR process should just work. Entomo's agentic intelligence automates the complete employee lifecycle, recruitment, onboarding, payroll, attendance, and exit, on one unified platform.
+          strategy fails in the gap between the boardroom and the workforce. agentic AI and expert advisory build the office that closes it, and keep every KPI aligned to the plan.
         </p>
-        <button class="btn-primary">get started &rarr;</button>
+        <a class="btn-primary" href="../request-demo.html">get started &rarr;</a>
+      </div>
+    </div>
+    <div class="marquee-wrapper" style="margin-top:2.5rem;">
+      <div class="marquee-track">
+        <img class="marquee-logo" src="../Images/client_logos/tata-elxsi.png"        alt="Tata Elxsi">
+        <img class="marquee-logo" src="../Images/client_logos/ey.png"                alt="EY">
+        <img class="marquee-logo" src="../Images/client_logos/cigna.png"             alt="Cigna">
+        <img class="marquee-logo" src="../Images/client_logos/nttdata.png"           alt="NTT Data">
+        <img class="marquee-logo" src="../Images/client_logos/ntuc-learning-hub.png" alt="NTUC Learning Hub">
+        <img class="marquee-logo" src="../Images/client_logos/generalli.png"         alt="Generali">
+        <img class="marquee-logo" src="../Images/client_logos/Carelon.jpeg"          alt="Carelon">
+        <img class="marquee-logo" src="../Images/client_logos/soiitz.png"            alt="Soiitz">
+        <img class="marquee-logo" src="../Images/client_logos/drreddys.png"          alt="Dr Reddy's">
+        <img class="marquee-logo" src="../Images/client_logos/Digital_Dubai.png"     alt="Digital Dubai">
+        <img class="marquee-logo" src="../Images/client_logos/uob.png"               alt="UOB">
+        <!-- Duplicate set for seamless loop -->
+        <img class="marquee-logo" src="../Images/client_logos/tata-elxsi.png"        alt="Tata Elxsi">
+        <img class="marquee-logo" src="../Images/client_logos/ey.png"                alt="EY">
+        <img class="marquee-logo" src="../Images/client_logos/cigna.png"             alt="Cigna">
+        <img class="marquee-logo" src="../Images/client_logos/nttdata.png"           alt="NTT Data">
+        <img class="marquee-logo" src="../Images/client_logos/ntuc-learning-hub.png" alt="NTUC Learning Hub">
+        <img class="marquee-logo" src="../Images/client_logos/generalli.png"         alt="Generali">
+        <img class="marquee-logo" src="../Images/client_logos/Carelon.jpeg"          alt="Carelon">
+        <img class="marquee-logo" src="../Images/client_logos/soiitz.png"            alt="Soiitz">
+        <img class="marquee-logo" src="../Images/client_logos/drreddys.png"          alt="Dr Reddy's">
+        <img class="marquee-logo" src="../Images/client_logos/Digital_Dubai.png"     alt="Digital Dubai">
+        <img class="marquee-logo" src="../Images/client_logos/uob.png"               alt="UOB">
       </div>
     </div>
   </section>
 
-
-  <!-- ===== WHAT EMPLOYEES GET ===== -->
-  <section class="persona-sec sec-employees">
+  <!-- ===== THE PROBLEM ===== -->
+  <section style="background: var(--polar-white);">
     <div class="container">
-      <div class="persona-sec-inner">
-        <div class="persona-sec-text">
-          <div class="section-eyebrow" style="color:var(--spanish-blue);"><span class="keep-case">AI</span> in the flow of everyday work</div>
-          <h2>self-service for everything, from leave to <span>payslips to career moves</span></h2>
-          <p>
-            Nobody should chase HR for a payslip or wait two days to know their leave balance. Your <span class="keep-case">AI</span> HR coach gives every employee instant self-service, apply for leave, check attendance, pull a payslip, request a document, answered in seconds, not hours.
-          </p>
+      <div class="text-center" style="max-width:760px; margin:0 auto;">
+        <p class="section-eyebrow">the problem</p>
+        <h2 class="section-heading">strategy and <span class="keep-case">HR</span> were never <mark>integrated</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;">An EPMO exists to fix a structural problem. Most enterprises still run performance the way it was designed decades ago: horizontally, in fragments, on disparate data.</p>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-name">strategy and hr run on different clocks</div>
+          <p class="pillar-desc">The strategy group plans on one cadence, HR reviews on another. The cycles never meet, so the corporate scorecard and the appraisal form end up describing two different companies.</p>
         </div>
-        <div>
-          <div class="coach-demo">
-            <div class="coach-topbar">
-              <div class="coach-avatar">AI</div>
-              <div class="coach-topbar-title">Your HR Coach</div>
-            </div>
-            <div class="coach-stage">
-              <div class="coach-panel active" id="pcoachPanelGreet">
-                <div class="coach-greeting-text">
-                  <div class="coach-greeting-title">Hi, I'm your HR Coach</div>
-                  <div class="coach-greeting-sub">Your AI guide for goals, growth, and daily performance. Ask me anything.</div>
-                </div>
-              </div>
-              <div class="coach-panel coach-chat-panel" id="pcoachPanelChat">
-                <div class="coach-user-q">
-                  <span>How do I apply for parental leave?</span>
-                </div>
-                <div class="coach-response-area">
-                  <div class="coach-sub active" id="pcoachSubThink">
-                    <div class="coach-think-icon">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/>
-                      </svg>
-                    </div>
-                    <div class="coach-think-title">Analysing your goals and progress...</div>
-                    <div class="coach-think-dots">
-                      <span></span><span></span><span></span>
-                    </div>
-                  </div>
-                  <div class="coach-sub" id="pcoachSubResponse">
-                    <div class="coach-response">
-                      <div class="coach-greeting">Hi, I can help with that.</div>
-                      <ul class="coach-bullets">
-                        <li><strong>Eligibility:</strong> You're eligible for 16 weeks parental leave starting anytime</li>
-                        <li><strong>Benefits continuity:</strong> Health insurance and benefits remain active during leave</li>
-                        <li><strong>Next steps:</strong> Submit your leave request in self-service, attach medical certificate if applicable</li>
-                        <li><strong>Approval:</strong> Your manager will review and approve within 2 business days</li>
-                      </ul>
-                      <div class="coach-actions-row">
-                        <span class="coach-action-btn">Start request →</span>
-                        <span class="coach-action-btn outline">View policy</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="coach-bottom">
-              <div class="coach-chips">
-                <div class="coach-chip">How many PTO days do I have left?</div>
-                <div class="coach-chip">Where's my payslip?</div>
-                <div class="coach-chip">Update my emergency contact</div>
-              </div>
-              <div class="coach-input-row">
-                <div class="coach-input-text" id="pcoachInput"><span class="coach-cursor"></span></div>
-                <button class="coach-send-btn" id="pcoachSend">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
-                    <path d="M16.6915026,12.4744748 L3.50612381,13.2599618 C3.19218622,13.2599618 3.03521743,13.4170592 3.03521743,13.5741566 L1.15159189,20.0151496 C0.8376543,20.8006365 0.99,21.89 1.77946707,22.52 C2.41,22.99 3.50612381,23.1 4.13399899,22.8429026 L21.714504,14.0454487 C22.6563168,13.5741566 23.1272231,12.6315722 22.9702544,11.6889879 L4.13399899,1.16151496 C3.34915502,0.9 2.40734225,1.00636533 1.77946707,1.4776575 C0.994623095,2.10604706 0.837654326,3.0486314 1.15159189,3.98722303 L3.03521743,10.4282161 C3.03521743,10.5853135 3.19218622,10.7424109 3.50612381,10.7424109 L16.6915026,11.5279 C16.6915026,11.5279 17.1624089,11.5279 17.1624089,12.0992031 C17.1624089,12.6705063 16.6915026,12.4744748 16.6915026,12.4744748 Z"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
+        <div class="pillar-card">
+          <div class="pillar-name">nobody has capacity to challenge kpis</div>
+          <p class="pillar-desc">KPIs roll over year after year without scrutiny. Definitions drift, measures lose relevance and comparability, and no one owns the question of whether a target still serves the strategy.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-name">individuals win while the business misses</div>
+          <p class="pillar-desc">People score high in reviews while their units miss targets. When ratings and results disagree, performance management has stopped measuring performance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== THE SHIFT ===== -->
+  <section style="background: var(--white);">
+    <div class="container">
+      <div class="text-center" style="max-width:720px; margin:0 auto;">
+        <h2 class="section-heading">from fragmented to <mark>aligned</mark></h2>
+      </div>
+      <div class="integrations-grid">
+        <div class="integration-card">
+          <div class="integration-card-title">performance management today</div>
+          <div class="integration-pill-row">
+            <span class="integration-pill">horizontal, fragmented, disparate data</span>
+            <span class="integration-pill">strategy group and HR disconnected</span>
+            <span class="integration-pill">KPIs unchallenged year after year</span>
+            <span class="integration-pill">silent dashboards nobody acts on</span>
+          </div>
+        </div>
+        <div class="integration-card shift-good">
+          <div class="integration-card-title">with an EPMO on entomo</div>
+          <div class="integration-pill-row">
+            <span class="integration-pill">vertical, integrated, unified data</span>
+            <span class="integration-pill">one cadence from boardroom to individual</span>
+            <span class="integration-pill">every KPI audited and aligned</span>
+            <span class="integration-pill">push-based insights and nudges</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== HR AGENTS ===== -->
+  <!-- ===== HOW IT WORKS ===== -->
+  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
+    <div class="container">
+      <div class="text-center" style="max-width:800px; margin:0 auto;">
+        <p class="section-eyebrow">how it works</p>
+        <h2 class="section-heading">how the office comes to <mark>life</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;">entomo delivers the EPMO as advisory plus platform: consultants build the office, the platform operationalizes it, and agents keep it running between reviews.</p>
+      </div>
+      <div class="arch-diagram">
+        <div class="arch-col">
+          <div class="arch-col-header arch-color-data-sources">establish the office</div>
+          <div class="arch-col-desc">entomo consultants assess and select your EPMO, then write its charter: the structure and governance that give it authority between strategy and HR.</div>
+          <div class="arch-col-arrow">→</div>
+          <div class="arch-tooltip">The charter defines how the office challenges KPIs, sets one performance cadence, and personalizes incentives, the capacity most enterprises never built.</div>
+        </div>
+        <div class="arch-col">
+          <div class="arch-col-header arch-color-foundation">audit and cascade KPIs</div>
+          <div class="arch-col-desc">A KPI audit raises measure quality, then scorecards cascade from strategy map to unit to individual. GoalForge validates every goal before the cycle begins.</div>
+          <div class="arch-col-arrow">→</div>
+          <div class="arch-tooltip">The audit checks relevancy, consistency, comparability, reliability and completeness, and aligns measures vertically and horizontally so intelligence rests on clean data.</div>
+        </div>
+        <div class="arch-col">
+          <div class="arch-col-header arch-color-intelligence">build the mindset</div>
+          <div class="arch-col-desc">Company-wide goal setting goes live with the platform rollout, while change management socializes company goals so people are ready, willing and able to change.</div>
+          <div class="arch-col-arrow">→</div>
+          <div class="arch-tooltip">Organization network analytics identifies the employees with real influence, how work actually gets done, and enables them as grass-roots champions of the change.</div>
+        </div>
+        <div class="arch-col">
+          <div class="arch-col-header arch-color-agents">coach and reinforce</div>
+          <div class="arch-col-desc">Managers and the EPMO train as performance coaches. ConvoCraft structures the conversations, and nudges reinforce the behaviors the new culture needs.</div>
+          <div class="arch-col-arrow">→</div>
+          <div class="arch-tooltip">Reinforcement follows the experiences-beliefs-actions-results model: storytelling with data, focused feedback, gamification and incentives that make new habits stick.</div>
+        </div>
+        <div class="arch-col">
+          <div class="arch-col-header arch-color-outcomes">sustain with intelligence</div>
+          <div class="arch-col-desc">Pulse360 senses performance risk, TeamInsight diagnoses team patterns, and Insight360 reads perception gaps, so the office runs on intelligence, not opinion.</div>
+          <div class="arch-tooltip" style="left:auto; right:0; transform:none;">The sustain phase adds management scorecards, operational and workforce intelligence, and performance gamification so the culture outlives the rollout.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AGENTS ===== -->
   <section class="perf-agents-section">
     <div class="container">
-      <div class="section-eyebrow">Your <span class="keep-case">AI</span> workforce for the employee lifecycle</div>
-      <h2>meet the operations <mark>agents</mark> that work for you</h2>
+      <div class="section-eyebrow">your AI workforce for enterprise performance</div>
+      <h2>meet the performance <mark>agents</mark> that work for you</h2>
     </div>
 
     <div class="perf-mq-wrapper">
       <div class="perf-mq-track">
+        <div class="perf-mq-card"><img src="../Images/agents/Goalforge.png" alt="GoalForge"><div class="perf-mq-name">GoalForge</div><div class="perf-mq-role">goal intelligence</div><div class="perf-mq-desc">generates role-aligned goals tied to strategic priorities and validates goal quality before the cycle begins</div></div>
+        <div class="perf-mq-card"><img src="../Images/agents/pulse360.png" alt="Pulse360"><div class="perf-mq-name">Pulse360</div><div class="perf-mq-role">performance sensing</div><div class="perf-mq-desc">senses sentiment and progress signals across goals, surfacing performance risk long before the review cycle would catch it</div></div>
+        <div class="perf-mq-card"><img src="../Images/agents/Insight360.png" alt="Insight360"><div class="perf-mq-name">Insight360</div><div class="perf-mq-role">360 feedback intelligence</div><div class="perf-mq-desc">detects perception gaps between self-view and stakeholder feedback, and links 360 signals to the metrics that matter</div></div>
+        <div class="perf-mq-card"><img src="../Images/agents/convocraft.png" alt="ConvoCraft"><div class="perf-mq-name">ConvoCraft</div><div class="perf-mq-role">conversation intelligence</div><div class="perf-mq-desc">structures check-ins and performance conversations so every discussion moves a goal forward</div></div>
+        <div class="perf-mq-card"><img src="../Images/agents/assescraft.png" alt="AssessCraft"><div class="perf-mq-name">AssessCraft</div><div class="perf-mq-role">assessment design</div><div class="perf-mq-desc">designs role-aligned assessments and feedback forms calibrated to what your scorecards actually measure</div></div>
+        <div class="perf-mq-card"><img src="../Images/agents/TeamInsight.png" alt="TeamInsight"><div class="perf-mq-name">TeamInsight</div><div class="perf-mq-role">team diagnostics</div><div class="perf-mq-desc">diagnoses team performance patterns and hands managers decision support grounded in unified data</div></div>
 
-        <div class="perf-mq-card"><img src="../Images/agents/profilecraft.png" alt="ProfileCraft"><div class="perf-mq-name">ProfileCraft</div><div class="perf-mq-role">talent profiling</div><div class="perf-mq-desc">builds structured talent profiles from day one, connecting role requirements, skills, and growth potential</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/rolearchitect.png" alt="RoleArchitect"><div class="perf-mq-name">RoleArchitect</div><div class="perf-mq-role">role definition</div><div class="perf-mq-desc">designs clear job architectures that give hiring, onboarding, and development a shared and consistent foundation</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/assescraft.png" alt="AssessCraft"><div class="perf-mq-name">AssessCraft</div><div class="perf-mq-role">lifecycle assessment</div><div class="perf-mq-desc">delivers structured assessments at every stage, from hiring to promotion to exit, with consistency and precision</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/growthplanner.png" alt="GrowthPlanner"><div class="perf-mq-name">GrowthPlanner</div><div class="perf-mq-role">career development</div><div class="perf-mq-desc">creates personalized development plans that activate from onboarding and evolve through every career stage</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/convocraft.png" alt="ConvoCraft"><div class="perf-mq-name">ConvoCraft</div><div class="perf-mq-role">conversation design</div><div class="perf-mq-desc">structures meaningful conversations at every lifecycle moment, from onboarding check-ins to exit interviews</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/pulse360.png" alt="Pulse360"><div class="perf-mq-name">Pulse360</div><div class="perf-mq-role">lifecycle sensing</div><div class="perf-mq-desc">tracks employee experience signals across every stage of the lifecycle, surfacing risk before it becomes regrettable attrition</div></div>
+        <!-- duplicate set for seamless loop -->
+        <div class="perf-mq-card"><img src="../Images/agents/Goalforge.png" alt="GoalForge"><div class="perf-mq-name">GoalForge</div><div class="perf-mq-role">goal intelligence</div><div class="perf-mq-desc">generates role-aligned goals tied to strategic priorities and validates goal quality before the cycle begins</div></div>
+        <div class="perf-mq-card"><img src="../Images/agents/pulse360.png" alt="Pulse360"><div class="perf-mq-name">Pulse360</div><div class="perf-mq-role">performance sensing</div><div class="perf-mq-desc">senses sentiment and progress signals across goals, surfacing performance risk long before the review cycle would catch it</div></div>
+        <div class="perf-mq-card"><img src="../Images/agents/Insight360.png" alt="Insight360"><div class="perf-mq-name">Insight360</div><div class="perf-mq-role">360 feedback intelligence</div><div class="perf-mq-desc">detects perception gaps between self-view and stakeholder feedback, and links 360 signals to the metrics that matter</div></div>
+        <div class="perf-mq-card"><img src="../Images/agents/convocraft.png" alt="ConvoCraft"><div class="perf-mq-name">ConvoCraft</div><div class="perf-mq-role">conversation intelligence</div><div class="perf-mq-desc">structures check-ins and performance conversations so every discussion moves a goal forward</div></div>
+        <div class="perf-mq-card"><img src="../Images/agents/assescraft.png" alt="AssessCraft"><div class="perf-mq-name">AssessCraft</div><div class="perf-mq-role">assessment design</div><div class="perf-mq-desc">designs role-aligned assessments and feedback forms calibrated to what your scorecards actually measure</div></div>
+        <div class="perf-mq-card"><img src="../Images/agents/TeamInsight.png" alt="TeamInsight"><div class="perf-mq-name">TeamInsight</div><div class="perf-mq-role">team diagnostics</div><div class="perf-mq-desc">diagnoses team performance patterns and hands managers decision support grounded in unified data</div></div>
 
-        <!-- Duplicate for seamless loop -->
-        <div class="perf-mq-card"><img src="../Images/agents/profilecraft.png" alt="ProfileCraft"><div class="perf-mq-name">ProfileCraft</div><div class="perf-mq-role">talent profiling</div><div class="perf-mq-desc">builds structured talent profiles from day one, connecting role requirements, skills, and growth potential</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/rolearchitect.png" alt="RoleArchitect"><div class="perf-mq-name">RoleArchitect</div><div class="perf-mq-role">role definition</div><div class="perf-mq-desc">designs clear job architectures that give hiring, onboarding, and development a shared and consistent foundation</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/assescraft.png" alt="AssessCraft"><div class="perf-mq-name">AssessCraft</div><div class="perf-mq-role">lifecycle assessment</div><div class="perf-mq-desc">delivers structured assessments at every stage, from hiring to promotion to exit, with consistency and precision</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/growthplanner.png" alt="GrowthPlanner"><div class="perf-mq-name">GrowthPlanner</div><div class="perf-mq-role">career development</div><div class="perf-mq-desc">creates personalized development plans that activate from onboarding and evolve through every career stage</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/convocraft.png" alt="ConvoCraft"><div class="perf-mq-name">ConvoCraft</div><div class="perf-mq-role">conversation design</div><div class="perf-mq-desc">structures meaningful conversations at every lifecycle moment, from onboarding check-ins to exit interviews</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/pulse360.png" alt="Pulse360"><div class="perf-mq-name">Pulse360</div><div class="perf-mq-role">lifecycle sensing</div><div class="perf-mq-desc">tracks employee experience signals across every stage of the lifecycle, surfacing risk before it becomes regrettable attrition</div></div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== HR COWORKER SECTION (ENTOMO.AI DEMO) ===== -->
-  <section class="persona-sec sec-coworker">
-    <div class="container">
-      <div class="persona-sec-inner">
-        <div class="persona-sec-text">
-          <div class="section-eyebrow">hr's digital coworker</div>
-          <h2>onboarding workflows, leave approvals, payroll runs, exit checklists, <span>all automated, end to end</span></h2>
-          <p>HR admin is relentless and every dropped task costs you. A delayed offer letter loses a candidate. A missed payroll adjustment breaks trust. A botched exit process creates legal risk. Your AI Coworker handles the complete admin stack, from the moment an offer is signed to the final settlement cheque, without a single thing falling through the cracks. Every task logged, verified, and done.</p>
-        </div>
-        <div>
-          <div class="ww-demo">
-            <div class="ww-topbar">
-              <div class="ww-topbar-left">
-                <div class="ww-avatar">👤</div>
-                <div>
-                  <div class="ww-topbar-title">entomo.ai: your digital co-worker</div>
-                </div>
-              </div>
-            </div>
-            <div class="ww-stage" id="pwwStage">
-              <div class="ww-panel ww-panel-greet active" id="pwwPanelGreet">
-                <div class="ww-greet-avatar">👤</div>
-                <div class="ww-greet-hi">hi, i'm entomo.ai</div>
-                <div class="ww-greet-desc">your <span class="keep-case">ai</span> coworker that automates onboarding, leave workflows, payroll, and compliance end to end</div>
-              </div>
-              <div class="ww-panel ww-chat-panel" id="pwwPanelChat">
-                <div class="ww-user-q" id="pwwUserQ"></div>
-                <div class="ww-response-area" id="pwwResponseArea">
-                  <div class="ww-sub active" id="pwwSubThink">
-                    <div class="ww-thinking">setting up your onboarding workflow <div class="ww-dots"><span></span><span></span><span></span></div></div>
-                  </div>
-                  <div class="ww-sub" id="pwwSubAssemble">
-                    <div class="ww-agent-stage">
-                      <div class="ww-agent-card">
-                        <div class="ww-agent-img" style="background-image: url('../Images/agents/flowgen.png'); background-size: cover;"></div>
-                        <div class="ww-agent-name">flowgen</div>
-                        <div class="ww-agent-role">workflow automation</div>
-                      </div>
-                      <div class="ww-arrow">→</div>
-                      <div class="ww-agent-card">
-                        <div class="ww-agent-img" style="background-image: url('../Images/agents/profilecraft.png'); background-size: cover;"></div>
-                        <div class="ww-agent-name">profilecraft</div>
-                        <div class="ww-agent-role">employee profiles</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="ww-sub" id="pwwSubOutput">
-                    <div class="pww-greeting">Hi David, your onboarding workflow is live.</div>
-                    <div class="pww-form-card">
-                      <div class="pww-form-header">onboarding workflow, april 2026 cohort</div>
-                      <div class="pww-form-grid">
-                        <div class="pww-form-field">
-                          <div class="pww-form-label">batch</div>
-                          <div class="pww-form-value">april 14 cohort (15 new hires)</div>
-                        </div>
-                        <div class="pww-form-field">
-                          <div class="pww-form-label">departments</div>
-                          <div class="pww-form-value">engineering (8), sales (4), marketing (3)</div>
-                        </div>
-                        <div class="pww-form-field">
-                          <div class="pww-form-label">workflow steps</div>
-                          <div class="pww-form-value">24 automated steps across 4 weeks</div>
-                        </div>
-                        <div class="pww-form-field">
-                          <div class="pww-form-label">it provisioning</div>
-                          <div class="pww-form-value">auto-triggered for all 15 on apr 10</div>
-                        </div>
-                        <div class="pww-form-field">
-                          <div class="pww-form-label">compliance docs</div>
-                          <div class="pww-form-value">auto-generated and sent for e-signature</div>
-                        </div>
-                        <div class="pww-form-field">
-                          <div class="pww-form-label">buddy assignment</div>
-                          <div class="pww-form-value">auto-matched by department and role level</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="ww-bottom">
-              <div class="ww-prompt-chips">
-                <button class="ww-prompt-chip">process payroll for march</button>
-                <button class="ww-prompt-chip">generate exit clearance workflow</button>
-                <button class="ww-prompt-chip">automate leave approval routing</button>
-              </div>
-              <div class="ww-input-row">
-                <div class="ww-cursor"></div>
-                <span id="pwwInput"></span>
-                <button class="ww-send-btn">⏎</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== AGENTIC INTELLIGENCE FOR LEADERS ===== -->
-  <section class="persona-sec sec-leaders">
-    <div class="container">
-      <div class="section-eyebrow">agentic intelligence for leaders</div>
-      <div class="persona-sec-inner">
-        <div class="persona-sec-text">
-          <h2>from offer letter to exit interview, <span>no stage of the lifecycle goes dark</span></h2>
-          <p>
-            Your talent lifecycle has a dozen stages and dozens of places where things break. DIA tracks all of them, time-to-hire velocity, onboarding drop-off, payroll accuracy trends, exit interview themes and flags exactly where the process is costing you candidates, trust, and money.
-          </p>
-        </div>
-        <div>
-          <div class="dia-demo">
-            <div class="dia-topbar">
-              <div class="dia-topbar-left">
-                <div class="dia-avatar">AI</div>
-                <div>
-                  <div class="dia-topbar-title">ask DIA, hire to retire</div>
-                  <div class="dia-topbar-sub">workspace</div>
-                </div>
-              </div>
-            </div>
-            <div class="dia-chat">
-              <div class="dia-msg dia-user-q" id="pdiaQ">
-                <span>What's our average time-to-productivity for new hires this quarter?</span>
-              </div>
-              <div class="dia-msg" id="pdiaFoundation">
-                <div class="dia-phase">
-                  <div class="dia-phase-dot foundation"></div>
-                  <div class="dia-phase-body">
-                    <div class="dia-phase-label">querying employee lifecycle data</div>
-                    <div class="dia-phase-pills">
-                      <div class="dia-phase-pill dark">Recruitment Pipeline</div>
-                      <div class="dia-phase-pill dark">Onboarding Velocity</div>
-                      <div class="dia-phase-pill dark">Payroll Accuracy</div>
-                      <div class="dia-phase-pill dark">Attrition Rate</div>
-                    </div>
-                    <div class="dia-dots">
-                      <span></span><span></span><span></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="dia-msg" id="pdiaAgents">
-                <div class="dia-phase">
-                  <div class="dia-phase-dot agents">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/>
-                    </svg>
-                  </div>
-                  <div class="dia-phase-body">
-                    <div class="dia-phase-label">agents analysing</div>
-                    <div class="dia-phase-pills">
-                      <div class="dia-phase-pill blue">Pulse360</div>
-                      <div class="dia-phase-pill blue">TeamInsight</div>
-                      <div class="dia-phase-pill blue">GoalForge</div>
-                    </div>
-                    <div class="dia-dots">
-                      <span></span><span></span><span></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="dia-msg" id="pdiaOutcome">
-                <div class="dia-greeting">Hi Sharon, here's what I found.</div>
-                <div class="dia-outcome">
-                  <div class="dia-outcome-label">New Hire Onboarding Report, April 2026</div>
-                  <div class="dia-outcome-row">
-                    <div class="dia-outcome-score">3</div>
-                    <div class="dia-outcome-badge">issues flagged</div>
-                  </div>
-                  <div class="dia-outcome-divider"></div>
-                  <div class="dia-outcome-detail">Average time-to-productivity: 47 days (target: 30). Engineering cohort onboarding 8 days behind due to system access delays. 3 contractors missing compliance documents. Recommend: automate system provisioning on offer acceptance + trigger compliance checklist at day 1.</div>
-                </div>
-              </div>
-            </div>
-            <div class="dia-bottom">
-              <div class="dia-prompt-chips">
-                <div class="dia-prompt-chip">show onboarding delay by team</div>
-                <div class="dia-prompt-chip">payroll cost trending</div>
-                <div class="dia-prompt-chip">exit interview themes</div>
-              </div>
-              <div class="dia-input-row">
-                <div class="dia-input-text" id="pdiaInput"><span class="dia-cursor"></span></div>
-                <button class="dia-send-btn" id="pdiaSend">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
-                    <path d="M16.6915026,12.4744748 L3.50612381,13.2599618 C3.19218622,13.2599618 3.03521743,13.4170592 3.03521743,13.5741566 L1.15159189,20.0151496 C0.8376543,20.8006365 0.99,21.89 1.77946707,22.52 C2.41,22.99 3.50612381,23.1 4.13399899,22.8429026 L21.714504,14.0454487 C22.6563168,13.5741566 23.1272231,12.6315722 22.9702544,11.6889879 L4.13399899,1.16151496 C3.34915502,0.9 2.40734225,1.00636533 1.77946707,1.4776575 C0.994623095,2.10604706 0.837654326,3.0486314 1.15159189,3.98722303 L3.03521743,10.4282161 C3.03521743,10.5853135 3.19218622,10.7424109 3.50612381,10.7424109 L16.6915026,11.5279 C16.6915026,11.5279 17.1624089,11.5279 17.1624089,12.0992031 C17.1624089,12.6705063 16.6915026,12.4744748 16.6915026,12.4744748 Z"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -1854,202 +2108,224 @@
   <section class="features-section">
     <div class="container">
       <div class="text-center">
-        <div class="section-eyebrow">capabilities</div>
-        <h2 class="section-heading">everything hire-to-retire needs. nothing it doesn't.</h2>
+        <p class="section-eyebrow">capabilities</p>
+        <h2 class="section-heading">everything your <span class="keep-case">EPMO</span> needs, in one <mark>platform</mark></h2>
       </div>
-
-      <div class="features-tabs">
-        <button class="features-tab active" data-panel="enterprise">recruitment & onboarding</button>
-        <button class="features-tab" data-panel="sales">payroll & attendance</button>
-        <button class="features-tab" data-panel="strategic">lifecycle & exit</button>
-      </div>
-
-      <!-- Recruitment & Onboarding -->
-      <div class="features-panel features-grid active" id="panel-enterprise">
-
+      <div class="features-panel features-grid active">
         <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-          <h4>job requisition management</h4>
-          <p>Centralized requisition tracking from budgeting to approval, with AI-powered role descriptions and job classification that ensures consistency across departments.</p>
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+          <h4>scorecards that cascade strategy</h4>
+          <p>Links strategic objectives to department KPIs and cascades them intelligently from the executive level down to every individual, so one strategy map drives every scorecard in the enterprise.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h4>candidate sourcing</h4>
-          <p>Unified sourcing across job boards, career portals, and partner networks, with AI-driven candidate matching that prioritizes culture and capability fit.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
-          <h4>applicant tracking system</h4>
-          <p>Complete candidate lifecycle management from application through hire, pipeline visibility, automated workflows, and communication at every stage.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg></div>
-          <h4>AI resume screening</h4>
-          <p>Intelligent resume parsing and matching against role requirements, automatically rank candidates by fit and surface top matches to hiring teams.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></div>
-          <h4>interview scheduling</h4>
-          <p>Automated interview coordination with candidate and interviewer availability, reducing scheduling friction and accelerating time-to-hire.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-          <h4>offer management</h4>
-          <p>Template-driven offer generation with compliance checks, e-signature workflows, and automated acceptance tracking to accelerate the final hire stage.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0Z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></div>
-          <h4>digital onboarding workflows</h4>
-          <p>Comprehensive pre-hire and post-hire onboarding orchestration, document collection, training assignments, system access provisioning, all in sequence.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></div>
-          <h4>new hire checklist automation</h4>
-          <p>Standardized new hire checklists for HR, managers, and teammates, with task assignment, deadline tracking, and completion verification.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-          <h4>onboarding experience surveys</h4>
-          <p>Capture new hire feedback at key milestones, measure onboarding effectiveness, identify friction points, and continuously improve the first-day experience.</p>
-        </div>
-
-      </div>
-
-      <!-- Payroll & Attendance -->
-      <div class="features-panel features-grid" id="panel-sales">
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-          <h4>payroll processing</h4>
-          <p>End-to-end payroll management including salary definitions, deductions, benefits, and disbursement, fully automated and compliance-checked.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-          <h4>tax compliance</h4>
-          <p>Automated tax calculations and statutory deductions aligned to local regulations, always up-to-date and audit-ready across multiple geographies.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h4>attendance tracking</h4>
-          <p>Biometric, geofencing, and badge-based attendance capture, real-time punch in/out with location verification and audit trails.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-          <h4>leave management</h4>
-          <p>Self-service leave requests with manager approvals, accrual tracking, and compliance with statutory leave policies, all in one system.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></div>
-          <h4>shift scheduling</h4>
-          <p>Intelligent shift planning with employee availability matching, conflict detection, and automated schedule publishing to mobile devices.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg></div>
-          <h4>overtime management</h4>
-          <p>Automatic overtime calculation with configurable rules, approval workflows, and integration with payroll for accurate compensation.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0Z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></div>
-          <h4>expense reimbursement</h4>
-          <p>Streamlined employee expense submission with digital receipts, manager approval, and automatic reimbursement processing integrated with payroll.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></div>
-          <h4>statutory compliance</h4>
-          <p>Built-in compliance with labor laws, mandatory benefit deductions, and regulatory reporting, updated automatically for regional changes.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-          <h4>payslip generation</h4>
-          <p>Automated payslip generation with detailed breakdowns of earnings, deductions, and YTD summaries, delivered electronically to employees.</p>
-        </div>
-
-      </div>
-
-      <!-- Lifecycle & Exit -->
-      <div class="features-panel features-grid" id="panel-strategic">
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0Z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></div>
-          <h4>transfer management</h4>
-          <p>Automated workflows for internal role transfers, updating organizational charts, system access, manager assignments, and benefit structures seamlessly.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></div>
-          <h4>promotion workflows</h4>
-          <p>Structured promotion processes with eligibility checks, approval routing, and automated updates to role, compensation, and team hierarchy.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-          <h4>role change automation</h4>
-          <p>Automated handling of role modifications including title changes, team reassignments, and compensation adjustments with full audit trails.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h4>exit interview automation</h4>
-          <p>Standardized exit interview workflows capturing feedback from departing employees, with sentiment analysis and pattern identification for retention insights.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
-          <h4>knowledge transfer workflows</h4>
-          <p>Structured knowledge transfer between departing and incoming employees, documentation, handoff meetings, and success verification tracked end-to-end.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></div>
-          <h4>alumni network management</h4>
-          <p>Maintain relationships with former employees through alumni directories, occasional surveys, and rehire tracking for boomerang talent initiatives.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-          <h4>offboarding checklists</h4>
-          <p>Comprehensive offboarding task lists for HR, IT, managers, and team members, ensuring all security, knowledge, and administrative items are completed.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0Z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></div>
-          <h4>final settlement processing</h4>
-          <p>Automated final paycheck calculation including accrued leave payouts, severance, benefits continuation, and tax adjustments with regulatory compliance checks.</p>
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          <h4>audits that sharpen every measure</h4>
+          <p>Benchmarks current KPIs against best practice, standardizes definitions and quantification, and aligns measures vertically and horizontally so intelligence stands on clean, comparable data.</p>
         </div>
 
         <div class="feature-card">
           <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-          <h4>rehire eligibility tracking</h4>
-          <p>Track former employee rehire eligibility status, tenure details, and eligibility for rehire bonuses or benefits reinstatement, enabling boomerang hiring.</p>
+          <h4>goals that fit any framework</h4>
+          <p>Adapts to OKR, KPI, BSC or custom structures, auto-generates goal programs, and produces SMART goals with stretch targets so the framework serves the strategy, not the other way round.</p>
         </div>
 
-      </div>
+        <div class="feature-card">
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <h4>a library that pre-assigns KPIs</h4>
+          <p>Pushes pre-defined KPIs down the hierarchy and auto-adds them to the right balanced scorecards, with role-based recommendations powered by AI market intelligence.</p>
+        </div>
 
+        <div class="feature-card">
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+          <h4>programs that track budgets to plan</h4>
+          <p>Maps custom programs to strategic objectives, tracks CAPEX and OPEX budgets against key deliverables, and nudges initiative owners to submit progress actuals on time.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h4>risks flagged before strategy slips</h4>
+          <p>Tracks risks across programs, initiatives and milestones, raises red-flag alerts when they threaten departmental or strategic KPIs, and reminds owners to mitigate before targets are missed.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <h4>nudges that go beyond silent dashboards</h4>
+          <p>Delivers contextual, personalized, push-based insights and nudges in the flow-of-work, turning performance data into timely action instead of another report nobody opens.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h4>feedback that stays calibrated</h4>
+          <p>Gathers behavioral feedback from internal and external stakeholders, links it to core performance metrics, and moderates ratings through bell-curve distribution and multi-stage calibration.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div>
+          <h4>gamification that sustains the culture</h4>
+          <p>Engages employees with points, badges, contests and leaderboards, an explicit sustain-phase move in the EPMO journey that keeps performance behavior alive long after rollout.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ADVISORY ===== -->
+  <section style="background: var(--floral-white);">
+    <div class="container">
+      <div class="text-center" style="max-width:760px; margin:0 auto;">
+        <p class="section-eyebrow">experts in the loop</p>
+        <h2 class="section-heading">advisory that builds the <mark>office</mark> with you</h2>
+        <p class="section-subheading" style="margin:0 auto;">The EPMO is not a module you switch on. entomo's Accelerate Performance consulting stack builds the office alongside your team, and the platform operationalizes it. Your people run the office; entomo trains them, including training the EPMO itself as performance coaches, and stays through the change.</p>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-name">performance management revamp</div>
+          <p class="pillar-desc">Benchmarks your performance metrics, runs a full performance diagnostic, and aligns measures across the enterprise before anything gets configured.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-name">performance culture transformation</div>
+          <p class="pillar-desc">Establishes the EPMO with a charter for structure and governance, then shifts culture through storytelling, focused feedback, engagement and change management.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-name">applied data and behavioural science</div>
+          <p class="pillar-desc">Builds analytics capability and applies behavioural science, from network analytics that find your real influencers to nudges that reinforce the new habits.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROOF: NUMBERS ===== -->
+  <section style="background: var(--lavender);">
+    <div class="container">
+      <div class="text-center" style="max-width:680px; margin:0 auto 4rem;">
+        <p class="section-eyebrow">measured, not claimed</p>
+        <h2 class="section-heading">proof, at enterprise <mark>scale</mark></h2>
+      </div>
+      <div class="persona-simple-grid">
+        <div class="persona-simple-card">
+          <div class="persona-simple-top green-top">
+            <span class="persona-simple-role">platform scale</span>
+            <span class="persona-simple-headline">30M+ users powered</span>
+          </div>
+          <div class="persona-tags">
+            <span class="ptag">enterprises across 15 geographies</span>
+            <span class="ptag">platform-level proof</span>
+            <span class="ptag">founded 2010</span>
+          </div>
+        </div>
+        <div class="persona-simple-card">
+          <div class="persona-simple-top red-top">
+            <span class="persona-simple-role">forrester tei</span>
+            <span class="persona-simple-headline">$26.8M value, 103% ROI</span>
+          </div>
+          <div class="persona-tags">
+            <span class="ptag">large government entity</span>
+            <span class="ptag">3-year platform engagement</span>
+            <span class="ptag">forrester validated</span>
+          </div>
+        </div>
+        <div class="persona-simple-card">
+          <div class="persona-simple-top blue-top">
+            <span class="persona-simple-role">strategic alignment</span>
+            <span class="persona-simple-headline">95% of KPIs aligned to corporate goals</span>
+          </div>
+          <div class="persona-tags">
+            <span class="ptag">dialog axiata, sri lanka</span>
+            <span class="ptag">3,000+ employees onboarded</span>
+            <span class="ptag">balanced scorecard rollout</span>
+          </div>
+        </div>
+        <div class="persona-simple-card">
+          <div class="persona-simple-top gold-top">
+            <span class="persona-simple-role">cycle speed</span>
+            <span class="persona-simple-headline">review cycles: 3 months to 2 weeks</span>
+          </div>
+          <div class="persona-tags">
+            <span class="ptag">large dubai government agency</span>
+            <span class="ptag">$11.3M saved retiring legacy</span>
+            <span class="ptag">90% productivity gain for managers</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROOF: A FACE ===== -->
+  <section style="background: var(--pistachio);">
+    <div class="container">
+      <div class="text-center" style="max-width:900px; margin:0 auto;">
+        <p class="section-eyebrow">customer story</p>
+        <p class="story-quote">&ldquo;entomo built the foundation of the company's Strategic Performance Management Office, implemented a comprehensive enterprise performance management system, and led the change management consultation that brought 3,000+ employees onboard. Adoption reached 90%, and the organisation earned recognition as a High Performer Organisation.&rdquo;</p>
+        <p class="story-attr">case study: top-10 coal mining company, Indonesia, 3,000+ employees</p>
+      </div>
+      <div class="orchestration-chips" style="margin-top:2.5rem;">
+        <span class="orch-chip">3,000+ employees onboarded</span>
+        <span class="orch-chip">90% adoption</span>
+        <span class="orch-chip">high performer organisation status</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ENTERPRISE READINESS ===== -->
+  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
+    <div class="container">
+      <div class="text-center" style="max-width:760px; margin:0 auto;">
+        <p class="section-eyebrow">enterprise-ready</p>
+        <h2 class="section-heading">fits your stack. passes your audits.</h2>
+        <p class="section-subheading" style="margin:0 auto;">entomo runs on top of the systems you already own. entomo strata, the workforce intelligence graph, unifies goals, KPIs, people, org units and competencies from Core HR, ERP and CRM data, so your EPMO governs performance without replacing a single system. <a href="../about/security-at-entomo.html" style="color:var(--spanish-blue); font-weight:600;">read the security architecture &rarr;</a></p>
+      </div>
+      <div class="tech-chips-row">
+        <span class="tech-chip">integrates with core HR, ERP and CRM</span>
+        <span class="tech-chip">web services, ETL over SFTP, OData</span>
+        <span class="tech-chip">ISO 27001 and ISO 27701 certified</span>
+        <span class="tech-chip">GDPR compliant</span>
+        <span class="tech-chip">no rip-and-replace</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section style="background: var(--polar-white);">
+    <div class="container">
+      <div class="text-center" style="max-width:720px; margin:0 auto;">
+        <p class="section-eyebrow">questions, answered</p>
+        <h2 class="section-heading">what enterprise teams ask us.</h2>
+      </div>
+      <div class="integrations-grid">
+        <div class="integration-card">
+          <div class="integration-card-title">what exactly is an EPMO?</div>
+          <p class="faq-a">An enterprise performance management office is an agile structure that sits between the strategy group and human capital management. It exists to ensure continuous KPI alignment, personalized incentives and workforce intelligence, the capacity to challenge KPIs that most enterprises lack. entomo helps you establish, equip and train yours.</p>
+        </div>
+        <div class="integration-card">
+          <div class="integration-card-title">does entomo run the EPMO for us?</div>
+          <p class="faq-a">No. The office is yours. entomo assesses and selects the office, writes the charter, audits your KPIs, and trains both managers and the EPMO team as performance coaches. The platform and its agents then support the office day to day, but governance authority stays with your people.</p>
+        </div>
+        <div class="integration-card">
+          <div class="integration-card-title">does it replace our HCM or HRIS?</div>
+          <p class="faq-a">No. entomo integrates with Core HR, compensation and benefits, ERP, CRM and other transactional systems through web services, ETL over SFTP and direct protocols such as OData. Your systems of record stay where they are; entomo adds the alignment and intelligence layer on top.</p>
+        </div>
+        <div class="integration-card">
+          <div class="integration-card-title">what do agents automate, and what do humans approve?</div>
+          <p class="faq-a">Agents generate and validate goals, cascade KPIs to scorecards, surface insights, structure conversations and send nudges. Humans keep the decisions: managers and the EPMO approve scorecards, calibration runs through multi-stage moderation, and review outcomes are made by people, informed by the intelligence.</p>
+        </div>
+        <div class="integration-card">
+          <div class="integration-card-title">how is our data protected?</div>
+          <p class="faq-a">The platform is ISO 27001 and ISO 27701 certified and GDPR compliant. Your performance data powers your own intelligence, insights, nudges and scorecards inside your environment. Specific data residency requirements are addressed during scoping.</p>
+        </div>
+        <div class="integration-card">
+          <div class="integration-card-title">how long does implementation take?</div>
+          <p class="faq-a">It depends on scope, and the EPMO development journey is deliberately phased: establish the office, build the performance mindset, reinforce practices, then sustain the culture. Value arrives early in that journey; one public listed bank reached 91% adoption across 5,000+ employees within 2 months of rollout.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- ===== BOTTOM CTA ===== -->
   <section class="bottom-cta">
     <div class="container">
-      <h2>ready to run HR operations on <mark>autopilot</mark>?</h2>
-      <p>Join the enterprises powering 30M+ users with agentic HR intelligence. Forrester-validated: $26.8M in value, 103% ROI over 3 years.</p>
-      <button class="btn-primary">request a demo &rarr;</button>
+      <h2>ready to put strategy and performance in the same <mark>office</mark>?</h2>
+      <p>Join the enterprises powering 30M+ users with agentic performance intelligence. Forrester-validated: $26.8M in value, 103% ROI over 3 years.</p>
+      <a class="btn-primary" href="../request-demo.html">request a demo &rarr;</a>
     </div>
   </section>
 
@@ -2061,7 +2337,6 @@
           <div class="logo">
             <img src="../Images/entomo.svg" alt="entomo" style="height:32px; width:auto;">
           </div>
-          <p>Agentic workforce intelligence platform powering 30M+ users across global enterprise brands.</p>
         </div>
         <div class="footer-col">
           <h4>platform</h4>
@@ -2075,12 +2350,12 @@
         <div class="footer-col">
           <h4>solutions</h4>
           <ul>
-            <li><a href="#">performance intelligence</a></li>
-            <li><a href="#">skill &amp; talent intelligence</a></li>
-            <li><a href="#">engagement intelligence</a></li>
-            <li><a href="#">workforce insights</a></li>
-            <li><a href="#">wellness intelligence</a></li>
-            <li><a href="#">strategic planning</a></li>
+            <li><a href="../solutions/performance-intelligence.html">performance intelligence</a></li>
+            <li><a href="../solutions/skill-intelligence.html">skill &amp; talent intelligence</a></li>
+            <li><a href="../solutions/engagement-intelligence.html">engagement intelligence</a></li>
+            <li><a href="../solutions/workforce-insights.html">workforce insights</a></li>
+            <li><a href="../solutions/wellness-intelligence.html">wellness intelligence</a></li>
+            <li><a href="../solutions/strategic-planning.html">strategic planning</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -2095,243 +2370,24 @@
         <div class="footer-col">
           <h4>company</h4>
           <ul>
+            <li><a href="../about/why-entomo.html">why entomo</a></li>
             <li><a href="#">about us</a></li>
             <li><a href="#">careers</a></li>
-            <li><a href="../contact.html">contact</a></li>
+            <li><a href="#">contact</a></li>
             <li><a href="#">privacy policy</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 entomo. All rights reserved.</p>
+        <p>© 2026 entomo. All rights reserved.</p>
         <div class="footer-socials">
           <a href="#" aria-label="LinkedIn">in</a>
-          <a href="#" aria-label="Twitter">&#120143;</a>
-          <a href="#" aria-label="YouTube">&#9654;</a>
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="YouTube">▶</a>
         </div>
       </div>
     </div>
   </footer>
-
-  <!-- ===== FEATURE TABS JS ===== -->
-  <script>
-    document.querySelectorAll('.features-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.features-tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.features-panel').forEach(p => p.classList.remove('active'));
-        tab.classList.add('active');
-        document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
-      });
-    });
-  </script>
-
-  <!-- ===== DIA DEMO LOOP (Performance Intelligence Leaders) ===== -->
-  <script>
-  (function() {
-    const question = "What's our average time-to-productivity for new hires this quarter?";
-    const inputEl  = document.getElementById('pdiaInput');
-    const sendBtn  = document.getElementById('pdiaSend');
-    const msgQ     = document.getElementById('pdiaQ');
-    const msgF     = document.getElementById('pdiaFoundation');
-    const msgA     = document.getElementById('pdiaAgents');
-    const msgO     = document.getElementById('pdiaOutcome');
-    const allMsgs  = [msgQ, msgF, msgA, msgO];
-
-    function reset() {
-      allMsgs.forEach(m => m.classList.remove('show'));
-      inputEl.innerHTML = '<span class="dia-cursor"></span>';
-      sendBtn.classList.remove('active');
-    }
-
-    function typeText(cb) {
-      let i = 0;
-      const speed = 22;
-      function tick() {
-        if (i < question.length) {
-          inputEl.innerHTML = question.slice(0, i + 1) + '<span class="dia-cursor"></span>';
-          i++;
-          setTimeout(tick, speed);
-        } else {
-          sendBtn.classList.add('active');
-          setTimeout(cb, 200);
-        }
-      }
-      tick();
-    }
-
-    function sendAndAnimate() {
-      inputEl.innerHTML = '<span class="dia-cursor"></span>';
-      sendBtn.classList.remove('active');
-      msgQ.classList.add('show');
-
-      setTimeout(() => { msgF.classList.add('show'); }, 300);
-      setTimeout(() => { msgA.classList.add('show'); }, 1800);
-
-      // Hide earlier messages, then show outcome clean
-      setTimeout(() => {
-        msgQ.classList.remove('show');
-        msgF.classList.remove('show');
-        msgA.classList.remove('show');
-      }, 3300);
-      setTimeout(() => { msgO.classList.add('show'); }, 3600);
-
-      setTimeout(() => {
-        msgO.classList.remove('show');
-      }, 7100);
-
-      setTimeout(() => {
-        reset();
-        runLoop();
-      }, 7600);
-    }
-
-    function runLoop() {
-      reset();
-      setTimeout(() => {
-        typeText(sendAndAnimate);
-      }, 400);
-    }
-
-    runLoop();
-  })();
-  </script>
-
-  <!-- ===== ENTOMO.AI DEMO LOOP (HR's Coworker) ===== -->
-  <script>
-  (function() {
-    const question = "Set up the onboarding workflow for 15 new engineering hires";
-    const inputEl  = document.getElementById('pwwInput');
-    const sendBtn  = document.getElementById('pwwSend');
-    const panelGreet = document.getElementById('pwwPanelGreet');
-    const panelChat  = document.getElementById('pwwPanelChat');
-    const subAssem   = document.getElementById('pwwSubAssemble');
-    const subAgents  = document.getElementById('pwwSubAgents');
-    const subOutput  = document.getElementById('pwwSubOutput');
-    const allSubs    = [subAssem, subAgents, subOutput];
-
-    function showPanel(p) {
-      [panelGreet, panelChat].forEach(el => el.classList.remove('active'));
-      p.classList.add('active');
-    }
-    function showSub(s) {
-      allSubs.forEach(el => el.classList.remove('active'));
-      if (s) s.classList.add('active');
-    }
-
-    function reset() {
-      showPanel(panelGreet);
-      showSub(null);
-      inputEl.innerHTML = '<span class="ww-cursor"></span>';
-      sendBtn.classList.remove('active');
-    }
-
-    function typeText(cb) {
-      let i = 0;
-      const speed = 18;
-      function tick() {
-        if (i < question.length) {
-          inputEl.innerHTML = question.slice(0, i + 1) + '<span class="ww-cursor"></span>';
-          i++;
-          setTimeout(tick, speed);
-        } else {
-          sendBtn.classList.add('active');
-          setTimeout(cb, 200);
-        }
-      }
-      tick();
-    }
-
-    function sendAndAnimate() {
-      inputEl.innerHTML = '<span class="ww-cursor"></span>';
-      sendBtn.classList.remove('active');
-      showPanel(panelChat);
-
-      setTimeout(() => { showSub(subAssem); }, 300);
-      setTimeout(() => { showSub(subAgents); }, 1500);
-      setTimeout(() => { showSub(subOutput); }, 3500);
-
-      setTimeout(() => { reset(); }, 6500);
-      setTimeout(() => { runLoop(); }, 6900);
-    }
-
-    function runLoop() {
-      reset();
-      setTimeout(() => {
-        typeText(sendAndAnimate);
-      }, 500);
-    }
-
-    runLoop();
-  })();
-  </script>
-
-  <!-- ===== COACH DEMO LOOP (Employee Flow) ===== -->
-  <script>
-  (function() {
-    const question = "How do I apply for parental leave?";
-    const inputEl  = document.getElementById('pcoachInput');
-    const sendBtn  = document.getElementById('pcoachSend');
-    const panelGreet = document.getElementById('pcoachPanelGreet');
-    const panelChat  = document.getElementById('pcoachPanelChat');
-    const subThink   = document.getElementById('pcoachSubThink');
-    const subResponse = document.getElementById('pcoachSubResponse');
-    const allSubs    = [subThink, subResponse];
-
-    function showPanel(p) {
-      [panelGreet, panelChat].forEach(el => el.classList.remove('active'));
-      p.classList.add('active');
-    }
-    function showSub(s) {
-      allSubs.forEach(el => el.classList.remove('active'));
-      if (s) s.classList.add('active');
-    }
-
-    function reset() {
-      showPanel(panelGreet);
-      showSub(null);
-      inputEl.innerHTML = '<span class="coach-cursor"></span>';
-      sendBtn.classList.remove('active');
-    }
-
-    function typeText(cb) {
-      let i = 0;
-      const speed = 18;
-      function tick() {
-        if (i < question.length) {
-          inputEl.innerHTML = question.slice(0, i + 1) + '<span class="coach-cursor"></span>';
-          i++;
-          setTimeout(tick, speed);
-        } else {
-          sendBtn.classList.add('active');
-          setTimeout(cb, 200);
-        }
-      }
-      tick();
-    }
-
-    function sendAndAnimate() {
-      inputEl.innerHTML = '<span class="coach-cursor"></span>';
-      sendBtn.classList.remove('active');
-      showPanel(panelChat);
-
-      setTimeout(() => { showSub(subThink); }, 300);
-      setTimeout(() => { showSub(subResponse); }, 1400);
-
-      setTimeout(() => { reset(); }, 6000);
-      setTimeout(() => { runLoop(); }, 6500);
-    }
-
-    function runLoop() {
-      reset();
-      setTimeout(() => {
-        typeText(sendAndAnimate);
-      }, 500);
-    }
-
-    runLoop();
-  })();
-  </script>
-
 
   <!-- ===== SCROLL ANIMATION ENGINE ===== -->
   <script>
