@@ -183,7 +183,7 @@
     }
     .nav-mega-desc {
       font-size: 12px;
-      color: rgba(26,31,38,0.45);
+      color: var(--ink-4);
       line-height: 1.4;
       font-weight: 500;
     }
@@ -235,7 +235,7 @@
     }
     .news-hero h1 { margin-bottom: 1.25rem; max-width: 850px; margin-left: auto; margin-right: auto; }
     .news-hero .lede {
-      font-size: 1.2rem; color: rgba(26,31,38,0.65);
+      font-size: 1.2rem; color: var(--ink-3);
       max-width: 720px; margin: 0 auto; line-height: 1.55;
     }
 
@@ -253,7 +253,7 @@
     }
     .section-heading { margin-bottom: 1rem; }
     .section-subheading {
-      font-size: 1.1rem; color: rgba(26,31,38,0.65);
+      font-size: 1.1rem; color: var(--ink-3);
       max-width: 760px; line-height: 1.6;
     }
 
@@ -283,7 +283,7 @@
     .meta-date {
       font-size: 13px;
       font-weight: 600;
-      color: rgba(26,31,38,0.55);
+      color: var(--ink-3);
     }
 
     /* ===== FEATURED ===== */
@@ -356,7 +356,7 @@
     }
     .featured-content p {
       font-size: 1rem;
-      color: rgba(26,31,38,0.7);
+      color: var(--ink-2);
       line-height: 1.65;
       margin-bottom: 1.75rem;
     }
@@ -405,7 +405,7 @@
     }
     .news-card p {
       font-size: 0.92rem;
-      color: rgba(26,31,38,0.65);
+      color: var(--ink-3);
       line-height: 1.55;
       margin-bottom: 1.25rem;
       flex-grow: 1;
@@ -463,7 +463,7 @@
     .presskit-card h3 { margin-bottom: 0.6rem; }
     .presskit-card p {
       font-size: 0.95rem;
-      color: rgba(26,31,38,0.65);
+      color: var(--ink-3);
       line-height: 1.55;
       margin-bottom: 1.25rem;
     }
@@ -552,7 +552,7 @@
     .footer-brand p {
       font-size: 14px;
       line-height: 1.6;
-      color: rgba(26,31,38,0.6);
+      color: var(--ink-3);
       margin-top: 0.75rem;
       max-width: 280px;
     }
@@ -570,7 +570,7 @@
     }
     .footer-col a {
       font-size: 14px;
-      color: rgba(26,31,38,0.6);
+      color: var(--ink-3);
       text-transform: lowercase;
       transition: color 0.2s;
     }
@@ -586,7 +586,7 @@
     }
     .footer-bottom p {
       font-size: 13px;
-      color: rgba(26,31,38,0.45);
+      color: var(--ink-4);
     }
     .footer-socials {
       display: flex;
@@ -704,6 +704,7 @@
   <link rel="stylesheet" href="../assets/entomo-glass.css">
 </head>
 <body>
+  <a class="eq-skip" href="#main">skip to content</a>
 
   <!-- ===== NAVIGATION ===== -->
   <nav class="navbar">
@@ -714,60 +715,60 @@
       <div class="nav-right-group">
         <ul class="nav-links">
           <li class="nav-dropdown-wrap">
-            <a href="#">product</a>
+            <a href="#" role="button" aria-haspopup="true" aria-expanded="false">product</a>
             <div class="nav-mega" style="width:720px;">
               <div class="nav-mega-grid">
                 <a href="../solutions/performance-intelligence.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">perform</div>
                     <div class="nav-mega-desc">maximize employee performance</div>
                   </div>
                 </a>
                 <a href="../solutions/skill-intelligence.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">skills</div>
                     <div class="nav-mega-desc">unlock skills, accelerate growth</div>
                   </div>
                 </a>
                 <a href="../solutions/engagement-intelligence.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">engage</div>
                     <div class="nav-mega-desc">build engagement that lasts</div>
                   </div>
                 </a>
                 <a href="../solutions/workforce-insights.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">insights</div>
                     <div class="nav-mega-desc">turn intelligence into decisions</div>
                   </div>
                 </a>
                 <a href="../solutions/wellness-intelligence.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">wellbeing</div>
                     <div class="nav-mega-desc">protect wellness, prevent burnout</div>
                   </div>
                 </a>
                 <a href="../solutions/strategic-planning.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">plan</div>
                     <div class="nav-mega-desc">align your workforce to strategy</div>
                   </div>
                 </a>
                 <a href="../solutions/hire-to-retire.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name"><span class="keep-case">HCM</span></div>
                     <div class="nav-mega-desc">simplify hire to retire</div>
                   </div>
                 </a>
                 <a href="../../Home/national-talent-transformation-v2.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name"><span class="keep-case">TMRW</span></div>
                     <div class="nav-mega-desc"><span class="keep-case">AI</span> powered career growth platform</div>
@@ -777,81 +778,81 @@
             </div>
           </li>
           <li class="nav-dropdown-wrap">
-            <a href="#">solutions</a>
+            <a href="#" role="button" aria-haspopup="true" aria-expanded="false">solutions</a>
             <div class="nav-mega" style="width:760px;">
               <div class="nav-mega-grid">
                 <a href="../solutions/competency-framework-creation.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">competency framework creation</div>
                     <div class="nav-mega-desc">living, market-benchmarked frameworks in weeks</div>
                   </div>
                 </a>
                 <a href="../solutions/workforce-assessments.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">workforce assessments at scale</div>
                     <div class="nav-mega-desc"><span class="keep-case">AI</span>-built, proctored assessments for every role</div>
                   </div>
                 </a>
                 <a href="../solutions/epmo.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">enterprise performance management office</div>
                     <div class="nav-mega-desc">stand up the office that aligns <span class="keep-case">KPIs</span> to strategy</div>
                   </div>
                 </a>
                 <a href="../solutions/spmo.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 19 21 12 17 5 21 12 2"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="12 2 19 21 12 17 5 21 12 2"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">strategic performance management office</div>
                     <div class="nav-mega-desc">run strategy-linked performance cycles end to end</div>
                   </div>
                 </a>
                 <a href="../solutions/internal-mobility.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 11 21 7 17 3"/><line x1="21" y1="7" x2="9" y2="7"/><polyline points="7 21 3 17 7 13"/><line x1="15" y1="17" x2="3" y2="17"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="17 11 21 7 17 3"/><line x1="21" y1="7" x2="9" y2="7"/><polyline points="7 21 3 17 7 13"/><line x1="15" y1="17" x2="3" y2="17"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">internal mobility</div>
                     <div class="nav-mega-desc">career paths computed from skill adjacency</div>
                   </div>
                 </a>
                 <a href="../solutions/succession-planning.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">succession planning</div>
                     <div class="nav-mega-desc">evidence-based readiness for critical roles</div>
                   </div>
                 </a>
                 <a href="../solutions/workforce-planning.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">workforce planning</div>
                     <div class="nav-mega-desc">model demand, decide build, buy, borrow, or bot</div>
                   </div>
                 </a>
                 <a href="../solutions/dia.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name"><span class="keep-case">DIA</span></div>
                     <div class="nav-mega-desc">your data intelligence assistant for workforce questions</div>
                   </div>
                 </a>
                 <a href="../solutions/workforce-analytics.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">workforce analytics &amp; reporting</div>
                     <div class="nav-mega-desc">board-ready intelligence and <span class="keep-case">ISO</span> 30414 disclosure</div>
                   </div>
                 </a>
                 <a href="../solutions/engagement-retention.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">engagement &amp; retention</div>
                     <div class="nav-mega-desc">sense engagement, act early, retain talent</div>
                   </div>
                 </a>
                 <a href="../solutions/learning-roi.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">learning <span class="keep-case">ROI</span></div>
                     <div class="nav-mega-desc">make learning spend provable</div>
@@ -865,7 +866,7 @@
             <div class="nav-mega" style="width:420px;">
               <div class="nav-mega-grid" style="grid-template-columns: 1fr;">
                 <a href="../AI-lab/entomo-strata.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.6"/><circle cx="5" cy="19" r="2.6"/><circle cx="19" cy="19" r="2.6"/><line x1="10.8" y1="7.3" x2="6.2" y2="16.7"/><line x1="13.2" y1="7.3" x2="17.8" y2="16.7"/><line x1="7.6" y1="19" x2="16.4" y2="19"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="5" r="2.6"/><circle cx="5" cy="19" r="2.6"/><circle cx="19" cy="19" r="2.6"/><line x1="10.8" y1="7.3" x2="6.2" y2="16.7"/><line x1="13.2" y1="7.3" x2="17.8" y2="16.7"/><line x1="7.6" y1="19" x2="16.4" y2="19"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">entomo strata</div>
                     <div class="nav-mega-desc">the workforce intelligence graph powering entomo.ai</div>
@@ -875,46 +876,46 @@
             </div>
           </li>
           <li class="nav-dropdown-wrap">
-            <a href="#">inspiration</a>
+            <a href="#" role="button" aria-haspopup="true" aria-expanded="false">inspiration</a>
             <div class="nav-mega" style="width:720px;">
               <div class="nav-mega-grid">
                 <a href="../inspiration/blog.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">blog</div>
                     <div class="nav-mega-desc">insights on agentic <span class="keep-case">AI</span> and the future of work</div>
                   </div>
                 </a>
                 <a href="../inspiration/ebooks-whitepapers.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">ebooks &amp; whitepapers</div>
                     <div class="nav-mega-desc">in-depth research and POV reports</div>
                   </div>
                 </a>
                 <a href="../inspiration/success-stories.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">success stories</div>
                     <div class="nav-mega-desc">how Fortune 500s and governments use entomo</div>
                   </div>
                 </a>
                 <a href="../inspiration/entomo-community.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">entomo community</div>
                     <div class="nav-mega-desc">connect with <span class="keep-case">HR</span> leaders shaping the future</div>
                   </div>
                 </a>
                 <a href="../inspiration/events-webinars.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">events &amp; webinars</div>
                     <div class="nav-mega-desc">live sessions, roundtables, and roadshows</div>
                   </div>
                 </a>
                 <a href="../inspiration/templates.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">templates</div>
                     <div class="nav-mega-desc">ready-to-use <span class="keep-case">HR</span> frameworks and playbooks</div>
@@ -924,53 +925,53 @@
             </div>
           </li>
           <li class="nav-dropdown-wrap">
-            <a href="#">about</a>
+            <a href="#" role="button" aria-haspopup="true" aria-expanded="false">about</a>
             <div class="nav-mega" style="width:720px;">
               <div class="nav-mega-grid">
                 <a href="why-entomo.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">why entomo</div>
                     <div class="nav-mega-desc">our story and what makes us different</div>
                   </div>
                 </a>
                 <a href="life-at-entomo.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">life@entomo</div>
                     <div class="nav-mega-desc">culture, values, and what makes us tick</div>
                   </div>
                 </a>
                 <a href="our-team.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">our team</div>
                     <div class="nav-mega-desc">leadership and the people behind entomo</div>
                   </div>
                 </a>
                 <a href="security-at-entomo.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">security@entomo</div>
                     <div class="nav-mega-desc">enterprise-grade security and compliance</div>
                   </div>
                 </a>
                 <a href="news-press-releases.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">news &amp; press release</div>
                     <div class="nav-mega-desc">latest announcements and media coverage</div>
                   </div>
                 </a>
                 <a href="jobs-at-entomo.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">jobs@entomo</div>
                     <div class="nav-mega-desc">join the team building tomorrow's <span class="keep-case">HR</span></div>
                   </div>
                 </a>
                 <a href="partners.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">partner with entomo</div>
                     <div class="nav-mega-desc">SI, consulting, and ecosystem partnerships</div>
@@ -986,10 +987,11 @@
         </div>
       </div>
       <button class="nav-toggle" aria-label="Menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
     </div>
   </nav>
+  <main id="main">
 
   <!-- ===== HERO ===== -->
   <section class="news-hero">
@@ -1149,7 +1151,7 @@
       <div class="presskit-grid">
         <a href="#" class="presskit-card">
           <div class="presskit-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
               <polyline points="7 10 12 15 17 10"/>
               <line x1="12" y1="15" x2="12" y2="3"/>
@@ -1162,7 +1164,7 @@
 
         <a href="mailto:press@entomo.co" class="presskit-card">
           <div class="presskit-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
               <polyline points="22,6 12,13 2,6"/>
             </svg>
@@ -1174,7 +1176,7 @@
 
         <a href="#" class="presskit-card">
           <div class="presskit-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
               <circle cx="9" cy="7" r="4"/>
               <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
@@ -1204,16 +1206,17 @@
   </section>
 
   <!-- ===== FOOTER ===== -->
+  </main>
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="logo">
-            <img src="../Images/entomo.svg" alt="entomo" style="height:32px; width:auto;">
+            <img src="../Images/entomo.svg" alt="entomo" style="height:32px; width:auto;" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="footer-col">
-          <h4>platform</h4>
+          <h3>platform</h3>
           <ul>
             <li><a href="#"><span class="keep-case">AI</span> agents</a></li>
             <li><a href="#">intelligence architecture</a></li>
@@ -1222,7 +1225,7 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h4>solutions</h4>
+          <h3>solutions</h3>
           <ul>
             <li><a href="../solutions/performance-intelligence.html">performance intelligence</a></li>
             <li><a href="../solutions/skill-intelligence.html">skill &amp; talent intelligence</a></li>
@@ -1233,7 +1236,7 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h4>resources</h4>
+          <h3>resources</h3>
           <ul>
             <li><a href="#">Forrester <span class="keep-case">TEI</span> study</a></li>
             <li><a href="#">case studies</a></li>
@@ -1242,7 +1245,7 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h4>company</h4>
+          <h3>company</h3>
           <ul>
             <li><a href="why-entomo.html">why entomo</a></li>
             <li><a href="life-at-entomo.html">life@entomo</a></li>

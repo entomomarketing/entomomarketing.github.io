@@ -185,3 +185,98 @@ section {
   .proof-chip, .hero-badge { background-color: #ffffff !important; }
   section { background-image: none; }
 }
+
+/* ============================================================================
+   8. Material refinement — edge lensing
+   ----------------------------------------------------------------------------
+   A translucent pane with a flat 1px border reads as a rectangle with a line
+   around it. Real glass is brightest where light enters the top edge and
+   picks up a faint occlusion where it meets the surface below. Two inset
+   shadows carry that, and the border becomes a gradient rather than a
+   constant, so the rim brightens toward the light source.
+
+   This is the same simulated material used above — no backdrop-filter is
+   added here, so the card grids stay free of repaint cost.
+   ========================================================================== */
+
+.pillar-card, .integration-card, .feature-card, .persona-simple-card,
+.card, .suite-row, .proof-card, .outcome-card, .difference-card,
+.solution-card, .path-card, .video-card,
+.story-card, .resource-card, .value-card {
+  background-color: var(--g-pane-firm);
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(var(--g-pane-firm), var(--g-pane-firm)),
+    linear-gradient(160deg,
+      rgba(255,255,255,.95) 0%,
+      rgba(26,31,38,.10)   42%,
+      rgba(26,31,38,.13)  100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow:
+    var(--g-shadow),
+    inset 0 1px 0 var(--g-rim),
+    inset 0 -1px 0 rgba(26, 31, 38, .045);
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Lift is a light change first and a position change second — the shadow
+   spreads and the rim sharpens, the card barely moves. */
+.pillar-card:hover, .integration-card:hover, .feature-card:hover,
+.suite-row:hover, .proof-card:hover, .outcome-card:hover,
+.story-card:hover, .resource-card:hover, .value-card:hover,
+.solution-card:hover, .path-card:hover, .video-card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    var(--g-shadow-lift),
+    inset 0 1px 0 rgba(255,255,255,.98),
+    inset 0 -1px 0 rgba(26, 31, 38, .05);
+}
+
+/* ---- 9. Navbar: the pane firms up once the page is under it --------------- */
+.navbar {
+  transition: background-color 260ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 260ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.eq-scrolled .navbar {
+  background: rgba(255, 255, 255, .82) !important;
+  border-bottom-color: rgba(26, 31, 38, .10);
+  box-shadow:
+    inset 0 -1px 0 var(--g-rim-soft),
+    0 1px 2px rgba(43, 29, 18, .04),
+    0 10px 30px rgba(43, 29, 18, .07);
+}
+
+/* ---- 10. Press physics ---------------------------------------------------
+   Glass is a solid. It should compress on press, not slide. */
+.btn-primary, .btn-secondary, .nav-cta, .btn-ghost {
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              filter 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-primary:active, .btn-secondary:active,
+.nav-cta:active, .btn-ghost:active { transform: scale(0.975); }
+
+/* ---- 11. Focus on glass --------------------------------------------------
+   A solid ring on a translucent pane loses its inner edge against whatever is
+   behind it. The white inner halo restores separation on any backdrop. */
+.nav-mega-item:focus-visible,
+.pillar-card a:focus-visible,
+.solution-card a:focus-visible,
+.story-card a:focus-visible,
+.resource-card a:focus-visible {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .95);
+}
+
+/* ---- 12. Degradation additions ------------------------------------------- */
+@media (prefers-reduced-transparency: reduce) {
+  .story-card, .resource-card, .value-card,
+  .solution-card, .path-card, .video-card {
+    background-image: none !important;
+    background-color: #ffffff !important;
+    border: 1px solid rgba(26, 31, 38, .12) !important;
+  }
+  .eq-scrolled .navbar { background: #ffffff !important; }
+}

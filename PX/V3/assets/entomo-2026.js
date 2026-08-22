@@ -29,7 +29,29 @@
     toggle.addEventListener("click", function (e) {
       e.preventDefault();
       e.stopPropagation();
-      setOpen(!doc.documentElement.classList.contains("eq-nav-open"));
+      var willOpen = !doc.documentElement.classList.contains("eq-nav-open");
+      setOpen(willOpen);
+      // .nav-links sits before .nav-toggle in the DOM, so a plain Tab from the
+      // open drawer walked forward into the page body and skipped every link
+      // in it. Move focus in explicitly, then hold it there.
+      if (willOpen) {
+        var first = links.querySelector("a, button, [tabindex]:not([tabindex='-1'])");
+        if (first) first.focus();
+      }
+    });
+
+    // Tab cycles within the open drawer rather than escaping into the page.
+    links.addEventListener("keydown", function (e) {
+      if (e.key !== "Tab") return;
+      if (!doc.documentElement.classList.contains("eq-nav-open")) return;
+      var f = Array.prototype.filter.call(
+        links.querySelectorAll("a, button, [tabindex]:not([tabindex='-1'])"),
+        function (el) { return el.offsetParent !== null; }
+      );
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && doc.activeElement === first) { e.preventDefault(); toggle.focus(); }
+      else if (!e.shiftKey && doc.activeElement === last) { e.preventDefault(); toggle.focus(); }
     });
 
     // Esc closes and returns focus to the control that opened it
@@ -83,18 +105,189 @@
     });
   }
 
-  /* ---- 2. Honour the motion preference for JS-driven loops ------------------
-     Carousels ran on setInterval with no regard for prefers-reduced-motion.
-     Freezing the timer function while the preference is set stops every
-     auto-advance without touching the carousel code itself. */
-  function guardMotion() {
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    var nativeSetInterval = window.setInterval;
-    window.setInterval = function (fn, delay) {
-      // Auto-advance timers are the long ones; keep short utility timers alive.
-      if (delay >= 1500) return 0;
-      return nativeSetInterval.apply(window, arguments);
-    };
+  /* ---- 2. Mega-menu state ---------------------------------------------------
+     The five dropdown triggers are href="#" anchors whose menus open on CSS
+     :focus-within. Nothing told assistive tech the menu existed or whether it
+     was open, so 33 of ~45 destinations were invisible to a screen reader.
+     The markup now carries role/aria-haspopup; this keeps aria-expanded true. */
+  function initMegaAria() {
+    doc.querySelectorAll(".nav-dropdown-wrap").forEach(function (wrap) {
+      var trigger = wrap.querySelector(":scope > a");
+      var mega = wrap.querySelector(".nav-mega");
+      if (!trigger || !mega) return;
+      if (!mega.id) mega.id = "eq-mega-" + Math.abs(
+        (trigger.textContent || "menu").split("").reduce(function (a, c) {
+          return ((a << 5) - a + c.charCodeAt(0)) | 0;
+        }, 0)
+      );
+      trigger.setAttribute("aria-controls", mega.id);
+
+      /* The panel is absolutely positioned under its trigger and is a fixed
+         720px wide, so the rightmost menus run off-screen on narrower desktops
+         — measured 54px past the edge at 1024px. Which panel overflows depends
+         on viewport width and how many items the nav has, so CSS cannot select
+         it; it has to be measured. */
+      function clamp() {
+        mega.style.left = "";
+        var cs = getComputedStyle(mega);
+        var cur = parseFloat(cs.left);
+        // The panel's containing block is not the dropdown wrapper, so its
+        // rendered offset cannot be used as a `left` value. Shift the existing
+        // computed left by a delta instead, and only when that left is a real
+        // length — `auto` yields NaN and must be left alone rather than
+        // coerced to 0, which threw panels hundreds of px off-screen.
+        if (isNaN(cur)) return;
+        var r = mega.getBoundingClientRect();
+        var pad = 12;
+        var overR = r.right - (window.innerWidth - pad);
+        var overL = pad - r.left;
+        var delta = 0;
+        // Each correction is capped by the slack on the opposite edge, so
+        // fixing one side can never push the other side out.
+        if (overR > 0) delta = -Math.min(overR, Math.max(0, r.left - pad));
+        else if (overL > 0) delta = Math.min(overL, Math.max(0, (window.innerWidth - pad) - r.right));
+        if (delta !== 0) mega.style.left = (cur + delta) + "px";
+      }
+      clamp();
+      var rt;
+      window.addEventListener("resize", function () {
+        clearTimeout(rt);
+        rt = setTimeout(clamp, 120);
+      });
+
+      function set(open) {
+        if (open) clamp();
+        trigger.setAttribute("aria-expanded", open ? "true" : "false");
+      }
+      wrap.addEventListener("mouseenter", function () { set(true); });
+      wrap.addEventListener("mouseleave", function () { set(false); });
+      wrap.addEventListener("focusin", function () { set(true); });
+      wrap.addEventListener("focusout", function (e) {
+        if (!wrap.contains(e.relatedTarget)) set(false);
+      });
+      trigger.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          set(false);
+          trigger.blur();
+        }
+      });
+    });
+  }
+
+  /* ---- 2b. Marquee clones are duplicates, not content -----------------------
+     Each track repeats its full logo set so the loop can be seamless. Both
+     copies were exposed, so a screen reader read all 14 client names, then
+     read the same 14 again. The visual loop is unaffected by hiding the clone. */
+  function initMarquees() {
+    doc.querySelectorAll(".marquee-track, .perf-mq-track, .agent-marquee-track")
+      .forEach(function (track) {
+        var kids = Array.prototype.slice.call(track.children);
+        if (kids.length < 2 || kids.length % 2 !== 0) return;
+        kids.slice(kids.length / 2).forEach(function (el) {
+          el.setAttribute("aria-hidden", "true");
+        });
+      });
+  }
+
+  /* ---- 2b2. Gradient-clipped text -------------------------------------------
+     Marks only the elements that genuinely clip their background to their
+     glyphs. Anything else keeps its own `color`, because for those an
+     unscoped background-image would paint a visible block behind the text
+     rather than colour the letters. */
+  function initGradientText() {
+    doc.querySelectorAll(
+      ".section-eyebrow, .arch-color-foundation, .arch-color-agents, " +
+      ".arch-color-data-sources, .hero-eyebrow, .metric-number, .proof-text"
+    ).forEach(function (el) {
+      var cs = getComputedStyle(el);
+      var clip = cs.webkitBackgroundClip || cs.backgroundClip;
+      if (clip === "text" && cs.webkitTextFillColor === "rgba(0, 0, 0, 0)") {
+        el.classList.add("eq-gradient-text");
+      }
+    });
+  }
+
+  /* ---- 2b3. Dark-ground detection -------------------------------------------
+     Dark bands are named per page here — .newsletter-section, .videos-section,
+     .final-cta-section and others — so no fixed class list finds them all.
+     The darkened brand red is the right colour for a label on a light ground
+     and the wrong one on a dark band, so the backdrop is measured instead of
+     guessed, and the element is tagged for CSS to act on. */
+  function initContrastContext() {
+    function chan(v) { v /= 255; return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
+    function lumOf(str) {
+      var m = (str || "").match(/[\d.]+/g);
+      if (!m || m.length < 3) return null;
+      if (m[3] !== undefined && parseFloat(m[3]) < 0.9) return null;
+      return 0.2126 * chan(+m[0]) + 0.7152 * chan(+m[1]) + 0.0722 * chan(+m[2]);
+    }
+    function backdrop(el) {
+      var n = el.parentElement;
+      while (n && n !== doc.documentElement) {
+        var cs = getComputedStyle(n);
+        if (cs.backgroundImage && cs.backgroundImage !== "none") {
+          var first = cs.backgroundImage.match(/rgba?\([^)]+\)|#[0-9a-f]{6}/i);
+          if (first) {
+            var l = first[0].charAt(0) === "#"
+              ? 0.2126 * chan(parseInt(first[0].substr(1, 2), 16)) +
+                0.7152 * chan(parseInt(first[0].substr(3, 2), 16)) +
+                0.0722 * chan(parseInt(first[0].substr(5, 2), 16))
+              : lumOf(first[0]);
+            if (l !== null) return l;
+          }
+        }
+        var s2 = lumOf(cs.backgroundColor);
+        if (s2 !== null) return s2;
+        n = n.parentElement;
+      }
+      return 1;
+    }
+    doc.querySelectorAll(".section-eyebrow, .hero-eyebrow, .pill, .tag, .proof-chip")
+      .forEach(function (el) {
+        if (backdrop(el) < 0.22) el.classList.add("eq-on-dark");
+      });
+  }
+
+  /* ---- 2c. Tab semantics ----------------------------------------------------
+     These are real <button> elements, which is right, but the selected one was
+     marked only by an .active class. Nothing announced which panel was showing. */
+  function initTabs() {
+    [".persona-tabs", ".features-tabs", ".case-tabs", ".tabbar"].forEach(function (sel) {
+      doc.querySelectorAll(sel).forEach(function (bar) {
+        var tabs = bar.querySelectorAll("button");
+        if (tabs.length < 2) return;
+        bar.setAttribute("role", "tablist");
+        tabs.forEach(function (t) {
+          t.setAttribute("role", "tab");
+          t.setAttribute("aria-selected", t.classList.contains("active") ? "true" : "false");
+        });
+        bar.addEventListener("click", function (e) {
+          var hit = e.target.closest ? e.target.closest("button") : null;
+          if (!hit) return;
+          tabs.forEach(function (t) {
+            t.setAttribute("aria-selected", t === hit ? "true" : "false");
+          });
+        });
+      });
+    });
+  }
+
+  /* ---- 2d. Scroll state -----------------------------------------------------
+     Lets the navbar firm up once content is passing behind it, instead of
+     floating at one opacity over both the hero and dense body copy. */
+  function initScrollState() {
+    var root = doc.documentElement;
+    var ticking = false;
+    function apply() {
+      root.classList.toggle("eq-scrolled", window.scrollY > 8);
+      ticking = false;
+    }
+    window.addEventListener("scroll", function () {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(apply);
+    }, { passive: true });
+    apply();
   }
 
   /* ---- 3. Pause marquees when the tab is hidden ----------------------------- */
@@ -204,14 +397,38 @@
       paths.forEach(function (p) { p.classList.remove("is-lit"); });
     }
 
+    /* A sticky selection, so the graph can be read without holding focus.
+       role="button" was already on these nodes but nothing was bound to it:
+       Enter appeared to work only because focus had lit the node on the way
+       in, and Space did nothing at all. */
+    var pinned = null;
+    function pin(id) {
+      pinned = id;
+      Object.keys(nodes).forEach(function (k) {
+        nodes[k].setAttribute("aria-pressed", k === id ? "true" : "false");
+      });
+      if (id) lit(id); else clear();
+    }
+
     Object.keys(nodes).forEach(function (id) {
       var n = nodes[id];
-      n.addEventListener("mouseenter", function () { lit(id); });
-      n.addEventListener("focus", function () { lit(id); });
-      n.addEventListener("mouseleave", clear);
-      n.addEventListener("blur", clear);
+      n.setAttribute("aria-pressed", "false");
+      n.addEventListener("mouseenter", function () { if (!pinned) lit(id); });
+      n.addEventListener("focus", function () { if (!pinned) lit(id); });
+      n.addEventListener("mouseleave", function () { if (!pinned) clear(); });
+      n.addEventListener("blur", function () { if (!pinned) clear(); });
+      n.addEventListener("click", function () { pin(pinned === id ? null : id); });
+      n.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+          e.preventDefault();
+          pin(pinned === id ? null : id);
+        } else if (e.key === "Escape" && pinned) {
+          e.preventDefault();
+          pin(null);
+        }
+      });
     });
-    root.addEventListener("mouseleave", clear);
+    root.addEventListener("mouseleave", function () { if (!pinned) clear(); });
 
     draw();
     // Fonts land after first paint and change node heights; redraw when they do.
@@ -272,9 +489,14 @@
   }
 
   function boot() {
-    try { guardMotion(); } catch (e) {}
     try { injectGlassFilter(); } catch (e) {}
     try { initNav(); } catch (e) {}
+    try { initMegaAria(); } catch (e) {}
+    try { initMarquees(); } catch (e) {}
+    try { initGradientText(); } catch (e) {}
+    try { initContrastContext(); } catch (e) {}
+    try { initTabs(); } catch (e) {}
+    try { initScrollState(); } catch (e) {}
     try { initVisibility(); } catch (e) {}
     try { initStrataGraph(); } catch (e) {}
   }
