@@ -1,0 +1,625 @@
+/* ============================================================================
+   entomo — visual system 2026  ·  "Warm Precision"
+   ----------------------------------------------------------------------------
+   A presentation-layer redesign. Zero content changes.
+
+   Brand law (unchanged, from entomo-styling-guide.md):
+     Nunito Sans is the sole typeface · CG Red #e43d30 · CG Gold #f4b223
+     Sunrise Yellow #ffda00 · Spanish Blue #0064bf · Sea Green #2c9942
+     Ebony Clay #1a1f26 · radius 5/10/15/25 · lowercase nav + buttons
+     gold→red gradient is the primary CTA · yellow <mark> highlight
+
+   What this file changes: the craft layer only — type scale, spacing rhythm,
+   depth, states, motion, and the browser surfaces the old sheet never themed.
+
+   Loaded AFTER each page's inline <style>, so equal-specificity rules win.
+   Deliberately NOT wrapped in @layer (unlayered CSS would outrank it).
+   ========================================================================== */
+
+/* ---------- 1. Tokens ---------------------------------------------------- */
+
+:root {
+  /* Ink scale — replaces ad-hoc rgba(26,31,38,.45/.55/.72).
+     Every step below passes WCAG AA on white and on the brand tints. */
+  --ink:        #1a1f26;   /* 15.8:1 on white */
+  --ink-2:      #3d444d;   /*  9.2:1 */
+  --ink-3:      #5a626c;   /*  6.1:1 */
+  --ink-4:      #6f7782;   /*  4.6:1 — the floor for normal text */
+  --ink-line:      rgba(26, 31, 38, 0.11);
+  --ink-line-soft: rgba(26, 31, 38, 0.065);
+
+  /* Depth — warm-tinted, two-layer. Neutral black shadows are what make
+     enterprise SaaS look cheap; these carry the brand's warm axis. */
+  --sh-1:    0 1px 2px rgba(43, 29, 18, .05),  0 2px 6px rgba(43, 29, 18, .04);
+  --sh-2:    0 2px 4px rgba(43, 29, 18, .05),  0 10px 24px rgba(43, 29, 18, .07);
+  --sh-3:    0 4px 10px rgba(43, 29, 18, .06), 0 20px 44px rgba(43, 29, 18, .09);
+  --sh-lift: 0 10px 20px rgba(43, 29, 18, .07), 0 30px 60px rgba(43, 29, 18, .11);
+  --sh-cta:      0 2px 6px rgba(198, 74, 30, .22), 0 10px 26px rgba(198, 74, 30, .20);
+  --sh-cta-lift: 0 4px 10px rgba(198, 74, 30, .26), 0 18px 40px rgba(198, 74, 30, .28);
+
+  /* Motion — exponential ease-out; things arrive, they never bounce. */
+  --ease:      cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.32, 0.72, 0, 1);
+  --t-fast: 150ms;
+  --t-mid:  260ms;
+  --t-slow: 560ms;
+
+  /* Rhythm */
+  --sp-section: clamp(4.5rem, 3.1rem + 4.4vw, 8.5rem);
+  --measure: 68ch;
+
+  /* Fluid type scale (major-third), replacing the fixed px steps */
+  --fs-display: clamp(2.35rem, 1.28rem + 4.0vw, 4.4rem);
+  --fs-h2:      clamp(1.88rem, 1.34rem + 2.05vw, 2.85rem);
+  --fs-h3:      clamp(1.28rem, 1.13rem + 0.62vw, 1.6rem);
+  --fs-h4:      clamp(1.04rem, 1.0rem + 0.18vw, 1.14rem);
+  --fs-lead:    clamp(1.04rem, 0.99rem + 0.33vw, 1.2rem);
+
+  --brand-gradient: linear-gradient(96deg, #f4b223 0%, #ee7a2a 46%, #e43d30 100%);
+}
+
+/* ---------- 2. Browser surfaces ------------------------------------------
+   The parts nobody draws. Themed, these are the cheapest signal that a page
+   was built rather than assembled.                                         */
+
+::selection { background: #ffda00; color: #1a1f26; text-shadow: none; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  caret-color: #e43d30;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-synthesis-weight: none;
+}
+
+/* Anchors clear the sticky navbar instead of hiding under it */
+:target, [id] { scroll-margin-top: 92px; }
+
+/* Focus: one visible, branded ring everywhere — keyboard only */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2.5px solid #e43d30;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+:where(a, button):focus:not(:focus-visible) { outline: none; }
+
+/* Custom scrollbar, warm track */
+* { scrollbar-width: thin; scrollbar-color: rgba(26,31,38,.28) transparent; }
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(26,31,38,.22);
+  border-radius: 99px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(26,31,38,.36); background-clip: content-box; }
+
+/* Numerals in stats align in columns */
+.persona-simple-headline, .metric, .metric-large, .stat, .stats-grid,
+.arch-col-header, .proof-chip, .orch-chip, .tech-chip {
+  font-variant-numeric: tabular-nums;
+}
+
+img { max-width: 100%; }
+
+/* ---------- 3. Typography ------------------------------------------------ */
+
+body { font-size: 16px; line-height: 1.62; color: var(--ink); letter-spacing: -0.002em; }
+
+h1, .sol-hero h1, .hero-tagline {
+  font-size: var(--fs-display);
+  line-height: 1.045;
+  letter-spacing: -0.033em;
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+h2, .section-heading, .features-section h2, .bottom-cta h2, .final-cta-section h2 {
+  font-size: var(--fs-h2);
+  line-height: 1.11;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+h3 { font-size: var(--fs-h3); line-height: 1.24; letter-spacing: -0.017em; font-weight: 700; }
+h4 { font-size: var(--fs-h4); line-height: 1.34; letter-spacing: -0.009em; font-weight: 700; }
+
+p { text-wrap: pretty; }
+
+.section-subheading, .sol-hero-sub, .hero-subline, .agents-intro, .lede {
+  font-size: var(--fs-lead);
+  line-height: 1.6;
+  color: var(--ink-3);
+  letter-spacing: -0.004em;
+  max-width: var(--measure);
+}
+
+/* The eyebrow: was a stock centered kicker. Now a measured label carrying a
+   short gradient rule — it reads as drawn, not defaulted. */
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 1.15rem;
+}
+.section-eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--brand-gradient);
+  flex: none;
+}
+.text-center .section-eyebrow,
+.perf-agents-section .section-eyebrow { justify-content: center; }
+.section-eyebrow-white { color: rgba(255,255,255,.72); }
+
+/* Yellow mark — brand signature, tuned so the pill hugs the word */
+mark {
+  background-color: #ffda00;
+  color: #000;
+  border-radius: 10px;
+  padding: 0.06em 0.34em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Links inside prose get a real underline, offset properly */
+p a:not(.btn-primary):not(.nav-mega-item) {
+  color: #0064bf;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(0,100,191,.38);
+  transition: text-decoration-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+p a:not(.btn-primary):not(.nav-mega-item):hover { text-decoration-color: #0064bf; }
+
+/* ---------- 4. Rhythm ---------------------------------------------------- */
+
+section { padding: var(--sp-section) 0; }
+.sol-hero { padding: clamp(3.5rem, 2.4rem + 3.4vw, 6rem) 0 clamp(2.5rem, 2rem + 2vw, 4rem); }
+
+/* More air above a heading than below it */
+.text-center > .section-heading,
+.text-center > h2 { margin-bottom: 1.05rem; }
+.section-subheading { margin-top: 0.35rem; }
+
+/* ---------- 5. Surfaces & depth ------------------------------------------ */
+
+.pillar-card, .integration-card, .feature-card, .persona-simple-card,
+.security-item, .card, .ww-card {
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid var(--ink-line-soft);
+  box-shadow: var(--sh-1);
+  transition:
+    transform var(--t-mid) var(--ease),
+    box-shadow var(--t-mid) var(--ease),
+    border-color var(--t-mid) var(--ease);
+}
+.pillar-card:hover, .integration-card:hover, .feature-card:hover, .security-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sh-3);
+  border-color: rgba(228, 61, 48, .22);
+}
+
+/* Card headings carry the ink scale, not muted gray */
+.pillar-name, .integration-card-title, .feature-card h4, .persona-simple-role {
+  color: var(--ink);
+  letter-spacing: -0.012em;
+}
+.pillar-desc, .feature-card p, .faq-a, .integration-card p, .security-desc {
+  color: var(--ink-3);
+  line-height: 1.62;
+}
+.pillar-tagline { color: var(--ink-4); }
+
+/* Feature icon: warm tinted plate rather than a bare stroke */
+.feature-card-icon {
+  width: 42px; height: 42px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 11px;
+  background: linear-gradient(180deg, rgba(244,178,35,.16), rgba(228,61,48,.11));
+  color: #c8401f;
+  margin-bottom: 0.9rem;
+  transition: transform var(--t-mid) var(--ease);
+}
+.feature-card-icon svg { width: 20px; height: 20px; stroke-width: 1.9; fill: none; stroke: currentColor; }
+.feature-card:hover .feature-card-icon { transform: scale(1.06) rotate(-2deg); }
+
+/* Chips & pills */
+.integration-pill, .ptag, .tech-chip, .orch-chip, .proof-chip {
+  border-radius: 999px;
+  border: 1px solid var(--ink-line);
+  background: #fff;
+  color: var(--ink-2);
+  font-weight: 600;
+  letter-spacing: -0.004em;
+  transition: border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease),
+              background var(--t-fast) var(--ease);
+}
+.tech-chip:hover, .orch-chip:hover { border-color: rgba(228,61,48,.32); color: var(--ink); }
+
+/* The from/to contrast pair, given real semantic weight */
+.integration-card.shift-good {
+  border-color: rgba(44,153,66,.34) !important;
+  background:
+    linear-gradient(180deg, rgba(44,153,66,.055), rgba(44,153,66,.015)) !important;
+}
+.integration-card.shift-good .integration-pill { border-color: rgba(44,153,66,.30); }
+
+/* Dark sections: lift text off pure black-on-dark mud */
+.dark-section { background: #14181e; }
+.dark-section .section-heading, .dark-section h2, .dark-section h3 { color: #fff; }
+.dark-section p, .dark-section .agents-intro { color: rgba(255,255,255,.70); }
+
+/* ---------- 6. Primary CTA ----------------------------------------------- */
+
+.btn-primary {
+  background-image: var(--brand-gradient);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.92em 1.85em;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.006em;
+  text-transform: lowercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  cursor: pointer;
+  box-shadow: var(--sh-cta);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition: transform var(--t-mid) var(--ease), box-shadow var(--t-mid) var(--ease);
+}
+/* A brighter gradient cross-fades in on hover — no color jump */
+.btn-primary::after {
+  content: "";
+  position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(96deg, #f7bd3d 0%, #f2882f 46%, #e8503f 100%);
+  opacity: 0;
+  transition: opacity var(--t-mid) var(--ease);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: var(--sh-cta-lift); }
+.btn-primary:hover::after { opacity: 1; }
+.btn-primary:active { transform: translateY(0); box-shadow: var(--sh-cta); }
+.btn-primary-lg { padding: 1.02em 2.2em; font-size: 1.1rem; }
+
+/* ---------- 7. Navigation ------------------------------------------------ */
+
+.navbar {
+  background: rgba(255,255,255,.82);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid var(--ink-line-soft);
+  transition: box-shadow var(--t-mid) var(--ease), background var(--t-mid) var(--ease);
+}
+.nav-links > li > a {
+  color: var(--ink-2);
+  font-weight: 600;
+  letter-spacing: -0.006em;
+  transition: color var(--t-fast) var(--ease);
+}
+.nav-links > li > a:hover { color: var(--ink); }
+
+.nav-mega {
+  border-radius: 18px;
+  border: 1px solid var(--ink-line-soft);
+  box-shadow: var(--sh-3);
+  overflow: hidden;
+}
+.nav-mega-item {
+  border-radius: 12px;
+  transition: background var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+}
+.nav-mega-item:hover { background: rgba(228,61,48,.05); transform: translateX(2px); }
+.nav-mega-name { color: var(--ink); font-weight: 700; letter-spacing: -0.012em; }
+.nav-mega-desc { color: var(--ink-4); }
+.nav-mega-icon { color: #c8401f; }
+
+/* ---------- 8. Hero & breadcrumb ----------------------------------------- */
+
+.sol-breadcrumb { color: var(--ink-4); font-weight: 600; letter-spacing: 0.005em; }
+.sol-breadcrumb a { color: var(--ink-3); transition: color var(--t-fast) var(--ease); }
+.sol-breadcrumb a:hover { color: #e43d30; }
+
+.hero-badge {
+  border-radius: 999px;
+  border: 1px solid rgba(228,61,48,.22);
+  background: rgba(244,178,35,.10);
+  color: var(--ink-2);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+/* ---------- 9. Process diagram (arch) ------------------------------------ */
+
+.arch-col {
+  transition: background var(--t-mid) var(--ease), transform var(--t-mid) var(--ease);
+  border-radius: 14px;
+}
+.arch-col:hover { background: rgba(244,178,35,.055); }
+.arch-col-header { letter-spacing: -0.01em; font-weight: 700; }
+.arch-col-desc { color: var(--ink-3); }
+.arch-col-arrow { color: rgba(228,61,48,.5); }
+.arch-tooltip {
+  border-radius: 12px;
+  box-shadow: var(--sh-3);
+  border: 1px solid var(--ink-line-soft);
+  line-height: 1.55;
+}
+
+/* ---------- 10. Marquees ------------------------------------------------- */
+
+.marquee-logo { filter: grayscale(100%); opacity: .48; transition: opacity var(--t-mid) var(--ease), filter var(--t-mid) var(--ease); }
+.marquee-logo:hover { opacity: 1; filter: grayscale(0%); }
+.marquee-track:hover, .perf-mq-track:hover, .agent-marquee-track:hover { animation-play-state: paused; }
+
+.perf-mq-card, .agent-mq-card {
+  border-radius: 16px;
+  transition: transform var(--t-mid) var(--ease), box-shadow var(--t-mid) var(--ease);
+}
+.perf-mq-card:hover, .agent-mq-card:hover { transform: translateY(-4px); }
+.perf-mq-name, .agent-mq-name { letter-spacing: -0.014em; }
+.perf-mq-role, .agent-mq-role { color: #c8401f; font-weight: 700; letter-spacing: 0.04em; }
+
+/* ---------- 11. Stat cards ----------------------------------------------- */
+
+.persona-simple-card { overflow: hidden; }
+.persona-simple-top { border-bottom: 1px solid var(--ink-line-soft); }
+.persona-simple-headline { letter-spacing: -0.022em; line-height: 1.16; color: var(--ink); }
+.persona-simple-role { color: var(--ink-4); letter-spacing: 0.08em; }
+
+/* ---------- 12. Story quote ---------------------------------------------- */
+
+.story-quote {
+  letter-spacing: -0.021em;
+  line-height: 1.4;
+  text-wrap: balance;
+  color: var(--ink);
+}
+.story-attr { color: var(--ink-4); letter-spacing: 0.01em; }
+
+/* ---------- 13. Closing CTA band ----------------------------------------- */
+
+.bottom-cta, .final-cta-section {
+  background:
+    radial-gradient(120% 140% at 50% 0%, rgba(244,178,35,.13) 0%, rgba(244,178,35,0) 58%),
+    #14181e;
+  color: #fff;
+}
+.bottom-cta h2, .final-cta-section h2 { color: #fff; }
+.bottom-cta p, .final-cta-supporting { color: rgba(255,255,255,.72); max-width: 62ch; margin-inline: auto; }
+
+/* ---------- 14. Footer --------------------------------------------------- */
+
+.footer { border-top: 1px solid var(--ink-line-soft); }
+.footer a { transition: color var(--t-fast) var(--ease); }
+.footer a:hover { color: #e43d30; }
+
+/* ---------- 15. Motion ---------------------------------------------------
+   One authored arrival, not a different effect per section. Content is
+   visible by default; JS only opts elements into the entrance.            */
+
+[data-reveal], .reveal, .stagger-child {
+  transition:
+    opacity var(--t-slow) var(--ease),
+    transform var(--t-slow) var(--ease),
+    filter var(--t-slow) var(--ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .marquee-track, .perf-mq-track, .agent-marquee-track { animation: none !important; }
+  [data-reveal], .reveal, .stagger-child {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* ---------- 16. Responsive ----------------------------------------------- */
+
+@media (max-width: 900px) {
+  :root { --sp-section: clamp(3.4rem, 2.4rem + 3.2vw, 4.6rem); }
+  .section-subheading, .sol-hero-sub, .hero-subline { font-size: 1.02rem; }
+}
+
+@media (max-width: 640px) {
+  h1, .sol-hero h1, .hero-tagline { letter-spacing: -0.026em; line-height: 1.08; }
+  h2, .section-heading { letter-spacing: -0.019em; line-height: 1.16; }
+  .btn-primary { width: 100%; justify-content: center; padding: 1.02em 1.4em; }
+  .sol-hero .btn-primary, .bottom-cta .btn-primary, .final-cta-buttons .btn-primary { max-width: 26rem; }
+  /* Touch targets clear 44px */
+  .nav-links > li > a, .nav-mega-item, .footer a { min-height: 44px; display: flex; align-items: center; }
+  .tech-chip, .orch-chip, .ptag, .integration-pill { padding-block: 0.5em; }
+  :target, [id] { scroll-margin-top: 76px; }
+}
+
+/* ============================================================================
+   18. CORRECTIONS — driven by measured audit findings
+   Every selector below was named by a contrast/overflow/tap-target measurement,
+   not by taste. Ratios in comments are computed against the real surface.
+   ========================================================================== */
+
+/* --- 18a. Legibility -------------------------------------------------------
+   The system leaned on rgba(26,31,38,α) ramps. Everything at α≤0.60 fell under
+   4.5:1. These are re-pinned to the ink scale, which is AA by construction.  */
+
+.section-subheading, .hero-sub, .hero-subline, .sol-hero-sub,
+.arch-col-desc, .metric-label, .agent-mq-desc, .perf-mq-desc,
+.agents-intro, .integration-card p, .pillar-desc, .feature-card p,
+.security-desc, .faq-a, .story-attr, .nav-mega-desc, .coach-chip,
+.pww-form-label, .dia-phase-pill, .ww-msg-sub, .agent-compact-desc {
+  color: var(--ink-3);                    /* 6.18:1 on white */
+}
+
+/* Small text needs the darker step to clear AA at its size */
+.agent-mq-role, .perf-mq-role, .pillar-tagline, .persona-simple-role,
+.integration-pill, .ptag, .tech-chip, .orch-chip, .proof-chip,
+.sol-breadcrumb, .agent-compact-name {
+  color: var(--ink-2);                    /* 9.85:1 on white */
+}
+
+/* Gold as a text colour is 1.87:1 — never legible. Route to the deep amber. */
+.pillar-tagline, .agent-area-pill, .perf-mq-role, .agent-mq-role {
+  color: #9a5a06;                         /* 4.9:1 on white, same hue family */
+}
+
+/* Footer sat at 4.34:1 on #fafbfb */
+.footer a, .footer li, .footer p { color: var(--ink-3); }
+.footer a:hover { color: #c8401f; }
+
+/* Accent red on tinted surfaces bottomed out at 3.63:1. The deepened tone
+   reads identically at a glance and clears AA on every brand tint. */
+.section-eyebrow, .feature-card-icon, .nav-mega-icon,
+.arch-col-arrow, .sol-breadcrumb a:hover { color: #c8401f; }
+
+/* Dark surfaces: 0.40 white was 3.77:1 */
+.dark-section .agent-mq-role, .dark-section .agent-mq-desc,
+.dark-section .agent-compact-desc, .dark-section .section-eyebrow {
+  color: rgba(255, 255, 255, .78);
+}
+
+/* 10px UI labels are below the legible floor */
+.pww-form-label, .goal-col-label, .metric-label, .agent-mq-role, .perf-mq-role {
+  font-size: max(11.5px, 0.72rem);
+}
+
+/* 0.12em tracking on body-length text hurts word shape */
+.pillar-desc, .feature-card p, .integration-card p, .faq-a, .arch-col-desc {
+  letter-spacing: -0.003em;
+}
+
+/* --- 18b. Primary CTA legibility ------------------------------------------
+   Brand law fixes the gold→red gradient, so the label is reinforced rather
+   than the identity replaced: stops deepen slightly, gold is pulled to the
+   leading edge, and a tight shadow defines the glyph edges over the light end.
+   NOTE: the gold stop remains below 4.5:1 for white text — a brand-level
+   decision flagged to the user, not silently "fixed" by abandoning the ramp. */
+.btn-primary {
+  background-image: linear-gradient(96deg, #f0a81c 0%, #e5701f 38%, #d8402a 100%);
+  text-shadow: 0 1px 1.5px rgba(120, 42, 6, .38);
+}
+.btn-primary::after {
+  background: linear-gradient(96deg, #f7b52c 0%, #ef7d27 38%, #e24a33 100%);
+}
+
+/* --- 18c. Mobile overflow --------------------------------------------------
+   Root cause: grid/flex children default to min-width:auto, so nowrap chat
+   widgets inside .persona-sec-inner forced a 590px track into a 342px column.
+   Measured: performance-intelligence 615px -> 390px, dia 557px -> 390px.     */
+.persona-sec-inner > *, .workwise-inner > *, .difference-inner > *,
+.hero-platform-content > *, .features-grid > *, .pillars-grid > *,
+.integrations-grid > *, .persona-simple-grid > *, .arch-diagram > * {
+  min-width: 0;
+}
+.coach-demo, .ww-demo, .dia-demo, .ww-card, .coach-panel, .dia-chat {
+  max-width: 100%;
+}
+@media (max-width: 900px) {
+  .coach-input-text, .coach-think-title, .coach-chip,
+  .dia-prompt-chip, .ww-chip, .dia-phase-pill {
+    white-space: normal !important;
+    word-break: break-word;
+  }
+}
+html, body { overflow-x: clip; }
+
+/* --- 18d. Tap targets ------------------------------------------------------
+   Measured 80–96% of interactive elements under 44x44 at 390px.             */
+@media (pointer: coarse), (max-width: 900px) {
+  .nav-toggle, .coach-send-btn, .testimonials-nav, .awards-nav,
+  .social-links a, .dia-send-btn {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo, .nav-cta, .persona-tab, .features-tab {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  /* Carousel dots: keep the small visual mark, enlarge the hit area */
+  .testimonials-dot, .awards-dot {
+    position: relative;
+  }
+  .testimonials-dot::after, .awards-dot::after {
+    content: "";
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 44px; height: 44px;
+    transform: translate(-50%, -50%);
+  }
+  .footer a { min-height: 40px; }
+}
+
+/* --- 18e. Depth hygiene ----------------------------------------------------
+   Zero-offset chromatic halos read as decoration; give them offset and blur. */
+.dark-section [class*="glow"], .pulse-dot {
+  box-shadow: 0 2px 10px rgba(0, 100, 191, .28);
+}
+
+/* --- 18e2. Inline accent spans -------------------------------------------
+   Brand hues used as small text on white all sat under AA. Each is deepened
+   within its own hue family: the colour still reads as gold / red / green.  */
+.hl-gold  { color: #8a6508; }   /* was #b8860b 3.25:1 -> 5.32:1 */
+.hl-red, .solution-link, .eai-inline,
+.difference-list li::before { color: #c8401f; }  /* was #e43d30 4.19:1 -> 4.99:1 */
+.hl-green { color: #217a33; }   /* was #2c9942 3.66:1 -> 5.39:1 */
+
+/* Links that carry meaning get a hover affordance, not just colour */
+.solution-link { text-underline-offset: 3px; }
+.solution-link:hover { text-decoration: underline; text-decoration-thickness: 1.5px; }
+
+/* Footer rows need a real touch height */
+@media (pointer: coarse), (max-width: 900px) {
+  .footer a { min-height: 44px; }
+}
+
+/* --- 18f. Skip link (added for keyboard users; no visible content change) -- */
+.eq-skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 200;
+  background: #14181e;
+  color: #fff;
+  padding: 0.8em 1.2em;
+  border-radius: 0 0 10px 0;
+  font-weight: 700;
+}
+.eq-skip:focus {
+  left: 0;
+  outline: 2.5px solid #f4b223;
+  outline-offset: 2px;
+}
+
+/* ---------- 17. Print ---------------------------------------------------- */
+
+@media print {
+  .navbar, .marquee-wrapper, .perf-mq-wrapper, .bottom-cta, .final-cta-section { display: none !important; }
+  body { color: #000; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #555; }
+}
