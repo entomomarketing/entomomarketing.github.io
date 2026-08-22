@@ -1122,6 +1122,39 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
               inset 0 0 0 1px rgba(255,255,255,.5);
 }
 
+/* ---- 21b3. The ask / shape / scale mockups --------------------------------
+   These three are drawn as inline SVG with flat hardcoded fills, so none of
+   the CSS material above could reach them. CSS DOES win over SVG presentation
+   attributes, so the fills are repointed at injected gradients and the frame
+   gets the same lens treatment as the HTML widgets.                        */
+.sss-svg {
+  border-radius: 18px !important;
+  overflow: hidden;
+  box-shadow:
+    0 1px 2px rgba(43, 29, 18, .07),
+    0 10px 26px rgba(43, 29, 18, .10),
+    0 30px 60px rgba(43, 29, 18, .11) !important;
+}
+/* Window body and title bar take the glass gradients */
+.sss-svg rect[fill="#f8f9fb"] { fill: url("#eq-sss-body"); stroke: rgba(26, 31, 38, .10); }
+.sss-svg rect[fill="#1a1f26"] { fill: url("#eq-sss-bar"); }
+/* Inner panels stop being flat white */
+.sss-svg rect[fill="white"], .sss-svg rect[fill="#ffffff"] {
+  fill: url("#eq-sss-panel");
+  stroke: rgba(26, 31, 38, .09);
+}
+/* Traffic lights get a touch of gloss */
+.sss-svg circle[r="5"] { filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, .30)); }
+
+/* Brand law: Nunito Sans is the sole typeface. These mockups shipped set in
+   Calibri, which most non-Windows visitors never had anyway - they were
+   already falling back to an arbitrary system sans. */
+.sss-svg text {
+  font-family: "Nunito Sans", ui-sans-serif, system-ui, -apple-system,
+               "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  letter-spacing: -0.2px;
+}
+
 /* ---- 21c. Surfaces inside the window -------------------------------------- */
 .coach-panel, .dia-chat, .ww-stage, .coach-stage { background: transparent !important; }
 
