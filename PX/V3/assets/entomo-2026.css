@@ -198,8 +198,11 @@ section { padding: var(--sp-section) 0; }
 
 /* ---------- 5. Surfaces & depth ------------------------------------------ */
 
-.pillar-card, .integration-card, .feature-card, .persona-simple-card,
-.security-item, .card, .ww-card {
+/* Light-surface cards only. .security-item and .ww-card are DARK components
+   (security-item has no background of its own and sits on .dark-section;
+   .ww-card is ebony-clay with white text on a light section) — giving them a
+   white ground made their own white type invisible. They are treated in 20. */
+.pillar-card, .integration-card, .feature-card, .persona-simple-card, .card {
   border-radius: 16px;
   background: #fff;
   border: 1px solid var(--ink-line-soft);
@@ -209,7 +212,7 @@ section { padding: var(--sp-section) 0; }
     box-shadow var(--t-mid) var(--ease),
     border-color var(--t-mid) var(--ease);
 }
-.pillar-card:hover, .integration-card:hover, .feature-card:hover, .security-item:hover {
+.pillar-card:hover, .integration-card:hover, .feature-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--sh-3);
   border-color: rgba(228, 61, 48, .22);
@@ -469,15 +472,15 @@ section { padding: var(--sp-section) 0; }
 .section-subheading, .hero-sub, .hero-subline, .sol-hero-sub,
 .arch-col-desc, .metric-label, .agent-mq-desc, .perf-mq-desc,
 .agents-intro, .integration-card p, .pillar-desc, .feature-card p,
-.security-desc, .faq-a, .story-attr, .nav-mega-desc, .coach-chip,
-.pww-form-label, .dia-phase-pill, .ww-msg-sub, .agent-compact-desc {
+.faq-a, .story-attr, .nav-mega-desc, .coach-chip,
+.pww-form-label, .dia-phase-pill {
   color: var(--ink-3);                    /* 6.18:1 on white */
 }
 
 /* Small text needs the darker step to clear AA at its size */
 .agent-mq-role, .perf-mq-role, .pillar-tagline, .persona-simple-role,
 .integration-pill, .ptag, .tech-chip, .orch-chip, .proof-chip,
-.sol-breadcrumb, .agent-compact-name {
+.sol-breadcrumb {
   color: var(--ink-2);                    /* 9.85:1 on white */
 }
 
@@ -906,6 +909,70 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
 @media (prefers-reduced-motion: reduce) {
   .strata-graph .sg-node { opacity: 1 !important; transform: none !important; }
   .strata-graph .sg-link { stroke-dashoffset: 0 !important; }
+}
+
+/* ============================================================================
+   20. DARK-SURFACE COMPONENTS
+   These carry their own dark ground and white type. They must never inherit
+   the light card treatment; craft is applied in kind instead.
+   ========================================================================== */
+
+/* The entomo.ai / strata chat card — ebony-clay on a light section */
+.ww-card {
+  background: var(--ebony-clay) !important;
+  border: 1px solid rgba(255, 255, 255, .09) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 4px 12px rgba(43, 29, 18, .18), 0 22px 48px rgba(43, 29, 18, .26) !important;
+  transform: none !important;
+}
+.ww-card .ww-name, .ww-card .ww-msg p { color: #fff; }
+.ww-msg-sub { color: rgba(255, 255, 255, .58) !important; }
+.ww-status { color: rgba(255, 255, 255, .5); }
+.ww-msg { background: rgba(255, 255, 255, .07); border-radius: 12px; }
+.ww-card .ww-chip {
+  background: rgba(244, 178, 35, .14);
+  border: 1px solid rgba(244, 178, 35, .3);
+  color: #f7c65a;
+  border-radius: 999px;
+}
+/* The same chip also appears OUTSIDE the dark card (homepage, product pages),
+   where light gold on white washes out to 1.5:1. On light ground it takes the
+   deep amber instead. */
+.ww-chip:not(.ww-card .ww-chip) {
+  background: rgba(244, 178, 35, .12);
+  border: 1px solid rgba(244, 178, 35, .38);
+  color: #8a5005;
+  border-radius: 999px;
+}
+
+/* Compact agent list sits on the dark band */
+.agent-compact-name { color: #fff; }
+.dark-section .agent-compact-name { color: #fff; }
+.agent-compact-desc { color: rgba(255, 255, 255, .68); }
+
+/* Security grid: transparent items on the dark band, not white cards */
+.dark-section .security-item, .security-item {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  transform: none !important;
+}
+.security-title { color: #fff !important; }
+.security-desc { color: rgba(255, 255, 255, .68) !important; }
+.security-icon-wrap {
+  background: rgba(255, 255, 255, .09) !important;
+  color: #f7c65a;
+  border-radius: 12px;
+}
+
+/* Pre-existing: the blog's meta separator sat at 0.3 alpha (2.6:1) */
+.meta-dot { color: var(--ink-4); }
+
+/* Anything else living on a dark band keeps light type */
+.dark-section .pillar-desc, .dark-section .integration-card p,
+.dark-section .feature-card p, .dark-section .arch-col-desc {
+  color: rgba(255, 255, 255, .68);
 }
 
 /* ---------- 17. Print ---------------------------------------------------- */
