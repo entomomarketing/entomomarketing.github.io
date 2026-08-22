@@ -142,9 +142,10 @@ p { text-wrap: pretty; }
 /* The eyebrow: was a stock centered kicker. Now a measured label carrying a
    short gradient rule — it reads as drawn, not defaulted. */
 .section-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+  /* Deliberately NOT flex: a flex parent turns every text node and inline
+     <span class="keep-case"> into its own flex item, which shatters the
+     sentence across lines. Inline-block rule keeps the mark and the flow. */
+  display: block;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.15em;
@@ -154,14 +155,14 @@ p { text-wrap: pretty; }
 }
 .section-eyebrow::before {
   content: "";
+  display: inline-block;
   width: 26px;
   height: 2px;
   border-radius: 2px;
+  margin-right: 10px;
+  vertical-align: middle;
   background: var(--brand-gradient);
-  flex: none;
 }
-.text-center .section-eyebrow,
-.perf-agents-section .section-eyebrow { justify-content: center; }
 .section-eyebrow-white { color: rgba(255,255,255,.72); }
 
 /* Yellow mark — brand signature, tuned so the pill hugs the word */
@@ -598,6 +599,45 @@ html, body { overflow-x: clip; }
   .footer a { min-height: 44px; }
 }
 
+/* --- 18g. Headline marks must not paint over the line above -----------------
+   Measured overlap before this rule: 24.1px (strata h1), 19.7px (home h1).
+   Display line-heights are deliberately tight, so any headline that actually
+   contains a mark opens up just enough to seat the highlight box.            */
+/* !important is load-bearing here: :has(mark) carries only type-level
+   specificity (0,0,2), so it loses to page rules like `.hero h1` (0,1,1).
+   The headline containers differ per page, so raising specificity by hand
+   would mean chasing selectors on 36 pages. */
+h1:has(mark), h2:has(mark), h3:has(mark),
+.section-heading:has(mark), .hero-tagline:has(mark) {
+  line-height: 1.36 !important;
+}
+/* Zero vertical padding: the highlight takes its height from the line box,
+   so it can never grow taller than the line it sits on. */
+mark { padding: 0 0.3em !important; line-height: 1.1 !important; }
+
+/* --- 18h. Keyboard reachability of the mega-menus ---------------------------
+   The menus opened on :hover only, so no product or solution page could be
+   reached by keyboard at all. Focus now opens them on the same terms.        */
+.nav-dropdown-wrap:focus-within > .nav-mega,
+.nav-dropdown-wrap:focus-within .nav-mega {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translateX(-50%) translateY(8px) !important;
+  transition-delay: 0s !important;
+}
+
+/* --- 18i. Flex containers that hold inline sentences ------------------------
+   Same failure mode as the eyebrow: a nowrap flex parent splits a sentence
+   into one item per text node, so "AI-generated goal KPIs and sheets" breaks
+   into columns. Restore normal inline flow wherever a keep-case span sits in
+   running text.                                                              */
+li:has(> .keep-case), .persona-tags li:has(.keep-case),
+.difference-list li:has(.keep-case), .ww-msg p:has(.keep-case) {
+  display: block;
+}
+.keep-case { display: inline; white-space: normal; }
+
 /* --- 18f. Skip link (added for keyboard users; no visible content change) -- */
 .eq-skip {
   position: absolute;
@@ -615,6 +655,88 @@ html, body { overflow-x: clip; }
   outline: 2.5px solid #f4b223;
   outline-offset: 2px;
 }
+
+/* --- 18j. Mobile navigation panel ------------------------------------------
+   The markup shipped with a .nav-toggle button and no handler, so the menu was
+   unopenable on every page. entomo-2026.js toggles .eq-nav-open on <html>;
+   this is the panel it reveals.                                              */
+@media (max-width: 900px) {
+  .eq-nav-open .nav-links {
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    max-height: calc(100dvh - 64px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: #fff;
+    padding: 0.5rem 1.1rem 2rem;
+    border-top: 1px solid var(--ink-line-soft);
+    box-shadow: var(--sh-3);
+    z-index: 120;
+    animation: eq-nav-in 300ms var(--ease) both;
+  }
+  @keyframes eq-nav-in {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .eq-nav-open { overflow: hidden; }
+  .eq-nav-open .nav-links > li {
+    width: 100%;
+    border-bottom: 1px solid var(--ink-line-soft);
+  }
+  .eq-nav-open .nav-links > li:last-child { border-bottom: none; }
+  .eq-nav-open .nav-links > li > a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 52px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  /* Submenus are collapsed until their parent row is tapped */
+  .eq-nav-open .nav-mega {
+    display: none;
+    position: static !important;
+    width: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    box-shadow: none;
+    border: none;
+    padding: 0 0 0.75rem;
+  }
+  .eq-nav-open .nav-dropdown-wrap.eq-sub-open .nav-mega { display: block; }
+  .eq-nav-open .nav-mega-grid { grid-template-columns: 1fr !important; gap: 0; }
+  .eq-nav-open .nav-mega-item { min-height: 52px; padding: 0.5rem 0.25rem; }
+  .eq-nav-open .nav-dropdown-wrap > a::after {
+    content: "";
+    width: 8px; height: 8px;
+    border-right: 2px solid var(--ink-4);
+    border-bottom: 2px solid var(--ink-4);
+    transform: rotate(45deg);
+    transition: transform var(--t-mid) var(--ease);
+    flex: none;
+    margin-left: 0.75rem;
+  }
+  .eq-nav-open .nav-dropdown-wrap.eq-sub-open > a::after { transform: rotate(-135deg); }
+  .nav-toggle {
+    background: transparent;
+    border: 1px solid var(--ink-line);
+    border-radius: 10px;
+    color: var(--ink);
+  }
+}
+
+/* Marquees stop when the tab is not visible */
+.eq-hidden .marquee-track,
+.eq-hidden .perf-mq-track,
+.eq-hidden .agent-marquee-track { animation-play-state: paused; }
 
 /* ---------- 17. Print ---------------------------------------------------- */
 
