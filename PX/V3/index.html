@@ -2457,42 +2457,60 @@
           </div>
           <p class="sss-desc">agents analyze your workforce data and surface what matters.</p>
           <div class="sss-ui">
-            <svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg" class="sss-svg">
-              <rect x="0" y="0" width="320" height="280" rx="12" fill="#f8f9fb" stroke="#e0e0e0" stroke-width="1"/>
-              <rect x="0" y="0" width="320" height="40" rx="12" fill="#1a1f26"/>
-              <rect x="0" y="14" width="320" height="26" fill="#1a1f26"/>
-              <circle cx="18" cy="20" r="5" fill="#e43d30"/>
-              <circle cx="36" cy="20" r="5" fill="#f4b223"/>
-              <circle cx="54" cy="20" r="5" fill="#2c9942"/>
-              <text x="170" y="25" text-anchor="middle" fill="white" font-size="12" font-family="Calibri, sans-serif" font-weight="600">ask with intelligence</text>
+            <svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg" class="sss-svg" role="img" aria-label="ask with intelligence">
+    <defs>
+      <linearGradient id="bar-a" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="38">
+        <stop offset="0" stop-color="#39424f"/><stop offset="1" stop-color="#1a1f26"/>
+      </linearGradient>
+      <linearGradient id="body-a" gradientUnits="userSpaceOnUse" x1="0" y1="38" x2="0" y2="280">
+        <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f6f8fc"/>
+      </linearGradient>
+      <linearGradient id="accent-a" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#0064bf" stop-opacity="0.95"/>
+        <stop offset="1" stop-color="#0064bf" stop-opacity="0.72"/>
+      </linearGradient>
+      <filter id="lift-a" x="-20%" y="-30%" width="140%" height="170%">
+        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#2b1d12" flood-opacity="0.09"/>
+      </filter>
+    </defs>
+    <rect x="0.5" y="0.5" width="319" height="279" rx="16" fill="url(#body-a)" stroke="rgba(26,31,38,0.09)"/>
+    <path d="M0,38 L0,16 A16,16 0 0 1 16,0 L304,0 A16,16 0 0 1 320,16 L320,38 Z" fill="url(#bar-a)"/>
+    <circle cx="18" cy="19" r="4.5" fill="#e43d30"/>
+    <circle cx="34" cy="19" r="4.5" fill="#f4b223"/>
+    <circle cx="50" cy="19" r="4.5" fill="#2c9942"/>
+    <text x="170" y="23" text-anchor="middle" fill="rgba(255,255,255,0.94)" font-size="11.5" font-weight="600" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">ask with intelligence</text>
+    <rect x="0" y="38" width="320" height="1" fill="rgba(255,255,255,0.10)"/>
 
-              <g class="sss-ask-q">
-                <rect x="70" y="58" width="230" height="32" rx="16" fill="#0064bf" opacity="0.1"/>
-                <text x="88" y="79" fill="#0064bf" font-size="12" font-family="Calibri, sans-serif">"what's our AI readiness score?"</text>
-              </g>
+    <g class="sss-ask-q">
+      <rect x="92" y="58" width="208" height="34" rx="17" fill="#0064bf" fill-opacity="0.10"/>
+      <text x="196" y="80" text-anchor="middle" fill="#0064bf" font-size="11.5" font-weight="600" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">&quot;what&#39;s our AI readiness score?&quot;</text>
+    </g>
 
-              <g class="sss-ask-analyze">
-                <rect x="20" y="108" width="165" height="26" rx="6" fill="#f4b223" opacity="0.15"/>
-                <text x="32" y="126" fill="#b8860b" font-size="11" font-family="Calibri, sans-serif" font-weight="600">analyzing Strata skills data...</text>
-              </g>
+    <g class="sss-ask-analyze">
+      <rect x="20" y="104" width="196" height="28" rx="14" fill="#f4b223" fill-opacity="0.16"/>
+      <circle cx="36" cy="118" r="2.6" fill="#b06a08"><animate attributeName="opacity" values="1;0.25;1" dur="1.2s" repeatCount="indefinite"/></circle>
+      <circle cx="44" cy="118" r="2.6" fill="#b06a08"><animate attributeName="opacity" values="1;0.25;1" dur="1.2s" begin="0.2s" repeatCount="indefinite"/></circle>
+      <circle cx="52" cy="118" r="2.6" fill="#b06a08"><animate attributeName="opacity" values="1;0.25;1" dur="1.2s" begin="0.4s" repeatCount="indefinite"/></circle>
+      <text x="64" y="122" fill="#8a5005" font-size="10.5" font-weight="600" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">analyzing Strata skills data...</text>
+    </g>
 
-              <g class="sss-ask-agents">
-                <rect x="20" y="148" width="80" height="24" rx="12" fill="#0064bf" opacity="0.12"/>
-                <text x="34" y="164" fill="#0064bf" font-size="10" font-family="Calibri, sans-serif" font-weight="600">SkillMatrix</text>
-                <rect x="108" y="148" width="80" height="24" rx="12" fill="#2c9942" opacity="0.12"/>
-                <text x="120" y="164" fill="#2c9942" font-size="10" font-family="Calibri, sans-serif" font-weight="600">TalentAtlas</text>
-                <rect x="196" y="148" width="72" height="24" rx="12" fill="#e43d30" opacity="0.12"/>
-                <text x="208" y="164" fill="#e43d30" font-size="10" font-family="Calibri, sans-serif" font-weight="600">Pulse360</text>
-              </g>
+    <g class="sss-ask-agents">
+      <rect x="20" y="144" width="84" height="26" rx="13" fill="#ffffff" stroke="rgba(0,100,191,0.30)"/>
+      <text x="62" y="161" text-anchor="middle" fill="#0064bf" font-size="10" font-weight="700" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">SkillMatrix</text>
+      <rect x="112" y="144" width="84" height="26" rx="13" fill="#ffffff" stroke="rgba(44,153,66,0.30)"/>
+      <text x="154" y="161" text-anchor="middle" fill="#217a33" font-size="10" font-weight="700" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">TalentAtlas</text>
+      <rect x="204" y="144" width="76" height="26" rx="13" fill="#ffffff" stroke="rgba(228,61,48,0.30)"/>
+      <text x="242" y="161" text-anchor="middle" fill="#c8401f" font-size="10" font-weight="700" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">Pulse360</text>
+    </g>
 
-              <g class="sss-ask-answer">
-                <rect x="20" y="190" width="280" height="72" rx="10" fill="white" stroke="#e0e0e0" stroke-width="1"/>
-                <text x="34" y="214" fill="#1a1f26" font-size="13" font-family="Calibri, sans-serif" font-weight="700">AI Readiness Score</text>
-                <rect x="34" y="226" width="150" height="10" rx="5" fill="#e8e8e8"/>
-                <rect x="34" y="226" width="117" height="10" rx="5" fill="#2c9942"/>
-                <text x="232" y="238" fill="#2c9942" font-size="18" font-family="Calibri, sans-serif" font-weight="700">78%</text>
-              </g>
-            </svg>
+    <g class="sss-ask-answer" filter="url(#lift-a)">
+      <rect x="20" y="184" width="280" height="76" rx="14" fill="#ffffff" stroke="rgba(26,31,38,0.09)"/>
+      <text x="38" y="209" fill="#1a1f26" font-size="12.5" font-weight="700" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">AI Readiness Score</text>
+      <rect x="38" y="222" width="180" height="9" rx="4.5" fill="#edf0f5"/>
+      <rect x="38" y="222" width="140" height="9" rx="4.5" fill="#2c9942"/>
+      <text x="282" y="232" text-anchor="end" fill="#217a33" font-size="23" font-weight="700" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">78%</text>
+    </g>
+  </svg>
           </div>
         </div>
 
@@ -2504,48 +2522,64 @@
           </div>
           <p class="sss-desc">shape your <span class="keep-case">HR</span> processes with <span class="keep-case">AI</span> coworkers and custom agents.</p>
           <div class="sss-ui">
-            <svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg" class="sss-svg">
-              <rect x="0" y="0" width="320" height="280" rx="12" fill="#f8f9fb" stroke="#e0e0e0" stroke-width="1"/>
-              <rect x="0" y="0" width="320" height="40" rx="12" fill="#1a1f26"/>
-              <rect x="0" y="14" width="320" height="26" fill="#1a1f26"/>
-              <circle cx="18" cy="20" r="5" fill="#e43d30"/>
-              <circle cx="36" cy="20" r="5" fill="#f4b223"/>
-              <circle cx="54" cy="20" r="5" fill="#2c9942"/>
-              <text x="170" y="25" text-anchor="middle" fill="white" font-size="12" font-family="Calibri, sans-serif" font-weight="600">build workflows with coworker</text>
+            <svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg" class="sss-svg" role="img" aria-label="build workflows with coworker">
+    <defs>
+      <linearGradient id="bar-b" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="38">
+        <stop offset="0" stop-color="#39424f"/><stop offset="1" stop-color="#1a1f26"/>
+      </linearGradient>
+      <linearGradient id="body-b" gradientUnits="userSpaceOnUse" x1="0" y1="38" x2="0" y2="280">
+        <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f6f8fc"/>
+      </linearGradient>
+      <linearGradient id="accent-b" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#c8891a" stop-opacity="0.95"/>
+        <stop offset="1" stop-color="#c8891a" stop-opacity="0.72"/>
+      </linearGradient>
+      <filter id="lift-b" x="-20%" y="-30%" width="140%" height="170%">
+        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#2b1d12" flood-opacity="0.09"/>
+      </filter>
+    </defs>
+    <rect x="0.5" y="0.5" width="319" height="279" rx="16" fill="url(#body-b)" stroke="rgba(26,31,38,0.09)"/>
+    <path d="M0,38 L0,16 A16,16 0 0 1 16,0 L304,0 A16,16 0 0 1 320,16 L320,38 Z" fill="url(#bar-b)"/>
+    <circle cx="18" cy="19" r="4.5" fill="#e43d30"/>
+    <circle cx="34" cy="19" r="4.5" fill="#f4b223"/>
+    <circle cx="50" cy="19" r="4.5" fill="#2c9942"/>
+    <text x="170" y="23" text-anchor="middle" fill="rgba(255,255,255,0.94)" font-size="11.5" font-weight="600" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">build workflows with coworker</text>
+    <rect x="0" y="38" width="320" height="1" fill="rgba(255,255,255,0.10)"/>
 
-              <g class="sss-shape-obj">
-                <rect x="20" y="58" width="280" height="34" rx="8" fill="white" stroke="#e0e0e0" stroke-width="1"/>
-                <text x="34" y="80" fill="#777" font-size="11" font-family="Calibri, sans-serif">"run quarterly performance review cycle"</text>
-              </g>
+    <g class="sss-shape-obj">
+      <rect x="20" y="60" width="280" height="36" rx="12" fill="#ffffff" stroke="rgba(26,31,38,0.09)"/>
+      <rect x="20" y="60" width="3" height="36" rx="1.5" fill="url(#accent-b)"/>
+      <text x="38" y="83" fill="#5a626c" font-size="11" font-weight="600" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">&quot;run quarterly performance review cycle&quot;</text>
+    </g>
 
-              <g class="sss-shape-agents">
-                <text x="20" y="118" fill="#1a1f26" font-size="11" font-family="Calibri, sans-serif" font-weight="700">assembling agent team</text>
+    <g class="sss-shape-agents">
+      <text x="20" y="122" fill="#8b93a0" font-size="9.5" font-weight="700" letter-spacing="0.9" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">assembling agent team</text>
+      <rect x="20" y="140" width="82" height="52" rx="13" fill="#ffffff" stroke="rgba(26,31,38,0.09)"/>
+      <circle cx="61" cy="157" r="7" fill="#c8891a" fill-opacity="0.16"/>
+      <circle cx="61" cy="157" r="2.8" fill="#c8891a"/>
+      <text x="61" y="176" text-anchor="middle" fill="#c8891a" font-size="9.5" font-weight="700" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">GoalForge</text>
+      <text x="61" y="187" text-anchor="middle" fill="#8b93a0" font-size="8" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">goal generation</text>
+      <text x="110" y="170" text-anchor="middle" fill="#8b93a0" font-size="12" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">&#8594;</text>
+      <rect x="119" y="140" width="82" height="52" rx="13" fill="#ffffff" stroke="rgba(26,31,38,0.09)"/>
+      <circle cx="160" cy="157" r="7" fill="#c8401f" fill-opacity="0.16"/>
+      <circle cx="160" cy="157" r="2.8" fill="#c8401f"/>
+      <text x="160" y="176" text-anchor="middle" fill="#c8401f" font-size="9.5" font-weight="700" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">Pulse360</text>
+      <text x="160" y="187" text-anchor="middle" fill="#8b93a0" font-size="8" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">feedback sensing</text>
+      <text x="209" y="170" text-anchor="middle" fill="#8b93a0" font-size="12" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">&#8594;</text>
+      <rect x="218" y="140" width="82" height="52" rx="13" fill="#ffffff" stroke="rgba(26,31,38,0.09)"/>
+      <circle cx="259" cy="157" r="7" fill="#0064bf" fill-opacity="0.16"/>
+      <circle cx="259" cy="157" r="2.8" fill="#0064bf"/>
+      <text x="259" y="176" text-anchor="middle" fill="#0064bf" font-size="9.5" font-weight="700" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">FlowGen</text>
+      <text x="259" y="187" text-anchor="middle" fill="#8b93a0" font-size="8" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">automation</text>
+    </g>
 
-                <rect x="20" y="130" width="80" height="52" rx="10" fill="#0064bf" opacity="0.08" stroke="#0064bf" stroke-width="0.5"/>
-                <circle cx="42" cy="148" r="10" fill="#0064bf" opacity="0.2"/>
-                <text x="56" y="148" fill="#0064bf" font-size="9" font-family="Calibri, sans-serif" font-weight="700">GoalForge</text>
-                <text x="28" y="170" fill="#555" font-size="8" font-family="Calibri, sans-serif">goal generation</text>
-
-                <text x="108" y="156" fill="#aaa" font-size="14">→</text>
-
-                <rect x="122" y="130" width="80" height="52" rx="10" fill="#2c9942" opacity="0.08" stroke="#2c9942" stroke-width="0.5"/>
-                <circle cx="144" cy="148" r="10" fill="#2c9942" opacity="0.2"/>
-                <text x="158" y="148" fill="#2c9942" font-size="9" font-family="Calibri, sans-serif" font-weight="700">Pulse360</text>
-                <text x="130" y="170" fill="#555" font-size="8" font-family="Calibri, sans-serif">feedback sensing</text>
-
-                <text x="210" y="156" fill="#aaa" font-size="14">→</text>
-
-                <rect x="224" y="130" width="76" height="52" rx="10" fill="#f4b223" opacity="0.08" stroke="#f4b223" stroke-width="0.5"/>
-                <circle cx="246" cy="148" r="10" fill="#f4b223" opacity="0.2"/>
-                <text x="260" y="148" fill="#b8860b" font-size="9" font-family="Calibri, sans-serif" font-weight="700">FlowGen</text>
-                <text x="232" y="170" fill="#555" font-size="8" font-family="Calibri, sans-serif">automation</text>
-              </g>
-
-              <g class="sss-shape-output">
-                <rect x="20" y="200" width="280" height="44" rx="10" fill="white" stroke="#2c9942" stroke-width="1"/>
-                <text x="160" y="227" text-anchor="middle" fill="#1a1f26" font-size="12" font-family="Calibri, sans-serif" font-weight="700">performance program has been deployed.</text>
-              </g>
-            </svg>
+    <g class="sss-shape-output" filter="url(#lift-b)">
+      <rect x="20" y="212" width="280" height="46" rx="14" fill="#f4faf6" stroke="rgba(44,153,66,0.28)"/>
+      <circle cx="44" cy="235" r="9" fill="#2c9942" fill-opacity="0.14"/>
+      <path d="M39.5,235 l3.2,3.2 l6-6.4" fill="none" stroke="#217a33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="62" y="239" fill="#1c6b2c" font-size="11.5" font-weight="700" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">performance program has been deployed.</text>
+    </g>
+  </svg>
           </div>
         </div>
 
@@ -2557,57 +2591,62 @@
           </div>
           <p class="sss-desc">deliver outcomes in the daily flow-of-work.</p>
           <div class="sss-ui">
-            <svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg" class="sss-svg">
-              <rect x="0" y="0" width="320" height="280" rx="12" fill="#f8f9fb" stroke="#e0e0e0" stroke-width="1"/>
-              <rect x="0" y="0" width="320" height="40" rx="12" fill="#1a1f26"/>
-              <rect x="0" y="14" width="320" height="26" fill="#1a1f26"/>
-              <circle cx="18" cy="20" r="5" fill="#e43d30"/>
-              <circle cx="36" cy="20" r="5" fill="#f4b223"/>
-              <circle cx="54" cy="20" r="5" fill="#2c9942"/>
-              <text x="170" y="25" text-anchor="middle" fill="white" font-size="12" font-family="Calibri, sans-serif" font-weight="600">grow in the flow of work</text>
+            <svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg" class="sss-svg" role="img" aria-label="grow in the flow of work">
+    <defs>
+      <linearGradient id="bar-c" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="38">
+        <stop offset="0" stop-color="#39424f"/><stop offset="1" stop-color="#1a1f26"/>
+      </linearGradient>
+      <linearGradient id="body-c" gradientUnits="userSpaceOnUse" x1="0" y1="38" x2="0" y2="280">
+        <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f6f8fc"/>
+      </linearGradient>
+      <linearGradient id="accent-c" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#2c9942" stop-opacity="0.95"/>
+        <stop offset="1" stop-color="#2c9942" stop-opacity="0.72"/>
+      </linearGradient>
+      <filter id="lift-c" x="-20%" y="-30%" width="140%" height="170%">
+        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#2b1d12" flood-opacity="0.09"/>
+      </filter>
+    </defs>
+    <rect x="0.5" y="0.5" width="319" height="279" rx="16" fill="url(#body-c)" stroke="rgba(26,31,38,0.09)"/>
+    <path d="M0,38 L0,16 A16,16 0 0 1 16,0 L304,0 A16,16 0 0 1 320,16 L320,38 Z" fill="url(#bar-c)"/>
+    <circle cx="18" cy="19" r="4.5" fill="#e43d30"/>
+    <circle cx="34" cy="19" r="4.5" fill="#f4b223"/>
+    <circle cx="50" cy="19" r="4.5" fill="#2c9942"/>
+    <text x="170" y="23" text-anchor="middle" fill="rgba(255,255,255,0.94)" font-size="11.5" font-weight="600" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">grow in the flow of work</text>
+    <rect x="0" y="38" width="320" height="1" fill="rgba(255,255,255,0.10)"/>
 
-              <g class="sss-scale-n1">
-                <rect x="20" y="58" width="280" height="50" rx="10" fill="white" stroke="#0064bf" stroke-width="1"/>
-                <circle cx="46" cy="83" r="12" fill="#0064bf" opacity="0.15"/>
-                <text x="46" y="88" text-anchor="middle" fill="#0064bf" font-size="12" font-weight="700">G</text>
-                <text x="66" y="76" fill="#1a1f26" font-size="11" font-family="Calibri, sans-serif" font-weight="700">GoalForge nudge</text>
-                <text x="66" y="94" fill="#555" font-size="10" font-family="Calibri, sans-serif">"Q2 goal is 68% complete. review 3 items."</text>
-              </g>
+    <g class="sss-scale-n1" filter="url(#lift-c)">
+      <rect x="20" y="58" width="280" height="52" rx="14" fill="#ffffff" stroke="rgba(26,31,38,0.09)"/>
+      <circle cx="44" cy="84" r="13" fill="#c8891a" fill-opacity="0.14"/>
+      <text x="44" y="88" text-anchor="middle" fill="#c8891a" font-size="12" font-weight="700" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">G</text>
+      <text x="66" y="80" fill="#1a1f26" font-size="11" font-weight="700" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">GoalForge nudge</text>
+      <text x="66" y="96" fill="#5a626c" font-size="10" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">&quot;Q2 goal is 68% complete. review 3 items.&quot;</text>
+    </g>
+    <g class="sss-scale-n2" filter="url(#lift-c)">
+      <rect x="20" y="118" width="280" height="52" rx="14" fill="#ffffff" stroke="rgba(26,31,38,0.09)"/>
+      <circle cx="44" cy="144" r="13" fill="#0064bf" fill-opacity="0.14"/>
+      <text x="44" y="148" text-anchor="middle" fill="#0064bf" font-size="12" font-weight="700" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">S</text>
+      <text x="66" y="140" fill="#1a1f26" font-size="11" font-weight="700" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">SkillMatrix insight</text>
+      <text x="66" y="156" fill="#5a626c" font-size="10" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">&quot;2 skills matched to your career path.&quot;</text>
+    </g>
 
-              <g class="sss-scale-n2">
-                <rect x="20" y="120" width="280" height="50" rx="10" fill="white" stroke="#2c9942" stroke-width="1"/>
-                <circle cx="46" cy="145" r="12" fill="#2c9942" opacity="0.15"/>
-                <text x="46" y="150" text-anchor="middle" fill="#2c9942" font-size="12" font-weight="700">S</text>
-                <text x="66" y="138" fill="#1a1f26" font-size="11" font-family="Calibri, sans-serif" font-weight="700">SkillMatrix insight</text>
-                <text x="66" y="156" fill="#555" font-size="10" font-family="Calibri, sans-serif">"2 skills matched to your career path."</text>
-              </g>
-
-              <g class="sss-scale-metrics">
-                <rect x="20" y="188" width="280" height="74" rx="10" fill="white" stroke="#e0e0e0" stroke-width="1"/>
-                <text x="34" y="210" fill="#1a1f26" font-size="10" font-family="Calibri, sans-serif" font-weight="700">LIVE OUTCOMES</text>
-
-                <text x="34" y="232" fill="#555" font-size="9" font-family="Calibri, sans-serif">goal completion</text>
-                <rect x="34" y="238" width="60" height="8" rx="4" fill="#e8e8e8"/>
-                <rect x="34" y="238" width="47" height="8" rx="4" fill="#0064bf">
-                  <animate attributeName="width" values="35;47;40;47" dur="4s" repeatCount="indefinite"/>
-                </rect>
-                <text x="100" y="246" fill="#0064bf" font-size="9" font-weight="700">78%</text>
-
-                <text x="130" y="232" fill="#555" font-size="9" font-family="Calibri, sans-serif">skill readiness</text>
-                <rect x="130" y="238" width="60" height="8" rx="4" fill="#e8e8e8"/>
-                <rect x="130" y="238" width="42" height="8" rx="4" fill="#2c9942">
-                  <animate attributeName="width" values="30;42;36;42" dur="5s" repeatCount="indefinite"/>
-                </rect>
-                <text x="196" y="246" fill="#2c9942" font-size="9" font-weight="700">6.8</text>
-
-                <text x="224" y="232" fill="#555" font-size="9" font-family="Calibri, sans-serif">engagement</text>
-                <rect x="224" y="238" width="45" height="8" rx="4" fill="#e8e8e8"/>
-                <rect x="224" y="238" width="30" height="8" rx="4" fill="#f4b223">
-                  <animate attributeName="width" values="22;30;26;30" dur="6s" repeatCount="indefinite"/>
-                </rect>
-                <text x="275" y="246" fill="#b8860b" font-size="9" font-weight="700">7.4</text>
-              </g>
-            </svg>
+    <g class="sss-scale-metrics">
+      <rect x="20" y="182" width="280" height="92" rx="14" fill="#f5faf7" stroke="rgba(44,153,66,0.22)"/>
+      <text x="38" y="205" fill="#1c6b2c" font-size="9" font-weight="700" letter-spacing="1.1" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">LIVE OUTCOMES</text>
+      <text x="38" y="234" fill="#8b93a0" font-size="8.5" font-weight="600" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">goal completion</text>
+      <rect x="38" y="242" width="66" height="7" rx="3.5" fill="#edf0f5"/>
+      <rect x="38" y="242" width="52" height="7" rx="3.5" fill="#0064bf"/>
+      <text x="38" y="264" fill="#1a1f26" font-size="13" font-weight="700" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">78%</text>
+      <text x="128" y="234" fill="#8b93a0" font-size="8.5" font-weight="600" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">skill readiness</text>
+      <rect x="128" y="242" width="66" height="7" rx="3.5" fill="#edf0f5"/>
+      <rect x="128" y="242" width="45" height="7" rx="3.5" fill="#2c9942"/>
+      <text x="128" y="264" fill="#1a1f26" font-size="13" font-weight="700" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">6.8</text>
+      <text x="218" y="234" fill="#8b93a0" font-size="8.5" font-weight="600" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">engagement</text>
+      <rect x="218" y="242" width="66" height="7" rx="3.5" fill="#edf0f5"/>
+      <rect x="218" y="242" width="49" height="7" rx="3.5" fill="#c8891a"/>
+      <text x="218" y="264" fill="#1a1f26" font-size="13" font-weight="700" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif">7.4</text>
+    </g>
+  </svg>
           </div>
         </div>
 
@@ -2617,35 +2656,35 @@
       <div style="margin-top: 0.75rem;">
         <svg viewBox="0 0 1000 60" xmlns="http://www.w3.org/2000/svg" class="sss-pills-svg" style="width:100%; max-width:1100px; display:block; margin:0 auto;">
           <!-- Connecting line -->
-          <line x1="72" y1="30" x2="928" y2="30" stroke="#d0d0d0" stroke-width="1.5"/>
+          <line x1="72" y1="30" x2="928" y2="30" stroke="rgba(26,31,38,0.16)" stroke-width="1.5"/>
 
           <circle cx="72" cy="30" r="6" fill="#e43d30"/>
           <rect x="22" y="42" width="100" height="18" rx="9" fill="#e43d30" opacity="0.1"/>
-          <text x="72" y="54" text-anchor="middle" fill="#e43d30" font-size="10" font-family="Calibri, sans-serif" font-weight="600">performance</text>
+          <text x="72" y="54" text-anchor="middle" fill="#e43d30" font-size="10" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif" font-weight="600">performance</text>
 
           <circle cx="214" cy="30" r="6" fill="#0064bf"/>
           <rect x="156" y="42" width="116" height="18" rx="9" fill="#0064bf" opacity="0.1"/>
-          <text x="214" y="54" text-anchor="middle" fill="#0064bf" font-size="10" font-family="Calibri, sans-serif" font-weight="600">skills &amp; growth</text>
+          <text x="214" y="54" text-anchor="middle" fill="#0064bf" font-size="10" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif" font-weight="600">skills &amp; growth</text>
 
           <circle cx="358" cy="30" r="6" fill="#f4b223"/>
           <rect x="306" y="42" width="104" height="18" rx="9" fill="#f4b223" opacity="0.1"/>
-          <text x="358" y="54" text-anchor="middle" fill="#b8860b" font-size="10" font-family="Calibri, sans-serif" font-weight="600">engagement</text>
+          <text x="358" y="54" text-anchor="middle" fill="#b8860b" font-size="10" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif" font-weight="600">engagement</text>
 
           <circle cx="500" cy="30" r="6" fill="#2c9942"/>
           <rect x="462" y="42" width="76" height="18" rx="9" fill="#2c9942" opacity="0.1"/>
-          <text x="500" y="54" text-anchor="middle" fill="#2c9942" font-size="10" font-family="Calibri, sans-serif" font-weight="600">learning</text>
+          <text x="500" y="54" text-anchor="middle" fill="#2c9942" font-size="10" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif" font-weight="600">learning</text>
 
           <circle cx="642" cy="30" r="6" fill="#e43d30"/>
           <rect x="604" y="42" width="76" height="18" rx="9" fill="#e43d30" opacity="0.1"/>
-          <text x="642" y="54" text-anchor="middle" fill="#e43d30" font-size="10" font-family="Calibri, sans-serif" font-weight="600">wellness</text>
+          <text x="642" y="54" text-anchor="middle" fill="#e43d30" font-size="10" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif" font-weight="600">wellness</text>
 
           <circle cx="786" cy="30" r="6" fill="#0064bf"/>
           <rect x="750" y="42" width="72" height="18" rx="9" fill="#0064bf" opacity="0.1"/>
-          <text x="786" y="54" text-anchor="middle" fill="#0064bf" font-size="10" font-family="Calibri, sans-serif" font-weight="600">insights</text>
+          <text x="786" y="54" text-anchor="middle" fill="#0064bf" font-size="10" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif" font-weight="600">insights</text>
 
           <circle cx="928" cy="30" r="6" fill="#f4b223"/>
           <rect x="892" y="42" width="72" height="18" rx="9" fill="#f4b223" opacity="0.1"/>
-          <text x="928" y="54" text-anchor="middle" fill="#b8860b" font-size="10" font-family="Calibri, sans-serif" font-weight="600">core HR</text>
+          <text x="928" y="54" text-anchor="middle" fill="#b8860b" font-size="10" font-family="Nunito Sans, ui-sans-serif, system-ui, sans-serif" font-weight="600">core HR</text>
         </svg>
       </div>
 

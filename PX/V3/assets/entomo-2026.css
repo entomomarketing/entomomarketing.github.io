@@ -1135,20 +1135,8 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
     0 10px 26px rgba(43, 29, 18, .10),
     0 30px 60px rgba(43, 29, 18, .11) !important;
 }
-/* Window body and title bar take the glass gradients */
-.sss-svg rect[fill="#f8f9fb"] { fill: url("#eq-sss-body"); stroke: rgba(26, 31, 38, .10); }
-.sss-svg rect[fill="#1a1f26"] { fill: url("#eq-sss-bar"); }
-/* Inner panels stop being flat white */
-.sss-svg rect[fill="white"], .sss-svg rect[fill="#ffffff"] {
-  fill: url("#eq-sss-panel");
-  stroke: rgba(26, 31, 38, .09);
-}
-/* Traffic lights get a touch of gloss */
-.sss-svg circle[r="5"] { filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, .30)); }
-
-/* Brand law: Nunito Sans is the sole typeface. These mockups shipped set in
-   Calibri, which most non-Windows visitors never had anyway - they were
-   already falling back to an arbitrary system sans. */
+/* Safety net only: the mockups now set Nunito Sans on each text node
+   directly. Kept so any future SVG dropped in here cannot regress. */
 .sss-svg text {
   font-family: "Nunito Sans", ui-sans-serif, system-ui, -apple-system,
                "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
