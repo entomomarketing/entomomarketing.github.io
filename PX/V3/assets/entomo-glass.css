@@ -1,0 +1,187 @@
+/* ============================================================================
+   entomo — glass layer
+   ----------------------------------------------------------------------------
+   Extends the Liquid Glass material from the product mockups to the rest of
+   the surfaces. Loaded by the V3 pages AND by the TMRW / national-talent
+   pages, which share entomo's class vocabulary.
+
+   Two deliberate rules govern this file:
+
+   1. Glass needs light behind it. A translucent pane over flat white reads as
+      dirty grey, so sections get a quiet brand wash FIRST and the panes sit
+      on that.
+   2. backdrop-filter is expensive. It is spent only on bounded chrome (the
+      navbar, mega menus, a handful of panels). High-count elements - cards,
+      chips, 50 metric cells on one TMRW page - use simulated glass: a
+      translucent fill with a specular rim and a hairline. Over a wash the two
+      are near indistinguishable, and one of them does not cost a repaint.
+   ========================================================================== */
+
+:root {
+  --g-pane:      rgba(255, 255, 255, .74);
+  --g-pane-soft: rgba(255, 255, 255, .58);
+  --g-pane-firm: rgba(255, 255, 255, .86);
+  --g-rim:       rgba(255, 255, 255, .92);
+  --g-rim-soft:  rgba(255, 255, 255, .45);
+  --g-edge:      rgba(26, 31, 38, .085);
+  --g-blur:      saturate(180%) blur(20px);
+  --g-shadow:
+      0 1px 2px rgba(43, 29, 18, .05),
+      0 8px 22px rgba(43, 29, 18, .07),
+      0 26px 54px rgba(43, 29, 18, .09);
+  --g-shadow-lift:
+      0 2px 6px rgba(43, 29, 18, .07),
+      0 14px 34px rgba(43, 29, 18, .10),
+      0 40px 76px rgba(43, 29, 18, .12);
+}
+
+/* ---- 1. Ambient washes ----------------------------------------------------
+   The enabler. Each tinted section already carries a brand colour; this adds
+   a soft directional bloom so panes laid over it have something to refract.
+   Applied with background-image so the section's own background-color, often
+   set inline, is preserved underneath.                                      */
+section {
+  background-image:
+    radial-gradient(90% 60% at 12% 0%,   rgba(244, 178, 35, .07), transparent 62%),
+    radial-gradient(85% 65% at 100% 8%,  rgba(0, 100, 191, .06),  transparent 60%);
+  background-repeat: no-repeat;
+}
+.dark-section, .bottom-cta, .final-cta-section {
+  background-image:
+    radial-gradient(95% 65% at 10% 0%,  rgba(244, 178, 35, .10), transparent 60%),
+    radial-gradient(90% 70% at 100% 6%, rgba(0, 100, 191, .12),  transparent 62%);
+}
+/* The demo shells paint their own light; do not double up inside them. */
+.coach-demo section, .ww-demo section, .dia-demo section { background-image: none; }
+
+/* ---- 2. Cards as simulated glass ------------------------------------------
+   No backdrop-filter here on purpose: these appear in 7- and 9-card grids.  */
+.pillar-card, .integration-card, .feature-card, .persona-simple-card,
+.card, .suite-row, .proof-card, .outcome-card, .difference-card,
+.solution-card, .path-card, .video-card, .feature-card-icon {
+  background-color: var(--g-pane-firm);
+  border: 1px solid var(--g-edge);
+  box-shadow: var(--g-shadow), inset 0 1px 0 var(--g-rim);
+  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 260ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.pillar-card:hover, .integration-card:hover, .feature-card:hover,
+.suite-row:hover, .proof-card:hover, .outcome-card:hover {
+  box-shadow: var(--g-shadow-lift), inset 0 1px 0 var(--g-rim);
+  border-color: rgba(224, 114, 28, .30);
+}
+
+/* ---- 3. Chrome gets the real thing (bounded count) ------------------------ */
+.navbar {
+  background: rgba(255, 255, 255, .72) !important;
+  -webkit-backdrop-filter: var(--g-blur);
+  backdrop-filter: var(--g-blur);
+  border-bottom: 1px solid var(--g-edge);
+  box-shadow: inset 0 -1px 0 var(--g-rim-soft);
+}
+.nav-mega {
+  background: rgba(255, 255, 255, .86) !important;
+  -webkit-backdrop-filter: var(--g-blur);
+  backdrop-filter: var(--g-blur);
+  border: 1px solid var(--g-edge) !important;
+  box-shadow: var(--g-shadow-lift), inset 0 1px 0 var(--g-rim) !important;
+  border-radius: 20px !important;
+}
+
+/* ---- 4. Small surfaces ---------------------------------------------------- */
+.integration-pill, .ptag, .tech-chip, .orch-chip, .proof-chip,
+.hero-badge, .pipeline-pill, .agent-area-pill, .case-assure-item {
+  background-color: var(--g-pane) !important;
+  border: 1px solid var(--g-edge);
+  box-shadow: inset 0 1px 0 var(--g-rim), 0 1px 2px rgba(43, 29, 18, .05);
+}
+
+/* ---- 5. Dark surfaces: same material, polarity flipped -------------------- */
+.dark-section .agent-compact, .dark-section .security-icon-wrap,
+.agent-mq-card, .agent-compact {
+  background-color: rgba(255, 255, 255, .07);
+  border: 1px solid rgba(255, 255, 255, .10);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12);
+}
+
+/* ============================================================================
+   6. TMRW / national-talent pages
+   The page's signature visual is .pdemo - a browser window repeated nine
+   times, with solid #1a1f26 chrome top and bottom. Same treatment the
+   ask/shape/scale mockups got: the bar becomes a pane with brand colour
+   showing through, and its type flips to ink so it stays legible.
+   ========================================================================== */
+
+.pdemo {
+  border-radius: 20px !important;
+  border: 1px solid var(--g-edge);
+  background:
+    radial-gradient(120% 80% at 6% 0%,   rgba(244, 178, 35, .16), transparent 58%),
+    radial-gradient(115% 90% at 100% 8%, rgba(0, 100, 191, .14),  transparent 60%),
+    #fbfcfe !important;
+  box-shadow: var(--g-shadow-lift), inset 0 1px 0 var(--g-rim) !important;
+  /* Brand law: Nunito Sans is the sole typeface. This shipped set in Inter. */
+  font-family: "Nunito Sans", ui-sans-serif, system-ui, -apple-system,
+               "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+.pdemo-bar, .pdemo-cap {
+  position: relative;
+  background:
+    linear-gradient(90deg, rgba(0, 100, 191, .16), rgba(244, 178, 35, .13) 55%, rgba(228, 61, 48, .12)),
+    var(--g-pane) !important;
+  -webkit-backdrop-filter: saturate(170%) blur(14px);
+  backdrop-filter: saturate(170%) blur(14px);
+  box-shadow: inset 0 1px 0 var(--g-rim);
+}
+.pdemo-bar::after, .pdemo-cap::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(26,31,38,0), rgba(26,31,38,.12) 16%,
+                                     rgba(26,31,38,.12) 84%, rgba(26,31,38,0));
+}
+.pdemo-bar::after { bottom: 0; }
+.pdemo-cap::before { top: 0; }
+
+/* The bars carried white type; on a light pane it needs ink. */
+.pdemo-bar, .pdemo-bar *, .pdemo-cap, .pdemo-cap * { color: #2b323c !important; }
+.pdemo-cap-label { color: #5a626c !important; }
+.pdemo-url {
+  background: rgba(255, 255, 255, .72) !important;
+  border: 1px solid var(--g-edge);
+  color: #5a626c !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9);
+}
+.pdemo-stage { background: #f7f9fc !important; }
+
+/* Suite rows and case metrics: light glass, no backdrop pass (50 cells) */
+.suite-row { border-radius: 18px !important; }
+.suite-row-head { background: transparent !important; border: none !important; box-shadow: none !important; }
+.suite-row-hero {
+  background:
+    linear-gradient(90deg, rgba(244,178,35,.20), rgba(255,218,0,.20)),
+    var(--g-pane-firm) !important;
+  border: 1.5px solid rgba(244,178,35,.55) !important;
+  box-shadow: var(--g-shadow-lift), inset 0 1px 0 var(--g-rim) !important;
+}
+.case-metric { background-color: transparent; }
+.case-assure { background-color: rgba(234, 245, 237, .72) !important; }
+
+/* ---- 7. Degradation ------------------------------------------------------- */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .navbar { background: rgba(255, 255, 255, .97) !important; }
+  .nav-mega { background: #ffffff !important; }
+  .pdemo-bar, .pdemo-cap { background: #eef2f8 !important; }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .navbar { background: #ffffff !important; -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .nav-mega { background: #ffffff !important; -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .pdemo-bar, .pdemo-cap { background: #eef2f8 !important; -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .pillar-card, .integration-card, .feature-card, .persona-simple-card,
+  .card, .suite-row, .integration-pill, .ptag, .tech-chip, .orch-chip,
+  .proof-chip, .hero-badge { background-color: #ffffff !important; }
+  section { background-image: none; }
+}
