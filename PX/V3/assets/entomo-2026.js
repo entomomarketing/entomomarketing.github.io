@@ -104,10 +104,144 @@
     });
   }
 
+  /* ---- 4. The strata graph --------------------------------------------------
+     Draws Role -> Responsibility -> Task -> KPI -> Skill as a real connected
+     graph. Paths are computed from measured node positions rather than
+     hard-coded, so wrapping, zoom, and reflow cannot desynchronise them. */
+  function initStrataGraph() {
+    var root = doc.querySelector("[data-strata-graph]");
+    if (!root) return;
+
+    var svg = root.querySelector(".sg-links");
+    var nodes = {};
+    root.querySelectorAll(".sg-node").forEach(function (n, i) {
+      nodes[n.getAttribute("data-node")] = n;
+      n.style.setProperty("--sg-i", i);
+    });
+
+    var edges = (root.getAttribute("data-edges") || "")
+      .split(",")
+      .map(function (pair) {
+        var s = pair.split(">");
+        return { from: s[0], to: s[1] };
+      })
+      .filter(function (e) { return nodes[e.from] && nodes[e.to]; });
+
+    var paths = [];
+
+    function draw() {
+      var box = root.getBoundingClientRect();
+      if (!box.width) return;
+      svg.setAttribute("viewBox", "0 0 " + box.width + " " + box.height);
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      paths = [];
+
+      edges.forEach(function (e) {
+        var a = nodes[e.from].getBoundingClientRect();
+        var b = nodes[e.to].getBoundingClientRect();
+        // exit the right edge of the source, enter the left edge of the target
+        var x1 = a.right - box.left, y1 = a.top - box.top + a.height / 2;
+        var x2 = b.left - box.left,  y2 = b.top - box.top + b.height / 2;
+        var dx = Math.max(28, (x2 - x1) * 0.5);
+        var d = "M" + x1 + "," + y1 +
+                " C" + (x1 + dx) + "," + y1 +
+                " " + (x2 - dx) + "," + y2 +
+                " " + x2 + "," + y2;
+
+        var path = doc.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("d", d);
+        path.setAttribute("class", "sg-link");
+        path.dataset.from = e.from;
+        path.dataset.to = e.to;
+        svg.appendChild(path);
+        try {
+          var len = path.getTotalLength();
+          path.style.setProperty("--len", len);
+        } catch (err) {}
+        paths.push(path);
+      });
+    }
+
+    /* Light the full chain through a node, in both directions. This is the
+       whole point of the component: one click proves the model is connected. */
+    function lit(id) {
+      /* Directed on purpose. A naive both-ways flood would light the entire
+         component (every node is reachable from every other), which shows
+         nothing. Walking upstream and downstream separately traces the actual
+         chain this node sits on. */
+      var keep = {};
+      keep[id] = true;
+
+      var frontier = [id], changed = true;
+      while (changed) {                       // downstream: follow edges forward
+        changed = false;
+        edges.forEach(function (e) {
+          if (keep[e.from] && !keep[e.to]) { keep[e.to] = true; changed = true; }
+        });
+      }
+      var up = {};
+      up[id] = true;
+      changed = true;
+      while (changed) {                       // upstream: follow edges backward
+        changed = false;
+        edges.forEach(function (e) {
+          if (up[e.to] && !up[e.from]) { up[e.from] = true; changed = true; }
+        });
+      }
+      Object.keys(up).forEach(function (k) { keep[k] = true; });
+      root.classList.add("is-focused");
+      Object.keys(nodes).forEach(function (k) {
+        nodes[k].classList.toggle("is-lit", !!keep[k]);
+      });
+      paths.forEach(function (p) {
+        p.classList.toggle("is-lit", !!(keep[p.dataset.from] && keep[p.dataset.to]));
+      });
+    }
+
+    function clear() {
+      root.classList.remove("is-focused");
+      Object.keys(nodes).forEach(function (k) { nodes[k].classList.remove("is-lit"); });
+      paths.forEach(function (p) { p.classList.remove("is-lit"); });
+    }
+
+    Object.keys(nodes).forEach(function (id) {
+      var n = nodes[id];
+      n.addEventListener("mouseenter", function () { lit(id); });
+      n.addEventListener("focus", function () { lit(id); });
+      n.addEventListener("mouseleave", clear);
+      n.addEventListener("blur", clear);
+    });
+    root.addEventListener("mouseleave", clear);
+
+    draw();
+    // Fonts land after first paint and change node heights; redraw when they do.
+    if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(draw).catch(function () {});
+
+    var t;
+    window.addEventListener("resize", function () {
+      clearTimeout(t);
+      t = setTimeout(draw, 140);
+    });
+
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          draw();
+          root.classList.add("is-drawn");
+          obs.disconnect();
+        });
+      }, { threshold: 0.18 }).observe(root);
+    } else {
+      root.classList.add("is-drawn");
+    }
+  }
+
   function boot() {
     try { guardMotion(); } catch (e) {}
     try { initNav(); } catch (e) {}
     try { initVisibility(); } catch (e) {}
+    try { initStrataGraph(); } catch (e) {}
   }
 
   if (doc.readyState === "loading") {

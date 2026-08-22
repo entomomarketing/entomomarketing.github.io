@@ -738,6 +738,176 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
 .eq-hidden .perf-mq-track,
 .eq-hidden .agent-marquee-track { animation-play-state: paused; }
 
+/* ============================================================================
+   19. THE STRATA GRAPH — signature component
+   Role -> Responsibility -> Task -> KPI -> Skill, drawn as an actual connected
+   graph with a worked example. The crossings are the argument: a flat skills
+   list cannot produce them. Connector geometry is computed from real node
+   positions in entomo-2026.js, so it survives reflow and text wrapping.
+   ========================================================================== */
+
+.strata-graph {
+  position: relative;
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto 1fr auto;
+  gap: 0 clamp(0.5rem, 2.2vw, 2.6rem);
+  align-items: start;
+  overflow: visible !important;
+  margin-top: 3rem;
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.strata-graph .sg-links {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 0;
+}
+.strata-graph .sg-link {
+  fill: none;
+  stroke: rgba(43, 29, 18, .17);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  transition: stroke var(--t-mid) var(--ease), stroke-width var(--t-mid) var(--ease),
+              opacity var(--t-mid) var(--ease);
+}
+.strata-graph .sg-link.is-lit {
+  stroke: #e0721c;
+  stroke-width: 2.6;
+}
+.strata-graph.is-focused .sg-link:not(.is-lit) { opacity: 0.22; }
+
+/* Columns inherit the grid; DOM order is header -> desc -> arrow -> tooltip ->
+   nodes, and explicit rows put the nodes between header and description
+   without moving a single word in the markup. */
+.strata-graph .sg-col {
+  display: contents;
+}
+.strata-graph .arch-col-header {
+  grid-row: 1;
+  position: relative;
+  z-index: 2;
+  /* The KPI header shipped as gradient text (-webkit-text-fill-color:
+     transparent + background-clip: text). Giving the pill its own background
+     clipped that text to white and it vanished. Emphasis here comes from
+     weight and the pill, not from a gradient fill. */
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: currentColor !important;
+  text-align: center;
+  padding: 0.55rem 0.4rem;
+  margin-bottom: 1.6rem;
+  border-radius: 999px;
+  font-size: clamp(11px, 1vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: #fff;
+  border: 1px solid var(--ink-line);
+  color: var(--ink-2);
+}
+.strata-graph .sg-nodes {
+  grid-row: 2;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.7rem;
+  min-height: 260px;
+}
+.strata-graph .arch-col-desc {
+  grid-row: 3;
+  margin-top: 1.7rem;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-4);
+  text-align: center;
+  padding: 0 0.2rem;
+}
+/* Real curves replace the placeholder arrow glyphs */
+.strata-graph .arch-col-arrow { display: none !important; }
+.strata-graph .arch-tooltip { display: none !important; }
+
+.strata-graph .sg-node {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  border: 1px solid var(--ink-line);
+  border-radius: 12px;
+  padding: 0.7em 0.85em;
+  font-size: clamp(12px, 1.05vw, 13.5px);
+  font-weight: 600;
+  line-height: 1.32;
+  color: var(--ink);
+  text-align: center;
+  cursor: default;
+  box-shadow: var(--sh-1);
+  transition: transform var(--t-mid) var(--ease), box-shadow var(--t-mid) var(--ease),
+              border-color var(--t-mid) var(--ease), opacity var(--t-mid) var(--ease);
+}
+.strata-graph .sg-node:hover,
+.strata-graph .sg-node:focus-visible,
+.strata-graph .sg-node.is-lit {
+  border-color: rgba(224, 114, 28, .55);
+  box-shadow: var(--sh-2);
+  transform: translateY(-2px);
+}
+.strata-graph.is-focused .sg-node:not(.is-lit) { opacity: 0.4; }
+
+/* The origin node anchors the example */
+.strata-graph .sg-col[data-layer="0"] .sg-node {
+  background: linear-gradient(180deg, #fff, #fffaf0);
+  border-color: rgba(224, 114, 28, .4);
+  font-weight: 700;
+}
+
+/* Entrance: nodes settle, then the connectors draw themselves */
+.strata-graph .sg-node { opacity: 0; transform: translateY(10px); }
+.strata-graph.is-drawn .sg-node {
+  opacity: 1;
+  transform: none;
+  transition: opacity 520ms var(--ease), transform 520ms var(--ease);
+  transition-delay: calc(var(--sg-i, 0) * 45ms);
+}
+.strata-graph .sg-link { stroke-dasharray: var(--len, 0); stroke-dashoffset: var(--len, 0); }
+.strata-graph.is-drawn .sg-link {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 900ms var(--ease-soft) 260ms,
+              stroke var(--t-mid) var(--ease), stroke-width var(--t-mid) var(--ease),
+              opacity var(--t-mid) var(--ease);
+}
+
+@media (max-width: 900px) {
+  /* Five columns cannot survive a phone. Stack the layers; each becomes a
+     labelled row of chips and the connector layer steps aside. */
+  .strata-graph { grid-template-columns: 1fr; grid-template-rows: none; gap: 0; }
+  .strata-graph .sg-links { display: none; }
+  .strata-graph .sg-col { display: block; padding: 1.15rem 0; border-bottom: 1px solid var(--ink-line-soft); }
+  .strata-graph .sg-col:last-child { border-bottom: none; }
+  .strata-graph .arch-col-header { display: inline-block; margin-bottom: 0.9rem; }
+  .strata-graph .sg-nodes {
+    min-height: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+  .strata-graph .sg-node { opacity: 1; transform: none; padding: 0.55em 0.8em; }
+  .strata-graph .arch-col-desc { margin-top: 0.9rem; text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .strata-graph .sg-node { opacity: 1 !important; transform: none !important; }
+  .strata-graph .sg-link { stroke-dashoffset: 0 !important; }
+}
+
 /* ---------- 17. Print ---------------------------------------------------- */
 
 @media print {
