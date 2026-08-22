@@ -975,6 +975,155 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
   color: rgba(255, 255, 255, .68);
 }
 
+/* ============================================================================
+   21. MATERIALS — the product mockups as glass
+   Explicitly requested: Apple-style translucency on the demo widgets.
+   Translucency only reads if there is light behind it, so each demo shell
+   first gets a quiet brand-tinted backdrop; the chrome then blurs THAT.
+   Glass here is a material doing a job (separating chrome from content),
+   not decoration sprayed across the page.
+   ========================================================================== */
+
+:root {
+  --mat-blur:     saturate(185%) blur(22px);
+  --mat-light:    rgba(255, 255, 255, .58);
+  --mat-lighter:  rgba(255, 255, 255, .74);
+  --mat-hairline: rgba(255, 255, 255, .72);
+  --mat-edge:     rgba(26, 31, 38, .085);
+  --mat-shadow:
+      0 1px 2px rgba(43, 29, 18, .06),
+      0 10px 26px rgba(43, 29, 18, .09),
+      0 34px 68px rgba(43, 29, 18, .11);
+}
+
+/* ---- 21a. The window shell ------------------------------------------------ */
+.coach-demo, .ww-demo, .dia-demo {
+  position: relative;
+  border-radius: 26px !important;
+  border: 1px solid var(--mat-edge);
+  /* the light the chrome refracts */
+  background:
+    radial-gradient(120% 82% at 6% 0%,   rgba(244, 178, 35, .16), transparent 58%),
+    radial-gradient(115% 92% at 100% 8%, rgba(0, 100, 191, .13),  transparent 60%),
+    radial-gradient(95% 75% at 55% 104%, rgba(228, 61, 48, .10),  transparent 62%),
+    #fcfcfd !important;
+  box-shadow: var(--mat-shadow), inset 0 1px 0 rgba(255, 255, 255, .9) !important;
+  overflow: hidden;
+  isolation: isolate;
+}
+/* Specular sweep across the top edge — the giveaway of a real material */
+.coach-demo::before, .ww-demo::before, .dia-demo::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 46%;
+  background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0));
+  pointer-events: none;
+  z-index: 0;
+}
+.coach-demo > *, .ww-demo > *, .dia-demo > * { position: relative; z-index: 1; }
+
+/* ---- 21b. The title bar --------------------------------------------------- */
+.coach-topbar, .ww-topbar, .dia-topbar {
+  position: relative;
+  background: var(--mat-light) !important;
+  -webkit-backdrop-filter: var(--mat-blur);
+  backdrop-filter: var(--mat-blur);
+  border-bottom: none !important;
+  padding: 13px 22px !important;
+  box-shadow: inset 0 1px 0 var(--mat-hairline);
+}
+/* Hairline that fades at both ends rather than ruling edge to edge */
+.coach-topbar::after, .ww-topbar::after, .dia-topbar::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(26,31,38,0), rgba(26,31,38,.13) 18%,
+                                     rgba(26,31,38,.13) 82%, rgba(26,31,38,0));
+}
+/* Avatars sit like app icons: soft ring, slight lift */
+.coach-avatar, .ww-avatar, .dia-avatar {
+  border-radius: 30% !important;
+  box-shadow: 0 1px 2px rgba(43,29,18,.16), 0 4px 10px rgba(43,29,18,.14),
+              inset 0 0 0 1px rgba(255,255,255,.5);
+}
+
+/* ---- 21c. Surfaces inside the window -------------------------------------- */
+.coach-panel, .dia-chat, .ww-stage, .coach-stage { background: transparent !important; }
+
+/* Deliberately NOT glassed: .dia-msg, .coach-answer, .coach-question and
+   .ww-msg carry no background of their own — they are animation wrappers, so
+   giving them a fill produces empty boxes mid-cycle. .dia-outcome is a
+   gradient card with white type; a white fill erased it entirely. */
+
+/* The outcome card keeps its own gradient and gains the material's edge work */
+.dia-outcome {
+  border-radius: 18px !important;
+  border: 1px solid rgba(255, 255, 255, .22);
+  box-shadow:
+    0 2px 6px rgba(43, 29, 18, .16),
+    0 16px 36px rgba(43, 29, 18, .20),
+    inset 0 1px 0 rgba(255, 255, 255, .3) !important;
+}
+
+.coach-chip, .dia-prompt-chip {
+  background: rgba(255,255,255,.72) !important;
+  -webkit-backdrop-filter: saturate(170%) blur(10px);
+  backdrop-filter: saturate(170%) blur(10px);
+  border: 1px solid rgba(26,31,38,.09) !important;
+  border-radius: 999px !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.9), 0 1px 2px rgba(43,29,18,.05);
+  color: var(--ink-2) !important;   /* was rgba(26,31,38,.45) = 2.8:1 */
+}
+
+.dia-input-row, .coach-input-row {
+  background: rgba(255,255,255,.6) !important;
+  -webkit-backdrop-filter: saturate(170%) blur(14px);
+  backdrop-filter: saturate(170%) blur(14px);
+  border-radius: 999px !important;
+  border: 1px solid rgba(26,31,38,.09);
+  box-shadow: inset 0 1px 2px rgba(43,29,18,.06);
+}
+
+/* ---- 21d. Dark glass ------------------------------------------------------ */
+.ww-card {
+  background:
+    radial-gradient(120% 80% at 8% 0%,  rgba(244,178,35,.14), transparent 58%),
+    radial-gradient(110% 90% at 100% 6%, rgba(0,100,191,.16), transparent 60%),
+    var(--ebony-clay) !important;
+  border: 1px solid rgba(255,255,255,.11) !important;
+  box-shadow: 0 2px 6px rgba(15,12,8,.28), 0 22px 52px rgba(15,12,8,.34),
+              inset 0 1px 0 rgba(255,255,255,.16) !important;
+}
+.ww-card .ww-msg {
+  background: rgba(255,255,255,.085) !important;
+  border: 1px solid rgba(255,255,255,.1);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.09);
+}
+.ww-card .ww-card-header { border-bottom-color: rgba(255,255,255,.1) !important; }
+
+/* ---- 21e. Graceful degradation --------------------------------------------
+   Without backdrop-filter these translucent fills would read as washed-out
+   flats, so they go solid. Same for anyone who asks for less transparency. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .coach-topbar, .ww-topbar, .dia-topbar { background: #f4f7fb !important; }
+  .coach-chip, .dia-prompt-chip,
+  .dia-input-row, .coach-input-row { background: #fff !important; }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .coach-topbar, .ww-topbar, .dia-topbar {
+    background: #f4f7fb !important;
+    -webkit-backdrop-filter: none; backdrop-filter: none;
+  }
+  .coach-chip, .dia-prompt-chip,
+  .dia-input-row, .coach-input-row {
+    background: #fff !important;
+    -webkit-backdrop-filter: none; backdrop-filter: none;
+  }
+  .coach-demo::before, .ww-demo::before, .dia-demo::before { display: none; }
+}
+
 /* ---------- 17. Print ---------------------------------------------------- */
 
 @media print {
