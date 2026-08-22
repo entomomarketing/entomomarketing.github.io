@@ -272,16 +272,22 @@
          their fill at these instead — same material language as the HTML
          widgets, expressed in the only way SVG allows. */
       "<defs>" +
-        '<linearGradient id="eq-sss-bar" x1="0" y1="0" x2="0" y2="1">' +
-          '<stop offset="0%"   stop-color="#414b59"/>' +
-          '<stop offset="10%"  stop-color="#2c3541"/>' +
-          '<stop offset="55%"  stop-color="#20262f"/>' +
-          '<stop offset="100%" stop-color="#161b22"/>' +
+        /* userSpaceOnUse is load-bearing. The title bar is TWO overlapping
+           rects - a rounded one plus a square one that flattens the bottom
+           corners. With the default objectBoundingBox each rect gets its own
+           gradient box, so the ramp restarts at y=14 and draws a bright seam
+           across the bar. Mapping both to the same absolute 0->40 span makes
+           the fill continuous. All three mockups share this geometry. */
+        '<linearGradient id="eq-sss-bar" gradientUnits="userSpaceOnUse" ' +
+          'x1="0" y1="0" x2="0" y2="40">' +
+          '<stop offset="0%"   stop-color="#39424f"/>' +
+          '<stop offset="45%"  stop-color="#242b35"/>' +
+          '<stop offset="100%" stop-color="#1a1f26"/>' +
         "</linearGradient>" +
-        '<linearGradient id="eq-sss-body" x1="0" y1="0" x2="0.85" y2="1">' +
+        '<linearGradient id="eq-sss-body" gradientUnits="userSpaceOnUse" ' +
+          'x1="0" y1="0" x2="0" y2="280">' +
           '<stop offset="0%"   stop-color="#ffffff"/>' +
-          '<stop offset="40%"  stop-color="#fcfdfe"/>' +
-          '<stop offset="100%" stop-color="#f3f6fb"/>' +
+          '<stop offset="100%" stop-color="#f5f8fc"/>' +
         "</linearGradient>" +
         '<linearGradient id="eq-sss-panel" x1="0" y1="0" x2="0" y2="1">' +
           '<stop offset="0%"   stop-color="#ffffff"/>' +
