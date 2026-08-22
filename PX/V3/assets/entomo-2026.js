@@ -237,8 +237,43 @@
     }
   }
 
+  /* ---- 5. Liquid Glass displacement filter ----------------------------------
+     Apple's Liquid Glass refracts rather than merely blurring. Only Chrome can
+     run an SVG filter as part of backdrop-filter, so this injects the
+     displacement pass the CSS opts into; every other browser keeps the
+     pure-CSS lens (sheen, rim, chromatic fringe) and simply skips the bend. */
+  function injectGlassFilter() {
+    if (doc.getElementById("eq-lg-defs")) return;
+    if (!doc.querySelector(".coach-demo, .ww-demo, .dia-demo")) return;
+
+    var NS = "http://www.w3.org/2000/svg";
+    var svg = doc.createElementNS(NS, "svg");
+    svg.setAttribute("id", "eq-lg-defs");
+    svg.setAttribute("aria-hidden", "true");
+    svg.setAttribute("focusable", "false");
+    svg.setAttribute("width", "0");
+    svg.setAttribute("height", "0");
+    svg.style.cssText =
+      "position:absolute;width:0;height:0;overflow:hidden;pointer-events:none";
+
+    // Low-frequency fractal noise, softened, drives a gentle displacement.
+    // R drives X and G drives Y; 128 is the neutral value in that encoding.
+    svg.innerHTML =
+      '<filter id="eq-liquid" x="-25%" y="-25%" width="150%" height="150%" ' +
+      'color-interpolation-filters="sRGB">' +
+        '<feTurbulence type="fractalNoise" baseFrequency="0.005 0.009" ' +
+          'numOctaves="2" seed="11" result="noise"/>' +
+        '<feGaussianBlur in="noise" stdDeviation="1.8" result="soft"/>' +
+        '<feDisplacementMap in="SourceGraphic" in2="soft" scale="11" ' +
+          'xChannelSelector="R" yChannelSelector="G"/>' +
+      "</filter>";
+
+    doc.body.appendChild(svg);
+  }
+
   function boot() {
     try { guardMotion(); } catch (e) {}
+    try { injectGlassFilter(); } catch (e) {}
     try { initNav(); } catch (e) {}
     try { initVisibility(); } catch (e) {}
     try { initStrataGraph(); } catch (e) {}
