@@ -121,6 +121,12 @@
         }, 0)
       );
       trigger.setAttribute("aria-controls", mega.id);
+      /* Set here rather than relying on the markup: the "AI lab" trigger wraps
+         its label in <span class="keep-case">, so the pass that added these
+         attributes statically matched only 4 of the 5 anchors. */
+      if (!trigger.hasAttribute("role")) trigger.setAttribute("role", "button");
+      if (!trigger.hasAttribute("aria-haspopup")) trigger.setAttribute("aria-haspopup", "true");
+      if (!trigger.hasAttribute("aria-expanded")) trigger.setAttribute("aria-expanded", "false");
 
       /* The panel is absolutely positioned under its trigger and is a fixed
          720px wide, so the rightmost menus run off-screen on narrower desktops
