@@ -1520,16 +1520,61 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
    flourish above the letterforms, so a large share of its box is empty air
    and matching 1em would leave the letters visibly small next to the type.
    Sized to the letters, not to the box. */
+/* Solved the same way as the entomo.ai lockup. Measured in the artwork: the
+   letterforms occupy 79.74% of the image height with the baseline at 99.49%
+   from the top — the wordmark sits almost flush with the bottom edge, and the
+   sparkle flourish accounts for the space above it. Measured in the page
+   font: "strata" inks 0.65em. So 0.65 / 0.7974 = 0.815em, and the baseline
+   offset is effectively nil.
+
+   The previous values were guessed against the image box and rendered the
+   letters at roughly 1.9x the surrounding type. */
 .brand-inline--strata img {
-  height: 1.62em;
-  vertical-align: -0.46em;
+  height: 0.815em;
+  vertical-align: -0.004em;
   margin: 0 0.04em;
 }
-h1 .brand-inline--strata img,
-h2 .brand-inline--strata img { height: 1.52em; vertical-align: -0.42em; }
 
 /* An inline lockup is an inline-block, so a line can break between it and the
    punctuation that follows — which left "why [strata]" on one line and
    ", not another copilot" starting with an orphaned comma on the next.
    Binding the lockup to its trailing punctuation moves the break after it. */
 .eq-nowrap { white-space: nowrap; }
+
+
+/* ============================================================================
+   29. "strata" set as text
+   Where the word appears in copy rather than as the lockup, it takes the
+   lockup's own gradient. The stops are sampled from the artwork itself,
+   below the sparkle overlay so they are the letter colours and not the
+   flourish: pink at the s, through mauve and blue, to gold on the final a.
+   ========================================================================== */
+:root {
+  --strata-gradient: linear-gradient(90deg,
+    #f86da9 0%, #ba7bae 30%, #708cb5 58%, #2c9bbb 82%, #ebbe2e 100%);
+}
+
+.strata-text {
+  background-image: var(--strata-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #b8608f;              /* fallback where background-clip:text is absent */
+  font-weight: 700;
+  /* The gradient is painted across the word's own box, so each instance runs
+     the full ramp rather than sampling a slice of a page-wide gradient. */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+/* Inside an already-gradient-clipped heading the nested clip would collapse;
+   let the outer treatment own those. */
+.eq-gradient-text .strata-text,
+[style*="text-fill-color: transparent"] .strata-text {
+  background-image: none;
+  -webkit-text-fill-color: currentColor;
+  color: inherit;
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .strata-text { background-image: none; -webkit-text-fill-color: #b8608f; color: #b8608f; }
+}
