@@ -30,7 +30,6 @@
 
   /* CG Red is 4.19:1 on white — fine as a fill, short of AA as text.
      Text uses this darkened sibling; fills keep the brand value. */
-  --cg-red-text: #c8341f;  /*  5.3:1 */
   --ink-line:      rgba(26, 31, 38, 0.11);
   --ink-line-soft: rgba(26, 31, 38, 0.065);
 
@@ -547,19 +546,19 @@ section { padding: var(--sp-section) 0; }
   letter-spacing: -0.003em;
 }
 
-/* --- 18b. Primary CTA legibility ------------------------------------------
-   The ramp previously ran gold→red, which cannot carry white text: measured
-   2.03:1 at the gold end against a 4.5:1 requirement, and no text-shadow
-   closes a gap that size. Gold is not darkenable to AA without becoming
-   bronze, so the range was narrowed instead — the button stays the brand's
-   orange-to-red CTA, but starts at a deep orange rather than gold.
-   Measured white-on-gradient: 5.18:1 → 6.14:1 → 7.37:1. Brand gold is
-   undimmed on the secondary button, where ink text reads it at 8.9:1. */
+/* --- 18b. Primary CTA -------------------------------------------------------
+   The brand's gold→red ramp, exactly as it shipped. The shadow reinforces the
+   label over the light end rather than replacing the identity.
+   Known and accepted: white on the gold stop measures 2.03:1 against a 4.5:1
+   AA requirement. Gold cannot reach AA without becoming bronze, so this is a
+   brand decision taken by the brand owner. A narrowed deep-orange ramp was
+   trialled and reverted as off-brand. */
 .btn-primary {
-  background-image: linear-gradient(96deg, #c2410c 0%, #b3341a 38%, #a52220 100%);
+  background-image: linear-gradient(96deg, #f0a81c 0%, #e5701f 38%, #d8402a 100%);
+  text-shadow: 0 1px 1.5px rgba(120, 42, 6, .38);
 }
 .btn-primary::after {
-  background: linear-gradient(96deg, #d2500f 0%, #c33e20 38%, #b52a27 100%);
+  background: linear-gradient(96deg, #f7b52c 0%, #ef7d27 38%, #e24a33 100%);
 }
 
 /* --- 18c. Mobile overflow --------------------------------------------------
@@ -623,7 +622,7 @@ html, body { overflow-x: clip; }
 /* --- 18e2. Inline accent spans -------------------------------------------
    Brand hues used as small text on white all sat under AA. Each is deepened
    within its own hue family: the colour still reads as gold / red / green.  */
-.hl-gold  { color: #8a6508; }   /* was #b8860b 3.25:1 -> 5.32:1 */
+.hl-gold  { color: #b8860b; }
 .hl-red, .solution-link, .eai-inline,
 .difference-list li::before { color: #c8401f; }  /* was #e43d30 4.19:1 -> 4.99:1 */
 .hl-green { color: #217a33; }   /* was #2c9942 3.66:1 -> 5.39:1 */
@@ -1325,51 +1324,6 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
 .coach-action-btn { cursor: default; }
 
 /* ============================================================================
-   23. Colour corrections that page rules were beating
-   Every selector here is overriding a more specific page-level rule, which is
-   why !important appears: these are contrast corrections, not preferences.
-   ========================================================================== */
-
-:root {
-  /* The brand gold→red ramp is 1.87:1 against white at the gold end. As a
-     fill that is fine. As TEXT it is unreadable, and 28 pages clip this ramp
-     into glyphs with -webkit-text-fill-color: transparent — which is exactly
-     why the earlier `color:` fix on .section-eyebrow did nothing on 14 of
-     them. Same warm gold→red character, moved into legible territory:
-     measured 4.87:1 → 5.30:1 → 5.29:1 across the ramp. */
-  --brand-gradient-text: linear-gradient(90deg, #9c6604, #c8341f);
-}
-
-/* Gradient-clipped text. The gradient has to change, because with
-   -webkit-text-fill-color: transparent no `color` can ever paint.
-
-   The class is applied by JS, not written here as a bare selector, and that
-   is deliberate: only SOME .section-eyebrow / .arch-color-* elements actually
-   set background-clip: text. Targeting the selector directly painted the
-   gradient as a visible coloured rectangle behind the other 27 of them, since
-   with the default border-box clip a background-image is just a background.
-   CSS cannot ask "does this element clip to text", so JS measures it. */
-.eq-gradient-text {
-  background-image: var(--brand-gradient-text) !important;
-}
-/* On a dark band the light end is the readable one; darkening there would be
-   backwards. Measured against #1a1f26: 6.9:1 → 5.1:1. */
-.dark-section .eq-gradient-text,
-.bottom-cta .eq-gradient-text,
-.final-cta-section .eq-gradient-text {
-  background-image: linear-gradient(90deg, #f4b223, #ff9d7a) !important;
-}
-
-/* Flat CG Red used as text. Fills keep the brand value; only glyphs move. */
-.arch-color-intelligence,
-.path-link,
-.form-field label .req,
-.req {
-  color: var(--cg-red-text) !important;
-  -webkit-text-fill-color: var(--cg-red-text);
-}
-
-/* ============================================================================
    24. Carousel pause control
    Required by WCAG 2.2.2 and injected by the carousel scripts. Styled as a
    glass pill so it reads as chrome rather than as a new piece of UI.
@@ -1432,184 +1386,10 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
 .anim.is-visible,
 .stagger.is-visible > * { will-change: auto; }
 
-/* ============================================================================
-   26. The CTA gradient token itself
-   --gradient-cta is declared in each page's :root and consumed 81 times across
-   35 pages — .nav-cta, .btn-primary, gradient borders, accent bars. Overriding
-   the consumers one at a time missed most of them; redefining the token fixes
-   every consumer at once. This sheet loads after the page <style>, so an equal
-   specificity :root here wins on order.
 
-   Old: linear-gradient(90deg, #f4b223, #e43d30) — white text measured
-        1.87:1 at the gold end, 4.19:1 at the red end. Failing across its
-        entire length.
-   New: measured 5.18:1 → 6.14:1 → 7.37:1. Same warm orange-to-red identity,
-        started at a deep orange instead of gold. Brand gold is untouched
-        everywhere it is a fill, and on the secondary button where ink reads
-        it at 8.9:1.
-   ========================================================================== */
-:root {
-  --gradient-cta: linear-gradient(90deg, #c2410c 0%, #b3341a 45%, #a52220 100%);
-}
 
-/* Flat CG Red used as text on light tints — the fill stays brand-value, the
-   glyphs move to the darkened sibling. .hero-eyebrow is deliberately absent:
-   it clips its background to its glyphs, so it is handled by the gradient
-   path above rather than being flattened to a solid here. */
-.office-tag,
-.solution-link,
-.form-consent label a,
-.case-cap,
-.section-eyebrow-red {
-  color: var(--cg-red-text) !important;
-  -webkit-text-fill-color: var(--cg-red-text);
-}
 
-/* ============================================================================
-   27. The remaining brand colours as text and as fills behind white text
-   Measured values in comments; each is a corrected pair, not a new palette.
-   ========================================================================== */
-:root {
-  --cg-blue-text:  #0058a8;  /* 7.1:1 on white. --cg-blue #0064bf is 5.9:1 and
-                                fine alone, but was being used at .5/.6 alpha. */
-  --cg-green-text: #237a35;  /* 5.4:1. Sea Green #2c9942 is 3.66:1 as text. */
-  --cg-gold-text:  #8a6508;  /* 6.5:1. CG Gold #f4b223 is 1.87:1 as text. */
-}
 
-/* Solid brand colours used as glyphs on light ground. */
-.arch-color-outcomes   { color: var(--cg-green-text) !important; }
-.arch-color-foundation { color: var(--cg-gold-text)  !important; }
-.leader-title, .read-more, .story-link, .video-tag, .btn-download,
-.register-link, .office-tag, .event-tag, .resource-tag,
-.duration, .watch-link, .stk-persona, .pillar-num {
-  color: var(--cg-red-text) !important;
-  -webkit-text-fill-color: var(--cg-red-text);
-}
 
-/* Chips are COLOUR-CODED — red, blue, green, gold and ink each mean something
-   here. An earlier blanket `.pill, .tag { color: red }` cleared the failures
-   by destroying that coding, which is not a fix. Only the three families that
-   actually fail move, and each moves within its own hue. */
-.pill-type-roundtable, .pill-type-summit, .pill-dept-eng,
-.tag-agentic, .tag-industry, .badge-icon {
-  color: var(--cg-red-text) !important;
-}
-.pill-format-inperson, .pill-type-forum, .pill-dept-sales, .tag-skills {
-  color: var(--cg-green-text) !important;
-}
-.pill-type-webinar, .pill-dept-design, .tag-ebook, .tag-engagement,
-.pillar-tagline {
-  color: var(--cg-gold-text) !important;
-}
-/* Spanish Blue (5.9:1) and Ebony Clay are already above AA and are untouched. */
 
-/* .pillar-icon appears in every family; it is an icon, not text. */
-.pillar-icon { color: inherit; }
-
-/* Chips on the dark featured panel: the darkened text above is correct on a
-   light tint and invisible on this one. Measured backdrop is a near-black
-   gradient, so the chip inverts instead. */
-.featured-visual .pill, .dark-section .pill, .featured-visual .tag {
-  background: rgba(255, 255, 255, .16) !important;
-  color: #fff !important;
-  -webkit-text-fill-color: #fff;
-}
-
-.section-eyebrow .keep-case { color: inherit !important; -webkit-text-fill-color: inherit; }
-
-/* Eyebrows that use flat red rather than the clipped gradient measured
-   4.46:1 — under by a hair. */
-.section-eyebrow:not(.eq-gradient-text),
-.hero-eyebrow:not(.eq-gradient-text) {
-  color: var(--cg-red-text) !important;
-  -webkit-text-fill-color: var(--cg-red-text);
-}
-
-/* White initials on brand-tinted avatar discs and decorative chips. The disc
-   colour is what moves; the letterform stays white. */
-.speaker-avatar, .gallery-tile-label, .case-flagchip, .code, .avatar-initials {
-  color: #fff !important;
-}
-/* These discs are painted with linear-gradient, so background-COLOR never
-   applied. White initials need the ramp itself to come down. */
-.speaker-a1 { background-image: linear-gradient(135deg, #c8341f, #9e2318) !important; }
-.speaker-a2 { background-image: linear-gradient(135deg, #0058a8, #003e75) !important; }
-.speaker-a3 { background-image: linear-gradient(135deg, #237a35, #1d6c2d) !important; }
-.speaker-a4 { background-image: linear-gradient(135deg, #8a6508, #6f5206) !important; }
-
-/* CG Red as a FILL behind white text is 4.19:1 — just under. These are the
-   places white sits on a flat red; the darkened sibling clears it at 5.3:1.
-   Red as a decorative fill with no text over it is untouched. */
-/* .speaker-avatar is deliberately absent: its discs are colour-coded a1..a4
-   and are corrected individually below. Flattening them all to red here undid
-   that coding. */
-.features-tab.active, .event-date-month,
-.case-flagchip, .code, .tab-active, .filter-chip.active {
-  background-color: var(--cg-red-text) !important;
-}
-
-/* Sea Green behind white text is 3.66:1. */
-.status-live, .badge-success, .tag-green { background-color: #237a35 !important; }
-
-/* One more button built from the raw gold→red token pair rather than
-   --gradient-cta, so the token fix above did not reach it. White on the gold
-   end measured 1.87:1. */
-.videos-cta a, .yt-cta a, .community-cta a {
-  background-image: var(--gradient-cta) !important;
-  color: #fff !important;
-}
-
-/* ============================================================================
-   28. Labels on dark bands
-   .eq-on-dark is set by JS after measuring the element's resolved backdrop
-   luminance. The darkened brand red in section 23 is correct on a light
-   ground and drops to 2.5:1 on a dark one; gold is the readable value there
-   (8.9:1 on #1a1f26) and is still brand-native.
-   ========================================================================== */
-.section-eyebrow.eq-on-dark,
-.hero-eyebrow.eq-on-dark,
-.proof-chip.eq-on-dark {
-  color: #f4b223 !important;
-  -webkit-text-fill-color: #f4b223 !important;
-}
-.pill.eq-on-dark, .tag.eq-on-dark {
-  background: rgba(255, 255, 255, .16) !important;
-  color: #fff !important;
-  -webkit-text-fill-color: #fff !important;
-}
-
-/* Final named corrections. Each measured individually; values chosen inside
-   the element's own hue so nothing is recoloured, only deepened. */
-.difference-num { color: var(--cg-red-text) !important; }
-.case-cap       { color: var(--cg-blue-text) !important; }
-.pdp-step .dd, .dd { color: var(--ink-4) !important; }
-/* .duration-tag already carries its own 70% scrim and is left alone.
-   .gallery-tile-label is white type sitting directly on a photograph with
-   nothing behind it, so legibility depends entirely on which photo loads. A
-   solid box would fix the contrast and wreck the tile; a bottom scrim is the
-   standard answer and keeps the image reading edge to edge. */
-.gallery-tile { position: relative; }
-.gallery-tile::after {
-  content: "";
-  position: absolute;
-  inset: auto 0 0 0;
-  height: 45%;
-  background: linear-gradient(to top, rgba(16, 19, 24, .78), rgba(16, 19, 24, 0));
-  pointer-events: none;
-  border-radius: inherit;
-}
-.gallery-tile-label {
-  position: relative;
-  z-index: 1;
-  color: #fff !important;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, .45);
-}
-
-/* The current-page nav link marks itself with CG Red (4.19:1). Same hue,
-   legible value. .keep-case is a capitalisation wrapper with no colour
-   meaning of its own, so it follows whatever it sits in. */
-.navbar a.current, .nav-links a.active, .nav-links a[aria-current],
-.nav-links > li > a.current { color: var(--cg-red-text) !important; }
-.keep-case { color: inherit; -webkit-text-fill-color: inherit; }
-.office-meta a, .office-card a, .contact-phone { color: var(--cg-red-text) !important; }
 

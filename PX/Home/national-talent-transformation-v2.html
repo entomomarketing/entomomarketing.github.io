@@ -443,10 +443,10 @@
     .pillar-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
     .pillar-card.k1::before { background: linear-gradient(90deg, #e43d30, #f4b223); }
     .pillar-card.k2::before { background: linear-gradient(90deg, #f4b223, #ffda00); }
-    .pillar-card.k3::before { background: linear-gradient(90deg, #0064bf, #00809e); }
+    .pillar-card.k3::before { background: linear-gradient(90deg, #0064bf, #00a1e0); }
     .pillar-card.k4::before { background: linear-gradient(90deg, #2c9942, #6dc47f); }
     .pillar-card.k5::before { background: linear-gradient(90deg, #e43d30, #f4b223); }
-    .pillar-card.k6::before { background: linear-gradient(90deg, #0064bf, #00809e); }
+    .pillar-card.k6::before { background: linear-gradient(90deg, #0064bf, #00a1e0); }
     .pillar-card.k7::before { background: linear-gradient(90deg, #1a1f26, #5a6472); }
     .pillar-card .layer-num { font-size: 11px; margin-bottom: 0.7rem; }
     .pillar-card h3 {
@@ -749,8 +749,8 @@
       display: inline-flex; align-items: center; justify-content: center;
       font-size: 11.5px; font-weight: 800; color: var(--white); text-transform: uppercase;
     }
-    .case-tab.t-sg .code { background: linear-gradient(135deg, #c2410c, #9c6604); }
-    .case-tab.t-ph .code { background: linear-gradient(135deg, #0064bf, #00809e); }
+    .case-tab.t-sg .code { background: linear-gradient(135deg, #e43d30, #f4b223); }
+    .case-tab.t-ph .code { background: linear-gradient(135deg, #0064bf, #00a1e0); }
     .case-tab.t-om .code { background: linear-gradient(135deg, #2c9942, #6dc47f); }
     .case-tab .nm { font-size: 15px; font-weight: 800; text-transform: lowercase; color: var(--ebony-clay); line-height: 1.2; display: block; }
     .case-tab .ds { font-size: 12px; color: var(--ink-4); text-transform: lowercase; }
@@ -961,8 +961,8 @@
       font-size: 11.5px; font-weight: 800; color: var(--white);
       text-transform: uppercase;
     }
-    .case-sg .case-flagchip { background: linear-gradient(135deg, #c2410c, #9c6604); }
-    .case-ph .case-flagchip { background: linear-gradient(135deg, #0064bf, #00809e); }
+    .case-sg .case-flagchip { background: linear-gradient(135deg, #e43d30, #f4b223); }
+    .case-ph .case-flagchip { background: linear-gradient(135deg, #0064bf, #00a1e0); }
     .case-om .case-flagchip { background: linear-gradient(135deg, #2c9942, #6dc47f); }
     .case-stage {
       font-size: 12px; font-weight: 700; letter-spacing: 1px;
@@ -1288,18 +1288,13 @@
                   box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .anim-lift:hover { transform: translateY(-4px); }
-    /* Contrast corrections. Measured on white unless noted. */
+    /* Neutral-grey contrast corrections only. These are ink values, not brand
+       colours, so they stand. The brand-hue corrections that sat here —
+       .case-cap, .section-eyebrow, .award-text and a narrowed CTA ramp — were
+       reverted: CG Red, CG Gold and Sea Green are brand law. */
     .pdp-step .ct { color: var(--ink-4) !important; }   /* was #a0a4ad, 2.45:1 */
     .pdw-node .ph { color: var(--ink-4) !important; }   /* was #8b8f99, 3.24:1 */
-    .case-sg .case-cap { color: #c8341f !important; }   /* was rgba(228,61,48,.85), 3.49:1 */
-    .case-fc .case-cap { color: #8a5f0e !important; }   /* was #9a6a10, 4.06:1 */
-    .case-zm .case-cap { color: #4a3fd4 !important; }   /* was #5B4FE8, 4.28:1 */
-    .section-eyebrow { color: #c8341f !important; }     /* was --cg-red, 4.06:1 on #fefbf4 */
-    .award-text .section-eyebrow { color: #8a6508 !important; } /* was #c8901a, 2.6:1 */
     .layer-num { color: var(--ink-4) !important; }
-    .btn-primary, .nav-cta {
-      background-image: linear-gradient(90deg, #c2410c 0%, #b3341a 45%, #a52220 100%) !important;
-    }
 
     /* These live only on this page, which does not load entomo-2026.css, so
        the corrections there never reached them. */
@@ -1312,14 +1307,6 @@
       width: min(720px, calc(100vw - 2.5rem)) !important;
       max-width: calc(100vw - 2.5rem);
     }
-    .case-cap        { color: #0058a8 !important; }   /* was blue @85%, 3.18:1 */
-    .code            { background-color: #1a1f26 !important; color: #fff !important; }
-    .case-flagchip   { background-color: rgba(26,31,38,.72) !important; color: #fff !important; }
-    .gallery-tile-label,
-    .duration-tag    { background-color: rgba(26,31,38,.72) !important; color: #fff !important; }
-    .case-sg .case-cap { color: #c8341f !important; }
-    .case-fc .case-cap { color: #8a5f0e !important; }
-    .case-zm .case-cap { color: #4a3fd4 !important; }
 
     /* Narrow-width nav chrome. Mirrors section 22 of entomo-2026.css, which
        this page does not load. Measured at 390px before: the logo ended at

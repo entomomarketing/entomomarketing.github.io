@@ -195,64 +195,7 @@
       });
   }
 
-  /* ---- 2b2. Gradient-clipped text -------------------------------------------
-     Marks only the elements that genuinely clip their background to their
-     glyphs. Anything else keeps its own `color`, because for those an
-     unscoped background-image would paint a visible block behind the text
-     rather than colour the letters. */
-  function initGradientText() {
-    doc.querySelectorAll(
-      ".section-eyebrow, .arch-color-foundation, .arch-color-agents, " +
-      ".arch-color-data-sources, .hero-eyebrow, .metric-number, .proof-text"
-    ).forEach(function (el) {
-      var cs = getComputedStyle(el);
-      var clip = cs.webkitBackgroundClip || cs.backgroundClip;
-      if (clip === "text" && cs.webkitTextFillColor === "rgba(0, 0, 0, 0)") {
-        el.classList.add("eq-gradient-text");
-      }
-    });
-  }
 
-  /* ---- 2b3. Dark-ground detection -------------------------------------------
-     Dark bands are named per page here — .newsletter-section, .videos-section,
-     .final-cta-section and others — so no fixed class list finds them all.
-     The darkened brand red is the right colour for a label on a light ground
-     and the wrong one on a dark band, so the backdrop is measured instead of
-     guessed, and the element is tagged for CSS to act on. */
-  function initContrastContext() {
-    function chan(v) { v /= 255; return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
-    function lumOf(str) {
-      var m = (str || "").match(/[\d.]+/g);
-      if (!m || m.length < 3) return null;
-      if (m[3] !== undefined && parseFloat(m[3]) < 0.9) return null;
-      return 0.2126 * chan(+m[0]) + 0.7152 * chan(+m[1]) + 0.0722 * chan(+m[2]);
-    }
-    function backdrop(el) {
-      var n = el.parentElement;
-      while (n && n !== doc.documentElement) {
-        var cs = getComputedStyle(n);
-        if (cs.backgroundImage && cs.backgroundImage !== "none") {
-          var first = cs.backgroundImage.match(/rgba?\([^)]+\)|#[0-9a-f]{6}/i);
-          if (first) {
-            var l = first[0].charAt(0) === "#"
-              ? 0.2126 * chan(parseInt(first[0].substr(1, 2), 16)) +
-                0.7152 * chan(parseInt(first[0].substr(3, 2), 16)) +
-                0.0722 * chan(parseInt(first[0].substr(5, 2), 16))
-              : lumOf(first[0]);
-            if (l !== null) return l;
-          }
-        }
-        var s2 = lumOf(cs.backgroundColor);
-        if (s2 !== null) return s2;
-        n = n.parentElement;
-      }
-      return 1;
-    }
-    doc.querySelectorAll(".section-eyebrow, .hero-eyebrow, .pill, .tag, .proof-chip")
-      .forEach(function (el) {
-        if (backdrop(el) < 0.22) el.classList.add("eq-on-dark");
-      });
-  }
 
   /* ---- 2c. Tab semantics ----------------------------------------------------
      These are real <button> elements, which is right, but the selected one was
@@ -499,8 +442,6 @@
     try { initNav(); } catch (e) {}
     try { initMegaAria(); } catch (e) {}
     try { initMarquees(); } catch (e) {}
-    try { initGradientText(); } catch (e) {}
-    try { initContrastContext(); } catch (e) {}
     try { initTabs(); } catch (e) {}
     try { initScrollState(); } catch (e) {}
     try { initVisibility(); } catch (e) {}
