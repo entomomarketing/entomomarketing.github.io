@@ -314,39 +314,46 @@
     }
 
     /* One ribbon, drawn three times: bloom, halo, core. */
+    /* Resting height of a ribbon at a given x, with no cursor applied. */
+    function restY(tb, x, time) {
+      var u = x / W;
+      return tb.base * H
+        + Math.sin(u * Math.PI * 2 * tb.f1 + tb.p1 + time * tb.sp) * tb.a1 * H
+        + Math.sin(u * Math.PI * 2 * tb.f2 + tb.p2 - time * tb.sp * 0.7) * tb.a2 * H;
+    }
+
     function ribbon(tb, time) {
       var STEP = W < 700 ? 16 : 12;
+
+      /* How this ribbon answers the cursor is decided ONCE, here, for the
+         whole ribbon — not per sampled point.
+
+         The previous version recomputed the push direction at every sample
+         from that point's own offset to the cursor. Wherever a ribbon crossed
+         the cursor's height, neighbouring samples landed on opposite sides and
+         the sign flipped between them, so a smooth curve acquired a hard
+         zigzag exactly where the eye was looking. That was the jaggedness.
+
+         Direction and strength now come from the ribbon's resting height at
+         the cursor's x, so every point on a given ribbon is displaced the same
+         way and the curve can only bend, never kink. */
+      var dv = restY(tb, tb.px, time) - tb.py;
+      var Rv = H * 0.46;
+      var vFall = Math.exp(-(dv * dv) / (Rv * Rv));
+      var breathe = 1 + 0.13 * Math.sin(time * 1.25 + tb.p1);
+      var amp = (dv < 0 ? -1 : 1) * 78 * vFall * breathe;
+
+      /* Along the ribbon the profile is a Gaussian rather than a smoothstep
+         over a bounded interval. A Gaussian is smooth to every derivative and
+         has no edge where the effect begins, so there is no seam at the start
+         of the influence range — it simply fades to nothing. */
+      var Rh = W * 0.105;
+
       var pts = [];
       for (var x = -STEP; x <= W + STEP; x += STEP) {
-        var u = x / W;
-        var y = tb.base * H
-          + Math.sin(u * Math.PI * 2 * tb.f1 + tb.p1 + time * tb.sp) * tb.a1 * H
-          + Math.sin(u * Math.PI * 2 * tb.f2 + tb.p2 - time * tb.sp * 0.7) * tb.a2 * H;
-
-        /* The swell follows this ribbon's own lagged pointer, not the raw
-           one, so nothing is rigidly attached to the cursor.
-
-           Displacement is a horizontal bell times a vertical falloff, and the
-           direction is decided once per ribbon rather than per sampled point.
-           Deriving it per point from (dy/d) puts a singularity where the
-           ribbon passes closest to the cursor: the normal flips through
-           vertical and the curve folds into a cusp instead of a crest. */
-        var R = 300;
-        var hx = (x - tb.px) / R;
-        if (hx > -1 && hx < 1) {
-          var fh = 1 - (hx < 0 ? -hx : hx);
-          fh = fh * fh * (3 - 2 * fh);           /* smoothstep along the ribbon */
-          var side = y - tb.py;
-          var av = side < 0 ? -side : side;
-          var fv = 1 - av / (R * 0.85);
-          if (fv > 0) {
-            fv = fv * fv * (3 - 2 * fv);         /* and across it */
-            /* A slow travelling ripple, so a parked cursor still breathes
-               rather than holding one shape. */
-            var ripple = 1 + 0.16 * Math.sin(time * 1.4 - av * 0.017);
-            y += (side < 0 ? -1 : 1) * fh * fv * 64 * ripple;
-          }
-        }
+        var y = restY(tb, x, time);
+        var hx = (x - tb.px) / Rh;
+        if (hx > -3.2 && hx < 3.2) y += amp * Math.exp(-hx * hx);
         pts.push(x, y);
       }
       var c = tb.c;

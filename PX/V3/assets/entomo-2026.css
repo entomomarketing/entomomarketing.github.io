@@ -1497,13 +1497,19 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
    carries noticeably more padding than the first version — same wordmark,
    taller frame — so matching 1em left "entomo" at roughly half the height of
    the type beside it. */
+/* Both numbers are solved, not eyeballed. Measured in the artwork: the
+   "entomo" ink occupies 46.96% of the image height and its baseline sits at
+   90.72% from the top. Measured in Nunito Sans at the paragraph's weight:
+   "entomo" inks 0.65em tall. So the image must be 0.65 / 0.4696 = 1.384em for
+   the wordmark to match the text exactly, and its bottom must fall
+   (1 - 0.9072) x 1.384 = 0.128em below the text baseline for the two
+   baselines to coincide. */
 .brand-inline img {
   display: inline-block;
-  height: 1.52em;
+  height: 1.384em;
   width: auto;
-  vertical-align: -0.42em;
+  vertical-align: -0.128em;
 }
-p .brand-inline img { height: 1.44em; vertical-align: -0.40em; }
 
 @media (max-width: 640px) {
   .brand-lockup--hero { width: min(320px, 92%); }
