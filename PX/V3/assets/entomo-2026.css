@@ -1493,16 +1493,37 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
   vertical-align: baseline;
   line-height: 0;
 }
+/* Sized to the letterforms, not to the image box. The replacement artwork
+   carries noticeably more padding than the first version — same wordmark,
+   taller frame — so matching 1em left "entomo" at roughly half the height of
+   the type beside it. */
 .brand-inline img {
   display: inline-block;
-  height: 1.02em;
+  height: 1.52em;
   width: auto;
-  vertical-align: -0.15em;
+  vertical-align: -0.42em;
 }
-/* In running body copy the lockup reads better a touch smaller than the
-   surrounding text; in a headline it should match it. */
-p .brand-inline img { height: 0.94em; vertical-align: -0.12em; }
+p .brand-inline img { height: 1.44em; vertical-align: -0.40em; }
 
 @media (max-width: 640px) {
   .brand-lockup--hero { width: min(320px, 92%); }
 }
+
+/* The strata wordmark set inline in a headline. It needs more height than the
+   entomo.ai lockup at the same font size: the artwork carries a sparkle
+   flourish above the letterforms, so a large share of its box is empty air
+   and matching 1em would leave the letters visibly small next to the type.
+   Sized to the letters, not to the box. */
+.brand-inline--strata img {
+  height: 1.62em;
+  vertical-align: -0.46em;
+  margin: 0 0.04em;
+}
+h1 .brand-inline--strata img,
+h2 .brand-inline--strata img { height: 1.52em; vertical-align: -0.42em; }
+
+/* An inline lockup is an inline-block, so a line can break between it and the
+   punctuation that follows — which left "why [strata]" on one line and
+   ", not another copilot" starting with an orphaned comma on the next.
+   Binding the lockup to its trailing punctuation moves the break after it. */
+.eq-nowrap { white-space: nowrap; }
