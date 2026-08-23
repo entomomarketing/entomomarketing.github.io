@@ -1,5 +1,10 @@
 Original logo files as supplied.
 
+Three of them: the entomo.ai lockup, the entomo strata lockup, and the
+standalone "ai" mark (added later, originally dropped in as PX/V3/AI.svg).
+The mark is exported and ready at ../entomo-ai-mark.{webp,png} but is not
+used anywhere yet — no placement was specified for it.
+
 Both are PNG rasters embedded inside an SVG wrapper, not true vector art —
 which is why they are 478KB and 4.5MB. Nothing on the site links to them;
 they are kept here only as the source of record.
