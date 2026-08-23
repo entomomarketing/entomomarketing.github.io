@@ -239,6 +239,194 @@
     apply();
   }
 
+  /* ---- 2e. Hero flow --------------------------------------------------------
+     A light-theme reading of the "neon tubes" idea: ribbons of brand colour
+     drifting behind the headline, deflected by the cursor and reseeded on
+     click. Two things differ from the usual dark-canvas version.
+
+     First, it is drawn on white. Additive blending, which is what makes neon
+     glow on black, turns everything white here — so the bloom is built from
+     wide low-alpha strokes under a thin core, composited with `multiply`.
+     Crossings deepen into secondary tints instead of blowing out.
+
+     Second, nothing brighter than the brand palette is used: CG Gold, CG Red,
+     Spanish Blue and Sea Green, at alphas low enough to stay a background.
+
+     No-ops when its canvas is absent, holds a single static frame under
+     prefers-reduced-motion, and stops entirely when scrolled out of view. */
+  function initHeroFlow() {
+    var canvas = doc.querySelector("[data-hero-flow]");
+    if (!canvas || !canvas.getContext) return;
+    var ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    var host = canvas.parentElement;
+
+    var PALETTE = [
+      [244, 178, 35],  /* CG Gold      */
+      [228, 61, 48],   /* CG Red       */
+      [0, 100, 191],   /* Spanish Blue */
+      [44, 153, 66]    /* Sea Green    */
+    ];
+
+    var motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var W = 0, H = 0, dpr = 1, tubes = [], raf = 0, running = false, visible = true;
+    var t = 0;
+    var ptr = { x: -9999, y: -9999, tx: -9999, ty: -9999 };
+
+    function rnd(a, b) { return a + Math.random() * (b - a); }
+
+    function seed() {
+      tubes = [];
+      var n = W < 700 ? 5 : 8;
+      for (var i = 0; i < n; i++) {
+        tubes.push({
+          c: PALETTE[i % PALETTE.length],
+          base: 0.16 + (i / n) * 0.68 + rnd(-0.035, 0.035),
+          a1: rnd(0.045, 0.115),
+          a2: rnd(0.018, 0.055),
+          f1: rnd(0.85, 1.75),
+          f2: rnd(2.0, 3.3),
+          sp: rnd(0.05, 0.115) * (i % 2 ? 1 : -1),
+          p1: rnd(0, Math.PI * 2),
+          p2: rnd(0, Math.PI * 2),
+          w: rnd(1.0, 2.1)
+        });
+      }
+    }
+
+    function resize() {
+      var r = host.getBoundingClientRect();
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = Math.max(1, Math.round(r.width));
+      H = Math.max(1, Math.round(r.height));
+      canvas.width = Math.round(W * dpr);
+      canvas.height = Math.round(H * dpr);
+      canvas.style.width = W + "px";
+      canvas.style.height = H + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (!tubes.length) seed();
+    }
+
+    /* One ribbon, drawn three times: bloom, halo, core. */
+    function ribbon(tb, time) {
+      var STEP = W < 700 ? 16 : 12;
+      var pts = [];
+      for (var x = -STEP; x <= W + STEP; x += STEP) {
+        var u = x / W;
+        var y = tb.base * H
+          + Math.sin(u * Math.PI * 2 * tb.f1 + tb.p1 + time * tb.sp) * tb.a1 * H
+          + Math.sin(u * Math.PI * 2 * tb.f2 + tb.p2 - time * tb.sp * 0.7) * tb.a2 * H;
+
+        /* Cursor pushes the ribbon aside, with a soft quadratic falloff. */
+        var dx = x - ptr.x, dy = y - ptr.y;
+        var d2 = dx * dx + dy * dy;
+        var R = 190;
+        if (d2 < R * R) {
+          var d = Math.sqrt(d2) || 1;
+          var f = (1 - d / R);
+          y += (dy / d) * f * f * 46;
+        }
+        pts.push(x, y);
+      }
+      var c = tb.c;
+      var passes = [
+        [tb.w * 13, 0.055],
+        [tb.w * 5,  0.085],
+        [tb.w,      0.30]
+      ];
+      for (var i = 0; i < passes.length; i++) {
+        ctx.beginPath();
+        ctx.moveTo(pts[0], pts[1]);
+        /* Midpoint quadratics keep the curve smooth without a spline pass. */
+        for (var k = 2; k < pts.length - 3; k += 2) {
+          ctx.quadraticCurveTo(pts[k], pts[k + 1],
+            (pts[k] + pts[k + 2]) / 2, (pts[k + 1] + pts[k + 3]) / 2);
+        }
+        ctx.lineWidth = passes[i][0];
+        ctx.strokeStyle = "rgba(" + c[0] + "," + c[1] + "," + c[2] + "," + passes[i][1] + ")";
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        ctx.stroke();
+      }
+    }
+
+    function draw(time) {
+      ctx.clearRect(0, 0, W, H);
+      ctx.globalCompositeOperation = "multiply";
+      for (var i = 0; i < tubes.length; i++) ribbon(tubes[i], time);
+      ctx.globalCompositeOperation = "source-over";
+    }
+
+    function frame() {
+      if (!running) return;
+      /* Ease the pointer so the deflection trails rather than snaps. */
+      ptr.x += (ptr.tx - ptr.x) * 0.08;
+      ptr.y += (ptr.ty - ptr.y) * 0.08;
+      t += 0.016;
+      draw(t);
+      raf = window.requestAnimationFrame(frame);
+    }
+
+    function start() {
+      if (running || motion.matches || !visible) return;
+      running = true;
+      raf = window.requestAnimationFrame(frame);
+    }
+    function stop() {
+      running = false;
+      if (raf) window.cancelAnimationFrame(raf);
+      raf = 0;
+    }
+
+    function still() {
+      /* Reduced motion still gets the composition, just not the movement. */
+      stop();
+      resize();
+      draw(12.5);
+    }
+
+    resize();
+    if (motion.matches) still(); else start();
+
+    motion.addEventListener("change", function (e) {
+      if (e.matches) still(); else start();
+    });
+
+    var rt;
+    window.addEventListener("resize", function () {
+      clearTimeout(rt);
+      rt = setTimeout(function () {
+        resize();
+        if (motion.matches) draw(12.5);
+      }, 140);
+    });
+
+    /* The canvas is pointer-events:none so it can never intercept the CTA;
+       the hero section carries the listeners instead. */
+    host.addEventListener("pointermove", function (e) {
+      var r = host.getBoundingClientRect();
+      ptr.tx = e.clientX - r.left;
+      ptr.ty = e.clientY - r.top;
+    }, { passive: true });
+    host.addEventListener("pointerleave", function () {
+      ptr.tx = -9999; ptr.ty = -9999;
+    });
+    host.addEventListener("click", function () {
+      seed();
+      if (motion.matches) draw(12.5);
+    });
+
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        visible = entries[0].isIntersecting;
+        if (visible) start(); else stop();
+      }, { threshold: 0 }).observe(host);
+    }
+    doc.addEventListener("visibilitychange", function () {
+      if (doc.hidden) stop(); else start();
+    });
+  }
+
   /* ---- 3. Pause marquees when the tab is hidden ----------------------------- */
   function initVisibility() {
     doc.addEventListener("visibilitychange", function () {
@@ -443,6 +631,7 @@
     try { initMegaAria(); } catch (e) {}
     try { initMarquees(); } catch (e) {}
     try { initTabs(); } catch (e) {}
+    try { initHeroFlow(); } catch (e) {}
     try { initScrollState(); } catch (e) {}
     try { initVisibility(); } catch (e) {}
     try { initStrataGraph(); } catch (e) {}
