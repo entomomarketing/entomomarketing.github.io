@@ -277,19 +277,25 @@
 
     function seed() {
       tubes = [];
-      var n = W < 700 ? 7 : 11;
+      var n = W < 700 ? 5 : 8;
       for (var i = 0; i < n; i++) {
         tubes.push({
           c: PALETTE[i % PALETTE.length],
           base: 0.16 + (i / n) * 0.68 + rnd(-0.035, 0.035),
-          a1: rnd(0.06, 0.15),
-          a2: rnd(0.025, 0.07),
+          a1: rnd(0.045, 0.115),
+          a2: rnd(0.018, 0.055),
           f1: rnd(0.85, 1.75),
           f2: rnd(2.0, 3.3),
           sp: rnd(0.05, 0.115) * (i % 2 ? 1 : -1),
+          /* Each ribbon chases the cursor at its own rate, so a movement
+             crosses the field as a travelling swell instead of every ribbon
+             lurching at once. Front ribbons answer first; the ones behind
+             arrive late and settle late, which is what reads as water. */
+          lag: 0.030 + (i / 12) * 0.030,
+          px: -9999, py: -9999,
           p1: rnd(0, Math.PI * 2),
           p2: rnd(0, Math.PI * 2),
-          w: rnd(1.3, 2.6)
+          w: rnd(1.0, 2.1)
         });
       }
     }
@@ -317,25 +323,37 @@
           + Math.sin(u * Math.PI * 2 * tb.f1 + tb.p1 + time * tb.sp) * tb.a1 * H
           + Math.sin(u * Math.PI * 2 * tb.f2 + tb.p2 - time * tb.sp * 0.7) * tb.a2 * H;
 
-        /* Cursor pushes the ribbon aside, with a soft quadratic falloff. */
-        var dx = x - ptr.x, dy = y - ptr.y;
-        var d2 = dx * dx + dy * dy;
-        var R = 280;
-        if (d2 < R * R) {
-          var d = Math.sqrt(d2) || 1;
-          var f = (1 - d / R);
-          /* f^1.5 rather than f^2: a squared falloff concentrates the whole
-             effect in the last few pixels, which reads as nothing happening
-             until the cursor is right on top of a ribbon. */
-          y += (dy / d) * Math.pow(f, 1.5) * 96;
+        /* The swell follows this ribbon's own lagged pointer, not the raw
+           one, so nothing is rigidly attached to the cursor.
+
+           Displacement is a horizontal bell times a vertical falloff, and the
+           direction is decided once per ribbon rather than per sampled point.
+           Deriving it per point from (dy/d) puts a singularity where the
+           ribbon passes closest to the cursor: the normal flips through
+           vertical and the curve folds into a cusp instead of a crest. */
+        var R = 300;
+        var hx = (x - tb.px) / R;
+        if (hx > -1 && hx < 1) {
+          var fh = 1 - (hx < 0 ? -hx : hx);
+          fh = fh * fh * (3 - 2 * fh);           /* smoothstep along the ribbon */
+          var side = y - tb.py;
+          var av = side < 0 ? -side : side;
+          var fv = 1 - av / (R * 0.85);
+          if (fv > 0) {
+            fv = fv * fv * (3 - 2 * fv);         /* and across it */
+            /* A slow travelling ripple, so a parked cursor still breathes
+               rather than holding one shape. */
+            var ripple = 1 + 0.16 * Math.sin(time * 1.4 - av * 0.017);
+            y += (side < 0 ? -1 : 1) * fh * fv * 64 * ripple;
+          }
         }
         pts.push(x, y);
       }
       var c = tb.c;
       var passes = [
-        [tb.w * 14, 0.075],
-        [tb.w * 5.5, 0.125],
-        [tb.w,       0.42]
+        [tb.w * 13, 0.055],
+        [tb.w * 5,  0.085],
+        [tb.w,      0.30]
       ];
       for (var i = 0; i < passes.length; i++) {
         ctx.beginPath();
@@ -354,6 +372,14 @@
     }
 
     function draw(time) {
+      /* Advance every ribbon's own pointer before painting, so the lag is
+         applied once per frame rather than once per sampled point. */
+      for (var j = 0; j < tubes.length; j++) {
+        var tb = tubes[j];
+        if (tb.px < -9000) { tb.px = ptr.x; tb.py = ptr.y; }
+        tb.px += (ptr.x - tb.px) * tb.lag;
+        tb.py += (ptr.y - tb.py) * tb.lag;
+      }
       ctx.clearRect(0, 0, W, H);
       ctx.globalCompositeOperation = "multiply";
       for (var i = 0; i < tubes.length; i++) ribbon(tubes[i], time);
@@ -363,8 +389,11 @@
     function frame() {
       if (!running) return;
       /* Ease the pointer so the deflection trails rather than snaps. */
-      ptr.x += (ptr.tx - ptr.x) * 0.17;
-      ptr.y += (ptr.ty - ptr.y) * 0.17;
+      /* Tracks the cursor closely on purpose. Damping here made the whole
+         field feel late; the softness belongs in the per-ribbon lag, which
+         staggers the response instead of delaying all of it equally. */
+      ptr.x += (ptr.tx - ptr.x) * 0.55;
+      ptr.y += (ptr.ty - ptr.y) * 0.55;
       t += 0.016;
       draw(t);
       raf = window.requestAnimationFrame(frame);
