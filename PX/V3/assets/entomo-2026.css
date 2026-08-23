@@ -1453,3 +1453,56 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
         transparent 0%, rgba(0,0,0,.45) 62%, #000 100%);
   }
 }
+
+/* ============================================================================
+   28. Brand lockups
+   The entomo.ai and entomo strata logos, used in place of the words where the
+   mention is a brand statement rather than prose. Every one carries alt text
+   with the exact words it replaces, so the copy still reaches screen readers
+   and search engines — the change is presentational only.
+
+   Source note: both logos arrived as PNG data embedded inside an SVG wrapper
+   (478KB and 4.5MB). They are served here as WebP with a PNG fallback at
+   1200px wide — 19KB and 82KB. True vector files would render sharper at the
+   hero size and should replace these when available.
+   ========================================================================== */
+.brand-lockup { display: block; }
+.brand-lockup img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Hero scale. Capped in px so it never outgrows the headline it introduces,
+   and in % so it never touches the edges on a phone. */
+.brand-lockup--hero {
+  width: min(540px, 86%);
+  /* Centred by default: both heroes that use it centre their content, and a
+     left-aligned lockup under a centred headline reads as a mistake. */
+  margin: 0 auto 1.4rem;
+}
+.text-left .brand-lockup--hero { margin-left: 0; }
+
+.brand-lockup--strata { width: min(500px, 88%); }
+
+/* Inline mention, set to the size of the text it sits in. The negative
+   vertical-align seats the wordmark on the baseline rather than hanging it
+   from the line box. */
+.brand-inline {
+  display: inline-block;
+  vertical-align: baseline;
+  line-height: 0;
+}
+.brand-inline img {
+  display: inline-block;
+  height: 1.02em;
+  width: auto;
+  vertical-align: -0.15em;
+}
+/* In running body copy the lockup reads better a touch smaller than the
+   surrounding text; in a headline it should match it. */
+p .brand-inline img { height: 0.94em; vertical-align: -0.12em; }
+
+@media (max-width: 640px) {
+  .brand-lockup--hero { width: min(320px, 92%); }
+}
