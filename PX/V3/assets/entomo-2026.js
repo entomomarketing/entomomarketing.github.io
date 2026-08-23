@@ -277,19 +277,19 @@
 
     function seed() {
       tubes = [];
-      var n = W < 700 ? 5 : 8;
+      var n = W < 700 ? 7 : 11;
       for (var i = 0; i < n; i++) {
         tubes.push({
           c: PALETTE[i % PALETTE.length],
           base: 0.16 + (i / n) * 0.68 + rnd(-0.035, 0.035),
-          a1: rnd(0.045, 0.115),
-          a2: rnd(0.018, 0.055),
+          a1: rnd(0.06, 0.15),
+          a2: rnd(0.025, 0.07),
           f1: rnd(0.85, 1.75),
           f2: rnd(2.0, 3.3),
           sp: rnd(0.05, 0.115) * (i % 2 ? 1 : -1),
           p1: rnd(0, Math.PI * 2),
           p2: rnd(0, Math.PI * 2),
-          w: rnd(1.0, 2.1)
+          w: rnd(1.3, 2.6)
         });
       }
     }
@@ -320,19 +320,22 @@
         /* Cursor pushes the ribbon aside, with a soft quadratic falloff. */
         var dx = x - ptr.x, dy = y - ptr.y;
         var d2 = dx * dx + dy * dy;
-        var R = 190;
+        var R = 280;
         if (d2 < R * R) {
           var d = Math.sqrt(d2) || 1;
           var f = (1 - d / R);
-          y += (dy / d) * f * f * 46;
+          /* f^1.5 rather than f^2: a squared falloff concentrates the whole
+             effect in the last few pixels, which reads as nothing happening
+             until the cursor is right on top of a ribbon. */
+          y += (dy / d) * Math.pow(f, 1.5) * 96;
         }
         pts.push(x, y);
       }
       var c = tb.c;
       var passes = [
-        [tb.w * 13, 0.055],
-        [tb.w * 5,  0.085],
-        [tb.w,      0.30]
+        [tb.w * 14, 0.075],
+        [tb.w * 5.5, 0.125],
+        [tb.w,       0.42]
       ];
       for (var i = 0; i < passes.length; i++) {
         ctx.beginPath();
@@ -360,8 +363,8 @@
     function frame() {
       if (!running) return;
       /* Ease the pointer so the deflection trails rather than snaps. */
-      ptr.x += (ptr.tx - ptr.x) * 0.08;
-      ptr.y += (ptr.ty - ptr.y) * 0.08;
+      ptr.x += (ptr.tx - ptr.x) * 0.17;
+      ptr.y += (ptr.ty - ptr.y) * 0.17;
       t += 0.016;
       draw(t);
       raf = window.requestAnimationFrame(frame);

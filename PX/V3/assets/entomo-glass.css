@@ -80,10 +80,13 @@ section {
   border-bottom: 1px solid var(--g-edge);
   box-shadow: inset 0 -1px 0 var(--g-rim-soft);
 }
+/* Opaque, as the pages originally set it. A menu is read, not looked
+   through: at 86% the page behind it showed through the item descriptions
+   and cost legibility for nothing. The rim, shadow and radius stay — the
+   glass reads in the edges, not in the fill. Dropping backdrop-filter here
+   also removes a blur pass behind the largest floating surface on the site. */
 .nav-mega {
-  background: rgba(255, 255, 255, .86) !important;
-  -webkit-backdrop-filter: var(--g-blur);
-  backdrop-filter: var(--g-blur);
+  background: #ffffff !important;
   border: 1px solid var(--g-edge) !important;
   box-shadow: var(--g-shadow-lift), inset 0 1px 0 var(--g-rim) !important;
   border-radius: 20px !important;
