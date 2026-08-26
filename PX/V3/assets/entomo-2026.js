@@ -577,7 +577,7 @@
         var mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
         var dm = Math.hypot(mx - px, my - py);
         var f = dm < REACH ? (1 - dm / REACH) : 0;
-        ctx.strokeStyle = "rgba(43,29,18," + (0.05 + 0.14 * f * f).toFixed(3) + ")";
+        ctx.strokeStyle = "rgba(43,29,18," + (0.085 + 0.16 * f * f).toFixed(3) + ")";
         ctx.beginPath();
         ctx.moveTo(a.x, a.y);
         ctx.lineTo(b.x, b.y);
@@ -603,9 +603,9 @@
           ctx.fill();
           ctx.globalAlpha = 1;
         } else {
-          ctx.fillStyle = "rgba(43,29,18,0.13)";
+          ctx.fillStyle = "rgba(43,29,18,0.19)";
           ctx.beginPath();
-          ctx.arc(nd.x, nd.y, 1.4, 0, 6.2832);
+          ctx.arc(nd.x, nd.y, 1.6, 0, 6.2832);
           ctx.fill();
         }
       }
