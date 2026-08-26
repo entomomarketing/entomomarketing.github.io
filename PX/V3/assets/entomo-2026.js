@@ -474,6 +474,227 @@
   }
 
   
+  /* ---- Hero neural field (axon page) --------------------------------------
+     An interconnected node lattice behind the hero. Nodes glow as the pointer
+     approaches, and edges in that vicinity carry bright signals node-to-node,
+     with a hop of onward propagation - the model, felt before it is read. */
+  function initHeroNeural() {
+    var canvas = doc.querySelector("[data-hero-neural]");
+    if (!canvas || !canvas.getContext) return;
+    var section = canvas.parentElement;
+    var ctx = canvas.getContext("2d");
+    var reduce = window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var HUES = ["#f86da9", "#ba7bae", "#708cb5", "#2c9bbb", "#ebbe2e", "#e0721c"];
+    var W = 0, H = 0;
+    var nodes = [], edges = [], signals = [], pulses = [];
+    var tx = -9e3, ty = -9e3, px = -9e3, py = -9e3;
+    var REACH = 210;
+
+    function build() {
+      nodes = []; edges = []; signals = []; pulses = [];
+      var target = Math.min(150, Math.round((W * H) / 9500));
+      var tries = 0;
+      while (nodes.length < target && tries < target * 40) {
+        tries++;
+        var x = Math.random() * W, y = Math.random() * H, ok = true;
+        for (var i = 0; i < nodes.length; i++) {
+          var dx = nodes[i].ox - x, dy = nodes[i].oy - y;
+          if (dx * dx + dy * dy < 2704) { ok = false; break; }
+        }
+        if (ok) nodes.push({ ox: x, oy: y, x: x, y: y,
+          ph: Math.random() * 6.283, hue: HUES[nodes.length % HUES.length], adj: [] });
+      }
+      for (var a = 0; a < nodes.length; a++) {
+        for (var b = a + 1; b < nodes.length; b++) {
+          var ddx = nodes[a].ox - nodes[b].ox, ddy = nodes[a].oy - nodes[b].oy;
+          if (ddx * ddx + ddy * ddy < 16900) {
+            edges.push({ a: a, b: b });
+            nodes[a].adj.push(edges.length - 1);
+            nodes[b].adj.push(edges.length - 1);
+          }
+        }
+      }
+    }
+
+    function resize() {
+      var r = section.getBoundingClientRect();
+      if (!r.width) return;
+      W = r.width; H = r.height;
+      var dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.round(W * dpr);
+      canvas.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      build();
+    }
+
+    function spawnSignal(ei, fromNode, hops) {
+      if (signals.length > 18) return;
+      var e = edges[ei];
+      signals.push({ e: ei, from: fromNode, t: 0,
+        dur: 420 + Math.random() * 320, hops: hops,
+        hue: nodes[fromNode === e.a ? e.b : e.a].hue });
+    }
+
+    var lastNear = 0, lastAmbient = 0;
+    function maybeSpawn(now) {
+      if (px > -8e3 && now - lastNear > 130) {
+        var near = [];
+        for (var i = 0; i < edges.length; i++) {
+          var e = edges[i], na = nodes[e.a], nb = nodes[e.b];
+          var da = Math.hypot(na.x - px, na.y - py), db = Math.hypot(nb.x - px, nb.y - py);
+          if (da < REACH * 1.25 && db < REACH * 1.25) near.push(i);
+        }
+        if (near.length) {
+          var ei = near[Math.floor(Math.random() * near.length)];
+          spawnSignal(ei, Math.random() < 0.5 ? edges[ei].a : edges[ei].b, 2);
+          lastNear = now;
+        }
+      }
+      if (now - lastAmbient > 1700 && signals.length < 4 && edges.length) {
+        var ai = Math.floor(Math.random() * edges.length);
+        spawnSignal(ai, Math.random() < 0.5 ? edges[ai].a : edges[ai].b, 1);
+        lastAmbient = now;
+      }
+    }
+
+    function step(now, dt) {
+      ctx.clearRect(0, 0, W, H);
+      px += (tx - px) * 0.09;
+      py += (ty - py) * 0.09;
+
+      for (var i = 0; i < nodes.length; i++) {
+        var n = nodes[i];
+        if (!reduce) {
+          n.x = n.ox + 5 * Math.sin(now * 0.00037 + n.ph);
+          n.y = n.oy + 5 * Math.cos(now * 0.00031 + n.ph * 1.4);
+        }
+      }
+
+      ctx.lineWidth = 1;
+      for (var k = 0; k < edges.length; k++) {
+        var e = edges[k], a = nodes[e.a], b = nodes[e.b];
+        var mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+        var dm = Math.hypot(mx - px, my - py);
+        var f = dm < REACH ? (1 - dm / REACH) : 0;
+        ctx.strokeStyle = "rgba(43,29,18," + (0.05 + 0.14 * f * f).toFixed(3) + ")";
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.stroke();
+      }
+
+      for (var m = 0; m < nodes.length; m++) {
+        var nd = nodes[m];
+        var d = Math.hypot(nd.x - px, nd.y - py);
+        var g = d < REACH ? Math.pow(1 - d / REACH, 2) : 0;
+        if (g > 0.02) {
+          var halo = ctx.createRadialGradient(nd.x, nd.y, 0, nd.x, nd.y, 14 + 10 * g);
+          halo.addColorStop(0, nd.hue + Math.round(70 * g + 30).toString(16).padStart(2, "0"));
+          halo.addColorStop(1, nd.hue + "00");
+          ctx.fillStyle = halo;
+          ctx.beginPath();
+          ctx.arc(nd.x, nd.y, 14 + 10 * g, 0, 6.2832);
+          ctx.fill();
+          ctx.fillStyle = nd.hue;
+          ctx.globalAlpha = 0.35 + 0.6 * g;
+          ctx.beginPath();
+          ctx.arc(nd.x, nd.y, 1.4 + 2.4 * g, 0, 6.2832);
+          ctx.fill();
+          ctx.globalAlpha = 1;
+        } else {
+          ctx.fillStyle = "rgba(43,29,18,0.13)";
+          ctx.beginPath();
+          ctx.arc(nd.x, nd.y, 1.4, 0, 6.2832);
+          ctx.fill();
+        }
+      }
+
+      if (!reduce) {
+        maybeSpawn(now);
+
+        for (var s2 = signals.length - 1; s2 >= 0; s2--) {
+          var sg = signals[s2];
+          sg.t += dt;
+          var e2 = edges[sg.e];
+          var from = nodes[sg.from], to = nodes[sg.from === e2.a ? e2.b : e2.a];
+          var t = Math.min(1, sg.t / sg.dur);
+          var ease = t * t * (3 - 2 * t);
+          var sx = from.x + (to.x - from.x) * ease;
+          var sy = from.y + (to.y - from.y) * ease;
+          ctx.fillStyle = sg.hue;
+          ctx.globalAlpha = 0.9 * (t < 0.15 ? t / 0.15 : 1);
+          ctx.beginPath();
+          ctx.arc(sx, sy, 2.6, 0, 6.2832);
+          ctx.fill();
+          ctx.globalAlpha = 0.35;
+          ctx.beginPath();
+          ctx.arc(sx - (to.x - from.x) * 0.045, sy - (to.y - from.y) * 0.045, 1.6, 0, 6.2832);
+          ctx.fill();
+          ctx.globalAlpha = 1;
+          if (t >= 1) {
+            var toIdx = sg.from === e2.a ? e2.b : e2.a;
+            pulses.push({ x: to.x, y: to.y, t: 0, hue: sg.hue });
+            if (sg.hops > 0 && Math.random() < 0.55 && nodes[toIdx].adj.length > 1) {
+              var nxt = nodes[toIdx].adj[Math.floor(Math.random() * nodes[toIdx].adj.length)];
+              if (nxt !== sg.e) spawnSignal(nxt, toIdx, sg.hops - 1);
+            }
+            signals.splice(s2, 1);
+          }
+        }
+
+        for (var p2 = pulses.length - 1; p2 >= 0; p2--) {
+          var pl = pulses[p2];
+          pl.t += dt;
+          var pt = pl.t / 520;
+          if (pt >= 1) { pulses.splice(p2, 1); continue; }
+          ctx.strokeStyle = pl.hue;
+          ctx.globalAlpha = 0.5 * (1 - pt);
+          ctx.lineWidth = 1.4;
+          ctx.beginPath();
+          ctx.arc(pl.x, pl.y, 3 + 15 * pt, 0, 6.2832);
+          ctx.stroke();
+          ctx.globalAlpha = 1;
+          ctx.lineWidth = 1;
+        }
+      }
+    }
+
+    var rafId = null, visible = false, last = 0;
+    function loop(now) {
+      if (!visible || doc.hidden) { rafId = null; return; }
+      var dt = last ? Math.min(48, now - last) : 16;
+      last = now;
+      step(now, dt);
+      rafId = requestAnimationFrame(loop);
+    }
+    function setRun() {
+      if (visible && !doc.hidden && rafId === null) { last = 0; rafId = requestAnimationFrame(loop); }
+    }
+
+    section.addEventListener("pointermove", function (ev) {
+      var r = section.getBoundingClientRect();
+      tx = ev.clientX - r.left;
+      ty = ev.clientY - r.top;
+    });
+    section.addEventListener("pointerleave", function () { tx = -9e3; ty = -9e3; });
+    doc.addEventListener("visibilitychange", setRun);
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        visible = entries.some(function (en) { return en.isIntersecting; });
+        setRun();
+      }, { threshold: 0.05 }).observe(section);
+    } else { visible = true; setRun(); }
+
+    var rt;
+    window.addEventListener("resize", function () {
+      clearTimeout(rt);
+      rt = setTimeout(resize, 160);
+    });
+    resize();
+    if (reduce) { visible = true; step(0, 16); visible = false; }
+  }
+
 /* ---- 4. The axon graph --------------------------------------------------
      Draws Role -> Responsibility -> Task -> KPI -> Skill as a real connected
      graph. Paths are computed from measured node positions rather than
@@ -779,6 +1000,7 @@
     try { initMarquees(); } catch (e) {}
     try { initTabs(); } catch (e) {}
     try { initHeroFlow(); } catch (e) {}
+    try { initHeroNeural(); } catch (e) {}
     try { initScrollState(); } catch (e) {}
     try { initVisibility(); } catch (e) {}
     try { initAxonGraph(); } catch (e) {}
