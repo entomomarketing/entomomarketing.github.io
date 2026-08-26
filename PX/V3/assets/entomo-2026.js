@@ -532,13 +532,13 @@
       if (signals.length > 18) return;
       var e = edges[ei];
       signals.push({ e: ei, from: fromNode, t: 0,
-        dur: 420 + Math.random() * 320, hops: hops,
+        dur: 850 + Math.random() * 650, hops: hops,
         hue: nodes[fromNode === e.a ? e.b : e.a].hue });
     }
 
     var lastNear = 0, lastAmbient = 0;
     function maybeSpawn(now) {
-      if (px > -8e3 && now - lastNear > 130) {
+      if (px > -8e3 && now - lastNear > 190) {
         var near = [];
         for (var i = 0; i < edges.length; i++) {
           var e = edges[i], na = nodes[e.a], nb = nodes[e.b];
@@ -622,12 +622,14 @@
           var ease = t * t * (3 - 2 * t);
           var sx = from.x + (to.x - from.x) * ease;
           var sy = from.y + (to.y - from.y) * ease;
+          /* soft envelope: ease in over the first quarter, melt out at the end */
+          var env = t < 0.25 ? t / 0.25 : (t > 0.8 ? (1 - t) / 0.2 : 1);
           ctx.fillStyle = sg.hue;
-          ctx.globalAlpha = 0.9 * (t < 0.15 ? t / 0.15 : 1);
+          ctx.globalAlpha = 0.9 * env;
           ctx.beginPath();
           ctx.arc(sx, sy, 2.6, 0, 6.2832);
           ctx.fill();
-          ctx.globalAlpha = 0.35;
+          ctx.globalAlpha = 0.35 * env;
           ctx.beginPath();
           ctx.arc(sx - (to.x - from.x) * 0.045, sy - (to.y - from.y) * 0.045, 1.6, 0, 6.2832);
           ctx.fill();
