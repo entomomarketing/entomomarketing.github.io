@@ -804,6 +804,23 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
   box-shadow: none !important;
 }
 
+.axon-graph .sg-mesh {
+  /* ambient neural field: painted by JS, bleeds past the diagram so the
+     visible sample reads as a window onto a much larger model */
+  position: absolute;
+  inset: -44px -20px;
+  width: calc(100% + 40px);
+  height: calc(100% + 88px);
+  pointer-events: none;
+  z-index: 0;
+}
+.axon-graph .sg-impulse {
+  fill: none;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  pointer-events: none;
+  opacity: 0;
+}
 .axon-graph .sg-links {
   position: absolute;
   inset: 0;
@@ -933,6 +950,7 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
      labelled row of chips and the connector layer steps aside. */
   .axon-graph { grid-template-columns: 1fr; grid-template-rows: none; gap: 0; }
   .axon-graph .sg-links { display: none; }
+  .axon-graph .sg-mesh { display: none; }
   .axon-graph .sg-col { display: block; padding: 1.15rem 0; border-bottom: 1px solid var(--ink-line-soft); }
   .axon-graph .sg-col:last-child { border-bottom: none; }
   .axon-graph .arch-col-header { display: inline-block; margin-bottom: 0.9rem; }

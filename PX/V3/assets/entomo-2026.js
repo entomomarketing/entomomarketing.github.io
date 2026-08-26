@@ -606,14 +606,112 @@
     });
     root.addEventListener("mouseleave", function () { if (!pinned) clear(); });
 
+    /* ---- ambient neural field ------------------------------------------
+       A faint synapse mesh behind the real graph. Decorative only: painted
+       once per layout on its own canvas, never intercepts the pointer. */
+    var mesh = root.querySelector(".sg-mesh");
+    function paintMesh() {
+      if (!mesh || !mesh.getContext) return;
+      var b = mesh.getBoundingClientRect();
+      if (!b.width || getComputedStyle(mesh).display === "none") return;
+      var dpr = window.devicePixelRatio || 1;
+      mesh.width = Math.round(b.width * dpr);
+      mesh.height = Math.round(b.height * dpr);
+      var ctx = mesh.getContext("2d");
+      ctx.scale(dpr, dpr);
+      var W = b.width, H = b.height;
+      var pts = [], N = Math.min(170, Math.round((W * H) / 4300));
+      /* organic clusters around the five layers, plus a uniform wash, so the
+         field reads as tissue rather than static */
+      for (var i = 0; i < N; i++) {
+        if (i % 5 < 2) {
+          pts.push({ x: Math.random() * W, y: Math.random() * H });
+        } else {
+          var cx = W * (0.1 + 0.2 * Math.floor(Math.random() * 5));
+          var cy = H * (0.28 + Math.random() * 0.44);
+          var g = function () { return (Math.random() + Math.random() - 1); };
+          pts.push({ x: cx + g() * W * 0.09, y: cy + g() * H * 0.30 });
+        }
+      }
+      for (var a = 0; a < pts.length; a++) {
+        for (var q = a + 1; q < pts.length; q++) {
+          var dx = pts[a].x - pts[q].x, dy = pts[a].y - pts[q].y, d2 = dx * dx + dy * dy;
+          if (d2 < 12100) {                       /* 110px reach */
+            ctx.strokeStyle = "rgba(43,29,18," + (0.13 * (1 - Math.sqrt(d2) / 110)).toFixed(3) + ")";
+            ctx.lineWidth = 0.7;
+            ctx.beginPath();
+            ctx.moveTo(pts[a].x, pts[a].y);
+            ctx.lineTo(pts[q].x, pts[q].y);
+            ctx.stroke();
+          }
+        }
+      }
+      var hues = ["#f86da9", "#708cb5", "#2c9bbb", "#ebbe2e"];
+      pts.forEach(function (pt, i) {
+        var synapse = i % 8 === 0;
+        ctx.globalAlpha = synapse ? 0.5 : 0.16;
+        ctx.fillStyle = synapse ? hues[(i / 8 | 0) % 4] : "rgb(43,29,18)";
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, synapse ? 2.1 : 1.3, 0, 6.2832);
+        ctx.fill();
+      });
+      ctx.globalAlpha = 1;
+    }
+
+    /* ---- firing impulses -----------------------------------------------
+       Every beat or so, a bright pulse travels one real connection, like a
+       signal crossing a synapse. Skipped entirely for reduced motion. */
+    var IMPULSE_HUES = ["#f86da9", "#ba7bae", "#708cb5", "#2c9bbb", "#ebbe2e"];
+    var reduceMotion = window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function fire() {
+      if (doc.hidden || !paths.length) return;
+      var src = paths[Math.floor(Math.random() * paths.length)];
+      if (!src.animate) return;
+      var len;
+      try { len = src.getTotalLength(); } catch (err) { return; }
+      if (!len) return;
+      var p = src.cloneNode(false);
+      p.setAttribute("class", "sg-impulse");
+      p.style.stroke = IMPULSE_HUES[Math.floor(Math.random() * IMPULSE_HUES.length)];
+      p.style.strokeDasharray = "12 " + len;
+      svg.appendChild(p);
+      var anim = p.animate(
+        [
+          { strokeDashoffset: 12, opacity: 0 },
+          { opacity: 0.85, offset: 0.18 },
+          { opacity: 0.85, offset: 0.82 },
+          { strokeDashoffset: -len, opacity: 0 }
+        ],
+        { duration: 1000 + Math.random() * 600, easing: "cubic-bezier(0.4, 0, 0.6, 1)" }
+      );
+      anim.onfinish = function () { p.remove(); };
+    }
+    var impulseTimer = null;
+    if (!reduceMotion && "IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        var vis = entries.some(function (en) { return en.isIntersecting; });
+        if (vis && !impulseTimer) {
+          impulseTimer = setInterval(function () {
+            fire();
+            if (Math.random() < 0.4) setTimeout(fire, 260 + Math.random() * 240);
+          }, 1300);
+        } else if (!vis && impulseTimer) {
+          clearInterval(impulseTimer);
+          impulseTimer = null;
+        }
+      }, { threshold: 0.15 }).observe(root);
+    }
+
     draw();
+    paintMesh();
     // Fonts land after first paint and change node heights; redraw when they do.
-    if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(draw).catch(function () {});
+    if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(function () { draw(); paintMesh(); }).catch(function () {});
 
     var t;
     window.addEventListener("resize", function () {
       clearTimeout(t);
-      t = setTimeout(draw, 140);
+      t = setTimeout(function () { draw(); paintMesh(); }, 140);
     });
 
     if ("IntersectionObserver" in window) {
