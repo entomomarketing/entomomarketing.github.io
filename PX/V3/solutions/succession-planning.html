@@ -1644,6 +1644,55 @@
       background: #f2faf4 !important;
     }
     a.btn-primary { display: inline-block; text-decoration: none; }
+
+    /* ===== succession-planning: page-specific ===== */
+    .su-grid-wrap { max-width:1020px; margin:3.6rem auto 0; display:grid; grid-template-columns:1.15fr 1fr; gap:2.4rem; align-items:center; }
+    .su-matrix { position:relative; padding:0 0 34px 38px; }
+    .su-cells { display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(3,86px); gap:6px; }
+    .su-cell { border-radius:10px; position:relative; }
+    .su-cell.r0 { background:rgba(44,153,66,0.13); }
+    .su-cell.r1 { background:rgba(244,178,35,0.16); }
+    .su-cell.r2 { background:rgba(228,61,48,0.14); }
+    .su-role { position:absolute; inset:auto 6px 6px 6px; background:var(--white); border-radius:8px; padding:5px 9px;
+      font-size:11.5px; font-weight:700; color:var(--ink); box-shadow:0 3px 10px rgba(43,29,18,0.13); border:1px solid rgba(26,31,38,0.07); }
+    .su-role em { display:block; font-style:normal; font-weight:600; font-size:10px; color:var(--cg-red); }
+    .su-role.ok em { color:#1d6c2d; }
+    .su-ax-y { position:absolute; left:0; top:0; bottom:34px; writing-mode:vertical-rl; transform:rotate(180deg);
+      display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; letter-spacing:1.2px; text-transform:uppercase; color:var(--ink-4); }
+    .su-ax-x { position:absolute; left:38px; right:0; bottom:0; text-align:center; font-size:11px; font-weight:800; letter-spacing:1.2px; text-transform:uppercase; color:var(--ink-4); }
+    .su-read { display:flex; flex-direction:column; gap:1.3rem; }
+    .su-r b { display:block; font-size:16.5px; margin-bottom:0.25rem; }
+    .su-r p { margin:0; font-size:14px; line-height:1.55; color:var(--ink-2); }
+    .su-r { padding-left:1rem; border-left:3px solid var(--cg-red); }
+    .su-r:nth-child(2){ border-color:var(--cg-gold);} .su-r:nth-child(3){ border-color:var(--sea-green);}
+    @media (max-width:880px){ .su-grid-wrap { grid-template-columns:1fr; } }
+
+    .su-vs { max-width:960px; margin:3.4rem auto 0; background:var(--white); border-radius:20px; border:1px solid rgba(26,31,38,0.08);
+      box-shadow:0 14px 40px rgba(43,29,18,0.08); overflow:hidden; }
+    .su-vs-h { padding:1.2rem 1.8rem; background:linear-gradient(90deg, rgba(0,100,191,0.08), rgba(44,153,66,0.08)); font-weight:800; font-size:15px; }
+    .su-vs-grid { display:grid; grid-template-columns:1fr 1fr; }
+    .su-cand { padding:1.6rem 1.8rem; }
+    .su-cand + .su-cand { border-left:1px solid rgba(26,31,38,0.07); }
+    .su-cand-h { display:flex; align-items:center; gap:0.8rem; margin-bottom:1rem; }
+    .su-cava { width:42px; height:42px; border-radius:50%; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:14px; }
+    .su-cand:first-child .su-cava { background:linear-gradient(135deg,var(--spanish-blue),#003e75); }
+    .su-cand:last-child .su-cava { background:linear-gradient(135deg,#c9820e,var(--cg-gold)); }
+    .su-cand-h b { display:block; font-size:15.5px; }
+    .su-cand-h span { font-size:12px; color:var(--ink-3); }
+    .su-fact { display:flex; justify-content:space-between; gap:1rem; font-size:13.5px; padding:0.5rem 0; border-top:1px dashed rgba(26,31,38,0.1); }
+    .su-fact span:first-child { color:var(--ink-3); }
+    .su-fact span:last-child { font-weight:700; color:var(--ink); text-align:right; }
+    .su-ready { margin-top:1rem; border-radius:999px; display:inline-block; padding:5px 14px; font-size:12.5px; font-weight:800; }
+    .su-ready.now { background:rgba(44,153,66,0.13); color:#1d6c2d; }
+    .su-ready.soon { background:rgba(244,178,35,0.16); color:#8a5f0e; }
+    @media (max-width:760px){ .su-vs-grid { grid-template-columns:1fr; } .su-cand + .su-cand { border-left:none; border-top:1px solid rgba(26,31,38,0.07);} }
+
+    .su-flip { max-width:900px; margin:3.4rem auto 0; display:flex; flex-direction:column; gap:0.9rem; }
+    .su-f { display:grid; grid-template-columns:1fr 1fr; border-radius:14px; overflow:hidden; border:1px solid rgba(26,31,38,0.07); }
+    .su-f > div { padding:1.05rem 1.35rem; font-size:14.5px; line-height:1.5; background:var(--white); }
+    .su-f-old { color:var(--ink-3); text-decoration:line-through; text-decoration-color:rgba(228,61,48,0.5); text-decoration-thickness:1.5px; }
+    .su-f-new { font-weight:600; color:var(--ink); border-left:1px solid rgba(26,31,38,0.06); background:linear-gradient(135deg, rgba(44,153,66,0.05), transparent), var(--white); }
+    @media (max-width:720px){ .su-f { grid-template-columns:1fr; } .su-f-new{border-left:none;} }
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -1950,7 +1999,7 @@
         </div>
         <h1>know your next <mark>leaders</mark> before you need them</h1>
         <p class="sol-hero-sub">
-          leadership gaps never announce themselves. agentic <span class="keep-case">AI</span> that scores successor readiness on evidence and builds talent pipelines before the need turns urgent.
+          succession intelligence that watches criticality, readiness, and risk continuously, and compares candidates on evidence, so no critical role is ever one resignation from empty.
         </p>
         <a class="btn-primary" href="../request-demo.html">get started &rarr;</a>
       </div>
@@ -1984,315 +2033,111 @@
     </div>
   </section>
 
-  <!-- ===== THE PROBLEM ===== -->
+  <!-- ===== THE MAP ===== -->
   <section style="background: var(--polar-white);">
     <div class="container">
       <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">the problem</p>
-        <h2 class="section-heading">the org chart is not a <mark>succession plan</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;">Hierarchy-influenced succession leaves readiness to opinion. Here is what it costs when a critical role empties without warning.</p>
+        <h2 class="section-heading">every critical role is one resignation from an <mark>empty chair</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;">the criticality and risk matrix keeps the exposure visible: which roles matter most, how ready the bench behind them is, and where a single exit would hurt.</p>
       </div>
-      <div class="pillars-grid">
-        <div class="pillar-card">
-          <div class="pillar-name">critical roles, uncovered</div>
-          <p class="pillar-desc">Nobody can say which roles would stall the business if they emptied tomorrow. Risk concentrates quietly in strategy dependency, tenure, and replacement difficulty, and it surfaces only when the resignation letter lands.</p>
+      <div class="su-grid-wrap">
+        <div class="su-matrix" role="img" aria-label="a criticality by readiness matrix with example roles: head of underwriting sits at high criticality with no ready successor; plant director has one successor ready in two years; finance controller has a ready-now bench">
+          <div class="su-ax-y">role criticality &rarr;</div>
+          <div class="su-cells">
+            <div class="su-cell r2"><div class="su-role">head of underwriting<em>no ready successor</em></div></div>
+            <div class="su-cell r1"><div class="su-role">plant director<em>1 ready in ~2y</em></div></div>
+            <div class="su-cell r0"></div>
+            <div class="su-cell r1"></div>
+            <div class="su-cell r1"></div>
+            <div class="su-cell r0"><div class="su-role ok">finance controller<em>bench ready now</em></div></div>
+            <div class="su-cell r0"></div>
+            <div class="su-cell r0"></div>
+            <div class="su-cell r0"></div>
+          </div>
+          <div class="su-ax-x">successor readiness &rarr;</div>
         </div>
-        <div class="pillar-card">
-          <div class="pillar-name">successors picked by proximity, not evidence</div>
-          <p class="pillar-desc">Nomination-based succession rewards visibility and hierarchy. Readiness becomes an opinion in a calibration meeting instead of a score built from skills, assessments, and experience against real role requirements.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-name">plans that expire in the annual review</div>
-          <p class="pillar-desc">Succession gets reviewed once a year, then the deck goes back in the drawer. Readiness never updates, development stays disconnected from gaps, and pipelines get built after the need has already turned urgent.</p>
+        <div class="su-read">
+          <div class="su-r"><b>hotspots surface themselves</b><p>criticality and capability scores plot every key role, so the dangerous corner of the grid is never a surprise found during an exit interview.</p></div>
+          <div class="su-r"><b>risk is more than a vacancy</b><p>concentration risk, skill half-life, and obsolescence feed the same view: a full bench of aging skills is still a red cell.</p></div>
+          <div class="su-r"><b>the funnel stays visible</b><p>ready-now and ready-soon pipelines are tracked per role, so bench strength is a number leadership watches, not a hope.</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== THE SHIFT ===== -->
+  <!-- ===== NOMINEE COMPARISON ===== -->
   <section style="background: var(--white);">
     <div class="container">
+      <div class="text-center" style="max-width:740px; margin:0 auto;">
+        <h2 class="section-heading">candidates compared on <mark>evidence</mark>, not sponsorship</h2>
+        <p class="section-subheading" style="margin:0 auto;">embedded <span class="keep-case">AI</span> compares nominees against the eligibility parameters you configure, drawing on assessed skills, delivered goals, and declared aspirations from <span class="strata-text">strata</span>.</p>
+      </div>
+      <div class="su-vs">
+        <div class="su-vs-h">succession slate: head of underwriting</div>
+        <div class="su-vs-grid">
+          <div class="su-cand">
+            <div class="su-cand-h"><div class="su-cava">am</div><div><b>Arif M.</b><span>deputy head, commercial lines</span></div></div>
+            <div class="su-fact"><span>skill coverage vs role bar</span><span>91%</span></div>
+            <div class="su-fact"><span>goal delivery, last 2 cycles</span><span>104% avg</span></div>
+            <div class="su-fact"><span>leadership assessment</span><span>strong, feedback area: delegation</span></div>
+            <div class="su-fact"><span>aspiration match</span><span>declared: underwriting leadership</span></div>
+            <span class="su-ready now">ready now</span>
+          </div>
+          <div class="su-cand">
+            <div class="su-cand-h"><div class="su-cava">ds</div><div><b>Devi S.</b><span>senior manager, risk</span></div></div>
+            <div class="su-fact"><span>skill coverage vs role bar</span><span>78%</span></div>
+            <div class="su-fact"><span>goal delivery, last 2 cycles</span><span>98% avg</span></div>
+            <div class="su-fact"><span>leadership assessment</span><span>high potential, needs p&amp;l exposure</span></div>
+            <div class="su-fact"><span>development plan</span><span>rotation + mentor assigned</span></div>
+            <span class="su-ready soon">ready in 12&ndash;18 months</span>
+          </div>
+        </div>
+      </div>
+      <p style="text-align:center; font-size:13px; color:var(--ink-4); margin-top:1.6rem;">the panel still decides. it just starts from the same evidence instead of competing anecdotes.</p>
+    </div>
+  </section>
+
+  <!-- ===== BINDER VS LIVING ===== -->
+  <section style="background: var(--polar-white); border-top: 1px solid rgba(26,31,38,0.06);">
+    <div class="container">
       <div class="text-center" style="max-width:720px; margin:0 auto;">
-        <h2 class="section-heading">from replacement charts to living <mark>pipelines</mark></h2>
+        <h2 class="section-heading">retire the annual succession <mark>binder</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;">the shift is from hierarchy-influenced nomination to an agile, talent-value pipeline.</p>
       </div>
-      <div class="integrations-grid">
-        <div class="integration-card">
-          <div class="integration-card-title">succession today</div>
-          <div class="integration-pill-row">
-            <span class="integration-pill">nominations decided by hierarchy and proximity</span>
-            <span class="integration-pill">critical roles identified after someone resigns</span>
-            <span class="integration-pill">readiness reviewed once a year in a slide deck</span>
-            <span class="integration-pill">development disconnected from succession gaps</span>
-          </div>
-        </div>
-        <div class="integration-card shift-good">
-          <div class="integration-card-title">succession with entomo</div>
-          <div class="integration-pill-row">
-            <span class="integration-pill">readiness scored on evidence, not nominations</span>
-            <span class="integration-pill">critical roles risk-scored before gaps open</span>
-            <span class="integration-pill">talent pools in ready-now, ready-soon tiers</span>
-            <span class="integration-pill">successor gaps turned into development plans</span>
-          </div>
-        </div>
+      <div class="su-flip">
+        <div class="su-f"><div class="su-f-old">names collected once a year, in a template</div><div class="su-f-new">pipelines recalculated as skills, goals, and assessments change</div></div>
+        <div class="su-f"><div class="su-f-old">successors nominated by who knows whom</div><div class="su-f-new">candidates recommended on skills and aspirations, compared on configured criteria</div></div>
+        <div class="su-f"><div class="su-f-old">readiness asserted in a meeting</div><div class="su-f-new">readiness scored, with the development plan that closes each gap</div></div>
+        <div class="su-f"><div class="su-f-old">the plan lives in a deck nobody reopens</div><div class="su-f-new">the plan acts: gigs, mentors, and learning assigned to every ready-soon name</div></div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== HOW IT WORKS ===== -->
-  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
-    <div class="container">
-      <div class="text-center" style="max-width:800px; margin:0 auto;">
-        <p class="section-eyebrow">how it works</p>
-        <h2 class="section-heading">how succession <mark>intelligence</mark> works</h2>
-        <p class="section-subheading" style="margin:0 auto;">One connected loop from risk to readiness. Agents do the analysis; your leaders make every call.</p>
-      </div>
-      <div class="arch-diagram">
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-data-sources">map critical roles</div>
-          <div class="arch-col-desc">RoleArchitect structures success profiles for your critical roles, each risk-scored on strategy dependency, tenure, and replacement difficulty.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">The critical role risk matrix shows where succession risk concentrates, with success competencies benchmarked against market intelligence on skill trends and talent competitiveness.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-foundation">score successor readiness</div>
-          <div class="arch-col-desc">SkillMatrix maps capability against role requirements on the entomo <span class="strata-text">strata</span> graph and quantifies each candidate's skills-match percentage.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">Readiness is scored against the real requirements of critical roles, not nominations: competency data, assessment results, and experience milestones flow into successor scorecards.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-intelligence">build talent pools</div>
-          <div class="arch-col-desc">TalentAtlas models demand against strategic roadmaps while talent pools segment into ready-now, ready-soon, and developing tiers for every critical role.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">Nine-box calibration places talent on performance-potential grids at every leadership level, and embedded <span class="keep-case">AI</span> compares nominees against configured eligibility parameters.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-agents">close the gaps</div>
-          <div class="arch-col-desc">GrowthPlanner turns successor gaps into individual development plans with learning, gigs, and mentors; readiness scores update as development moves.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">The same platform that finds the gap closes it: <span class="keep-case">AI</span>-generated development plans operationalize succession instead of leaving it in an annual review deck.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-outcomes">decide with intelligence</div>
-          <div class="arch-col-desc">The <span class="keep-case">4B</span> decision engine recommends build, buy, borrow, or bot for every gap; your leaders review and approve every succession call.</div>
-          <div class="arch-tooltip" style="left:auto; right:0; transform:none;">Scenario planning lets you test pipeline depth, a succession health index keeps the pipeline honest, and hotspot maps show leaders exactly where to act.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== AGENTS ===== -->
-  <section class="perf-agents-section">
-    <div class="container">
-      <div class="section-eyebrow">Your <span class="keep-case">AI</span> workforce for succession</div>
-      <h2>meet the succession <mark>agents</mark> that work for you</h2>
-    </div>
-
-    <div class="perf-mq-wrapper">
-      <div class="perf-mq-track">
-        <div class="perf-mq-card"><img src="../Images/agents/rolearchitect.png" alt="RoleArchitect" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">RoleArchitect</div><div class="perf-mq-role">role architecture agent</div><div class="perf-mq-desc">structures success profiles for critical roles so readiness is scored against real requirements, not titles</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/skillmatrix.png" alt="SkillMatrix" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">SkillMatrix</div><div class="perf-mq-role">capability mapping agent</div><div class="perf-mq-desc">maps the skills your workforce has against what critical roles demand, and quantifies every successor's skills-match percentage</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/talentatlas.png" alt="TalentAtlas" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">TalentAtlas</div><div class="perf-mq-role">talent demand agent</div><div class="perf-mq-desc">models workforce demand against strategic roadmaps so succession pipelines are built before the need becomes urgent</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/growthplanner.png" alt="GrowthPlanner" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">GrowthPlanner</div><div class="perf-mq-role">successor development agent</div><div class="perf-mq-desc">designs development pathways that build successor capabilities, turning readiness gaps into plans that actually move</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/flowgen.png" alt="FlowGen" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">FlowGen</div><div class="perf-mq-role">org design agent</div><div class="perf-mq-desc">models organization structure scenarios so succession decisions account for how the business itself is evolving</div></div>
-
-        <!-- duplicate set for seamless loop -->
-        <div class="perf-mq-card"><img src="../Images/agents/rolearchitect.png" alt="RoleArchitect" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">RoleArchitect</div><div class="perf-mq-role">role architecture agent</div><div class="perf-mq-desc">structures success profiles for critical roles so readiness is scored against real requirements, not titles</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/skillmatrix.png" alt="SkillMatrix" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">SkillMatrix</div><div class="perf-mq-role">capability mapping agent</div><div class="perf-mq-desc">maps the skills your workforce has against what critical roles demand, and quantifies every successor's skills-match percentage</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/talentatlas.png" alt="TalentAtlas" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">TalentAtlas</div><div class="perf-mq-role">talent demand agent</div><div class="perf-mq-desc">models workforce demand against strategic roadmaps so succession pipelines are built before the need becomes urgent</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/growthplanner.png" alt="GrowthPlanner" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">GrowthPlanner</div><div class="perf-mq-role">successor development agent</div><div class="perf-mq-desc">designs development pathways that build successor capabilities, turning readiness gaps into plans that actually move</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/flowgen.png" alt="FlowGen" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">FlowGen</div><div class="perf-mq-role">org design agent</div><div class="perf-mq-desc">models organization structure scenarios so succession decisions account for how the business itself is evolving</div></div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FEATURES ===== -->
-  <section class="features-section">
-    <div class="container">
-      <div class="text-center">
-        <p class="section-eyebrow">capabilities</p>
-        <h2 class="section-heading">everything succession needs, all in one <mark>place</mark></h2>
-      </div>
-      <div class="features-panel features-grid active">
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-          <h4>critical roles risk-scored before gaps open</h4>
-          <p>Identifies critical and strategic roles and scores succession risk on strategy dependency, tenure, and replacement difficulty, so you see where risk concentrates before it becomes a vacancy.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-          <h4>readiness that updates as people grow</h4>
-          <p>Segments talent pools into ready-now, ready-soon, and developing tiers, with successor scorecards that pull competency data, assessment results, and experience milestones, and update as development moves.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-          <h4>a nine-box grid that calibrates every level</h4>
-          <p>Places talent on performance-potential grids for calibration at every leadership level, viewable with talent cards, succession charts, and hotspot maps built for decision makers.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-          <h4>skills-match scores that quantify fit</h4>
-          <p>Quantifies how closely each candidate's skills match the target critical role, while embedded <span class="keep-case">AI</span> compares nominees against the eligibility parameters you configure.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
-          <h4>recommendations that widen the funnel</h4>
-          <p>Recommends successors based on the skills and aspirations of your people, and discovers internal talent organization-wide on objective skill, performance, and potential signals.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
-          <h4>hotspot maps that show where risk lives</h4>
-          <p>Surfaces enterprise talent maps and a workforce readiness index that aggregates readiness across critical and strategic roles, supporting succession and business continuity planning.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <h4>nudges that keep managers moving</h4>
-          <p>Pushes individualized nudges and system recommendations so managers act on succession and development gaps in the flow-of-work, not once a year.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg></div>
-          <h4>a decision engine that weighs build, buy, borrow, bot</h4>
-          <p>Recommends the right move for every succession gap, informed by skill half-life, obsolescence risk, and concentration signals from the succession intelligence pillar.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"/></svg></div>
-          <h4>a graph that scores readiness on evidence</h4>
-          <p>Connects role, responsibility, task, <span class="keep-case">KPI</span>, and skill in entomo <span class="strata-text">strata</span>, the semantic workforce graph that powers succession alongside performance, learning, and mobility.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROOF: NUMBERS ===== -->
-  <section style="background: var(--lavender);">
-    <div class="container">
-      <div class="text-center" style="max-width:680px; margin:0 auto 4rem;">
-        <p class="section-eyebrow">measured, not claimed</p>
-        <h2 class="section-heading">outcomes you can take to the <mark>board</mark></h2>
-      </div>
-      <div class="persona-simple-grid">
-        <div class="persona-simple-card">
-          <div class="persona-simple-top green-top">
-            <span class="persona-simple-role">faster critical hiring</span>
-            <span class="persona-simple-headline">30% less time-to-fill</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">Graas, eCommerce, 7 countries</span>
-            <span class="ptag">nine-box talent grid</span>
-            <span class="ptag">critical positions</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top red-top">
-            <span class="persona-simple-role">development follow-through</span>
-            <span class="persona-simple-headline">15% more development goals completed</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">Graas, eCommerce</span>
-            <span class="ptag">plans aligned to objectives</span>
-            <span class="ptag">professional development</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top blue-top">
-            <span class="persona-simple-role">platform-level value</span>
-            <span class="persona-simple-headline">$26.8M value, 103% <span class="keep-case">ROI</span></span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">Forrester <span class="keep-case">TEI</span>, platform-wide</span>
-            <span class="ptag">large government entity</span>
-            <span class="ptag">3-year study</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top gold-top">
-            <span class="persona-simple-role">enterprise scale</span>
-            <span class="persona-simple-headline">30M+ users on the platform</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">platform-wide proof</span>
-            <span class="ptag">agentic workforce intelligence</span>
-            <span class="ptag">enterprise deployments</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROOF: A FACE ===== -->
-  <section style="background: var(--pistachio);">
-    <div class="container">
-      <div class="text-center" style="max-width:900px; margin:0 auto;">
-        <p class="section-eyebrow">customer story</p>
-        <p class="story-quote">&ldquo;entomo's Talent Management solution helped us get a 360 view of the organisation's talent landscape and helped us plan workforce accordingly.&rdquo;</p>
-        <p class="story-attr">Human Capital Division Head, Indonesian state-owned renewable energy enterprise</p>
-      </div>
-      <div class="orchestration-chips" style="margin-top:2.5rem;">
-        <span class="orch-chip">1,200+ employees onboarded</span>
-        <span class="orch-chip">improved talent readiness across the workforce</span>
-        <span class="orch-chip">workforce planned on a 360 view of talent</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ENTERPRISE READINESS ===== -->
-  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
-    <div class="container">
-      <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">enterprise-ready</p>
-        <h2 class="section-heading">fits your stack. passes your audits.</h2>
-        <p class="section-subheading" style="margin:0 auto;">entomo works alongside the systems you already run, not in place of them. Agents surface risk, score readiness, and recommend successors; every nomination and succession decision stays with your leaders. <a href="../about/security-at-entomo.html" style="color:var(--spanish-blue); font-weight:600;">read the security architecture &rarr;</a></p>
-      </div>
-      <div class="tech-chips-row">
-        <span class="tech-chip"><span class="keep-case">ISO</span>/IEC 27001 certified</span>
-        <span class="tech-chip"><span class="keep-case">UAE</span> data-protection compliant delivery</span>
-        <span class="tech-chip"><span class="keep-case">GDPR</span>-aligned data practices</span>
-        <span class="tech-chip">runs alongside your <span class="keep-case">HCM</span> and <span class="keep-case">HRIS</span></span>
-        <span class="tech-chip">agents recommend, humans approve</span>
-        <span class="tech-chip">30M+ users at enterprise scale</span>
+      <div style="text-align:center; margin-top:2.6rem;">
+        <p style="font-size:14.5px; color:var(--ink-2); max-width:640px; margin:0 auto;">the stakes are documented: mishandled leadership transitions destroy an estimated <b>$1 trillion</b> in market value a year across large enterprises. a seven-country e-commerce group cut time-to-fill for critical roles by <b>30%</b> after moving to nine-box talent mapping on entomo.</p>
       </div>
     </div>
   </section>
 
   <!-- ===== FAQ ===== -->
-  <section style="background: var(--polar-white);">
+  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
     <div class="container">
       <div class="text-center" style="max-width:720px; margin:0 auto;">
-        <p class="section-eyebrow">questions, answered</p>
-        <h2 class="section-heading">what enterprise teams ask us.</h2>
+        <h2 class="section-heading">what boards and <span class="keep-case">CHROs</span> probe <mark>first</mark></h2>
       </div>
       <div class="integrations-grid">
         <div class="integration-card">
-          <div class="integration-card-title">how long does succession planning take to implement?</div>
-          <p class="faq-a">Scope drives the timeline: how many critical roles you cover, the state of your role and skills data, and whether succession launches on its own or inside a strategic workforce planning rollout. The natural starting point is the critical role risk matrix, expanding into talent pools, readiness tracking, and development planning from there. Your entomo team scopes a realistic plan before you commit.</p>
+          <div class="integration-card-title">how current is the readiness data?</div>
+          <p class="faq-a">As current as the work. Readiness draws on live goal delivery, assessment results, and skill profiles in <span class="strata-text">strata</span>, so a pipeline weakens the moment its members stall, not a year later at review time.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">does entomo replace our <span class="keep-case">HCM</span> or <span class="keep-case">HRIS</span>?</div>
-          <p class="faq-a">No. entomo works alongside your existing <span class="keep-case">HCM</span> and <span class="keep-case">HRIS</span> rather than replacing them; core employee records stay where they are. Documented integrations today are learning (<span class="keep-case">LMS</span> and <span class="keep-case">LXP</span>) and analytics oriented, and entomo connects work, performance, and capability on top of your stack to score readiness and build pipelines.</p>
+          <div class="integration-card-title">can we keep our eligibility rules?</div>
+          <p class="faq-a">Yes. Comparison criteria are configurable: tenure, mobility, assessment thresholds, compliance requirements. The <span class="keep-case">AI</span> ranks against your parameters and shows its evidence; it never applies rules you didn't set.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">what do the agents automate, and what do humans approve?</div>
-          <p class="faq-a">Agents do the analysis: risk-scoring critical roles, quantifying skills-match percentages, segmenting readiness tiers, comparing nominees, and recommending successors and development plans. People make the calls: every nomination, succession decision, and development plan is reviewed and approved by your leaders and <span class="keep-case">HR</span> team. The platform recommends; it never appoints.</p>
+          <div class="integration-card-title">what fills the gaps it finds?</div>
+          <p class="faq-a">Development, automatically proposed: individual development plans, gigs and rotations from the internal marketplace, mentors from the network. A red cell on the matrix arrives with the plan that turns it amber. <a href="internal-mobility.html" style="color:var(--spanish-blue); font-weight:600;">see internal mobility &rarr;</a></p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">how is our data used and protected?</div>
-          <p class="faq-a">entomo is <span class="keep-case">ISO</span>/IEC 27001 certified, with <span class="keep-case">ISO</span> 27701 and <span class="keep-case">GDPR</span>-aligned privacy practices, and has delivered under <span class="keep-case">UAE</span> data-protection requirements. Your workforce data powers your own intelligence: readiness scores, risk matrices, and successor recommendations for your organization. Residency requirements for your region are scoped into the engagement.</p>
-        </div>
-        <div class="integration-card">
-          <div class="integration-card-title">how is successor readiness actually scored?</div>
-          <p class="faq-a">On evidence, not nominations. The entomo <span class="strata-text">strata</span> workforce graph connects role, responsibility, task, <span class="keep-case">KPI</span>, and skill, so readiness is scored against the real requirements of each critical role. Successor scorecards pull competency data, assessment results, and experience milestones into a skills-match percentage and a readiness tier, and scores update as development moves, not once a year.</p>
-        </div>
-        <div class="integration-card">
-          <div class="integration-card-title">how is this different from the succession module in our <span class="keep-case">HCM</span> suite?</div>
-          <p class="faq-a">Most suites sell succession as a discrete module: nomination lists and replacement charts. entomo embeds succession in strategic workforce planning: readiness scored on evidence through the <span class="strata-text">strata</span> graph, <span class="keep-case">4B</span> recommendations (build, buy, borrow, bot) for every gap, and skill obsolescence signals feeding succession risk. The same platform then turns successor gaps into <span class="keep-case">AI</span>-generated development plans, closing the loop.</p>
+          <div class="integration-card-title">is this only for the c-suite?</div>
+          <p class="faq-a">No. The matrix covers every role you flag as critical, and criticality is often highest below the executive layer: the plant director, the chief underwriter, the one architect who knows the core system.</p>
         </div>
       </div>
     </div>
@@ -2301,13 +2146,12 @@
   <!-- ===== BOTTOM CTA ===== -->
   <section class="bottom-cta">
     <div class="container">
-      <h2>ready to build pipelines before you <mark>need</mark> them?</h2>
-      <p>Join the enterprises powering 30M+ users with agentic workforce intelligence. Forrester-validated platform value: $26.8M in benefits, 103% <span class="keep-case">ROI</span> over 3 years.</p>
-      <a class="btn-primary" href="../request-demo.html">request a demo &rarr;</a>
+      <h2>never discover a gap at the <mark>exit interview</mark>.</h2>
+      <p>succession intelligence on the platform behind 30M+ users, Forrester-validated at the platform level.</p>
+      <a class="btn-primary" href="../request-demo.html">map your critical roles &rarr;</a>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
   </main>
   <footer class="footer">
     <div class="container">

@@ -1644,6 +1644,43 @@
       background: #f2faf4 !important;
     }
     a.btn-primary { display: inline-block; text-decoration: none; }
+
+    /* ===== DIA: page-specific ===== */
+    .dx-paths { display:grid; grid-template-columns:1fr 1fr; gap:1.6rem; max-width:1000px; margin:3.5rem auto 0; }
+    .dx-path { border-radius:18px; border:1px solid rgba(26,31,38,0.08); background:var(--white); padding:1.7rem 1.7rem 1.5rem; }
+    .dx-path.slow { background:linear-gradient(180deg,#fbfbfc,#f4f5f6); }
+    .dx-path.fast { border-color:rgba(0,100,191,0.3); box-shadow:0 14px 36px rgba(0,100,191,0.10); }
+    .dx-path-t { font-size:11.5px; font-weight:800; letter-spacing:1.2px; text-transform:uppercase; color:var(--ink-4); margin-bottom:1.1rem; }
+    .dx-path.fast .dx-path-t { color:var(--spanish-blue); }
+    .dx-hop { display:flex; gap:0.8rem; align-items:baseline; padding:0.5rem 0; border-top:1px dashed rgba(26,31,38,0.12); font-size:14px; color:var(--ink-2); }
+    .dx-hop:first-of-type { border-top:none; }
+    .dx-hop b { font-size:11px; font-weight:800; color:var(--ink-4); min-width:52px; letter-spacing:0.5px; }
+    .dx-path.fast .dx-hop { font-size:15px; font-weight:600; color:var(--ink); }
+    .dx-total { margin-top:1rem; font-weight:800; font-size:14px; }
+    .dx-path.slow .dx-total { color:#a02417; }
+    .dx-path.fast .dx-total { color:#1d6c2d; }
+    @media (max-width:820px){ .dx-paths { grid-template-columns:1fr; } }
+
+    .dx-tri { display:grid; grid-template-columns:repeat(3,1fr); gap:1.3rem; max-width:1080px; margin:3.4rem auto 0; }
+    .dx-a { background:var(--white); border-radius:16px; border:1px solid rgba(26,31,38,0.08); overflow:hidden; box-shadow:0 4px 16px rgba(43,29,18,0.05); }
+    .dx-a-head { padding:0.85rem 1.3rem; font-size:12px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:#fff; }
+    .dx-a.ceo .dx-a-head { background:var(--ink); }
+    .dx-a.chro .dx-a-head { background:var(--spanish-blue); }
+    .dx-a.mgr .dx-a-head { background:var(--sea-green); }
+    .dx-a-body { padding:1.2rem 1.3rem 1.3rem; font-size:13.5px; line-height:1.6; color:var(--ink-2); }
+    .dx-a-body b { color:var(--ink); }
+    @media (max-width:900px){ .dx-tri { grid-template-columns:1fr; } }
+
+    .dx-proof { display:grid; grid-template-columns:1.35fr 1fr; gap:1.5rem; max-width:1060px; margin:3.4rem auto 0; align-items:stretch; }
+    .dx-quote { background:var(--white); border-radius:20px; padding:2.2rem 2.4rem; border:1px solid rgba(26,31,38,0.07); box-shadow:0 14px 38px rgba(43,29,18,0.08); }
+    .dx-quote q { display:block; quotes:'\201C' '\201D'; font-size:1.2rem; line-height:1.6; font-weight:600; color:var(--ink); margin-bottom:1rem; }
+    .dx-quote cite { font-style:normal; font-size:13.5px; color:var(--ink-3); }
+    .dx-side { display:flex; flex-direction:column; gap:1.4rem; justify-content:center; }
+    .dx-s { border-left:3px solid var(--cg-gold); padding-left:1.1rem; }
+    .dx-s:nth-child(2){border-color:var(--spanish-blue);} .dx-s:nth-child(3){border-color:var(--sea-green);}
+    .dx-s b { display:block; font-size:1.7rem; letter-spacing:-1px; color:var(--ink); line-height:1.1; }
+    .dx-s span { font-size:13.5px; color:var(--ink-3); }
+    @media (max-width:880px){ .dx-proof { grid-template-columns:1fr; } }
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -1950,166 +1987,41 @@
         </div>
         <h1>drive <mark>decisions</mark>, not dashboards</h1>
         <p class="sol-hero-sub">
-          the answers are already in your data. ask any workforce question in plain language and <span class="keep-case">DIA</span> responds with a recommendation, not a chart.
+          the data intelligence assistant answers workforce questions in plain language, at whatever altitude the asker needs, grounded in your governed data, never a generic chatbot's guess.
         </p>
         <a class="btn-primary" href="../request-demo.html">get started &rarr;</a>
       </div>
     </div>
-    <div class="marquee-wrapper" style="margin-top:2.5rem;">
-      <div class="marquee-track">
-        <img class="marquee-logo" src="../Images/client_logos/tata-elxsi.png"        alt="Tata Elxsi" width="111" height="78" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/ey.png"                alt="EY" width="93" height="78" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/cigna.png"             alt="Cigna" width="173" height="57" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/nttdata.png"           alt="NTT Data" width="171" height="25" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/ntuc-learning-hub.png" alt="NTUC Learning Hub" width="196" height="52" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/generalli.png"         alt="Generali" width="95" height="78" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/Carelon.jpeg"          alt="Carelon" width="800" height="300" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/soiitz.png"            alt="Soiitz" width="174" height="53" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/drreddys.png"          alt="Dr Reddy's" width="172" height="38" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/Digital_Dubai.png"     alt="Digital Dubai" width="595" height="222" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/uob.png"               alt="UOB" width="146" height="52" decoding="async">
-        <!-- Duplicate set for seamless loop -->
-        <img class="marquee-logo" src="../Images/client_logos/tata-elxsi.png"        alt="Tata Elxsi" width="111" height="78" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/ey.png"                alt="EY" width="93" height="78" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/cigna.png"             alt="Cigna" width="173" height="57" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/nttdata.png"           alt="NTT Data" width="171" height="25" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/ntuc-learning-hub.png" alt="NTUC Learning Hub" width="196" height="52" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/generalli.png"         alt="Generali" width="95" height="78" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/Carelon.jpeg"          alt="Carelon" width="800" height="300" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/soiitz.png"            alt="Soiitz" width="174" height="53" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/drreddys.png"          alt="Dr Reddy's" width="172" height="38" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/Digital_Dubai.png"     alt="Digital Dubai" width="595" height="222" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/uob.png"               alt="UOB" width="146" height="52" decoding="async">
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== THE PROBLEM ===== -->
+  <!-- ===== TICKET VS ASK ===== -->
   <section style="background: var(--polar-white);">
     <div class="container">
-      <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">the problem</p>
-        <h2 class="section-heading">every decision is waiting on a <mark>report</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;">The data exists. The insight arrives after the decision it was meant to inform.</p>
+      <div class="text-center" style="max-width:740px; margin:0 auto;">
+        <h2 class="section-heading">every workforce question becomes a <mark>ticket</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;">between a leader's question and its answer sits a queue. <span class="keep-case">DIA</span> deletes the queue.</p>
       </div>
-      <div class="pillars-grid">
-        <div class="pillar-card">
-          <div class="pillar-name">insight arrives after the decision</div>
-          <p class="pillar-desc">Board questions go into an analyst queue and come back as a deck days later. By the time the answer lands, the conversation has moved on and the decision was made on instinct.</p>
+      <div class="dx-paths">
+        <div class="dx-path slow">
+          <div class="dx-path-t">the ticket path</div>
+          <div class="dx-hop"><b>hop 1</b>question lands in an <span class="keep-case">HR</span> inbox</div>
+          <div class="dx-hop"><b>hop 2</b>ticket raised with analytics</div>
+          <div class="dx-hop"><b>hop 3</b>data exported and reconciled</div>
+          <div class="dx-hop"><b>hop 4</b>dashboard built, access requested</div>
+          <div class="dx-hop"><b>hop 5</b>meeting scheduled to walk through it</div>
+          <div class="dx-total">days to weeks, per question</div>
         </div>
-        <div class="pillar-card">
-          <div class="pillar-name">dashboards nobody opens</div>
-          <p class="pillar-desc">Every new question becomes another dashboard to build, license, and maintain. Managers never log in, and the charts describe what happened without ever saying what to do next.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-name">signals trapped in separate modules</div>
-          <p class="pillar-desc">Performance, skills, engagement, and wellness data live in different systems, so nobody sees the connected story: why people leave, where capability is thinning, what it costs.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== THE SHIFT ===== -->
-  <section style="background: var(--white);">
-    <div class="container">
-      <div class="text-center" style="max-width:720px; margin:0 auto;">
-        <h2 class="section-heading">from analyst queue to <mark>answer</mark></h2>
-      </div>
-      <div class="integrations-grid">
-        <div class="integration-card">
-          <div class="integration-card-title">answering a workforce question today</div>
-          <div class="integration-pill-row">
-            <span class="integration-pill">file a request and join the analyst queue</span>
-            <span class="integration-pill">build another dashboard for one question</span>
-            <span class="integration-pill">reconcile numbers across disconnected modules</span>
-            <span class="integration-pill">decide on instinct because the data came late</span>
-          </div>
-        </div>
-        <div class="integration-card shift-good">
-          <div class="integration-card-title">answering it with entomo</div>
-          <div class="integration-pill-row">
-            <span class="integration-pill">ask in plain language, in the flow-of-work</span>
-            <span class="integration-pill">agent teams analyse across every module</span>
-            <span class="integration-pill">predictive signals before issues turn urgent</span>
-            <span class="integration-pill">a recommendation, not a chart</span>
-          </div>
+        <div class="dx-path fast">
+          <div class="dx-path-t">the ask path</div>
+          <div class="dx-hop"><b>ask</b>&ldquo;which critical roles have no ready successor?&rdquo;</div>
+          <div class="dx-hop"><b>answer</b>named list, reasons, and the recommended next action, with a chart when a chart helps</div>
+          <div class="dx-total">one conversation, in the flow of work</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== HOW IT WORKS ===== -->
-  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
-    <div class="container">
-      <div class="text-center" style="max-width:800px; margin:0 auto;">
-        <p class="section-eyebrow">how it works</p>
-        <h2 class="section-heading">how <span class="keep-case">DIA</span> turns questions into <mark>recommendations</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;">one question in. an agent team behind it. a recommendation out.</p>
-      </div>
-      <div class="arch-diagram">
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-data-sources">ask in plain language</div>
-          <div class="arch-col-desc">Type the question a board would ask: attrition drivers by cohort, compensation equity gaps, headcount variance against plan. No query builder, no ticket.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">Every entomo solution carries its own Ask <span class="keep-case">DIA</span> workspace, so performance, skills, wellness, engagement, and planning questions each land in the right context.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-foundation">an agent team assembles</div>
-          <div class="arch-col-desc"><span class="keep-case">DIA</span> assembles the agents the question needs: Pulse360, TeamInsight, and GoalForge analyse across headcount, attrition, compensation, and capacity lenses.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">Multiple agents work together to curate the response, each contributing its own domain signal rather than one model guessing at everything.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-intelligence">signals connect</div>
-          <div class="arch-col-desc">The <span class="keep-case">DIA</span>++ engine orchestrates signals across performance, skills, engagement, and wellness, reasoning on <span class="strata-text">strata</span>: one graph, one version of workforce truth.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">Cross-module orchestration is what turns module-scoped reporting into predictive intelligence on retention, engagement, and skill health before it becomes urgent.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-agents">a recommendation returns</div>
-          <div class="arch-col-desc"><span class="keep-case">DIA</span> responds with a recommendation, not a chart: a synthesized answer with root causes, context, and the action it suggests you take next.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">Answers arrive board-ready, so the same response can move from a leader's screen into an executive conversation without an analyst rebuild.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-outcomes">you decide, humans act</div>
-          <div class="arch-col-desc"><span class="keep-case">DIA</span> recommends; it never executes. Leaders decide, and any resulting actions run through governed entomo.ai workflows with people in control.</div>
-          <div class="arch-tooltip" style="left:auto; right:0; transform:none;">Keeping analysis and action separate is deliberate: recommendations stay transparent, and changes in your systems always carry human sign-off.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== AGENTS ===== -->
-  <section class="perf-agents-section">
-    <div class="container">
-      <div class="section-eyebrow">your <span class="keep-case">AI</span> workforce for decision intelligence</div>
-      <h2>meet the intelligence <mark>agents</mark> that work for you</h2>
-    </div>
-
-    <div class="perf-mq-wrapper">
-      <div class="perf-mq-track">
-        <div class="perf-mq-card"><img src="../Images/agents/Insight360.png" alt="Insight360" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">Insight360</div><div class="perf-mq-role">workforce analytics</div><div class="perf-mq-desc">turns feedback and workforce signals into decision-ready insight for every level of the organization</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/TeamInsight.png" alt="TeamInsight" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">TeamInsight</div><div class="perf-mq-role">team intelligence</div><div class="perf-mq-desc">surfaces team health, watch areas, and performance trajectory so managers see problems while they are still small</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/pulse360.png" alt="Pulse360" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">Pulse360</div><div class="perf-mq-role">sentiment intelligence</div><div class="perf-mq-desc">reads engagement and sentiment signals continuously and feeds mood and morale context into every answer</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/Goalforge.png" alt="GoalForge" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">GoalForge</div><div class="perf-mq-role">goal and execution signals</div><div class="perf-mq-desc">brings goal progress and execution data into the analysis so answers connect people questions to business outcomes</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/skillmatrix.png" alt="SkillMatrix" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">SkillMatrix</div><div class="perf-mq-role">skill intelligence</div><div class="perf-mq-desc">maps skill supply, gaps, and adjacencies so capability questions get answered from real workforce data</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/talentatlas.png" alt="TalentAtlas" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">TalentAtlas</div><div class="perf-mq-role">talent landscape intelligence</div><div class="perf-mq-desc">grounds workforce planning questions in talent supply intelligence from your organization and the market</div></div>
-
-        <!-- duplicate set for seamless loop -->
-        <div class="perf-mq-card"><img src="../Images/agents/Insight360.png" alt="Insight360" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">Insight360</div><div class="perf-mq-role">workforce analytics</div><div class="perf-mq-desc">turns feedback and workforce signals into decision-ready insight for every level of the organization</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/TeamInsight.png" alt="TeamInsight" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">TeamInsight</div><div class="perf-mq-role">team intelligence</div><div class="perf-mq-desc">surfaces team health, watch areas, and performance trajectory so managers see problems while they are still small</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/pulse360.png" alt="Pulse360" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">Pulse360</div><div class="perf-mq-role">sentiment intelligence</div><div class="perf-mq-desc">reads engagement and sentiment signals continuously and feeds mood and morale context into every answer</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/Goalforge.png" alt="GoalForge" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">GoalForge</div><div class="perf-mq-role">goal and execution signals</div><div class="perf-mq-desc">brings goal progress and execution data into the analysis so answers connect people questions to business outcomes</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/skillmatrix.png" alt="SkillMatrix" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">SkillMatrix</div><div class="perf-mq-role">skill intelligence</div><div class="perf-mq-desc">maps skill supply, gaps, and adjacencies so capability questions get answered from real workforce data</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/talentatlas.png" alt="TalentAtlas" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">TalentAtlas</div><div class="perf-mq-role">talent landscape intelligence</div><div class="perf-mq-desc">grounds workforce planning questions in talent supply intelligence from your organization and the market</div></div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== AGENTIC INTELLIGENCE FOR LEADERS ===== -->
-  <section class="persona-sec sec-leaders">
+<section class="persona-sec sec-leaders">
     <div class="container">
       <div class="section-eyebrow">agentic intelligence for leaders</div>
       <div class="persona-sec-inner">
@@ -2203,194 +2115,75 @@
         </div>
       </div>
     </div>
-  </section></section>
-
-  <!-- ===== FEATURES ===== -->
-  <section class="features-section">
-    <div class="container">
-      <div class="text-center">
-        <p class="section-eyebrow">capabilities</p>
-        <h2 class="section-heading">everything leaders need to decide with <mark>confidence</mark></h2>
-      </div>
-      <div class="features-panel features-grid active">
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-          <h4>answers that end the wait</h4>
-          <p>Ask complex workforce questions in plain language, from attrition drivers by cohort to headcount variance against plan, and get contextual, board-ready answers with recommended actions.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="5" r="2.6"/><circle cx="5" cy="19" r="2.6"/><circle cx="19" cy="19" r="2.6"/><line x1="10.8" y1="7.3" x2="6.2" y2="16.7"/><line x1="13.2" y1="7.3" x2="17.8" y2="16.7"/><line x1="7.6" y1="19" x2="16.4" y2="19"/></svg></div>
-          <h4>signals that cross every module</h4>
-          <p>Orchestrates performance, skills, engagement, and wellness signals through the <span class="keep-case">DIA</span>++ engine, surfacing predictive intelligence on retention, engagement, and skill health before it becomes urgent.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-          <h4>analytics that reach what next</h4>
-          <p>Spans descriptive, diagnostic, predictive, and prescriptive analysis with machine learning, so every question ends in a recommended action instead of another report.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-          <h4>disclosure that stands up in the boardroom</h4>
-          <p>Generates audit-ready human capital disclosure aligned to the <span class="keep-case">ISO</span> 30414 standard, with Comparator intelligence supplying benchmarks on demand when the board asks.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <h4>nudges that turn insight into action</h4>
-          <p>Automates nudges and action recommendations from analytic results, personalizes delivery to each user profile, and tracks action-completion rates to prove the insight landed.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
-          <h4>data that speaks with one voice</h4>
-          <p>Centralizes every data source into a single source of truth, visualizes complex data for trends and patterns, and controls access down to the individual level.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
-          <h4>planning that sees gaps coming</h4>
-          <p>Anticipates talent gaps and forecasts future skill demand from industry trends and strategic direction, informing recruitment strategy before shortages surface.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
-          <h4>insight that finds the manager</h4>
-          <p>Delivers team health metrics, flight-risk signals, and performance trajectory inside the daily flow-of-work, not buried in a dashboard nobody logs into.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></div>
-          <h4>views that fit every stakeholder</h4>
-          <p>Tailors real-time and predictive views per audience, from executive readiness summaries to granular skills-gap detail, with exportable reports and admin-controlled evolution.</p>
-        </div>
-      </div>
-    </div>
   </section>
 
-  <!-- ===== PROOF: NUMBERS ===== -->
-  <section style="background: var(--lavender);">
-    <div class="container">
-      <div class="text-center" style="max-width:680px; margin:0 auto 4rem;">
-        <p class="section-eyebrow">measured, not claimed</p>
-        <h2 class="section-heading">the numbers behind the <mark>answers</mark></h2>
-      </div>
-      <div class="persona-simple-grid">
-        <div class="persona-simple-card">
-          <div class="persona-simple-top green-top">
-            <span class="persona-simple-role">dashboard creation</span>
-            <span class="persona-simple-headline">90% less need for dashboard creation</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">data intelligence assistant</span>
-            <span class="ptag">decisions, not dashboards</span>
-            <span class="ptag">internal platform benchmark</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top red-top">
-            <span class="persona-simple-role">platform scale</span>
-            <span class="persona-simple-headline">30M+ users on the platform</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">global marquee brands</span>
-            <span class="ptag">enterprise scale</span>
-            <span class="ptag">platform-level proof</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top blue-top">
-            <span class="persona-simple-role">forrester <span class="keep-case">TEI</span></span>
-            <span class="persona-simple-headline">$26.8M value, 103% <span class="keep-case">ROI</span> over 3 years</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">independent forrester study</span>
-            <span class="ptag">large government entity</span>
-            <span class="ptag">platform-level proof</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top gold-top">
-            <span class="persona-simple-role">report generation</span>
-            <span class="persona-simple-headline">$590.1K saved on report generation</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">forrester case study</span>
-            <span class="ptag">fortune 500 financial services</span>
-            <span class="ptag">$1.4M productivity profit alongside</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROOF: A FACE ===== -->
-  <section style="background: var(--pistachio);">
-    <div class="container">
-      <div class="text-center" style="max-width:900px; margin:0 auto;">
-        <p class="section-eyebrow">customer story</p>
-        <p class="story-quote">&ldquo;dashboards give us real-time knowledge of our performance, anytime, anywhere&rdquo;</p>
-        <p class="story-attr">Kornsian Nontarat, Chief Agency Officer, Generali (agency division), Indonesia</p>
-      </div>
-      <div class="orchestration-chips" style="margin-top:2.5rem;">
-        <span class="orch-chip">150+ managers, 700+ agents on real-time analytics</span>
-        <span class="orch-chip">manual report-generation hours reduced</span>
-        <span class="orch-chip">faster data-driven team decisions</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ENTERPRISE READINESS ===== -->
+  <!-- ===== ALTITUDES ===== -->
   <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
     <div class="container">
       <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">enterprise-ready</p>
-        <h2 class="section-heading">fits your stack. passes your audits.</h2>
-        <p class="section-subheading" style="margin:0 auto;"><span class="keep-case">DIA</span> reads your governed workforce data and returns recommendations; it does not write back to your systems. Execution runs through entomo.ai workflows, and access to every insight is controlled by role, configurable down to the individual level. <a href="../about/security-at-entomo.html" style="color:var(--spanish-blue); font-weight:600;">read the security architecture &rarr;</a></p>
+        <h2 class="section-heading">one question, answered at three <mark>altitudes</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;">&ldquo;how bad is our attrition problem?&rdquo; means something different to each asker. <span class="keep-case">DIA</span> speaks the right language to the right level, from the same governed truth.</p>
       </div>
-      <div class="tech-chips-row">
-        <span class="tech-chip">works alongside your existing <span class="keep-case">HCM</span> and <span class="keep-case">HRIS</span></span>
-        <span class="tech-chip">role-based data access, down to the individual</span>
-        <span class="tech-chip">grounded in <span class="strata-text">strata</span>, one version of workforce truth</span>
-        <span class="tech-chip">recommends only: humans decide and act</span>
-        <span class="tech-chip">proven at 30M+ user platform scale</span>
+      <div class="dx-tri">
+        <div class="dx-a ceo">
+          <div class="dx-a-head">to the <span class="keep-case">CEO</span></div>
+          <div class="dx-a-body"><b>exposure and trend.</b> attrition is 2.1 points above plan, concentrated in revenue-critical roles; projected cost of inaction this year, and the two moves that change the curve.</div>
+        </div>
+        <div class="dx-a chro">
+          <div class="dx-a-head">to the <span class="keep-case">CHRO</span></div>
+          <div class="dx-a-body"><b>drivers and programs.</b> the risk clusters around manager span and stalled growth paths; here are the affected populations, and the engagement and mobility levers with the best expected lift.</div>
+        </div>
+        <div class="dx-a mgr">
+          <div class="dx-a-head">to the manager</div>
+          <div class="dx-a-body"><b>names and next steps.</b> three people on your team show early risk signals; a growth conversation is suggested for each, with talking points drawn from their goals and skills.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROOF ===== -->
+  <section style="background: var(--pistachio);">
+    <div class="container">
+      <div class="text-center" style="max-width:700px; margin:0 auto;">
+        <h2 class="section-heading">what happens when the queue <mark>disappears</mark></h2>
+      </div>
+      <div class="dx-proof">
+        <div class="dx-quote">
+          <q>I am now able to review 40 appraisals in less than a day. Previously, that would have taken me at least 4 to 5 hours per day over five working days.</q>
+          <cite>Director of government resource planning, <span class="keep-case">UAE</span> government entity, from Forrester's study of entomo</cite>
+          <p style="font-size:14px; color:var(--ink-3); margin-top:1.1rem;">the same study recorded $26.8M in benefits and 103% <span class="keep-case">ROI</span> over three years at the platform level.</p>
+        </div>
+        <div class="dx-side">
+          <div class="dx-s"><b>90%</b><span>less manual dashboard creation reported by teams once <span class="keep-case">DIA</span> answers directly.</span></div>
+          <div class="dx-s"><b>in teams</b><span>a japanese <span class="keep-case">IT</span> major runs a gen-<span class="keep-case">AI</span> assistant inside microsoft teams, comparing sales opportunities and suggesting next steps for new joiners.</span></div>
+          <div class="dx-s"><b>under a minute</b><span>to generate a personalized <span class="keep-case">KPI</span> library for a role, with evidence-based review summaries in minutes.</span></div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ===== FAQ ===== -->
-  <section style="background: var(--polar-white);">
+  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
     <div class="container">
       <div class="text-center" style="max-width:720px; margin:0 auto;">
-        <p class="section-eyebrow">questions, answered</p>
-        <h2 class="section-heading">what enterprise teams ask us.</h2>
+        <h2 class="section-heading">how <span class="keep-case">DIA</span> differs from a <mark>copilot</mark></h2>
       </div>
       <div class="integrations-grid">
         <div class="integration-card">
-          <div class="integration-card-title">how long does implementation take?</div>
-          <p class="faq-a">It depends on how many data sources you connect and how wide the rollout runs. As platform reference points, a global pharmaceutical enterprise onboarded 10,000 employees within a day, reached 75% onboarding across 36 countries, and cut implementation time by 60%. Your entomo team scopes a timeline against your data landscape before anything goes live.</p>
+          <div class="integration-card-title">what stops it making things up?</div>
+          <p class="faq-a"><span class="keep-case">DIA</span> answers from structured workforce intelligence: <span class="strata-text">strata</span>'s governed graph, your enterprise context, and decision logic built for talent questions. It queries your data and shows its working; it doesn't improvise from an internet-trained memory the way a generic assistant does.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">does <span class="keep-case">DIA</span> replace our <span class="keep-case">HCM</span> or <span class="keep-case">HRIS</span>?</div>
-          <p class="faq-a">No. <span class="keep-case">DIA</span> is the intelligence layer that sits over the systems you already run. It centralizes your data sources into a single source of truth and answers questions across them; your systems of record stay exactly where they are.</p>
+          <div class="integration-card-title">who can ask what?</div>
+          <p class="faq-a">Access follows your governance, down to the individual. A manager's answers cover their team; an executive's cover the enterprise. Same assistant, different scope, enforced by the platform's <span class="keep-case">ISO</span> 27001 and <span class="keep-case">ISO</span> 27701 certified access layer.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">what do the agents automate, and what do humans approve?</div>
-          <p class="faq-a"><span class="keep-case">DIA</span> and its agent teams automate the analysis: querying data, connecting cross-module signals, and drafting recommendations. They do not execute changes. Decisions stay with your leaders, and any resulting actions run through governed entomo.ai workflows where people review and approve.</p>
+          <div class="integration-card-title">what can it actually produce?</div>
+          <p class="faq-a">Everything from a one-line answer to a chart to a full <span class="keep-case">ISO</span> 30414-aligned human capital report, plus actions: nudges routed to owners, reviews drafted for approval, <span class="keep-case">KPI</span> libraries generated per role. Answers that end in something done, not just something known.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">how is our workforce data used?</div>
-          <p class="faq-a">Your workforce data is used to answer your questions, with access governed by role and configurable down to the individual level. Market benchmarks come from a separate market intelligence layer trained on public sources such as job descriptions, course curriculums, and certifications, which builds the <span class="strata-text">strata</span> role profiles the agents reason on.</p>
-        </div>
-        <div class="integration-card">
-          <div class="integration-card-title">how is <span class="keep-case">DIA</span> different from a generic <span class="keep-case">AI</span> copilot?</div>
-          <p class="faq-a">A generic copilot reasons over documents. <span class="keep-case">DIA</span> reasons over structured workforce intelligence: a connected model linking roles, responsibilities, tasks, <span class="keep-case">KPIs</span>, and skills in the entomo <span class="strata-text">strata</span> graph, plus governed <span class="keep-case">HR</span> workflows and decision logic built for talent and workforce management. That grounding is why it can return a defensible recommendation instead of a summary.</p>
-        </div>
-        <div class="integration-card">
-          <div class="integration-card-title">can <span class="keep-case">DIA</span> produce board-level human capital reporting?</div>
-          <p class="faq-a">Yes. <span class="keep-case">DIA</span> generates audit-ready human capital disclosure aligned to the <span class="keep-case">ISO</span> 30414 standard, with Comparator intelligence supplying benchmarks on demand, so reporting for boards and regulators starts from a generated, standards-aligned draft.</p>
+          <div class="integration-card-title">where does it live?</div>
+          <p class="faq-a">In the flow of work: inside the entomo workspace and in the tools your teams already use, the way one enterprise client runs its assistant inside microsoft teams. The point of the ask path is never switching context to use it.</p>
         </div>
       </div>
     </div>
@@ -2399,13 +2192,12 @@
   <!-- ===== BOTTOM CTA ===== -->
   <section class="bottom-cta">
     <div class="container">
-      <h2>ready to drive decisions, not <mark>dashboards</mark>?</h2>
-      <p>Join the enterprises powering 30M+ users with agentic workforce intelligence. Forrester-validated: $26.8M in value, 103% <span class="keep-case">ROI</span> over 3 years.</p>
-      <a class="btn-primary" href="../request-demo.html">request a demo &rarr;</a>
+      <h2>ask your hardest workforce question <mark>first</mark>.</h2>
+      <p>bring it to the demo. <span class="keep-case">DIA</span> answers on the platform behind 30M+ users, Forrester-validated at 103% <span class="keep-case">ROI</span> over three years.</p>
+      <a class="btn-primary" href="../request-demo.html">ask <span class="keep-case">DIA</span> live &rarr;</a>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
   </main>
   <footer class="footer">
     <div class="container">

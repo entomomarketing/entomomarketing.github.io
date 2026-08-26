@@ -1644,6 +1644,47 @@
       background: #f2faf4 !important;
     }
     a.btn-primary { display: inline-block; text-decoration: none; }
+
+    /* ===== EPMO: page-specific ===== */
+    .ep-split { display:grid; grid-template-columns:1fr 1fr; gap:1.6rem; max-width:1060px; margin:3.5rem auto 0; }
+    .ep-org { border-radius:20px; padding:2rem 1.8rem; border:1px solid rgba(26,31,38,0.08); background:var(--white); }
+    .ep-org.now { background:linear-gradient(180deg,#fbfbfc,#f4f5f7); }
+    .ep-org.with { border-color:rgba(0,100,191,0.28); box-shadow:0 14px 38px rgba(0,100,191,0.10); }
+    .ep-org-t { font-size:12px; font-weight:800; letter-spacing:1.2px; text-transform:uppercase; color:var(--ink-4); margin-bottom:1.3rem; text-align:center; }
+    .ep-org.with .ep-org-t { color:var(--spanish-blue); }
+    .ep-box { border-radius:12px; padding:0.85rem 1.1rem; font-weight:700; font-size:14.5px; text-align:center; border:1.5px solid rgba(26,31,38,0.14); background:var(--white); }
+    .ep-box.hub { background:linear-gradient(135deg, rgba(0,100,191,0.10), rgba(244,178,35,0.12)); border-color:var(--spanish-blue); color:var(--spanish-blue); }
+    .ep-gap { text-align:center; margin:0.55rem 0; font-size:12.5px; font-weight:700; }
+    .ep-gap.broken { color:var(--cg-red); }
+    .ep-gap.flow { color:var(--sea-green); }
+    .ep-org-note { margin-top:1.2rem; font-size:13.5px; line-height:1.55; color:var(--ink-3); }
+    @media (max-width:860px){ .ep-split { grid-template-columns:1fr; } }
+
+    .ep-journey { max-width:1120px; margin:3.6rem auto 0; display:grid; grid-template-columns:repeat(4,1fr); gap:0; position:relative; }
+    .ep-j { position:relative; padding:2rem 1.5rem 0.6rem; border-left:1px dashed rgba(26,31,38,0.15); }
+    .ep-j:first-child { border-left:none; }
+    .ep-j-phase { font-size:11.5px; font-weight:800; letter-spacing:1.2px; text-transform:uppercase; color:var(--ink-4); }
+    .ep-j-name { font-size:18px; font-weight:800; color:var(--ink); margin:0.35rem 0 0.8rem; }
+    .ep-j ul { list-style:none; margin:0; padding:0; }
+    .ep-j li { font-size:13.5px; line-height:1.5; color:var(--ink-2); padding-left:1.05rem; position:relative; margin-bottom:0.5rem; }
+    .ep-j li::before { content:''; position:absolute; left:0; top:0.5em; width:6px; height:6px; border-radius:50%; }
+    .ep-j:nth-child(1) li::before{background:var(--spanish-blue);} .ep-j:nth-child(2) li::before{background:var(--cg-gold);}
+    .ep-j:nth-child(3) li::before{background:var(--cg-red);} .ep-j:nth-child(4) li::before{background:var(--sea-green);}
+    .ep-j-bar { height:5px; border-radius:4px; margin-bottom:1.1rem; }
+    .ep-j:nth-child(1) .ep-j-bar{background:var(--spanish-blue);} .ep-j:nth-child(2) .ep-j-bar{background:var(--cg-gold);}
+    .ep-j:nth-child(3) .ep-j-bar{background:var(--cg-red);} .ep-j:nth-child(4) .ep-j-bar{background:var(--sea-green);}
+    @media (max-width:980px){ .ep-journey { grid-template-columns:1fr 1fr; } .ep-j{border-left:none; padding-top:1.2rem;} }
+    @media (max-width:600px){ .ep-journey { grid-template-columns:1fr; } }
+
+    .ep-audit { display:flex; justify-content:center; flex-wrap:wrap; gap:0.7rem; max-width:900px; margin:2.8rem auto 0; }
+    .ep-audit span { border:1.5px solid rgba(228,61,48,0.35); color:#a02417; border-radius:999px; padding:0.55rem 1.25rem; font-weight:700; font-size:14px; background:rgba(228,61,48,0.05); }
+
+    .ep-proof { display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; max-width:1080px; margin:3.4rem auto 0; }
+    .ep-p { background:var(--white); border-radius:18px; padding:1.7rem 1.6rem; border:1px solid rgba(26,31,38,0.07); box-shadow:0 4px 16px rgba(43,29,18,0.06); display:flex; flex-direction:column; }
+    .ep-p-who { font-size:12px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:var(--ink-4); margin-bottom:0.6rem; }
+    .ep-p q { display:block; quotes:'\201C' '\201D'; font-size:14.5px; line-height:1.6; color:var(--ink); font-weight:600; margin-bottom:0.9rem; }
+    .ep-p cite { font-style:normal; font-size:12.5px; color:var(--ink-3); margin-top:auto; }
+    @media (max-width:900px){ .ep-proof { grid-template-columns:1fr; } }
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -1950,7 +1991,7 @@
         </div>
         <h1>make every <span class="keep-case">KPI</span> answer to <mark>strategy</mark></h1>
         <p class="sol-hero-sub">
-          strategy fails in the gap between the boardroom and the workforce. agentic <span class="keep-case">AI</span> and expert advisory build the office that closes it, and keep every <span class="keep-case">KPI</span> aligned to the plan.
+          an enterprise performance management office puts strategy and performance on one cadence: advisory to stand it up, agentic intelligence to run it. entomo delivers both.
         </p>
         <a class="btn-primary" href="../request-demo.html">get started &rarr;</a>
       </div>
@@ -1984,341 +2025,152 @@
     </div>
   </section>
 
-  <!-- ===== THE PROBLEM ===== -->
+  <!-- ===== TWO CALENDARS ===== -->
   <section style="background: var(--polar-white);">
     <div class="container">
       <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">the problem</p>
-        <h2 class="section-heading">strategy and <span class="keep-case">HR</span> were never <mark>integrated</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;">An <span class="keep-case">EPMO</span> exists to fix a structural problem. Most enterprises still run performance the way it was designed decades ago: horizontally, in fragments, on disparate data.</p>
+        <h2 class="section-heading">strategy runs on one calendar. performance runs on <mark>another</mark>.</h2>
+        <p class="section-subheading" style="margin:0 auto;">the strategy group sets direction. human resources runs the review cycle. between them sit different cadences, different owners, and <span class="keep-case">KPIs</span> nobody has the capacity to challenge.</p>
       </div>
-      <div class="pillars-grid">
-        <div class="pillar-card">
-          <div class="pillar-name">strategy and <span class="keep-case">HR</span> run on different clocks</div>
-          <p class="pillar-desc">The strategy group plans on one cadence, <span class="keep-case">HR</span> reviews on another. The cycles never meet, so the corporate scorecard and the appraisal form end up describing two different companies.</p>
+      <div class="ep-split">
+        <div class="ep-org now">
+          <div class="ep-org-t">the typical structure</div>
+          <div class="ep-box">strategy group</div>
+          <div class="ep-gap broken">&#10007; different cycle, different cadence</div>
+          <div class="ep-box">human resources</div>
+          <div class="ep-gap broken">&#10007; goals cascade once a year, unchallenged</div>
+          <div class="ep-box">organization units &rarr; individual <span class="keep-case">KPIs</span></div>
+          <p class="ep-org-note">strategy and performance never quite meet: the plan changes mid-year, the scorecards don't, and by review season the two describe different companies.</p>
         </div>
-        <div class="pillar-card">
-          <div class="pillar-name">nobody has capacity to challenge <span class="keep-case">KPIs</span></div>
-          <p class="pillar-desc"><span class="keep-case">KPIs</span> roll over year after year without scrutiny. Definitions drift, measures lose relevance and comparability, and no one owns the question of whether a target still serves the strategy.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-name">individuals win while the business misses</div>
-          <p class="pillar-desc">People score high in reviews while their units miss targets. When ratings and results disagree, performance management has stopped measuring performance.</p>
+        <div class="ep-org with">
+          <div class="ep-org-t">with an enterprise performance management office</div>
+          <div class="ep-box">strategy group</div>
+          <div class="ep-gap flow">&darr; one cadence, held by one office</div>
+          <div class="ep-box hub">enterprise performance management office</div>
+          <div class="ep-gap flow">&darr; continuous <span class="keep-case">KPI</span> alignment, challenged and current</div>
+          <div class="ep-box">organization units &rarr; individual <span class="keep-case">KPIs</span></div>
+          <p class="ep-org-note">an agile structure between strategy and <span class="keep-case">HR</span> that keeps alignment continuous: personalized incentives, workforce analytics, and the standing capacity to challenge every <span class="keep-case">KPI</span>.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== THE SHIFT ===== -->
+  <!-- ===== KPI AUDIT ===== -->
   <section style="background: var(--white);">
     <div class="container">
-      <div class="text-center" style="max-width:720px; margin:0 auto;">
-        <h2 class="section-heading">from fragmented to <mark>aligned</mark></h2>
+      <div class="text-center" style="max-width:740px; margin:0 auto;">
+        <h2 class="section-heading">first, your <span class="keep-case">KPIs</span> get <mark>audited</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;">analytics is only as honest as the metrics beneath it. the engagement starts by testing every <span class="keep-case">KPI</span> against five standards and aligning measures vertically and horizontally across the enterprise.</p>
       </div>
-      <div class="integrations-grid">
-        <div class="integration-card">
-          <div class="integration-card-title">performance management today</div>
-          <div class="integration-pill-row">
-            <span class="integration-pill">horizontal, fragmented, disparate data</span>
-            <span class="integration-pill">strategy group and <span class="keep-case">HR</span> disconnected</span>
-            <span class="integration-pill"><span class="keep-case">KPIs</span> unchallenged year after year</span>
-            <span class="integration-pill">silent dashboards nobody acts on</span>
-          </div>
-        </div>
-        <div class="integration-card shift-good">
-          <div class="integration-card-title">with an <span class="keep-case">EPMO</span> on entomo</div>
-          <div class="integration-pill-row">
-            <span class="integration-pill">vertical, integrated, unified data</span>
-            <span class="integration-pill">one cadence from boardroom to individual</span>
-            <span class="integration-pill">every <span class="keep-case">KPI</span> audited and aligned</span>
-            <span class="integration-pill">push-based insights and nudges</span>
-          </div>
-        </div>
+      <div class="ep-audit">
+        <span>relevant</span><span>consistent</span><span>comparable</span><span>reliable</span><span>complete</span>
       </div>
+      <p style="text-align:center; font-size:13.5px; color:var(--ink-4); margin-top:1.6rem;">the five tests every <span class="keep-case">KPI</span> passes before it earns a place on a scorecard.</p>
     </div>
   </section>
 
-  <!-- ===== HOW IT WORKS ===== -->
-  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
+  <!-- ===== THE JOURNEY ===== -->
+  <section style="background: var(--polar-white); border-top: 1px solid rgba(26,31,38,0.06);">
     <div class="container">
-      <div class="text-center" style="max-width:800px; margin:0 auto;">
-        <p class="section-eyebrow">how it works</p>
-        <h2 class="section-heading">how the office comes to <mark>life</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;">entomo delivers the <span class="keep-case">EPMO</span> as advisory plus platform: consultants build the office, the platform operationalizes it, and agents keep it running between reviews.</p>
+      <div class="text-center" style="max-width:760px; margin:0 auto;">
+        <h2 class="section-heading">the office gets built in four <mark>stages</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;">a defined development journey, run by entomo's advisory practice with the platform underneath, so the capability stays with you after the engagement ends.</p>
       </div>
-      <div class="arch-diagram">
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-data-sources">establish the office</div>
-          <div class="arch-col-desc">entomo consultants assess and select your <span class="keep-case">EPMO</span>, then write its charter: the structure and governance that give it authority between strategy and <span class="keep-case">HR</span>.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">The charter defines how the office challenges <span class="keep-case">KPIs</span>, sets one performance cadence, and personalizes incentives, the capacity most enterprises never built.</div>
+      <div class="ep-journey">
+        <div class="ep-j">
+          <div class="ep-j-bar"></div>
+          <div class="ep-j-phase">stage 1</div>
+          <div class="ep-j-name">establish</div>
+          <ul>
+            <li>office charter: structure and governance</li>
+            <li>assessment and team selection</li>
+          </ul>
         </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-foundation">audit and cascade <span class="keep-case">KPIs</span></div>
-          <div class="arch-col-desc">A <span class="keep-case">KPI</span> audit raises measure quality, then scorecards cascade from strategy map to unit to individual. GoalForge validates every goal before the cycle begins.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">The audit checks relevancy, consistency, comparability, reliability and completeness, and aligns measures vertically and horizontally so intelligence rests on clean data.</div>
+        <div class="ep-j">
+          <div class="ep-j-bar"></div>
+          <div class="ep-j-phase">stage 2</div>
+          <div class="ep-j-name">build the mindset</div>
+          <ul>
+            <li>company-wide goal setting on the platform</li>
+            <li><span class="keep-case">KPI</span> audit across the enterprise</li>
+            <li>strategy alignment capability training</li>
+          </ul>
         </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-intelligence">build the mindset</div>
-          <div class="arch-col-desc">Company-wide goal setting goes live with the platform rollout, while change management socializes company goals so people are ready, willing and able to change.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">Organization network analytics identifies the employees with real influence, how work actually gets done, and enables them as grass-roots champions of the change.</div>
+        <div class="ep-j">
+          <div class="ep-j-bar"></div>
+          <div class="ep-j-phase">stage 3</div>
+          <div class="ep-j-name">reinforce</div>
+          <ul>
+            <li>managers trained as performance coaches</li>
+            <li>persuasive storytelling with data</li>
+            <li>continuous feedback and communication</li>
+          </ul>
         </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-agents">coach and reinforce</div>
-          <div class="arch-col-desc">Managers and the <span class="keep-case">EPMO</span> train as performance coaches. ConvoCraft structures the conversations, and nudges reinforce the behaviors the new culture needs.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">Reinforcement follows the experiences-beliefs-actions-results model: storytelling with data, focused feedback, gamification and incentives that make new habits stick.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-outcomes">sustain with intelligence</div>
-          <div class="arch-col-desc">Pulse360 senses performance risk, TeamInsight diagnoses team patterns, and Insight360 reads perception gaps, so the office runs on intelligence, not opinion.</div>
-          <div class="arch-tooltip" style="left:auto; right:0; transform:none;">The sustain phase adds management scorecards, operational and workforce intelligence, and performance gamification so the culture outlives the rollout.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== AGENTS ===== -->
-  <section class="perf-agents-section">
-    <div class="container">
-      <div class="section-eyebrow">your <span class="keep-case">AI</span> workforce for enterprise performance</div>
-      <h2>meet the performance <mark>agents</mark> that work for you</h2>
-    </div>
-
-    <div class="perf-mq-wrapper">
-      <div class="perf-mq-track">
-        <div class="perf-mq-card"><img src="../Images/agents/Goalforge.png" alt="GoalForge" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">GoalForge</div><div class="perf-mq-role">goal intelligence</div><div class="perf-mq-desc">generates role-aligned goals tied to strategic priorities and validates goal quality before the cycle begins</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/pulse360.png" alt="Pulse360" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">Pulse360</div><div class="perf-mq-role">performance sensing</div><div class="perf-mq-desc">senses sentiment and progress signals across goals, surfacing performance risk long before the review cycle would catch it</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/Insight360.png" alt="Insight360" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">Insight360</div><div class="perf-mq-role">360 feedback intelligence</div><div class="perf-mq-desc">detects perception gaps between self-view and stakeholder feedback, and links 360 signals to the metrics that matter</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/convocraft.png" alt="ConvoCraft" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">ConvoCraft</div><div class="perf-mq-role">conversation intelligence</div><div class="perf-mq-desc">structures check-ins and performance conversations so every discussion moves a goal forward</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/assescraft.png" alt="AssessCraft" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">AssessCraft</div><div class="perf-mq-role">assessment design</div><div class="perf-mq-desc">designs role-aligned assessments and feedback forms calibrated to what your scorecards actually measure</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/TeamInsight.png" alt="TeamInsight" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">TeamInsight</div><div class="perf-mq-role">team diagnostics</div><div class="perf-mq-desc">diagnoses team performance patterns and hands managers decision support grounded in unified data</div></div>
-
-        <!-- duplicate set for seamless loop -->
-        <div class="perf-mq-card"><img src="../Images/agents/Goalforge.png" alt="GoalForge" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">GoalForge</div><div class="perf-mq-role">goal intelligence</div><div class="perf-mq-desc">generates role-aligned goals tied to strategic priorities and validates goal quality before the cycle begins</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/pulse360.png" alt="Pulse360" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">Pulse360</div><div class="perf-mq-role">performance sensing</div><div class="perf-mq-desc">senses sentiment and progress signals across goals, surfacing performance risk long before the review cycle would catch it</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/Insight360.png" alt="Insight360" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">Insight360</div><div class="perf-mq-role">360 feedback intelligence</div><div class="perf-mq-desc">detects perception gaps between self-view and stakeholder feedback, and links 360 signals to the metrics that matter</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/convocraft.png" alt="ConvoCraft" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">ConvoCraft</div><div class="perf-mq-role">conversation intelligence</div><div class="perf-mq-desc">structures check-ins and performance conversations so every discussion moves a goal forward</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/assescraft.png" alt="AssessCraft" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">AssessCraft</div><div class="perf-mq-role">assessment design</div><div class="perf-mq-desc">designs role-aligned assessments and feedback forms calibrated to what your scorecards actually measure</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/TeamInsight.png" alt="TeamInsight" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">TeamInsight</div><div class="perf-mq-role">team diagnostics</div><div class="perf-mq-desc">diagnoses team performance patterns and hands managers decision support grounded in unified data</div></div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FEATURES ===== -->
-  <section class="features-section">
-    <div class="container">
-      <div class="text-center">
-        <p class="section-eyebrow">capabilities</p>
-        <h2 class="section-heading">everything your <span class="keep-case">EPMO</span> needs, in one <mark>platform</mark></h2>
-      </div>
-      <div class="features-panel features-grid active">
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-          <h4>scorecards that cascade strategy</h4>
-          <p>Links strategic objectives to department <span class="keep-case">KPIs</span> and cascades them intelligently from the executive level down to every individual, so one strategy map drives every scorecard in the enterprise.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-          <h4>audits that sharpen every measure</h4>
-          <p>Benchmarks current <span class="keep-case">KPIs</span> against best practice, standardizes definitions and quantification, and aligns measures vertically and horizontally so intelligence stands on clean, comparable data.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-          <h4>goals that fit any framework</h4>
-          <p>Adapts to <span class="keep-case">OKR</span>, <span class="keep-case">KPI</span>, <span class="keep-case">BSC</span> or custom structures, auto-generates goal programs, and produces <span class="keep-case">SMART</span> goals with stretch targets so the framework serves the strategy, not the other way round.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-          <h4>a library that pre-assigns <span class="keep-case">KPIs</span></h4>
-          <p>Pushes pre-defined <span class="keep-case">KPIs</span> down the hierarchy and auto-adds them to the right balanced scorecards, with role-based recommendations powered by <span class="keep-case">AI</span> market intelligence.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-          <h4>programs that track budgets to plan</h4>
-          <p>Maps custom programs to strategic objectives, tracks CAPEX and OPEX budgets against key deliverables, and nudges initiative owners to submit progress actuals on time.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <h4>risks flagged before strategy slips</h4>
-          <p>Tracks risks across programs, initiatives and milestones, raises red-flag alerts when they threaten departmental or strategic <span class="keep-case">KPIs</span>, and reminds owners to mitigate before targets are missed.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <h4>nudges that go beyond silent dashboards</h4>
-          <p>Delivers contextual, personalized, push-based insights and nudges in the flow-of-work, turning performance data into timely action instead of another report nobody opens.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h4>feedback that stays calibrated</h4>
-          <p>Gathers behavioral feedback from internal and external stakeholders, links it to core performance metrics, and moderates ratings through bell-curve distribution and multi-stage calibration.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div>
-          <h4>gamification that sustains the culture</h4>
-          <p>Engages employees with points, badges, contests and leaderboards, an explicit sustain-phase move in the <span class="keep-case">EPMO</span> journey that keeps performance behavior alive long after rollout.</p>
+        <div class="ep-j">
+          <div class="ep-j-bar"></div>
+          <div class="ep-j-phase">stage 4</div>
+          <div class="ep-j-name">sustain &amp; optimize</div>
+          <ul>
+            <li>management dashboards and operational analytics</li>
+            <li>workforce analytics and insights</li>
+            <li>performance gamification</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== ADVISORY ===== -->
+  <!-- ===== PROOF ===== -->
   <section style="background: var(--floral-white);">
     <div class="container">
-      <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">experts in the loop</p>
-        <h2 class="section-heading">advisory that builds the <mark>office</mark> with you</h2>
-        <p class="section-subheading" style="margin:0 auto;">The <span class="keep-case">EPMO</span> is not a module you switch on. entomo's Accelerate Performance consulting stack builds the office alongside your team, and the platform operationalizes it. Your people run the office; entomo trains them, including training the <span class="keep-case">EPMO</span> itself as performance coaches, and stays through the change.</p>
+      <div class="text-center" style="max-width:720px; margin:0 auto;">
+        <h2 class="section-heading">offices that <mark>outlived</mark> the engagement</h2>
       </div>
-      <div class="pillars-grid">
-        <div class="pillar-card">
-          <div class="pillar-name">performance management revamp</div>
-          <p class="pillar-desc">Benchmarks your performance metrics, runs a full performance diagnostic, and aligns measures across the enterprise before anything gets configured.</p>
+      <div class="ep-proof">
+        <div class="ep-p">
+          <div class="ep-p-who">middle east &middot; largest railway network</div>
+          <q>The transparency and feedback mechanisms significantly improved employee engagement and operational performance.</q>
+          <p style="font-size:13.5px; color:var(--ink-2); margin:0 0 0.9rem;">strategic and operational <span class="keep-case">KPIs</span> aligned to phase-wise construction goals, on a balanced scorecard with one source of truth for business intelligence.</p>
+          <cite>200+ employees, individual to enterprise level</cite>
         </div>
-        <div class="pillar-card">
-          <div class="pillar-name">performance culture transformation</div>
-          <p class="pillar-desc">Establishes the <span class="keep-case">EPMO</span> with a charter for structure and governance, then shifts culture through storytelling, focused feedback, engagement and change management.</p>
+        <div class="ep-p">
+          <div class="ep-p-who"><span class="keep-case">UAE</span> &middot; creative &amp; media hub</div>
+          <q>entomo's product has exceeded my expectations in terms of user control and convenience. We truly consider entomo our strategic partner.</q>
+          <p style="font-size:13.5px; color:var(--ink-2); margin:0 0 0.9rem;">corporate strategy aligned to personal and organizational <span class="keep-case">KPIs</span> through workshops and one-on-ones, live in 45 days.</p>
+          <cite>Muna Alghawi, Strategy Office Manager</cite>
         </div>
-        <div class="pillar-card">
-          <div class="pillar-name">applied data and behavioural science</div>
-          <p class="pillar-desc">Builds analytics capability and applies behavioural science, from network analytics that find your real influencers to nudges that reinforce the new habits.</p>
+        <div class="ep-p">
+          <div class="ep-p-who"><span class="keep-case">UAE</span> &middot; government, forrester-studied</div>
+          <q>With entomo, the strategy of the individual government entities is now better tied to the overall government strategy.</q>
+          <p style="font-size:13.5px; color:var(--ink-2); margin:0 0 0.9rem;">appraisal reviews that took a week of afternoons now finish inside a day: forty appraisals reviewed in under a day.</p>
+          <cite>implementation manager, government entity</cite>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROOF: NUMBERS ===== -->
-  <section style="background: var(--lavender);">
-    <div class="container">
-      <div class="text-center" style="max-width:680px; margin:0 auto 4rem;">
-        <p class="section-eyebrow">measured, not claimed</p>
-        <h2 class="section-heading">proof, at enterprise <mark>scale</mark></h2>
-      </div>
-      <div class="persona-simple-grid">
-        <div class="persona-simple-card">
-          <div class="persona-simple-top green-top">
-            <span class="persona-simple-role">platform scale</span>
-            <span class="persona-simple-headline">30M+ users powered</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">enterprises across 15 geographies</span>
-            <span class="ptag">platform-level proof</span>
-            <span class="ptag">founded 2010</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top red-top">
-            <span class="persona-simple-role">forrester <span class="keep-case">TEI</span></span>
-            <span class="persona-simple-headline">$26.8M value, 103% <span class="keep-case">ROI</span></span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">large government entity</span>
-            <span class="ptag">3-year platform engagement</span>
-            <span class="ptag">forrester validated</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top blue-top">
-            <span class="persona-simple-role">strategic alignment</span>
-            <span class="persona-simple-headline">95% of <span class="keep-case">KPIs</span> aligned to corporate goals</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">dialog axiata, sri lanka</span>
-            <span class="ptag">3,000+ employees onboarded</span>
-            <span class="ptag">balanced scorecard rollout</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top gold-top">
-            <span class="persona-simple-role">cycle speed</span>
-            <span class="persona-simple-headline">review cycles: 3 months to 2 weeks</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">large dubai government agency</span>
-            <span class="ptag">$11.3M saved retiring legacy</span>
-            <span class="ptag">90% productivity gain for managers</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROOF: A FACE ===== -->
-  <section style="background: var(--pistachio);">
-    <div class="container">
-      <div class="text-center" style="max-width:900px; margin:0 auto;">
-        <p class="section-eyebrow">customer story</p>
-        <p class="story-quote">&ldquo;entomo built the foundation of the company's Strategic Performance Management Office, implemented a comprehensive enterprise performance management system, and led the change management consultation that brought 3,000+ employees onboard. Adoption reached 90%, and the organisation earned recognition as a High Performer Organisation.&rdquo;</p>
-        <p class="story-attr">case study: top-10 coal mining company, Indonesia, 3,000+ employees</p>
-      </div>
-      <div class="orchestration-chips" style="margin-top:2.5rem;">
-        <span class="orch-chip">3,000+ employees onboarded</span>
-        <span class="orch-chip">90% adoption</span>
-        <span class="orch-chip">high performer organisation status</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ENTERPRISE READINESS ===== -->
-  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
-    <div class="container">
-      <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">enterprise-ready</p>
-        <h2 class="section-heading">fits your stack. passes your audits.</h2>
-        <p class="section-subheading" style="margin:0 auto;">entomo runs on top of the systems you already own. entomo <span class="strata-text">strata</span>, the workforce intelligence graph, unifies goals, <span class="keep-case">KPIs</span>, people, org units and competencies from Core <span class="keep-case">HR</span>, <span class="keep-case">ERP</span> and <span class="keep-case">CRM</span> data, so your <span class="keep-case">EPMO</span> governs performance without replacing a single system. <a href="../about/security-at-entomo.html" style="color:var(--spanish-blue); font-weight:600;">read the security architecture &rarr;</a></p>
-      </div>
-      <div class="tech-chips-row">
-        <span class="tech-chip">integrates with core <span class="keep-case">HR</span>, <span class="keep-case">ERP</span> and <span class="keep-case">CRM</span></span>
-        <span class="tech-chip">web services, ETL over SFTP, OData</span>
-        <span class="tech-chip"><span class="keep-case">ISO</span> 27001 and <span class="keep-case">ISO</span> 27701 certified</span>
-        <span class="tech-chip"><span class="keep-case">GDPR</span> compliant</span>
-        <span class="tech-chip">no rip-and-replace</span>
       </div>
     </div>
   </section>
 
   <!-- ===== FAQ ===== -->
-  <section style="background: var(--polar-white);">
+  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
     <div class="container">
       <div class="text-center" style="max-width:720px; margin:0 auto;">
-        <p class="section-eyebrow">questions, answered</p>
-        <h2 class="section-heading">what enterprise teams ask us.</h2>
+        <h2 class="section-heading">before you stand one <mark>up</mark></h2>
       </div>
       <div class="integrations-grid">
         <div class="integration-card">
-          <div class="integration-card-title">what exactly is an <span class="keep-case">EPMO</span>?</div>
-          <p class="faq-a">An enterprise performance management office is an agile structure that sits between the strategy group and human capital management. It exists to ensure continuous <span class="keep-case">KPI</span> alignment, personalized incentives and workforce intelligence, the capacity to challenge <span class="keep-case">KPIs</span> that most enterprises lack. entomo helps you establish, equip and train yours.</p>
+          <div class="integration-card-title">is this consulting or software?</div>
+          <p class="faq-a">Both, deliberately. The advisory practice designs the office, audits your <span class="keep-case">KPIs</span>, and trains the team; the platform gives the office its instruments: scorecards, cascade, analytics, nudges. Software alone leaves the structure problem unsolved; advice alone doesn't operationalize.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">does entomo run the <span class="keep-case">EPMO</span> for us?</div>
-          <p class="faq-a">No. The office is yours. entomo assesses and selects the office, writes the charter, audits your <span class="keep-case">KPIs</span>, and trains both managers and the <span class="keep-case">EPMO</span> team as performance coaches. The platform and its agents then support the office day to day, but governance authority stays with your people.</p>
+          <div class="integration-card-title">we're not ready for a full office. can we start smaller?</div>
+          <p class="faq-a">Yes. The four stages are sequential on purpose: many clients begin with the <span class="keep-case">KPI</span> audit and company-wide goal alignment, then formalize the office once the cadence proves itself. One media-sector client was live in 45 days.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">does it replace our <span class="keep-case">HCM</span> or <span class="keep-case">HRIS</span>?</div>
-          <p class="faq-a">No. entomo integrates with Core <span class="keep-case">HR</span>, compensation and benefits, <span class="keep-case">ERP</span>, <span class="keep-case">CRM</span> and other transactional systems through web services, ETL over SFTP and direct protocols such as OData. Your systems of record stay where they are; entomo adds the alignment and intelligence layer on top.</p>
+          <div class="integration-card-title">how is this different from the strategic performance management office?</div>
+          <p class="faq-a">The enterprise office is the bridge between the strategy group and <span class="keep-case">HR</span>, built to keep <span class="keep-case">KPIs</span> aligned to strategy continuously. The strategic office runs the performance process itself, cycle by cycle. Many enterprises grow into both. <a href="spmo.html" style="color:var(--spanish-blue); font-weight:600;">see the strategic performance management office &rarr;</a></p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">what do agents automate, and what do humans approve?</div>
-          <p class="faq-a">Agents generate and validate goals, cascade <span class="keep-case">KPIs</span> to scorecards, surface insights, structure conversations and send nudges. Humans keep the decisions: managers and the <span class="keep-case">EPMO</span> approve scorecards, calibration runs through multi-stage moderation, and review outcomes are made by people, informed by the intelligence.</p>
-        </div>
-        <div class="integration-card">
-          <div class="integration-card-title">how is our data protected?</div>
-          <p class="faq-a">The platform is <span class="keep-case">ISO</span> 27001 and <span class="keep-case">ISO</span> 27701 certified and <span class="keep-case">GDPR</span> compliant. Your performance data powers your own intelligence, insights, nudges and scorecards inside your environment. Specific data residency requirements are addressed during scoping.</p>
-        </div>
-        <div class="integration-card">
-          <div class="integration-card-title">how long does implementation take?</div>
-          <p class="faq-a">It depends on scope, and the <span class="keep-case">EPMO</span> development journey is deliberately phased: establish the office, build the performance mindset, reinforce practices, then sustain the culture. Value arrives early in that journey; one public listed bank reached 91% adoption across 5,000+ employees within 2 months of rollout.</p>
+          <div class="integration-card-title">what does the office run on day to day?</div>
+          <p class="faq-a">Balanced scorecards cascaded from executive to entity level, real-time dashboards, and the nudge engine carrying insight to whoever owns the metric. The same platform Forrester studied: $26.8M in benefits and 103% <span class="keep-case">ROI</span> over three years at a government entity.</p>
         </div>
       </div>
     </div>
@@ -2327,13 +2179,12 @@
   <!-- ===== BOTTOM CTA ===== -->
   <section class="bottom-cta">
     <div class="container">
-      <h2>ready to put strategy and performance in the same <mark>office</mark>?</h2>
-      <p>Join the enterprises powering 30M+ users with agentic performance intelligence. Forrester-validated: $26.8M in value, 103% <span class="keep-case">ROI</span> over 3 years.</p>
-      <a class="btn-primary" href="../request-demo.html">request a demo &rarr;</a>
+      <h2>put strategy and performance on one <mark>calendar</mark>.</h2>
+      <p>advisory that builds the office, a platform that runs it, and Forrester-validated economics behind both.</p>
+      <a class="btn-primary" href="../request-demo.html">talk to the advisory team &rarr;</a>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
   </main>
   <footer class="footer">
     <div class="container">

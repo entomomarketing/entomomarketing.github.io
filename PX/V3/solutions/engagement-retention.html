@@ -1644,6 +1644,44 @@
       background: #f2faf4 !important;
     }
     a.btn-primary { display: inline-block; text-decoration: none; }
+
+    /* ===== engagement-retention: page-specific ===== */
+    .er-curve { max-width:1000px; margin:3.4rem auto 0; background:var(--white); border:1px solid rgba(26,31,38,0.08);
+      border-radius:20px; padding:2rem 2rem 1.4rem; box-shadow:0 14px 40px rgba(43,29,18,0.08); }
+    .er-curve svg { width:100%; height:auto; display:block; }
+    .er-legend { display:flex; gap:1.8rem; justify-content:center; flex-wrap:wrap; margin-top:1rem; font-size:12.5px; color:var(--ink-3); }
+    .er-legend i { display:inline-block; width:22px; height:3px; border-radius:2px; vertical-align:middle; margin-right:6px; }
+
+    .er-pairs { max-width:920px; margin:3.4rem auto 0; display:flex; flex-direction:column; gap:0.9rem; }
+    .er-pair { display:grid; grid-template-columns:1fr 1fr; border-radius:14px; overflow:hidden; border:1px solid rgba(26,31,38,0.07); }
+    .er-pair > div { padding:1.1rem 1.35rem; font-size:14.5px; line-height:1.55; background:var(--white); }
+    .er-lag { color:var(--ink-3); }
+    .er-lag small, .er-lead small { display:block; font-size:10.5px; font-weight:800; letter-spacing:1.1px; text-transform:uppercase; margin-bottom:3px; }
+    .er-lag small { color:#a02417; }
+    .er-lead small { color:#1d6c2d; }
+    .er-lead { font-weight:600; color:var(--ink); border-left:1px solid rgba(26,31,38,0.06);
+      background:linear-gradient(135deg, rgba(44,153,66,0.05), transparent), var(--white); }
+    @media (max-width:720px){ .er-pair { grid-template-columns:1fr; } .er-lead{border-left:none;} }
+
+    .er-tools { display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem; max-width:1100px; margin:3.2rem auto 0; }
+    .er-tool { background:var(--white); border-radius:16px; padding:1.5rem 1.4rem; border:1px solid rgba(26,31,38,0.07); border-bottom:4px solid; }
+    .er-tool.t1{border-bottom-color:var(--cg-red);} .er-tool.t2{border-bottom-color:var(--cg-gold);}
+    .er-tool.t3{border-bottom-color:var(--spanish-blue);} .er-tool.t4{border-bottom-color:var(--sea-green);}
+    .er-tool b { display:block; font-size:16px; margin-bottom:0.4rem; }
+    .er-tool p { margin:0; font-size:13.5px; line-height:1.55; color:var(--ink-2); }
+    @media (max-width:960px){ .er-tools { grid-template-columns:1fr 1fr; } }
+    @media (max-width:560px){ .er-tools { grid-template-columns:1fr; } }
+
+    .er-case { max-width:1020px; margin:3.4rem auto 0; display:grid; grid-template-columns:1fr 1.2fr; gap:0;
+      background:var(--white); border-radius:22px; overflow:hidden; border:1px solid rgba(26,31,38,0.07); box-shadow:0 16px 44px rgba(43,29,18,0.09); }
+    .er-case-num { background:linear-gradient(160deg, #14321d, #1d6c2d); color:#fff; padding:2.6rem 2.4rem; display:flex; flex-direction:column; justify-content:center; }
+    .er-case-num b { font-size:3.4rem; letter-spacing:-2px; line-height:1; }
+    .er-case-num span { font-size:15px; opacity:0.85; margin-top:0.5rem; }
+    .er-case-body { padding:2.4rem 2.5rem; }
+    .er-case-body q { display:block; quotes:'\201C' '\201D'; font-size:1.12rem; line-height:1.6; font-weight:600; color:var(--ink); margin-bottom:1rem; }
+    .er-case-body cite { font-style:normal; font-size:13.5px; color:var(--ink-3); }
+    .er-case-tags { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1.3rem; }
+    @media (max-width:860px){ .er-case { grid-template-columns:1fr; } }
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -1950,7 +1988,7 @@
         </div>
         <h1>engagement that shows up in <mark>retention</mark></h1>
         <p class="sol-hero-sub">
-          engaged people stay. agentic <span class="keep-case">AI</span> that listens continuously, surfaces sentiment shifts in real time, and intervenes before disengagement becomes attrition.
+          engagement read as live signals, mood, feedback, recognition, growth, and acted on months before a resignation letter, in the flow of everyday work.
         </p>
         <a class="btn-primary" href="../request-demo.html">get started &rarr;</a>
       </div>
@@ -1984,317 +2022,129 @@
     </div>
   </section>
 
-  <!-- ===== THE PROBLEM ===== -->
+  <!-- ===== THE SIX MONTHS BEFORE ===== -->
   <section style="background: var(--polar-white);">
     <div class="container">
       <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">the problem</p>
-        <h2 class="section-heading">annual surveys measure engagement after it's <mark>gone</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;">By the time the annual report lands, the people it described have already decided. The signals were there all year, in check-ins, sentiment, and workload, waiting to be read.</p>
+        <h2 class="section-heading">resignations are <mark>lagging</mark> indicators</h2>
+        <p class="section-subheading" style="margin:0 auto;">by the time attrition shows up in a report, the story is six months old. the signals were there the whole time. gallup puts disengagement's global cost at $438 billion a year; the fix starts with seeing it early.</p>
       </div>
-      <div class="pillars-grid">
-        <div class="pillar-card">
-          <div class="pillar-name">disengagement surfaces at the exit interview</div>
-          <p class="pillar-desc">The signals live in daily work: skipped check-ins, cooling sentiment, workload spikes. But they sit in separate systems, so the first clear signal <span class="keep-case">HR</span> gets is a resignation letter.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-name">recognition arrives too late to matter</div>
-          <p class="pillar-desc">When appreciation waits for the annual awards night, the everyday contributions that hold teams together go unseen, and the people making them start looking elsewhere.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-name">burnout is invisible until it's attrition</div>
-          <p class="pillar-desc">Workload, overtime, and sentiment are tracked in different places, if at all. Without an early signal, wellbeing programs stay reactive and the cost shows up as regretted exits.</p>
+      <div class="er-curve">
+        <svg viewBox="0 0 960 300" role="img" aria-label="a rising attrition-risk curve over six months, with the signals entomo catches marked along it: a sentiment dip, skipped check-ins, a stalled growth conversation, and no recognition; interventions are marked where nudges fire">
+          <line x1="40" y1="250" x2="930" y2="250" stroke="rgba(26,31,38,0.18)" stroke-width="1.5"/>
+          <path d="M 40 232 C 200 226, 300 218, 420 196 C 560 170, 680 128, 930 58" fill="none" stroke="#e43d30" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M 40 232 C 200 226, 300 218, 420 200 C 560 186, 700 196, 930 214" fill="none" stroke="#2c9942" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="1 0"/>
+          <g font-family="Nunito Sans, sans-serif">
+            <circle cx="240" cy="219" r="6" fill="#f4b223"/>
+            <text x="250" y="200" text-anchor="middle" font-size="13" fill="#5a626c">month 2: sentiment dips in mood meter</text>
+            <circle cx="420" cy="197" r="6" fill="#f4b223"/>
+            <text x="420" y="176" text-anchor="middle" font-size="13" fill="#5a626c">month 3: check-ins stop</text>
+            <circle cx="600" cy="158" r="6" fill="#e43d30"/>
+            <text x="545" y="110" text-anchor="middle" font-size="13" fill="#a02417" font-weight="700">month 4: no growth conversation logged</text>
+            <circle cx="600" cy="190" r="6" fill="#2c9942"/>
+            <text x="640" y="222" text-anchor="middle" font-size="13" fill="#1d6c2d" font-weight="700">nudge: manager coach-in + growth path</text>
+            <text x="905" y="48" text-anchor="end" font-size="13.5" fill="#a02417" font-weight="800">unseen: resignation</text>
+            <text x="905" y="252" text-anchor="end" font-size="13.5" fill="#1d6c2d" font-weight="800">seen early: retained</text>
+          </g>
+        </svg>
+        <div class="er-legend">
+          <span><i style="background:#e43d30"></i>risk left unseen</span>
+          <span><i style="background:#2c9942"></i>risk seen and acted on</span>
+          <span><i style="background:#f4b223; height:8px; width:8px; border-radius:50%;"></i>signals entomo reads</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== THE SHIFT ===== -->
+  <!-- ===== LAGGING TO LEADING ===== -->
   <section style="background: var(--white);">
     <div class="container">
       <div class="text-center" style="max-width:720px; margin:0 auto;">
-        <h2 class="section-heading">from annual snapshots to continuous <mark>signal</mark></h2>
+        <h2 class="section-heading">swap every lagging measure for a <mark>leading</mark> one</h2>
       </div>
-      <div class="integrations-grid">
-        <div class="integration-card">
-          <div class="integration-card-title">engagement today</div>
-          <div class="integration-pill-row">
-            <span class="integration-pill">engagement measured once a year, acted on later</span>
-            <span class="integration-pill">recognition left to memory and awards season</span>
-            <span class="integration-pill">burnout discovered at the exit interview</span>
-            <span class="integration-pill">leaders guessing at sentiment from attrition reports</span>
-          </div>
+      <div class="er-pairs">
+        <div class="er-pair">
+          <div class="er-lag"><small>lagging</small>the exit interview explains why they left</div>
+          <div class="er-lead"><small>leading</small>hyper-personalized mood meters read how people feel while they're still here</div>
         </div>
-        <div class="integration-card shift-good">
-          <div class="integration-card-title">engagement with entomo</div>
-          <div class="integration-pill-row">
-            <span class="integration-pill">pulse, sentiment, and recognition signals, continuously</span>
-            <span class="integration-pill">kudos and badges automated on real milestones</span>
-            <span class="integration-pill">anonymized burnout signals with early interventions</span>
-            <span class="integration-pill">leaders ask <span class="keep-case">DIA</span> and act the same day</span>
-          </div>
+        <div class="er-pair">
+          <div class="er-lag"><small>lagging</small>the annual survey, reported a quarter later</div>
+          <div class="er-lead"><small>leading</small><span class="keep-case">AI</span>-templated pulses with analysis per topic, and completion-tracked actions on every finding</div>
+        </div>
+        <div class="er-pair">
+          <div class="er-lag"><small>lagging</small>attrition rate, counted after the fact</div>
+          <div class="er-lead"><small>leading</small>attrition risk flagged early, signal by signal, to the one manager who can change it</div>
+        </div>
+        <div class="er-pair">
+          <div class="er-lag"><small>lagging</small>recognition saved up for the annual awards night</div>
+          <div class="er-lead"><small>leading</small>kudos and rewards in the flow of work, the week the work happened</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== HOW IT WORKS ===== -->
-  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
+  <!-- ===== THE INSTRUMENTS ===== -->
+  <section style="background: var(--polar-white); border-top: 1px solid rgba(26,31,38,0.06);">
     <div class="container">
-      <div class="text-center" style="max-width:800px; margin:0 auto;">
-        <p class="section-eyebrow">how it works</p>
-        <h2 class="section-heading">how engagement intelligence <mark>works</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;">One intelligence layer, not a survey silo. Engagement signals feed entomo <span class="strata-text">strata</span>, the same intelligence graph as performance and skills data, so what comes back is an intervention, not a report.</p>
+      <div class="text-center" style="max-width:740px; margin:0 auto;">
+        <h2 class="section-heading">the engagement loop, in the flow of <mark>work</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;">not an annual program. four instruments running continuously, with Pulse360 reading the signals underneath.</p>
       </div>
-      <div class="arch-diagram">
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-data-sources">listen in the flow of work</div>
-          <div class="arch-col-desc">Pulse surveys, check-ins, recognition activity, and anonymized sentiment stream into entomo <span class="strata-text">strata</span> alongside performance and skills data.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip"><span class="keep-case">AI</span>-templated pulse and satisfaction surveys, 360 feedback, and wellness pulse-checks listen to the most distant voices, inside the hub newsfeed and native Microsoft Teams channel tabs.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-foundation">sense the shifts early</div>
-          <div class="arch-col-desc">Pulse360 reads sentiment and alignment signals; TeamInsight diagnoses team health: belonging, collaboration patterns, workload stress.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">Insight360 detects perception gaps in 360 feedback, including psychological safety, while anonymized analysis flags stress and burnout without exposing anyone's identity.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-intelligence">intervene before it costs you</div>
-          <div class="arch-col-desc">ConvoCraft structures stay interviews and manager conversations; nudges, recognition, and <span class="keep-case">AI</span>-matched mentorship activate where the signals point.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">Nudges are behavioral-science-based, adapted from Thaler and Sunstein's Nudge framework, and hyper-personalized; effectiveness is tracked by usage and action completion rate.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-agents">let the coworker run it</div>
-          <div class="arch-col-desc">The entomo.ai coworker assembles agents like GoalForge and FlowGen to run recognition campaigns, pulse programs, and coaching calendars end to end.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">Ask for a Q2 peer-recognition campaign or a burnout-prevention program for engineering; the coworker designs it, deploys it, and reports back, with humans approving the plan.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-outcomes">measure what changed</div>
-          <div class="arch-col-desc">Leaders ask <span class="keep-case">DIA</span> in natural language; it tracks participation, recognition frequency, pulse trends, sentiment drift, and culture signals in real time.</div>
-          <div class="arch-tooltip" style="left:auto; right:0; transform:none;">GrowthPlanner closes the loop, turning engagement and wellbeing signals into development plans, because a visible growth path is the strongest retention lever there is.</div>
-        </div>
+      <div class="er-tools">
+        <div class="er-tool t1"><b>sense</b><p>gen-<span class="keep-case">AI</span> mood meters and pulse surveys tuned to each person; sentiment and tone read across feedback by Pulse360.</p></div>
+        <div class="er-tool t2"><b>understand</b><p>survey analysis by topic and team, engagement health and manager-quality signals surfaced to the leaders who own them.</p></div>
+        <div class="er-tool t3"><b>act</b><p>nudges route each finding to its owner: a coach-in to schedule, a growth conversation to have, an action plan tracked to completion.</p></div>
+        <div class="er-tool t4"><b>reinforce</b><p>kudos, contests, and rewards keep contribution visible; mentorship and interest hubs keep people connected to their next step.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== AGENTS ===== -->
-  <section class="perf-agents-section">
-    <div class="container">
-      <div class="section-eyebrow">your <span class="keep-case">AI</span> workforce for engagement and retention</div>
-      <h2>meet the engagement <mark>agents</mark> that work for you</h2>
-    </div>
-
-    <div class="perf-mq-wrapper">
-      <div class="perf-mq-track">
-        <div class="perf-mq-card"><img src="../Images/agents/pulse360.png" alt="Pulse360" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">Pulse360</div><div class="perf-mq-role">sentiment analytics</div><div class="perf-mq-desc">reads tone across pulse responses and feedback, surfacing sentiment shifts and alignment signals before they harden into disengagement</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/TeamInsight.png" alt="TeamInsight" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">TeamInsight</div><div class="perf-mq-role">manager intelligence</div><div class="perf-mq-desc">diagnoses team health: belonging, collaboration patterns, workload stress, and disconnection risk, so managers act on signal instead of instinct</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/convocraft.png" alt="ConvoCraft" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">ConvoCraft</div><div class="perf-mq-role">conversation design</div><div class="perf-mq-desc">structures stay interviews, feedback sessions, and wellbeing conversations, so managers know what to ask before it's too late to ask it</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/assescraft.png" alt="AssessCraft" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">AssessCraft</div><div class="perf-mq-role">assessment engine</div><div class="perf-mq-desc">builds engagement-driver assessments and structured wellbeing check-ins that reach the most distant voices in the organization</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/Insight360.png" alt="Insight360" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">Insight360</div><div class="perf-mq-role">feedback intelligence</div><div class="perf-mq-desc">detects perception gaps across 360 feedback, including the psychological safety signals leaders can't see from the top</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/growthplanner.png" alt="GrowthPlanner" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">GrowthPlanner</div><div class="perf-mq-role">development engine</div><div class="perf-mq-desc">turns engagement and wellbeing signals into development plans, giving every employee a visible growth path worth staying for</div></div>
-
-        <!-- duplicate set for seamless loop -->
-        <div class="perf-mq-card"><img src="../Images/agents/pulse360.png" alt="Pulse360" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">Pulse360</div><div class="perf-mq-role">sentiment analytics</div><div class="perf-mq-desc">reads tone across pulse responses and feedback, surfacing sentiment shifts and alignment signals before they harden into disengagement</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/TeamInsight.png" alt="TeamInsight" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">TeamInsight</div><div class="perf-mq-role">manager intelligence</div><div class="perf-mq-desc">diagnoses team health: belonging, collaboration patterns, workload stress, and disconnection risk, so managers act on signal instead of instinct</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/convocraft.png" alt="ConvoCraft" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">ConvoCraft</div><div class="perf-mq-role">conversation design</div><div class="perf-mq-desc">structures stay interviews, feedback sessions, and wellbeing conversations, so managers know what to ask before it's too late to ask it</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/assescraft.png" alt="AssessCraft" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">AssessCraft</div><div class="perf-mq-role">assessment engine</div><div class="perf-mq-desc">builds engagement-driver assessments and structured wellbeing check-ins that reach the most distant voices in the organization</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/Insight360.png" alt="Insight360" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">Insight360</div><div class="perf-mq-role">feedback intelligence</div><div class="perf-mq-desc">detects perception gaps across 360 feedback, including the psychological safety signals leaders can't see from the top</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/growthplanner.png" alt="GrowthPlanner" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">GrowthPlanner</div><div class="perf-mq-role">development engine</div><div class="perf-mq-desc">turns engagement and wellbeing signals into development plans, giving every employee a visible growth path worth staying for</div></div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FEATURES ===== -->
-  <section class="features-section">
-    <div class="container">
-      <div class="text-center">
-        <p class="section-eyebrow">capabilities</p>
-        <h2 class="section-heading">everything you need to engage, recognize, and <mark>retain</mark></h2>
-      </div>
-      <div class="features-panel features-grid active">
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-          <h4>pulses that listen continuously</h4>
-          <p>Creates engagement and satisfaction surveys from <span class="keep-case">AI</span>-recommended templates, then runs smart analysis on the results for insights on satisfaction, motivation, and program effectiveness.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div>
-          <h4>recognition that lands on time</h4>
-          <p>Automates badges and kudos on real milestones, shares appreciation across teams and work networks, and shows each employee's impact on org-wide aligned objectives.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <h4>nudges that move people to act</h4>
-          <p>Delivers hyper-personalized, behavioral-science-based nudges adapted from Thaler and Sunstein's Nudge framework, and tracks effectiveness by usage and action completion rate.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h4>mentorship that gets measured</h4>
-          <p>Matches mentors to mentees on skills and defined criteria with <span class="keep-case">AI</span>, then quantifies and visualizes every mentorship journey, alongside 1-1 and group micro-coaching sessions.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
-          <h4>burnout surfaced before it breaks people</h4>
-          <p>Detects stress and burnout anonymously through sentiment analysis, wellness pulse-checks, and mood meters, then delivers timely, tailored interventions and recommendations.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-          <h4>rewards that reinforce the right behaviors</h4>
-          <p>Allocates points for intended performance behaviors, auto-creates contests to lift engagement, and links rewards from an external marketplace.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-          <h4>communities that live where work happens</h4>
-          <p>Cultivates connection through an interactive hub newsfeed, native Microsoft Teams channel tabs, and special interest groups formed around shared topics.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-          <h4>growth paths that give people a reason to stay</h4>
-          <p>Recommends upskilling and cross-skilling based on individual interests and market demand, so every employee can see where they're going next.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-          <h4>intelligence that answers leaders directly</h4>
-          <p>Answers leaders' questions in natural language through <span class="keep-case">DIA</span>, tracking participation rates, recognition frequency, pulse trends, sentiment drift, and culture signals in real time.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROOF: NUMBERS ===== -->
-  <section style="background: var(--lavender);">
-    <div class="container">
-      <div class="text-center" style="max-width:680px; margin:0 auto 4rem;">
-        <p class="section-eyebrow">measured, not claimed</p>
-        <h2 class="section-heading">attrition falls when engagement is <mark>built in</mark></h2>
-      </div>
-      <div class="persona-simple-grid">
-        <div class="persona-simple-card">
-          <div class="persona-simple-top green-top">
-            <span class="persona-simple-role">sinar mas mining, indonesia</span>
-            <span class="persona-simple-headline">50% reduction in employee attrition</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">performance culture transformation</span>
-            <span class="ptag">95% of employees published scorecards</span>
-            <span class="ptag">50% increase in mobile adoption</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top red-top">
-            <span class="persona-simple-role">japan IT services leader</span>
-            <span class="persona-simple-headline">33% reduction in employee attrition</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">95% adoption rate</span>
-            <span class="ptag">skills framework built 80% faster</span>
-            <span class="ptag">talent transformation deployment</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top blue-top">
-            <span class="persona-simple-role">fortune 500 insurer, <span class="keep-case">UAE</span></span>
-            <span class="persona-simple-headline">255% <span class="keep-case">ROI</span>, payback under six months</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">32.8% premium growth over 3 years</span>
-            <span class="ptag">gamified sales re-engagement</span>
-            <span class="ptag">reduced agent turnover</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top gold-top">
-            <span class="persona-simple-role">platform proof, forrester <span class="keep-case">TEI</span></span>
-            <span class="persona-simple-headline">$26.8M value, 103% <span class="keep-case">ROI</span> over 3 years</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">platform-wide, government deployment</span>
-            <span class="ptag">30M+ users across global brands</span>
-            <span class="ptag">forrester total economic impact study</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROOF: A FACE ===== -->
+  <!-- ===== PROOF ===== -->
   <section style="background: var(--pistachio);">
     <div class="container">
-      <div class="text-center" style="max-width:900px; margin:0 auto;">
-        <p class="section-eyebrow">customer story</p>
-        <p class="story-quote">&ldquo;Our investment in entomo has increased engagement, productivity, and absolutely increased our revenue.&rdquo;</p>
-        <p class="story-attr">General Manager, Fortune 500 global insurance provider, <span class="keep-case">UAE</span></p>
+      <div class="text-center" style="max-width:700px; margin:0 auto;">
+        <h2 class="section-heading">retention that shows up in the <mark>annual report</mark></h2>
       </div>
-      <div class="orchestration-chips" style="margin-top:2.5rem;">
-        <span class="orch-chip">255% <span class="keep-case">ROI</span>, payback within six months</span>
-        <span class="orch-chip">32.8% increase in annual premiums over 3 years</span>
-        <span class="orch-chip">88% reduction in report-generation time</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ENTERPRISE READINESS ===== -->
-  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
-    <div class="container">
-      <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">enterprise-ready</p>
-        <h2 class="section-heading">fits your stack. passes your audits.</h2>
-        <p class="section-subheading" style="margin:0 auto;">entomo runs alongside the systems you already have, not in place of them. Engagement and wellbeing signals stay anonymized, interventions stay human decisions, and the certifications procurement asks about are already in place. <a href="../about/security-at-entomo.html" style="color:var(--spanish-blue); font-weight:600;">read the security architecture &rarr;</a></p>
-      </div>
-      <div class="tech-chips-row">
-        <span class="tech-chip"><span class="keep-case">ISO</span> 27001 and <span class="keep-case">SOC</span> 2 certified</span>
-        <span class="tech-chip"><span class="keep-case">SSO</span> and <span class="keep-case">SAML</span> single sign-on</span>
-        <span class="tech-chip">native microsoft teams channel tabs</span>
-        <span class="tech-chip">anonymized sentiment and wellbeing analysis</span>
-        <span class="tech-chip">30M+ users at enterprise scale</span>
-        <span class="tech-chip">engage features switch on or off any time</span>
+      <div class="er-case">
+        <div class="er-case-num">
+          <b>50%</b>
+          <span>reduction in employee attrition at an indonesian conglomerate, alongside 95% of employees publishing scorecards</span>
+        </div>
+        <div class="er-case-body">
+          <q>Through the successful implementation, entomo has helped us shift to a meritocracy-based, agile organization. It has aligned our business objectives and engaged our people through meaningful interventions.</q>
+          <cite>Swasono Satyo, Chief Human Resources Officer, Sinar Mas Group</cite>
+          <div class="er-case-tags">
+            <span class="ptag">33% lower attrition at a japanese <span class="keep-case">IT</span> major</span>
+            <span class="ptag">+7.99% company-wide satisfaction at sinar mas</span>
+            <span class="ptag">16% higher training participation in the same program</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ===== FAQ ===== -->
-  <section style="background: var(--polar-white);">
+  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
     <div class="container">
       <div class="text-center" style="max-width:720px; margin:0 auto;">
-        <p class="section-eyebrow">questions, answered</p>
-        <h2 class="section-heading">what enterprise teams ask us.</h2>
+        <h2 class="section-heading">fair questions about reading <mark>people signals</mark></h2>
       </div>
       <div class="integrations-grid">
         <div class="integration-card">
-          <div class="integration-card-title">how long does implementation take?</div>
-          <p class="faq-a">It depends on scope, and you don't have to launch everything at once. Engage features can be switched on or off at any time, so most clients start focused, pulse and recognition first, and expand from there. For scale reference: Sinar Mas Mining onboarded 2,550+ employees, and a leading Asian financial services company brought 10,000+ employees onto the platform.</p>
+          <div class="integration-card-title">is this surveillance?</div>
+          <p class="faq-a">No. The signals are things employees choose to share: mood check-ins, survey responses, feedback, recognition, and their own goals. Access is governed down to the individual on an <span class="keep-case">ISO</span> 27001 and <span class="keep-case">ISO</span> 27701 certified platform, and the output is support routed to a manager, not a score on a wall.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">does entomo replace our <span class="keep-case">HCM</span> or <span class="keep-case">HRIS</span>?</div>
-          <p class="faq-a">No. entomo is the engagement intelligence layer that runs alongside your existing stack, with <span class="keep-case">SSO</span> and <span class="keep-case">SAML</span> sign-on and native Microsoft Teams channel tabs, so engagement lives in the flow of work rather than in one more portal. Your systems of record stay where they are; entomo turns the signals around them into interventions.</p>
+          <div class="integration-card-title">what stops this being another ignored survey tool?</div>
+          <p class="faq-a">Action tracking. Every finding becomes a nudge with an owner, and the platform measures completion, so "we heard you" turns into something people can see. That loop is why scorecard publication hit 95% at sinar mas.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">what do the agents automate, and what do humans approve?</div>
-          <p class="faq-a">Agents sense, recommend, and prepare; people decide. Pulse360 and TeamInsight surface the signals, ConvoCraft structures the conversations, and the entomo.ai coworker runs the recognition campaigns, pulse surveys, and coaching programs you commission. Every intervention that touches a person is a human decision, made earlier and better informed.</p>
+          <div class="integration-card-title">how do managers keep up with the signals?</div>
+          <p class="faq-a">They don't have to watch dashboards. Signals arrive as specific, timed nudges: this person, this conversation, this week. Manager-quality metrics also show leadership which teams need coaching support, not just which need pizza.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">how is engagement and wellbeing data handled?</div>
-          <p class="faq-a">Sentiment analysis and stress and burnout detection are anonymized by design, and personal health survey results are shared only at the employee's choice. The platform is <span class="keep-case">ISO</span> 27001 and <span class="keep-case">SOC</span> 2 certified with <span class="keep-case">SSO</span> and <span class="keep-case">SAML</span> support. entomo surfaces signals and suggests interventions; it makes no clinical or diagnostic mental-health judgments. Residency and hosting specifics are scoped per deployment.</p>
-        </div>
-        <div class="integration-card">
-          <div class="integration-card-title">can entomo predict exactly who is about to leave?</div>
-          <p class="faq-a">entomo's agents flag disengagement and burnout patterns early, anonymized where wellbeing is involved, so teams get support before resignations start. Individual attrition-prediction models have been built on entomo <span class="keep-case">AI</span> Studio as a scoped analytics use case that notifies supervisors and <span class="keep-case">HRBPs</span> with context to retain regrettable attrition, not as a default feature. The retention results clients report came from acting on signals, not surveillance.</p>
-        </div>
-        <div class="integration-card">
-          <div class="integration-card-title">will this actually reduce attrition?</div>
-          <p class="faq-a">No vendor can promise a universal number, and every retention figure entomo publishes is client-specific. Sinar Mas Mining saw a 50% reduction in attrition and a Japanese IT services leader saw 33%, in both cases with engagement built into a broader performance culture, not bolted on. Gallup research entomo cites points the same way: highly engaged employees are 12x less likely to leave.</p>
+          <div class="integration-card-title">does engagement connect to growth and pay?</div>
+          <p class="faq-a">Directly. The same platform runs goals, skills, and recognition, so a flagged risk can be answered with the things that actually retain people: a growth path, a gig, a mentor, a fair review. <a href="internal-mobility.html" style="color:var(--spanish-blue); font-weight:600;">see internal mobility &rarr;</a></p>
         </div>
       </div>
     </div>
@@ -2303,13 +2153,12 @@
   <!-- ===== BOTTOM CTA ===== -->
   <section class="bottom-cta">
     <div class="container">
-      <h2>ready to keep the people you can't afford to <mark>lose</mark>?</h2>
-      <p>Join the enterprises powering 30M+ users with agentic engagement intelligence. Forrester-validated platform: $26.8M in value, 103% <span class="keep-case">ROI</span> over 3 years.</p>
-      <a class="btn-primary" href="../request-demo.html">request a demo &rarr;</a>
+      <h2>see the signals while there's still <mark>time</mark>.</h2>
+      <p>engagement intelligence on the platform behind 30M+ users, Forrester-validated at the platform level.</p>
+      <a class="btn-primary" href="../request-demo.html">read your engagement signals &rarr;</a>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
   </main>
   <footer class="footer">
     <div class="container">

@@ -1644,6 +1644,91 @@
       background: #f2faf4 !important;
     }
     a.btn-primary { display: inline-block; text-decoration: none; }
+
+    /* ===== workforce-analytics: page-specific ===== */
+    .wa-queue { display:flex; align-items:stretch; gap:0; max-width:1080px; margin:3.5rem auto 0; }
+    .wa-q-step { flex:1; position:relative; padding:0 1.1rem 0 1.4rem; }
+    .wa-q-step::before { content:''; position:absolute; left:0; top:0.55rem; bottom:-0.2rem; width:2px;
+      background:linear-gradient(to bottom, rgba(26,31,38,0.22), rgba(26,31,38,0.05)); }
+    .wa-q-day { font-size:12px; font-weight:800; letter-spacing:1px; color:var(--cg-red);
+      text-transform:uppercase; margin-bottom:0.45rem; }
+    .wa-q-txt { font-size:14.5px; line-height:1.5; color:var(--ink-2); }
+    .wa-q-step:last-child .wa-q-day { color: var(--sea-green); }
+    .wa-caption { text-align:center; font-size:13px; color:var(--ink-4); margin-top:2.2rem; }
+    @media (max-width: 860px){ .wa-queue { flex-direction:column; gap:1.4rem; } }
+
+    .wa-rows { max-width:1020px; margin:3.5rem auto 0; display:flex; flex-direction:column; gap:1rem; }
+    .wa-rowhead, .wa-row { display:grid; grid-template-columns: 1.05fr 1fr 1.25fr; gap:1px; }
+    .wa-rowhead > div { font-size:12px; font-weight:800; letter-spacing:1.2px; text-transform:uppercase;
+      color:var(--ink-4); padding:0 1.4rem 0.4rem; }
+    .wa-row { background:rgba(26,31,38,0.06); border:1px solid rgba(26,31,38,0.06);
+      border-radius:16px; overflow:hidden; }
+    .wa-row > div { background:var(--white); padding:1.35rem 1.4rem; font-size:15px; line-height:1.55; }
+    .wa-cell-q { font-weight:800; color:var(--ink); }
+    .wa-cell-old { color:var(--ink-3); }
+    .wa-cell-new { background:linear-gradient(135deg, rgba(44,153,66,0.07), rgba(0,100,191,0.05)) , var(--white) !important;
+      color:var(--ink); font-weight:600; }
+    .wa-cell-new::before { content:'→ '; color:var(--sea-green); font-weight:800; }
+    @media (max-width: 860px){
+      .wa-rowhead { display:none; }
+      .wa-row { grid-template-columns:1fr; }
+      .wa-cell-q::before { content:'the question · '; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--ink-4); display:block; margin-bottom:2px;}
+      .wa-cell-old::before { content:'the analyst-queue way · '; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--ink-4); display:block; margin-bottom:2px;}
+    }
+
+    .wa-pipe { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; max-width:1120px;
+      margin:3.5rem auto 0; position:relative; }
+    .wa-pipe::before { content:''; position:absolute; top:26px; left:6%; right:6%; height:2px;
+      background:linear-gradient(90deg, var(--spanish-blue), var(--cg-gold), var(--cg-red), var(--sea-green));
+      opacity:0.35; }
+    .wa-st { position:relative; background:var(--white); border:1px solid rgba(26,31,38,0.08);
+      border-radius:18px; padding:1.5rem 1.4rem 1.6rem; box-shadow:0 2px 10px rgba(43,29,18,0.05); }
+    .wa-st-n { width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+      margin:-2.7rem auto 1rem; border:2px solid var(--white); box-shadow:0 4px 14px rgba(43,29,18,0.16);
+      font-weight:800; color:#fff; font-size:15px; }
+    .wa-st:nth-child(1) .wa-st-n { background:var(--spanish-blue); }
+    .wa-st:nth-child(2) .wa-st-n { background:linear-gradient(135deg,#c98d12,var(--cg-gold)); }
+    .wa-st:nth-child(3) .wa-st-n { background:var(--cg-red); }
+    .wa-st:nth-child(4) .wa-st-n { background:var(--sea-green); }
+    .wa-st-t { text-align:center; font-weight:800; font-size:17px; margin-bottom:0.55rem; color:var(--ink); }
+    .wa-st-d { font-size:14px; line-height:1.55; color:var(--ink-2); }
+    @media (max-width:980px){ .wa-pipe { grid-template-columns:repeat(2,1fr); row-gap:3rem;} .wa-pipe::before{display:none;} }
+    @media (max-width:560px){ .wa-pipe { grid-template-columns:1fr; } }
+
+    .wa-ask { display:grid; grid-template-columns: 1.25fr 1fr; gap:2.5rem; max-width:1060px;
+      margin:3.5rem auto 0; align-items:center; }
+    .wa-chat { background:var(--white); border:1px solid rgba(26,31,38,0.08); border-radius:20px;
+      box-shadow:0 18px 44px rgba(43,29,18,0.10); padding:1.6rem; }
+    .wa-msg-q { background:var(--spanish-blue); color:#fff; border-radius:16px 16px 4px 16px;
+      padding:0.85rem 1.15rem; font-size:15px; font-weight:600; max-width:85%; margin-left:auto; }
+    .wa-msg-a { background:#f4f7fb; border:1px solid rgba(0,100,191,0.12); border-radius:16px 16px 16px 4px;
+      padding:1.05rem 1.2rem; font-size:14.5px; line-height:1.55; color:var(--ink-2); max-width:92%; margin-top:1rem; }
+    .wa-msg-a strong { color:var(--ink); }
+    .wa-bars { display:flex; gap:10px; align-items:flex-end; height:64px; margin:0.9rem 0 0.4rem; }
+    .wa-bar { flex:1; border-radius:6px 6px 2px 2px; background:rgba(0,100,191,0.25); position:relative; }
+    .wa-bar.hot { background:var(--cg-red); }
+    .wa-bar span { position:absolute; top:-20px; left:0; right:0; text-align:center; font-size:11px; font-weight:700; color:var(--ink-3); }
+    .wa-nudge { display:inline-flex; align-items:center; gap:7px; margin-top:0.9rem; background:rgba(44,153,66,0.10);
+      color:#1d6c2d; border-radius:999px; padding:6px 14px; font-size:13px; font-weight:700; }
+    .wa-facts { display:flex; flex-direction:column; gap:1.1rem; }
+    .wa-fact { border-left:3px solid var(--cg-gold); padding:0.15rem 0 0.15rem 1.1rem; }
+    .wa-fact b { display:block; font-size:1.45rem; letter-spacing:-0.5px; color:var(--ink); }
+    .wa-fact span { font-size:14px; color:var(--ink-3); }
+    @media (max-width:900px){ .wa-ask { grid-template-columns:1fr; } }
+
+    .wa-proof { display:grid; grid-template-columns:1.4fr 1fr; gap:1.5rem; max-width:1080px; margin:3.5rem auto 0; }
+    .wa-story { background:var(--white); border-radius:20px; padding:2.2rem 2.4rem; border:1px solid rgba(26,31,38,0.07);
+      box-shadow:0 14px 40px rgba(43,29,18,0.08); }
+    .wa-story q { display:block; font-size:1.22rem; line-height:1.6; font-weight:600; color:var(--ink);
+      quotes:'\201C' '\201D'; margin-bottom:1.1rem; }
+    .wa-story cite { font-style:normal; font-size:14px; color:var(--ink-3); }
+    .wa-story-tags { margin-top:1.4rem; display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .wa-stats { display:flex; flex-direction:column; gap:1.5rem; justify-content:center; }
+    .wa-stat b { display:block; font-size:1.8rem; letter-spacing:-1px; color:var(--ink); line-height:1.1; }
+    .wa-stat span { font-size:14px; color:var(--ink-3); }
+    .wa-stat { padding-left:1.1rem; border-left:3px solid var(--spanish-blue); }
+    .wa-stat:nth-child(2){ border-color:var(--cg-red);} .wa-stat:nth-child(3){ border-color:var(--sea-green);}
+    @media (max-width:900px){ .wa-proof { grid-template-columns:1fr; } }
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -1950,374 +2035,152 @@
         </div>
         <h1>turn workforce data into <mark>decisions</mark></h1>
         <p class="sol-hero-sub">
-          your data already knows what's happening. agentic <span class="keep-case">AI</span> that connects performance, skill, and engagement signals and delivers insights leaders act on, in the flow of work.
+          your systems already hold the answers. entomo reads performance, skills, and engagement together and answers leaders in plain language, the moment they ask.
         </p>
         <a class="btn-primary" href="../request-demo.html">get started &rarr;</a>
       </div>
     </div>
-    <div class="marquee-wrapper" style="margin-top:2.5rem;">
-      <div class="marquee-track">
-        <img class="marquee-logo" src="../Images/client_logos/tata-elxsi.png"        alt="Tata Elxsi" width="111" height="78" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/ey.png"                alt="EY" width="93" height="78" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/cigna.png"             alt="Cigna" width="173" height="57" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/nttdata.png"           alt="NTT Data" width="171" height="25" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/ntuc-learning-hub.png" alt="NTUC Learning Hub" width="196" height="52" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/generalli.png"         alt="Generali" width="95" height="78" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/Carelon.jpeg"          alt="Carelon" width="800" height="300" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/soiitz.png"            alt="Soiitz" width="174" height="53" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/drreddys.png"          alt="Dr Reddy's" width="172" height="38" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/Digital_Dubai.png"     alt="Digital Dubai" width="595" height="222" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/uob.png"               alt="UOB" width="146" height="52" decoding="async">
-        <!-- Duplicate set for seamless loop -->
-        <img class="marquee-logo" src="../Images/client_logos/tata-elxsi.png"        alt="Tata Elxsi" width="111" height="78" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/ey.png"                alt="EY" width="93" height="78" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/cigna.png"             alt="Cigna" width="173" height="57" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/nttdata.png"           alt="NTT Data" width="171" height="25" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/ntuc-learning-hub.png" alt="NTUC Learning Hub" width="196" height="52" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/generalli.png"         alt="Generali" width="95" height="78" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/Carelon.jpeg"          alt="Carelon" width="800" height="300" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/soiitz.png"            alt="Soiitz" width="174" height="53" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/drreddys.png"          alt="Dr Reddy's" width="172" height="38" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/Digital_Dubai.png"     alt="Digital Dubai" width="595" height="222" decoding="async">
-        <img class="marquee-logo" src="../Images/client_logos/uob.png"               alt="UOB" width="146" height="52" decoding="async">
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== THE PROBLEM ===== -->
+  <!-- ===== THE QUEUE (problem, stated not labelled) ===== -->
   <section style="background: var(--polar-white);">
     <div class="container">
       <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">the problem</p>
-        <h2 class="section-heading">dashboards report. they don't <mark>decide</mark>.</h2>
-        <p class="section-subheading" style="margin:0 auto;">complex dashboards don't solve the performance problem. contextual, timely, actionable insight does.</p>
+        <h2 class="section-heading">the question was urgent. the answer took <mark>three weeks</mark>.</h2>
+        <p class="section-subheading" style="margin:0 auto;">every workforce question becomes a ticket: a queue, an export, a deck. decisions can't wait that long, so they get made on instinct instead.</p>
       </div>
-      <div class="pillars-grid">
-        <div class="pillar-card">
-          <div class="pillar-name">insight arrives after the moment</div>
-          <p class="pillar-desc">Report cycles run on analyst queues and spreadsheet exports. By the time the deck reaches the boardroom, the quarter it describes is already over.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-name">your data lives in silos</div>
-          <p class="pillar-desc">Performance sits in one system, skills in another, engagement in a third. Every leadership question becomes a reconciliation project instead of an answer.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-name">dashboards nobody acts on</div>
-          <p class="pillar-desc">Charts describe what happened but never say what to do next. Insight without a call to act is decoration, and it changes nothing on the ground.</p>
-        </div>
+      <div class="wa-queue">
+        <div class="wa-q-step"><div class="wa-q-day">day 0</div><div class="wa-q-txt">the <span class="keep-case">CFO</span> asks: what's driving attrition in sales?</div></div>
+        <div class="wa-q-step"><div class="wa-q-day">day 2</div><div class="wa-q-txt"><span class="keep-case">HR</span> raises a ticket with the analytics team.</div></div>
+        <div class="wa-q-step"><div class="wa-q-day">day 9</div><div class="wa-q-txt">data is pulled and reconciled across three systems.</div></div>
+        <div class="wa-q-step"><div class="wa-q-day">day 16</div><div class="wa-q-txt">charts become slides. slides become version four.</div></div>
+        <div class="wa-q-step"><div class="wa-q-day">day 21</div><div class="wa-q-txt">the answer arrives. the decision was made last week.</div></div>
       </div>
+      <p class="wa-caption">the analyst-queue pattern, as it runs in most enterprises today.</p>
     </div>
   </section>
 
-  <!-- ===== THE SHIFT ===== -->
+  <!-- ===== SAME QUESTION, TWO WAYS ===== -->
   <section style="background: var(--white);">
     <div class="container">
       <div class="text-center" style="max-width:720px; margin:0 auto;">
-        <h2 class="section-heading">from silent dashboards to everyday <mark>insights</mark></h2>
+        <h2 class="section-heading">the questions don't change. the <mark>wait</mark> does.</h2>
       </div>
-      <div class="integrations-grid">
-        <div class="integration-card">
-          <div class="integration-card-title">workforce reporting today</div>
-          <div class="integration-pill-row">
-            <span class="integration-pill">manual report building, every single cycle</span>
-            <span class="integration-pill">static dashboards that go unopened</span>
-            <span class="integration-pill">data reconciled across disconnected systems</span>
-            <span class="integration-pill">numbers that describe, but never recommend</span>
-          </div>
+      <div class="wa-rows">
+        <div class="wa-rowhead"><div>the question</div><div>the analyst-queue way</div><div>asked with entomo</div></div>
+        <div class="wa-row">
+          <div class="wa-cell-q">who's at risk of leaving, and why?</div>
+          <div class="wa-cell-old">a quarterly attrition report, aggregated to averages.</div>
+          <div class="wa-cell-new">a live risk view with reasons, and a nudge to each accountable manager.</div>
         </div>
-        <div class="integration-card shift-good">
-          <div class="integration-card-title">with entomo</div>
-          <div class="integration-pill-row">
-            <span class="integration-pill">ask a question, get a decision-ready answer</span>
-            <span class="integration-pill">one source of truth across the workforce</span>
-            <span class="integration-pill">insights pushed to the person who can act</span>
-            <span class="integration-pill">descriptive to prescriptive, one platform</span>
-          </div>
+        <div class="wa-row">
+          <div class="wa-cell-q">which teams are ready for gen <span class="keep-case">AI</span>?</div>
+          <div class="wa-cell-old">a twelve-week external study, priced accordingly.</div>
+          <div class="wa-cell-new"><span class="keep-case">AI</span> readiness read from <span class="strata-text">strata</span> role by role, on demand.</div>
+        </div>
+        <div class="wa-row">
+          <div class="wa-cell-q">can we show the board human capital numbers?</div>
+          <div class="wa-cell-old">analysts, spreadsheets, version seven of the deck.</div>
+          <div class="wa-cell-new">an <span class="keep-case">ISO</span> 30414-aligned report assembled when you ask.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== HOW IT WORKS ===== -->
-  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
-    <div class="container">
-      <div class="text-center" style="max-width:800px; margin:0 auto;">
-        <p class="section-eyebrow">how it works</p>
-        <h2 class="section-heading">how data becomes <mark>action</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;">one pipeline runs the whole journey: data processing, presentation, consumption, call to act, action.</p>
-      </div>
-      <div class="arch-diagram">
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-data-sources">connect your data</div>
-          <div class="arch-col-desc">Sync performance, skill, engagement, and operational data from your existing systems into a single source of truth.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">Data flows in through governed extraction from your central systems; one global pharmaceutical client runs SAP as the single data source behind entomo's analytics.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-foundation"><span class="strata-text">strata</span> adds context</div>
-          <div class="arch-col-desc">entomo <span class="strata-text">strata</span> links roles, tasks, <span class="keep-case">KPIs</span>, and skills into one connected model, benchmarked against a live market intelligence graph.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">The graph spans 80M+ resumes, 12M job descriptions, and 40,000+ skills across 20 industry domains, refreshed monthly, benchmarking you against comparators, best-in-class, and industry.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-intelligence">agents analyze the signals</div>
-          <div class="arch-col-desc">Pulse360 reads sentiment, TeamInsight diagnoses team health, and Insight360 flags perception gaps while ML runs descriptive to prescriptive analysis.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">Machine learning covers all four analytics altitudes: descriptive, diagnostic, predictive, and prescriptive, including predictive models like attrition risk built on your own workforce data.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-agents">ask, and entomo.ai answers</div>
-          <div class="arch-col-desc">Ask any workforce question in plain language; entomo.ai and <span class="keep-case">DIA</span> query, analyze, and report, from a quick chart to a full human capital report.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip"><span class="keep-case">DIA</span> is the conversational layer on top of the analytics engine: agents collaborate to assemble the answer, including reporting aligned to the <span class="keep-case">ISO</span> 30414 human capital standard.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-outcomes">nudges close the loop</div>
-          <div class="arch-col-desc">The nudge engine pushes personalized recommendations to the person who can act, then tracks action-completion so insight becomes results.</div>
-          <div class="arch-tooltip" style="left:auto; right:0; transform:none;">Nudges are contextual, personalized, and push-based, automating the prescriptive step; completion tracking verifies the analytics are changing behaviour, not just informing it.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== AGENTS ===== -->
-  <section class="perf-agents-section">
-    <div class="container">
-      <div class="section-eyebrow">Your <span class="keep-case">AI</span> workforce for everyday insights</div>
-      <h2>meet the insight <mark>agents</mark> that work for you</h2>
-    </div>
-
-    <div class="perf-mq-wrapper">
-      <div class="perf-mq-track">
-        <div class="perf-mq-card"><img src="../Images/agents/pulse360.png" alt="Pulse360" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">Pulse360</div><div class="perf-mq-role">sentiment intelligence</div><div class="perf-mq-desc">reads engagement and sentiment signals across the organization and surfaces mood shifts before they show up as attrition.</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/TeamInsight.png" alt="TeamInsight" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">TeamInsight</div><div class="perf-mq-role">manager intelligence</div><div class="perf-mq-desc">analyses manager effectiveness, team dynamics, and collaboration health in real time, and turns the diagnosis into manager decision support.</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/Insight360.png" alt="Insight360" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">Insight360</div><div class="perf-mq-role">feedback intelligence</div><div class="perf-mq-desc">detects gaps in 360 feedback and aligns perception with performance, adding the human signal to your workforce picture.</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/Goalforge.png" alt="GoalForge" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">GoalForge</div><div class="perf-mq-role">goal intelligence</div><div class="perf-mq-desc">joins the agent team when goals matter, contributing goal and execution context to the reports entomo.ai assembles.</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/flowgen.png" alt="FlowGen" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">FlowGen</div><div class="perf-mq-role">workflow intelligence</div><div class="perf-mq-desc">collaborates on reporting requests and generates the workflows that carry an approved insight through to action.</div></div>
-
-        <!-- duplicate set for seamless loop -->
-        <div class="perf-mq-card"><img src="../Images/agents/pulse360.png" alt="Pulse360" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">Pulse360</div><div class="perf-mq-role">sentiment intelligence</div><div class="perf-mq-desc">reads engagement and sentiment signals across the organization and surfaces mood shifts before they show up as attrition.</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/TeamInsight.png" alt="TeamInsight" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">TeamInsight</div><div class="perf-mq-role">manager intelligence</div><div class="perf-mq-desc">analyses manager effectiveness, team dynamics, and collaboration health in real time, and turns the diagnosis into manager decision support.</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/Insight360.png" alt="Insight360" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">Insight360</div><div class="perf-mq-role">feedback intelligence</div><div class="perf-mq-desc">detects gaps in 360 feedback and aligns perception with performance, adding the human signal to your workforce picture.</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/Goalforge.png" alt="GoalForge" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">GoalForge</div><div class="perf-mq-role">goal intelligence</div><div class="perf-mq-desc">joins the agent team when goals matter, contributing goal and execution context to the reports entomo.ai assembles.</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/flowgen.png" alt="FlowGen" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">FlowGen</div><div class="perf-mq-role">workflow intelligence</div><div class="perf-mq-desc">collaborates on reporting requests and generates the workflows that carry an approved insight through to action.</div></div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FEATURES ===== -->
-  <section class="features-section">
-    <div class="container">
-      <div class="text-center">
-        <p class="section-eyebrow">capabilities</p>
-        <h2 class="section-heading">everything workforce <mark>intelligence</mark> needs, in one place</h2>
-      </div>
-      <div class="features-panel features-grid active">
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-          <h4>answers that arrive in plain language</h4>
-          <p>Ask attrition drivers by cohort or headcount variance against plan the way you'd ask a colleague; <span class="keep-case">DIA</span> queries, analyzes, and returns a decision-ready answer with the reasoning behind it.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <h4>nudges that turn insight into action</h4>
-          <p>Automates recommendations based on analytic results, delivers them to the right person at the right moment, and tracks action-completion rates to verify the insight actually landed.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-          <h4>analytics that see what's coming</h4>
-          <p>Runs descriptive, diagnostic, predictive, and prescriptive analysis with machine learning, anticipating talent gaps and workforce needs before they become vacancies.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-          <h4>reports that stand up in the boardroom</h4>
-          <p>Generates <span class="keep-case">ISO</span> 30414-compliant human capital reporting and insights with Comparator intelligence, so board reporting and disclosure draw from the same source of truth as daily decisions.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-          <h4>benchmarks that refresh monthly</h4>
-          <p>Grounds your numbers in a market intelligence graph of 80M+ resumes, 12M job descriptions, and 40,000+ skills, benchmarking against comparators, best-in-class, and industry.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
-          <h4>one source of truth that ends debates</h4>
-          <p>Centralizes every workforce data source into a single, governed view with access customized down to the individual, so leadership meetings start from the same numbers.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"/></svg></div>
-          <h4>models that learn your workforce</h4>
-          <p>Builds predictive models on your own data through <span class="keep-case">AI</span> Studio; one global IT services client predicts attrition at 80%+ accuracy across 11,000 employees using 80+ parameters.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h4>skill insights that reach every level</h4>
-          <p>Surfaces skill and talent insights at individual, team, and organization level, identifying skill gaps and learning opportunities with an intelligent nudge framework.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
-          <h4>wellness signals that protect your people</h4>
-          <p>Monitors work hours, breaks, and task intensity for work-life balance and stress insights, with Gen-<span class="keep-case">AI</span> mood meters that help reduce absenteeism and lift morale.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ADVISORY ===== -->
-  <section style="background: var(--floral-white);">
+  <!-- ===== PIPELINE ===== -->
+  <section style="background: var(--polar-white); border-top: 1px solid rgba(26,31,38,0.06);">
     <div class="container">
       <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">experts in the loop</p>
-        <h2 class="section-heading">an operating model, not just <mark>software</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;">Analytics fails on measurement, not on charts. entomo's advisory team sets up the operating model around the platform: establishing your enterprise or strategic performance management office, standardizing the <span class="keep-case">KPIs</span> that make insight possible, and building your team's own analytics capability, so the intelligence keeps compounding after go-live.</p>
+        <h2 class="section-heading">one pipeline from raw data to <mark>done</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;">not another dashboard layer. a pipeline that ends in an action taken, and knows whether it was.</p>
       </div>
-      <div class="pillars-grid">
-        <div class="pillar-card">
-          <div class="pillar-name"><span class="keep-case">KPI</span> audit</div>
-          <p class="pillar-desc">Standardizes <span class="keep-case">KPIs</span> across the enterprise to enable analytics and actionable insights, so every metric means the same thing in every meeting.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-name"><span class="keep-case">EPMO</span> and <span class="keep-case">SPMO</span> establishment</div>
-          <p class="pillar-desc">Stands up an enterprise or strategic performance management office with management dashboards, operational analytics, and improvement cadences.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-name">analytics capability development</div>
-          <p class="pillar-desc">Builds workforce analytics and insights capability inside your team, including organization network analytics for leadership and engagement questions.</p>
-        </div>
+      <div class="wa-pipe">
+        <div class="wa-st"><div class="wa-st-n">1</div><div class="wa-st-t">connect</div><div class="wa-st-d">performance, skills, engagement, and operations sync from the systems you already run. one global pharmaceutical client feeds it all from <span class="keep-case">SAP</span> alone.</div></div>
+        <div class="wa-st"><div class="wa-st-n">2</div><div class="wa-st-t">understand</div><div class="wa-st-d">entomo <span class="strata-text">strata</span> ties every datapoint to role, task, <span class="keep-case">KPI</span>, and skill, then benchmarks it against a live market graph. numbers arrive with context attached.</div></div>
+        <div class="wa-st"><div class="wa-st-n">3</div><div class="wa-st-t">analyze</div><div class="wa-st-d">machine learning runs all four altitudes, descriptive to prescriptive, while agents read sentiment, team health, and perception gaps across the graph.</div></div>
+        <div class="wa-st"><div class="wa-st-n">4</div><div class="wa-st-t">act</div><div class="wa-st-d"><span class="keep-case">DIA</span> answers in plain language. the nudge engine routes each recommendation to whoever can act, then tracks whether action was taken.</div></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== PROOF: NUMBERS ===== -->
-  <section style="background: var(--lavender);">
+  <!-- ===== ASK, DON'T BUILD ===== -->
+  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
     <div class="container">
-      <div class="text-center" style="max-width:680px; margin:0 auto 4rem;">
-        <p class="section-eyebrow">measured, not claimed</p>
-        <h2 class="section-heading">intelligence that shows its <mark>numbers</mark></h2>
+      <div class="text-center" style="max-width:680px; margin:0 auto;">
+        <h2 class="section-heading">ask. don't <mark>build</mark>.</h2>
+        <p class="section-subheading" style="margin:0 auto;">the report backlog disappears when leaders can ask directly.</p>
       </div>
-      <div class="persona-simple-grid">
-        <div class="persona-simple-card">
-          <div class="persona-simple-top green-top">
-            <span class="persona-simple-role">Fortune 500 global insurer</span>
-            <span class="persona-simple-headline">88% less time generating reports</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">automated real-time reporting</span>
-            <span class="ptag">single source of truth</span>
-            <span class="ptag">32.8% premium growth over 3 years</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top red-top">
-            <span class="persona-simple-role">Dubai government agency</span>
-            <span class="persona-simple-headline">$11.3M saved retiring legacy systems</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">review cycle: 3 months to 2 weeks</span>
-            <span class="ptag">90% productivity gain for managers</span>
-            <span class="ptag">75% faster appraisal writing</span>
+      <div class="wa-ask">
+        <div class="wa-chat" role="img" aria-label="example DIA exchange: a leader asks for attrition risk by team and receives a chart with a recommended action">
+          <div class="wa-msg-q">show me attrition risk by team for q3</div>
+          <div class="wa-msg-a">
+            <strong>three teams sit above your risk threshold.</strong> field sales leads at 2.4&times; baseline, driven by manager span and stalled growth conversations.
+            <div class="wa-bars" aria-hidden="true">
+              <div class="wa-bar hot" style="height:100%"><span>field sales</span></div>
+              <div class="wa-bar" style="height:62%"><span>support</span></div>
+              <div class="wa-bar" style="height:48%"><span>ops</span></div>
+              <div class="wa-bar" style="height:30%"><span>finance</span></div>
+            </div>
+            recommended: growth-path conversations for 11 flagged employees.
+            <div class="wa-nudge">✓ nudge sent to 4 managers</div>
           </div>
         </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top blue-top">
-            <span class="persona-simple-role">international travel agency</span>
-            <span class="persona-simple-headline">70% less manual reporting time</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">automated report generation</span>
-            <span class="ptag">dashboards on web and mobile</span>
-            <span class="ptag">faster real-time decisions</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top gold-top">
-            <span class="persona-simple-role">global IT services client</span>
-            <span class="persona-simple-headline">attrition predicted at 80%+ accuracy</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">11,000 employees modelled</span>
-            <span class="ptag">80+ predictive parameters</span>
-            <span class="ptag">proactive triggers for managers</span>
-          </div>
+        <div class="wa-facts">
+          <div class="wa-fact"><b>90%</b><span>less manual dashboard creation once teams ask <span class="keep-case">DIA</span> instead of building reports.</span></div>
+          <div class="wa-fact"><b>4 altitudes</b><span>describe, diagnose, predict, prescribe. one conversation covers all of them.</span></div>
+          <div class="wa-fact"><b>to the person</b><span>access is governed down to the individual, so every answer respects who's asking.</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== PROOF: A FACE ===== -->
+  <!-- ===== PROOF ===== -->
   <section style="background: var(--pistachio);">
     <div class="container">
-      <div class="text-center" style="max-width:900px; margin:0 auto;">
-        <p class="section-eyebrow">customer story</p>
-        <p class="story-quote">&ldquo;Agency Leaders and Agents are empowered with relevant insights that has taken both of their individual and team performance to a much higher level. The dashboards give us a round the clock real-time knowledge of our performance, anytime, everywhere.&rdquo;</p>
-        <p class="story-attr">Kornsiam Nontarat, Chief Agency Officer, Generali</p>
+      <div class="text-center" style="max-width:680px; margin:0 auto;">
+        <h2 class="section-heading">proof from the <mark>field</mark></h2>
       </div>
-      <div class="orchestration-chips" style="margin-top:2.5rem;">
-        <span class="orch-chip">150+ managers and 700+ agents on one live view</span>
-        <span class="orch-chip">reduction in manual reporting hours</span>
-        <span class="orch-chip">real-time remote access through lockdowns</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ENTERPRISE READINESS ===== -->
-  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
-    <div class="container">
-      <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">enterprise-ready</p>
-        <h2 class="section-heading">fits your stack. passes your audits.</h2>
-        <p class="section-subheading" style="margin:0 auto;">Certifications are platform-level: entomo is <span class="keep-case">ISO</span> 27001, <span class="keep-case">ISO</span> 27701, and <span class="keep-case">SOC</span> 2 certified. The analytics layer extends your existing BI investment rather than replacing it, with governed data extraction and access controls your IT team defines. <a href="../about/security-at-entomo.html" style="color:var(--spanish-blue); font-weight:600;">read the security architecture &rarr;</a></p>
-      </div>
-      <div class="tech-chips-row">
-        <span class="tech-chip"><span class="keep-case">ISO</span> 27001, <span class="keep-case">ISO</span> 27701, <span class="keep-case">SOC</span> 2 certified platform</span>
-        <span class="tech-chip">role-based access, down to the individual</span>
-        <span class="tech-chip">layers over your existing <span class="keep-case">HCM</span> and BI stack</span>
-        <span class="tech-chip">syncs data from your central systems</span>
-        <span class="tech-chip">users across 40+ countries</span>
-        <span class="tech-chip">30M+ users at enterprise scale</span>
+      <div class="wa-proof">
+        <div class="wa-story">
+          <q>Agency leaders and agents are empowered with relevant insights that have taken both their individual and team performance to a much higher level. The dashboards give us round-the-clock, real-time knowledge of our performance, anytime, anywhere.</q>
+          <cite>Kornsiam Nontarat, Chief Agency Officer, Generali</cite>
+          <div class="wa-story-tags">
+            <span class="ptag">150+ managers, 700+ agents on one live view</span>
+            <span class="ptag">manual reporting hours eliminated</span>
+            <span class="ptag">real-time access through lockdowns</span>
+          </div>
+        </div>
+        <div class="wa-stats">
+          <div class="wa-stat"><b>75% faster</b><span>appraisal reviews at a Dubai government entity: forty appraisals in under a day.</span></div>
+          <div class="wa-stat"><b>$590K saved</b><span>on report generation over three years at a Fortune 500 insurer, per Forrester.</span></div>
+          <div class="wa-stat"><b>88% less</b><span>time spent generating reports once live views replaced manual cycles.</span></div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ===== FAQ ===== -->
-  <section style="background: var(--polar-white);">
+  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
     <div class="container">
       <div class="text-center" style="max-width:720px; margin:0 auto;">
-        <p class="section-eyebrow">questions, answered</p>
-        <h2 class="section-heading">what enterprise teams ask us.</h2>
+        <h2 class="section-heading">asked in every <mark>evaluation</mark></h2>
       </div>
       <div class="integrations-grid">
         <div class="integration-card">
-          <div class="integration-card-title">how long does implementation take?</div>
-          <p class="faq-a">It scales with scope: the number of data sources, the depth of customization, and the advisory work involved. As a reference point, one global pharmaceutical client onboarded 10,000 employees in a single day and reported 60% time saved compared with previous implementations. Your entomo team scopes a realistic timeline before you commit.</p>
+          <div class="integration-card-title">does entomo replace our <span class="keep-case">BI</span> stack?</div>
+          <p class="faq-a">No. The analytics layer extends the systems you already run. Workforce data syncs into a single source of truth through governed extraction your <span class="keep-case">IT</span> team defines; your <span class="keep-case">HCM</span> stays the system of record, entomo makes its data decision-ready.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">does entomo replace our <span class="keep-case">HCM</span> or BI platform?</div>
-          <p class="faq-a">No. entomo positions its augmented analytics as an extension beyond BI, layered over the systems you already run. It syncs workforce data from your central systems into a single source of truth; one pharmaceutical client uses SAP as the single data source behind the platform. Your <span class="keep-case">HCM</span> stays the system of record, entomo makes its data decision-ready.</p>
+          <div class="integration-card-title">what do agents automate, and what do people decide?</div>
+          <p class="faq-a">Agents automate the analytical work: querying, connecting signals, generating reports, routing recommendations. Decisions stay with people. Every nudge lands as a recommendation to an accountable owner, and the platform tracks whether action followed.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">what do the agents automate, and what do people approve?</div>
-          <p class="faq-a">Agents automate the analytical work: querying data, connecting signals across performance, skills, and engagement, generating reports, and pushing recommendations. Decisions stay with people. Nudges arrive as recommendations to the accountable owner, and the platform tracks whether action was taken. The judgment call remains yours.</p>
+          <div class="integration-card-title">how is workforce data secured?</div>
+          <p class="faq-a">entomo is <span class="keep-case">ISO</span> 27001, <span class="keep-case">ISO</span> 27701, and <span class="keep-case">SOC</span> 2 certified at the platform level, with access governed down to the individual. <a href="../about/security-at-entomo.html" style="color:var(--spanish-blue); font-weight:600;">read the security architecture &rarr;</a></p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">how is our workforce data secured?</div>
-          <p class="faq-a">entomo is certified at the platform level for <span class="keep-case">ISO</span> 27001, <span class="keep-case">ISO</span> 27701, and <span class="keep-case">SOC</span> 2. Within the analytics layer, data access is customizable down to the individual, so each role sees only what it should. Data reaches the platform through governed extraction from your central systems, defined with your IT team during implementation.</p>
-        </div>
-        <div class="integration-card">
-          <div class="integration-card-title">can entomo produce <span class="keep-case">ISO</span> 30414 human capital reports?</div>
-          <p class="faq-a">Yes. The platform provides <span class="keep-case">ISO</span> 30414-compliant human capital reporting and insights with Comparator intelligence, so the same governed data behind daily decisions can support standards-aligned disclosure and board reporting. Ask entomo.ai for a report and the agent team assembles it from your live workforce data.</p>
-        </div>
-        <div class="integration-card">
-          <div class="integration-card-title">do we need a team of analysts to run it?</div>
-          <p class="faq-a">The platform is built for consumption without a query layer between leaders and answers: conversational Q&amp;A through <span class="keep-case">DIA</span>, automated hyper-personalized dashboards, embedded reports, and self-service extraction with Excel export. Where you want deeper in-house capability, entomo's advisory team develops it as part of the engagement.</p>
+          <div class="integration-card-title">can it produce <span class="keep-case">ISO</span> 30414 human capital reports?</div>
+          <p class="faq-a">Yes. The platform delivers <span class="keep-case">ISO</span> 30414-compliant human capital reporting with comparator intelligence, assembled from the same governed data that answers daily questions. Ask for the report and the agent team builds it.</p>
         </div>
       </div>
     </div>
@@ -2326,13 +2189,12 @@
   <!-- ===== BOTTOM CTA ===== -->
   <section class="bottom-cta">
     <div class="container">
-      <h2>ready to go beyond silent <mark>dashboards</mark>?</h2>
-      <p>Join the enterprises powering 30M+ users with agentic workforce intelligence. Forrester-validated at the platform level: over $26.8M in benefits and 103% <span class="keep-case">ROI</span> over 3 years.</p>
-      <a class="btn-primary" href="../request-demo.html">request a demo &rarr;</a>
+      <h2>your data already knows. now it can <mark>say it</mark>.</h2>
+      <p>Forrester-validated at the platform level: $26.8M in benefits and 103% <span class="keep-case">ROI</span> over three years for a government entity, and 30M+ users worldwide.</p>
+      <a class="btn-primary" href="../request-demo.html">see it answer your questions &rarr;</a>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
   </main>
   <footer class="footer">
     <div class="container">

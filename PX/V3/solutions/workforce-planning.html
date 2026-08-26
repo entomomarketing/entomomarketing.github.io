@@ -1644,6 +1644,43 @@
       background: #f2faf4 !important;
     }
     a.btn-primary { display: inline-block; text-decoration: none; }
+
+    /* ===== workforce-planning: page-specific ===== */
+    .wp-scene { max-width:1060px; margin:3.6rem auto 0; }
+    .wp-trigger { max-width:640px; margin:0 auto 2.2rem; background:var(--ink); color:#fff; border-radius:16px;
+      padding:1.3rem 1.7rem; font-size:15.5px; line-height:1.6; text-align:center; box-shadow:0 16px 40px rgba(26,31,38,0.25); }
+    .wp-trigger b { color:var(--cg-gold); }
+    .wp-4b { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
+    .wp-b { border-radius:18px; padding:1.6rem 1.6rem 1.5rem; background:var(--white); border:1px solid rgba(26,31,38,0.08);
+      box-shadow:0 4px 16px rgba(43,29,18,0.05); position:relative; overflow:hidden; }
+    .wp-b::before { content:attr(data-k); position:absolute; right:0.9rem; top:0.4rem; font-size:3.2rem; font-weight:800; opacity:0.08; }
+    .wp-b-tag { display:inline-block; font-size:11px; font-weight:800; letter-spacing:1.2px; text-transform:uppercase;
+      border-radius:999px; padding:4px 12px; margin-bottom:0.7rem; }
+    .wp-b.build .wp-b-tag { background:rgba(44,153,66,0.13); color:#1d6c2d; }
+    .wp-b.buy .wp-b-tag { background:rgba(0,100,191,0.11); color:var(--spanish-blue); }
+    .wp-b.borrow .wp-b-tag { background:rgba(244,178,35,0.16); color:#8a5f0e; }
+    .wp-b.bot .wp-b-tag { background:rgba(228,61,48,0.10); color:#a02417; }
+    .wp-b b.n { font-size:1.9rem; letter-spacing:-1px; display:block; margin-bottom:0.2rem; }
+    .wp-b p { margin:0; font-size:13.5px; line-height:1.55; color:var(--ink-2); }
+    @media (max-width:760px){ .wp-4b { grid-template-columns:1fr; } }
+
+    .wp-signals { display:flex; flex-wrap:wrap; justify-content:center; gap:0.7rem; max-width:880px; margin:2.6rem auto 0; }
+    .wp-signal { border-radius:999px; padding:0.55rem 1.2rem; font-size:13.5px; font-weight:700; background:var(--white); border:1px solid rgba(26,31,38,0.1); color:var(--ink-2); }
+
+    .wp-flip { max-width:920px; margin:3.4rem auto 0; display:flex; flex-direction:column; gap:0.9rem; }
+    .wp-f { display:grid; grid-template-columns:1fr 1fr; border-radius:14px; overflow:hidden; border:1px solid rgba(26,31,38,0.07); }
+    .wp-f > div { padding:1.05rem 1.35rem; font-size:14.5px; line-height:1.55; background:var(--white); }
+    .wp-f-old { color:var(--ink-3); }
+    .wp-f-old small, .wp-f-new small { display:block; font-size:10.5px; font-weight:800; letter-spacing:1.1px; text-transform:uppercase; color:var(--ink-4); margin-bottom:3px; }
+    .wp-f-new { font-weight:600; color:var(--ink); border-left:1px solid rgba(26,31,38,0.06);
+      background:linear-gradient(135deg, rgba(0,100,191,0.05), transparent), var(--white); }
+    .wp-f-new small { color:var(--spanish-blue); }
+    @media (max-width:720px){ .wp-f { grid-template-columns:1fr; } .wp-f-new{border-left:none;} }
+
+    .wp-stats { display:flex; justify-content:center; gap:3rem; flex-wrap:wrap; margin:3rem auto 0; }
+    .wp-stat { text-align:center; max-width:250px; }
+    .wp-stat b { display:block; font-size:2rem; letter-spacing:-1.4px; color:var(--ink); }
+    .wp-stat span { font-size:13.5px; color:var(--ink-3); }
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -1950,7 +1987,7 @@
         </div>
         <h1>plan the workforce your strategy <mark>demands</mark></h1>
         <p class="sol-hero-sub">
-          strategy fails where capability runs out. agentic <span class="keep-case">AI</span> that models demand, surfaces gaps, and builds succession pipelines before the need turns urgent.
+          demand modelled, supply measured, gaps priced, and every gap answered four ways: build, buy, borrow, or bot. workforce planning that reruns itself when your strategy moves.
         </p>
         <a class="btn-primary" href="../request-demo.html">get started &rarr;</a>
       </div>
@@ -1984,338 +2021,98 @@
     </div>
   </section>
 
-  <!-- ===== THE PROBLEM ===== -->
+  <!-- ===== EXPIRED PLANS ===== -->
   <section style="background: var(--polar-white);">
     <div class="container">
       <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">the problem</p>
-        <h2 class="section-heading">the strategy moved. the workforce plan <mark>didn't</mark>.</h2>
-        <p class="section-subheading" style="margin:0 auto;">Annual planning can't keep pace with strategy that changes quarterly. The old model breaks in three places.</p>
+        <h2 class="section-heading">headcount plans expire the day strategy <mark>changes</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;">the annual plan answers one question: how many people. strategy keeps asking harder ones: which capabilities, ready when, at what cost, against which risk. those need an engine, not a spreadsheet.</p>
       </div>
-      <div class="pillars-grid">
-        <div class="pillar-card">
-          <div class="pillar-name">the plan lives in a spreadsheet</div>
-          <p class="pillar-desc">Headcount is modelled in disconnected files with no link to live skills or capability data. By the time the plan is approved, the assumptions underneath it have already moved.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-name">gaps surface when they're already urgent</div>
-          <p class="pillar-desc">Critical-role risk shows up as a resignation letter, not a forecast. Succession runs on nomination and instinct, so bench depth is a hope rather than a number.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-name">every gap defaults to a requisition</div>
-          <p class="pillar-desc">Without a way to compare building, buying, borrowing, or automating, hiring becomes the answer to everything, and the cost of that habit stays invisible until budget review.</p>
-        </div>
+      <div class="wp-signals">
+        <span class="wp-signal">demand projection with role evolution</span>
+        <span class="wp-signal">supply, from skills and performance together</span>
+        <span class="wp-signal">skill half-life and obsolescence risk</span>
+        <span class="wp-signal"><span class="keep-case">AI</span> readiness by role</span>
+        <span class="wp-signal">capacity &amp; capability index</span>
+        <span class="wp-signal">scenario simulation</span>
       </div>
+      <p style="text-align:center; font-size:13px; color:var(--ink-4); margin-top:1.6rem;">the signals the planning engine watches continuously, all read from <span class="strata-text">strata</span> and the live market graph.</p>
     </div>
   </section>
 
-  <!-- ===== THE SHIFT ===== -->
+  <!-- ===== 4B SCENARIO ===== -->
   <section style="background: var(--white);">
     <div class="container">
+      <div class="text-center" style="max-width:740px; margin:0 auto;">
+        <h2 class="section-heading">every gap has four answers. the engine <mark>prices</mark> all of them.</h2>
+        <p class="section-subheading" style="margin:0 auto;">a worked example of the build&ndash;buy&ndash;borrow&ndash;bot decision, the way it lands in the platform.</p>
+      </div>
+      <div class="wp-scene">
+        <div class="wp-trigger">scenario: generative <span class="keep-case">AI</span> reshapes underwriting. <b>40 roles</b> change profile inside 18 months. the simulation agent prices four routes for the gap:</div>
+        <div class="wp-4b">
+          <div class="wp-b build" data-k="B"><span class="wp-b-tag">build</span><b class="n">22 roles</b><p>current adjusters within one skill tier of the new profile. reskilling paths generated from their measured gaps; cheapest route, longest lead time, highest retention payoff.</p></div>
+          <div class="wp-b buy" data-k="B"><span class="wp-b-tag">buy</span><b class="n">6 roles</b><p>net-new capabilities with no internal bench and a hot external market. benchmarked against live demand data so offers land right the first time.</p></div>
+          <div class="wp-b borrow" data-k="B"><span class="wp-b-tag">borrow</span><b class="n">8 roles</b><p>peak-load and transition work suited to contractors and partners; capacity without permanent cost, flagged for later build-or-buy review.</p></div>
+          <div class="wp-b bot" data-k="B"><span class="wp-b-tag">bot</span><b class="n">4 roles</b><p>rules-based workload the same <span class="keep-case">AI</span> wave automates. planned as automation with redeployment paths for the people, not as quiet attrition.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ANNUAL VS CONTINUOUS ===== -->
+  <section style="background: var(--polar-white); border-top: 1px solid rgba(26,31,38,0.06);">
+    <div class="container">
       <div class="text-center" style="max-width:720px; margin:0 auto;">
-        <h2 class="section-heading">from annual exercise to living <mark>intelligence</mark></h2>
+        <h2 class="section-heading">from annual exercise to standing <mark>capability</mark></h2>
       </div>
-      <div class="integrations-grid">
-        <div class="integration-card">
-          <div class="integration-card-title">planning today</div>
-          <div class="integration-pill-row">
-            <span class="integration-pill">annual headcount spreadsheets</span>
-            <span class="integration-pill">gaps discovered after resignations</span>
-            <span class="integration-pill">succession by nomination</span>
-            <span class="integration-pill">every gap becomes a requisition</span>
-          </div>
+      <div class="wp-flip">
+        <div class="wp-f">
+          <div class="wp-f-old"><small>the annual exercise</small>demand guessed from last year's org chart plus growth percent</div>
+          <div class="wp-f-new"><small>the standing engine</small>demand modelled from strategy, with role evolution read from the market graph</div>
         </div>
-        <div class="integration-card shift-good">
-          <div class="integration-card-title">planning with entomo</div>
-          <div class="integration-pill-row">
-            <span class="integration-pill">demand modelled against strategy</span>
-            <span class="integration-pill">gaps ranked by severity and impact</span>
-            <span class="integration-pill">succession scored on evidence</span>
-            <span class="integration-pill">build, buy, borrow, or bot, compared per gap</span>
-          </div>
+        <div class="wp-f">
+          <div class="wp-f-old"><small>the annual exercise</small>supply counted as headcount in seats</div>
+          <div class="wp-f-new"><small>the standing engine</small>supply measured as capability: assessed skills and performance, per role</div>
+        </div>
+        <div class="wp-f">
+          <div class="wp-f-old"><small>the annual exercise</small>one plan, frozen in the budget deck</div>
+          <div class="wp-f-new"><small>the standing engine</small>scenarios simulated on demand: the reorg, the acquisition, the <span class="keep-case">AI</span> wave</div>
+        </div>
+        <div class="wp-f">
+          <div class="wp-f-old"><small>the annual exercise</small>gaps become requisitions by default</div>
+          <div class="wp-f-new"><small>the standing engine</small>gaps become build, buy, borrow, or bot decisions with costs attached</div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== HOW IT WORKS ===== -->
-  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
-    <div class="container">
-      <div class="text-center" style="max-width:800px; margin:0 auto;">
-        <p class="section-eyebrow">how it works</p>
-        <h2 class="section-heading">how the planning engine <mark>works</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;">Five steps, one connected engine. Named agents do the analysis; your leaders approve every call.</p>
-      </div>
-      <div class="arch-diagram">
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-data-sources">connect strategy to work</div>
-          <div class="arch-col-desc">entomo <span class="strata-text">strata</span> links every role to responsibilities, tasks, <span class="keep-case">KPIs</span>, and skills, so planning starts from a connected model of work, not a spreadsheet.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">The <span class="strata-text">strata</span> framework spans 700+ skill domains and 4,000+ roles, aligned to standards including SkillsFuture, <span class="keep-case">ESCO</span>, and <span class="keep-case">SFIA</span>, and deployed across 40+ countries.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-foundation">model the demand</div>
-          <div class="arch-col-desc">TalentAtlas models workforce demand against your strategic roadmap while RoleArchitect designs the role structures that strategy will need.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">Demand modelling covers demand-supply trends, role evolution, and regional skill trends, benchmarked to market intelligence and tied to your business context.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-intelligence">surface the gaps</div>
-          <div class="arch-col-desc">SkillMatrix maps current skill distribution against future demand and ranks every shortfall by size and urgency on a skill heatmap.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">The heatmap shows which roles and skills are healthy, need attention, or are critical, so development investment goes where strategy needs it most.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-agents">decide build, buy, borrow, bot</div>
-          <div class="arch-col-desc">The <span class="keep-case">4B</span> Decision Agent compares internal development, external hire, contract talent, and automation for every gap, with cost comparison on each path.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">Every recommendation lands with the reasoning and the numbers behind it. Your leaders approve the call; agents never make sourcing decisions on their own.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-outcomes">keep the plan alive</div>
-          <div class="arch-col-desc">GrowthPlanner turns build decisions into development pathways, and succession intelligence keeps readiness scored on evidence as people grow.</div>
-          <div class="arch-tooltip" style="left:auto; right:0; transform:none;">Successor readiness pulls competency data, assessment results, and experience milestones into evidence-based scores, with ready-now, ready-soon, and developing bench depth per critical role.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== AGENTS ===== -->
-  <section class="perf-agents-section">
-    <div class="container">
-      <div class="section-eyebrow">your <span class="keep-case">AI</span> workforce for planning</div>
-      <h2>meet the planning <mark>agents</mark> that work for you</h2>
-    </div>
-
-    <div class="perf-mq-wrapper">
-      <div class="perf-mq-track">
-        <div class="perf-mq-card"><img src="../Images/agents/talentatlas.png" alt="TalentAtlas" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">TalentAtlas</div><div class="perf-mq-role">talent demand intelligence</div><div class="perf-mq-desc">models workforce demand against your strategic roadmap and surfaces the capability requirements behind every growth ambition</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/rolearchitect.png" alt="RoleArchitect" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">RoleArchitect</div><div class="perf-mq-role">role architecture</div><div class="perf-mq-desc">designs and validates role structures aligned to strategy, complete with success profiles and responsibility frameworks</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/skillmatrix.png" alt="SkillMatrix" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">SkillMatrix</div><div class="perf-mq-role">capability mapping</div><div class="perf-mq-desc">maps current skill distribution against future demand and identifies the gaps that matter, quantified by size and urgency</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/growthplanner.png" alt="GrowthPlanner" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">GrowthPlanner</div><div class="perf-mq-role">workforce development</div><div class="perf-mq-desc">designs development pathways that build required capabilities role by role, turning every build decision into a plan</div></div>
-
-        <!-- duplicate set for seamless loop -->
-        <div class="perf-mq-card"><img src="../Images/agents/talentatlas.png" alt="TalentAtlas" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">TalentAtlas</div><div class="perf-mq-role">talent demand intelligence</div><div class="perf-mq-desc">models workforce demand against your strategic roadmap and surfaces the capability requirements behind every growth ambition</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/rolearchitect.png" alt="RoleArchitect" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">RoleArchitect</div><div class="perf-mq-role">role architecture</div><div class="perf-mq-desc">designs and validates role structures aligned to strategy, complete with success profiles and responsibility frameworks</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/skillmatrix.png" alt="SkillMatrix" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">SkillMatrix</div><div class="perf-mq-role">capability mapping</div><div class="perf-mq-desc">maps current skill distribution against future demand and identifies the gaps that matter, quantified by size and urgency</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/growthplanner.png" alt="GrowthPlanner" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">GrowthPlanner</div><div class="perf-mq-role">workforce development</div><div class="perf-mq-desc">designs development pathways that build required capabilities role by role, turning every build decision into a plan</div></div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FEATURES ===== -->
-  <section class="features-section">
-    <div class="container">
-      <div class="text-center">
-        <p class="section-eyebrow">capabilities</p>
-        <h2 class="section-heading">everything workforce planning needs, in one <mark>place</mark></h2>
-      </div>
-      <div class="features-panel features-grid active">
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h4>headcount plans that hold to budget</h4>
-          <p>Plan headcount by role, level, and location across short- and long-range horizons, with live cost tracking held against budget so finance and <span class="keep-case">HR</span> read from the same page.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg></div>
-          <h4>scenarios that compare futures</h4>
-          <p>Combine hiring, attrition, structure, and location variables into instant what-if scenarios, then compare outcomes across multiple futures before committing to one.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
-          <h4>heatmaps that rank every gap</h4>
-          <p>Visualise skill distribution across the organisation and rank every shortfall by size, urgency, and strategic impact, so planning investment goes where it matters.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
-          <h4>decisions that weigh build, buy, borrow, bot</h4>
-          <p>Evaluate every sourcing option per capability gap, internal development, external hire, contract talent, or automation, with a cost comparison for each path.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-          <h4>succession that runs on evidence</h4>
-          <p>Score successor readiness against real role requirements, compare nominees on configured eligibility parameters, and track ready-now, ready-soon, and developing bench depth.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <h4>critical roles flagged before they're vacant</h4>
-          <p>Identify mission-critical positions with the CCR index, weighing strategy dependency, attrition risk, and replacement difficulty into a succession risk score per role.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-          <h4>org designs tested before rollout</h4>
-          <p>Reshape reporting lines, spans of control, and team structures in-platform, and see the cost and coverage implications before committing to a restructure.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-          <h4>scorecards that cascade strategy</h4>
-          <p>Link strategic objectives to department <span class="keep-case">KPIs</span> and cascade them from the executive level to every team, so the workforce plan and its execution live on one platform.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-          <h4>answers that arrive in plain language</h4>
-          <p>Ask <span class="keep-case">DIA</span> complex workforce questions, capability gaps, build versus buy, succession risk by level, and get instant contextual answers grounded in your organisation's data.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ADVISORY ===== -->
-  <section style="background: var(--floral-white);">
-    <div class="container">
-      <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">experts in the loop</p>
-        <h2 class="section-heading">an operating model that makes the plan <mark>land</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;">Software alone doesn't change how an enterprise plans. entomo's advisory team establishes the operating model around the platform, the Enterprise or Strategic Performance Management Office that owns governance, cadence, and accountability, so intelligence turns into decisions that stick. It's the pattern behind our highest-adoption deployments.</p>
-      </div>
-      <div class="pillars-grid">
-        <div class="pillar-card">
-          <div class="pillar-name">an office, chartered and governed</div>
-          <p class="pillar-desc">We set up your <span class="keep-case">EPMO</span> or <span class="keep-case">SPMO</span>: charter, structure, and governance designed with your team, so ownership of the plan is explicit from day one.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-name">frameworks audited and aligned</div>
-          <p class="pillar-desc"><span class="keep-case">KPI</span> audit and strategy alignment training make sure what cascades through the platform reflects the strategy it's meant to serve.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-name">change that sticks</div>
-          <p class="pillar-desc">Change management and performance-coach training carry adoption past go-live, the pattern behind 90% adoption in our <span class="keep-case">SPMO</span> engagements.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROOF: NUMBERS ===== -->
-  <section style="background: var(--lavender);">
-    <div class="container">
-      <div class="text-center" style="max-width:680px; margin:0 auto 4rem;">
-        <p class="section-eyebrow">measured, not claimed</p>
-        <h2 class="section-heading">proof at platform <mark>scale</mark></h2>
-      </div>
-      <div class="persona-simple-grid">
-        <div class="persona-simple-card">
-          <div class="persona-simple-top green-top">
-            <span class="persona-simple-role">platform scale</span>
-            <span class="persona-simple-headline">30M+ users run on entomo</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">platform-wide figure</span>
-            <span class="ptag">40+ countries</span>
-            <span class="ptag">enterprise deployments</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top red-top">
-            <span class="persona-simple-role">forrester <span class="keep-case">TEI</span></span>
-            <span class="persona-simple-headline">$26.8M value, 103% <span class="keep-case">ROI</span> over 3 years</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">government entity</span>
-            <span class="ptag">platform engagement</span>
-            <span class="ptag">forrester-validated</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top blue-top">
-            <span class="persona-simple-role">forrester <span class="keep-case">TEI</span>, insurer</span>
-            <span class="persona-simple-headline">255% <span class="keep-case">ROI</span>, payback within 6 months</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">fortune 500 insurer</span>
-            <span class="ptag">32.8% premium growth in 3 years</span>
-            <span class="ptag">platform proof</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top gold-top">
-            <span class="persona-simple-role">category leadership</span>
-            <span class="persona-simple-headline">#1 in strategic planning on <span class="keep-case">G2</span></span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag"><span class="keep-case">G2</span> Winter 2023</span>
-            <span class="ptag">category leader, Spring 2023</span>
-            <span class="ptag">#1 performance management, Asia</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROOF: A FACE ===== -->
-  <section style="background: var(--pistachio);">
-    <div class="container">
-      <div class="text-center" style="max-width:900px; margin:0 auto;">
-        <p class="section-eyebrow">customer story</p>
-        <p class="story-quote">&ldquo;The strategy of the individual government entities is now better tied to the overall government strategy.&rdquo;</p>
-        <p class="story-attr">large Dubai government agency, government-wide performance alignment</p>
-      </div>
-      <div class="orchestration-chips" style="margin-top:2.5rem;">
-        <span class="orch-chip">$11.3M operational cost savings</span>
-        <span class="orch-chip">review cycles: 3 months to 2 weeks</span>
-        <span class="orch-chip">90% productivity gain for managers</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ENTERPRISE READINESS ===== -->
-  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
-    <div class="container">
-      <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">enterprise-ready</p>
-        <h2 class="section-heading">fits your stack. passes your audits.</h2>
-        <p class="section-subheading" style="margin:0 auto;">entomo is the intelligence layer, not a replacement for your systems of record. Agents recommend; your leaders approve. Data residency options vary by region, raise your requirements with us during evaluation. <a href="../about/security-at-entomo.html" style="color:var(--spanish-blue); font-weight:600;">read the security architecture &rarr;</a></p>
-      </div>
-      <div class="tech-chips-row">
-        <span class="tech-chip">works alongside your <span class="keep-case">HCM</span> and <span class="keep-case">HRIS</span></span>
-        <span class="tech-chip"><span class="keep-case">ISO</span> 27001 and <span class="keep-case">ISO</span> 27701 certified</span>
-        <span class="tech-chip"><span class="keep-case">GDPR</span>-aligned data practices</span>
-        <span class="tech-chip">humans approve every plan</span>
-        <span class="tech-chip">aligned to SkillsFuture, <span class="keep-case">ESCO</span>, and <span class="keep-case">SFIA</span></span>
-        <span class="tech-chip">deployed across 40+ countries</span>
+      <div class="wp-stats">
+        <div class="wp-stat"><b>10%</b><span>lower overall labor cost where strategic workforce planning is done well, per industry research</span></div>
+        <div class="wp-stat"><b>20%</b><span>year-one productivity gain reported by the same research</span></div>
+        <div class="wp-stat"><b>4B</b><span>every gap answered as a decision, not a default requisition</span></div>
       </div>
     </div>
   </section>
 
   <!-- ===== FAQ ===== -->
-  <section style="background: var(--polar-white);">
+  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
     <div class="container">
       <div class="text-center" style="max-width:720px; margin:0 auto;">
-        <p class="section-eyebrow">questions, answered</p>
-        <h2 class="section-heading">what enterprise teams ask us.</h2>
+        <h2 class="section-heading">what planning teams <mark>pressure-test</mark></h2>
       </div>
       <div class="integrations-grid">
         <div class="integration-card">
-          <div class="integration-card-title">how long does implementation take?</div>
-          <p class="faq-a">Scope drives the timeline. Because entomo <span class="strata-text">strata</span> ships with a framework spanning 700+ skill domains and 4,000+ roles, you start from a working model of work rather than a blank page. Most enterprises phase the rollout, planning first, succession next, with our advisory team handling governance, <span class="keep-case">KPI</span> audit, and change management along the way. We scope the timeline with you before you commit.</p>
+          <div class="integration-card-title">where does the demand signal come from?</div>
+          <p class="faq-a">Two places: your strategy, translated into capability demand per unit, and the market graph, which reads role evolution from 80M+ resumes and 12M job descriptions, refreshed monthly. Plans reflect where roles are heading, not where they've been.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">does entomo replace our <span class="keep-case">HCM</span> or <span class="keep-case">HRIS</span>?</div>
-          <p class="faq-a">No. entomo is the intelligence layer that runs alongside your systems of record. Your <span class="keep-case">HCM</span> remains the source of truth for employee data; entomo connects strategy, roles, skills, and performance into one planning model on top of it. No rip-and-replace.</p>
+          <div class="integration-card-title">what makes the supply side credible?</div>
+          <p class="faq-a">It's measured, not asserted. Supply comes from <span class="strata-text">strata</span>: assessed proficiencies, performance history, and aspirations, so "we have 30 people who can do this" means thirty people who demonstrably can. <a href="workforce-assessments.html" style="color:var(--spanish-blue); font-weight:600;">see workforce assessments &rarr;</a></p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">what do the agents automate, and what do humans approve?</div>
-          <p class="faq-a">Agents do the analysis: modelling demand, ranking gaps, comparing build, buy, borrow, or bot options, and scoring successor readiness. People make the calls. Every plan, scenario choice, and succession decision arrives as a recommendation with the reasoning behind it, and your leaders approve it. entomo is built for governed <span class="keep-case">HR</span> workflows, not autonomous decisions about people.</p>
+          <div class="integration-card-title">can finance work with the output?</div>
+          <p class="faq-a">Yes. Every 4B route carries cost and timeline, so the workforce plan lands in budget language: what build saves versus buy, what borrow defers, what bot retires. The argument moves from opinion to arithmetic.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">how is our data used, and where does it live?</div>
-          <p class="faq-a">entomo is certified to <span class="keep-case">ISO</span> 27001 and <span class="keep-case">ISO</span> 27701 and operates <span class="keep-case">GDPR</span>-aligned data practices. Your workforce data powers your organisation's intelligence inside governed workflows. Data residency requirements vary by region and are addressed during evaluation, so raise yours early and we'll walk through the specifics.</p>
-        </div>
-        <div class="integration-card">
-          <div class="integration-card-title">how is this different from the succession module in our <span class="keep-case">HCM</span>?</div>
-          <p class="faq-a">Most platforms treat succession as a nomination list. entomo scores successor readiness on evidence: competency data, assessment results, and experience milestones held against real role requirements, on the same graph that maps skills and work. And succession is one output of a full planning engine, demand modelling, gap heatmaps, and <span class="keep-case">4B</span> sourcing decisions, rather than a standalone module.</p>
-        </div>
-        <div class="integration-card">
-          <div class="integration-card-title">what is entomo <picture class="brand-inline brand-inline--strata"><source srcset="../Images/logos/entomo-strata.webp" type="image/webp"><img src="../Images/logos/entomo-strata.png" alt="strata" width="1200" height="390" loading="lazy" decoding="async"></picture>?</div>
-          <p class="faq-a">entomo <span class="strata-text">strata</span> is the workforce intelligence graph beneath the platform: one connected model linking roles, responsibilities, tasks, <span class="keep-case">KPIs</span>, and skills. It's why planning holds together, the gap a heatmap surfaces is the same gap the <span class="keep-case">4B</span> engine prices and the same gap a development pathway closes.</p>
+          <div class="integration-card-title">how often should the plan rerun?</div>
+          <p class="faq-a">Whenever something moves. Because demand, supply, and risk are live signals, a rerun is a simulation, not a project. Most clients hold a quarterly planning rhythm with ad-hoc scenarios for big decisions.</p>
         </div>
       </div>
     </div>
@@ -2324,13 +2121,12 @@
   <!-- ===== BOTTOM CTA ===== -->
   <section class="bottom-cta">
     <div class="container">
-      <h2>ready to see your workforce three moves <mark>ahead</mark>?</h2>
-      <p>Join the enterprises powering 30M+ users with agentic workforce intelligence. Forrester-validated: $26.8M in value, 103% <span class="keep-case">ROI</span> over 3 years.</p>
-      <a class="btn-primary" href="../request-demo.html">request a demo &rarr;</a>
+      <h2>plan capabilities, not just <mark>headcount</mark>.</h2>
+      <p>the planning engine runs on the platform behind 30M+ users, Forrester-validated at the platform level.</p>
+      <a class="btn-primary" href="../request-demo.html">run your first scenario &rarr;</a>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
   </main>
   <footer class="footer">
     <div class="container">

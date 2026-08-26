@@ -1644,6 +1644,55 @@
       background: #f2faf4 !important;
     }
     a.btn-primary { display: inline-block; text-decoration: none; }
+
+    /* ===== competency-framework-creation: page-specific ===== */
+    .cf-tracks { max-width:1040px; margin:3.5rem auto 0; display:flex; flex-direction:column; gap:2.6rem; }
+    .cf-track-label { font-size:13px; font-weight:800; letter-spacing:1.2px; text-transform:uppercase; margin-bottom:0.8rem; color:var(--ink-3); }
+    .cf-track-label.good { color:#1d6c2d; }
+    .cf-bar { display:flex; border-radius:12px; overflow:hidden; border:1px solid rgba(26,31,38,0.08); }
+    .cf-seg { padding:0.95rem 1rem; font-size:13.5px; font-weight:600; color:var(--ink-2); background:var(--white);
+      border-right:1px dashed rgba(26,31,38,0.14); position:relative; }
+    .cf-seg small { display:block; font-weight:800; font-size:11px; letter-spacing:0.8px; text-transform:uppercase; color:var(--ink-4); margin-bottom:3px; }
+    .cf-seg:last-child { border-right:none; }
+    .cf-bar.slow .cf-seg { background:linear-gradient(180deg, #fbfbfc, #f3f4f6); }
+    .cf-bar.slow .cf-seg.stale { background:rgba(228,61,48,0.07); color:#a02417; }
+    .cf-bar.fast { border-color:rgba(44,153,66,0.35); box-shadow:0 10px 30px rgba(44,153,66,0.10); }
+    .cf-bar.fast .cf-seg { background:linear-gradient(180deg, #ffffff, #f2faf4); }
+    .cf-note { font-size:13px; color:var(--ink-4); margin-top:0.7rem; }
+    @media (max-width:860px){ .cf-bar { flex-direction:column; } .cf-seg { border-right:none; border-bottom:1px dashed rgba(26,31,38,0.14);} .cf-seg:last-child{border-bottom:none;} }
+
+    .cf-chain { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:0.6rem; margin:3rem auto 0; max-width:900px; }
+    .cf-node { padding:0.7rem 1.3rem; border-radius:999px; font-weight:800; font-size:15px; background:var(--white);
+      border:2px solid; box-shadow:0 4px 14px rgba(43,29,18,0.07); }
+    .cf-node.n1{border-color:var(--cg-red); color:var(--cg-red);}
+    .cf-node.n2{border-color:#c9820e; color:#8a5f0e;}
+    .cf-node.n3{border-color:var(--spanish-blue); color:var(--spanish-blue);}
+    .cf-node.n4{border-color:#7c3aad; color:#7c3aad;}
+    .cf-node.n5{border-color:var(--sea-green); color:#1d6c2d;}
+    .cf-link { color:var(--ink-4); font-weight:800; }
+    .cf-benchmarks { display:flex; justify-content:center; gap:2.8rem; flex-wrap:wrap; margin-top:2.6rem; }
+    .cf-bm { text-align:center; }
+    .cf-bm b { display:block; font-size:1.7rem; letter-spacing:-1px; color:var(--ink); }
+    .cf-bm span { font-size:13px; color:var(--ink-3); }
+
+    .cf-authors { display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; max-width:1020px; margin:3.2rem auto 0; }
+    .cf-author { background:var(--white); border-radius:16px; border:1px solid rgba(26,31,38,0.07); padding:1.5rem 1.5rem 1.6rem; box-shadow:0 2px 10px rgba(43,29,18,0.05); }
+    .cf-author img { width:64px; height:64px; border-radius:14px; margin-bottom:0.9rem; }
+    .cf-author b { display:block; font-size:16px; margin-bottom:0.3rem; }
+    .cf-author em { display:block; font-style:normal; font-size:11.5px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:var(--ink-4); margin-bottom:0.55rem; }
+    .cf-author p { font-size:14px; line-height:1.55; color:var(--ink-2); margin:0; }
+    @media (max-width:900px){ .cf-authors { grid-template-columns:1fr; } }
+
+    .cf-case { max-width:1020px; margin:3.2rem auto 0; background:var(--white); border-radius:22px;
+      border:1px solid rgba(26,31,38,0.07); box-shadow:0 16px 44px rgba(43,29,18,0.09); overflow:hidden;
+      display:grid; grid-template-columns:1.35fr 1fr; }
+    .cf-case-l { padding:2.3rem 2.5rem; }
+    .cf-case-l q { display:block; font-size:1.15rem; line-height:1.6; font-weight:600; color:var(--ink); quotes:'\201C' '\201D'; margin-bottom:1rem; }
+    .cf-case-l cite { font-style:normal; font-size:13.5px; color:var(--ink-3); }
+    .cf-case-r { background:linear-gradient(160deg, rgba(0,100,191,0.06), rgba(44,153,66,0.07)); padding:2.3rem 2.2rem; display:flex; flex-direction:column; gap:1.3rem; justify-content:center; border-left:1px solid rgba(26,31,38,0.06); }
+    .cf-kpi b { display:block; font-size:1.65rem; letter-spacing:-1px; color:var(--ink); line-height:1.05; }
+    .cf-kpi span { font-size:13.5px; color:var(--ink-3); }
+    @media (max-width:900px){ .cf-case { grid-template-columns:1fr; } .cf-case-r{ border-left:none; border-top:1px solid rgba(26,31,38,0.06);} }
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -1950,7 +1999,7 @@
         </div>
         <h1>a competency framework that updates <mark>itself</mark></h1>
         <p class="sol-hero-sub">
-          a framework is only as true as the day it was written. agentic <span class="keep-case">AI</span> connects knowledge, skills, abilities, and tasks into one living model, benchmarked continuously against the market.
+          role architectures and competency frameworks drafted by <span class="keep-case">AI</span> from live market data, finalized with your role holders, and refreshed as the market moves. built on entomo <span class="strata-text">strata</span>.
         </p>
         <a class="btn-primary" href="../request-demo.html">get started &rarr;</a>
       </div>
@@ -1984,342 +2033,131 @@
     </div>
   </section>
 
-  <!-- ===== THE PROBLEM ===== -->
+  <!-- ===== THE BINDER PROBLEM ===== -->
   <section style="background: var(--polar-white);">
     <div class="container">
-      <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">the problem</p>
-        <h2 class="section-heading">static frameworks expire the day they're <mark>written</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;">Three failure modes show up in almost every enterprise framework effort.</p>
+      <div class="text-center" style="max-width:740px; margin:0 auto;">
+        <h2 class="section-heading">eighteen months to build. obsolete in <mark>six</mark>.</h2>
+        <p class="section-subheading" style="margin:0 auto;">the traditional framework project ends with a binder. the market it describes has already moved.</p>
       </div>
-      <div class="pillars-grid">
-        <div class="pillar-card">
-          <div class="pillar-name">months of effort, obsolete on arrival</div>
-          <p class="pillar-desc">Consultant-built frameworks take quarters to design and are refreshed every few years. Roles and market demand move faster. The document governing your talent decisions describes a workforce that no longer exists.</p>
+      <div class="cf-tracks">
+        <div>
+          <div class="cf-track-label">the consulting route</div>
+          <div class="cf-bar slow">
+            <div class="cf-seg" style="flex:1.1"><small>months 1&ndash;3</small>interviews and role audits</div>
+            <div class="cf-seg" style="flex:1.2"><small>months 4&ndash;7</small>workshops and alignment rounds</div>
+            <div class="cf-seg" style="flex:1.3"><small>months 8&ndash;13</small>drafts, reviews, revisions</div>
+            <div class="cf-seg" style="flex:1"><small>months 14&ndash;17</small>sign-off and rollout decks</div>
+            <div class="cf-seg stale" style="flex:1"><small>month 18</small>published. and already aging.</div>
+          </div>
+          <p class="cf-note">every refresh restarts the project. most organizations simply don't.</p>
         </div>
-        <div class="pillar-card">
-          <div class="pillar-name">flat skill lists, blind to outcomes</div>
-          <p class="pillar-desc">Most platforms store skills as a flat library with no link to responsibilities, tasks, or <span class="keep-case">KPIs</span>. A list can't answer the question that matters: which capability gaps are costing which business outcomes.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-name">every division speaks its own language</div>
-          <p class="pillar-desc">Duplicate skills, synonyms, and proficiency levels defined differently across functions mean assessments, learning, and succession each run on a different version of the truth.</p>
+        <div>
+          <div class="cf-track-label good">with entomo</div>
+          <div class="cf-bar fast">
+            <div class="cf-seg" style="flex:1"><small>minutes</small>role architecture drafted from market intelligence</div>
+            <div class="cf-seg" style="flex:1.1"><small>days</small>role holders and leaders refine, in a built-in collaboration flow</div>
+            <div class="cf-seg" style="flex:1"><small>always</small>live in <span class="strata-text">strata</span>, benchmarked and refreshed monthly</div>
+          </div>
+          <p class="cf-note">80% less cost and effort to build or refresh, measured against the traditional route.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== THE SHIFT ===== -->
+  <!-- ===== A GRAPH, NOT A DOCUMENT ===== -->
   <section style="background: var(--white);">
     <div class="container">
-      <div class="text-center" style="max-width:720px; margin:0 auto;">
-        <h2 class="section-heading">from static document to living <mark>graph</mark></h2>
+      <div class="text-center" style="max-width:760px; margin:0 auto;">
+        <h2 class="section-heading">a living graph, not a <mark>document</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;">entomo <span class="strata-text">strata</span> stores every framework as connected structure. change a role, and every linked competency, <span class="keep-case">KPI</span>, and learning path knows.</p>
       </div>
-      <div class="integrations-grid">
-        <div class="integration-card">
-          <div class="integration-card-title">competency frameworks today</div>
-          <div class="integration-pill-row">
-            <span class="integration-pill">consultant-built, refreshed every few years</span>
-            <span class="integration-pill">flat skill lists with no link to work or <span class="keep-case">KPIs</span></span>
-            <span class="integration-pill">months of effort to cover a fraction of roles</span>
-            <span class="integration-pill">proficiency means something different in every division</span>
-          </div>
-        </div>
-        <div class="integration-card shift-good">
-          <div class="integration-card-title">with entomo <picture class="brand-inline brand-inline--strata"><source srcset="../Images/logos/entomo-strata.webp" type="image/webp"><img src="../Images/logos/entomo-strata.png" alt="strata" width="1200" height="390" loading="lazy" decoding="async"></picture></div>
-          <div class="integration-pill-row">
-            <span class="integration-pill">role architecture created in under 5 minutes</span>
-            <span class="integration-pill">4,000+ roles and 700+ skill domains ready to configure</span>
-            <span class="integration-pill">benchmarked continuously against live market data</span>
-            <span class="integration-pill">one graph powering assessments, learning, and mobility</span>
-          </div>
-        </div>
+      <div class="cf-chain" role="img" aria-label="the strata chain: role links to responsibility, task, KPI, and skill">
+        <span class="cf-node n1">role</span><span class="cf-link">&rarr;</span>
+        <span class="cf-node n2">responsibility</span><span class="cf-link">&rarr;</span>
+        <span class="cf-node n3">task</span><span class="cf-link">&rarr;</span>
+        <span class="cf-node n4"><span class="keep-case">KPI</span></span><span class="cf-link">&rarr;</span>
+        <span class="cf-node n5">skill</span>
+      </div>
+      <div class="cf-benchmarks">
+        <div class="cf-bm"><b>80M+</b><span>resumes read by the market graph</span></div>
+        <div class="cf-bm"><b>12M</b><span>job descriptions parsed</span></div>
+        <div class="cf-bm"><b>40,000+</b><span>skills across 20 domains</span></div>
+        <div class="cf-bm"><b>monthly</b><span>benchmark refresh against industry and best-in-class</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== HOW IT WORKS ===== -->
-  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
+  <!-- ===== WHO DOES THE WORK ===== -->
+  <section style="background: var(--polar-white); border-top: 1px solid rgba(26,31,38,0.06);">
     <div class="container">
-      <div class="text-center" style="max-width:800px; margin:0 auto;">
-        <p class="section-eyebrow">how it works</p>
-        <h2 class="section-heading">how the framework gets built, and stays <mark>alive</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;">agents draft on live market intelligence. experts guide the method. your stakeholders sign off.</p>
+      <div class="text-center" style="max-width:740px; margin:0 auto;">
+        <h2 class="section-heading">drafted by agents. authored by your <mark>experts</mark>.</h2>
+        <p class="section-subheading" style="margin:0 auto;">the platform does the assembling. your role holders and business leaders stay the authority, refining each framework in a built-in collaborate flow before it goes live.</p>
       </div>
-      <div class="arch-diagram">
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-data-sources">discover and benchmark</div>
-          <div class="arch-col-desc">entomo experts run discovery and an environmental scan while TalentAtlas benchmarks your roles against live industry and market data.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">Delivery starts with discovery, environmental scanning, and strategic alignment with your business direction, the same method used for sector-specific and public-sector framework engagements.</div>
+      <div class="cf-authors">
+        <div class="cf-author">
+          <img src="../Images/agents/talentatlas.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+          <b>TalentAtlas</b><em>role intelligence</em>
+          <p>maps your roles against industry benchmarks and drafts the architecture: scope, success profile, market-matched competencies.</p>
         </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-foundation">design the architecture</div>
-          <div class="arch-col-desc">RoleArchitect structures role architectures and success profiles on the <span class="strata-text">strata</span> graph, connecting knowledge, skills, abilities, and tasks role by role.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip"><span class="strata-text">strata</span> models Role → Responsibility → Task → <span class="keep-case">KPI</span> → Skill, so the framework links work, performance, and capability in one graph instead of a flat list.</div>
+        <div class="cf-author">
+          <img src="../Images/agents/skillmatrix.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+          <b>SkillMatrix</b><em>proficiency intelligence</em>
+          <p>attaches proficiency levels to every competency and exposes the gap between your framework and the market's bar.</p>
         </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-intelligence">define proficiency</div>
-          <div class="arch-col-desc">SkillMatrix maps proficiency levels with clear, observable behavioral indicators across core, functional, leadership, and technical competencies.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">Proficiency definitions span all four competency categories, with behavioral indicators that assessments later score against, so evaluation is observable, not subjective.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-agents">validate and sign off</div>
-          <div class="arch-col-desc">Role holders and business leaders shape the framework through the collaborate feature, then formal sign-off makes it yours.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">The collaborate feature captures role-holder and business-leader inputs; validation workshops, focus groups, and formal sign-off close the design phase.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-outcomes">keep it living</div>
-          <div class="arch-col-desc">The framework refreshes as roles and market demand shift; AssessCraft and GrowthPlanner turn it into assessments, gap maps, and growth plans.</div>
-          <div class="arch-tooltip" style="left:auto; right:0; transform:none;">One graph powers everything downstream: assessments, gap heat maps, learning recommendations, career paths, and workforce planning, so every agent's output agrees.</div>
+        <div class="cf-author">
+          <img src="../Images/agents/rolearchitect.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+          <b>RoleArchitect</b><em>role architecture</em>
+          <p>structures responsibility frameworks and success profiles so each role reads the same way across the enterprise.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== AGENTS ===== -->
-  <section class="perf-agents-section">
-    <div class="container">
-      <div class="section-eyebrow">your <span class="keep-case">AI</span> workforce for competency architecture</div>
-      <h2>meet the framework <mark>agents</mark> that work for you</h2>
-    </div>
-
-    <div class="perf-mq-wrapper">
-      <div class="perf-mq-track">
-        <div class="perf-mq-card"><img src="../Images/agents/talentatlas.png" alt="TalentAtlas" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">TalentAtlas</div><div class="perf-mq-role">role intelligence</div><div class="perf-mq-desc">benchmarks role architectures and competency frameworks against live industry and market data, role by role</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/rolearchitect.png" alt="RoleArchitect" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">RoleArchitect</div><div class="perf-mq-role">role architecture</div><div class="perf-mq-desc">designs structured role architectures that define success profiles, scope, and industry benchmarks</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/skillmatrix.png" alt="SkillMatrix" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">SkillMatrix</div><div class="perf-mq-role">proficiency intelligence</div><div class="perf-mq-desc">designs skill frameworks that map proficiency levels, capability gaps, and market alignment</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/flowgen.png" alt="FlowGen" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">FlowGen</div><div class="perf-mq-role">org structure intelligence</div><div class="perf-mq-desc">models org design and role flow scenarios on industry-benchmarked role architectures</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/assescraft.png" alt="AssessCraft" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">AssessCraft</div><div class="perf-mq-role">assessment engine</div><div class="perf-mq-desc">designs structured, role-aligned assessments that evaluate skills, proficiency, and job readiness against the framework</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/growthplanner.png" alt="GrowthPlanner" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">GrowthPlanner</div><div class="perf-mq-role">development engine</div><div class="perf-mq-desc">translates gaps identified against the framework into growth plans and career paths</div></div>
-
-        <!-- duplicate set for seamless loop -->
-        <div class="perf-mq-card"><img src="../Images/agents/talentatlas.png" alt="TalentAtlas" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">TalentAtlas</div><div class="perf-mq-role">role intelligence</div><div class="perf-mq-desc">benchmarks role architectures and competency frameworks against live industry and market data, role by role</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/rolearchitect.png" alt="RoleArchitect" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">RoleArchitect</div><div class="perf-mq-role">role architecture</div><div class="perf-mq-desc">designs structured role architectures that define success profiles, scope, and industry benchmarks</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/skillmatrix.png" alt="SkillMatrix" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">SkillMatrix</div><div class="perf-mq-role">proficiency intelligence</div><div class="perf-mq-desc">designs skill frameworks that map proficiency levels, capability gaps, and market alignment</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/flowgen.png" alt="FlowGen" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">FlowGen</div><div class="perf-mq-role">org structure intelligence</div><div class="perf-mq-desc">models org design and role flow scenarios on industry-benchmarked role architectures</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/assescraft.png" alt="AssessCraft" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">AssessCraft</div><div class="perf-mq-role">assessment engine</div><div class="perf-mq-desc">designs structured, role-aligned assessments that evaluate skills, proficiency, and job readiness against the framework</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/growthplanner.png" alt="GrowthPlanner" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">GrowthPlanner</div><div class="perf-mq-role">development engine</div><div class="perf-mq-desc">translates gaps identified against the framework into growth plans and career paths</div></div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FEATURES ===== -->
-  <section class="features-section">
-    <div class="container">
-      <div class="text-center">
-        <p class="section-eyebrow">capabilities</p>
-        <h2 class="section-heading">everything a competency framework needs, in one <mark>graph</mark></h2>
-      </div>
-      <div class="features-panel features-grid active">
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="5" r="2.6"/><circle cx="5" cy="19" r="2.6"/><circle cx="19" cy="19" r="2.6"/><line x1="10.8" y1="7.3" x2="6.2" y2="16.7"/><line x1="13.2" y1="7.3" x2="17.8" y2="16.7"/><line x1="7.6" y1="19" x2="16.4" y2="19"/></svg></div>
-          <h4>a graph that connects work to capability</h4>
-          <p>Connects knowledge, skills, abilities, and tasks into a Role → Responsibility → Task → <span class="keep-case">KPI</span> → Skill model, one graph linking work, performance, and capability, so you can see which gaps are costing which outcomes.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-          <h4>a library that skips the blank page</h4>
-          <p>Starts from 4,000+ roles and 700+ skill domains ready to configure, deployed across 40+ countries, for faster delivery and lower risk than building a framework from scratch.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-          <h4>benchmarks that track the market</h4>
-          <p>Benchmarks every role and proficiency bar against comparators, competitors, and industry using live external workforce data, so your framework reflects the market you actually hire in.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></div>
-          <h4>proficiency levels that mean something</h4>
-          <p>Defines observable behavioral indicators for each proficiency level across core, functional, leadership, and technical competencies, so assessments score against approved definitions, not opinions.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-          <h4>a taxonomy that speaks global standards</h4>
-          <p>Adopts SkillsFuture, <span class="keep-case">ESCO</span>, <span class="keep-case">SFIA</span>, and <span class="keep-case">SSF</span>, supports <span class="keep-case">FAHR</span>-aligned design for federal and public sector entities, and curates industry certification frameworks to define role readiness.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h4>validation that makes the framework yours</h4>
-          <p>Captures role-holder and business-leader inputs through the collaborate feature, then closes with validation workshops, focus groups, and formal sign-off before anything governs your people.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <h4>assessments that flow from the framework</h4>
-          <p>Translates role intelligence into structured assessment blueprints, auto-generates role-aligned questions with configurable difficulty, and delivers them in a proctored digital testing environment.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-          <h4>gap maps that show who stands where</h4>
-          <p>Maps each employee against role requirements, auto-identifies proficiency gaps across all four competency categories, then drives development through learning recommendations, mentorship, and <span class="keep-case">IDPs</span>.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
-          <h4>a framework that refreshes itself</h4>
-          <p>Updates success profiles as roles evolve and market demand shifts, so your framework stays a living model of the workforce instead of a document that expires the day it's written.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ADVISORY ===== -->
+  <!-- ===== CASE ===== -->
   <section style="background: var(--floral-white);">
     <div class="container">
-      <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">experts in the loop</p>
-        <h2 class="section-heading">a framework practice, not just a <mark>platform</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;">Software alone doesn't make a framework land. entomo pairs the platform with a delivery method: discovery and environmental scan, competency architecture design on <span class="strata-text">strata</span>, sector-specific role customization, external benchmarking, and stakeholder validation through to formal sign-off. Unlike pure consultancies, you keep both the framework and the technology that keeps it alive.</p>
+      <div class="text-center" style="max-width:700px; margin:0 auto;">
+        <h2 class="section-heading">forty roles, one <mark>quarter</mark>, japan's largest <span class="keep-case">IT</span> firm</h2>
       </div>
-      <div class="pillars-grid">
-        <div class="pillar-card">
-          <div class="pillar-name">discovery to design</div>
-          <p class="pillar-desc">entomo experts scan your environment, design the competency architecture on <span class="strata-text">strata</span>, and customize the role families your sector needs beyond generic libraries.</p>
+      <div class="cf-case">
+        <div class="cf-case-l">
+          <q>The AI and ML capabilities of entomo's platform have significantly reduced the time and effort needed to establish our Skills Framework. The real-time visibility into skill gaps and personalized recommendations have transformed the way we manage talent.</q>
+          <cite>Leadership team, one of Japan's largest <span class="keep-case">IT</span> services companies</cite>
+          <p style="font-size:14px; color:var(--ink-3); margin-top:1.1rem;">Success profiles for Cloud, Cybersecurity, and Enterprise Architecture roles, refreshed quarterly against market demand, with contextualized assessments baselining every employee.</p>
         </div>
-        <div class="pillar-card">
-          <div class="pillar-name">validation and sign-off</div>
-          <p class="pillar-desc">Stakeholder workshops, focus groups, and formal sign-off bring role holders and business leaders into the framework before it governs anyone.</p>
+        <div class="cf-case-r">
+          <div class="cf-kpi"><b>80% faster</b><span>to a structured skills framework covering 40+ roles</span></div>
+          <div class="cf-kpi"><b>95%</b><span>employee adoption of the new system</span></div>
+          <div class="cf-kpi"><b>33% lower</b><span>attrition after rollout</span></div>
         </div>
-        <div class="pillar-card">
-          <div class="pillar-name">governance-ready documentation</div>
-          <p class="pillar-desc">You receive a master competency dictionary, role-competency mapping matrix, job family profiles, benchmarking reports, and a phased implementation roadmap.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROOF: NUMBERS ===== -->
-  <section style="background: var(--lavender);">
-    <div class="container">
-      <div class="text-center" style="max-width:680px; margin:0 auto 4rem;">
-        <p class="section-eyebrow">measured, not claimed</p>
-        <h2 class="section-heading">measured, not <mark>claimed</mark></h2>
-      </div>
-      <div class="persona-simple-grid">
-        <div class="persona-simple-card">
-          <div class="persona-simple-top green-top">
-            <span class="persona-simple-role">framework build or refresh</span>
-            <span class="persona-simple-headline">80% less cost and effort</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag"><span class="keep-case">AI</span> market intelligence</span>
-            <span class="ptag">pre-built library</span>
-            <span class="ptag">vs building from scratch</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top red-top">
-            <span class="persona-simple-role">role architecture</span>
-            <span class="persona-simple-headline">built in under 5 minutes</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">living intelligence graph</span>
-            <span class="ptag">market-benchmarked</span>
-            <span class="ptag">continuously evolving</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top blue-top">
-            <span class="persona-simple-role">category recognition</span>
-            <span class="persona-simple-headline">Brandon Hall wins, 2024 and 2025</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">best competencies and skill development</span>
-            <span class="ptag">best advance in gen-<span class="keep-case">AI</span>, business impact</span>
-            <span class="ptag"><span class="keep-case">HR</span> tech awards 2023, talent intelligence</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top gold-top">
-            <span class="persona-simple-role">platform proof</span>
-            <span class="persona-simple-headline">$26.8M value, 103% <span class="keep-case">ROI</span> over 3 years</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">Forrester <span class="keep-case">TEI</span></span>
-            <span class="ptag">platform-wide proof point</span>
-            <span class="ptag">30M+ users on entomo</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROOF: A FACE ===== -->
-  <section style="background: var(--pistachio);">
-    <div class="container">
-      <div class="text-center" style="max-width:900px; margin:0 auto;">
-        <p class="section-eyebrow">customer story</p>
-        <p class="story-quote">&ldquo;The <span class="keep-case">AI</span> and ML capabilities significantly reduced the time and effort needed to establish our Skills Framework.&rdquo;</p>
-        <p class="story-attr">Leadership, leading Japanese IT services company</p>
-      </div>
-      <div class="orchestration-chips" style="margin-top:2.5rem;">
-        <span class="orch-chip">80% less time to structure 40+ roles</span>
-        <span class="orch-chip">95% adoption rate</span>
-        <span class="orch-chip">33% reduction in attrition</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ENTERPRISE READINESS ===== -->
-  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
-    <div class="container">
-      <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">enterprise-ready</p>
-        <h2 class="section-heading">fits your stack. passes your audits.</h2>
-        <p class="section-subheading" style="margin:0 auto;">entomo runs alongside your existing <span class="keep-case">HCM</span> and <span class="keep-case">HRIS</span> rather than replacing them. Agents draft, benchmark, and refresh the framework; your leaders validate and sign off. Security and privacy are certified to <span class="keep-case">ISO</span> 27001 and <span class="keep-case">ISO</span> 27701, with <span class="keep-case">GDPR</span> compliance. <a href="../about/security-at-entomo.html" style="color:var(--spanish-blue); font-weight:600;">read the security architecture &rarr;</a></p>
-      </div>
-      <div class="tech-chips-row">
-        <span class="tech-chip"><span class="keep-case">ISO</span> 27001 and <span class="keep-case">ISO</span> 27701 certified</span>
-        <span class="tech-chip"><span class="keep-case">GDPR</span> compliant</span>
-        <span class="tech-chip"><span class="keep-case">API</span>-first integration with <span class="keep-case">HRIS</span>, <span class="keep-case">LMS</span>, and <span class="keep-case">LXP</span></span>
-        <span class="tech-chip">built on SkillsFuture, <span class="keep-case">ESCO</span>, <span class="keep-case">SFIA</span>, and <span class="keep-case">SSF</span></span>
-        <span class="tech-chip">humans approve before frameworks go live</span>
-        <span class="tech-chip">30M+ users on the platform</span>
       </div>
     </div>
   </section>
 
   <!-- ===== FAQ ===== -->
-  <section style="background: var(--polar-white);">
+  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
     <div class="container">
       <div class="text-center" style="max-width:720px; margin:0 auto;">
-        <p class="section-eyebrow">questions, answered</p>
-        <h2 class="section-heading">what enterprise teams ask us.</h2>
+        <h2 class="section-heading">what framework owners ask <mark>first</mark></h2>
       </div>
       <div class="integrations-grid">
         <div class="integration-card">
-          <div class="integration-card-title">how long does implementation take?</div>
-          <p class="faq-a">Role architecture can be created on <span class="strata-text">strata</span> in under 5 minutes, and assessments deploy within weeks from a pre-built library covering thousands of roles and skill domains. A validated organization-wide framework follows a phased roadmap through design, benchmarking, and stakeholder sign-off, with timelines shaped by your role coverage and sector customization.</p>
+          <div class="integration-card-title">we already have a framework. start over?</div>
+          <p class="faq-a">No. entomo imports what you have, maps it into <span class="strata-text">strata</span>, and benchmarks it against the market graph. You see exactly where your framework holds up and where it has drifted, then refresh only what needs it.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">does entomo replace our <span class="keep-case">HCM</span> or <span class="keep-case">HRIS</span>?</div>
-          <p class="faq-a">No. entomo is the intelligence layer for competency architecture, not a system of record. It integrates <span class="keep-case">API</span>-first with your existing <span class="keep-case">HRIS</span>, <span class="keep-case">LMS</span>, and <span class="keep-case">LXP</span> platforms, so the framework you build powers the systems you already run, with no rip-and-replace.</p>
+          <div class="integration-card-title">how does it stay current?</div>
+          <p class="faq-a">The market graph refreshes monthly from live hiring data, and your frameworks are linked to it. When a role evolves in the market, the affected competencies are flagged for review. One client refreshes success profiles quarterly on this cycle.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">what do the agents automate, and what do humans approve?</div>
-          <p class="faq-a">Agents draft: TalentAtlas benchmarks roles against market data, RoleArchitect structures success profiles, and SkillMatrix maps proficiency levels. People decide: role holders and business leaders validate through the collaborate feature, workshops, and formal sign-off. Nothing governs your workforce until your stakeholders approve it.</p>
+          <div class="integration-card-title">who approves what the <span class="keep-case">AI</span> drafts?</div>
+          <p class="faq-a">Your people do. Drafts route to role holders and business leaders through the collaborate flow, and nothing goes live without their sign-off. The platform accelerates the work; it doesn't take over the authorship.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">how is our data protected and used?</div>
-          <p class="faq-a">entomo is <span class="keep-case">ISO</span> 27001 and <span class="keep-case">ISO</span> 27701 certified and <span class="keep-case">GDPR</span> compliant. Your workforce data powers intelligence for your organization. Market benchmarking draws on external, publicly available workforce signals such as job descriptions, course curricula, and certifications. For specific data residency requirements, our team walks through deployment options during evaluation.</p>
-        </div>
-        <div class="integration-card">
-          <div class="integration-card-title">we already have a competency framework. does that work go to waste?</div>
-          <p class="faq-a">No. entomo digitizes your existing competency and learning framework into <span class="strata-text">strata</span>, cleans the skill ontology by detecting duplicates and synonyms, adds skills missing from job descriptions, groups skills into domain structures, and benchmarks your proficiency bars against the market. From there, the framework stays refreshed as roles and demand evolve.</p>
-        </div>
-        <div class="integration-card">
-          <div class="integration-card-title">how is this different from hiring a consultancy?</div>
-          <p class="faq-a">Unlike pure consultancies, entomo delivers both the advisory method and the technology platform for ongoing use. A consultancy hands you a document that starts aging immediately. entomo hands you a living graph, pre-built with 4,000+ roles and 700+ skill domains, that keeps benchmarking itself and powers the assessments, gap analysis, and growth plans that follow.</p>
+          <div class="integration-card-title">how do we know the framework is real, not aspirational?</div>
+          <p class="faq-a">Pair it with assessments. Contextualized technical and behavioral assessments baseline actual proficiency against the framework, so the architecture reflects measured capability, not job-description fiction. <a href="workforce-assessments.html" style="color:var(--spanish-blue); font-weight:600;">see workforce assessments &rarr;</a></p>
         </div>
       </div>
     </div>
@@ -2328,13 +2166,12 @@
   <!-- ===== BOTTOM CTA ===== -->
   <section class="bottom-cta">
     <div class="container">
-      <h2>ready to build a framework that stays <mark>true</mark>?</h2>
-      <p>Join the enterprises powering 30M+ users with agentic workforce intelligence. Forrester-validated platform: $26.8M in value, 103% <span class="keep-case">ROI</span> over 3 years.</p>
-      <a class="btn-primary" href="../request-demo.html">request a demo &rarr;</a>
+      <h2>stop maintaining a document. start running a <mark>graph</mark>.</h2>
+      <p>entomo powers 30M+ users worldwide, with Forrester-validated platform economics: 103% <span class="keep-case">ROI</span> over three years.</p>
+      <a class="btn-primary" href="../request-demo.html">see your roles drafted live &rarr;</a>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
   </main>
   <footer class="footer">
     <div class="container">

@@ -1644,6 +1644,51 @@
       background: #f2faf4 !important;
     }
     a.btn-primary { display: inline-block; text-decoration: none; }
+
+    /* ===== internal-mobility: page-specific ===== */
+    .im-match { display:grid; grid-template-columns:1fr 120px 1fr; align-items:center; max-width:1000px; margin:3.6rem auto 0; }
+    .im-card { background:var(--white); border-radius:20px; border:1px solid rgba(26,31,38,0.08); box-shadow:0 14px 40px rgba(43,29,18,0.09); padding:1.8rem 1.9rem; }
+    .im-card-t { font-size:11.5px; font-weight:800; letter-spacing:1.2px; text-transform:uppercase; color:var(--ink-4); margin-bottom:1rem; }
+    .im-person { display:flex; align-items:center; gap:0.9rem; margin-bottom:1.1rem; }
+    .im-avatar { width:46px; height:46px; border-radius:50%; background:linear-gradient(135deg,var(--spanish-blue),#003e75); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; }
+    .im-person b { display:block; font-size:16px; }
+    .im-person span { font-size:12.5px; color:var(--ink-3); }
+    .im-chips { display:flex; flex-wrap:wrap; gap:0.45rem; }
+    .im-chip { border-radius:999px; padding:5px 12px; font-size:12.5px; font-weight:700; background:rgba(26,31,38,0.05); color:var(--ink-2); }
+    .im-chip.hit { background:rgba(44,153,66,0.12); color:#1d6c2d; border:1px solid rgba(44,153,66,0.3); }
+    .im-chip.asp { background:rgba(244,178,35,0.14); color:#8a5f0e; }
+    .im-wire { position:relative; height:100%; min-height:120px; }
+    .im-wire::before { content:''; position:absolute; top:50%; left:8px; right:8px; height:2px;
+      background:repeating-linear-gradient(90deg, var(--sea-green) 0 8px, transparent 8px 14px); }
+    .im-wire span { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); background:var(--sea-green);
+      color:#fff; font-size:11.5px; font-weight:800; padding:5px 11px; border-radius:999px; white-space:nowrap; }
+    .im-role-t { font-size:16.5px; font-weight:800; margin-bottom:0.2rem; }
+    .im-role-m { font-size:12.5px; color:var(--ink-3); margin-bottom:1.05rem; }
+    @media (max-width:880px){ .im-match { grid-template-columns:1fr; gap:0.6rem; } .im-wire{min-height:64px;} }
+
+    .im-kinds { display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem; max-width:1080px; margin:3.2rem auto 0; }
+    .im-kind { text-align:center; padding:1.5rem 1rem 1.4rem; border-radius:16px; background:var(--white); border:1px solid rgba(26,31,38,0.07); }
+    .im-kind b { display:block; font-size:16px; margin-bottom:0.35rem; }
+    .im-kind p { margin:0; font-size:13px; line-height:1.5; color:var(--ink-3); }
+    .im-kind .ico { font-size:22px; display:block; margin-bottom:0.5rem; }
+    @media (max-width:900px){ .im-kinds { grid-template-columns:1fr 1fr; } }
+
+    .im-ledger { max-width:880px; margin:3.4rem auto 0; border-radius:18px; overflow:hidden; border:1px solid rgba(26,31,38,0.08); }
+    .im-l-row { display:grid; grid-template-columns:1.1fr 1fr 1fr; }
+    .im-l-row.head { background:var(--ink); color:#fff; }
+    .im-l-row.head > div { font-size:12px; font-weight:800; letter-spacing:1px; text-transform:uppercase; padding:0.9rem 1.4rem; color:rgba(255,255,255,0.85); }
+    .im-l-row:not(.head) > div { padding:1.05rem 1.4rem; font-size:14.5px; background:var(--white); border-top:1px solid rgba(26,31,38,0.06); }
+    .im-l-row:not(.head) > div:first-child { font-weight:700; color:var(--ink); }
+    .im-l-ext { color:var(--ink-3); }
+    .im-l-int { font-weight:700; color:#1d6c2d; background:rgba(44,153,66,0.045) !important; }
+    @media (max-width:760px){ .im-l-row { grid-template-columns:1fr; } .im-l-row.head{display:none;}
+      .im-l-ext::before{content:'external hire · '; font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--ink-4);}
+      .im-l-int::before{content:'internal move · '; font-size:11px; text-transform:uppercase; letter-spacing:1px; color:#1d6c2d;} }
+
+    .im-proof { display:flex; justify-content:center; gap:3rem; flex-wrap:wrap; margin:3.2rem auto 0; }
+    .im-pr { text-align:center; }
+    .im-pr b { display:block; font-size:2.1rem; letter-spacing:-1.5px; color:var(--ink); }
+    .im-pr span { font-size:13.5px; color:var(--ink-3); max-width:220px; display:block; }
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -1950,7 +1995,7 @@
         </div>
         <h1>your next hire is already on your <mark>payroll</mark></h1>
         <p class="sol-hero-sub">
-          the best candidates already work for you. agentic <span class="keep-case">AI</span> computes career paths from skill adjacency and matches people to roles, gigs and mentors before vacancies appear.
+          a talent marketplace that matches people to internal roles, projects, and gigs by skill and aspiration, so growth happens inside your walls instead of on a competitor's offer letter.
         </p>
         <a class="btn-primary" href="../request-demo.html">get started &rarr;</a>
       </div>
@@ -1984,344 +2029,115 @@
     </div>
   </section>
 
-  <!-- ===== THE PROBLEM ===== -->
+  <!-- ===== THE QUIET EXIT ===== -->
   <section style="background: var(--polar-white);">
     <div class="container">
       <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">the problem</p>
-        <h2 class="section-heading">people leave to find growth you already <mark>have</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;">Career growth locked inside supervisor conversations is invisible to the rest of the organization. Here is what that costs at enterprise scale.</p>
+        <h2 class="section-heading">people leave because leaving looks <mark>easier</mark> than moving</h2>
+        <p class="section-subheading" style="margin:0 auto;">outside your company, recruiters match your people to roles every week. inside, the next role hides behind a manager conversation nobody schedules. the marketplace fixes the asymmetry.</p>
       </div>
-      <div class="pillars-grid">
-        <div class="pillar-card">
-          <div class="pillar-name">career paths nobody can see</div>
-          <p class="pillar-desc">Ladders live in slide decks and supervisor conversations. Employees cannot see the roles they are already closest to, so the recruiter outside your walls shows them one first.</p>
+      <div class="im-match">
+        <div class="im-card">
+          <div class="im-card-t">the person</div>
+          <div class="im-person">
+            <div class="im-avatar">ln</div>
+            <div><b>Lina N.</b><span>senior analyst &middot; finance ops &middot; 3.5 years</span></div>
+          </div>
+          <div class="im-chips">
+            <span class="im-chip hit">sql: advanced</span>
+            <span class="im-chip hit">forecasting</span>
+            <span class="im-chip hit">stakeholder reporting</span>
+            <span class="im-chip asp">aspiration: analytics leadership</span>
+            <span class="im-chip">python: developing</span>
+          </div>
         </div>
-        <div class="pillar-card">
-          <div class="pillar-name">vacancies filled from the outside</div>
-          <p class="pillar-desc">Hiring managers cannot search internal skills, so every opening defaults to external recruitment while qualified people sit two teams away.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-name">succession by seniority, not skills</div>
-          <p class="pillar-desc">Slates built on hierarchy and gut feel leave critical roles exposed and keep high-potential people invisible until the day they resign.</p>
+        <div class="im-wire" aria-hidden="true"><span>87% match</span></div>
+        <div class="im-card">
+          <div class="im-card-t">the opportunity</div>
+          <div class="im-role-t">analytics lead, commercial planning</div>
+          <div class="im-role-m">internal posting &middot; opens in 6 weeks &middot; hiring manager: r. tan</div>
+          <div class="im-chips">
+            <span class="im-chip hit">forecasting: required</span>
+            <span class="im-chip hit">sql: required</span>
+            <span class="im-chip">team leadership: growth area</span>
+            <span class="im-chip asp">gig available now: q4 demand model</span>
+          </div>
         </div>
       </div>
+      <p style="text-align:center; font-size:13px; color:var(--ink-4); margin-top:1.8rem;">matches are computed from <span class="strata-text">strata</span> skill profiles and declared aspirations, and both sides can make the first move: employees discover openings, opportunity owners search for qualified people directly.</p>
     </div>
   </section>
 
-  <!-- ===== THE SHIFT ===== -->
+  <!-- ===== FOUR DOORS ===== -->
   <section style="background: var(--white);">
     <div class="container">
-      <div class="text-center" style="max-width:720px; margin:0 auto;">
-        <h2 class="section-heading">from career ladders to career <mark>intelligence</mark></h2>
+      <div class="text-center" style="max-width:700px; margin:0 auto;">
+        <h2 class="section-heading">four doors, not just the <mark>job ladder</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;">not every move is a promotion. the marketplace runs custom workflows for every construct that builds capability.</p>
       </div>
-      <div class="integrations-grid">
-        <div class="integration-card">
-          <div class="integration-card-title">mobility today</div>
-          <div class="integration-pill-row">
-            <span class="integration-pill">career ladders drawn by hand, stale on arrival</span>
-            <span class="integration-pill">opportunities found through luck and connections</span>
-            <span class="integration-pill">skills data scattered, self-declared, unverified</span>
-            <span class="integration-pill">succession slates built on hierarchy and gut feel</span>
-          </div>
-        </div>
-        <div class="integration-card shift-good">
-          <div class="integration-card-title">mobility with entomo</div>
-          <div class="integration-pill-row">
-            <span class="integration-pill">paths computed from skill adjacency</span>
-            <span class="integration-pill">the right opportunity finds you first</span>
-            <span class="integration-pill">verified skills, refreshed against the market</span>
-            <span class="integration-pill">succession driven by skills and aspirations</span>
-          </div>
-        </div>
+      <div class="im-kinds">
+        <div class="im-kind"><span class="ico" aria-hidden="true">&#128188;</span><b>roles</b><p>internal postings matched on skill and aspiration before recruiters look outside.</p></div>
+        <div class="im-kind"><span class="ico" aria-hidden="true">&#9889;</span><b>gigs &amp; projects</b><p>short assignments that build a skill without a reorg: try the work, keep the day job.</p></div>
+        <div class="im-kind"><span class="ico" aria-hidden="true">&#127760;</span><b>rotations</b><p>job sharing, assignments, and international rotations with the workflow handled.</p></div>
+        <div class="im-kind"><span class="ico" aria-hidden="true">&#129309;</span><b>mentoring &amp; hubs</b><p>special interest groups and mentors, because most mobility starts with a conversation.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== HOW IT WORKS ===== -->
-  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
+  <!-- ===== BUILD VS BUY, PER SEAT ===== -->
+  <section style="background: var(--polar-white); border-top: 1px solid rgba(26,31,38,0.06);">
     <div class="container">
-      <div class="text-center" style="max-width:800px; margin:0 auto;">
-        <p class="section-eyebrow">how it works</p>
-        <h2 class="section-heading">career paths computed, not <mark>guessed</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;">Internal mobility runs on entomo <span class="strata-text">strata</span>, the workforce intelligence graph. Every role decomposes into responsibilities, tasks, <span class="keep-case">KPIs</span> and skills, so movement is computed from real work, not org charts. And entomo.ai, the <span class="keep-case">HR</span> digital coworker, runs the configuration, from framework deployment to mobility matching, so <span class="keep-case">HR</span> runs strategy instead of setup.</p>
+      <div class="text-center" style="max-width:740px; margin:0 auto;">
+        <h2 class="section-heading">what the same seat costs, filled two <mark>ways</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;">industry research on internal mobility is unambiguous; the marketplace is how you act on it.</p>
       </div>
-      <div class="arch-diagram">
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-data-sources">map every role and person</div>
-          <div class="arch-col-desc">RoleArchitect builds your role architecture while ProfileCraft turns CVs into structured career profiles aligned to your skill ontology.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">A pre-built library of 4,000+ roles and 700+ skill domains means career architecture ships in weeks, with taxonomies aligned to SkillsFuture, <span class="keep-case">ESCO</span>, <span class="keep-case">SFIA</span> and <span class="keep-case">SSF</span>.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-foundation">surface the gaps</div>
-          <div class="arch-col-desc">SkillMatrix tracks verified skill depth against current and aspired roles, showing each person the exact gap between where they are and where they want to be.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">Skills are verified through manager validation or proctored assessment, keeping mobility data accurate, current and directly actionable.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-intelligence">compute the paths</div>
-          <div class="arch-col-desc">TalentAtlas maps skill adjacencies across every role, surfacing the internal moves each person is already closest to before vacancies appear.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">Paths are computed from skill adjacency on the <span class="strata-text">strata</span> graph, not hand-drawn ladders, and success profiles are benchmarked against live market intelligence.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-agents">close gaps, make moves</div>
-          <div class="arch-col-desc">GrowthPlanner generates development plans that close gaps with learning, gigs and mentors, while workflows route people into projects, rotations and open roles.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">One closed loop from gap to move: map, gap, develop, verify. AssessCraft evaluates readiness, and hiring managers create and manage internal openings on the same platform.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-outcomes">humans approve the move</div>
-          <div class="arch-col-desc">Managers validate skills, leaders approve successions against your eligibility parameters, and <span class="keep-case">HR</span> sets the guardrails. Agents recommend; people decide.</div>
-          <div class="arch-tooltip" style="left:auto; right:0; transform:none;">Succession recommendations compare nominees against eligibility parameters you configure, with 9-box grids and succession charts for talent review.</div>
-        </div>
+      <div class="im-ledger">
+        <div class="im-l-row head"><div>the seat</div><div>external hire</div><div>internal move</div></div>
+        <div class="im-l-row"><div>time to productive</div><div class="im-l-ext">months of onboarding and context-building</div><div class="im-l-int">knows the business on day one</div></div>
+        <div class="im-l-row"><div>replacement cost</div><div class="im-l-ext">up to 200% of salary for senior talent</div><div class="im-l-int">research puts internal moves at up to 67% cheaper</div></div>
+        <div class="im-l-row"><div>retention effect</div><div class="im-l-ext">the passed-over insider updates their resume</div><div class="im-l-int">a visible growth path is the reason people stay</div></div>
+        <div class="im-l-row"><div>evidence</div><div class="im-l-ext">interviews and references</div><div class="im-l-int">assessed skills, delivered goals, real work history in <span class="strata-text">strata</span></div></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== AGENTS ===== -->
-  <section class="perf-agents-section">
-    <div class="container">
-      <div class="section-eyebrow">your <span class="keep-case">AI</span> workforce for internal mobility</div>
-      <h2>meet the mobility <mark>agents</mark> that work for you</h2>
-    </div>
-
-    <div class="perf-mq-wrapper">
-      <div class="perf-mq-track">
-        <div class="perf-mq-card"><img src="../Images/agents/talentatlas.png" alt="TalentAtlas" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">TalentAtlas</div><div class="perf-mq-role">talent intelligence</div><div class="perf-mq-desc">maps capabilities and skill adjacencies across every role, surfacing mobility paths before vacancies appear</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/profilecraft.png" alt="ProfileCraft" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">ProfileCraft</div><div class="perf-mq-role">talent profiling</div><div class="perf-mq-desc">builds rich, structured talent profiles that connect skills, experience and growth potential, powering smarter mobility decisions</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/skillmatrix.png" alt="SkillMatrix" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">SkillMatrix</div><div class="perf-mq-role">proficiency intelligence</div><div class="perf-mq-desc">tracks verified skill depth and capability gaps across individuals and teams, keeping mobility data current and actionable</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/growthplanner.png" alt="GrowthPlanner" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">GrowthPlanner</div><div class="perf-mq-role">career intelligence</div><div class="perf-mq-desc">designs personalized development paths and learning interventions tied to real role requirements, turning gaps into time-bound plans</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/rolearchitect.png" alt="RoleArchitect" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">RoleArchitect</div><div class="perf-mq-role">role design</div><div class="perf-mq-desc">builds and evolves job architectures aligned to strategy and live market benchmarks, so career routes stay current as work changes</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/assescraft.png" alt="AssessCraft" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">AssessCraft</div><div class="perf-mq-role">assessment engine</div><div class="perf-mq-desc">delivers role-aligned assessments that evaluate skills, proficiency and readiness before a move is made</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/flowgen.png" alt="FlowGen" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">FlowGen</div><div class="perf-mq-role">org structure intelligence</div><div class="perf-mq-desc">models org design and role-flow scenarios, and configures talent programs for projects, rotations and internal openings</div></div>
-
-        <!-- duplicate set for seamless loop -->
-        <div class="perf-mq-card"><img src="../Images/agents/talentatlas.png" alt="TalentAtlas" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">TalentAtlas</div><div class="perf-mq-role">talent intelligence</div><div class="perf-mq-desc">maps capabilities and skill adjacencies across every role, surfacing mobility paths before vacancies appear</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/profilecraft.png" alt="ProfileCraft" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">ProfileCraft</div><div class="perf-mq-role">talent profiling</div><div class="perf-mq-desc">builds rich, structured talent profiles that connect skills, experience and growth potential, powering smarter mobility decisions</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/skillmatrix.png" alt="SkillMatrix" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">SkillMatrix</div><div class="perf-mq-role">proficiency intelligence</div><div class="perf-mq-desc">tracks verified skill depth and capability gaps across individuals and teams, keeping mobility data current and actionable</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/growthplanner.png" alt="GrowthPlanner" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">GrowthPlanner</div><div class="perf-mq-role">career intelligence</div><div class="perf-mq-desc">designs personalized development paths and learning interventions tied to real role requirements, turning gaps into time-bound plans</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/rolearchitect.png" alt="RoleArchitect" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">RoleArchitect</div><div class="perf-mq-role">role design</div><div class="perf-mq-desc">builds and evolves job architectures aligned to strategy and live market benchmarks, so career routes stay current as work changes</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/assescraft.png" alt="AssessCraft" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">AssessCraft</div><div class="perf-mq-role">assessment engine</div><div class="perf-mq-desc">delivers role-aligned assessments that evaluate skills, proficiency and readiness before a move is made</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/flowgen.png" alt="FlowGen" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">FlowGen</div><div class="perf-mq-role">org structure intelligence</div><div class="perf-mq-desc">models org design and role-flow scenarios, and configures talent programs for projects, rotations and internal openings</div></div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FEATURES ===== -->
-  <section class="features-section">
-    <div class="container">
-      <div class="text-center">
-        <p class="section-eyebrow">capabilities</p>
-        <h2 class="section-heading">everything internal mobility needs, all in one <mark>place</mark></h2>
-      </div>
-      <div class="features-panel features-grid active">
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
-          <h4>career paths that compute themselves</h4>
-          <p>Shows every employee the competency-based routes and roles they are already closest to, computed from skill adjacency on the <span class="strata-text">strata</span> graph rather than static ladders.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
-          <h4>opportunities that find people first</h4>
-          <p>Recommends internal jobs, projects and gigs matched on skills, certifications, training history and interests, for employees and managers alike.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-          <h4>a coach that answers 'am I on track?'</h4>
-          <p>Gives every employee a conversational career coach in the flow of work that pinpoints gaps, maps the fastest path to a target role, and surfaces learning at the moment of readiness.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h4>mentors that match on skills, not chance</h4>
-          <p>Matches mentors to mentees on skills and defined criteria, lets anyone volunteer as a spot or career mentor, and quantifies every mentorship journey with progress tracking.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-          <h4>development plans that close gaps, not list them</h4>
-          <p>Turns skill and performance gaps into structured, time-bound development plans that close gaps with learning, gigs and mentors, aligned to each person's role and trajectory.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg></div>
-          <h4>succession that runs on skills, not seniority</h4>
-          <p>Recommends successors from skills and aspirations, compares nominees against configured eligibility parameters, and keeps critical-role pipelines visible with 9-box grids and succession charts.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <h4>skills that get verified, not just declared</h4>
-          <p>Verifies proficiency through manager validation or proctored, role-aligned assessment, so every mobility decision runs on accurate and current data.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
-          <h4>reskilling that starts before roles run out</h4>
-          <p>Assesses potential across personality, attitude and cognition to recommend future roles for people whose roles are changing, then generates development plans to close the gap.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-          <h4>intelligence that spots under-leveraged talent</h4>
-          <p>Reports growth in skills, roles filled and demand by role type, surfaces talent hotspots and skill health indices, and benchmarks your workforce against the market to direct mobility investment.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ADVISORY ===== -->
+  <!-- ===== PROOF ===== -->
   <section style="background: var(--floral-white);">
     <div class="container">
-      <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">experts in the loop</p>
-        <h2 class="section-heading">advisory built <mark>in</mark>, not bolted on</h2>
-        <p class="section-subheading" style="margin:0 auto;">Software alone doesn't move careers. entomo delivers the framework advisory and the ongoing platform in one engagement: our experts build or transform career path architecture for every role across domains, benchmarked against competitors and industry, then stay through rollout so mobility becomes how your organization actually works.</p>
+      <div class="text-center" style="max-width:700px; margin:0 auto;">
+        <h2 class="section-heading">mobility you can read in the <mark>numbers</mark></h2>
       </div>
-      <div class="pillars-grid">
-        <div class="pillar-card">
-          <div class="pillar-name">career architecture in weeks</div>
-          <p class="pillar-desc">Start from a pre-built library of 4,000+ roles and 700+ skill domains, cutting the cost and effort of building or refreshing a competency framework by 80%.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-name">aligned to global standards</div>
-          <p class="pillar-desc">Taxonomies map to SkillsFuture, <span class="keep-case">ESCO</span>, <span class="keep-case">SFIA</span> and <span class="keep-case">SSF</span>, with <span class="keep-case">FAHR</span> alignment for <span class="keep-case">UAE</span> federal work, so public-sector and regulated rollouts start compliant.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-name">refreshed against the market</div>
-          <p class="pillar-desc">Success profiles are benchmarked against live market demand and refreshed on a cadence, quarterly in delivered engagements, so career routes never go stale.</p>
-        </div>
+      <div class="im-proof">
+        <div class="im-pr"><b>17%</b><span>rotation rate at sinar mas mining after the talent program went live</span></div>
+        <div class="im-pr"><b>15%</b><span>promotion rate in the same cycle, moves made on merit data</span></div>
+        <div class="im-pr"><b>30% faster</b><span>time-to-fill for critical positions at a seven-country e-commerce group, using nine-box talent mapping</span></div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== PROOF: NUMBERS ===== -->
-  <section style="background: var(--lavender);">
-    <div class="container">
-      <div class="text-center" style="max-width:680px; margin:0 auto 4rem;">
-        <p class="section-eyebrow">measured, not claimed</p>
-        <h2 class="section-heading">measured, not <mark>claimed</mark></h2>
-      </div>
-      <div class="persona-simple-grid">
-        <div class="persona-simple-card">
-          <div class="persona-simple-top green-top">
-            <span class="persona-simple-role">platform scale</span>
-            <span class="persona-simple-headline">30M+ users across 40+ countries</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">platform-level proof</span>
-            <span class="ptag">across industries</span>
-            <span class="ptag">enterprise scale</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top red-top">
-            <span class="persona-simple-role">validated value</span>
-            <span class="persona-simple-headline">$26.8M value, 103% <span class="keep-case">ROI</span> in 3 years</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">Forrester <span class="keep-case">TEI</span></span>
-            <span class="ptag">government entity</span>
-            <span class="ptag">platform-level proof</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top blue-top">
-            <span class="persona-simple-role">framework speed</span>
-            <span class="persona-simple-headline">80% less effort to build frameworks</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">4,000+ roles pre-built</span>
-            <span class="ptag">700+ skill domains</span>
-            <span class="ptag">weeks, not years</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top gold-top">
-            <span class="persona-simple-role">mobility in motion</span>
-            <span class="persona-simple-headline">17% rotation, 15% promotion rate</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">mining &amp; metals company</span>
-            <span class="ptag">Singapore</span>
-            <span class="ptag">performance transformation</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROOF: A FACE ===== -->
-  <section style="background: var(--pistachio);">
-    <div class="container">
-      <div class="text-center" style="max-width:900px; margin:0 auto;">
-        <p class="section-eyebrow">customer story</p>
-        <p class="story-quote">&ldquo;Employee career growth had depended solely on supervisor inputs. <span class="keep-case">AI</span> market intelligence defined success profiles for Cloud, Cybersecurity and Enterprise Architecture roles, refreshed quarterly, while every employee built a career profile and received personalized recommendations for skill gaps, career growth and learning pathways.&rdquo;</p>
-        <p class="story-attr">talent transformation engagement, IT services giant, Japan</p>
-      </div>
-      <div class="orchestration-chips" style="margin-top:2.5rem;">
-        <span class="orch-chip">95% adoption</span>
-        <span class="orch-chip">33% reduction in attrition</span>
-        <span class="orch-chip">skills framework for 40+ roles, 80% faster</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ENTERPRISE READINESS ===== -->
-  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
-    <div class="container">
-      <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">enterprise-ready</p>
-        <h2 class="section-heading">fits your stack. passes your audits.</h2>
-        <p class="section-subheading" style="margin:0 auto;">entomo runs alongside your existing <span class="keep-case">HCM</span>, <span class="keep-case">HRIS</span> and <span class="keep-case">LMS</span>, not instead of them. Skills stay verified through manager validation or proctored assessment, and every mobility and succession recommendation routes through approval parameters you configure. <a href="../about/security-at-entomo.html" style="color:var(--spanish-blue); font-weight:600;">read the security architecture &rarr;</a></p>
-      </div>
-      <div class="tech-chips-row">
-        <span class="tech-chip"><span class="keep-case">ISO</span> 27001 and <span class="keep-case">ISO</span> 27701 certified</span>
-        <span class="tech-chip"><span class="keep-case">GDPR</span> compliant</span>
-        <span class="tech-chip">integrates with your <span class="keep-case">HCM</span>, <span class="keep-case">HRIS</span> and <span class="keep-case">LMS</span></span>
-        <span class="tech-chip">deployed across 40+ countries</span>
-        <span class="tech-chip">aligned to SkillsFuture, <span class="keep-case">ESCO</span>, <span class="keep-case">SFIA</span> and <span class="keep-case">SSF</span></span>
-        <span class="tech-chip">agents recommend, humans approve</span>
-      </div>
+      <p style="text-align:center; font-size:13.5px; color:var(--ink-3); max-width:640px; margin:2.4rem auto 0;">both programs run on the same loop: profiles capture skills and aspirations, assessments verify them, and the marketplace routes people to the work that grows them.</p>
     </div>
   </section>
 
   <!-- ===== FAQ ===== -->
-  <section style="background: var(--polar-white);">
+  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
     <div class="container">
       <div class="text-center" style="max-width:720px; margin:0 auto;">
-        <p class="section-eyebrow">questions, answered</p>
-        <h2 class="section-heading">what enterprise teams ask us.</h2>
+        <h2 class="section-heading">the objections mobility programs <mark>meet</mark></h2>
       </div>
       <div class="integrations-grid">
         <div class="integration-card">
-          <div class="integration-card-title">how long does implementation take?</div>
-          <p class="faq-a">Career architecture ships in weeks, not consulting-led years. entomo starts from a pre-built framework of 4,000+ roles and 700+ skill domains, configures it to your organization, and cuts the cost and effort of building or refreshing a competency framework by 80%. Assessment libraries deploy in weeks as well. Full rollout depends on your scope and integrations, which we plan with you upfront.</p>
+          <div class="integration-card-title">won't managers hoard their best people?</div>
+          <p class="faq-a">Hoarding thrives in the dark. When opportunity owners can search skills directly and every match is visible on talent dashboards, holding someone back becomes a decision leadership can see, and coach. Rotation targets make internal movement a measured goal instead of a favor.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">does this replace our <span class="keep-case">HCM</span> or <span class="keep-case">HRIS</span>?</div>
-          <p class="faq-a">No. entomo is the intelligence layer for career movement, not a system of record. It integrates with your existing <span class="keep-case">HCM</span>, <span class="keep-case">HRIS</span> and <span class="keep-case">LMS</span>, draws on the data you already hold, and feeds recommendations back into the flow of work. Nothing gets ripped out or replaced.</p>
+          <div class="integration-card-title">how do matches avoid becoming a popularity contest?</div>
+          <p class="faq-a">Recommendations are computed from <span class="strata-text">strata</span>: assessed skills, certifications, work history, and declared aspirations, benchmarked against what the role actually requires. The shortlist arrives with evidence attached, and the hiring conversation starts from there.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">what do the agents automate, and what do humans approve?</div>
-          <p class="faq-a">Agents compute: skill adjacencies, career paths, gap analyses, development plans, successor and opportunity recommendations. People decide: managers validate skills, leaders approve succession slates against eligibility parameters you configure, and employees choose which paths to pursue. The platform recommends moves; it never makes them for you.</p>
+          <div class="integration-card-title">do employees see everything, including stretch roles?</div>
+          <p class="faq-a">Yes, with the gap made visible. If a role sits one skill away, the employee sees the gap and the learning path that closes it, so a stretch posting becomes a development plan rather than a rejection.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">how is our data used, and where does it live?</div>
-          <p class="faq-a">Your workforce data powers intelligence for your organization. entomo is <span class="keep-case">ISO</span> 27001 and <span class="keep-case">ISO</span> 27701 certified and <span class="keep-case">GDPR</span> compliant, with deployments across 40+ countries. Data residency and hosting arrangements are agreed per engagement to meet your regulatory requirements.</p>
-        </div>
-        <div class="integration-card">
-          <div class="integration-card-title">how are career paths actually computed?</div>
-          <p class="faq-a">From skill adjacency on entomo <span class="strata-text">strata</span>, the workforce intelligence graph. Every role decomposes into responsibilities, tasks, <span class="keep-case">KPIs</span> and skills, so the platform can measure the distance between any two roles and surface the ones each person is already closest to. Paths are computed from real work and benchmarked against live market intelligence, not drawn as static ladders.</p>
-        </div>
-        <div class="integration-card">
-          <div class="integration-card-title">do employees have to build their profiles from scratch?</div>
-          <p class="faq-a">No. ProfileCraft builds a career profile from an employee's CV or from scratch, capturing skills, certifications, experience and interests, then aligns declared skills to your role and skill ontology. Verification through managers or proctored assessment keeps profiles accurate as people grow.</p>
+          <div class="integration-card-title">where does succession fit in?</div>
+          <p class="faq-a">Mobility feeds it. Every gig delivered and skill assessed builds the evidence succession planning draws on, so pipelines fill from real movement instead of static nomination lists. <a href="succession-planning.html" style="color:var(--spanish-blue); font-weight:600;">see succession planning &rarr;</a></p>
         </div>
       </div>
     </div>
@@ -2330,13 +2146,12 @@
   <!-- ===== BOTTOM CTA ===== -->
   <section class="bottom-cta">
     <div class="container">
-      <h2>ready to fill your next role from <mark>within</mark>?</h2>
-      <p>Join the enterprises powering 30M+ users with agentic workforce intelligence. Forrester-validated: $26.8M in value, 103% <span class="keep-case">ROI</span> over 3 years.</p>
-      <a class="btn-primary" href="../request-demo.html">request a demo &rarr;</a>
+      <h2>make the inside offer <mark>first</mark>.</h2>
+      <p>the marketplace runs on the platform behind 30M+ users, with Forrester-validated economics at the platform level.</p>
+      <a class="btn-primary" href="../request-demo.html">see your talent marketplace &rarr;</a>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
   </main>
   <footer class="footer">
     <div class="container">

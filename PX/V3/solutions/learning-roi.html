@@ -1644,6 +1644,40 @@
       background: #f2faf4 !important;
     }
     a.btn-primary { display: inline-block; text-decoration: none; }
+
+    /* ===== learning-roi: page-specific ===== */
+    .lr-ledger { max-width:940px; margin:3.5rem auto 0; border-radius:20px; overflow:hidden;
+      border:1px solid rgba(26,31,38,0.09); box-shadow:0 16px 44px rgba(43,29,18,0.08); }
+    .lr-l-head { display:grid; grid-template-columns:1fr 1fr; background:var(--ink); }
+    .lr-l-head div { padding:1rem 1.6rem; font-size:12.5px; font-weight:800; letter-spacing:1.1px; text-transform:uppercase; color:rgba(255,255,255,0.9); }
+    .lr-l-head div:last-child { background:rgba(44,153,66,0.25); }
+    .lr-l-row { display:grid; grid-template-columns:1fr 1fr; }
+    .lr-l-row > div { padding:1.15rem 1.6rem; font-size:14.5px; line-height:1.55; background:var(--white); border-top:1px solid rgba(26,31,38,0.06); }
+    .lr-l-row .old { color:var(--ink-3); }
+    .lr-l-row .new { font-weight:600; color:var(--ink); border-left:1px solid rgba(26,31,38,0.07); background:linear-gradient(135deg, rgba(44,153,66,0.05), transparent), var(--white); }
+    .lr-l-row .new::before { content:'✓ '; color:var(--sea-green); font-weight:800; }
+    @media (max-width:760px){ .lr-l-head{display:none;} .lr-l-row{grid-template-columns:1fr;}
+      .lr-l-row .old::before{content:'reported today · '; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--ink-4); display:block;}
+      .lr-l-row .new{border-left:none;} }
+
+    .lr-loop { display:flex; align-items:stretch; justify-content:center; gap:0; flex-wrap:wrap; max-width:1080px; margin:3.4rem auto 0; }
+    .lr-lp { flex:1; min-width:170px; position:relative; padding:1.4rem 1.3rem 1.4rem 1.6rem; background:var(--white);
+      border:1px solid rgba(26,31,38,0.08); border-radius:16px; margin:0 0.55rem; }
+    .lr-lp small { display:block; font-size:10.5px; font-weight:800; letter-spacing:1.2px; text-transform:uppercase; color:var(--cg-red); margin-bottom:0.4rem; }
+    .lr-lp:nth-child(2) small{color:#8a5f0e;} .lr-lp:nth-child(3) small{color:var(--spanish-blue);}
+    .lr-lp:nth-child(4) small{color:#7c3aad;} .lr-lp:nth-child(5) small{color:#1d6c2d;}
+    .lr-lp p { margin:0; font-size:13.5px; line-height:1.5; color:var(--ink-2); }
+    .lr-lp::after { content:'→'; position:absolute; right:-15px; top:50%; transform:translateY(-50%); color:var(--ink-4); font-weight:800; z-index:2; }
+    .lr-lp:last-child::after { display:none; }
+    .lr-loopback { text-align:center; font-size:13px; color:var(--ink-4); margin-top:1.4rem; }
+    @media (max-width:1000px){ .lr-loop { flex-direction:column; gap:0.9rem; } .lr-lp{margin:0;} .lr-lp::after{content:'↓'; right:auto; left:50%; top:auto; bottom:-19px; transform:translateX(-50%);} }
+
+    .lr-outcomes { display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; max-width:1040px; margin:3.4rem auto 0; }
+    .lr-o { background:var(--white); border-radius:18px; padding:1.9rem 1.7rem; border:1px solid rgba(26,31,38,0.07); box-shadow:0 4px 16px rgba(43,29,18,0.05); }
+    .lr-o b { display:block; font-size:2.1rem; letter-spacing:-1.5px; color:var(--ink); line-height:1; margin-bottom:0.45rem; }
+    .lr-o span { font-size:14px; color:var(--ink-2); line-height:1.55; display:block; }
+    .lr-o em { display:block; font-style:normal; margin-top:0.8rem; font-size:12px; font-weight:800; letter-spacing:0.8px; text-transform:uppercase; color:var(--ink-4); }
+    @media (max-width:900px){ .lr-outcomes { grid-template-columns:1fr; } }
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -1950,7 +1984,7 @@
         </div>
         <h1>maximize the <mark>return</mark> on every learning dollar</h1>
         <p class="sol-hero-sub">
-          most learning spend chases the catalog, not the gap. agentic <span class="keep-case">AI</span> that targets learning at verified skill gaps and tracks the proficiency change it delivers.
+          learning spend focused on the skill gaps that block real goals, and measured the way finance measures: what was invested, what capability changed, what it moved.
         </p>
         <a class="btn-primary" href="../request-demo.html">get started &rarr;</a>
       </div>
@@ -1984,338 +2018,79 @@
     </div>
   </section>
 
-  <!-- ===== THE PROBLEM ===== -->
+  <!-- ===== APPROVED ON FAITH ===== -->
   <section style="background: var(--polar-white);">
     <div class="container">
       <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">the problem</p>
-        <h2 class="section-heading">learning spend grows. <mark>evidence</mark> doesn't.</h2>
-        <p class="section-subheading" style="margin:0 auto;">Learning budgets keep growing and catalogs keep expanding. The question that stays unanswered: did any of it change capability?</p>
+        <h2 class="section-heading">training budgets get approved on faith and renewed on <mark>hope</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;">completions and satisfaction scores are activity, not evidence. the ledger below is the difference between reporting learning and proving it.</p>
       </div>
-      <div class="pillars-grid">
-        <div class="pillar-card">
-          <div class="pillar-name">the catalog decides, not the gap</div>
-          <p class="pillar-desc">Course libraries keep expanding, but recommendations follow what content exists, not what each employee actually lacks. Spend spreads thin across generic learning instead of concentrating on the gaps that matter most.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-name">completion is not competence</div>
-          <p class="pillar-desc">Completion rates and hours logged say nothing about proficiency. Without verification against a role benchmark, L&amp;D reports activity while the business asks what actually changed.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-name">heavy investment, struggling uptake</div>
-          <p class="pillar-desc">When learning isn't personal to an employee's role, gaps, and aspirations, uptake stalls. Heavily funded learning assets sit unused while the investment made to build them quietly depreciates.</p>
-        </div>
+      <div class="lr-ledger">
+        <div class="lr-l-head"><div>what l&amp;d reports today</div><div>what you can prove instead</div></div>
+        <div class="lr-l-row"><div class="old">course completions: 4,812 this quarter</div><div class="new">proficiency lift, measured pre and post assessment, skill by skill</div></div>
+        <div class="lr-l-row"><div class="old">learning hours logged per employee</div><div class="new">time-to-competency: how much faster people reach the role bar</div></div>
+        <div class="lr-l-row"><div class="old">catalog licenses purchased</div><div class="new">spend concentrated on the gaps that block <span class="keep-case">KPIs</span>, per person</div></div>
+        <div class="lr-l-row"><div class="old">satisfaction: 4.2 out of 5</div><div class="new">development goals completed, and the business metrics they moved</div></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== THE SHIFT ===== -->
+  <!-- ===== THE LOOP ===== -->
   <section style="background: var(--white);">
     <div class="container">
-      <div class="text-center" style="max-width:720px; margin:0 auto;">
-        <h2 class="section-heading">from the catalog to the <mark>gap</mark></h2>
+      <div class="text-center" style="max-width:740px; margin:0 auto;">
+        <h2 class="section-heading">spend flows to the gap, and the gap is <mark>measured</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;">the loop that makes the ledger possible. every step already runs inside entomo; your <span class="keep-case">LMS</span> plugs in rather than gets replaced.</p>
       </div>
-      <div class="integrations-grid">
-        <div class="integration-card">
-          <div class="integration-card-title">learning today</div>
-          <div class="integration-pill-row">
-            <span class="integration-pill">recommendations pushed from the catalog</span>
-            <span class="integration-pill">completion tracked, competence assumed</span>
-            <span class="integration-pill">one generic path for every learner</span>
-            <span class="integration-pill">no line from spend to outcomes</span>
-          </div>
-        </div>
-        <div class="integration-card shift-good">
-          <div class="integration-card-title">learning with entomo</div>
-          <div class="integration-pill-row">
-            <span class="integration-pill">recommendations driven by assessed gaps</span>
-            <span class="integration-pill">proficiency change verified after learning</span>
-            <span class="integration-pill"><span class="keep-case">IDPs</span> personalized to role and aspiration</span>
-            <span class="integration-pill">every course linked to tasks and <span class="keep-case">KPIs</span></span>
-          </div>
-        </div>
+      <div class="lr-loop">
+        <div class="lr-lp"><small>1 &middot; gap</small><p>assessments baseline each person against the role's <span class="strata-text">strata</span> profile. the gap is specific and quantified.</p></div>
+        <div class="lr-lp"><small>2 &middot; plan</small><p><span class="keep-case">AI</span> builds the individual development plan from the gap and the person's aspiration, not from the catalog's bestsellers.</p></div>
+        <div class="lr-lp"><small>3 &middot; learn</small><p>curated recommendations flow from your <span class="keep-case">LMS</span>: micro-learning, courses, gigs, and mentors, in the flow of work.</p></div>
+        <div class="lr-lp"><small>4 &middot; re-assess</small><p>the same instrument that found the gap measures the change. proficiency delta, pre to post.</p></div>
+        <div class="lr-lp"><small>5 &middot; prove</small><p>talent hotspots update, goals unblock, and the program's effect lands in a report finance can audit.</p></div>
       </div>
+      <p class="lr-loopback">&#8635; the loop reruns each cycle, so the budget always chases the current gap, not last year's</p>
     </div>
   </section>
 
-  <!-- ===== HOW IT WORKS ===== -->
-  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
-    <div class="container">
-      <div class="text-center" style="max-width:800px; margin:0 auto;">
-        <p class="section-eyebrow">how it works</p>
-        <h2 class="section-heading">one loop: map, gap, develop, <mark>verify</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;">an end-to-end cycle that keeps skills intelligence accurate, current, and directly actionable, and keeps every learning dollar pointed at a verified gap.</p>
-      </div>
-      <div class="arch-diagram">
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-data-sources">map</div>
-          <div class="arch-col-desc">TalentAtlas benchmarks every role against industry frameworks; SkillMatrix maps each employee's skills against role-specific proficiency benchmarks.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">Skills align against your organization's own skill and role ontology, with market benchmarks spanning 700+ skill domains and 4,000+ roles in the framework.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-foundation">gap</div>
-          <div class="arch-col-desc">The engine auto-identifies proficiency gaps for current and aspired roles, prioritized by the tasks and <span class="keep-case">KPIs</span> each gap is holding back.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">Because entomo <span class="strata-text">strata</span> links roles to responsibilities, tasks, <span class="keep-case">KPIs</span>, and skills in one graph, a gap is never abstract: you see which capability gaps are costing you which outcomes.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-intelligence">develop</div>
-          <div class="arch-col-desc">GrowthPlanner generates time-bound individual development plans and closes gaps through three pathways: targeted learning, mentorship, and gigs.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip">Recommendations flow into your existing <span class="keep-case">LMS</span>/<span class="keep-case">LXP</span> as personalized learning journeys, with on-demand micro-learning matched to each employee's verified gaps, role, and career aspirations.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-agents">verify</div>
-          <div class="arch-col-desc">AssessCraft confirms the gap actually closed, through manager validation or a structured, proctored re-assessment.</div>
-          <div class="arch-col-arrow">→</div>
-          <div class="arch-tooltip"><span class="keep-case">AI</span> generates role-aligned questions with configurable difficulty, regenerated dynamically, with real-time monitoring and automated integrity checks; a pre-built library covers thousands of roles, deployable in weeks.</div>
-        </div>
-        <div class="arch-col">
-          <div class="arch-col-header arch-color-outcomes">measure</div>
-          <div class="arch-col-desc">Configurable intelligence tracks recommendation uptake, completions, and the resulting movement in proficiency scores across individuals and teams.</div>
-          <div class="arch-tooltip" style="left:auto; right:0; transform:none;">Effectiveness views are configurable to your rollout: development progress against <span class="keep-case">IDPs</span>, learning completions, and competency improvement over time, at individual, team, or organization level.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== AGENTS ===== -->
-  <section class="perf-agents-section">
-    <div class="container">
-      <div class="section-eyebrow">your <span class="keep-case">AI</span> workforce for learning</div>
-      <h2>meet the development <mark>agents</mark> that work for you</h2>
-    </div>
-
-    <div class="perf-mq-wrapper">
-      <div class="perf-mq-track">
-        <div class="perf-mq-card"><img src="../Images/agents/talentatlas.png" alt="TalentAtlas" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">TalentAtlas</div><div class="perf-mq-role">role intelligence</div><div class="perf-mq-desc">benchmarks role architectures and competency frameworks against the market, defining the target every skill gap is measured against</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/skillmatrix.png" alt="SkillMatrix" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">SkillMatrix</div><div class="perf-mq-role">proficiency intelligence</div><div class="perf-mq-desc">tracks verified skill depth from self-assessment to demonstrated capability and surfaces the proficiency gaps learning must close</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/growthplanner.png" alt="GrowthPlanner" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">GrowthPlanner</div><div class="perf-mq-role">development engine</div><div class="perf-mq-desc">translates performance insights into personalized development paths and learning interventions tied to real role requirements</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/assescraft.png" alt="AssessCraft" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">AssessCraft</div><div class="perf-mq-role">assessment engine</div><div class="perf-mq-desc">designs structured, role-aligned assessments that evaluate skills, proficiency, and job readiness, verifying every gap the loop closes</div></div>
-
-        <!-- duplicate set for seamless loop -->
-        <div class="perf-mq-card"><img src="../Images/agents/talentatlas.png" alt="TalentAtlas" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">TalentAtlas</div><div class="perf-mq-role">role intelligence</div><div class="perf-mq-desc">benchmarks role architectures and competency frameworks against the market, defining the target every skill gap is measured against</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/skillmatrix.png" alt="SkillMatrix" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">SkillMatrix</div><div class="perf-mq-role">proficiency intelligence</div><div class="perf-mq-desc">tracks verified skill depth from self-assessment to demonstrated capability and surfaces the proficiency gaps learning must close</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/growthplanner.png" alt="GrowthPlanner" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">GrowthPlanner</div><div class="perf-mq-role">development engine</div><div class="perf-mq-desc">translates performance insights into personalized development paths and learning interventions tied to real role requirements</div></div>
-        <div class="perf-mq-card"><img src="../Images/agents/assescraft.png" alt="AssessCraft" width="160" height="160" decoding="async" loading="lazy" decoding="async"><div class="perf-mq-name">AssessCraft</div><div class="perf-mq-role">assessment engine</div><div class="perf-mq-desc">designs structured, role-aligned assessments that evaluate skills, proficiency, and job readiness, verifying every gap the loop closes</div></div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FEATURES ===== -->
-  <section class="features-section">
-    <div class="container">
-      <div class="text-center">
-        <p class="section-eyebrow">capabilities</p>
-        <h2 class="section-heading">everything you need to make learning spend <mark>count</mark></h2>
-      </div>
-      <div class="features-panel features-grid active">
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-          <h4>recommendations that follow the gap</h4>
-          <p>Personalizes learning recommendations to each employee's aspirations and assessed skill gaps, so spend concentrates on what matters most instead of spreading across the catalog.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
-          <h4>development plans that write themselves</h4>
-          <p>Generates structured, time-bound individual development plans from prioritized gaps, aligned to role and career trajectory, then closes them with learning, gigs, mentors, and more.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="5" r="2.6"/><circle cx="5" cy="19" r="2.6"/><circle cx="19" cy="19" r="2.6"/><line x1="10.8" y1="7.3" x2="6.2" y2="16.7"/><line x1="13.2" y1="7.3" x2="17.8" y2="16.7"/><line x1="7.6" y1="19" x2="16.4" y2="19"/></svg></div>
-          <h4>journeys that run in your <span class="keep-case">LMS</span></h4>
-          <p>Integrates seamlessly with your existing <span class="keep-case">LMS</span>/<span class="keep-case">LXP</span> so curated, gap-based recommendations flow automatically into personalized learning journeys, no rip-and-replace required.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <h4>assessments that verify the change</h4>
-          <p>Confirms proficiency actually moved, through manager validation or proctored re-assessment with <span class="keep-case">AI</span>-generated, role-aligned questions and automated integrity checks.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-          <h4>intelligence that shows what changed</h4>
-          <p>Tracks recommendation uptake, completion rates, and the resulting impact on skills proficiency scores, configurable at individual, team, and organization level.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <h4>micro-learning that meets the moment</h4>
-          <p>Recommends personalized, on-demand micro-learning in short pieces of content, matched to the skills performance actually requires, delivered in the flow-of-work.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-          <h4>authoring that lives in the platform</h4>
-          <p>Manages <span class="keep-case">SCORM</span> packages and creates interactive <span class="keep-case">H5P</span> content directly in the platform, no third-party authoring needed, with badges and recognition earned on completion.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <h4>compliance that reports itself</h4>
-          <p>Reports whether employees have completed courses mandated under compliance and industry standards, so onboarding and mandatory training never slip through.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg></div>
-          <h4>learning that links to outcomes</h4>
-          <p>Connects every course to the Role, Responsibility, Task, <span class="keep-case">KPI</span>, Skill graph in entomo <span class="strata-text">strata</span>, so learning targets verified gaps and links to the tasks and outcomes it unlocks.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ADVISORY ===== -->
+  <!-- ===== WHAT IT RETURNED ===== -->
   <section style="background: var(--floral-white);">
     <div class="container">
-      <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">experts in the loop</p>
-        <h2 class="section-heading">software plus an <span class="keep-case">L&amp;D</span> <mark>strategy</mark> service</h2>
-        <p class="section-subheading" style="margin:0 auto;">Software alone doesn't fix a learning strategy. entomo's L&D strategy service pairs the platform with experts who map learning pathways to your competency gaps with <span class="keep-case">AI</span>, integrate your <span class="keep-case">LMS</span>/<span class="keep-case">LXP</span> for automated recommendations based on assessed gaps, and stand up the framework and assessment foundations the whole loop depends on.</p>
+      <div class="text-center" style="max-width:720px; margin:0 auto;">
+        <h2 class="section-heading">what focused learning spend <mark>returned</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;">measured results from programs run on this loop.</p>
       </div>
-      <div class="pillars-grid">
-        <div class="pillar-card">
-          <div class="pillar-name">pathway design</div>
-          <p class="pillar-desc"><span class="keep-case">AI</span>-mapping of learning pathways to competency gaps, so every journey starts from your role architecture and the gaps it exposes.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-name">platform integration</div>
-          <p class="pillar-desc">Integration with your <span class="keep-case">LMS</span>/<span class="keep-case">LXP</span> platforms for automated learning recommendations based on assessed gaps, working with the stack you already run.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-name">framework foundations</div>
-          <p class="pillar-desc">Competency frameworks built or refreshed at 80% less cost and effort, with a pre-built assessment library covering thousands of roles, deployable in weeks.</p>
-        </div>
+      <div class="lr-outcomes">
+        <div class="lr-o"><b>&minus;7%</b><span>training cost per participant at sinar mas, while participation rose 16%</span><em>sinar mas group, indonesia</em></div>
+        <div class="lr-o"><b>10%</b><span>of new business traced to the organization's development programs</span><em>sinar mas group, indonesia</em></div>
+        <div class="lr-o"><b>+15%</b><span>completion of professional development goals after personalized plans replaced generic tracks</span><em>seven-country e-commerce group</em></div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== PROOF: NUMBERS ===== -->
-  <section style="background: var(--lavender);">
-    <div class="container">
-      <div class="text-center" style="max-width:680px; margin:0 auto 4rem;">
-        <p class="section-eyebrow">measured, not claimed</p>
-        <h2 class="section-heading">proof, at <mark>platform</mark> scale</h2>
-      </div>
-      <div class="persona-simple-grid">
-        <div class="persona-simple-card">
-          <div class="persona-simple-top green-top">
-            <span class="persona-simple-role">platform validation</span>
-            <span class="persona-simple-headline">103% <span class="keep-case">ROI</span>, Forrester-validated</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">$26.8M in total benefits</span>
-            <span class="ptag">3-year <span class="keep-case">TEI</span> study</span>
-            <span class="ptag">platform-wide result</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top red-top">
-            <span class="persona-simple-role">scale</span>
-            <span class="persona-simple-headline">30M+ users on the platform</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">40+ countries served</span>
-            <span class="ptag">enterprises across industries</span>
-            <span class="ptag">one connected platform</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top blue-top">
-            <span class="persona-simple-role">framework depth</span>
-            <span class="persona-simple-headline">4,000+ roles, 700+ skill domains</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">market-benchmarked frameworks</span>
-            <span class="ptag">pre-built assessment library</span>
-            <span class="ptag">deployable in weeks</span>
-          </div>
-        </div>
-        <div class="persona-simple-card">
-          <div class="persona-simple-top gold-top">
-            <span class="persona-simple-role">recognition</span>
-            <span class="persona-simple-headline">best competencies &amp; skill development</span>
-          </div>
-          <div class="persona-tags">
-            <span class="ptag">Brandon Hall, 2024 &amp; 2025</span>
-            <span class="ptag">gen-<span class="keep-case">AI</span> for business impact award</span>
-            <span class="ptag">best talent intelligence, 2023</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROOF: A FACE ===== -->
-  <section style="background: var(--pistachio);">
-    <div class="container">
-      <div class="text-center" style="max-width:900px; margin:0 auto;">
-        <p class="section-eyebrow">customer story</p>
-        <p class="story-quote">&ldquo;They set out to maximize their return on investment in learning resources. With market-benchmarked success profiles for cloud, cybersecurity, and enterprise architecture roles, baseline assessments, and personalized learning-pathway recommendations, they cut the time to establish a structured skills framework for 40+ roles by 80%, with enhanced learning pathways promoting continuous growth and upskilling.&rdquo;</p>
-        <p class="story-attr">talent transformation engagement, leading Japanese IT services company</p>
-      </div>
-      <div class="orchestration-chips" style="margin-top:2.5rem;">
-        <span class="orch-chip">80% faster to a structured skills framework</span>
-        <span class="orch-chip">95% adoption rate</span>
-        <span class="orch-chip">33% reduction in attrition</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ENTERPRISE READINESS ===== -->
-  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
-    <div class="container">
-      <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">enterprise-ready</p>
-        <h2 class="section-heading">fits your stack. passes your audits.</h2>
-        <p class="section-subheading" style="margin:0 auto;">entomo runs alongside the <span class="keep-case">HR</span> stack you already have. Learning recommendations flow through your existing <span class="keep-case">LMS</span>/<span class="keep-case">LXP</span>, assessments run under governed privacy, consent, and access controls, and your data is protected under <span class="keep-case">ISO</span> 27001, <span class="keep-case">ISO</span> 27701, and <span class="keep-case">GDPR</span>. <a href="../about/security-at-entomo.html" style="color:var(--spanish-blue); font-weight:600;">read the security architecture &rarr;</a></p>
-      </div>
-      <div class="tech-chips-row">
-        <span class="tech-chip">integrates with your existing <span class="keep-case">LMS</span>/<span class="keep-case">LXP</span></span>
-        <span class="tech-chip">works alongside your <span class="keep-case">HCM</span>, no rip-and-replace</span>
-        <span class="tech-chip"><span class="keep-case">ISO</span> 27001 &amp; <span class="keep-case">ISO</span> 27701 certified</span>
-        <span class="tech-chip"><span class="keep-case">GDPR</span> compliant</span>
-        <span class="tech-chip">assessment governance: privacy, consent, access</span>
-        <span class="tech-chip"><span class="keep-case">SCORM</span> &amp; <span class="keep-case">H5P</span> content standards</span>
-      </div>
+      <p style="text-align:center; font-size:14px; color:var(--ink-3); max-width:660px; margin:2.6rem auto 0;">a japanese <span class="keep-case">IT</span> major came to entomo with exactly this brief: maximize the return on learning investment. the answer was personalized recommendations against measured gaps, refreshed quarterly with the market.</p>
     </div>
   </section>
 
   <!-- ===== FAQ ===== -->
-  <section style="background: var(--polar-white);">
+  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
     <div class="container">
       <div class="text-center" style="max-width:720px; margin:0 auto;">
-        <p class="section-eyebrow">questions, answered</p>
-        <h2 class="section-heading">what enterprise teams ask us.</h2>
+        <h2 class="section-heading">what the <span class="keep-case">CFO</span> will ask <mark>you</mark></h2>
       </div>
       <div class="integrations-grid">
         <div class="integration-card">
-          <div class="integration-card-title">how long does implementation take?</div>
-          <p class="faq-a">Faster than a traditional learning transformation. The pre-built assessment library covers thousands of roles and skill domains out of the box and can be deployed within weeks, and competency frameworks are built or refreshed at roughly 80% less cost and effort than manual approaches. Exact timelines depend on your role architecture, integrations, and rollout scope, sized together during scoping.</p>
+          <div class="integration-card-title">do we have to replace our <span class="keep-case">LMS</span>?</div>
+          <p class="faq-a">No. entomo integrates with the <span class="keep-case">LMS</span> you run and adds the intelligence around it: who needs what, why, and whether it worked. Your content investment stays; it finally gets targeted.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">does entomo replace our <span class="keep-case">HCM</span> or <span class="keep-case">LMS</span>?</div>
-          <p class="faq-a">No. entomo works alongside your existing stack. It integrates with your <span class="keep-case">LMS</span>/<span class="keep-case">LXP</span> so curated recommendations flow into the learning platforms your people already use, and it complements your <span class="keep-case">HCM</span> rather than replacing it. The intelligence layer, gap analysis, <span class="keep-case">IDP</span> generation, and verification sit on top of the systems you have.</p>
+          <div class="integration-card-title">what's the unit of measurement?</div>
+          <p class="faq-a">Proficiency, per skill, per person. Assessments baseline before and re-measure after, so the program reports capability change rather than attendance. Aggregated, that becomes team readiness and time-to-competency, the numbers planning and finance can use.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">what do the agents automate, and what do humans approve?</div>
-          <p class="faq-a">Agents handle the heavy analysis: mapping skills against role benchmarks, identifying proficiency gaps, generating development plans, and recommending learning. People stay in the loop where judgment matters: managers validate skills or trigger a proctored re-assessment before a gap is marked closed, and <span class="keep-case">HR</span> approves frameworks and program designs before rollout.</p>
+          <div class="integration-card-title">how does this cut cost rather than add a platform fee?</div>
+          <p class="faq-a">By ending scattergun spend. When learning routes only to measured gaps that block goals, blanket licenses and repeat trainings fall away; sinar mas cut cost per participant 7% while participation grew. Focus is the saving.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">how is our data used and protected?</div>
-          <p class="faq-a">Your workforce data stays yours. entomo is <span class="keep-case">ISO</span> 27001 and <span class="keep-case">ISO</span> 27701 certified and <span class="keep-case">GDPR</span> compliant, with assessment governance covering privacy, consent, and access control. Intelligence is built from your organization's own skills, assessment, and learning signals, and residency and deployment specifics are addressed during security review.</p>
-        </div>
-        <div class="integration-card">
-          <div class="integration-card-title">how do you actually measure learning <span class="keep-case">ROI</span>?</div>
-          <p class="faq-a">By closing the loop instead of counting completions. Every recommendation starts from an assessment-verified gap, and every gap ends with verification, manager validation or a proctored re-assessment, so you can evidence proficiency change against your competency framework. Configurable intelligence tracks recommendation uptake, completions, and movement in proficiency scores, linking spend to capability outcomes.</p>
-        </div>
-        <div class="integration-card">
-          <div class="integration-card-title">do you provide the learning content?</div>
-          <p class="faq-a">entomo curates and targets learning rather than selling a content library. It integrates with your <span class="keep-case">LMS</span>/<span class="keep-case">LXP</span> and existing content investments, supports <span class="keep-case">SCORM</span> packages and in-platform <span class="keep-case">H5P</span> authoring for content you create, and recommends the right asset for each verified gap, so the content you already own finally earns its uptake.</p>
+          <div class="integration-card-title">can employees drive their own development?</div>
+          <p class="faq-a">That's the design. People see their own gaps, choose aspirations, and get recommendations: courses, micro-learning, gigs, mentors. Ownership is what turns a training assignment into a growth path people finish.</p>
         </div>
       </div>
     </div>
@@ -2324,13 +2099,12 @@
   <!-- ===== BOTTOM CTA ===== -->
   <section class="bottom-cta">
     <div class="container">
-      <h2>ready to see what your learning spend <mark>returns</mark>?</h2>
-      <p>Join the enterprises powering 30M+ users with agentic workforce intelligence. Forrester-validated platform: $26.8M in value, 103% <span class="keep-case">ROI</span> over 3 years.</p>
-      <a class="btn-primary" href="../request-demo.html">request a demo &rarr;</a>
+      <h2>make the learning budget <mark>auditable</mark>.</h2>
+      <p>learning intelligence on the platform behind 30M+ users, Forrester-validated at the platform level.</p>
+      <a class="btn-primary" href="../request-demo.html">see the loop on your data &rarr;</a>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
   </main>
   <footer class="footer">
     <div class="container">
