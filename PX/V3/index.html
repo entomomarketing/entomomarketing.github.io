@@ -347,30 +347,49 @@
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.5; transform: scale(1.4); }
     }
-    a.hero-badge--axon {
+    .hero-axon-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      text-align: left;
+      gap: 1.5rem;
+      max-width: 880px;
+      margin: 2.6rem auto 0;
+      padding: 1.15rem 1.7rem;
+      border-radius: 20px;
+      border: 1.5px solid transparent;
+      background:
+        linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.86)) padding-box,
+        var(--axon-gradient) border-box;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 12px 34px rgba(43,29,18,0.09);
       text-decoration: none;
-      cursor: pointer;
-      background: rgba(255,255,255,0.72);
-      border: 1px solid rgba(26,31,38,0.10);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 2px 12px rgba(43,29,18,0.06);
-      padding: 5px 14px 5px 6px;
-      gap: 9px;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      color: inherit;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .hero-badge--axon .hb-new {
-      font-size: 10px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase;
-      color: #fff; background: linear-gradient(135deg, var(--cg-gold), var(--cg-red));
-      padding: 3px 9px; border-radius: 999px;
+    .hero-axon-card:hover { transform: translateY(-2px); box-shadow: 0 18px 44px rgba(43,29,18,0.13); }
+    .hac-new {
+      position: absolute;
+      top: -11px; left: 24px;
+      font-size: 10px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(135deg, var(--cg-gold), var(--cg-red));
+      padding: 3px 10px; border-radius: 999px;
+      box-shadow: 0 3px 10px rgba(228,61,48,0.28);
     }
-    .hero-badge--axon .axon-text { font-weight: 800; }
-    .hero-badge--axon .hb-arr { color: var(--cg-red); font-weight: 800; transition: transform 0.25s ease; }
-    .hero-badge--axon:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(43,29,18,0.12); }
-    .hero-badge--axon:hover .hb-arr { transform: translateX(3px); }
-    @media (max-width: 480px) {
-      .hero-badge--axon { max-width: 92%; }
-      .hero-badge--axon .hb-text { white-space: normal; }
+    .hac-lockup { flex: 0 0 auto; }
+    .hac-lockup img { display: block; height: 54px; width: auto; }
+    .hac-divider { flex: 0 0 auto; width: 1px; align-self: stretch; background: rgba(26,31,38,0.10); }
+    .hac-copy { flex: 1 1 auto; font-size: 15px; line-height: 1.5; color: var(--ink-2, #4a5058); }
+    .hac-cta { flex: 0 0 auto; font-size: 15px; font-weight: 800; color: var(--cg-red); white-space: nowrap; }
+    .hac-arr { display: inline-block; transition: transform 0.25s ease; }
+    .hero-axon-card:hover .hac-arr { transform: translateX(4px); }
+    @media (max-width: 760px) {
+      .hero-axon-card { flex-direction: column; text-align: center; gap: 0.9rem; padding: 1.6rem 1.3rem 1.35rem; margin-top: 2.1rem; }
+      .hac-divider { display: none; }
+      .hac-lockup img { height: 44px; }
+      .hac-new { left: 50%; transform: translateX(-50%); }
     }
     .hero h1 {
       font-size: clamp(36px, 5vw, 68px);
@@ -2450,11 +2469,10 @@
     <canvas class="hero-flow" data-hero-flow aria-hidden="true"></canvas>
     <div class="container">
       <div class="hero-content">
-        <a class="hero-badge hero-badge--axon" href="AI-lab/entomo-axon.html">
-          <span class="hb-new">new</span>
-          <span class="hb-text">meet <span class="axon-text">axon</span>: the intelligence behind entomo</span>
-          <span class="hb-arr" aria-hidden="true">&rarr;</span>
-        </a>
+        <div class="hero-badge">
+          <span class="dot"></span>
+          powering enterprise transformation
+        </div>
         <h1>
           <span>agentic intelligence</span>
           <span>in the <mark>flow-of-work</mark></span>
@@ -2465,6 +2483,13 @@
         <div class="hero-ctas">
           <button class="btn-primary">see it in action →</button>
         </div>
+        <a class="hero-axon-card anim" href="AI-lab/entomo-axon.html">
+          <span class="hac-new">new</span>
+          <picture class="hac-lockup"><source srcset="Images/logos/entomo-axon.webp" type="image/webp"><img src="Images/logos/entomo-axon.png" alt="entomo axon" width="1200" height="389" loading="eager" decoding="async"></picture>
+          <span class="hac-divider" aria-hidden="true"></span>
+          <span class="hac-copy">the intelligence behind entomo: every role's knowledge, skills, abilities, and tasks, connected into one living model</span>
+          <span class="hac-cta">meet axon <span class="hac-arr" aria-hidden="true">&rarr;</span></span>
+        </a>
       </div>
     </div>
   </section>
