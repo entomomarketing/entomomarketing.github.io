@@ -1822,6 +1822,70 @@
     .eai-cta-links { margin-top:1.6rem; display:flex; gap:2rem; justify-content:center; }
     .eai-cta-links a { color:rgba(255,255,255,0.85); font-weight:700; font-size:14.5px; text-decoration:none; }
     .eai-cta-links a:hover { color:#fff; text-decoration:underline; }
+
+    /* ===== entomo.ai: hub diagram ===== */
+    .eaid { position:relative; max-width:1000px; margin:3rem auto 0; aspect-ratio: 1100/520; }
+    .eaid-lines { position:absolute; inset:0; width:100%; height:100%; }
+    .eaid-lines line { stroke-width:1.6; stroke-dasharray:5 7; animation: eaid-flow 2.6s linear infinite; }
+    .eaid-lines .l1 { stroke: rgba(228,61,48,.38); }
+    .eaid-lines .l2 { stroke: rgba(244,178,35,.5);  animation-delay: 0.4s; }
+    .eaid-lines .l3 { stroke: rgba(0,100,191,.38);  animation-delay: 0.8s; }
+    .eaid-lines .l4 { stroke: rgba(44,153,66,.38);  animation-delay: 1.2s; }
+    .eaid-lines .l5 { stroke: rgba(44,155,187,.42); animation-delay: 1.6s; }
+    .eaid-lines .l6 { stroke: rgba(186,123,174,.45); animation-delay: 2.0s; }
+    @keyframes eaid-flow { to { stroke-dashoffset: -24; } }
+    @media (prefers-reduced-motion: reduce) { .eaid-lines line { animation: none; } }
+    .eaid-core {
+      position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); z-index:2;
+      width:112px; height:112px; border-radius:50%;
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.1em;
+      border:2px solid transparent;
+      background: linear-gradient(var(--white), var(--white)) padding-box, var(--axon-gradient) border-box;
+      box-shadow: 0 10px 32px rgba(43,29,18,.14);
+    }
+    .eaid-core .axon-text { font-size:24px; font-weight:800; letter-spacing:-0.5px; }
+    .eaid-core small { font-size:9px; font-weight:800; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-4); }
+    .eaid-pod {
+      position:absolute; transform:translate(-50%,-50%); z-index:1;
+      display:flex; align-items:center; gap:0.5em;
+      background:var(--white); border:1px solid rgba(26,31,38,0.09); border-radius:999px;
+      padding:0.55em 1em; box-shadow:0 6px 18px rgba(43,29,18,.08); white-space:nowrap;
+    }
+    .eaid-pod i { width:9px; height:9px; border-radius:50%; flex:0 0 auto; }
+    .eaid-pod b { font-size:14px; color:var(--ink); }
+    .eaid-pod span { font-size:11.5px; color:var(--ink-4); font-weight:700; }
+    .eaid-chip {
+      position:absolute; transform:translate(-50%,-50%);
+      font-size:11px; color:var(--ink-4); background:rgba(255,255,255,0.8);
+      border:1px dashed rgba(26,31,38,0.16); border-radius:999px; padding:0.25em 0.7em; white-space:nowrap;
+    }
+    @media (max-width: 760px) {
+      .eaid { aspect-ratio:auto; display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; padding-top:130px; }
+      .eaid-lines, .eaid-chip { display:none; }
+      .eaid-core { top:0; transform:translate(-50%,0); width:104px; height:104px; }
+      .eaid-pod { position:static; transform:none; justify-content:center; white-space:normal; text-align:center; flex-direction:column; gap:0.25em; border-radius:14px; padding:0.8em 0.6em; }
+    }
+
+    /* ===== entomo.ai: chat demo ===== */
+    .ecd { max-width:620px; margin:3rem auto 0; background:var(--white); border-radius:20px;
+      border:1px solid rgba(26,31,38,0.08); box-shadow:0 18px 48px rgba(43,29,18,.12); overflow:hidden; }
+    .ecd-bar { display:flex; align-items:center; gap:0.8rem; padding:0.9rem 1.2rem;
+      border-bottom:1px solid rgba(26,31,38,0.07); background:linear-gradient(180deg,#fff,#fbfaf8); }
+    .ecd-avatar img { width:34px; height:34px; border-radius:10px; display:block; }
+    .ecd-id b { display:block; font-size:14.5px; color:var(--ink); }
+    .ecd-id span { display:flex; align-items:center; gap:0.4em; font-size:11.5px; color:var(--ink-4); }
+    .ecd-id i { width:7px; height:7px; border-radius:50%; background:#1d6c2d; }
+    .ecd-stream { height:400px; padding:1.2rem 1.2rem 1rem; overflow:hidden; display:flex; flex-direction:column; gap:0.7rem; }
+    .ecd-msg { max-width:82%; padding:0.65rem 0.95rem; border-radius:16px; font-size:13.5px; line-height:1.55; opacity:0; transform:translateY(8px); transition:opacity .35s ease, transform .35s ease; }
+    .ecd-msg.on { opacity:1; transform:none; }
+    .ecd-msg.u { align-self:flex-end; background:linear-gradient(135deg, var(--cg-gold), #e0721c); color:#fff; border-bottom-right-radius:6px; font-weight:600; }
+    .ecd-msg.a { align-self:flex-start; background:#f5f6f7; color:var(--ink); border-bottom-left-radius:6px; }
+    .ecd-msg.a .src { display:block; margin-top:0.45rem; font-size:11px; color:var(--ink-4); }
+    .ecd-dots { align-self:flex-start; display:inline-flex; gap:5px; padding:0.7rem 0.95rem; background:#f5f6f7; border-radius:16px; border-bottom-left-radius:6px; opacity:0; transition:opacity .3s ease; }
+    .ecd-dots.on { opacity:1; }
+    .ecd-dots b { width:7px; height:7px; border-radius:50%; background:rgba(26,31,38,.35); animation: ecd-b 1.1s ease-in-out infinite; }
+    .ecd-dots b:nth-child(2){ animation-delay:.18s; } .ecd-dots b:nth-child(3){ animation-delay:.36s; }
+    @keyframes ecd-b { 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-4px);} }
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -2133,7 +2197,7 @@
         <div class="hero-wordmark">
           <picture class="brand-lockup brand-lockup--hero brand-lockup--ai"><source srcset="../Images/logos/entomo-ai.webp" type="image/webp"><img src="../Images/logos/entomo-ai.png" alt="entomo.ai" width="1200" height="257" fetchpriority="high" decoding="async"></picture>
         </div>
-        <h1 class="hero-tagline">the <span class="keep-case">AI</span> already at <mark>work</mark> across entomo</h1>
+        <h1 class="hero-tagline">the <span class="keep-case">AI</span> already in your <mark>flow-of-work</mark></h1>
         <p class="hero-subline">entomo.ai is the intelligence layer of the platform: twenty-eight <span class="keep-case">AI</span> capabilities across six pillars of the employee journey, every one drawing from <span class="axon-text">axon</span>, entomo's living model of work.</p>
         <div class="hero-ctas">
           <a href="../request-demo.html" class="btn-primary">see it working &rarr;</a>
@@ -2196,11 +2260,32 @@
         <h2 class="section-heading">twenty-eight capabilities drawing from one <mark>core</mark></h2>
         <p class="section-subheading" style="margin:0 auto;">every capability grounds in the same living model of work, so recruitment, performance, and growth all mean the same thing by "ready", "gap", and "performing".</p>
       </div>
-      <div class="eai-stats">
-        <div class="eai-stat s1"><b>28</b><span><span class="keep-case">AI</span> capabilities, live in the platform</span></div>
-        <div class="eai-stat s2"><b>6</b><span>pillars of the employee journey</span></div>
-        <div class="eai-stat s3"><b>1</b><span>intelligence core: <span class="axon-text">axon</span></span></div>
+      <div class="eaid" aria-label="six pillars of AI capability radiating from one axon core">
+        <svg class="eaid-lines" viewBox="0 0 1100 520" preserveAspectRatio="none" aria-hidden="true">
+          <line x1="550" y1="260" x2="198" y2="114" class="l1" vector-effect="non-scaling-stroke"/>
+          <line x1="550" y1="260" x2="550" y2="52"  class="l2" vector-effect="non-scaling-stroke"/>
+          <line x1="550" y1="260" x2="902" y2="114" class="l3" vector-effect="non-scaling-stroke"/>
+          <line x1="550" y1="260" x2="902" y2="406" class="l4" vector-effect="non-scaling-stroke"/>
+          <line x1="550" y1="260" x2="550" y2="468" class="l5" vector-effect="non-scaling-stroke"/>
+          <line x1="550" y1="260" x2="198" y2="406" class="l6" vector-effect="non-scaling-stroke"/>
+        </svg>
+        <div class="eaid-core"><span class="axon-text">axon</span><small>one core</small></div>
+        <div class="eaid-pod p1" style="left:18%; top:22%;"><i style="background:var(--cg-red)"></i><b>recruitment</b><span>4 capabilities</span></div>
+        <div class="eaid-pod p2" style="left:50%; top:10%;"><i style="background:var(--cg-gold)"></i><b>employee engagement</b><span>5 capabilities</span></div>
+        <div class="eaid-pod p3" style="left:82%; top:22%;"><i style="background:var(--spanish-blue)"></i><b>performance</b><span>4 capabilities</span></div>
+        <div class="eaid-pod p4" style="left:82%; top:78%;"><i style="background:var(--sea-green)"></i><b>growth</b><span>8 capabilities</span></div>
+        <div class="eaid-pod p5" style="left:50%; top:90%;"><i style="background:#2c9bbb"></i><b>workforce insights</b><span>4 capabilities</span></div>
+        <div class="eaid-pod p6" style="left:18%; top:78%;"><i style="background:#ba7bae"></i><b>strategic planning</b><span>3 capabilities</span></div>
+        <span class="eaid-chip" style="left:7%;  top:38%;">candidate match scoring</span>
+        <span class="eaid-chip" style="left:26%; top:6%;">job descriptions</span>
+        <span class="eaid-chip" style="left:70%; top:5%;">policy answers</span>
+        <span class="eaid-chip" style="left:93%; top:38%;">goal quality score</span>
+        <span class="eaid-chip" style="left:92%; top:62%;">career pathing</span>
+        <span class="eaid-chip" style="left:68%; top:95%;">plain-language queries</span>
+        <span class="eaid-chip" style="left:27%; top:95%;">scenario analysis</span>
+        <span class="eaid-chip" style="left:7%;  top:62%;">successor matching</span>
       </div>
+      <p class="ax-caption">twenty-eight capabilities &middot; six pillars &middot; one core</p>
     </div>
   </section>
 
@@ -2278,6 +2363,24 @@
           </ul>
           <a class="eai-more" href="../solutions/strategic-planning.html">see strategic planning &rarr;</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== IN ACTION ===== -->
+  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
+    <div class="container">
+      <div class="text-center" style="max-width:760px; margin:0 auto;">
+        <p class="section-eyebrow">in action</p>
+        <h2 class="section-heading">ask it the way you'd ask a <mark>colleague</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;">plain language in, evidence-backed answers out. here's how a day with entomo.ai sounds.</p>
+      </div>
+      <div class="ecd" data-ecd>
+        <div class="ecd-bar">
+          <picture class="ecd-avatar"><source srcset="../Images/logos/entomo-ai-mark.webp" type="image/webp"><img src="../Images/logos/entomo-ai-mark.png" alt="" width="160" height="160" loading="lazy" decoding="async"></picture>
+          <div class="ecd-id"><b>entomo.ai</b><span><i></i>in your flow of work</span></div>
+        </div>
+        <div class="ecd-stream" aria-live="polite"></div>
       </div>
     </div>
   </section>
@@ -2565,5 +2668,82 @@
   </script>
 
   <script src="../assets/entomo-2026.js" defer></script>
+  <script>
+  (function () {
+    var root = document.querySelector('[data-ecd]');
+    if (!root) return;
+    var stream = root.querySelector('.ecd-stream');
+    var SCRIPT = [
+      { u: "draft the job description for our new relationship manager",
+        a: "done. drafted from the role model: 12 skills, 4 responsibilities, and the 3 KPIs the role moves. it's ready for your edit.",
+        s: "grounded in axon \u00b7 role model v7" },
+      { u: "why is attrition rising in the credit team?",
+        a: "it's 2.1 points above plan, concentrated in two branches. the leading signal is stalled career paths, and 3 internal moves are worth offering this week.",
+        s: "sources: 4 pulse cycles \u00b7 mobility graph" },
+      { u: "set up q3 goals for my team",
+        a: "6 goals drafted from each role's KPIs, average quality score 92. they're waiting in your approval queue.",
+        s: "grounded in axon \u00b7 goal quality engine" }
+    ];
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function bubble(cls, html) {
+      var d = document.createElement('div');
+      d.className = 'ecd-msg ' + cls;
+      d.innerHTML = html;
+      stream.appendChild(d);
+      requestAnimationFrame(function () { requestAnimationFrame(function () { d.classList.add('on'); }); });
+      return d;
+    }
+    if (reduce) {
+      SCRIPT.forEach(function (m) {
+        bubble('u', m.u);
+        bubble('a', m.a + '<span class="src">' + m.s + '</span>');
+      });
+      stream.querySelectorAll('.ecd-msg').forEach(function (n) { n.classList.add('on'); });
+      return;
+    }
+    var running = false;
+    function play() {
+      if (running) return;
+      running = true;
+      var i = 0;
+      function next() {
+        if (i >= SCRIPT.length) {
+          setTimeout(function () {
+            stream.innerHTML = '';
+            i = 0;
+            setTimeout(next, 600);
+          }, 3800);
+          return;
+        }
+        var m = SCRIPT[i++];
+        var u = bubble('u', '');
+        var t = 0, txt = m.u;
+        var typer = setInterval(function () {
+          t += 2;
+          u.textContent = txt.slice(0, t);
+          if (t >= txt.length) {
+            clearInterval(typer);
+            var dots = document.createElement('div');
+            dots.className = 'ecd-dots';
+            dots.innerHTML = '<b></b><b></b><b></b>';
+            stream.appendChild(dots);
+            requestAnimationFrame(function () { dots.classList.add('on'); });
+            setTimeout(function () {
+              dots.remove();
+              bubble('a', m.a + '<span class="src">' + m.s + '</span>');
+              setTimeout(next, 1900);
+            }, 1300);
+          }
+        }, 34);
+      }
+      next();
+    }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es, obs) {
+        if (es.some(function (e) { return e.isIntersecting; })) { play(); obs.disconnect(); }
+      }, { threshold: 0.35 }).observe(root);
+    } else { play(); }
+  })();
+  </script>
 </body>
 </html>
