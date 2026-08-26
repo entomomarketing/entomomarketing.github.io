@@ -795,15 +795,77 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
   background: none !important;
   box-shadow: none !important;
 }
-.aw-stage { height: clamp(440px, 46vw, 560px); }
+.aw-stage { height: clamp(540px, 54vw, 660px); }
 
 
-.axon-graph .sg-orbit {
+.axon-graph .sg-ring {
   fill: none;
-  stroke: rgba(43, 29, 18, .08);
+  stroke: rgba(43, 29, 18, .10);
   stroke-width: 1;
-  stroke-dasharray: 3 7;
+}
+.axon-graph .sg-ring--band { fill: rgba(43, 29, 18, .022); }
+.axon-graph .sg-axis {
+  stroke: rgba(43, 29, 18, .14);
+  stroke-width: 1;
+  stroke-dasharray: 1 5;
   stroke-linecap: round;
+}
+.aw-ringlabel {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background: var(--white);
+  border: 1px solid rgba(43, 29, 18, .12);
+  border-radius: 999px;
+  padding: 0.22em 0.7em;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  pointer-events: none;
+  white-space: nowrap;
+}
+.aw-node--core {
+  z-index: 3;
+  flex-direction: column;
+  gap: 0.1em;
+  width: 96px;
+  height: 96px;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 0;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(var(--white), var(--white)) padding-box,
+    var(--axon-gradient) border-box;
+  box-shadow: 0 6px 26px rgba(43, 29, 18, .12);
+  animation: aw-core-pulse 5s ease-in-out infinite alternate;
+}
+.aw-node--core::before { display: none; }
+.aw-node--core .axon-text { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
+.aw-node--core small {
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+.aw-node--core::after {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(224, 114, 28, .35);
+  animation: aw-core-spin 26s linear infinite;
+}
+@keyframes aw-core-spin { to { transform: rotate(360deg); } }
+@keyframes aw-core-pulse {
+  from { box-shadow: 0 6px 26px rgba(43, 29, 18, .12); }
+  to   { box-shadow: 0 6px 34px rgba(186, 123, 174, .38); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aw-node--core, .aw-node--core::after { animation: none; }
 }
 .axon-graph .sg-links {
   position: absolute;
@@ -941,6 +1003,10 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
   .aw-stage { height: 430px; }
   .aw-node { font-size: 10.5px; padding: 0.42em 0.6em; gap: 0.35em; }
   .aw-node--role { font-size: 12px; }
+  .aw-node--core { width: 74px; height: 74px; }
+  .aw-node--core .axon-text { font-size: 17px; }
+  .aw-ringlabel { display: none; }
+  .aw-stage { height: 520px; }
 }
 @media (max-width: 560px) {
   .aw-node { white-space: normal; max-width: 104px; text-align: left; line-height: 1.15; }

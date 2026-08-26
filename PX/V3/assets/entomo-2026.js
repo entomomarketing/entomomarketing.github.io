@@ -519,18 +519,52 @@
     }
 
     /* a barely-there orbit line makes the circular order legible */
-    var orbit = doc.createElementNS("http://www.w3.org/2000/svg", "ellipse");
-    orbit.setAttribute("class", "sg-orbit");
-    svg.insertBefore(orbit, svg.firstChild);
+    /* concentric taxonomy rings: one per layer, painted back to front with
+       alternating radar bands, plus the label axis toward the upper left */
+    var RING_RX = [0.15, 0.25, 0.34, 0.42, 0.49];
+    var RING_RY = [0.15, 0.225, 0.305, 0.375, 0.44];
+    var CY = 0.48;
+    var rings = [], axis = doc.createElementNS("http://www.w3.org/2000/svg", "line");
+    for (var ri = RING_RX.length - 1; ri >= 0; ri--) {
+      var el = doc.createElementNS("http://www.w3.org/2000/svg", "ellipse");
+      el.setAttribute("class", "sg-ring" + (ri % 2 ? " sg-ring--band" : ""));
+      svg.insertBefore(el, svg.firstChild);
+      rings[ri] = el;
+    }
+    axis.setAttribute("class", "sg-axis");
+    svg.appendChild(axis);
+
+    function placeOnRings() {
+      Object.keys(nodes).forEach(function (k) {
+        var n = nodes[k];
+        if (k === "core") { n.style.left = "50%"; n.style.top = (CY * 100) + "%"; return; }
+        var ri = parseInt(n.getAttribute("data-ring"), 10);
+        var a = parseFloat(n.getAttribute("data-angle")) * Math.PI / 180;
+        n.style.left = (50 + RING_RX[ri] * 100 * Math.cos(a)).toFixed(2) + "%";
+        n.style.top = ((CY - RING_RY[ri] * Math.sin(a)) * 100).toFixed(2) + "%";
+      });
+      /* ring labels ride the 135-degree axis, one per crossing */
+      root.querySelectorAll(".aw-ringlabel").forEach(function (lb) {
+        var ri = parseInt(lb.getAttribute("data-ringlabel"), 10);
+        lb.style.left = (50 - RING_RX[ri] * 100 * 0.7071).toFixed(2) + "%";
+        lb.style.top = ((CY - RING_RY[ri] * 0.7071) * 100).toFixed(2) + "%";
+      });
+    }
 
     function updateGeometry() {
       var box = root.getBoundingClientRect();
       if (!box.width) return;
       svg.setAttribute("viewBox", "0 0 " + box.width + " " + box.height);
-      orbit.setAttribute("cx", box.width * 0.5);
-      orbit.setAttribute("cy", box.height * 0.48);
-      orbit.setAttribute("rx", box.width * 0.40);
-      orbit.setAttribute("ry", box.height * 0.36);
+      rings.forEach(function (el, ri) {
+        el.setAttribute("cx", box.width * 0.5);
+        el.setAttribute("cy", box.height * CY);
+        el.setAttribute("rx", box.width * RING_RX[ri]);
+        el.setAttribute("ry", box.height * RING_RY[ri]);
+      });
+      axis.setAttribute("x1", box.width * (0.5 - RING_RX[0] * 0.7071));
+      axis.setAttribute("y1", box.height * (CY - RING_RY[0] * 0.7071));
+      axis.setAttribute("x2", box.width * (0.5 - RING_RX[4] * 0.7071 - 0.015));
+      axis.setAttribute("y2", box.height * (CY - RING_RY[4] * 0.7071 - 0.015));
       edges.forEach(function (e, i) {
         var a = center(nodes[e.from], box), b = center(nodes[e.to], box);
         var mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
@@ -538,6 +572,18 @@
         var len = Math.sqrt(dx * dx + dy * dy) || 1;
         /* small alternating perpendicular bow keeps the web organic */
         var bow = (i % 2 ? 1 : -1) * (10 + (i % 3) * 6);
+        /* a chord passing near the core bends around it, never through it */
+        var ccx = box.width * 0.5, ccy = box.height * CY;
+        var t = ((ccx - a.x) * dx + (ccy - a.y) * dy) / (len * len);
+        if (t > 0.1 && t < 0.9) {
+          var px = a.x + t * dx - ccx, py = a.y + t * dy - ccy;
+          var d = Math.sqrt(px * px + py * py);
+          var clearR = 92;
+          if (d < clearR) {
+            var side = ((dx) * (ccy - a.y) - (dy) * (ccx - a.x)) > 0 ? -1 : 1;
+            bow = side * Math.min(110, (clearR - d) * 1.9 + 16);
+          }
+        }
         var cx = mx - (dy / len) * bow, cy = my + (dx / len) * bow;
         paths[i].setAttribute("d", "M" + a.x + "," + a.y + " Q" + cx + "," + cy + " " + b.x + "," + b.y);
       });
@@ -574,10 +620,12 @@
             if (ox <= 4 || oy <= 4) continue;
             var na = nodes[keys[a]], nb = nodes[keys[b]];
             /* push along the smaller overlap axis; the role pill stays anchored */
-            var push = Math.min(ox, oy) / 2;
+            var anchored = function (n) { return n === nodes.core || n === nodes.role; };
+            /* an anchored partner cannot give way: the movable pill takes the full push */
+            var push = (anchored(na) || anchored(nb)) ? Math.min(ox, oy) : Math.min(ox, oy) / 2;
             var horizontal = ox < oy;
             [na, nb].forEach(function (n, idx) {
-              if (n === nodes.role) return;
+              if (anchored(n)) return;
               var sign = idx === 0 ? -1 : 1;
               if (horizontal) {
                 var cur = parseFloat(n.style.left);
@@ -595,6 +643,7 @@
     }
 
     function layout() {
+      placeOnRings();
       clampToStage();
       resolveOverlaps();
       updateGeometry();
@@ -664,8 +713,8 @@
     /* entrance stagger: the web grows outward from the role */
     (function () {
       var box = root.getBoundingClientRect();
-      if (!box.width || !nodes.role) return;
-      var c = center(nodes.role, box);
+      if (!box.width || !nodes.core) return;
+      var c = center(nodes.core, box);
       Object.keys(nodes)
         .map(function (k) {
           var pt = center(nodes[k], box);
@@ -714,7 +763,7 @@
         return;
       }
       Object.keys(nodes).forEach(function (k) {
-        if (k === "role") return;
+        if (k === "role" || k === "core") return;
         var dx = 2 * Math.sin(ts * 0.0006 + phases[k]);
         var dy = 2 * Math.cos(ts * 0.0005 + phases[k] * 1.3);
         nodes[k].style.transform =
