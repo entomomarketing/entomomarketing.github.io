@@ -797,17 +797,14 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
 }
 .aw-stage { height: clamp(440px, 46vw, 560px); }
 
-.axon-graph .sg-mesh {
-  /* ambient neural field: painted by JS, bleeds past the diagram so the
-     visible sample reads as a window onto a much larger model */
-  position: absolute;
-  inset: -44px -20px;
-  width: calc(100% + 40px);
-  height: calc(100% + 88px);
-  pointer-events: none;
-  z-index: 0;
-}
 
+.axon-graph .sg-orbit {
+  fill: none;
+  stroke: rgba(43, 29, 18, .08);
+  stroke-width: 1;
+  stroke-dasharray: 3 7;
+  stroke-linecap: round;
+}
 .axon-graph .sg-links {
   position: absolute;
   inset: 0;
@@ -942,7 +939,6 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
 
 @media (max-width: 900px) {
   .aw-stage { height: 430px; }
-  .axon-graph .sg-mesh { display: none; }
   .aw-node { font-size: 10.5px; padding: 0.42em 0.6em; gap: 0.35em; }
   .aw-node--role { font-size: 12px; }
 }

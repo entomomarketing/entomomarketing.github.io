@@ -518,10 +518,19 @@
       return { x: r.left - box.left + r.width / 2, y: r.top - box.top + r.height / 2 };
     }
 
+    /* a barely-there orbit line makes the circular order legible */
+    var orbit = doc.createElementNS("http://www.w3.org/2000/svg", "ellipse");
+    orbit.setAttribute("class", "sg-orbit");
+    svg.insertBefore(orbit, svg.firstChild);
+
     function updateGeometry() {
       var box = root.getBoundingClientRect();
       if (!box.width) return;
       svg.setAttribute("viewBox", "0 0 " + box.width + " " + box.height);
+      orbit.setAttribute("cx", box.width * 0.5);
+      orbit.setAttribute("cy", box.height * 0.48);
+      orbit.setAttribute("rx", box.width * 0.40);
+      orbit.setAttribute("ry", box.height * 0.36);
       edges.forEach(function (e, i) {
         var a = center(nodes[e.from], box), b = center(nodes[e.to], box);
         var mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
@@ -549,8 +558,45 @@
       });
     }
 
+    /* nudge intersecting pills apart (small screens fold the fans together) */
+    function resolveOverlaps() {
+      var box = root.getBoundingClientRect();
+      if (!box.width) return;
+      var keys = Object.keys(nodes);
+      for (var pass = 0; pass < 3; pass++) {
+        var moved = false;
+        for (var a = 0; a < keys.length; a++) {
+          for (var b = a + 1; b < keys.length; b++) {
+            var ra = nodes[keys[a]].getBoundingClientRect();
+            var rb = nodes[keys[b]].getBoundingClientRect();
+            var ox = Math.min(ra.right, rb.right) - Math.max(ra.left, rb.left) + 4;
+            var oy = Math.min(ra.bottom, rb.bottom) - Math.max(ra.top, rb.top) + 4;
+            if (ox <= 4 || oy <= 4) continue;
+            var na = nodes[keys[a]], nb = nodes[keys[b]];
+            /* push along the smaller overlap axis; the role pill stays anchored */
+            var push = Math.min(ox, oy) / 2;
+            var horizontal = ox < oy;
+            [na, nb].forEach(function (n, idx) {
+              if (n === nodes.role) return;
+              var sign = idx === 0 ? -1 : 1;
+              if (horizontal) {
+                var cur = parseFloat(n.style.left);
+                n.style.left = (cur + sign * (ra.left < rb.left ? 1 : -1) * push / box.width * 100).toFixed(2) + "%";
+              } else {
+                var curT = parseFloat(n.style.top);
+                n.style.top = (curT + sign * (ra.top < rb.top ? 1 : -1) * push / box.height * 100).toFixed(2) + "%";
+              }
+            });
+            moved = true;
+          }
+        }
+        if (moved) clampToStage(); else break;
+      }
+    }
+
     function layout() {
       clampToStage();
+      resolveOverlaps();
       updateGeometry();
       paths.forEach(function (p) {
         try { p.style.setProperty("--len", p.getTotalLength()); } catch (err) {}
@@ -629,54 +675,6 @@
         .forEach(function (it, i) { nodes[it.k].style.setProperty("--sg-i", i); });
     })();
 
-    /* ---- ambient neural field ------------------------------------------ */
-    var mesh = root.querySelector(".sg-mesh");
-    function paintMesh() {
-      if (!mesh || !mesh.getContext) return;
-      var b = mesh.getBoundingClientRect();
-      if (!b.width || getComputedStyle(mesh).display === "none") return;
-      var dpr = window.devicePixelRatio || 1;
-      mesh.width = Math.round(b.width * dpr);
-      mesh.height = Math.round(b.height * dpr);
-      var ctx = mesh.getContext("2d");
-      ctx.scale(dpr, dpr);
-      var W = b.width, H = b.height;
-      var pts = [], N = Math.min(170, Math.round((W * H) / 4300));
-      for (var i = 0; i < N; i++) {
-        if (i % 5 < 2) {
-          pts.push({ x: Math.random() * W, y: Math.random() * H });
-        } else {
-          var cx = W * (0.1 + 0.2 * Math.floor(Math.random() * 5));
-          var cy = H * (0.28 + Math.random() * 0.44);
-          var g = function () { return (Math.random() + Math.random() - 1); };
-          pts.push({ x: cx + g() * W * 0.09, y: cy + g() * H * 0.30 });
-        }
-      }
-      for (var a = 0; a < pts.length; a++) {
-        for (var q = a + 1; q < pts.length; q++) {
-          var dx = pts[a].x - pts[q].x, dy = pts[a].y - pts[q].y, d2 = dx * dx + dy * dy;
-          if (d2 < 12100) {
-            ctx.strokeStyle = "rgba(43,29,18," + (0.13 * (1 - Math.sqrt(d2) / 110)).toFixed(3) + ")";
-            ctx.lineWidth = 0.7;
-            ctx.beginPath();
-            ctx.moveTo(pts[a].x, pts[a].y);
-            ctx.lineTo(pts[q].x, pts[q].y);
-            ctx.stroke();
-          }
-        }
-      }
-      var hues = ["#f86da9", "#708cb5", "#2c9bbb", "#ebbe2e"];
-      pts.forEach(function (pt, i) {
-        var synapse = i % 8 === 0;
-        ctx.globalAlpha = synapse ? 0.5 : 0.16;
-        ctx.fillStyle = synapse ? hues[(i / 8 | 0) % 4] : "rgb(43,29,18)";
-        ctx.beginPath();
-        ctx.arc(pt.x, pt.y, synapse ? 2.1 : 1.3, 0, 6.2832);
-        ctx.fill();
-      });
-      ctx.globalAlpha = 1;
-    }
-
     /* ---- firing impulses ----------------------------------------------- */
     var IMPULSE_HUES = ["#f86da9", "#ba7bae", "#708cb5", "#2c9bbb", "#ebbe2e"];
     var reduceMotion = window.matchMedia &&
@@ -717,8 +715,8 @@
       }
       Object.keys(nodes).forEach(function (k) {
         if (k === "role") return;
-        var dx = 3 * Math.sin(ts * 0.0006 + phases[k]);
-        var dy = 3 * Math.cos(ts * 0.0005 + phases[k] * 1.3);
+        var dx = 2 * Math.sin(ts * 0.0006 + phases[k]);
+        var dy = 2 * Math.cos(ts * 0.0005 + phases[k] * 1.3);
         nodes[k].style.transform =
           "translate(calc(-50% + " + dx.toFixed(2) + "px), calc(-50% + " + dy.toFixed(2) + "px))";
       });
@@ -748,16 +746,15 @@
     }
 
     layout();
-    paintMesh();
     // Fonts land after first paint and change pill sizes; relayout when they do.
     if (doc.fonts && doc.fonts.ready) {
-      doc.fonts.ready.then(function () { layout(); paintMesh(); }).catch(function () {});
+      doc.fonts.ready.then(layout).catch(function () {});
     }
 
     var t;
     window.addEventListener("resize", function () {
       clearTimeout(t);
-      t = setTimeout(function () { layout(); paintMesh(); }, 140);
+      t = setTimeout(layout, 140);
     });
 
     if ("IntersectionObserver" in window) {
