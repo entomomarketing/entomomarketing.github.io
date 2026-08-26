@@ -38,3 +38,12 @@ background to true alpha (colour-over-white inversion), trimming, and
 scaling to 1200x389. Letterform metrics for inline sizing: ink height
 74.3% of image, baseline at 91.8% from top (=> 0.875em / -0.072em against
 0.65em-ink text). The strata wordmark files were retired with the name.
+
+2026-08-26: entomo.ai wordmark replaced with new artwork supplied as
+entomo-ai-source.svg (SVG wrapper around a raster with alpha, 1204.5x258.75
+viewBox). Rendered at 2x via headless Chrome (omitBackground), trimmed, and
+scaled to 1200x257 -> ../entomo-ai.{png,webp}. Inline sizing recalibrated by
+running the same ink-band measurement on old and new art (old reproduced the
+shipped 1.384em/-0.128em, validating the method): new letterforms ink 66.2%
+of height, baseline on the bottom edge -> .brand-inline img
+{ height: 0.976em; vertical-align: 0; }.

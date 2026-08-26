@@ -1530,10 +1530,13 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
    (1 - 0.9072) x 1.384 = 0.128em below the text baseline for the two
    baselines to coincide. */
 .brand-inline img {
+  /* entomo.ai artwork v2 (2026-08-26, from entomo-ai-source.svg): letterforms
+     ink 66.2% of image height, baseline on the bottom edge ->
+     0.6459 / 0.662 = 0.976em, zero baseline offset */
   display: inline-block;
-  height: 1.384em;
+  height: 0.976em;
   width: auto;
-  vertical-align: -0.128em;
+  vertical-align: 0;
 }
 
 @media (max-width: 640px) {
