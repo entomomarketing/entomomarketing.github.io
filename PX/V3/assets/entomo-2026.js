@@ -473,210 +473,120 @@
     });
   }
 
-  /* ---- 4. The axon web ----------------------------------------------------
-     One role at the center of an undirected constellation of knowledge,
-     skills, abilities, tasks, and KPIs. Geometry is measured, not hard-coded:
-     links follow the pills wherever layout, zoom, or drift puts them.
-     Interaction lights a NEIGHBORHOOD (node + direct links bright, second
-     degree soft), never a directed chain: the model has no upstream. */
+  
+/* ---- 4. The axon graph --------------------------------------------------
+     Draws Role -> Responsibility -> Task -> KPI -> Skill as a real connected
+     graph. Paths are computed from measured node positions rather than
+     hard-coded, so wrapping, zoom, and reflow cannot desynchronise them. */
   function initAxonGraph() {
     var root = doc.querySelector("[data-axon-graph]");
     if (!root) return;
 
     var svg = root.querySelector(".sg-links");
     var nodes = {};
-    root.querySelectorAll(".aw-node").forEach(function (n) {
+    root.querySelectorAll(".sg-node").forEach(function (n, i) {
       nodes[n.getAttribute("data-node")] = n;
+      n.style.setProperty("--sg-i", i);
     });
 
     var edges = (root.getAttribute("data-edges") || "")
       .split(",")
       .map(function (pair) {
-        var sp = pair.split(">");
-        return { from: sp[0], to: sp[1] };
+        var s = pair.split(">");
+        return { from: s[0], to: s[1] };
       })
       .filter(function (e) { return nodes[e.from] && nodes[e.to]; });
 
-    var adj = {};
-    edges.forEach(function (e) {
-      (adj[e.from] = adj[e.from] || []).push(e.to);
-      (adj[e.to] = adj[e.to] || []).push(e.from);
-    });
+    var paths = [];
 
-    /* one path element per edge, geometry refreshed in place */
-    var paths = edges.map(function (e, i) {
-      var path = doc.createElementNS("http://www.w3.org/2000/svg", "path");
-      path.setAttribute("class", "sg-link");
-      path.dataset.from = e.from;
-      path.dataset.to = e.to;
-      svg.appendChild(path);
-      return path;
-    });
-
-    function center(n, box) {
-      var r = n.getBoundingClientRect();
-      return { x: r.left - box.left + r.width / 2, y: r.top - box.top + r.height / 2 };
-    }
-
-    /* a barely-there orbit line makes the circular order legible */
-    /* concentric taxonomy rings: one per layer, painted back to front with
-       alternating radar bands, plus the label axis toward the upper left */
-    var RING_RX = [0.15, 0.25, 0.34, 0.42, 0.49];
-    var RING_RY = [0.15, 0.235, 0.31, 0.377, 0.44];
-    var CY = 0.48;
-    var rings = [], axis = doc.createElementNS("http://www.w3.org/2000/svg", "line");
-    for (var ri = RING_RX.length - 1; ri >= 0; ri--) {
-      var el = doc.createElementNS("http://www.w3.org/2000/svg", "ellipse");
-      el.setAttribute("class", "sg-ring" + (ri % 2 ? " sg-ring--band" : ""));
-      svg.insertBefore(el, svg.firstChild);
-      rings[ri] = el;
-    }
-    axis.setAttribute("class", "sg-axis");
-    svg.appendChild(axis);
-
-    function placeOnRings() {
-      Object.keys(nodes).forEach(function (k) {
-        var n = nodes[k];
-        if (k === "core") { n.style.left = "50%"; n.style.top = (CY * 100) + "%"; return; }
-        setFromAngle(n);
-      });
-      /* ring labels ride the 135-degree axis, one per crossing */
-      root.querySelectorAll(".aw-ringlabel").forEach(function (lb) {
-        var ri = parseInt(lb.getAttribute("data-ringlabel"), 10);
-        lb.style.left = (50 - RING_RX[ri] * 100 * 0.7071).toFixed(2) + "%";
-        lb.style.top = ((CY - RING_RY[ri] * 0.7071) * 100).toFixed(2) + "%";
-      });
-    }
-
-    function updateGeometry() {
+    function draw() {
       var box = root.getBoundingClientRect();
       if (!box.width) return;
       svg.setAttribute("viewBox", "0 0 " + box.width + " " + box.height);
-      rings.forEach(function (el, ri) {
-        el.setAttribute("cx", box.width * 0.5);
-        el.setAttribute("cy", box.height * CY);
-        el.setAttribute("rx", box.width * RING_RX[ri]);
-        el.setAttribute("ry", box.height * RING_RY[ri]);
-      });
-      axis.setAttribute("x1", box.width * (0.5 - RING_RX[0] * 0.7071));
-      axis.setAttribute("y1", box.height * (CY - RING_RY[0] * 0.7071));
-      axis.setAttribute("x2", box.width * (0.5 - RING_RX[4] * 0.7071 - 0.015));
-      axis.setAttribute("y2", box.height * (CY - RING_RY[4] * 0.7071 - 0.015));
-      edges.forEach(function (e, i) {
-        var a = center(nodes[e.from], box), b = center(nodes[e.to], box);
-        var mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
-        var dx = b.x - a.x, dy = b.y - a.y;
-        var len = Math.sqrt(dx * dx + dy * dy) || 1;
-        /* small alternating perpendicular bow keeps the web organic */
-        var bow = (i % 2 ? 1 : -1) * (10 + (i % 3) * 6);
-        /* a chord passing near the core bends around it, never through it */
-        var ccx = box.width * 0.5, ccy = box.height * CY;
-        var t = ((ccx - a.x) * dx + (ccy - a.y) * dy) / (len * len);
-        if (t > 0.1 && t < 0.9) {
-          var px = a.x + t * dx - ccx, py = a.y + t * dy - ccy;
-          var d = Math.sqrt(px * px + py * py);
-          var clearR = 92;
-          if (d < clearR) {
-            var side = ((dx) * (ccy - a.y) - (dy) * (ccx - a.x)) > 0 ? -1 : 1;
-            bow = side * Math.min(110, (clearR - d) * 1.9 + 16);
-          }
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      paths = [];
+
+      edges.forEach(function (e, idx) {
+        var a = nodes[e.from].getBoundingClientRect();
+        var b = nodes[e.to].getBoundingClientRect();
+        // exit the right edge of the source, enter the left edge of the target
+        var x1 = a.right - box.left, y1 = a.top - box.top + a.height / 2;
+        var x2 = b.left - box.left,  y2 = b.top - box.top + b.height / 2;
+        var gap = x2 - x1;
+        var dx = Math.max(28, gap * 0.5);
+        var cy1 = y1, cy2 = y2;
+        if (gap > 300) {
+          /* layer-skipping links arc over the middle like association fibres,
+             so the figure reads as a web, never as a staircase of steps */
+          var lift = (idx % 2 ? -1 : 1) * (40 + gap * 0.11);
+          cy1 = y1 + lift;
+          cy2 = y2 + lift;
         }
-        var cx = mx - (dy / len) * bow, cy = my + (dx / len) * bow;
-        paths[i].setAttribute("d", "M" + a.x + "," + a.y + " Q" + cx + "," + cy + " " + b.x + "," + b.y);
+        var d = "M" + x1 + "," + y1 +
+                " C" + (x1 + dx) + "," + cy1 +
+                " " + (x2 - dx) + "," + cy2 +
+                " " + x2 + "," + y2;
+
+        var path = doc.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("d", d);
+        path.setAttribute("class", "sg-link");
+        path.dataset.from = e.from;
+        path.dataset.to = e.to;
+        svg.appendChild(path);
+        try {
+          var len = path.getTotalLength();
+          path.style.setProperty("--len", len);
+        } catch (err) {}
+        paths.push(path);
       });
     }
 
-    /* Pills may only ever slide ALONG their own ring: both bounds problems
-       and overlaps are resolved by nudging a node's angle, never its radius,
-       so every type stays exactly on its taxonomy orbit. */
-    function setFromAngle(n) {
-      var ri = parseInt(n.getAttribute("data-ring"), 10);
-      var a = parseFloat(n.getAttribute("data-angle")) * Math.PI / 180;
-      n.style.left = (50 + RING_RX[ri] * 100 * Math.cos(a)).toFixed(2) + "%";
-      n.style.top = ((CY - RING_RY[ri] * Math.sin(a)) * 100).toFixed(2) + "%";
-    }
-    function nudgeAlongRing(n, dirx, diry, box) {
-      var ri = parseInt(n.getAttribute("data-ring"), 10);
-      var a = parseFloat(n.getAttribute("data-angle")) * Math.PI / 180;
-      /* screen-space tangent of the ellipse at this angle */
-      var tx = -box.width * RING_RX[ri] * Math.sin(a);
-      var ty = -box.height * RING_RY[ri] * Math.cos(a);
-      var step = ((tx * dirx + ty * diry) >= 0 ? 1 : -1) * 1.3;
-      n.setAttribute("data-angle",
-        (parseFloat(n.getAttribute("data-angle")) + step).toFixed(2));
-      setFromAngle(n);
-    }
-    function relax() {
-      var box = root.getBoundingClientRect();
-      if (!box.width) return;
-      var keys = Object.keys(nodes).filter(function (k) { return k !== "core"; });
-      var M = 4;
-      for (var pass = 0; pass < 90; pass++) {
-        var moved = false;
-        keys.forEach(function (k) {
-          var r = nodes[k].getBoundingClientRect();
-          var dx = 0, dy = 0;
-          if (r.left < box.left + M) dx = 1; else if (r.right > box.right - M) dx = -1;
-          if (r.top < box.top + M) dy = 1; else if (r.bottom > box.bottom - M) dy = -1;
-          if (dx || dy) { nudgeAlongRing(nodes[k], dx, dy, box); moved = true; }
-        });
-        for (var a2 = 0; a2 < keys.length; a2++) {
-          for (var b2 = a2 + 1; b2 < keys.length; b2++) {
-            var ra = nodes[keys[a2]].getBoundingClientRect();
-            var rb = nodes[keys[b2]].getBoundingClientRect();
-            var ox = Math.min(ra.right, rb.right) - Math.max(ra.left, rb.left) + 6;
-            var oy = Math.min(ra.bottom, rb.bottom) - Math.max(ra.top, rb.top) + 6;
-            if (ox <= 6 || oy <= 6) continue;
-            var sx = (ra.left + ra.right - rb.left - rb.right) / 2;
-            var sy = (ra.top + ra.bottom - rb.top - rb.bottom) / 2;
-            var sl = Math.hypot(sx, sy) || 1;
-            nudgeAlongRing(nodes[keys[a2]], sx / sl, sy / sl, box);
-            nudgeAlongRing(nodes[keys[b2]], -sx / sl, -sy / sl, box);
-            moved = true;
-          }
-        }
-        if (!moved) break;
-      }
-    }
-
-    function layout() {
-      placeOnRings();
-      relax();
-      updateGeometry();
-      paths.forEach(function (p) {
-        try { p.style.setProperty("--len", p.getTotalLength()); } catch (err) {}
-      });
-    }
-
-    /* ---- neighborhood lighting (undirected, two rings) ---- */
+    /* Light the full chain through a node, in both directions. This is the
+       whole point of the component: one click proves the model is connected. */
     function lit(id) {
-      var hot = {}; hot[id] = true;
-      (adj[id] || []).forEach(function (k) { hot[k] = true; });
-      var near = {};
-      Object.keys(hot).forEach(function (k) {
-        (adj[k] || []).forEach(function (x) { if (!hot[x]) near[x] = true; });
-      });
+      /* Directed on purpose. A naive both-ways flood would light the entire
+         component (every node is reachable from every other), which shows
+         nothing. Walking upstream and downstream separately traces the actual
+         chain this node sits on. */
+      var keep = {};
+      keep[id] = true;
+
+      var frontier = [id], changed = true;
+      while (changed) {                       // downstream: follow edges forward
+        changed = false;
+        edges.forEach(function (e) {
+          if (keep[e.from] && !keep[e.to]) { keep[e.to] = true; changed = true; }
+        });
+      }
+      var up = {};
+      up[id] = true;
+      changed = true;
+      while (changed) {                       // upstream: follow edges backward
+        changed = false;
+        edges.forEach(function (e) {
+          if (up[e.to] && !up[e.from]) { up[e.from] = true; changed = true; }
+        });
+      }
+      Object.keys(up).forEach(function (k) { keep[k] = true; });
       root.classList.add("is-focused");
       Object.keys(nodes).forEach(function (k) {
-        nodes[k].classList.toggle("is-lit", !!hot[k]);
-        nodes[k].classList.toggle("is-near", !!near[k]);
+        nodes[k].classList.toggle("is-lit", !!keep[k]);
       });
       paths.forEach(function (p) {
-        var incident = p.dataset.from === id || p.dataset.to === id;
-        p.classList.toggle("is-lit", incident);
-        p.classList.toggle("is-near", !incident && !!(hot[p.dataset.from] || hot[p.dataset.to]));
+        p.classList.toggle("is-lit", !!(keep[p.dataset.from] && keep[p.dataset.to]));
       });
     }
 
     function clear() {
       root.classList.remove("is-focused");
-      Object.keys(nodes).forEach(function (k) {
-        nodes[k].classList.remove("is-lit");
-        nodes[k].classList.remove("is-near");
-      });
-      paths.forEach(function (p) { p.classList.remove("is-lit"); p.classList.remove("is-near"); });
+      Object.keys(nodes).forEach(function (k) { nodes[k].classList.remove("is-lit"); });
+      paths.forEach(function (p) { p.classList.remove("is-lit"); });
     }
 
+    /* A sticky selection, so the graph can be read without holding focus.
+       role="button" was already on these nodes but nothing was bound to it:
+       Enter appeared to work only because focus had lit the node on the way
+       in, and Space did nothing at all. */
     var pinned = null;
     function pin(id) {
       pinned = id;
@@ -706,21 +616,61 @@
     });
     root.addEventListener("mouseleave", function () { if (!pinned) clear(); });
 
-    /* entrance stagger: the web grows outward from the role */
-    (function () {
-      var box = root.getBoundingClientRect();
-      if (!box.width || !nodes.core) return;
-      var c = center(nodes.core, box);
-      Object.keys(nodes)
-        .map(function (k) {
-          var pt = center(nodes[k], box);
-          return { k: k, d: Math.hypot(pt.x - c.x, pt.y - c.y) };
-        })
-        .sort(function (a, b) { return a.d - b.d; })
-        .forEach(function (it, i) { nodes[it.k].style.setProperty("--sg-i", i); });
-    })();
+    /* ---- ambient neural field ------------------------------------------
+       A faint synapse mesh behind the real graph. Decorative only: painted
+       once per layout on its own canvas, never intercepts the pointer. */
+    var mesh = root.querySelector(".sg-mesh");
+    function paintMesh() {
+      if (!mesh || !mesh.getContext) return;
+      var b = mesh.getBoundingClientRect();
+      if (!b.width || getComputedStyle(mesh).display === "none") return;
+      var dpr = window.devicePixelRatio || 1;
+      mesh.width = Math.round(b.width * dpr);
+      mesh.height = Math.round(b.height * dpr);
+      var ctx = mesh.getContext("2d");
+      ctx.scale(dpr, dpr);
+      var W = b.width, H = b.height;
+      var pts = [], N = Math.min(170, Math.round((W * H) / 4300));
+      /* organic clusters around the five layers, plus a uniform wash, so the
+         field reads as tissue rather than static */
+      for (var i = 0; i < N; i++) {
+        if (i % 5 < 2) {
+          pts.push({ x: Math.random() * W, y: Math.random() * H });
+        } else {
+          var cx = W * (0.1 + 0.2 * Math.floor(Math.random() * 5));
+          var cy = H * (0.28 + Math.random() * 0.44);
+          var g = function () { return (Math.random() + Math.random() - 1); };
+          pts.push({ x: cx + g() * W * 0.09, y: cy + g() * H * 0.30 });
+        }
+      }
+      for (var a = 0; a < pts.length; a++) {
+        for (var q = a + 1; q < pts.length; q++) {
+          var dx = pts[a].x - pts[q].x, dy = pts[a].y - pts[q].y, d2 = dx * dx + dy * dy;
+          if (d2 < 12100) {                       /* 110px reach */
+            ctx.strokeStyle = "rgba(43,29,18," + (0.13 * (1 - Math.sqrt(d2) / 110)).toFixed(3) + ")";
+            ctx.lineWidth = 0.7;
+            ctx.beginPath();
+            ctx.moveTo(pts[a].x, pts[a].y);
+            ctx.lineTo(pts[q].x, pts[q].y);
+            ctx.stroke();
+          }
+        }
+      }
+      var hues = ["#f86da9", "#708cb5", "#2c9bbb", "#ebbe2e"];
+      pts.forEach(function (pt, i) {
+        var synapse = i % 8 === 0;
+        ctx.globalAlpha = synapse ? 0.5 : 0.16;
+        ctx.fillStyle = synapse ? hues[(i / 8 | 0) % 4] : "rgb(43,29,18)";
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, synapse ? 2.1 : 1.3, 0, 6.2832);
+        ctx.fill();
+      });
+      ctx.globalAlpha = 1;
+    }
 
-    /* ---- firing impulses ----------------------------------------------- */
+    /* ---- firing impulses -----------------------------------------------
+       Every beat or so, a bright pulse travels one real connection, like a
+       signal crossing a synapse. Skipped entirely for reduced motion. */
     var IMPULSE_HUES = ["#f86da9", "#ba7bae", "#708cb5", "#2c9bbb", "#ebbe2e"];
     var reduceMotion = window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -747,72 +697,39 @@
       );
       anim.onfinish = function () { p.remove(); };
     }
-
-    /* ---- drift: the constellation breathes ------------------------------ */
-    var phases = {};
-    Object.keys(nodes).forEach(function (k, i) { phases[k] = i * 2.399; });
-    var rafId = null;
-    function tick(ts) {
-      /* hold still while a neighborhood is being examined */
-      if (root.classList.contains("is-focused")) {
-        rafId = requestAnimationFrame(tick);
-        return;
-      }
-      Object.keys(nodes).forEach(function (k) {
-        if (k === "role" || k === "core") return;
-        var dx = 2 * Math.sin(ts * 0.0006 + phases[k]);
-        var dy = 2 * Math.cos(ts * 0.0005 + phases[k] * 1.3);
-        nodes[k].style.transform =
-          "translate(calc(-50% + " + dx.toFixed(2) + "px), calc(-50% + " + dy.toFixed(2) + "px))";
-      });
-      updateGeometry();
-      rafId = requestAnimationFrame(tick);
-    }
-
     var impulseTimer = null;
-    function setRunning(vis) {
-      if (vis && !reduceMotion) {
-        if (!impulseTimer) {
+    if (!reduceMotion && "IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        var vis = entries.some(function (en) { return en.isIntersecting; });
+        if (vis && !impulseTimer) {
           impulseTimer = setInterval(function () {
             fire();
             if (Math.random() < 0.4) setTimeout(fire, 260 + Math.random() * 240);
           }, 1300);
+        } else if (!vis && impulseTimer) {
+          clearInterval(impulseTimer);
+          impulseTimer = null;
         }
-        if (rafId === null && window.innerWidth >= 560) rafId = requestAnimationFrame(tick);
-      } else {
-        if (impulseTimer) { clearInterval(impulseTimer); impulseTimer = null; }
-        if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
-      }
-    }
-    if ("IntersectionObserver" in window) {
-      new IntersectionObserver(function (entries) {
-        setRunning(entries.some(function (en) { return en.isIntersecting; }));
       }, { threshold: 0.15 }).observe(root);
     }
 
-    layout();
-    // Fonts land after first paint and change pill sizes; relayout when they do.
-    if (doc.fonts && doc.fonts.ready) {
-      doc.fonts.ready.then(layout).catch(function () {});
-    }
+    draw();
+    paintMesh();
+    // Fonts land after first paint and change node heights; redraw when they do.
+    if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(function () { draw(); paintMesh(); }).catch(function () {});
 
     var t;
     window.addEventListener("resize", function () {
       clearTimeout(t);
-      t = setTimeout(layout, 140);
+      t = setTimeout(function () { draw(); paintMesh(); }, 140);
     });
 
     if ("IntersectionObserver" in window) {
       new IntersectionObserver(function (entries, obs) {
         entries.forEach(function (en) {
           if (!en.isIntersecting) return;
-          layout();
+          draw();
           root.classList.add("is-drawn");
-          /* once the dash entrance finishes, free the links from their dash
-             so per-frame drift can't leave a hairline gap at the path end */
-          setTimeout(function () {
-            paths.forEach(function (p) { p.style.strokeDasharray = "none"; });
-          }, 1500);
           obs.disconnect();
         });
       }, { threshold: 0.18 }).observe(root);

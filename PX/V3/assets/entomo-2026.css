@@ -782,96 +782,44 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
 .eq-hidden .perf-mq-track,
 .eq-hidden .agent-marquee-track { animation-play-state: paused; }
 
-/* The interconnected web: one role at the center of an organic constellation
-   of knowledge, skills, abilities, tasks, and KPIs. Deliberately
-   direction-less: nothing about the layout may read as layers or a pipeline.
-   Positions are inline percentages on each node; JS draws the links, keeps
-   pills inside the stage, and adds drift, impulses, and the ambient mesh. */
+/* ============================================================================
+   19. THE AXON GRAPH — signature component
+   Role -> Responsibility -> Task -> KPI -> Skill, drawn as an actual connected
+   graph with a worked example. The crossings are the argument: a flat skills
+   list cannot produce them. Connector geometry is computed from real node
+   positions in entomo-2026.js, so it survives reflow and text wrapping.
+   ========================================================================== */
+
 .axon-graph {
   position: relative;
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto 1fr auto;
+  gap: 0 clamp(0.5rem, 2.2vw, 2.6rem);
+  align-items: start;
   overflow: visible !important;
   margin-top: 3rem;
   border: none !important;
   background: none !important;
   box-shadow: none !important;
 }
-.aw-stage { height: clamp(540px, 54vw, 660px); }
 
-
-.axon-graph .sg-ring {
-  fill: none;
-  stroke: rgba(43, 29, 18, .10);
-  stroke-width: 1;
-}
-.axon-graph .sg-ring--band { fill: rgba(43, 29, 18, .022); }
-.axon-graph .sg-axis {
-  stroke: rgba(43, 29, 18, .14);
-  stroke-width: 1;
-  stroke-dasharray: 1 5;
-  stroke-linecap: round;
-}
-.aw-ringlabel {
+.axon-graph .sg-mesh {
+  /* ambient neural field: painted by JS, bleeds past the diagram so the
+     visible sample reads as a window onto a much larger model */
   position: absolute;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  border-radius: 999px;
-  padding: 0.28em 0.75em;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #fff;
+  inset: -44px -20px;
+  width: calc(100% + 40px);
+  height: calc(100% + 88px);
   pointer-events: none;
-  white-space: nowrap;
-  box-shadow: 0 2px 8px rgba(43, 29, 18, .18);
+  z-index: 0;
 }
-/* each orbit's label wears its taxonomy colour, so labels read as keys,
-   never as nodes (nodes stay white pills with coloured dots) */
-.aw-ringlabel[data-ringlabel="0"] { background: linear-gradient(135deg, var(--cg-gold), var(--cg-red)); }
-.aw-ringlabel[data-ringlabel="1"] { background: #1d6c2d; }
-.aw-ringlabel[data-ringlabel="2"] { background: var(--cg-gold); color: var(--ink); }
-.aw-ringlabel[data-ringlabel="3"] { background: linear-gradient(90deg, var(--cg-red), var(--spanish-blue)); }
-.aw-ringlabel[data-ringlabel="4"] { background: #2b3540; }
-.aw-node--core {
-  z-index: 3;
-  flex-direction: column;
-  gap: 0.1em;
-  width: 96px;
-  height: 96px;
-  justify-content: center;
-  border-radius: 50%;
-  padding: 0;
-  border: 2px solid transparent;
-  background:
-    linear-gradient(var(--white), var(--white)) padding-box,
-    var(--axon-gradient) border-box;
-  box-shadow: 0 6px 26px rgba(43, 29, 18, .12);
-  animation: aw-core-pulse 5s ease-in-out infinite alternate;
-}
-.aw-node--core::before { display: none; }
-.aw-node--core .axon-text { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
-.aw-node--core small {
-  font-size: 8.5px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-4);
-}
-.aw-node--core::after {
-  content: '';
-  position: absolute;
-  inset: -12px;
-  border-radius: 50%;
-  border: 1.5px dashed rgba(224, 114, 28, .35);
-  animation: aw-core-spin 26s linear infinite;
-}
-@keyframes aw-core-spin { to { transform: rotate(360deg); } }
-@keyframes aw-core-pulse {
-  from { box-shadow: 0 6px 26px rgba(43, 29, 18, .12); }
-  to   { box-shadow: 0 6px 34px rgba(186, 123, 174, .38); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .aw-node--core, .aw-node--core::after { animation: none; }
+.axon-graph .sg-impulse {
+  fill: none;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  pointer-events: none;
+  opacity: 0;
 }
 .axon-graph .sg-links {
   position: absolute;
@@ -884,8 +832,8 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
 }
 .axon-graph .sg-link {
   fill: none;
-  stroke: rgba(43, 29, 18, .27);
-  stroke-width: 1.7;
+  stroke: rgba(43, 29, 18, .30);
+  stroke-width: 1.8;
   stroke-linecap: round;
   transition: stroke var(--t-mid) var(--ease), stroke-width var(--t-mid) var(--ease),
               opacity var(--t-mid) var(--ease);
@@ -894,79 +842,100 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
   stroke: #e0721c;
   stroke-width: 2.6;
 }
-.axon-graph .sg-link.is-near {
-  stroke: rgba(224, 114, 28, .45);
-  stroke-width: 1.8;
-}
-.axon-graph.is-focused .sg-link:not(.is-lit):not(.is-near) { opacity: 0.16; }
-.axon-graph .sg-impulse {
-  fill: none;
-  stroke-width: 2.4;
-  stroke-linecap: round;
-  pointer-events: none;
-  opacity: 0;
-}
+.axon-graph.is-focused .sg-link:not(.is-lit) { opacity: 0.22; }
 
-.aw-node {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45em;
+/* Columns inherit the grid; DOM order is header -> desc -> arrow -> tooltip ->
+   nodes, and explicit rows put the nodes between header and description
+   without moving a single word in the markup. */
+.axon-graph .sg-col {
+  display: contents;
+}
+.axon-graph .arch-col-header {
+  grid-row: 1;
+  position: relative;
+  z-index: 2;
+  /* The KPI header shipped as gradient text (-webkit-text-fill-color:
+     transparent + background-clip: text). Giving the pill its own background
+     clipped that text to white and it vanished. Emphasis here comes from
+     weight and the pill, not from a gradient fill. */
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: currentColor !important;
+  text-align: center;
+  padding: 0.55rem 0.4rem;
+  margin-bottom: 1.6rem;
+  border-radius: 999px;
+  font-size: clamp(11px, 1vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   background: #fff;
   border: 1px solid var(--ink-line);
-  border-radius: 999px;
-  padding: 0.5em 0.85em;
-  font-size: clamp(11px, 0.95vw, 13px);
+  color: var(--ink-2);
+}
+.axon-graph .sg-nodes {
+  grid-row: 2;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.7rem;
+  min-height: 260px;
+}
+.axon-graph .arch-col-desc {
+  grid-row: 3;
+  margin-top: 1.7rem;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-4);
+  text-align: center;
+  padding: 0 0.2rem;
+}
+/* Real curves replace the placeholder arrow glyphs */
+.axon-graph .arch-col-arrow { display: none !important; }
+.axon-graph .arch-tooltip { display: none !important; }
+
+.axon-graph .sg-node {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  border: 1px solid var(--ink-line);
+  border-radius: 12px;
+  padding: 0.7em 0.85em;
+  font-size: clamp(12px, 1.05vw, 13.5px);
   font-weight: 600;
-  line-height: 1.25;
+  line-height: 1.32;
   color: var(--ink);
-  white-space: nowrap;
+  text-align: center;
   cursor: default;
   box-shadow: var(--sh-1);
-  /* transform is the positioning + drift channel; never transition it */
-  transition: box-shadow var(--t-mid) var(--ease), border-color var(--t-mid) var(--ease),
-              opacity var(--t-mid) var(--ease);
+  transition: transform var(--t-mid) var(--ease), box-shadow var(--t-mid) var(--ease),
+              border-color var(--t-mid) var(--ease), opacity var(--t-mid) var(--ease);
 }
-.aw-node::before {
-  content: '';
-  flex: 0 0 auto;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--aw-dot, #9aa1a9);
-}
-.aw-node[data-kind="k"]   { --aw-dot: var(--cg-red); }
-.aw-node[data-kind="s"]   { --aw-dot: var(--cg-gold); }
-.aw-node[data-kind="a"]   { --aw-dot: var(--spanish-blue); }
-.aw-node[data-kind="t"]   { --aw-dot: var(--sea-green); }
-.aw-node[data-kind="kpi"] { --aw-dot: #2b3540; }
-.aw-node--role {
-  z-index: 2;
-  padding: 0.7em 1.15em;
-  font-size: clamp(13px, 1.1vw, 15px);
-  font-weight: 700;
-  background: linear-gradient(180deg, #fff, #fffaf0);
-  border-color: rgba(224, 114, 28, .4);
-}
-.aw-node--role::before { background: linear-gradient(135deg, var(--cg-gold), var(--cg-red)); }
-.aw-node:hover,
-.aw-node:focus-visible,
-.aw-node.is-lit {
+.axon-graph .sg-node:hover,
+.axon-graph .sg-node:focus-visible,
+.axon-graph .sg-node.is-lit {
   border-color: rgba(224, 114, 28, .55);
   box-shadow: var(--sh-2);
+  transform: translateY(-2px);
 }
-.aw-node.is-near { border-color: rgba(224, 114, 28, .3); }
-.axon-graph.is-focused .aw-node:not(.is-lit):not(.is-near) { opacity: 0.35; }
+.axon-graph.is-focused .sg-node:not(.is-lit) { opacity: 0.4; }
 
-/* Entrance: pills fade in from the role outward, then connectors draw */
-.axon-graph .aw-node { opacity: 0; }
-.axon-graph.is-drawn .aw-node {
+/* The origin node anchors the example */
+.axon-graph .sg-col[data-layer="0"] .sg-node {
+  background: linear-gradient(180deg, #fff, #fffaf0);
+  border-color: rgba(224, 114, 28, .4);
+  font-weight: 700;
+}
+
+/* Entrance: nodes settle, then the connectors draw themselves */
+.axon-graph .sg-node { opacity: 0; transform: translateY(10px); }
+.axon-graph.is-drawn .sg-node {
   opacity: 1;
-  transition: opacity 520ms var(--ease), box-shadow var(--t-mid) var(--ease),
-              border-color var(--t-mid) var(--ease);
-  transition-delay: calc(var(--sg-i, 0) * 55ms);
+  transform: none;
+  transition: opacity 520ms var(--ease), transform 520ms var(--ease);
+  transition-delay: calc(var(--sg-i, 0) * 45ms);
 }
 .axon-graph .sg-link { stroke-dasharray: var(--len, 0); stroke-dashoffset: var(--len, 0); }
 .axon-graph.is-drawn .sg-link {
@@ -976,18 +945,31 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
               opacity var(--t-mid) var(--ease);
 }
 
+/* alternate layers sit off the shared baseline, so five columns read as a
+   woven field rather than a staircase */
+.axon-graph .sg-col[data-layer="1"] .sg-nodes,
+.axon-graph .sg-col[data-layer="3"] .sg-nodes { transform: translateY(26px); }
 
 @media (max-width: 900px) {
-  .aw-stage { height: 430px; }
-  .aw-node { font-size: 9.5px; padding: 0.4em 0.55em; gap: 0.3em; }
-  .aw-node--role { font-size: 12px; }
-  .aw-node--core { width: 74px; height: 74px; }
-  .aw-node--core .axon-text { font-size: 17px; }
-  .aw-ringlabel { font-size: 8.5px; padding: 0.18em 0.5em; letter-spacing: 0.08em; }
-  .aw-stage { height: 640px; }
-}
-@media (max-width: 560px) {
-  .aw-node { white-space: normal; max-width: 92px; text-align: left; line-height: 1.15; }
+  /* Five columns cannot survive a phone. Stack the layers; each becomes a
+     labelled row of chips and the connector layer steps aside. */
+  .axon-graph .sg-col[data-layer="1"] .sg-nodes,
+  .axon-graph .sg-col[data-layer="3"] .sg-nodes { transform: none; }
+  .axon-graph { grid-template-columns: 1fr; grid-template-rows: none; gap: 0; }
+  .axon-graph .sg-links { display: none; }
+  .axon-graph .sg-mesh { display: none; }
+  .axon-graph .sg-col { display: block; padding: 1.15rem 0; border-bottom: 1px solid var(--ink-line-soft); }
+  .axon-graph .sg-col:last-child { border-bottom: none; }
+  .axon-graph .arch-col-header { display: inline-block; margin-bottom: 0.9rem; }
+  .axon-graph .sg-nodes {
+    min-height: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+  .axon-graph .sg-node { opacity: 1; transform: none; padding: 0.55em 0.8em; }
+  .axon-graph .arch-col-desc { margin-top: 0.9rem; text-align: left; }
 }
 
 @media (prefers-reduced-motion: reduce) {
