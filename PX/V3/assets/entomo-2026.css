@@ -637,7 +637,7 @@ html, body { overflow-x: clip; }
 }
 
 /* --- 18g. Headline marks must not paint over the line above -----------------
-   Measured overlap before this rule: 24.1px (strata h1), 19.7px (home h1).
+   Measured overlap before this rule: 24.1px (axon h1), 19.7px (home h1).
    Display line-heights are deliberately tight, so any headline that actually
    contains a mark opens up just enough to seat the highlight box.            */
 /* !important is load-bearing here: :has(mark) carries only type-level
@@ -783,14 +783,14 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
 .eq-hidden .agent-marquee-track { animation-play-state: paused; }
 
 /* ============================================================================
-   19. THE STRATA GRAPH — signature component
+   19. THE AXON GRAPH — signature component
    Role -> Responsibility -> Task -> KPI -> Skill, drawn as an actual connected
    graph with a worked example. The crossings are the argument: a flat skills
    list cannot produce them. Connector geometry is computed from real node
    positions in entomo-2026.js, so it survives reflow and text wrapping.
    ========================================================================== */
 
-.strata-graph {
+.axon-graph {
   position: relative;
   display: grid !important;
   grid-template-columns: repeat(5, 1fr);
@@ -804,7 +804,7 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
   box-shadow: none !important;
 }
 
-.strata-graph .sg-links {
+.axon-graph .sg-links {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -813,7 +813,7 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
   pointer-events: none;
   z-index: 0;
 }
-.strata-graph .sg-link {
+.axon-graph .sg-link {
   fill: none;
   stroke: rgba(43, 29, 18, .17);
   stroke-width: 1.5;
@@ -821,19 +821,19 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
   transition: stroke var(--t-mid) var(--ease), stroke-width var(--t-mid) var(--ease),
               opacity var(--t-mid) var(--ease);
 }
-.strata-graph .sg-link.is-lit {
+.axon-graph .sg-link.is-lit {
   stroke: #e0721c;
   stroke-width: 2.6;
 }
-.strata-graph.is-focused .sg-link:not(.is-lit) { opacity: 0.22; }
+.axon-graph.is-focused .sg-link:not(.is-lit) { opacity: 0.22; }
 
 /* Columns inherit the grid; DOM order is header -> desc -> arrow -> tooltip ->
    nodes, and explicit rows put the nodes between header and description
    without moving a single word in the markup. */
-.strata-graph .sg-col {
+.axon-graph .sg-col {
   display: contents;
 }
-.strata-graph .arch-col-header {
+.axon-graph .arch-col-header {
   grid-row: 1;
   position: relative;
   z-index: 2;
@@ -856,7 +856,7 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
   border: 1px solid var(--ink-line);
   color: var(--ink-2);
 }
-.strata-graph .sg-nodes {
+.axon-graph .sg-nodes {
   grid-row: 2;
   position: relative;
   z-index: 1;
@@ -866,7 +866,7 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
   gap: 0.7rem;
   min-height: 260px;
 }
-.strata-graph .arch-col-desc {
+.axon-graph .arch-col-desc {
   grid-row: 3;
   margin-top: 1.7rem;
   font-size: 12.5px;
@@ -876,10 +876,10 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
   padding: 0 0.2rem;
 }
 /* Real curves replace the placeholder arrow glyphs */
-.strata-graph .arch-col-arrow { display: none !important; }
-.strata-graph .arch-tooltip { display: none !important; }
+.axon-graph .arch-col-arrow { display: none !important; }
+.axon-graph .arch-tooltip { display: none !important; }
 
-.strata-graph .sg-node {
+.axon-graph .sg-node {
   position: relative;
   z-index: 1;
   background: #fff;
@@ -896,32 +896,32 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
   transition: transform var(--t-mid) var(--ease), box-shadow var(--t-mid) var(--ease),
               border-color var(--t-mid) var(--ease), opacity var(--t-mid) var(--ease);
 }
-.strata-graph .sg-node:hover,
-.strata-graph .sg-node:focus-visible,
-.strata-graph .sg-node.is-lit {
+.axon-graph .sg-node:hover,
+.axon-graph .sg-node:focus-visible,
+.axon-graph .sg-node.is-lit {
   border-color: rgba(224, 114, 28, .55);
   box-shadow: var(--sh-2);
   transform: translateY(-2px);
 }
-.strata-graph.is-focused .sg-node:not(.is-lit) { opacity: 0.4; }
+.axon-graph.is-focused .sg-node:not(.is-lit) { opacity: 0.4; }
 
 /* The origin node anchors the example */
-.strata-graph .sg-col[data-layer="0"] .sg-node {
+.axon-graph .sg-col[data-layer="0"] .sg-node {
   background: linear-gradient(180deg, #fff, #fffaf0);
   border-color: rgba(224, 114, 28, .4);
   font-weight: 700;
 }
 
 /* Entrance: nodes settle, then the connectors draw themselves */
-.strata-graph .sg-node { opacity: 0; transform: translateY(10px); }
-.strata-graph.is-drawn .sg-node {
+.axon-graph .sg-node { opacity: 0; transform: translateY(10px); }
+.axon-graph.is-drawn .sg-node {
   opacity: 1;
   transform: none;
   transition: opacity 520ms var(--ease), transform 520ms var(--ease);
   transition-delay: calc(var(--sg-i, 0) * 45ms);
 }
-.strata-graph .sg-link { stroke-dasharray: var(--len, 0); stroke-dashoffset: var(--len, 0); }
-.strata-graph.is-drawn .sg-link {
+.axon-graph .sg-link { stroke-dasharray: var(--len, 0); stroke-dashoffset: var(--len, 0); }
+.axon-graph.is-drawn .sg-link {
   stroke-dashoffset: 0;
   transition: stroke-dashoffset 900ms var(--ease-soft) 260ms,
               stroke var(--t-mid) var(--ease), stroke-width var(--t-mid) var(--ease),
@@ -931,25 +931,25 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
 @media (max-width: 900px) {
   /* Five columns cannot survive a phone. Stack the layers; each becomes a
      labelled row of chips and the connector layer steps aside. */
-  .strata-graph { grid-template-columns: 1fr; grid-template-rows: none; gap: 0; }
-  .strata-graph .sg-links { display: none; }
-  .strata-graph .sg-col { display: block; padding: 1.15rem 0; border-bottom: 1px solid var(--ink-line-soft); }
-  .strata-graph .sg-col:last-child { border-bottom: none; }
-  .strata-graph .arch-col-header { display: inline-block; margin-bottom: 0.9rem; }
-  .strata-graph .sg-nodes {
+  .axon-graph { grid-template-columns: 1fr; grid-template-rows: none; gap: 0; }
+  .axon-graph .sg-links { display: none; }
+  .axon-graph .sg-col { display: block; padding: 1.15rem 0; border-bottom: 1px solid var(--ink-line-soft); }
+  .axon-graph .sg-col:last-child { border-bottom: none; }
+  .axon-graph .arch-col-header { display: inline-block; margin-bottom: 0.9rem; }
+  .axon-graph .sg-nodes {
     min-height: 0;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: 0.5rem;
   }
-  .strata-graph .sg-node { opacity: 1; transform: none; padding: 0.55em 0.8em; }
-  .strata-graph .arch-col-desc { margin-top: 0.9rem; text-align: left; }
+  .axon-graph .sg-node { opacity: 1; transform: none; padding: 0.55em 0.8em; }
+  .axon-graph .arch-col-desc { margin-top: 0.9rem; text-align: left; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .strata-graph .sg-node { opacity: 1 !important; transform: none !important; }
-  .strata-graph .sg-link { stroke-dashoffset: 0 !important; }
+  .axon-graph .sg-node { opacity: 1 !important; transform: none !important; }
+  .axon-graph .sg-link { stroke-dashoffset: 0 !important; }
 }
 
 /* ============================================================================
@@ -958,7 +958,7 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
    the light card treatment; craft is applied in kind instead.
    ========================================================================== */
 
-/* The entomo.ai / strata chat card — ebony-clay on a light section */
+/* The entomo.ai / axon chat card — ebony-clay on a light section */
 .ww-card {
   background: var(--ebony-clay) !important;
   border: 1px solid rgba(255, 255, 255, .09) !important;
@@ -1456,7 +1456,7 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
 
 /* ============================================================================
    28. Brand lockups
-   The entomo.ai and entomo strata logos, used in place of the words where the
+   The entomo.ai and entomo axon logos, used in place of the words where the
    mention is a brand statement rather than prose. Every one carries alt text
    with the exact words it replaces, so the copy still reaches screen readers
    and search engines — the change is presentational only.
@@ -1483,7 +1483,7 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
 }
 .text-left .brand-lockup--hero { margin-left: 0; }
 
-.brand-lockup--strata { width: min(500px, 88%); }
+.brand-lockup--axon { width: min(500px, 88%); }
 
 /* Inline mention, set to the size of the text it sits in. The negative
    vertical-align seats the wordmark on the baseline rather than hanging it
@@ -1515,7 +1515,7 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
   .brand-lockup--hero { width: min(320px, 92%); }
 }
 
-/* The strata wordmark set inline in a headline. It needs more height than the
+/* The axon wordmark set inline in a headline. It needs more height than the
    entomo.ai lockup at the same font size: the artwork carries a sparkle
    flourish above the letterforms, so a large share of its box is empty air
    and matching 1em would leave the letters visibly small next to the type.
@@ -1524,38 +1524,40 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
    letterforms occupy 79.74% of the image height with the baseline at 99.49%
    from the top — the wordmark sits almost flush with the bottom edge, and the
    sparkle flourish accounts for the space above it. Measured in the page
-   font: "strata" inks 0.65em. So 0.65 / 0.7974 = 0.815em, and the baseline
+   font: "axon" inks 0.65em. So 0.65 / 0.7974 = 0.815em, and the baseline
    offset is effectively nil.
 
    The previous values were guessed against the image box and rendered the
    letters at roughly 1.9x the surrounding type. */
-.brand-inline--strata img {
-  height: 0.815em;
-  vertical-align: -0.004em;
+.brand-inline--axon img {
+  /* axon artwork: letterforms ink 74.3% of image height, baseline at 91.8%
+     from top; 0.65 / 0.743 = 0.875em, offset -(1-0.918) x 0.875 = -0.072em */
+  height: 0.875em;
+  vertical-align: -0.072em;
   margin: 0 0.04em;
 }
 
 /* An inline lockup is an inline-block, so a line can break between it and the
-   punctuation that follows — which left "why [strata]" on one line and
+   punctuation that follows — which left "why [axon]" on one line and
    ", not another copilot" starting with an orphaned comma on the next.
    Binding the lockup to its trailing punctuation moves the break after it. */
 .eq-nowrap { white-space: nowrap; }
 
 
 /* ============================================================================
-   29. "strata" set as text
+   29. "axon" set as text
    Where the word appears in copy rather than as the lockup, it takes the
    lockup's own gradient. The stops are sampled from the artwork itself,
    below the sparkle overlay so they are the letter colours and not the
    flourish: pink at the s, through mauve and blue, to gold on the final a.
    ========================================================================== */
 :root {
-  --strata-gradient: linear-gradient(90deg,
+  --axon-gradient: linear-gradient(90deg,
     #f86da9 0%, #ba7bae 30%, #708cb5 58%, #2c9bbb 82%, #ebbe2e 100%);
 }
 
-.strata-text {
-  background-image: var(--strata-gradient);
+.axon-text {
+  background-image: var(--axon-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1568,13 +1570,13 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
 }
 /* Inside an already-gradient-clipped heading the nested clip would collapse;
    let the outer treatment own those. */
-.eq-gradient-text .strata-text,
-[style*="text-fill-color: transparent"] .strata-text {
+.eq-gradient-text .axon-text,
+[style*="text-fill-color: transparent"] .axon-text {
   background-image: none;
   -webkit-text-fill-color: currentColor;
   color: inherit;
 }
 
 @media (prefers-reduced-transparency: reduce) {
-  .strata-text { background-image: none; -webkit-text-fill-color: #b8608f; color: #b8608f; }
+  .axon-text { background-image: none; -webkit-text-fill-color: #b8608f; color: #b8608f; }
 }

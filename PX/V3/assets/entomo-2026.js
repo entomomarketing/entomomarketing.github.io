@@ -473,12 +473,12 @@
     });
   }
 
-  /* ---- 4. The strata graph --------------------------------------------------
+  /* ---- 4. The axon graph --------------------------------------------------
      Draws Role -> Responsibility -> Task -> KPI -> Skill as a real connected
      graph. Paths are computed from measured node positions rather than
      hard-coded, so wrapping, zoom, and reflow cannot desynchronise them. */
-  function initStrataGraph() {
-    var root = doc.querySelector("[data-strata-graph]");
+  function initAxonGraph() {
+    var root = doc.querySelector("[data-axon-graph]");
     if (!root) return;
 
     var svg = root.querySelector(".sg-links");
@@ -673,7 +673,7 @@
     try { initHeroFlow(); } catch (e) {}
     try { initScrollState(); } catch (e) {}
     try { initVisibility(); } catch (e) {}
-    try { initStrataGraph(); } catch (e) {}
+    try { initAxonGraph(); } catch (e) {}
   }
 
   if (doc.readyState === "loading") {
