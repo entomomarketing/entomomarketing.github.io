@@ -522,7 +522,7 @@
     /* concentric taxonomy rings: one per layer, painted back to front with
        alternating radar bands, plus the label axis toward the upper left */
     var RING_RX = [0.15, 0.25, 0.34, 0.42, 0.49];
-    var RING_RY = [0.15, 0.225, 0.305, 0.375, 0.44];
+    var RING_RY = [0.15, 0.235, 0.31, 0.377, 0.44];
     var CY = 0.48;
     var rings = [], axis = doc.createElementNS("http://www.w3.org/2000/svg", "line");
     for (var ri = RING_RX.length - 1; ri >= 0; ri--) {
@@ -538,10 +538,7 @@
       Object.keys(nodes).forEach(function (k) {
         var n = nodes[k];
         if (k === "core") { n.style.left = "50%"; n.style.top = (CY * 100) + "%"; return; }
-        var ri = parseInt(n.getAttribute("data-ring"), 10);
-        var a = parseFloat(n.getAttribute("data-angle")) * Math.PI / 180;
-        n.style.left = (50 + RING_RX[ri] * 100 * Math.cos(a)).toFixed(2) + "%";
-        n.style.top = ((CY - RING_RY[ri] * Math.sin(a)) * 100).toFixed(2) + "%";
+        setFromAngle(n);
       });
       /* ring labels ride the 135-degree axis, one per crossing */
       root.querySelectorAll(".aw-ringlabel").forEach(function (lb) {
@@ -589,63 +586,62 @@
       });
     }
 
-    /* keep every pill fully inside the stage, whatever the viewport */
-    function clampToStage() {
-      var box = root.getBoundingClientRect();
-      if (!box.width) return;
-      var M = 6;
-      Object.keys(nodes).forEach(function (k) {
-        var n = nodes[k], r = n.getBoundingClientRect();
-        var cx = r.left - box.left + r.width / 2, cy = r.top - box.top + r.height / 2;
-        var nx = Math.min(Math.max(cx, r.width / 2 + M), box.width - r.width / 2 - M);
-        var ny = Math.min(Math.max(cy, r.height / 2 + M), box.height - r.height / 2 - M);
-        if (nx !== cx) n.style.left = (nx / box.width * 100).toFixed(2) + "%";
-        if (ny !== cy) n.style.top = (ny / box.height * 100).toFixed(2) + "%";
-      });
+    /* Pills may only ever slide ALONG their own ring: both bounds problems
+       and overlaps are resolved by nudging a node's angle, never its radius,
+       so every type stays exactly on its taxonomy orbit. */
+    function setFromAngle(n) {
+      var ri = parseInt(n.getAttribute("data-ring"), 10);
+      var a = parseFloat(n.getAttribute("data-angle")) * Math.PI / 180;
+      n.style.left = (50 + RING_RX[ri] * 100 * Math.cos(a)).toFixed(2) + "%";
+      n.style.top = ((CY - RING_RY[ri] * Math.sin(a)) * 100).toFixed(2) + "%";
     }
-
-    /* nudge intersecting pills apart (small screens fold the fans together) */
-    function resolveOverlaps() {
+    function nudgeAlongRing(n, dirx, diry, box) {
+      var ri = parseInt(n.getAttribute("data-ring"), 10);
+      var a = parseFloat(n.getAttribute("data-angle")) * Math.PI / 180;
+      /* screen-space tangent of the ellipse at this angle */
+      var tx = -box.width * RING_RX[ri] * Math.sin(a);
+      var ty = -box.height * RING_RY[ri] * Math.cos(a);
+      var step = ((tx * dirx + ty * diry) >= 0 ? 1 : -1) * 1.3;
+      n.setAttribute("data-angle",
+        (parseFloat(n.getAttribute("data-angle")) + step).toFixed(2));
+      setFromAngle(n);
+    }
+    function relax() {
       var box = root.getBoundingClientRect();
       if (!box.width) return;
-      var keys = Object.keys(nodes);
-      for (var pass = 0; pass < 3; pass++) {
+      var keys = Object.keys(nodes).filter(function (k) { return k !== "core"; });
+      var M = 4;
+      for (var pass = 0; pass < 90; pass++) {
         var moved = false;
-        for (var a = 0; a < keys.length; a++) {
-          for (var b = a + 1; b < keys.length; b++) {
-            var ra = nodes[keys[a]].getBoundingClientRect();
-            var rb = nodes[keys[b]].getBoundingClientRect();
-            var ox = Math.min(ra.right, rb.right) - Math.max(ra.left, rb.left) + 4;
-            var oy = Math.min(ra.bottom, rb.bottom) - Math.max(ra.top, rb.top) + 4;
-            if (ox <= 4 || oy <= 4) continue;
-            var na = nodes[keys[a]], nb = nodes[keys[b]];
-            /* push along the smaller overlap axis; the role pill stays anchored */
-            var anchored = function (n) { return n === nodes.core || n === nodes.role; };
-            /* an anchored partner cannot give way: the movable pill takes the full push */
-            var push = (anchored(na) || anchored(nb)) ? Math.min(ox, oy) : Math.min(ox, oy) / 2;
-            var horizontal = ox < oy;
-            [na, nb].forEach(function (n, idx) {
-              if (anchored(n)) return;
-              var sign = idx === 0 ? -1 : 1;
-              if (horizontal) {
-                var cur = parseFloat(n.style.left);
-                n.style.left = (cur + sign * (ra.left < rb.left ? 1 : -1) * push / box.width * 100).toFixed(2) + "%";
-              } else {
-                var curT = parseFloat(n.style.top);
-                n.style.top = (curT + sign * (ra.top < rb.top ? 1 : -1) * push / box.height * 100).toFixed(2) + "%";
-              }
-            });
+        keys.forEach(function (k) {
+          var r = nodes[k].getBoundingClientRect();
+          var dx = 0, dy = 0;
+          if (r.left < box.left + M) dx = 1; else if (r.right > box.right - M) dx = -1;
+          if (r.top < box.top + M) dy = 1; else if (r.bottom > box.bottom - M) dy = -1;
+          if (dx || dy) { nudgeAlongRing(nodes[k], dx, dy, box); moved = true; }
+        });
+        for (var a2 = 0; a2 < keys.length; a2++) {
+          for (var b2 = a2 + 1; b2 < keys.length; b2++) {
+            var ra = nodes[keys[a2]].getBoundingClientRect();
+            var rb = nodes[keys[b2]].getBoundingClientRect();
+            var ox = Math.min(ra.right, rb.right) - Math.max(ra.left, rb.left) + 6;
+            var oy = Math.min(ra.bottom, rb.bottom) - Math.max(ra.top, rb.top) + 6;
+            if (ox <= 6 || oy <= 6) continue;
+            var sx = (ra.left + ra.right - rb.left - rb.right) / 2;
+            var sy = (ra.top + ra.bottom - rb.top - rb.bottom) / 2;
+            var sl = Math.hypot(sx, sy) || 1;
+            nudgeAlongRing(nodes[keys[a2]], sx / sl, sy / sl, box);
+            nudgeAlongRing(nodes[keys[b2]], -sx / sl, -sy / sl, box);
             moved = true;
           }
         }
-        if (moved) clampToStage(); else break;
+        if (!moved) break;
       }
     }
 
     function layout() {
       placeOnRings();
-      clampToStage();
-      resolveOverlaps();
+      relax();
       updateGeometry();
       paths.forEach(function (p) {
         try { p.style.setProperty("--len", p.getTotalLength()); } catch (err) {}
@@ -782,7 +778,7 @@
             if (Math.random() < 0.4) setTimeout(fire, 260 + Math.random() * 240);
           }, 1300);
         }
-        if (rafId === null) rafId = requestAnimationFrame(tick);
+        if (rafId === null && window.innerWidth >= 560) rafId = requestAnimationFrame(tick);
       } else {
         if (impulseTimer) { clearInterval(impulseTimer); impulseTimer = null; }
         if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
