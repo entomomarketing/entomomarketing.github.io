@@ -814,18 +814,24 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
   position: absolute;
   transform: translate(-50%, -50%);
   z-index: 2;
-  background: var(--white);
-  border: 1px solid rgba(43, 29, 18, .12);
   border-radius: 999px;
-  padding: 0.22em 0.7em;
+  padding: 0.28em 0.75em;
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink-3);
+  color: #fff;
   pointer-events: none;
   white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(43, 29, 18, .18);
 }
+/* each orbit's label wears its taxonomy colour, so labels read as keys,
+   never as nodes (nodes stay white pills with coloured dots) */
+.aw-ringlabel[data-ringlabel="0"] { background: linear-gradient(135deg, var(--cg-gold), var(--cg-red)); }
+.aw-ringlabel[data-ringlabel="1"] { background: #1d6c2d; }
+.aw-ringlabel[data-ringlabel="2"] { background: var(--cg-gold); color: var(--ink); }
+.aw-ringlabel[data-ringlabel="3"] { background: linear-gradient(90deg, var(--cg-red), var(--spanish-blue)); }
+.aw-ringlabel[data-ringlabel="4"] { background: #2b3540; }
 .aw-node--core {
   z-index: 3;
   flex-direction: column;
