@@ -1,0 +1,506 @@
+ARCHIVED: columnar KSAT graph ("watch one role connect." section)
+Replaced 2026-08-26 by the living-constellation web (Arun: interconnected
+intelligence, not layers). Full-fidelity source also in git at commit da4282c.
+
+To restore: put these three pieces back where the aw-* constellation code now
+lives (same file locations), or check out the section from da4282c.
+
+===================== 1. HTML (AI-lab/entomo-axon.html) =====================
+<div class="arch-diagram axon-graph" data-axon-graph data-edges="r1>p1,r1>p2,p1>t1,p1>t3,p2>t2,p2>t3,t1>k1,t2>k1,t2>k2,t3>k2,t3>k3,k1>s1,k1>s2,k2>s2,k2>s3,k3>s3,k3>s4">
+        <canvas class="sg-mesh" aria-hidden="true"></canvas>
+        <svg class="sg-links" aria-hidden="true" focusable="false"></svg>
+        <div class="sg-col" data-layer="0">
+          <div class="arch-col-header arch-color-data-sources">role</div>
+          <div class="arch-col-desc">Every role defined as a living profile, benchmarked against the market, not a static job description.</div>
+          <div class="arch-col-arrow" aria-hidden="true">&rarr;</div>
+          <div class="arch-tooltip">Roles in <span class="axon-text">axon</span> are living profiles, continuously benchmarked against market data, not documents that expire the day they are written.</div>
+          <div class="sg-nodes">
+            <div class="sg-node" data-node="r1" tabindex="0" role="button" aria-label="Branch Manager">Branch Manager</div>
+          </div>
+        </div>
+        <div class="sg-col" data-layer="1">
+          <div class="arch-col-header arch-color-foundation">responsibility</div>
+          <div class="arch-col-desc">Roles decompose into responsibilities that describe how the work is actually organized.</div>
+          <div class="arch-col-arrow" aria-hidden="true">&rarr;</div>
+          <div class="arch-tooltip">Responsibilities capture how work is organized inside a role: the layer most skills libraries skip entirely.</div>
+          <div class="sg-nodes">
+            <div class="sg-node" data-node="p1" tabindex="0" role="button" aria-label="grow the deposit book">grow the deposit book</div>
+            <div class="sg-node" data-node="p2" tabindex="0" role="button" aria-label="develop the branch team">develop the branch team</div>
+          </div>
+        </div>
+        <div class="sg-col" data-layer="2">
+          <div class="arch-col-header arch-color-intelligence">task</div>
+          <div class="arch-col-desc">Responsibilities break into observable tasks: the atomic unit of work <span class="axon-text">axon</span> reasons over.</div>
+          <div class="arch-col-arrow" aria-hidden="true">&rarr;</div>
+          <div class="arch-tooltip">Tasks are observable and assessable, which is what lets <span class="axon-text">axon</span> connect daily work to skills and evidence.</div>
+          <div class="sg-nodes">
+            <div class="sg-node" data-node="t1" tabindex="0" role="button" aria-label="run portfolio reviews">run portfolio reviews</div>
+            <div class="sg-node" data-node="t2" tabindex="0" role="button" aria-label="coach relationship managers">coach relationship managers</div>
+            <div class="sg-node" data-node="t3" tabindex="0" role="button" aria-label="approve credit within limit">approve credit within limit</div>
+          </div>
+        </div>
+        <div class="sg-col" data-layer="3">
+          <div class="arch-col-header arch-color-agents"><span class="keep-case">KPI</span></div>
+          <div class="arch-col-desc">Tasks link to the <span class="keep-case">KPIs</span> they move, connecting daily work to measurable business outcomes.</div>
+          <div class="arch-col-arrow" aria-hidden="true">&rarr;</div>
+          <div class="arch-tooltip">Because tasks link to <span class="keep-case">KPIs</span>, <span class="axon-text">axon</span> can answer the question competitors cannot: which capability gaps are costing you which outcomes.</div>
+          <div class="sg-nodes">
+            <div class="sg-node" data-node="k1" tabindex="0" role="button" aria-label="deposit growth">deposit growth</div>
+            <div class="sg-node" data-node="k2" tabindex="0" role="button" aria-label="team attrition">team attrition</div>
+            <div class="sg-node" data-node="k3" tabindex="0" role="button" aria-label="credit quality">credit quality</div>
+          </div>
+        </div>
+        <div class="sg-col" data-layer="4">
+          <div class="arch-col-header arch-color-outcomes">skill</div>
+          <div class="arch-col-desc">Every task maps to the knowledge, skills, and abilities required to perform it well.</div>
+          <div class="arch-tooltip" style="left:auto; right:0; transform:none;">Skills are attached to the work itself, so development, mobility, and hiring decisions inherit real context, not keywords.</div>
+          <div class="sg-nodes">
+            <div class="sg-node" data-node="s1" tabindex="0" role="button" aria-label="portfolio analysis">portfolio analysis</div>
+            <div class="sg-node" data-node="s2" tabindex="0" role="button" aria-label="coaching conversations">coaching conversations</div>
+            <div class="sg-node" data-node="s3" tabindex="0" role="button" aria-label="credit risk assessment">credit risk assessment</div>
+            <div class="sg-node" data-node="s4" tabindex="0" role="button" aria-label="regulatory compliance">regulatory compliance</div>
+          </div>
+        </div>
+      </div>
+
+===================== 2. CSS (assets/entomo-2026.css, section 19) ===========
+/* ============================================================================
+   19. THE AXON GRAPH — signature component
+   Role -> Responsibility -> Task -> KPI -> Skill, drawn as an actual connected
+   graph with a worked example. The crossings are the argument: a flat skills
+   list cannot produce them. Connector geometry is computed from real node
+   positions in entomo-2026.js, so it survives reflow and text wrapping.
+   ========================================================================== */
+
+.axon-graph {
+  position: relative;
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto 1fr auto;
+  gap: 0 clamp(0.5rem, 2.2vw, 2.6rem);
+  align-items: start;
+  overflow: visible !important;
+  margin-top: 3rem;
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.axon-graph .sg-mesh {
+  /* ambient neural field: painted by JS, bleeds past the diagram so the
+     visible sample reads as a window onto a much larger model */
+  position: absolute;
+  inset: -44px -20px;
+  width: calc(100% + 40px);
+  height: calc(100% + 88px);
+  pointer-events: none;
+  z-index: 0;
+}
+.axon-graph .sg-impulse {
+  fill: none;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  pointer-events: none;
+  opacity: 0;
+}
+.axon-graph .sg-links {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 0;
+}
+.axon-graph .sg-link {
+  fill: none;
+  stroke: rgba(43, 29, 18, .17);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  transition: stroke var(--t-mid) var(--ease), stroke-width var(--t-mid) var(--ease),
+              opacity var(--t-mid) var(--ease);
+}
+.axon-graph .sg-link.is-lit {
+  stroke: #e0721c;
+  stroke-width: 2.6;
+}
+.axon-graph.is-focused .sg-link:not(.is-lit) { opacity: 0.22; }
+
+/* Columns inherit the grid; DOM order is header -> desc -> arrow -> tooltip ->
+   nodes, and explicit rows put the nodes between header and description
+   without moving a single word in the markup. */
+.axon-graph .sg-col {
+  display: contents;
+}
+.axon-graph .arch-col-header {
+  grid-row: 1;
+  position: relative;
+  z-index: 2;
+  /* The KPI header shipped as gradient text (-webkit-text-fill-color:
+     transparent + background-clip: text). Giving the pill its own background
+     clipped that text to white and it vanished. Emphasis here comes from
+     weight and the pill, not from a gradient fill. */
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: currentColor !important;
+  text-align: center;
+  padding: 0.55rem 0.4rem;
+  margin-bottom: 1.6rem;
+  border-radius: 999px;
+  font-size: clamp(11px, 1vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: #fff;
+  border: 1px solid var(--ink-line);
+  color: var(--ink-2);
+}
+.axon-graph .sg-nodes {
+  grid-row: 2;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.7rem;
+  min-height: 260px;
+}
+.axon-graph .arch-col-desc {
+  grid-row: 3;
+  margin-top: 1.7rem;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-4);
+  text-align: center;
+  padding: 0 0.2rem;
+}
+/* Real curves replace the placeholder arrow glyphs */
+.axon-graph .arch-col-arrow { display: none !important; }
+.axon-graph .arch-tooltip { display: none !important; }
+
+.axon-graph .sg-node {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  border: 1px solid var(--ink-line);
+  border-radius: 12px;
+  padding: 0.7em 0.85em;
+  font-size: clamp(12px, 1.05vw, 13.5px);
+  font-weight: 600;
+  line-height: 1.32;
+  color: var(--ink);
+  text-align: center;
+  cursor: default;
+  box-shadow: var(--sh-1);
+  transition: transform var(--t-mid) var(--ease), box-shadow var(--t-mid) var(--ease),
+              border-color var(--t-mid) var(--ease), opacity var(--t-mid) var(--ease);
+}
+.axon-graph .sg-node:hover,
+.axon-graph .sg-node:focus-visible,
+.axon-graph .sg-node.is-lit {
+  border-color: rgba(224, 114, 28, .55);
+  box-shadow: var(--sh-2);
+  transform: translateY(-2px);
+}
+.axon-graph.is-focused .sg-node:not(.is-lit) { opacity: 0.4; }
+
+/* The origin node anchors the example */
+.axon-graph .sg-col[data-layer="0"] .sg-node {
+  background: linear-gradient(180deg, #fff, #fffaf0);
+  border-color: rgba(224, 114, 28, .4);
+  font-weight: 700;
+}
+
+/* Entrance: nodes settle, then the connectors draw themselves */
+.axon-graph .sg-node { opacity: 0; transform: translateY(10px); }
+.axon-graph.is-drawn .sg-node {
+  opacity: 1;
+  transform: none;
+  transition: opacity 520ms var(--ease), transform 520ms var(--ease);
+  transition-delay: calc(var(--sg-i, 0) * 45ms);
+}
+.axon-graph .sg-link { stroke-dasharray: var(--len, 0); stroke-dashoffset: var(--len, 0); }
+.axon-graph.is-drawn .sg-link {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 900ms var(--ease-soft) 260ms,
+              stroke var(--t-mid) var(--ease), stroke-width var(--t-mid) var(--ease),
+              opacity var(--t-mid) var(--ease);
+}
+
+@media (max-width: 900px) {
+  /* Five columns cannot survive a phone. Stack the layers; each becomes a
+     labelled row of chips and the connector layer steps aside. */
+  .axon-graph { grid-template-columns: 1fr; grid-template-rows: none; gap: 0; }
+  .axon-graph .sg-links { display: none; }
+  .axon-graph .sg-mesh { display: none; }
+  .axon-graph .sg-col { display: block; padding: 1.15rem 0; border-bottom: 1px solid var(--ink-line-soft); }
+  .axon-graph .sg-col:last-child { border-bottom: none; }
+  .axon-graph .arch-col-header { display: inline-block; margin-bottom: 0.9rem; }
+  .axon-graph .sg-nodes {
+    min-height: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+  .axon-graph .sg-node { opacity: 1; transform: none; padding: 0.55em 0.8em; }
+  .axon-graph .arch-col-desc { margin-top: 0.9rem; text-align: left; }
+}
+
+===================== 3. JS (assets/entomo-2026.js, initAxonGraph) ==========
+/* ---- 4. The axon graph --------------------------------------------------
+     Draws Role -> Responsibility -> Task -> KPI -> Skill as a real connected
+     graph. Paths are computed from measured node positions rather than
+     hard-coded, so wrapping, zoom, and reflow cannot desynchronise them. */
+  function initAxonGraph() {
+    var root = doc.querySelector("[data-axon-graph]");
+    if (!root) return;
+
+    var svg = root.querySelector(".sg-links");
+    var nodes = {};
+    root.querySelectorAll(".sg-node").forEach(function (n, i) {
+      nodes[n.getAttribute("data-node")] = n;
+      n.style.setProperty("--sg-i", i);
+    });
+
+    var edges = (root.getAttribute("data-edges") || "")
+      .split(",")
+      .map(function (pair) {
+        var s = pair.split(">");
+        return { from: s[0], to: s[1] };
+      })
+      .filter(function (e) { return nodes[e.from] && nodes[e.to]; });
+
+    var paths = [];
+
+    function draw() {
+      var box = root.getBoundingClientRect();
+      if (!box.width) return;
+      svg.setAttribute("viewBox", "0 0 " + box.width + " " + box.height);
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      paths = [];
+
+      edges.forEach(function (e) {
+        var a = nodes[e.from].getBoundingClientRect();
+        var b = nodes[e.to].getBoundingClientRect();
+        // exit the right edge of the source, enter the left edge of the target
+        var x1 = a.right - box.left, y1 = a.top - box.top + a.height / 2;
+        var x2 = b.left - box.left,  y2 = b.top - box.top + b.height / 2;
+        var dx = Math.max(28, (x2 - x1) * 0.5);
+        var d = "M" + x1 + "," + y1 +
+                " C" + (x1 + dx) + "," + y1 +
+                " " + (x2 - dx) + "," + y2 +
+                " " + x2 + "," + y2;
+
+        var path = doc.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("d", d);
+        path.setAttribute("class", "sg-link");
+        path.dataset.from = e.from;
+        path.dataset.to = e.to;
+        svg.appendChild(path);
+        try {
+          var len = path.getTotalLength();
+          path.style.setProperty("--len", len);
+        } catch (err) {}
+        paths.push(path);
+      });
+    }
+
+    /* Light the full chain through a node, in both directions. This is the
+       whole point of the component: one click proves the model is connected. */
+    function lit(id) {
+      /* Directed on purpose. A naive both-ways flood would light the entire
+         component (every node is reachable from every other), which shows
+         nothing. Walking upstream and downstream separately traces the actual
+         chain this node sits on. */
+      var keep = {};
+      keep[id] = true;
+
+      var frontier = [id], changed = true;
+      while (changed) {                       // downstream: follow edges forward
+        changed = false;
+        edges.forEach(function (e) {
+          if (keep[e.from] && !keep[e.to]) { keep[e.to] = true; changed = true; }
+        });
+      }
+      var up = {};
+      up[id] = true;
+      changed = true;
+      while (changed) {                       // upstream: follow edges backward
+        changed = false;
+        edges.forEach(function (e) {
+          if (up[e.to] && !up[e.from]) { up[e.from] = true; changed = true; }
+        });
+      }
+      Object.keys(up).forEach(function (k) { keep[k] = true; });
+      root.classList.add("is-focused");
+      Object.keys(nodes).forEach(function (k) {
+        nodes[k].classList.toggle("is-lit", !!keep[k]);
+      });
+      paths.forEach(function (p) {
+        p.classList.toggle("is-lit", !!(keep[p.dataset.from] && keep[p.dataset.to]));
+      });
+    }
+
+    function clear() {
+      root.classList.remove("is-focused");
+      Object.keys(nodes).forEach(function (k) { nodes[k].classList.remove("is-lit"); });
+      paths.forEach(function (p) { p.classList.remove("is-lit"); });
+    }
+
+    /* A sticky selection, so the graph can be read without holding focus.
+       role="button" was already on these nodes but nothing was bound to it:
+       Enter appeared to work only because focus had lit the node on the way
+       in, and Space did nothing at all. */
+    var pinned = null;
+    function pin(id) {
+      pinned = id;
+      Object.keys(nodes).forEach(function (k) {
+        nodes[k].setAttribute("aria-pressed", k === id ? "true" : "false");
+      });
+      if (id) lit(id); else clear();
+    }
+
+    Object.keys(nodes).forEach(function (id) {
+      var n = nodes[id];
+      n.setAttribute("aria-pressed", "false");
+      n.addEventListener("mouseenter", function () { if (!pinned) lit(id); });
+      n.addEventListener("focus", function () { if (!pinned) lit(id); });
+      n.addEventListener("mouseleave", function () { if (!pinned) clear(); });
+      n.addEventListener("blur", function () { if (!pinned) clear(); });
+      n.addEventListener("click", function () { pin(pinned === id ? null : id); });
+      n.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+          e.preventDefault();
+          pin(pinned === id ? null : id);
+        } else if (e.key === "Escape" && pinned) {
+          e.preventDefault();
+          pin(null);
+        }
+      });
+    });
+    root.addEventListener("mouseleave", function () { if (!pinned) clear(); });
+
+    /* ---- ambient neural field ------------------------------------------
+       A faint synapse mesh behind the real graph. Decorative only: painted
+       once per layout on its own canvas, never intercepts the pointer. */
+    var mesh = root.querySelector(".sg-mesh");
+    function paintMesh() {
+      if (!mesh || !mesh.getContext) return;
+      var b = mesh.getBoundingClientRect();
+      if (!b.width || getComputedStyle(mesh).display === "none") return;
+      var dpr = window.devicePixelRatio || 1;
+      mesh.width = Math.round(b.width * dpr);
+      mesh.height = Math.round(b.height * dpr);
+      var ctx = mesh.getContext("2d");
+      ctx.scale(dpr, dpr);
+      var W = b.width, H = b.height;
+      var pts = [], N = Math.min(170, Math.round((W * H) / 4300));
+      /* organic clusters around the five layers, plus a uniform wash, so the
+         field reads as tissue rather than static */
+      for (var i = 0; i < N; i++) {
+        if (i % 5 < 2) {
+          pts.push({ x: Math.random() * W, y: Math.random() * H });
+        } else {
+          var cx = W * (0.1 + 0.2 * Math.floor(Math.random() * 5));
+          var cy = H * (0.28 + Math.random() * 0.44);
+          var g = function () { return (Math.random() + Math.random() - 1); };
+          pts.push({ x: cx + g() * W * 0.09, y: cy + g() * H * 0.30 });
+        }
+      }
+      for (var a = 0; a < pts.length; a++) {
+        for (var q = a + 1; q < pts.length; q++) {
+          var dx = pts[a].x - pts[q].x, dy = pts[a].y - pts[q].y, d2 = dx * dx + dy * dy;
+          if (d2 < 12100) {                       /* 110px reach */
+            ctx.strokeStyle = "rgba(43,29,18," + (0.13 * (1 - Math.sqrt(d2) / 110)).toFixed(3) + ")";
+            ctx.lineWidth = 0.7;
+            ctx.beginPath();
+            ctx.moveTo(pts[a].x, pts[a].y);
+            ctx.lineTo(pts[q].x, pts[q].y);
+            ctx.stroke();
+          }
+        }
+      }
+      var hues = ["#f86da9", "#708cb5", "#2c9bbb", "#ebbe2e"];
+      pts.forEach(function (pt, i) {
+        var synapse = i % 8 === 0;
+        ctx.globalAlpha = synapse ? 0.5 : 0.16;
+        ctx.fillStyle = synapse ? hues[(i / 8 | 0) % 4] : "rgb(43,29,18)";
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, synapse ? 2.1 : 1.3, 0, 6.2832);
+        ctx.fill();
+      });
+      ctx.globalAlpha = 1;
+    }
+
+    /* ---- firing impulses -----------------------------------------------
+       Every beat or so, a bright pulse travels one real connection, like a
+       signal crossing a synapse. Skipped entirely for reduced motion. */
+    var IMPULSE_HUES = ["#f86da9", "#ba7bae", "#708cb5", "#2c9bbb", "#ebbe2e"];
+    var reduceMotion = window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function fire() {
+      if (doc.hidden || !paths.length) return;
+      var src = paths[Math.floor(Math.random() * paths.length)];
+      if (!src.animate) return;
+      var len;
+      try { len = src.getTotalLength(); } catch (err) { return; }
+      if (!len) return;
+      var p = src.cloneNode(false);
+      p.setAttribute("class", "sg-impulse");
+      p.style.stroke = IMPULSE_HUES[Math.floor(Math.random() * IMPULSE_HUES.length)];
+      p.style.strokeDasharray = "12 " + len;
+      svg.appendChild(p);
+      var anim = p.animate(
+        [
+          { strokeDashoffset: 12, opacity: 0 },
+          { opacity: 0.85, offset: 0.18 },
+          { opacity: 0.85, offset: 0.82 },
+          { strokeDashoffset: -len, opacity: 0 }
+        ],
+        { duration: 1000 + Math.random() * 600, easing: "cubic-bezier(0.4, 0, 0.6, 1)" }
+      );
+      anim.onfinish = function () { p.remove(); };
+    }
+    var impulseTimer = null;
+    if (!reduceMotion && "IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        var vis = entries.some(function (en) { return en.isIntersecting; });
+        if (vis && !impulseTimer) {
+          impulseTimer = setInterval(function () {
+            fire();
+            if (Math.random() < 0.4) setTimeout(fire, 260 + Math.random() * 240);
+          }, 1300);
+        } else if (!vis && impulseTimer) {
+          clearInterval(impulseTimer);
+          impulseTimer = null;
+        }
+      }, { threshold: 0.15 }).observe(root);
+    }
+
+    draw();
+    paintMesh();
+    // Fonts land after first paint and change node heights; redraw when they do.
+    if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(function () { draw(); paintMesh(); }).catch(function () {});
+
+    var t;
+    window.addEventListener("resize", function () {
+      clearTimeout(t);
+      t = setTimeout(function () { draw(); paintMesh(); }, 140);
+    });
+
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          draw();
+          root.classList.add("is-drawn");
+          obs.disconnect();
+        });
+      }, { threshold: 0.18 }).observe(root);
+    } else {
+      root.classList.add("is-drawn");
+    }
+  }
+
+  

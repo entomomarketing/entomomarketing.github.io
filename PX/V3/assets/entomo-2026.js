@@ -473,110 +473,119 @@
     });
   }
 
-  /* ---- 4. The axon graph --------------------------------------------------
-     Draws Role -> Responsibility -> Task -> KPI -> Skill as a real connected
-     graph. Paths are computed from measured node positions rather than
-     hard-coded, so wrapping, zoom, and reflow cannot desynchronise them. */
+  /* ---- 4. The axon web ----------------------------------------------------
+     One role at the center of an undirected constellation of knowledge,
+     skills, abilities, tasks, and KPIs. Geometry is measured, not hard-coded:
+     links follow the pills wherever layout, zoom, or drift puts them.
+     Interaction lights a NEIGHBORHOOD (node + direct links bright, second
+     degree soft), never a directed chain: the model has no upstream. */
   function initAxonGraph() {
     var root = doc.querySelector("[data-axon-graph]");
     if (!root) return;
 
     var svg = root.querySelector(".sg-links");
     var nodes = {};
-    root.querySelectorAll(".sg-node").forEach(function (n, i) {
+    root.querySelectorAll(".aw-node").forEach(function (n) {
       nodes[n.getAttribute("data-node")] = n;
-      n.style.setProperty("--sg-i", i);
     });
 
     var edges = (root.getAttribute("data-edges") || "")
       .split(",")
       .map(function (pair) {
-        var s = pair.split(">");
-        return { from: s[0], to: s[1] };
+        var sp = pair.split(">");
+        return { from: sp[0], to: sp[1] };
       })
       .filter(function (e) { return nodes[e.from] && nodes[e.to]; });
 
-    var paths = [];
+    var adj = {};
+    edges.forEach(function (e) {
+      (adj[e.from] = adj[e.from] || []).push(e.to);
+      (adj[e.to] = adj[e.to] || []).push(e.from);
+    });
 
-    function draw() {
+    /* one path element per edge, geometry refreshed in place */
+    var paths = edges.map(function (e, i) {
+      var path = doc.createElementNS("http://www.w3.org/2000/svg", "path");
+      path.setAttribute("class", "sg-link");
+      path.dataset.from = e.from;
+      path.dataset.to = e.to;
+      svg.appendChild(path);
+      return path;
+    });
+
+    function center(n, box) {
+      var r = n.getBoundingClientRect();
+      return { x: r.left - box.left + r.width / 2, y: r.top - box.top + r.height / 2 };
+    }
+
+    function updateGeometry() {
       var box = root.getBoundingClientRect();
       if (!box.width) return;
       svg.setAttribute("viewBox", "0 0 " + box.width + " " + box.height);
-      while (svg.firstChild) svg.removeChild(svg.firstChild);
-      paths = [];
-
-      edges.forEach(function (e) {
-        var a = nodes[e.from].getBoundingClientRect();
-        var b = nodes[e.to].getBoundingClientRect();
-        // exit the right edge of the source, enter the left edge of the target
-        var x1 = a.right - box.left, y1 = a.top - box.top + a.height / 2;
-        var x2 = b.left - box.left,  y2 = b.top - box.top + b.height / 2;
-        var dx = Math.max(28, (x2 - x1) * 0.5);
-        var d = "M" + x1 + "," + y1 +
-                " C" + (x1 + dx) + "," + y1 +
-                " " + (x2 - dx) + "," + y2 +
-                " " + x2 + "," + y2;
-
-        var path = doc.createElementNS("http://www.w3.org/2000/svg", "path");
-        path.setAttribute("d", d);
-        path.setAttribute("class", "sg-link");
-        path.dataset.from = e.from;
-        path.dataset.to = e.to;
-        svg.appendChild(path);
-        try {
-          var len = path.getTotalLength();
-          path.style.setProperty("--len", len);
-        } catch (err) {}
-        paths.push(path);
+      edges.forEach(function (e, i) {
+        var a = center(nodes[e.from], box), b = center(nodes[e.to], box);
+        var mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+        var dx = b.x - a.x, dy = b.y - a.y;
+        var len = Math.sqrt(dx * dx + dy * dy) || 1;
+        /* small alternating perpendicular bow keeps the web organic */
+        var bow = (i % 2 ? 1 : -1) * (10 + (i % 3) * 6);
+        var cx = mx - (dy / len) * bow, cy = my + (dx / len) * bow;
+        paths[i].setAttribute("d", "M" + a.x + "," + a.y + " Q" + cx + "," + cy + " " + b.x + "," + b.y);
       });
     }
 
-    /* Light the full chain through a node, in both directions. This is the
-       whole point of the component: one click proves the model is connected. */
-    function lit(id) {
-      /* Directed on purpose. A naive both-ways flood would light the entire
-         component (every node is reachable from every other), which shows
-         nothing. Walking upstream and downstream separately traces the actual
-         chain this node sits on. */
-      var keep = {};
-      keep[id] = true;
+    /* keep every pill fully inside the stage, whatever the viewport */
+    function clampToStage() {
+      var box = root.getBoundingClientRect();
+      if (!box.width) return;
+      var M = 6;
+      Object.keys(nodes).forEach(function (k) {
+        var n = nodes[k], r = n.getBoundingClientRect();
+        var cx = r.left - box.left + r.width / 2, cy = r.top - box.top + r.height / 2;
+        var nx = Math.min(Math.max(cx, r.width / 2 + M), box.width - r.width / 2 - M);
+        var ny = Math.min(Math.max(cy, r.height / 2 + M), box.height - r.height / 2 - M);
+        if (nx !== cx) n.style.left = (nx / box.width * 100).toFixed(2) + "%";
+        if (ny !== cy) n.style.top = (ny / box.height * 100).toFixed(2) + "%";
+      });
+    }
 
-      var frontier = [id], changed = true;
-      while (changed) {                       // downstream: follow edges forward
-        changed = false;
-        edges.forEach(function (e) {
-          if (keep[e.from] && !keep[e.to]) { keep[e.to] = true; changed = true; }
-        });
-      }
-      var up = {};
-      up[id] = true;
-      changed = true;
-      while (changed) {                       // upstream: follow edges backward
-        changed = false;
-        edges.forEach(function (e) {
-          if (up[e.to] && !up[e.from]) { up[e.from] = true; changed = true; }
-        });
-      }
-      Object.keys(up).forEach(function (k) { keep[k] = true; });
+    function layout() {
+      clampToStage();
+      updateGeometry();
+      paths.forEach(function (p) {
+        try { p.style.setProperty("--len", p.getTotalLength()); } catch (err) {}
+      });
+    }
+
+    /* ---- neighborhood lighting (undirected, two rings) ---- */
+    function lit(id) {
+      var hot = {}; hot[id] = true;
+      (adj[id] || []).forEach(function (k) { hot[k] = true; });
+      var near = {};
+      Object.keys(hot).forEach(function (k) {
+        (adj[k] || []).forEach(function (x) { if (!hot[x]) near[x] = true; });
+      });
       root.classList.add("is-focused");
       Object.keys(nodes).forEach(function (k) {
-        nodes[k].classList.toggle("is-lit", !!keep[k]);
+        nodes[k].classList.toggle("is-lit", !!hot[k]);
+        nodes[k].classList.toggle("is-near", !!near[k]);
       });
       paths.forEach(function (p) {
-        p.classList.toggle("is-lit", !!(keep[p.dataset.from] && keep[p.dataset.to]));
+        var incident = p.dataset.from === id || p.dataset.to === id;
+        p.classList.toggle("is-lit", incident);
+        p.classList.toggle("is-near", !incident && !!(hot[p.dataset.from] || hot[p.dataset.to]));
       });
     }
 
     function clear() {
       root.classList.remove("is-focused");
-      Object.keys(nodes).forEach(function (k) { nodes[k].classList.remove("is-lit"); });
-      paths.forEach(function (p) { p.classList.remove("is-lit"); });
+      Object.keys(nodes).forEach(function (k) {
+        nodes[k].classList.remove("is-lit");
+        nodes[k].classList.remove("is-near");
+      });
+      paths.forEach(function (p) { p.classList.remove("is-lit"); p.classList.remove("is-near"); });
     }
 
-    /* A sticky selection, so the graph can be read without holding focus.
-       role="button" was already on these nodes but nothing was bound to it:
-       Enter appeared to work only because focus had lit the node on the way
-       in, and Space did nothing at all. */
     var pinned = null;
     function pin(id) {
       pinned = id;
@@ -606,9 +615,21 @@
     });
     root.addEventListener("mouseleave", function () { if (!pinned) clear(); });
 
-    /* ---- ambient neural field ------------------------------------------
-       A faint synapse mesh behind the real graph. Decorative only: painted
-       once per layout on its own canvas, never intercepts the pointer. */
+    /* entrance stagger: the web grows outward from the role */
+    (function () {
+      var box = root.getBoundingClientRect();
+      if (!box.width || !nodes.role) return;
+      var c = center(nodes.role, box);
+      Object.keys(nodes)
+        .map(function (k) {
+          var pt = center(nodes[k], box);
+          return { k: k, d: Math.hypot(pt.x - c.x, pt.y - c.y) };
+        })
+        .sort(function (a, b) { return a.d - b.d; })
+        .forEach(function (it, i) { nodes[it.k].style.setProperty("--sg-i", i); });
+    })();
+
+    /* ---- ambient neural field ------------------------------------------ */
     var mesh = root.querySelector(".sg-mesh");
     function paintMesh() {
       if (!mesh || !mesh.getContext) return;
@@ -621,8 +642,6 @@
       ctx.scale(dpr, dpr);
       var W = b.width, H = b.height;
       var pts = [], N = Math.min(170, Math.round((W * H) / 4300));
-      /* organic clusters around the five layers, plus a uniform wash, so the
-         field reads as tissue rather than static */
       for (var i = 0; i < N; i++) {
         if (i % 5 < 2) {
           pts.push({ x: Math.random() * W, y: Math.random() * H });
@@ -636,7 +655,7 @@
       for (var a = 0; a < pts.length; a++) {
         for (var q = a + 1; q < pts.length; q++) {
           var dx = pts[a].x - pts[q].x, dy = pts[a].y - pts[q].y, d2 = dx * dx + dy * dy;
-          if (d2 < 12100) {                       /* 110px reach */
+          if (d2 < 12100) {
             ctx.strokeStyle = "rgba(43,29,18," + (0.13 * (1 - Math.sqrt(d2) / 110)).toFixed(3) + ")";
             ctx.lineWidth = 0.7;
             ctx.beginPath();
@@ -658,9 +677,7 @@
       ctx.globalAlpha = 1;
     }
 
-    /* ---- firing impulses -----------------------------------------------
-       Every beat or so, a bright pulse travels one real connection, like a
-       signal crossing a synapse. Skipped entirely for reduced motion. */
+    /* ---- firing impulses ----------------------------------------------- */
     var IMPULSE_HUES = ["#f86da9", "#ba7bae", "#708cb5", "#2c9bbb", "#ebbe2e"];
     var reduceMotion = window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -687,39 +704,73 @@
       );
       anim.onfinish = function () { p.remove(); };
     }
+
+    /* ---- drift: the constellation breathes ------------------------------ */
+    var phases = {};
+    Object.keys(nodes).forEach(function (k, i) { phases[k] = i * 2.399; });
+    var rafId = null;
+    function tick(ts) {
+      /* hold still while a neighborhood is being examined */
+      if (root.classList.contains("is-focused")) {
+        rafId = requestAnimationFrame(tick);
+        return;
+      }
+      Object.keys(nodes).forEach(function (k) {
+        if (k === "role") return;
+        var dx = 3 * Math.sin(ts * 0.0006 + phases[k]);
+        var dy = 3 * Math.cos(ts * 0.0005 + phases[k] * 1.3);
+        nodes[k].style.transform =
+          "translate(calc(-50% + " + dx.toFixed(2) + "px), calc(-50% + " + dy.toFixed(2) + "px))";
+      });
+      updateGeometry();
+      rafId = requestAnimationFrame(tick);
+    }
+
     var impulseTimer = null;
-    if (!reduceMotion && "IntersectionObserver" in window) {
-      new IntersectionObserver(function (entries) {
-        var vis = entries.some(function (en) { return en.isIntersecting; });
-        if (vis && !impulseTimer) {
+    function setRunning(vis) {
+      if (vis && !reduceMotion) {
+        if (!impulseTimer) {
           impulseTimer = setInterval(function () {
             fire();
             if (Math.random() < 0.4) setTimeout(fire, 260 + Math.random() * 240);
           }, 1300);
-        } else if (!vis && impulseTimer) {
-          clearInterval(impulseTimer);
-          impulseTimer = null;
         }
+        if (rafId === null) rafId = requestAnimationFrame(tick);
+      } else {
+        if (impulseTimer) { clearInterval(impulseTimer); impulseTimer = null; }
+        if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
+      }
+    }
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        setRunning(entries.some(function (en) { return en.isIntersecting; }));
       }, { threshold: 0.15 }).observe(root);
     }
 
-    draw();
+    layout();
     paintMesh();
-    // Fonts land after first paint and change node heights; redraw when they do.
-    if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(function () { draw(); paintMesh(); }).catch(function () {});
+    // Fonts land after first paint and change pill sizes; relayout when they do.
+    if (doc.fonts && doc.fonts.ready) {
+      doc.fonts.ready.then(function () { layout(); paintMesh(); }).catch(function () {});
+    }
 
     var t;
     window.addEventListener("resize", function () {
       clearTimeout(t);
-      t = setTimeout(function () { draw(); paintMesh(); }, 140);
+      t = setTimeout(function () { layout(); paintMesh(); }, 140);
     });
 
     if ("IntersectionObserver" in window) {
       new IntersectionObserver(function (entries, obs) {
         entries.forEach(function (en) {
           if (!en.isIntersecting) return;
-          draw();
+          layout();
           root.classList.add("is-drawn");
+          /* once the dash entrance finishes, free the links from their dash
+             so per-frame drift can't leave a hairline gap at the path end */
+          setTimeout(function () {
+            paths.forEach(function (p) { p.style.strokeDasharray = "none"; });
+          }, 1500);
           obs.disconnect();
         });
       }, { threshold: 0.18 }).observe(root);
