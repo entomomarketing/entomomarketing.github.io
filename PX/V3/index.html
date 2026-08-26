@@ -347,6 +347,31 @@
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.5; transform: scale(1.4); }
     }
+    a.hero-badge--axon {
+      text-decoration: none;
+      cursor: pointer;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(26,31,38,0.10);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 2px 12px rgba(43,29,18,0.06);
+      padding: 5px 14px 5px 6px;
+      gap: 9px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .hero-badge--axon .hb-new {
+      font-size: 10px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase;
+      color: #fff; background: linear-gradient(135deg, var(--cg-gold), var(--cg-red));
+      padding: 3px 9px; border-radius: 999px;
+    }
+    .hero-badge--axon .axon-text { font-weight: 800; }
+    .hero-badge--axon .hb-arr { color: var(--cg-red); font-weight: 800; transition: transform 0.25s ease; }
+    .hero-badge--axon:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(43,29,18,0.12); }
+    .hero-badge--axon:hover .hb-arr { transform: translateX(3px); }
+    @media (max-width: 480px) {
+      .hero-badge--axon { max-width: 92%; }
+      .hero-badge--axon .hb-text { white-space: normal; }
+    }
     .hero h1 {
       font-size: clamp(36px, 5vw, 68px);
       font-weight: 700;
@@ -2425,10 +2450,11 @@
     <canvas class="hero-flow" data-hero-flow aria-hidden="true"></canvas>
     <div class="container">
       <div class="hero-content">
-        <div class="hero-badge">
-          <span class="dot"></span>
-          powering enterprise transformation
-        </div>
+        <a class="hero-badge hero-badge--axon" href="AI-lab/entomo-axon.html">
+          <span class="hb-new">new</span>
+          <span class="hb-text">meet <span class="axon-text">axon</span>: the intelligence behind entomo</span>
+          <span class="hb-arr" aria-hidden="true">&rarr;</span>
+        </a>
         <h1>
           <span>agentic intelligence</span>
           <span>in the <mark>flow-of-work</mark></span>
