@@ -1796,10 +1796,24 @@
 
     /* ===== axon alternate: bold structure ===== */
 
-    .alt-power { position:relative; overflow:hidden; }
-    .alt-power::before, .alt-power::after { content:''; position:absolute; border-radius:50%; filter:blur(90px); opacity:.55; pointer-events:none; }
-    .alt-power::before { width:560px; height:560px; left:-160px; top:-120px; background:radial-gradient(circle, rgba(0,232,252,.35), transparent 70%); }
-    .alt-power::after  { width:620px; height:620px; right:-200px; bottom:-220px; background:radial-gradient(circle, rgba(6,22,246,.45), transparent 70%); }
+    /* deep entomo-blue field with a fine dot grid: high-tech, polished, and
+       nothing like a black stage */
+    .dark-section.alt-power {
+      position:relative; overflow:hidden;
+      background-color:#07204f;
+      background-image:
+        radial-gradient(rgba(255,255,255,0.075) 1px, transparent 1.4px),
+        linear-gradient(160deg, #061a42 0%, #08306f 55%, #0a3f8f 100%);
+      background-size: 22px 22px, 100% 100%;
+    }
+    .alt-power::before, .alt-power::after { content:''; position:absolute; border-radius:50%; filter:blur(90px); opacity:.6; pointer-events:none; }
+    .alt-power::before { width:560px; height:560px; left:-160px; top:-120px; background:radial-gradient(circle, rgba(0,232,252,.45), transparent 70%); }
+    .alt-power::after  { width:620px; height:620px; right:-200px; bottom:-220px; background:radial-gradient(circle, rgba(244,178,35,.28), transparent 70%); }
+    .alt-power .axon-text { background-image: linear-gradient(90deg, #7ff5ff 0%, #ffffff 100%); }
+    .alt-card { background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04)); border-color: rgba(255,255,255,0.16); }
+    .alt-card:hover { border-color: rgba(127,245,255,0.6); }
+    section.alt-band { background: linear-gradient(160deg, #061a42, #0a3f8f); }
+    .alt-band .axon-text { background-image: linear-gradient(90deg, #7ff5ff 0%, #ffffff 100%); }
     .alt-power .container { position:relative; z-index:1; }
     .alt-power .section-heading { color:#fff; }
     .alt-power .section-heading mark { color: var(--ink); }
