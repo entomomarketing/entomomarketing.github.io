@@ -1558,10 +1558,11 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
    The previous values were guessed against the image box and rendered the
    letters at roughly 1.9x the surrounding type. */
 .brand-inline--axon img {
-  /* axon artwork: letterforms ink 74.3% of image height, baseline at 91.8%
-     from top; 0.65 / 0.743 = 0.875em, offset -(1-0.918) x 0.875 = -0.072em */
-  height: 0.875em;
-  vertical-align: -0.072em;
+  /* axon artwork v4 (2026-08-27): letterform band 75.0% of image height,
+     baseline at 84.3% from top; calibrated against the previous art's
+     shipped 0.875em / -0.072em using the same measurement */
+  height: 0.882em;
+  vertical-align: -0.139em;
   margin: 0 0.04em;
 }
 
@@ -1580,8 +1581,7 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
    flourish: pink at the s, through mauve and blue, to gold on the final a.
    ========================================================================== */
 :root {
-  --axon-gradient: linear-gradient(90deg,
-    #f86da9 0%, #ba7bae 30%, #708cb5 58%, #2c9bbb 82%, #ebbe2e 100%);
+  --axon-gradient: linear-gradient(90deg, #00e8fc 0%, #09bbfa 28%, #0380f9 55%, #0453f7 78%, #0616f6 100%);
 }
 
 .axon-text {

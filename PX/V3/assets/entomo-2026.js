@@ -485,7 +485,7 @@
     var ctx = canvas.getContext("2d");
     var reduce = window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var HUES = ["#f86da9", "#ba7bae", "#708cb5", "#2c9bbb", "#ebbe2e", "#e0721c"];
+    var HUES = ["#00e8fc", "#09bbfa", "#0380f9", "#0453f7", "#0616f6", "#f4b223"];
     var W = 0, H = 0;
     var nodes = [], edges = [], signals = [], pulses = [];
     var tx = -9e3, ty = -9e3, px = -9e3, py = -9e3;
@@ -879,7 +879,7 @@
           }
         }
       }
-      var hues = ["#f86da9", "#708cb5", "#2c9bbb", "#ebbe2e"];
+      var hues = ["#00e8fc", "#0380f9", "#0616f6", "#f4b223"];
       pts.forEach(function (pt, i) {
         var synapse = i % 8 === 0;
         ctx.globalAlpha = synapse ? 0.5 : 0.16;
@@ -894,7 +894,7 @@
     /* ---- firing impulses -----------------------------------------------
        Every beat or so, a bright pulse travels one real connection, like a
        signal crossing a synapse. Skipped entirely for reduced motion. */
-    var IMPULSE_HUES = ["#f86da9", "#ba7bae", "#708cb5", "#2c9bbb", "#ebbe2e"];
+    var IMPULSE_HUES = ["#00e8fc", "#09bbfa", "#0380f9", "#0453f7", "#f4b223"];
     var reduceMotion = window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     function fire() {

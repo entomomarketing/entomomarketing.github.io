@@ -47,3 +47,9 @@ running the same ink-band measurement on old and new art (old reproduced the
 shipped 1.384em/-0.128em, validating the method): new letterforms ink 66.2%
 of height, baseline on the bottom edge -> .brand-inline img
 { height: 0.976em; vertical-align: 0; }.
+
+2026-08-27: axon wordmark replaced with v4 artwork (entomo-axon-v4-source.png,
+1227x645 with alpha, supplied after the CMO called the previous mark
+'candy shop'). Trimmed and scaled to 1200x388 -> ../entomo-axon.{png,webp}.
+Inline sizing recalibrated by the letterform-band method on old and new:
+.brand-inline--axon img { height: 0.882em; vertical-align: -0.139em; }.
