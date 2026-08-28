@@ -1903,21 +1903,28 @@
       .ax-node { transform:translate(-50%,0) scale(1); }
     }
 
-    /* ===== the agents that think with axon: a lattice of cards ===== */
-    .ax-agents { display:grid; grid-template-columns:repeat(4,1fr); gap:1.1rem; max-width:1120px; margin:2.8rem auto 0; }
-    .ax-agent-card { display:flex; flex-direction:column; align-items:flex-start; gap:0.35rem; text-decoration:none; color:var(--ink-2);
-      background:var(--white); border:1px solid rgba(26,31,38,0.08); border-radius:18px; padding:1.2rem 1.2rem 1.15rem;
-      box-shadow:0 6px 18px rgba(43,29,18,.06); opacity:0; transform:translateY(14px);
-      transition: opacity .5s ease, transform .5s ease, box-shadow .25s ease, border-color .25s ease; }
-    .ax-agent-card img { width:60px; height:60px; border-radius:16px; object-fit:cover; display:block; margin-bottom:0.45rem; border:1px solid rgba(26,31,38,0.06); }
-    .ax-agent-name { font-size:15px; font-weight:800; color:var(--ink); }
-    .ax-agent-role { font-size:10.5px; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:#0380f9; }
-    .ax-agent-desc { font-size:13px; line-height:1.5; color:var(--ink-3); margin-top:0.2rem; }
-    .ax-agents.is-in .ax-agent-card { opacity:1; transform:none; }
-    .ax-agents.is-in .ax-agent-card:hover { transform:translateY(-3px); box-shadow:0 14px 30px rgba(3,128,249,.14); border-color:rgba(3,128,249,.35); }
-    @media (max-width:1020px) { .ax-agents { grid-template-columns:repeat(2,1fr); } }
-    @media (max-width:560px) { .ax-agents { grid-template-columns:1fr; } }
-    @media (prefers-reduced-motion: reduce) { .ax-agent-card { opacity:1; transform:none; transition:none; } }
+    /* ===== the agents that think with axon: a flat, interlocking, scrolling lattice ===== */
+    .ax-lattice { margin:2.6rem auto 0; max-width:1120px; overflow:hidden; border-top:1px solid rgba(26,31,38,0.14); border-bottom:1px solid rgba(26,31,38,0.14);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+    .ax-lat-row { overflow:hidden; }
+    .ax-lat-row.b { border-top:1px solid rgba(26,31,38,0.14); }
+    .ax-lat-track { display:flex; width:max-content; animation: ax-lat 64s linear infinite; }
+    .ax-lat-row.b .ax-lat-track { animation-duration:76s; animation-direction:reverse; margin-left:-150px; }
+    .ax-lattice:hover .ax-lat-track { animation-play-state:paused; }
+    @keyframes ax-lat { to { transform:translateX(-50%); } }
+    .ax-tile { flex:0 0 300px; display:flex; align-items:center; gap:0.75rem; padding:0.8rem 1rem; text-decoration:none; color:var(--ink-2);
+      background:var(--white); border-right:1px solid rgba(26,31,38,0.14); transition: background .2s ease; }
+    .ax-tile:hover { background:#f4f8ff; }
+    .ax-tile img { flex:0 0 auto; width:44px; height:44px; border-radius:12px; object-fit:cover; border:1px solid rgba(26,31,38,0.08); }
+    .ax-tile-t { display:flex; flex-direction:column; min-width:0; }
+    .ax-tile-t b { font-size:13.5px; color:var(--ink); line-height:1.2; }
+    .ax-tile-t i { font-style:normal; font-size:9.5px; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:#0380f9; margin:0.1rem 0 0.2rem; }
+    .ax-tile-t em { font-style:normal; font-size:11.5px; line-height:1.35; color:var(--ink-3); display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+    @media (prefers-reduced-motion: reduce) {
+      .ax-lat-track { animation:none; }
+      .ax-lat-row { overflow-x:auto; }
+      .ax-lattice { -webkit-mask-image:none; mask-image:none; }
+    }
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -2313,79 +2320,9 @@
         <h2 class="section-heading">every entomo.ai agent <mark>thinks</mark> with <span class="axon-text">axon</span></h2>
         <p class="section-subheading" style="margin:0 auto;">the same intelligence sits behind every agent, so each one acts on what the role requires, what the person brings, and where the gaps are.</p>
       </div>
-      <div class="ax-agents" data-ax-agents>
-        <a class="ax-agent-card" href="../index.html#agents">
-          <img src="../Images/agents/talentatlas.png" alt="TalentAtlas" width="160" height="160" loading="lazy" decoding="async">
-          <div class="ax-agent-name">TalentAtlas</div>
-          <div class="ax-agent-role">role intelligence</div>
-          <div class="ax-agent-desc">Maps industry-benchmarked role architectures and competency frameworks with market-aligned precision.</div>
-        </a>
-        <a class="ax-agent-card" href="../index.html#agents">
-          <img src="../Images/agents/skillmatrix.png" alt="SkillMatrix" width="160" height="160" loading="lazy" decoding="async">
-          <div class="ax-agent-name">SkillMatrix</div>
-          <div class="ax-agent-role">proficiency intelligence</div>
-          <div class="ax-agent-desc">Surfaces proficiency gaps and maps capability across teams, aligned to real-time market signals.</div>
-        </a>
-        <a class="ax-agent-card" href="../index.html#agents">
-          <img src="../Images/agents/Goalforge.png" alt="GoalForge" width="160" height="160" loading="lazy" decoding="async">
-          <div class="ax-agent-name">GoalForge</div>
-          <div class="ax-agent-role">goal intelligence</div>
-          <div class="ax-agent-desc">Generates role-aligned performance goals that reflect strategic priorities and validates quality automatically.</div>
-        </a>
-        <a class="ax-agent-card" href="../index.html#agents">
-          <img src="../Images/agents/pulse360.png" alt="Pulse360" width="160" height="160" loading="lazy" decoding="async">
-          <div class="ax-agent-name">Pulse360</div>
-          <div class="ax-agent-role">sentiment analytics</div>
-          <div class="ax-agent-desc">Analyzes feedback tone, alignment, and perception gaps to uncover blind spots and leadership risks.</div>
-        </a>
-        <a class="ax-agent-card" href="../index.html#agents">
-          <img src="../Images/agents/Insight360.png" alt="Insight360" width="160" height="160" loading="lazy" decoding="async">
-          <div class="ax-agent-name">Insight360</div>
-          <div class="ax-agent-role">feedback intelligence</div>
-          <div class="ax-agent-desc">Surfaces perception gaps, strengths, and growth priorities from 360-degree feedback data in real time.</div>
-        </a>
-        <a class="ax-agent-card" href="../index.html#agents">
-          <img src="../Images/agents/growthplanner.png" alt="GrowthPlanner" width="160" height="160" loading="lazy" decoding="async">
-          <div class="ax-agent-name">GrowthPlanner</div>
-          <div class="ax-agent-role">development engine</div>
-          <div class="ax-agent-desc">Translates performance insights into personalised growth plans with clear career paths and skill milestones.</div>
-        </a>
-        <a class="ax-agent-card" href="../index.html#agents">
-          <img src="../Images/agents/assescraft.png" alt="AssesCraft" width="160" height="160" loading="lazy" decoding="async">
-          <div class="ax-agent-name">AssesCraft</div>
-          <div class="ax-agent-role">assessment engine</div>
-          <div class="ax-agent-desc">Designs structured, role-aligned assessments that evaluate skills, proficiency, and job readiness at scale.</div>
-        </a>
-        <a class="ax-agent-card" href="../index.html#agents">
-          <img src="../Images/agents/convocraft.png" alt="ConvoCraft" width="160" height="160" loading="lazy" decoding="async">
-          <div class="ax-agent-name">ConvoCraft</div>
-          <div class="ax-agent-role">conversation design</div>
-          <div class="ax-agent-desc">Structures high-impact manager conversations with clarity and intent, from performance talks to feedback reviews.</div>
-        </a>
-        <a class="ax-agent-card" href="../index.html#agents">
-          <img src="../Images/agents/rolearchitect.png" alt="RoleArchitect" width="160" height="160" loading="lazy" decoding="async">
-          <div class="ax-agent-name">RoleArchitect</div>
-          <div class="ax-agent-role">role design</div>
-          <div class="ax-agent-desc">Builds and evolves role definitions that align to organisational strategy and workforce capability needs.</div>
-        </a>
-        <a class="ax-agent-card" href="../index.html#agents">
-          <img src="../Images/agents/profilecraft.png" alt="ProfileCraft" width="160" height="160" loading="lazy" decoding="async">
-          <div class="ax-agent-name">ProfileCraft</div>
-          <div class="ax-agent-role">profile intelligence</div>
-          <div class="ax-agent-desc">Crafts rich talent profiles from skills, history, and ambition, powering smarter hiring and mobility decisions.</div>
-        </a>
-        <a class="ax-agent-card" href="../index.html#agents">
-          <img src="../Images/agents/flowgen.png" alt="FlowGen" width="160" height="160" loading="lazy" decoding="async">
-          <div class="ax-agent-name">FlowGen</div>
-          <div class="ax-agent-role">workflow automation</div>
-          <div class="ax-agent-desc">Automates <span class="keep-case">HR</span> workflows end-to-end, from goal setting to reviews, without manual intervention.</div>
-        </a>
-        <a class="ax-agent-card" href="../index.html#agents">
-          <img src="../Images/agents/TeamInsight.png" alt="TeamInsight" width="160" height="160" loading="lazy" decoding="async">
-          <div class="ax-agent-name">TeamInsight</div>
-          <div class="ax-agent-role">team analytics</div>
-          <div class="ax-agent-desc">Tracks team health, collaboration patterns, and performance dynamics to surface risks before they escalate.</div>
-        </a>
+      <div class="ax-lattice" data-ax-agents aria-label="the entomo.ai agents">
+        <div class="ax-lat-row a"><div class="ax-lat-track"><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/talentatlas.png" alt="TalentAtlas" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>TalentAtlas</b><i>role intelligence</i><em>Maps industry-benchmarked role architectures and competency frameworks with market-aligned precision.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/skillmatrix.png" alt="SkillMatrix" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>SkillMatrix</b><i>proficiency intelligence</i><em>Surfaces proficiency gaps and maps capability across teams, aligned to real-time market signals.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/Goalforge.png" alt="GoalForge" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>GoalForge</b><i>goal intelligence</i><em>Generates role-aligned performance goals that reflect strategic priorities and validates quality automatically.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/pulse360.png" alt="Pulse360" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>Pulse360</b><i>sentiment analytics</i><em>Analyzes feedback tone, alignment, and perception gaps to uncover blind spots and leadership risks.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/Insight360.png" alt="Insight360" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>Insight360</b><i>feedback intelligence</i><em>Surfaces perception gaps, strengths, and growth priorities from 360-degree feedback data in real time.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/growthplanner.png" alt="GrowthPlanner" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>GrowthPlanner</b><i>development engine</i><em>Translates performance insights into personalised growth plans with clear career paths and skill milestones.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/talentatlas.png" alt="TalentAtlas" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>TalentAtlas</b><i>role intelligence</i><em>Maps industry-benchmarked role architectures and competency frameworks with market-aligned precision.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/skillmatrix.png" alt="SkillMatrix" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>SkillMatrix</b><i>proficiency intelligence</i><em>Surfaces proficiency gaps and maps capability across teams, aligned to real-time market signals.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/Goalforge.png" alt="GoalForge" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>GoalForge</b><i>goal intelligence</i><em>Generates role-aligned performance goals that reflect strategic priorities and validates quality automatically.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/pulse360.png" alt="Pulse360" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>Pulse360</b><i>sentiment analytics</i><em>Analyzes feedback tone, alignment, and perception gaps to uncover blind spots and leadership risks.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/Insight360.png" alt="Insight360" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>Insight360</b><i>feedback intelligence</i><em>Surfaces perception gaps, strengths, and growth priorities from 360-degree feedback data in real time.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/growthplanner.png" alt="GrowthPlanner" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>GrowthPlanner</b><i>development engine</i><em>Translates performance insights into personalised growth plans with clear career paths and skill milestones.</em></span></a></div></div>
+        <div class="ax-lat-row b"><div class="ax-lat-track"><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/assescraft.png" alt="AssesCraft" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>AssesCraft</b><i>assessment engine</i><em>Designs structured, role-aligned assessments that evaluate skills, proficiency, and job readiness at scale.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/convocraft.png" alt="ConvoCraft" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>ConvoCraft</b><i>conversation design</i><em>Structures high-impact manager conversations with clarity and intent, from performance talks to feedback reviews.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/rolearchitect.png" alt="RoleArchitect" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>RoleArchitect</b><i>role design</i><em>Builds and evolves role definitions that align to organisational strategy and workforce capability needs.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/profilecraft.png" alt="ProfileCraft" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>ProfileCraft</b><i>profile intelligence</i><em>Crafts rich talent profiles from skills, history, and ambition, powering smarter hiring and mobility decisions.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/flowgen.png" alt="FlowGen" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>FlowGen</b><i>workflow automation</i><em>Automates <span class="keep-case">HR</span> workflows end-to-end, from goal setting to reviews, without manual intervention.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/TeamInsight.png" alt="TeamInsight" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>TeamInsight</b><i>team analytics</i><em>Tracks team health, collaboration patterns, and performance dynamics to surface risks before they escalate.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/assescraft.png" alt="AssesCraft" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>AssesCraft</b><i>assessment engine</i><em>Designs structured, role-aligned assessments that evaluate skills, proficiency, and job readiness at scale.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/convocraft.png" alt="ConvoCraft" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>ConvoCraft</b><i>conversation design</i><em>Structures high-impact manager conversations with clarity and intent, from performance talks to feedback reviews.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/rolearchitect.png" alt="RoleArchitect" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>RoleArchitect</b><i>role design</i><em>Builds and evolves role definitions that align to organisational strategy and workforce capability needs.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/profilecraft.png" alt="ProfileCraft" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>ProfileCraft</b><i>profile intelligence</i><em>Crafts rich talent profiles from skills, history, and ambition, powering smarter hiring and mobility decisions.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/flowgen.png" alt="FlowGen" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>FlowGen</b><i>workflow automation</i><em>Automates <span class="keep-case">HR</span> workflows end-to-end, from goal setting to reviews, without manual intervention.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/TeamInsight.png" alt="TeamInsight" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>TeamInsight</b><i>team analytics</i><em>Tracks team health, collaboration patterns, and performance dynamics to surface risks before they escalate.</em></span></a></div></div>
       </div>
     </div>
   </section>
@@ -2927,7 +2864,7 @@
   (function () {
     var w = document.querySelector('[data-ax-agents]');
     if (!w) return;
-    var items = w.querySelectorAll('.ax-agent-card');
+    var items = w.querySelectorAll('.ax-tile');
     items.forEach(function (a, i) { a.style.transitionDelay = (i * 45) + 'ms'; });
     if (!('IntersectionObserver' in window)) { w.classList.add('is-in'); return; }
     new IntersectionObserver(function (es, obs) {
