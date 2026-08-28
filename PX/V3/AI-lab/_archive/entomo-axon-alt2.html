@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>entomo axon | the intelligence behind entomo.ai</title>
-  <meta name="description" content="axon is the intelligence behind entomo.ai: it connects what every role requires with what every person brings, creating the workforce intelligence that powers better performance, development, mobility and succession.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>entomo axon | alternate 2</title>
+  <meta name="description" content="axon is entomo's people intelligence engine: knowledge, skills, abilities, and tasks connected into one living model of work that powers every performance and talent process.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
@@ -1793,75 +1794,40 @@
     html { scroll-behavior: smooth; }
     #watch-it-think { scroll-margin-top: 72px; }
 
-    /* ===== axon alternate: bold structure ===== */
+    /* ===== axon alternate 2: the job-centred thesis ===== */
+    .a2-thesis { background: var(--white); padding: 5.5rem 0 4.5rem; text-align:center; }
+    .a2-thesis h2 { font-size: clamp(34px, 4.6vw, 64px); letter-spacing:-2px; line-height:1.08; max-width: 980px; margin: 0 auto 1.2rem; }
+    .a2-thesis p { font-size: 18px; color: var(--ink-2); max-width: 640px; margin: 0 auto; line-height:1.6; }
 
-    /* deep entomo-blue field with a fine dot grid: high-tech, polished, and
-       nothing like a black stage */
-    .dark-section.alt-power {
-      position:relative; overflow:hidden;
-      background-color:#07204f;
-      background-image:
-        radial-gradient(rgba(255,255,255,0.075) 1px, transparent 1.4px),
-        linear-gradient(160deg, #061a42 0%, #08306f 55%, #0a3f8f 100%);
-      background-size: 22px 22px, 100% 100%;
+    .a2-chain { position:relative; max-width: 900px; margin: 3.4rem auto 0; display:grid; grid-template-columns: 1fr 120px 1fr; align-items:stretch; }
+    .a2-spine { position:relative; width:120px; }
+    .a2-spine svg { position:absolute; left:0; top:0; width:100%; height:100%; overflow:visible; }
+    .a2-spine .rail { stroke: rgba(26,31,38,0.14); stroke-width:2; }
+    .a2-spine .down, .a2-spine .up { stroke-width:3; stroke-linecap:round; fill:none; stroke-dasharray: 26 1000; animation: a2-run 4.2s linear infinite; }
+    .a2-spine .down { stroke:#0380f9; }
+    .a2-spine .up { stroke:#00e8fc; animation-direction: reverse; animation-delay:2.1s; }
+    @keyframes a2-run { from { stroke-dashoffset: 1026; } to { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) { .a2-spine .down, .a2-spine .up { animation:none; stroke-dasharray:none; opacity:.5; } }
+    .a2-nodes { display:flex; flex-direction:column; justify-content:space-between; position:relative; z-index:1; height:100%; padding: 6px 0; align-items:center; }
+    .a2-node { min-width: 88px; width:auto; text-align:center; background: var(--white); border:1.5px solid rgba(26,31,38,0.12); border-radius:999px;
+      padding: 0.42em 0.8em; font-size:12.5px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; color: var(--ink);
+      box-shadow: 0 4px 14px rgba(43,29,18,0.08); animation: a2-glow 4.2s ease-in-out infinite; }
+    .a2-node:nth-child(1){animation-delay:0s} .a2-node:nth-child(2){animation-delay:.6s} .a2-node:nth-child(3){animation-delay:1.2s}
+    .a2-node:nth-child(4){animation-delay:1.8s} .a2-node:nth-child(5){animation-delay:2.4s} .a2-node:nth-child(6){animation-delay:3.0s} .a2-node:nth-child(7){animation-delay:3.6s}
+    @keyframes a2-glow { 0%,8%,100% { border-color: rgba(26,31,38,0.12); box-shadow: 0 4px 14px rgba(43,29,18,0.08); } 4% { border-color:#0380f9; box-shadow: 0 0 0 6px rgba(3,128,249,0.14), 0 6px 18px rgba(3,128,249,0.25); } }
+    .a2-side { display:flex; flex-direction:column; justify-content:space-between; padding: 6px 0; }
+    .a2-side div { font-size: 14px; line-height:1.45; color: var(--ink-2); min-height: 34px; display:flex; align-items:center; }
+    .a2-side.l { text-align:right; padding-right: 1.6rem; } .a2-side.l div { justify-content:flex-end; }
+    .a2-side.r { padding-left: 1.6rem; }
+    .a2-dir { display:flex; justify-content:space-between; max-width:900px; margin: 1.6rem auto 0; font-size:12.5px; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; }
+    .a2-dir span:first-child { color:#0380f9; } .a2-dir span:last-child { color:#0aa3c9; }
+    @media (max-width: 720px) {
+      .a2-chain { grid-template-columns: 96px 1fr; }
+      .a2-side.l { display:none; }
+      .a2-spine { width:96px; } .a2-node { min-width:82px; font-size:11px; padding: 0.42em 0.6em; }
+      .a2-dir { flex-direction:column; gap:.3rem; align-items:flex-start; }
     }
-    .alt-power::before, .alt-power::after { content:''; position:absolute; border-radius:50%; filter:blur(90px); opacity:.6; pointer-events:none; }
-    .alt-power::before { width:560px; height:560px; left:-160px; top:-120px; background:radial-gradient(circle, rgba(0,232,252,.45), transparent 70%); }
-    .alt-power::after  { width:620px; height:620px; right:-200px; bottom:-220px; background:radial-gradient(circle, rgba(244,178,35,.28), transparent 70%); }
-    .alt-power .axon-text { background-image: linear-gradient(90deg, #7ff5ff 0%, #ffffff 100%); }
-    .alt-card { background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04)); border-color: rgba(255,255,255,0.16); }
-    .alt-card:hover { border-color: rgba(127,245,255,0.6); }
-    section.alt-band { background: linear-gradient(160deg, #061a42, #0a3f8f); }
-    .alt-band .axon-text { background-image: linear-gradient(90deg, #7ff5ff 0%, #ffffff 100%); }
-    .alt-power .container { position:relative; z-index:1; }
-    .alt-power .section-heading { color:#fff; }
-    .alt-power .section-heading mark { color: var(--ink); }
-    .alt-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; max-width:1080px; margin:3.2rem auto 0; }
-    .alt-card { position:relative; border-radius:22px; padding:2rem 2rem 1.8rem;
-      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
-      border:1px solid rgba(255,255,255,0.12); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-      transition: transform .3s ease, border-color .3s ease; }
-    .alt-card:hover { transform: translateY(-3px); border-color: rgba(0,232,252,0.45); }
-    .alt-card i { position:absolute; right:1.4rem; top:1.2rem; font-style:normal; font-weight:800; font-size:13px; letter-spacing:2px;
-      color: rgba(255,255,255,0.35); }
-    .alt-card em { display:block; font-style:normal; font-size:12px; font-weight:800; letter-spacing:1.6px; text-transform:uppercase;
-      color:#00e8fc; margin-bottom:0.7rem; }
-    .alt-card b { display:block; font-size:clamp(22px,2vw,28px); font-weight:800; letter-spacing:-0.6px; line-height:1.15; color:#fff; margin-bottom:0.8rem; }
-    .alt-card p { margin:0 0 1.1rem; font-size:15px; line-height:1.6; color:rgba(255,255,255,0.72); }
-    .alt-chips { display:flex; flex-wrap:wrap; gap:0.45rem; }
-    .alt-chips span { font-size:11.5px; font-weight:700; color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.18);
-      background:rgba(255,255,255,0.05); border-radius:999px; padding:0.28em 0.7em; }
-    @media (max-width:820px){ .alt-grid { grid-template-columns:1fr; } }
 
-    .alt-feed { max-width:640px; margin:3rem auto 0; background:var(--white); border-radius:22px; border:1px solid rgba(26,31,38,0.08);
-      box-shadow:0 18px 48px rgba(43,29,18,.12); overflow:hidden; }
-    .alt-feed-bar { display:flex; align-items:center; justify-content:space-between; padding:0.9rem 1.2rem; border-bottom:1px solid rgba(26,31,38,0.07);
-      font-size:13px; font-weight:800; color:var(--ink); }
-    .alt-feed-bar span { display:inline-flex; align-items:center; gap:0.4em; font-size:11.5px; font-weight:700; color:var(--ink-4); }
-    .alt-feed-bar span i { width:7px; height:7px; border-radius:50%; background:#1d6c2d; animation: alt-blink 1.6s ease-in-out infinite; }
-    @keyframes alt-blink { 50% { opacity:.25; } }
-    .alt-feed-list { height:330px; padding:1rem 1.2rem; display:flex; flex-direction:column; gap:0.7rem; overflow:hidden; }
-    .alt-sig { display:flex; gap:0.85rem; align-items:flex-start; padding:0.85rem 1rem; border-radius:14px; background:#f7f8f9;
-      border:1px solid rgba(26,31,38,0.06); opacity:0; transform:translateY(10px); transition: opacity .4s ease, transform .4s ease; }
-    .alt-sig.on { opacity:1; transform:none; }
-    .alt-sig i { flex:0 0 auto; width:10px; height:10px; border-radius:50%; margin-top:0.3rem; background:var(--axon-gradient); }
-    .alt-sig b { display:block; font-size:13.5px; color:var(--ink); margin-bottom:0.15rem; }
-    .alt-sig span { font-size:12.5px; color:var(--ink-3); line-height:1.45; }
-    .alt-sig small { display:block; margin-top:0.35rem; font-size:11px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:#0380f9; }
-
-    .alt-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem; max-width:1080px; margin:3rem auto 0; }
-    .alt-stat { text-align:center; padding:1.6rem 1rem; border-radius:18px; background:var(--white); border:1px solid rgba(26,31,38,0.07); }
-    .alt-stat b { display:block; font-size:clamp(30px,3.2vw,44px); font-weight:800; letter-spacing:-1.5px; line-height:1;
-      background:var(--axon-gradient); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:0.4rem; }
-    .alt-stat span { font-size:13px; color:var(--ink-3); }
-    @media (max-width:820px){ .alt-stats { grid-template-columns:1fr 1fr; } }
-
-    .alt-band { background:#0b1220; padding:4rem 0; text-align:center; }
-    .alt-band h2 { color:#fff; font-size:clamp(26px,3.4vw,44px); letter-spacing:-1px; margin:0 0 0.8rem; }
-    .alt-band h2 mark { color: var(--ink); }
-    .alt-band p { color: rgba(255,255,255,0.7); font-size:16px; margin:0; }
-
-    /* ===== readiness / development / results (from alternate 2) ===== */
     .a2-answers { display:grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; max-width: 980px; margin: 3.2rem auto 0; }
     .a2-a { background: var(--white); border-radius: 22px; border: 1px solid rgba(26,31,38,0.07); box-shadow: 0 10px 30px rgba(43,29,18,0.07); padding: 1.8rem 1.7rem 1.6rem; display:flex; flex-direction:column; }
     .a2-a em { display:block; font-style:normal; font-size: 12px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; margin-bottom:.6rem;
@@ -1872,8 +1838,13 @@
     .a2-mock b { display:block; font-size: 13px; color: var(--ink); margin-bottom:.2rem; }
     .a2-mock i { display:block; font-style:normal; margin-top:.4rem; font-size: 11px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:#0380f9; }
     @media (max-width: 960px) { .a2-answers { grid-template-columns: 1fr; } }
-    .hero-subhead { font-size: clamp(20px, 2.3vw, 30px); font-weight: 700; letter-spacing: -0.4px; color: var(--ink); max-width: 820px; margin: 0.4rem auto 1rem; line-height: 1.3; }
-    .hero-tagline .brand-inline img { height: 0.9em; vertical-align: -0.02em; }
+
+    .a2-why .section-heading { color:#fff; } .a2-why .section-heading mark { color: var(--ink); }
+    .a2-facts { display:grid; grid-template-columns: repeat(3,1fr); gap: 1.4rem; max-width: 1080px; margin: 3rem auto 0; }
+    .a2-fact { border-radius: 18px; padding: 1.7rem 1.6rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); }
+    .a2-fact b { display:block; color:#fff; font-size: 18px; margin-bottom:.5rem; }
+    .a2-fact p { margin:0; color: rgba(255,255,255,0.7); font-size:14.5px; line-height:1.6; }
+    @media (max-width: 820px) { .a2-facts { grid-template-columns:1fr; } }
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -2182,13 +2153,12 @@
       <div class="hero-platform-content">
         <div class="hero-badge">
           <span class="pulse-dot"></span>
-          <span class="keep-case">AI</span> lab &middot; entomo's workforce intelligence engine</div>
+          <span class="keep-case">AI</span> lab &middot; entomo's people intelligence engine</div>
         <div class="hero-wordmark">
           <picture class="brand-lockup brand-lockup--hero brand-lockup--axon"><source srcset="../Images/logos/entomo-axon.webp" type="image/webp"><img src="../Images/logos/entomo-axon.png" alt="entomo axon" width="1200" height="388" fetchpriority="high" decoding="async"></picture>
         </div>
-        <h1 class="hero-tagline">the <mark>intelligence</mark> behind <picture class="brand-inline"><source srcset="../Images/logos/entomo-ai.webp" type="image/webp"><img src="../Images/logos/entomo-ai.png" alt="entomo.ai" width="1200" height="257" loading="eager" decoding="async"></picture></h1>
-          <p class="hero-subhead">know what it takes. know who has it. know what to do.</p>
-        <p class="hero-subline"><span class="axon-text">axon</span> connects what every role requires with what every person brings, creating the workforce intelligence that powers better performance, development, mobility, and succession.</p>
+        <h1 class="hero-tagline">entomo's <span class="keep-case">AI</span> brain that knows what <mark>works for you</mark></h1>
+        <p class="hero-subline"><span class="axon-text">axon</span> is entomo's proprietary intelligence engine, powering the platform by connecting the knowledge, skills, abilities, and tasks of every role into one dynamic living model.</p>
         <div class="hero-ctas">
           <a href="../request-demo.html" class="btn-primary">request a demo &rarr;</a>
         </div>
@@ -2224,40 +2194,60 @@
     </div>
   </section>
 
-
-  <!-- ===== THE FOUR THINGS ===== -->
-  <section class="dark-section alt-power">
+  <!-- ===== THESIS ===== -->
+  <section class="a2-thesis">
     <div class="container">
-      <div class="text-center" style="max-width:820px; margin:0 auto;">
-        <h2 class="section-heading">your <span class="keep-case">HR</span> system stores workforce data. <span class="axon-text">axon</span> <mark>understands</mark> it.</h2>
-        <p style="font-size:18px; line-height:1.65; color:rgba(255,255,255,0.65); max-width:640px; margin:0 auto;">it understands what work requires, what people are capable of, where the gaps are and what action will improve the outcome.</p>
+      <p class="section-eyebrow">the idea behind <span class="axon-text">axon</span></p>
+      <h2><span class="axon-text">axon</span> knows your work, not just your <mark>people</mark></h2>
+      <p>it holds what every role must deliver, what it takes to deliver it, and who can, in one living model.</p>
+    </div>
+  </section>
+
+  <!-- ===== THE LINE ===== -->
+  <section style="background: var(--polar-white); border-top: 1px solid rgba(26,31,38,0.06);">
+    <div class="container">
+      <div class="text-center" style="max-width:760px; margin:0 auto;">
+        <p class="section-eyebrow">how it is built</p>
+        <h2 class="section-heading">a straight line from your strategy to every <mark>skill</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;"><span class="axon-text">axon</span> connects what the business needs to what each person must learn, and reads that line in both directions.</p>
       </div>
-      <div class="alt-grid">
-        <div class="alt-card">
-          <i>01</i><em>knows</em>
-          <b>what does this role actually require?</b>
-          <p><span class="axon-text">axon</span> maps the <span style="color:#ff8a80;font-weight:700">knowledge</span>, <span style="color:#ffd166;font-weight:700">skills</span>, <span style="color:#7fc4ff;font-weight:700">abilities</span>, and <span style="color:#7ee2a0;font-weight:700">tasks</span> behind every role, and the level each one needs.</p>
-          <div class="alt-chips"><span>role architecture in under five minutes</span><span>80M+ resumes</span><span>12M job descriptions</span></div>
+      <div class="a2-chain" aria-label="the axon chain from strategy to person">
+        <div class="a2-side l">
+          <div><span>the outcomes the business is chasing this year</span></div>
+          <div><span>the jobs that have to deliver those outcomes</span></div>
+          <div><span>what each job is responsible for</span></div>
+          <div><span>the work that responsibility turns into</span></div>
+          <div><span>the measures that work moves</span></div>
+          <div><span>the skills, knowledge, and abilities the work needs</span></div>
+          <div><span>the people who have them, and who is one step away</span></div>
         </div>
-        <div class="alt-card">
-          <i>02</i><em>sees</em>
-          <b>who can perform it, and where are the gaps?</b>
-          <p><span class="axon-text">axon</span> understands what each role needs and proactively raises the gaps that will hurt performance.</p>
-          <div class="alt-chips"><span>skill gap detection</span><span>successor readiness</span><span>goal quality score</span></div>
+        <div class="a2-spine">
+          <svg viewBox="0 0 120 700" preserveAspectRatio="none" aria-hidden="true">
+            <line class="rail" x1="60" y1="20" x2="60" y2="680" vector-effect="non-scaling-stroke"/>
+            <line class="down" x1="52" y1="20" x2="52" y2="680" vector-effect="non-scaling-stroke"/>
+            <line class="up"   x1="68" y1="20" x2="68" y2="680" vector-effect="non-scaling-stroke"/>
+          </svg>
+          <div class="a2-nodes">
+            <div class="a2-node">strategy</div>
+            <div class="a2-node">role</div>
+            <div class="a2-node">responsibility</div>
+            <div class="a2-node">task</div>
+            <div class="a2-node"><span class="keep-case">KPI</span></div>
+            <div class="a2-node">skill</div>
+            <div class="a2-node">person</div>
+          </div>
         </div>
-        <div class="alt-card">
-          <i>03</i><em>acts</em>
-          <b>what goals, development or interventions will close those gaps?</b>
-          <p>it drafts goals, reviews, and development plans for you like a co-worker, and you decide.</p>
-          <div class="alt-chips"><span><span class="keep-case">KPI</span> library in under a minute</span><span>reviews in minutes</span><span>intelligent <span class="keep-case">IDPs</span></span></div>
-        </div>
-        <div class="alt-card">
-          <i>04</i><em>answers</em>
-          <b>what should we do next, and why?</b>
-          <p>ask in plain language, and <span class="axon-text">axon</span> reasons across the whole model to give a cited answer scoped to what you are allowed to see.</p>
-          <div class="alt-chips"><span>real-time answers</span><span>evidence attached</span><span>90% less manual dashboard work</span></div>
+        <div class="a2-side r">
+          <div><span>read downward, it tells you what is needed</span></div>
+          <div><span>every role is modelled against the market, not a job description</span></div>
+          <div><span>responsibilities are how the work is organised</span></div>
+          <div><span>tasks are what <span class="axon-text">axon</span> reasons over</span></div>
+          <div><span>read upward, it tells you what it takes</span></div>
+          <div><span>each skill carries a required level, per role</span></div>
+          <div><span>readiness, gaps, and next steps come out of the same line</span></div>
         </div>
       </div>
+      <div class="a2-dir"><span>&darr; downward: what is needed</span><span>upward: what it takes &uarr;</span></div>
     </div>
   </section>
 
@@ -2267,7 +2257,7 @@
       <div class="text-center" style="max-width:760px; margin:0 auto;">
         <p class="section-eyebrow">what it gives you</p>
         <h2 class="section-heading">get definitive answers with <span class="axon-text">axon</span> to make decisions <mark>confidently</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;">because it models every role and every person, <span class="axon-text">axon</span> can answer these for a job, a person, or the whole workforce.</p>
+        <p class="section-subheading" style="margin:0 auto;">because the line is complete, <span class="axon-text">axon</span> can answer these for a job, a person, or the whole workforce.</p>
       </div>
       <div class="a2-answers">
         <div class="a2-a">
@@ -2298,26 +2288,7 @@
     </div>
   </section>
 
-  <!-- ===== CORE 1: THE LIVING MODEL ===== -->
-  <section style="background: var(--white);">
-    <div class="container">
-      <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">the core</p>
-        <h2 class="section-heading">one dynamic living model of how work gets <mark>done</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;"><span class="axon-text">axon</span> holds what every role must know, what its people can do, what they bring, and what the job demands, all connected and kept current.</p>
-      </div>
-      <div class="ax-blocks">
-        <div class="ax-b k"><i>K</i><b>knowledge</b><p>what the role must know: domain expertise, regulation, frameworks, context.</p></div>
-        <div class="ax-b s"><i>S</i><b>skills</b><p>what the person can do: practical, trainable capability, with proficiency levels.</p></div>
-        <div class="ax-b a"><i>A</i><b>abilities</b><p>what the person brings: problem-solving, leadership, adaptability, judgment.</p></div>
-        <div class="ax-b t"><i>T</i><b>tasks</b><p>what the role demands, activity by activity, tied to real <span class="keep-case">KPIs</span>.</p></div>
-      </div>
-      
-      <p class="ax-cred">grounded in global skills frameworks including <span class="keep-case">ESCO</span>, <span class="keep-case">SFIA</span>, and skillsfuture, and benchmarked against a live market graph of 80M+ resumes and 12M job descriptions, refreshed monthly.</p>
-    </div>
-  </section>
-
-  <section id="watch-it-think" style="background: var(--white);">
+<section id="watch-it-think" style="background: var(--white);">
     <div class="container">
       <div class="text-center" style="max-width:800px; margin:0 auto;">
         <p class="section-eyebrow">the model, live</p>
@@ -2384,43 +2355,36 @@
     </div>
   </section>
 
-  <!-- ===== CORE 2: PROACTIVE ===== -->
   <section style="background: var(--polar-white); border-top: 1px solid rgba(26,31,38,0.06);">
     <div class="container">
       <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">in the flow of work</p>
-        <h2 class="section-heading">it works before you <mark>ask</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;"><span class="axon-text">axon</span> raises what matters inside the process itself, at the moment a decision is being made.</p>
+        <p class="section-eyebrow"><span class="axon-text">axon</span> at work</p>
+        <h2 class="section-heading">broken processes, fixed at the <mark>root</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;"><span class="axon-text">axon</span> understands the work behind performance, talent, and succession, so the same processes produce better results.</p>
       </div>
-      <div class="alt-feed" data-alt-feed>
-        <div class="alt-feed-bar"><div><span class="axon-text">axon</span> signals</div><span><i></i>live, illustrative</span></div>
-        <div class="alt-feed-list" aria-live="polite"></div>
+      <div class="ax-run">
+        <div class="ax-r"><em>goal setting</em><b>a role-correct <span class="keep-case">KPI</span> library, in under a minute</b><p>goals match the work because the model knows what each role is for.</p></div>
+        <div class="ax-r"><em>reviews</em><b>evidence-based drafts, in minutes</b><p>balanced, bias-aware summaries built from the goals, check-ins, and work delivered during the year.</p></div>
+        <div class="ax-r"><em>role design</em><b>a living role architecture, in under five minutes</b><p>drafted from the model and market data, refined by your experts, and kept up to date after sign-off.</p></div>
+        <div class="ax-r"><em>answers</em><b>90% less manual dashboard building</b><p>ask <span class="keep-case">DIA</span> in plain language and get an answer with its evidence, from the same model every process uses.</p></div>
       </div>
+      <p class="ax-every">one model behind every process: performance &middot; skills &middot; engagement &middot; insights &middot; wellbeing &middot; planning &middot; core <span class="keep-case">HR</span></p>
     </div>
   </section>
 
-  <!-- ===== CORE 3: LEARNS ===== -->
-  <section style="background: var(--white);">
+  <!-- ===== WHY IT CANNOT BE COPIED ===== -->
+  <section class="dark-section a2-why">
     <div class="container">
-      <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow">always current</p>
-        <h2 class="section-heading">it gets smarter every <mark>cycle</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;">every goal, review, and assessment adds to the model, and the market benchmarks refresh every month.</p>
+      <div class="text-center" style="max-width:820px; margin:0 auto;">
+        <p class="section-eyebrow" style="color: rgba(255,255,255,0.5);">why only entomo</p>
+        <h2 class="section-heading">100+ years of cumulative <span class="keep-case">HR</span> process knowledge, <mark>built in</mark></h2>
+        <p style="font-size:18px; line-height:1.65; color:rgba(255,255,255,0.65); max-width:640px; margin:0 auto;"><span class="axon-text">axon</span> is proprietary to entomo, and it was built by automating performance and talent processes for real enterprises.</p>
       </div>
-      <div class="alt-stats">
-        <div class="alt-stat"><b>80M+</b><span>resumes in the market graph</span></div>
-        <div class="alt-stat"><b>12M</b><span>job descriptions benchmarked</span></div>
-        <div class="alt-stat"><b>monthly</b><span>market refresh</span></div>
-        <div class="alt-stat"><b>100+ yrs</b><span>of cumulative <span class="keep-case">HR</span> process knowledge built in</span></div>
+      <div class="a2-facts">
+        <div class="a2-fact"><b>the model is ours</b><p>every role, responsibility, task, measure, and skill is connected in a model entomo built and owns.</p></div>
+        <div class="a2-fact"><b>it is measured against the market</b><p>80M+ resumes and 12M job descriptions, refreshed every month, keep every role current.</p></div>
+        <div class="a2-fact"><b>it shows its working</b><p>every answer is grounded in your data, cites what it used, and asks a human when it is not confident.</p></div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== BAND ===== -->
-  <section class="alt-band">
-    <div class="container">
-      <h2><span class="keep-case">HR</span> systems manage people. <span class="axon-text">axon</span> <mark>understands</mark> them.</h2>
-      <p>performance. skills. potential. development. mobility. succession. one intelligence layer connecting them all.</p>
     </div>
   </section>
 
@@ -2742,39 +2706,5 @@
   </script>
 
   <script src="../assets/entomo-2026.js" defer></script>
-  <script>
-  (function () {
-    var root = document.querySelector('[data-alt-feed]');
-    if (!root) return;
-    var list = root.querySelector('.alt-feed-list');
-    var SIGNALS = [
-      { t: 'skill gap opening in credit risk assessment', d: '3 people in branch north are below the level the role now requires.', k: 'recommend learning' },
-      { t: 'no ready successor for branch manager, west', d: 'two internal candidates are within one gating competency.', k: 'draft succession slate' },
-      { t: 'q3 goal drifting from strategy', d: 'goal quality score dropped to 61 after the target changed.', k: 'suggest realignment' },
-      { t: 'review draft ready for meera s.', d: 'built from 6 goal cycles, 11 reviewers, and 4 assessments.', k: 'awaiting approval' }
-    ];
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    function card(sg) {
-      var d = document.createElement('div');
-      d.className = 'alt-sig';
-      d.innerHTML = '<i></i><div><b>' + sg.t + '</b><span>' + sg.d + '</span><small>' + sg.k + '</small></div>';
-      list.appendChild(d);
-      requestAnimationFrame(function () { requestAnimationFrame(function () { d.classList.add('on'); }); });
-    }
-    if (reduce) { SIGNALS.forEach(card); return; }
-    var i = 0, running = false;
-    function next() {
-      if (i >= SIGNALS.length) { setTimeout(function () { list.innerHTML = ''; i = 0; setTimeout(next, 500); }, 3600); return; }
-      card(SIGNALS[i++]);
-      setTimeout(next, 1500);
-    }
-    function play() { if (running) return; running = true; next(); }
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function (es, obs) {
-        if (es.some(function (e) { return e.isIntersecting; })) { play(); obs.disconnect(); }
-      }, { threshold: 0.3 }).observe(root);
-    } else { play(); }
-  })();
-  </script>
 </body>
 </html>
