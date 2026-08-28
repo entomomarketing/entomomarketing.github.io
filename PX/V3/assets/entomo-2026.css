@@ -957,6 +957,7 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
   .axon-graph .sg-col[data-layer="3"] .sg-nodes { transform: none; }
   .axon-graph { grid-template-columns: 1fr; grid-template-rows: none; gap: 0; }
   .axon-graph .sg-links { display: none; }
+  .axon-graph .sg-node { min-height: 44px; display: flex; align-items: center; justify-content: center; }
   .axon-graph .sg-mesh { display: none; }
   .axon-graph .sg-col { display: block; padding: 1.15rem 0; border-bottom: 1px solid var(--ink-line-soft); }
   .axon-graph .sg-col:last-child { border-bottom: none; }

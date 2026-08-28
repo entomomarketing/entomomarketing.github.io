@@ -671,6 +671,7 @@
       rafId = requestAnimationFrame(loop);
     }
     function setRun() {
+      if (reduce) { if (visible && !doc.hidden) step(0, 16); return; }
       if (visible && !doc.hidden && rafId === null) { last = 0; rafId = requestAnimationFrame(loop); }
     }
 
@@ -953,6 +954,9 @@
           if (!en.isIntersecting) return;
           draw();
           root.classList.add("is-drawn");
+          /* on touch-sized screens the connectors are hidden, so pin one
+             chain on arrival: the lit chips show the model without a hover */
+          if (window.innerWidth <= 900 && nodes.t2) pin("t2");
           obs.disconnect();
         });
       }, { threshold: 0.18 }).observe(root);
