@@ -1903,18 +1903,21 @@
       .ax-node { transform:translate(-50%,0) scale(1); }
     }
 
-    /* ===== the agents that think with axon ===== */
-    .ax-agents { display:flex; gap:0.6rem; justify-content:center; flex-wrap:nowrap; overflow-x:auto; padding:2.6rem 0.4rem 0.6rem; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
-    .ax-agents::-webkit-scrollbar { display:none; }
-    .ax-agent { flex:0 0 auto; width:86px; display:flex; flex-direction:column; align-items:center; gap:0.5rem; text-decoration:none; color:var(--ink-2);
-      opacity:0; transform:translateY(14px); transition: opacity .5s ease, transform .5s ease, color .2s ease; }
-    .ax-agent img { width:64px; height:64px; border-radius:18px; object-fit:cover; display:block; box-shadow:0 6px 18px rgba(43,29,18,.10); border:1px solid rgba(26,31,38,0.06); transition: transform .25s ease, box-shadow .25s ease; }
-    .ax-agent span { font-size:11.5px; font-weight:700; letter-spacing:0.01em; white-space:nowrap; }
-    .ax-agent:hover img { transform:translateY(-3px); box-shadow:0 12px 26px rgba(3,128,249,.18); }
-    .ax-agent:hover { color:var(--ink); }
-    .ax-agents.is-in .ax-agent { opacity:1; transform:none; }
-    @media (max-width:1100px) { .ax-agents { justify-content:flex-start; } }
-    @media (prefers-reduced-motion: reduce) { .ax-agent { opacity:1; transform:none; transition:none; } }
+    /* ===== the agents that think with axon: a lattice of cards ===== */
+    .ax-agents { display:grid; grid-template-columns:repeat(4,1fr); gap:1.1rem; max-width:1120px; margin:2.8rem auto 0; }
+    .ax-agent-card { display:flex; flex-direction:column; align-items:flex-start; gap:0.35rem; text-decoration:none; color:var(--ink-2);
+      background:var(--white); border:1px solid rgba(26,31,38,0.08); border-radius:18px; padding:1.2rem 1.2rem 1.15rem;
+      box-shadow:0 6px 18px rgba(43,29,18,.06); opacity:0; transform:translateY(14px);
+      transition: opacity .5s ease, transform .5s ease, box-shadow .25s ease, border-color .25s ease; }
+    .ax-agent-card img { width:60px; height:60px; border-radius:16px; object-fit:cover; display:block; margin-bottom:0.45rem; border:1px solid rgba(26,31,38,0.06); }
+    .ax-agent-name { font-size:15px; font-weight:800; color:var(--ink); }
+    .ax-agent-role { font-size:10.5px; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:#0380f9; }
+    .ax-agent-desc { font-size:13px; line-height:1.5; color:var(--ink-3); margin-top:0.2rem; }
+    .ax-agents.is-in .ax-agent-card { opacity:1; transform:none; }
+    .ax-agents.is-in .ax-agent-card:hover { transform:translateY(-3px); box-shadow:0 14px 30px rgba(3,128,249,.14); border-color:rgba(3,128,249,.35); }
+    @media (max-width:1020px) { .ax-agents { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:560px) { .ax-agents { grid-template-columns:1fr; } }
+    @media (prefers-reduced-motion: reduce) { .ax-agent-card { opacity:1; transform:none; transition:none; } }
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -2311,18 +2314,78 @@
         <p class="section-subheading" style="margin:0 auto;">the same intelligence sits behind every agent, so each one acts on what the role requires, what the person brings, and where the gaps are.</p>
       </div>
       <div class="ax-agents" data-ax-agents>
-        <a class="ax-agent" href="../index.html#agents"><img src="../Images/agents/talentatlas.png" alt="TalentAtlas" width="160" height="160" loading="lazy" decoding="async"><span>TalentAtlas</span></a>
-        <a class="ax-agent" href="../index.html#agents"><img src="../Images/agents/skillmatrix.png" alt="SkillMatrix" width="160" height="160" loading="lazy" decoding="async"><span>SkillMatrix</span></a>
-        <a class="ax-agent" href="../index.html#agents"><img src="../Images/agents/Goalforge.png" alt="GoalForge" width="160" height="160" loading="lazy" decoding="async"><span>GoalForge</span></a>
-        <a class="ax-agent" href="../index.html#agents"><img src="../Images/agents/pulse360.png" alt="Pulse360" width="160" height="160" loading="lazy" decoding="async"><span>Pulse360</span></a>
-        <a class="ax-agent" href="../index.html#agents"><img src="../Images/agents/Insight360.png" alt="Insight360" width="160" height="160" loading="lazy" decoding="async"><span>Insight360</span></a>
-        <a class="ax-agent" href="../index.html#agents"><img src="../Images/agents/growthplanner.png" alt="GrowthPlanner" width="160" height="160" loading="lazy" decoding="async"><span>GrowthPlanner</span></a>
-        <a class="ax-agent" href="../index.html#agents"><img src="../Images/agents/assescraft.png" alt="AssesCraft" width="160" height="160" loading="lazy" decoding="async"><span>AssesCraft</span></a>
-        <a class="ax-agent" href="../index.html#agents"><img src="../Images/agents/convocraft.png" alt="ConvoCraft" width="160" height="160" loading="lazy" decoding="async"><span>ConvoCraft</span></a>
-        <a class="ax-agent" href="../index.html#agents"><img src="../Images/agents/rolearchitect.png" alt="RoleArchitect" width="160" height="160" loading="lazy" decoding="async"><span>RoleArchitect</span></a>
-        <a class="ax-agent" href="../index.html#agents"><img src="../Images/agents/profilecraft.png" alt="ProfileCraft" width="160" height="160" loading="lazy" decoding="async"><span>ProfileCraft</span></a>
-        <a class="ax-agent" href="../index.html#agents"><img src="../Images/agents/flowgen.png" alt="FlowGen" width="160" height="160" loading="lazy" decoding="async"><span>FlowGen</span></a>
-        <a class="ax-agent" href="../index.html#agents"><img src="../Images/agents/TeamInsight.png" alt="TeamInsight" width="160" height="160" loading="lazy" decoding="async"><span>TeamInsight</span></a>
+        <a class="ax-agent-card" href="../index.html#agents">
+          <img src="../Images/agents/talentatlas.png" alt="TalentAtlas" width="160" height="160" loading="lazy" decoding="async">
+          <div class="ax-agent-name">TalentAtlas</div>
+          <div class="ax-agent-role">role intelligence</div>
+          <div class="ax-agent-desc">Maps industry-benchmarked role architectures and competency frameworks with market-aligned precision.</div>
+        </a>
+        <a class="ax-agent-card" href="../index.html#agents">
+          <img src="../Images/agents/skillmatrix.png" alt="SkillMatrix" width="160" height="160" loading="lazy" decoding="async">
+          <div class="ax-agent-name">SkillMatrix</div>
+          <div class="ax-agent-role">proficiency intelligence</div>
+          <div class="ax-agent-desc">Surfaces proficiency gaps and maps capability across teams, aligned to real-time market signals.</div>
+        </a>
+        <a class="ax-agent-card" href="../index.html#agents">
+          <img src="../Images/agents/Goalforge.png" alt="GoalForge" width="160" height="160" loading="lazy" decoding="async">
+          <div class="ax-agent-name">GoalForge</div>
+          <div class="ax-agent-role">goal intelligence</div>
+          <div class="ax-agent-desc">Generates role-aligned performance goals that reflect strategic priorities and validates quality automatically.</div>
+        </a>
+        <a class="ax-agent-card" href="../index.html#agents">
+          <img src="../Images/agents/pulse360.png" alt="Pulse360" width="160" height="160" loading="lazy" decoding="async">
+          <div class="ax-agent-name">Pulse360</div>
+          <div class="ax-agent-role">sentiment analytics</div>
+          <div class="ax-agent-desc">Analyzes feedback tone, alignment, and perception gaps to uncover blind spots and leadership risks.</div>
+        </a>
+        <a class="ax-agent-card" href="../index.html#agents">
+          <img src="../Images/agents/Insight360.png" alt="Insight360" width="160" height="160" loading="lazy" decoding="async">
+          <div class="ax-agent-name">Insight360</div>
+          <div class="ax-agent-role">feedback intelligence</div>
+          <div class="ax-agent-desc">Surfaces perception gaps, strengths, and growth priorities from 360-degree feedback data in real time.</div>
+        </a>
+        <a class="ax-agent-card" href="../index.html#agents">
+          <img src="../Images/agents/growthplanner.png" alt="GrowthPlanner" width="160" height="160" loading="lazy" decoding="async">
+          <div class="ax-agent-name">GrowthPlanner</div>
+          <div class="ax-agent-role">development engine</div>
+          <div class="ax-agent-desc">Translates performance insights into personalised growth plans with clear career paths and skill milestones.</div>
+        </a>
+        <a class="ax-agent-card" href="../index.html#agents">
+          <img src="../Images/agents/assescraft.png" alt="AssesCraft" width="160" height="160" loading="lazy" decoding="async">
+          <div class="ax-agent-name">AssesCraft</div>
+          <div class="ax-agent-role">assessment engine</div>
+          <div class="ax-agent-desc">Designs structured, role-aligned assessments that evaluate skills, proficiency, and job readiness at scale.</div>
+        </a>
+        <a class="ax-agent-card" href="../index.html#agents">
+          <img src="../Images/agents/convocraft.png" alt="ConvoCraft" width="160" height="160" loading="lazy" decoding="async">
+          <div class="ax-agent-name">ConvoCraft</div>
+          <div class="ax-agent-role">conversation design</div>
+          <div class="ax-agent-desc">Structures high-impact manager conversations with clarity and intent, from performance talks to feedback reviews.</div>
+        </a>
+        <a class="ax-agent-card" href="../index.html#agents">
+          <img src="../Images/agents/rolearchitect.png" alt="RoleArchitect" width="160" height="160" loading="lazy" decoding="async">
+          <div class="ax-agent-name">RoleArchitect</div>
+          <div class="ax-agent-role">role design</div>
+          <div class="ax-agent-desc">Builds and evolves role definitions that align to organisational strategy and workforce capability needs.</div>
+        </a>
+        <a class="ax-agent-card" href="../index.html#agents">
+          <img src="../Images/agents/profilecraft.png" alt="ProfileCraft" width="160" height="160" loading="lazy" decoding="async">
+          <div class="ax-agent-name">ProfileCraft</div>
+          <div class="ax-agent-role">profile intelligence</div>
+          <div class="ax-agent-desc">Crafts rich talent profiles from skills, history, and ambition, powering smarter hiring and mobility decisions.</div>
+        </a>
+        <a class="ax-agent-card" href="../index.html#agents">
+          <img src="../Images/agents/flowgen.png" alt="FlowGen" width="160" height="160" loading="lazy" decoding="async">
+          <div class="ax-agent-name">FlowGen</div>
+          <div class="ax-agent-role">workflow automation</div>
+          <div class="ax-agent-desc">Automates <span class="keep-case">HR</span> workflows end-to-end, from goal setting to reviews, without manual intervention.</div>
+        </a>
+        <a class="ax-agent-card" href="../index.html#agents">
+          <img src="../Images/agents/TeamInsight.png" alt="TeamInsight" width="160" height="160" loading="lazy" decoding="async">
+          <div class="ax-agent-name">TeamInsight</div>
+          <div class="ax-agent-role">team analytics</div>
+          <div class="ax-agent-desc">Tracks team health, collaboration patterns, and performance dynamics to surface risks before they escalate.</div>
+        </a>
       </div>
     </div>
   </section>
@@ -2864,7 +2927,7 @@
   (function () {
     var w = document.querySelector('[data-ax-agents]');
     if (!w) return;
-    var items = w.querySelectorAll('.ax-agent');
+    var items = w.querySelectorAll('.ax-agent-card');
     items.forEach(function (a, i) { a.style.transitionDelay = (i * 45) + 'ms'; });
     if (!('IntersectionObserver' in window)) { w.classList.add('is-in'); return; }
     new IntersectionObserver(function (es, obs) {
