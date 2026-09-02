@@ -1895,10 +1895,23 @@
     .ax-blocks-wrap.is-in .ax-b:nth-child(2){ animation-delay:3.0s } .ax-blocks-wrap.is-in .ax-b:nth-child(3){ animation-delay:4.2s } .ax-blocks-wrap.is-in .ax-b:nth-child(4){ animation-delay:5.4s }
     @keyframes ax-think { 0%,100% { box-shadow: 0 0 0 rgba(3,128,249,0); } 12% { box-shadow: 0 12px 34px rgba(3,128,249,0.22); } 30% { box-shadow: 0 0 0 rgba(3,128,249,0); } }
     .ax-blocks-wrap .ax-b i { transition: opacity .8s ease .5s; }
-    @media (max-width:960px) { .ax-bus, .ax-node { display:none; } .ax-blocks-wrap { padding-top:0; } }
+    .ax-blocks--r2 { grid-template-columns:repeat(3,1fr); margin-top:1.2rem; max-width:1080px; margin-left:auto; margin-right:auto; }
+     .ax-b.g{border-top:4px solid var(--ember,#c8401f);} .ax-b.pf{border-top:4px solid #7a3fbf;} .ax-b.c{border-top:4px solid #0aa2c0;}
+     .ax-blocks-wrap .ax-blocks--r2 .ax-b:nth-child(1){ transition-delay:.6s } .ax-blocks-wrap .ax-blocks--r2 .ax-b:nth-child(2){ transition-delay:.75s } .ax-blocks-wrap .ax-blocks--r2 .ax-b:nth-child(3){ transition-delay:.9s }
+     .ax-blocks-wrap.is-in .ax-blocks--r2 .ax-b:nth-child(1){ animation-delay:6.6s } .ax-blocks-wrap.is-in .ax-blocks--r2 .ax-b:nth-child(2){ animation-delay:7.8s } .ax-blocks-wrap.is-in .ax-blocks--r2 .ax-b:nth-child(3){ animation-delay:9.0s }
+     .ax-bus--down { position:static; display:block; width:100%; height:26px; margin:0; }
+     .ax-bus--down .stub { transition-delay:1.15s; }
+     .ax-ctx { border:1px solid rgba(26,31,38,0.14); border-radius:14px; padding:1.05rem 1.4rem 1.1rem; text-align:center;
+       background:linear-gradient(90deg, rgba(228,61,48,0.045), rgba(244,178,35,0.045), rgba(0,100,191,0.045), rgba(44,153,66,0.045));
+       opacity:0; transform:translateY(14px); transition:opacity .6s ease 1.05s, transform .6s ease 1.05s; }
+     .ax-blocks-wrap.is-in .ax-ctx { opacity:1; transform:none; animation: ax-think 4.8s ease-in-out 10.2s infinite; }
+     .ax-ctx b { display:block; font-size:15px; }
+     .ax-ctx p { margin:0.25rem 0 0; font-size:13.5px; line-height:1.55; color:var(--ink-2); }
+     @media (max-width:960px) { .ax-bus, .ax-node, .ax-bus--down { display:none; } .ax-blocks-wrap { padding-top:0; } .ax-blocks--r2 { grid-template-columns:1fr 1fr; } .ax-ctx { margin-top:1.2rem; } }
+     @media (max-width:560px) { .ax-blocks--r2 { grid-template-columns:1fr; } }
     @media (prefers-reduced-motion: reduce) {
-      .ax-blocks-wrap .ax-b, .ax-node, .ax-bus .rail, .ax-bus .stub { transition:none; animation:none; opacity:1; transform:none; stroke-dashoffset:0; }
-      .ax-blocks-wrap.is-in .ax-b, .ax-blocks-wrap.is-in .ax-bus .pulse { animation:none; }
+      .ax-blocks-wrap .ax-b, .ax-node, .ax-bus .rail, .ax-bus .stub, .ax-ctx { transition:none; animation:none; opacity:1; transform:none; stroke-dashoffset:0; }
+      .ax-blocks-wrap.is-in .ax-b, .ax-blocks-wrap.is-in .ax-bus .pulse, .ax-blocks-wrap.is-in .ax-ctx { animation:none; }
       .ax-node { transform:translate(-50%,0) scale(1); }
     }
 
@@ -1956,8 +1969,8 @@
                 <a href="../solutions/skill-intelligence.html" class="nav-mega-item">
                   <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
                   <div class="nav-mega-text">
-                    <div class="nav-mega-name">skill development and growth</div>
-                    <div class="nav-mega-desc">unlock skills, accelerate growth</div>
+                    <div class="nav-mega-name">career and learning management</div>
+                    <div class="nav-mega-desc">grow careers, close skill gaps</div>
                   </div>
                 </a>
                 <a href="../solutions/engagement-intelligence.html" class="nav-mega-item">
@@ -2283,19 +2296,19 @@
     <div class="container">
       <div class="text-center" style="max-width:820px; margin:0 auto;">
         <h2 class="section-heading">your <span class="keep-case">HR</span> system stores workforce data. <span class="axon-text">axon</span> <mark>understands</mark> it.</h2>
-        <p style="font-size:18px; line-height:1.65; color:rgba(255,255,255,0.65); max-width:640px; margin:0 auto;">it understands what work requires, what people are capable of, where the gaps are and what action will improve the outcome.</p>
+        <p style="font-size:18px; line-height:1.65; color:rgba(255,255,255,0.65); max-width:640px; margin:0 auto;">it understands what work requires, how people are performing, where the gaps are and what action will improve the outcome.</p>
       </div>
       <div class="alt-grid">
         <div class="alt-card">
           <i>01</i><em>knows</em>
           <b>what does this role actually require?</b>
-          <p><span class="axon-text">axon</span> maps the <span style="color:#ff8a80;font-weight:700">knowledge</span>, <span style="color:#ffd166;font-weight:700">skills</span>, <span style="color:#7fc4ff;font-weight:700">abilities</span>, and <span style="color:#7ee2a0;font-weight:700">tasks</span> behind every role, and the level each one needs.</p>
+          <p><span class="axon-text">axon</span> maps the <span style="color:#ff8a80;font-weight:700">knowledge</span>, <span style="color:#ffd166;font-weight:700">skills</span>, <span style="color:#7fc4ff;font-weight:700">abilities</span>, and <span style="color:#7ee2a0;font-weight:700">tasks</span> behind every role, the level each one needs, and the outcomes the role is measured on.</p>
           <div class="alt-chips"><span>role architecture in under five minutes</span><span>80M+ resumes</span><span>12M job descriptions</span></div>
         </div>
         <div class="alt-card">
           <i>02</i><em>sees</em>
-          <b>who can perform it, and where are the gaps?</b>
-          <p><span class="axon-text">axon</span> understands what each role needs and proactively raises the gaps that will hurt performance.</p>
+          <b>who is performing, who is ready, and where are the gaps?</b>
+          <p><span class="axon-text">axon</span> reads performance and capability side by side, and raises the gaps that will hurt results.</p>
           <div class="alt-chips"><span>skill gap detection</span><span>successor readiness</span><span>goal quality score</span></div>
         </div>
         <div class="alt-card">
@@ -2320,7 +2333,7 @@
       <div class="text-center" style="max-width:760px; margin:0 auto;">
         <p class="section-eyebrow">the agents</p>
         <h2 class="section-heading">every entomo.ai agent <mark>thinks</mark> with <span class="axon-text">axon</span></h2>
-        <p class="section-subheading" style="margin:0 auto;">the same intelligence sits behind every agent, so each one acts on what the role requires, what the person brings, and where the gaps are.</p>
+        <p class="section-subheading" style="margin:0 auto;">12+ integrated agents live today, with the same intelligence behind each, acting together on what the role requires, what the person brings, how the person performs and where the gaps are.</p>
       </div>
       <div class="ax-lattice" data-ax-agents aria-label="the entomo.ai agents">
         <div class="ax-lat-row a"><div class="ax-lat-track"><a class="ax-tile" href="../index.html#agents" aria-hidden="true" tabindex="-1"><img src="../Images/agents/talentatlas.png" alt="TalentAtlas" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>TalentAtlas</b><i>role intelligence</i><em>Maps industry-benchmarked role architectures and competency frameworks with market-aligned precision.</em></span></a><a class="ax-tile" href="../index.html#agents" aria-hidden="true" tabindex="-1"><img src="../Images/agents/skillmatrix.png" alt="SkillMatrix" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>SkillMatrix</b><i>proficiency intelligence</i><em>Surfaces proficiency gaps and maps capability across teams, aligned to real-time market signals.</em></span></a><a class="ax-tile" href="../index.html#agents" aria-hidden="true" tabindex="-1"><img src="../Images/agents/Goalforge.png" alt="GoalForge" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>GoalForge</b><i>goal intelligence</i><em>Generates role-aligned performance goals that reflect strategic priorities and validates quality automatically.</em></span></a><a class="ax-tile" href="../index.html#agents" aria-hidden="true" tabindex="-1"><img src="../Images/agents/pulse360.png" alt="Pulse360" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>Pulse360</b><i>sentiment analytics</i><em>Analyzes feedback tone, alignment, and perception gaps to uncover blind spots and leadership risks.</em></span></a><a class="ax-tile" href="../index.html#agents" aria-hidden="true" tabindex="-1"><img src="../Images/agents/Insight360.png" alt="Insight360" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>Insight360</b><i>feedback intelligence</i><em>Surfaces perception gaps, strengths, and growth priorities from 360-degree feedback data in real time.</em></span></a><a class="ax-tile" href="../index.html#agents" aria-hidden="true" tabindex="-1"><img src="../Images/agents/growthplanner.png" alt="GrowthPlanner" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>GrowthPlanner</b><i>development engine</i><em>Translates performance insights into personalised growth plans with clear career paths and skill milestones.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/talentatlas.png" alt="TalentAtlas" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>TalentAtlas</b><i>role intelligence</i><em>Maps industry-benchmarked role architectures and competency frameworks with market-aligned precision.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/skillmatrix.png" alt="SkillMatrix" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>SkillMatrix</b><i>proficiency intelligence</i><em>Surfaces proficiency gaps and maps capability across teams, aligned to real-time market signals.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/Goalforge.png" alt="GoalForge" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>GoalForge</b><i>goal intelligence</i><em>Generates role-aligned performance goals that reflect strategic priorities and validates quality automatically.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/pulse360.png" alt="Pulse360" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>Pulse360</b><i>sentiment analytics</i><em>Analyzes feedback tone, alignment, and perception gaps to uncover blind spots and leadership risks.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/Insight360.png" alt="Insight360" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>Insight360</b><i>feedback intelligence</i><em>Surfaces perception gaps, strengths, and growth priorities from 360-degree feedback data in real time.</em></span></a><a class="ax-tile" href="../index.html#agents"><img src="../Images/agents/growthplanner.png" alt="GrowthPlanner" width="160" height="160" loading="lazy" decoding="async"><span class="ax-tile-t"><b>GrowthPlanner</b><i>development engine</i><em>Translates performance insights into personalised growth plans with clear career paths and skill milestones.</em></span></a></div></div>
@@ -2372,7 +2385,7 @@
       <div class="text-center" style="max-width:760px; margin:0 auto;">
         <p class="section-eyebrow">the core</p>
         <h2 class="section-heading">one dynamic living model of how work gets <mark>done</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;"><span class="axon-text">axon</span> holds what every role must know, what its people can do, what they bring, and what the job demands, all connected and kept current.</p>
+        <p class="section-subheading" style="margin:0 auto;"><span class="axon-text">axon</span> connects every element of work and capability, and keeps them current.</p>
         <p class="section-subheading" style="margin:0.6rem auto 0; font-weight:700; color:var(--ink);">intelligence comes from connecting the right data points, and that is precisely what <span class="axon-text">axon</span> does.</p>
       </div>
       <div class="ax-blocks-wrap" data-ax-blocks>
@@ -2387,6 +2400,18 @@
         <div class="ax-b s"><i>S</i><b>skills</b><p>what the person can do: practical, trainable capability, with proficiency levels.</p></div>
         <div class="ax-b a"><i>A</i><b>abilities</b><p>what the person brings: problem-solving, leadership, adaptability, judgment.</p></div>
         <div class="ax-b t"><i>T</i><b>tasks</b><p>what the role demands, activity by activity, tied to real <span class="keep-case">KPIs</span>.</p></div>
+      </div>
+      <div class="ax-blocks ax-blocks--r2">
+        <div class="ax-b g"><i>G</i><b>goals</b><p>what each person is driving toward, tied to business outcomes.</p></div>
+        <div class="ax-b pf"><i>P</i><b>proficiencies</b><p>how deep each skill runs, level by level.</p></div>
+        <div class="ax-b c"><i>C</i><b>certifications</b><p>the credentials that prove capability, tracked and kept current.</p></div>
+      </div>
+      <svg class="ax-bus ax-bus--down" viewBox="0 0 1000 26" preserveAspectRatio="none" aria-hidden="true">
+        <path class="stub" d="M167,0 V26 M500,0 V26 M833,0 V26"/>
+      </svg>
+      <div class="ax-ctx">
+        <b>industry &amp; sub-industry context</b>
+        <p>the context of your industry and sub-industry, built into every element above.</p>
       </div>
       </div>
       <p class="ax-cred">grounded in global skills frameworks including <span class="keep-case">ESCO</span>, <span class="keep-case">SFIA</span>, and skillsfuture, and benchmarked against a live market graph of 80M+ resumes and 12M job descriptions, refreshed monthly.</p>
