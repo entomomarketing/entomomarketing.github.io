@@ -3170,9 +3170,10 @@
               </li>
               <li>
                 <span class="persona-check" style="background:rgba(244,178,35,0.1);color:#b8860b;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg></span>
-                Learning pathways tailored to individual aspirations and role demands
+                Learning pathways and individual development plans tailored to each person's aspirations
               </li>
-            </ul>
+                      <li><span class="persona-check" style="background:rgba(244,178,35,0.1);color:#b8860b;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg></span> Internal job recommendations that keep careers moving inside the company</li>
+        </ul>
           </div>
           <div class="persona-visual pv-employee">
             <svg class="pv-diagram" viewBox="0 0 380 340" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -3276,7 +3277,8 @@
                 <span class="persona-check" style="background:rgba(0,100,191,0.1);color:var(--spanish-blue);"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg></span>
                 <span class="keep-case">4B</span> Decision Engine: Build, Buy, Borrow, or Bot every role
               </li>
-            </ul>
+                      <li><span class="persona-check" style="background:rgba(0,100,191,0.1);color:var(--spanish-blue);"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg></span> Talent discovery and profiling via assessments, 360&deg; feedback, and sentiment, surfacing training needs</li>
+        </ul>
           </div>
           <div class="persona-visual pv-talent">
             <svg class="pv-diagram" viewBox="0 0 380 340" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -3383,7 +3385,8 @@
                 <span class="persona-check" style="background:rgba(44,153,66,0.1);color:var(--sea-green);"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg></span>
                 <span class="keep-case">4B</span> simulation for Build, Buy, Borrow, Bot decisions
               </li>
-            </ul>
+                      <li><span class="persona-check" style="background:rgba(44,153,66,0.1);color:var(--sea-green);"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg></span> Turnover cost and time-to-productivity tracked against targets</li>
+        </ul>
           </div>
           <div class="persona-visual pv-business">
             <svg class="pv-diagram" viewBox="0 0 380 340" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -3477,7 +3480,8 @@
                 <span class="persona-check" style="background:rgba(228,61,48,0.08);color:var(--cg-red);"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg></span>
                 <span class="keep-case">ISO</span> 30414 compliant human capital reporting
               </li>
-            </ul>
+                      <li><span class="persona-check" style="background:rgba(228,61,48,0.08);color:var(--cg-red);"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg></span> Workforce planning scenarios built on the same live signals</li>
+        </ul>
           </div>
           <div class="persona-visual pv-analytics">
             <svg class="pv-diagram" viewBox="0 0 380 340" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -4242,6 +4246,26 @@
 
   <!-- ===== PERSONA TAB INTERACTION ===== -->
   <script>
+    (function () {
+      var panels = Array.prototype.slice.call(document.querySelectorAll('.persona-panel'));
+      var wrap = document.querySelector('.persona-panels');
+      if (!panels.length || !wrap) return;
+      var t;
+      function equalize() {
+        panels.forEach(function (p) { p.style.minHeight = ''; });
+        if (window.innerWidth <= 768) return;
+        var max = 0;
+        panels.forEach(function (p) {
+          var hidden = !p.classList.contains('active');
+          if (hidden) p.style.cssText = 'display:grid;visibility:hidden;position:absolute;width:' + wrap.clientWidth + 'px;';
+          if (p.offsetHeight > max) max = p.offsetHeight;
+          if (hidden) p.style.cssText = '';
+        });
+        panels.forEach(function (p) { p.style.minHeight = max + 'px'; });
+      }
+      window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(equalize, 150); });
+      if (document.readyState === 'complete') equalize(); else window.addEventListener('load', equalize);
+    })();
     document.querySelectorAll('.persona-tab').forEach(tab => {
       tab.addEventListener('click', () => {
         document.querySelectorAll('.persona-tab').forEach(t => t.classList.remove('active'));
