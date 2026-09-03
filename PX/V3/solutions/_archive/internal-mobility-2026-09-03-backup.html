@@ -1685,17 +1685,6 @@
       .im-l-ext::before{content:'external hire · '; font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--ink-4);}
       .im-l-int::before{content:'internal move · '; font-size:11px; text-transform:uppercase; letter-spacing:1px; color:#1d6c2d;} }
 
-    .im-lanes { max-width:960px; margin:2.6rem auto 0; border:1px solid rgba(26,31,38,0.10); border-radius:16px; overflow:hidden; background:#fff; }
-    .im-lane-row { display:grid; grid-template-columns:1fr 1fr; border-top:1px solid rgba(26,31,38,0.08); }
-    .im-lane-row:first-child { border-top:0; }
-    .im-lane { padding:1rem 1.25rem; font-size:14px; line-height:1.5; color:var(--ink-2); }
-    .im-lane.now { border-right:1px solid rgba(26,31,38,0.08); background:rgba(0,100,191,0.03); }
-    .im-lane.next { background:rgba(244,178,35,0.05); }
-    .im-lane-row.head .im-lane { font-size:11.5px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink); padding:0.8rem 1.25rem; }
-    .im-lane-row.head .im-lane.now { color:var(--spanish-blue); }
-    .im-lane-row.head .im-lane.next { color:#b8860b; }
-    @media (max-width:760px) { .im-lane-row { grid-template-columns:1fr; } .im-lane.now { border-right:0; border-bottom:1px solid rgba(26,31,38,0.08); } .im-lane-row.head { display:none; }
-      .im-lane.now::before { content:"now \00b7 "; font-weight:800; color:var(--spanish-blue); } .im-lane.next::before { content:"next \00b7 "; font-weight:800; color:#b8860b; } }
     .im-proof { display:flex; justify-content:center; gap:3rem; flex-wrap:wrap; margin:3.2rem auto 0; }
     .im-pr { text-align:center; }
     .im-pr b { display:block; font-size:2.1rem; letter-spacing:-1.5px; color:var(--ink); }
@@ -2013,7 +2002,7 @@
         </div>
         <h1>your next hire is already on your <mark>payroll</mark></h1>
         <p class="sol-hero-sub">
-          a talent marketplace with two clocks: open roles, projects, and gigs matched to your people today, and career paths that show each person where they can go next and what it takes to get there.
+          a talent marketplace that matches people to internal roles, projects, and gigs by skill and aspiration, so growth happens inside your walls instead of on a competitor's offer letter.
         </p>
         <a class="btn-primary" href="../request-demo.html">get started &rarr;</a>
       </div>
@@ -2052,8 +2041,8 @@
     <div class="container">
       <div class="text-center" style="max-width:760px; margin:0 auto;">
         <p class="section-eyebrow">the challenge today</p>
-        <h2 class="section-heading">your people can't see the open role today, or the path from <mark>here</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;">outside, recruiters put live roles in front of your people every week. inside, today's opening hides behind a manager conversation, and tomorrow's path lives in nobody's plan. the marketplace shows both.</p>
+        <h2 class="section-heading">your people are quitting now because they can't see their <mark>next step</mark>.</h2>
+        <p class="section-subheading" style="margin:0 auto;">outside your company, recruiters match your people to roles every week. inside, the next role hides behind a manager conversation nobody schedules. the marketplace fixes the asymmetry.</p>
       </div>
       <div class="im-match">
         <div class="im-card">
@@ -2074,7 +2063,7 @@
         <div class="im-card">
           <div class="im-card-t">the opportunity</div>
           <div class="im-role-t">analytics lead, commercial planning</div>
-          <div class="im-role-m">internal posting &middot; open now &middot; closes in 3 weeks &middot; hiring manager: r. tan</div>
+          <div class="im-role-m">internal posting &middot; opens in 6 weeks &middot; hiring manager: r. tan</div>
           <div class="im-chips">
             <span class="im-chip hit">forecasting: required</span>
             <span class="im-chip hit">sql: required</span>
@@ -2095,7 +2084,7 @@
         <p class="section-subheading" style="margin:0 auto;">not every move is a promotion. the marketplace runs custom workflows for every construct that builds capability.</p>
       </div>
       <div class="im-kinds">
-        <div class="im-kind"><span class="ico" aria-hidden="true">&#128188;</span><b>open roles</b><p>live internal postings matched on skill and aspiration, before recruiters look outside.</p></div>
+        <div class="im-kind"><span class="ico" aria-hidden="true">&#128188;</span><b>roles</b><p>internal postings matched on skill and aspiration before recruiters look outside.</p></div>
         <div class="im-kind"><span class="ico" aria-hidden="true">&#9889;</span><b>gigs &amp; projects</b><p>short assignments that build a skill without a reorg: try the work, keep the day job.</p></div>
         <div class="im-kind"><span class="ico" aria-hidden="true">&#127760;</span><b>rotations</b><p>job sharing, assignments, and international rotations with the workflow handled.</p></div>
         <div class="im-kind"><span class="ico" aria-hidden="true">&#129309;</span><b>mentoring &amp; hubs</b><p>special interest groups and mentors, because most mobility starts with a conversation.</p></div>
@@ -2103,22 +2092,6 @@
     </div>
   </section>
 
-  <!-- ===== TWO CLOCKS ===== -->
-  <section style="background: var(--white);">
-    <div class="container">
-      <div class="text-center" style="max-width:740px; margin:0 auto;">
-        <h2 class="section-heading">this month's move and the next three years, on one <mark>profile</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;">the same skills and aspirations power what is open now and where the person can go next.</p>
-      </div>
-      <div class="im-lanes">
-        <div class="im-lane-row head"><div class="im-lane now">now &middot; active mobility</div><div class="im-lane next">next &middot; career path</div></div>
-        <div class="im-lane-row"><div class="im-lane now">an open internal posting matched to her assessed skills</div><div class="im-lane next">the two roles this posting leads to, inferred from peers who made the move</div></div>
-        <div class="im-lane-row"><div class="im-lane now">a gig available this quarter to try the work without leaving the day job</div><div class="im-lane next">the skill gap to the target role, with the learning that closes it</div></div>
-        <div class="im-lane-row"><div class="im-lane now">transfer approvals, handover, and day one run as a workflow, not a favour</div><div class="im-lane next">an individual development plan that moves with her into the new role</div></div>
-        <div class="im-lane-row"><div class="im-lane now">opportunity owners searching skill profiles for people ready today</div><div class="im-lane next">readiness tracked as she grows, feeding succession pipelines</div></div>
-      </div>
-    </div>
-  </section>
   <!-- ===== BUILD VS BUY, PER SEAT ===== -->
   <section style="background: var(--polar-white); border-top: 1px solid rgba(26,31,38,0.06);">
     <div class="container">
@@ -2167,8 +2140,8 @@
           <p class="faq-a">Recommendations are computed from <span class="axon-text">axon</span>: assessed skills, certifications, work history, and declared aspirations, benchmarked against what the role actually requires. The shortlist arrives with evidence attached, and the hiring conversation starts from there.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">is this a jobs board or career pathing?</div>
-          <p class="faq-a">both, on one profile. career paths show where a person can go over the next few years and what to learn to get there. the marketplace shows what is open this month and runs the transfer when they say yes. stretch roles stay visible, with the gap and the learning path alongside, so one feeds the other.</p>
+          <div class="integration-card-title">do employees see everything, including stretch roles?</div>
+          <p class="faq-a">Yes, with the gap made visible. If a role sits one skill away, the employee sees the gap and the learning path that closes it, so a stretch posting becomes a development plan rather than a rejection.</p>
         </div>
         <div class="integration-card">
           <div class="integration-card-title">where does succession fit in?</div>
