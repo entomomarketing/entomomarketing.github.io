@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>case studies | how enterprises and governments transform work with entomo</title>
+  <meta name="description" content="Case studies from entomo deployments across financial services, government, energy, manufacturing, technology and telecom. Real outcomes, in the words of the source.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Nunito Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px; line-height: 1.5; color: #1a1f26;
+      background-color: #ffffff; -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; }
+
+    :root {
+      --cg-red: #e43d30;
+      --cg-gold: #f4b223;
+      --spanish-blue: #0064bf;
+      --sea-green: #2c9942;
+      --sunrise-yellow: #ffda00;
+      --white: #ffffff;
+      --ebony-clay: #1a1f26;
+      --floral-white: #fefbf4;
+      --polar-white: #f2f7fc;
+      --black-haze: #fafbfb;
+      --gradient-cta: linear-gradient(90deg, #f4b223, #e43d30);
+      --max-width: 1200px;
+    }
+
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+    .text-center { text-align: center; }
+
+    h1, h2, h3, h4 { text-transform: lowercase; color: var(--ebony-clay); line-height: 1.15; }
+    h1 {
+      font-size: clamp(36px, 5vw, 68px);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -1px;
+    }
+    h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0.01px; }
+    h3 { font-size: 1.25rem; font-weight: 800; }
+    h4 { font-weight: 700; }
+    .keep-case { text-transform: none !important; }
+
+    mark {
+      background: var(--sunrise-yellow);
+      color: var(--ebony-clay);
+      padding: 0 6px; border-radius: 3px;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid rgba(26,31,38,0.08);
+      backdrop-filter: blur(12px);
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: lowercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: lowercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--cg-red); }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+    .nav-cta {
+      background-image: var(--gradient-cta);
+      color: var(--white);
+      border: none;
+      border-radius: 5px;
+      padding: 8px 20px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: lowercase;
+      cursor: pointer;
+    }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-toggle svg { width: 24px; height: 24px; }
+
+    .nav-dropdown-wrap { position: relative; }
+    .nav-dropdown-wrap > a {
+      display: flex; align-items: center; gap: 4px;
+    }
+    .nav-dropdown-wrap > a::after {
+      content: '';
+      border: solid currentColor; border-width: 0 1.5px 1.5px 0;
+      display: inline-block; padding: 2.5px;
+      transform: rotate(45deg); margin-top: -3px;
+      transition: transform 0.2s;
+    }
+    .nav-dropdown-wrap:hover > a::after {
+      transform: rotate(-135deg); margin-top: 2px;
+    }
+    .nav-mega {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(14px);
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.08);
+      border-radius: 15px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12), 0 0 0 1px rgba(26,31,38,0.04);
+      padding: 1.25rem;
+      width: 680px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+      z-index: 200;
+    }
+    .nav-dropdown-wrap:hover .nav-mega {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(8px);
+    }
+    .nav-mega-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+    }
+    .nav-mega-item {
+      display: flex; flex-direction: row; align-items: flex-start; gap: 12px;
+      padding: 12px 14px; border-radius: 10px;
+      transition: background 0.15s; text-decoration: none; color: inherit;
+    }
+    .nav-mega-icon {
+      width: 40px; height: 40px; border-radius: 9px; flex-shrink: 0;
+      background: rgba(26,31,38,0.05);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+    }
+    .nav-mega-icon svg {
+      width: 18px; height: 18px; stroke: rgba(26,31,38,0.45); fill: none;
+      transition: stroke 0.15s;
+    }
+    .nav-mega-text { display: flex; flex-direction: column; gap: 2px; }
+    .nav-mega-item:hover { background: rgba(228,61,48,0.04); }
+    .nav-mega-item:hover .nav-mega-icon { background: rgba(228,61,48,0.08); }
+    .nav-mega-item:hover .nav-mega-icon svg { stroke: var(--cg-red); }
+    .nav-mega-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      margin-bottom: 3px;
+      line-height: 1.3;
+    }
+    .nav-mega-desc {
+      font-size: 12px;
+      color: var(--ink-4);
+      line-height: 1.4;
+      font-weight: 500;
+    }
+    .nav-mega-item:hover .nav-mega-name { color: var(--cg-red); }
+    .nav-right-group { display: flex; flex-direction: row; align-items: center; gap: 1.5rem; flex-wrap: nowrap; }
+    @media (max-width: 900px) {
+      .nav-mega { display: none; }
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+    }
+
+    /* Placeholder tooltips */
+    .nav-placeholder-tooltip { position: relative; }
+    .nav-placeholder-tooltip::after {
+      content: attr(data-tooltip);
+      position: absolute; top: calc(100% + 8px); left: 50%;
+      transform: translateX(-50%);
+      background: rgba(26,31,38,0.88); color: #fff;
+      font-size: 11px; font-weight: 500; white-space: nowrap;
+      padding: 5px 10px; border-radius: 5px;
+      pointer-events: none; opacity: 0;
+      transition: opacity 0.15s ease; z-index: 999;
+    }
+    .nav-placeholder-tooltip::before {
+      content: ''; position: absolute; top: calc(100% + 4px); left: 50%;
+      transform: translateX(-50%);
+      border: 4px solid transparent;
+      border-bottom-color: rgba(26,31,38,0.88);
+      pointer-events: none; opacity: 0;
+      transition: opacity 0.15s ease; z-index: 999;
+    }
+    .nav-placeholder-tooltip:hover::after,
+    .nav-placeholder-tooltip:hover::before { opacity: 1; }
+
+    /* ===== HERO ===== */
+    .blog-hero {
+      background: linear-gradient(180deg, var(--floral-white) 0%, white 100%);
+      padding: 5rem 0 3.5rem;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: rgba(228, 61, 48, 0.08);
+      color: var(--cg-red);
+      font-size: 0.85rem; font-weight: 700;
+      padding: 6px 16px; border-radius: 20px;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .blog-hero h1 { margin-bottom: 1.25rem; max-width: 900px; margin-left: auto; margin-right: auto; }
+    .blog-hero .lede {
+      font-size: 1.2rem; color: var(--ink-3);
+      max-width: 700px; margin: 0 auto; line-height: 1.55;
+    }
+
+    /* ===== SECTION BASE ===== */
+    section { padding: 4rem 0; }
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 13px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      background: linear-gradient(90deg, var(--cg-gold), var(--cg-red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+
+    /* ===== FEATURED POST ===== */
+    .featured-section { padding-top: 1rem; padding-bottom: 3rem; background: white; }
+    .featured-card {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(26,31,38,0.06);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.04);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .featured-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    }
+    .featured-image {
+      min-height: 360px;
+      background: linear-gradient(135deg, var(--cg-red) 0%, #c92e22 60%, #7a1a12 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .featured-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(244,178,35,0.4) 0%, transparent 45%),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.15) 0%, transparent 50%);
+    }
+    .featured-image::after {
+      content: '';
+      position: absolute;
+      bottom: 1.5rem; left: 1.5rem;
+      width: 60px; height: 60px; border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .featured-body {
+      padding: 3rem 2.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .featured-tag {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 1px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      background: rgba(228,61,48,0.1);
+      color: var(--cg-red);
+    }
+    .featured-body h2 {
+      font-size: clamp(1.6rem, 2.4vw, 2rem);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+    .featured-excerpt {
+      font-size: 1rem;
+      color: var(--ink-2);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 13px;
+      color: var(--ink-3);
+      margin-bottom: 1.5rem;
+    }
+    .post-meta .meta-author { font-weight: 600; color: var(--ebony-clay); }
+    .post-meta .meta-dot { color: var(--ink-4); }
+    .btn-link {
+      align-self: flex-start;
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--gradient-cta);
+      color: white;
+      padding: 11px 22px;
+      border-radius: 8px;
+      font-size: 14px; font-weight: 700;
+      text-transform: lowercase;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(228, 61, 48, 0.28);
+    }
+
+    /* ===== FILTER PILLS ===== */
+    .filter-section { padding: 1rem 0 2rem; background: white; }
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .filter-pill {
+      background: white;
+      border: 1px solid rgba(26,31,38,0.12);
+      color: var(--ink-2);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .filter-pill:hover {
+      border-color: var(--cg-red);
+      color: var(--cg-red);
+    }
+    .filter-pill.active {
+      background: var(--ebony-clay);
+      border-color: var(--ebony-clay);
+      color: white;
+    }
+
+    /* ===== POSTS GRID ===== */
+    .posts-section { padding: 2rem 0 5rem; background: white; }
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .post-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(26,31,38,0.06);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .post-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.08);
+      border-color: rgba(26,31,38,0.1);
+    }
+    .post-image {
+      height: 180px;
+      position: relative;
+      overflow: hidden;
+    }
+    .post-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 25% 35%, rgba(255,255,255,0.25) 0%, transparent 45%),
+        radial-gradient(circle at 75% 75%, rgba(0,0,0,0.18) 0%, transparent 60%);
+    }
+    .post-image.gradient-1 { background: linear-gradient(135deg, #e43d30 0%, #f4b223 100%); }
+    .post-image.gradient-2 { background: linear-gradient(135deg, #0064bf 0%, #2a8de0 100%); }
+    .post-image.gradient-3 { background: linear-gradient(135deg, #2c9942 0%, #5dc46b 100%); }
+    .post-image.gradient-4 { background: linear-gradient(135deg, #1a1f26 0%, #3a4452 100%); }
+    .post-image.gradient-5 { background: linear-gradient(135deg, #f4b223 0%, #ffda00 100%); }
+    .post-image.gradient-6 { background: linear-gradient(135deg, #0064bf 0%, #1a1f26 100%); }
+    .post-image.gradient-7 { background: linear-gradient(135deg, #e43d30 0%, #1a1f26 100%); }
+    .post-image.gradient-8 { background: linear-gradient(135deg, #2c9942 0%, #0064bf 100%); }
+    .post-image.gradient-9 { background: linear-gradient(135deg, #f4b223 0%, #e43d30 100%); }
+
+    .post-body {
+      padding: 1.5rem 1.5rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .post-tag {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 4px 10px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+    }
+    .tag-agentic { background: rgba(228,61,48,0.1); color: var(--cg-red); }
+    .tag-performance { background: rgba(0,100,191,0.1); color: var(--spanish-blue); }
+    .tag-skills { background: rgba(44,153,66,0.1); color: var(--sea-green); }
+    .tag-engagement { background: rgba(244,178,35,0.15); color: #b8860b; }
+    .tag-research { background: rgba(26,31,38,0.08); color: var(--ebony-clay); }
+    .tag-industry { background: rgba(228,61,48,0.08); color: #c92e22; }
+    .tag-workforce { background: rgba(0,100,191,0.08); color: #004a8f; }
+
+    .post-card h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+    }
+    .post-card:hover h3 { color: var(--cg-red); }
+    .post-excerpt {
+      font-size: 0.92rem;
+      color: var(--ink-3);
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+      flex: 1;
+    }
+    .post-meta-sm {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 12px;
+      color: var(--ink-4);
+      padding-top: 0.85rem;
+      border-top: 1px solid rgba(26,31,38,0.06);
+    }
+    .post-meta-sm .meta-author { font-weight: 600; color: var(--ebony-clay); }
+    .post-meta-sm .meta-dot { color: var(--ink-4); }
+
+    .load-more-wrap { text-align: center; margin-top: 3rem; }
+    .btn-secondary {
+      display: inline-block;
+      background: var(--sunrise-yellow);
+      color: var(--ebony-clay);
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(244, 178, 35, 0.35);
+    }
+
+    /* ===== NEWSLETTER ===== */
+    .newsletter-section {
+      background: linear-gradient(135deg, var(--ebony-clay) 0%, #2a3038 100%);
+      color: white;
+      padding: 4.5rem 0;
+    }
+    .newsletter-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .newsletter-wrap .section-eyebrow {
+      background: linear-gradient(90deg, var(--cg-gold), #ffda00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .newsletter-wrap h2 {
+      color: white;
+      margin-bottom: 0.85rem;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+    }
+    .newsletter-wrap p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      line-height: 1.55;
+    }
+    .newsletter-form {
+      display: flex;
+      gap: 0.5rem;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .newsletter-form input {
+      flex: 1;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: white;
+      font-family: inherit;
+      font-size: 15px;
+      padding: 13px 18px;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.45); }
+    .newsletter-form input:focus {
+      border-color: var(--cg-gold);
+      background: rgba(255,255,255,0.12);
+    }
+    .newsletter-form button {
+      background: var(--gradient-cta);
+      color: white;
+      border: none;
+      padding: 13px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      text-transform: lowercase;
+      transition: transform 0.2s, box-shadow 0.2s;
+      white-space: nowrap;
+    }
+    .newsletter-form button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(228, 61, 48, 0.35);
+    }
+    .newsletter-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      margin-top: 1rem;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--black-haze);
+      padding: 3.5rem 0 1.5rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--ink-3);
+      margin-top: 0.75rem;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: lowercase;
+      margin-bottom: 1rem;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .footer-col a {
+      font-size: 14px;
+      color: var(--ink-3);
+      text-transform: lowercase;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--cg-red); }
+    .footer-bottom {
+      border-top: 1px solid rgba(26,31,38,0.08);
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-bottom p {
+      font-size: 13px;
+      color: var(--ink-4);
+    }
+    .footer-socials {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .footer-socials a {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(26,31,38,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--ebony-clay);
+      transition: background 0.2s, color 0.2s;
+    }
+    .footer-socials a:hover {
+      background: var(--ebony-clay);
+      color: var(--white);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 980px) {
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-image { min-height: 240px; }
+      .featured-body { padding: 2rem 1.75rem; }
+      .posts-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 640px) {
+      .posts-grid { grid-template-columns: 1fr; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-form button { width: 100%; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 1rem; }
+    }
+  
+    /* ===== SCROLL ANIMATIONS (modern, gpu-accelerated, accessible) ===== */
+    .anim {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+    .anim-fade        { transform: none; }
+    .anim-fade-up     { transform: translateY(28px); }
+    .anim-fade-down   { transform: translateY(-22px); }
+    .anim-fade-left   { transform: translateX(-32px); }
+    .anim-fade-right  { transform: translateX(32px); }
+    .anim-scale       { transform: scale(0.96); }
+    .anim-blur        { filter: blur(10px); }
+    .anim-rise        { transform: translateY(40px) scale(0.985); }
+    .anim.is-visible {
+      opacity: 1;
+      transform: none;
+      filter: none;
+    }
+
+    /* Stagger children — cascading reveal for grids & rows */
+    .stagger > * {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+    .stagger.is-visible > *:nth-child(1)  { transition-delay: 0.00s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(2)  { transition-delay: 0.07s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(3)  { transition-delay: 0.14s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(4)  { transition-delay: 0.21s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(5)  { transition-delay: 0.28s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(6)  { transition-delay: 0.35s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(7)  { transition-delay: 0.42s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(8)  { transition-delay: 0.49s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(9)  { transition-delay: 0.56s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(n+10) { transition-delay: 0.63s; opacity: 1; transform: none; }
+
+    /* Sequential delays for children of .anim parents (use anim-d-N classes) */
+    .anim-d-1 { transition-delay: 0.10s; }
+    .anim-d-2 { transition-delay: 0.20s; }
+    .anim-d-3 { transition-delay: 0.30s; }
+    .anim-d-4 { transition-delay: 0.40s; }
+    .anim-d-5 { transition-delay: 0.50s; }
+
+    /* Subtle hover lift for cards (modern micro-interaction) */
+    .anim-lift {
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .anim-lift:hover {
+      transform: translateY(-4px);
+    }
+
+    /* Smooth scrolling */
+    html { scroll-behavior: smooth; }
+
+    /* Honor reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      .anim, .anim *, .stagger, .stagger > *, .anim-lift {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+    /* ===== END SCROLL ANIMATIONS ===== */
+  
+    .cs-hero { background:linear-gradient(180deg,var(--floral-white) 0%,#fff 100%); padding:4.5rem 0 3rem; }
+    .cs-crumb { font-size:13px; color:var(--ink-3); margin-bottom:1.4rem; } .cs-crumb a { color:var(--ink-3); } .cs-crumb span { margin:0 .4rem; }
+    .cs-eyebrow { display:inline-flex; gap:.5rem; align-items:center; font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--cg-red); margin-bottom:1rem; }
+    .cs-eyebrow i { font-style:normal; color:var(--ink-3); font-weight:600; letter-spacing:.02em; text-transform:none; }
+    .cs-hero h1 { max-width:880px; margin:0 0 1rem; font-size:clamp(1.9rem, 3.2vw, 2.7rem); line-height:1.18; }
+    .cs-hero .cs-sub { font-size:1.15rem; color:var(--ink-2); max-width:760px; line-height:1.55; margin:0 0 1.6rem; }
+    .cs-logo { margin-bottom:1.2rem; } .cs-logo img { height:44px; width:auto; }
+    .cs-logo-text { display:inline-block; font-size:14px; font-weight:700; color:var(--ink); border:1px solid rgba(26,31,38,0.14); border-radius:10px; padding:8px 14px; background:#fff; }
+    .cs-metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:2rem; }
+    .cs-m { background:#fff; border:1px solid rgba(26,31,38,0.08); border-radius:16px; padding:1.2rem 1.3rem; box-shadow:0 8px 22px rgba(43,29,18,0.06); }
+    .cs-m b { display:block; font-size:2rem; font-weight:800; line-height:1.05; color:var(--ink); margin-bottom:.4rem; }
+    .cs-m span { font-size:13px; color:var(--ink-2); line-height:1.4; }
+    .cs-m.scope b { color:var(--spanish-blue); }
+    .cs-body { display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:3rem; align-items:start; padding:3.5rem 0; }
+    .cs-main h2 { font-size:1.55rem; margin:0 0 .9rem; }
+    .cs-main section + section { margin-top:2.6rem; padding-top:2.4rem; border-top:1px solid rgba(26,31,38,0.08); }
+    .cs-main p { font-size:1.02rem; line-height:1.7; color:var(--ink-2); margin:0 0 1rem; }
+    .cs-list { list-style:none; padding:0; margin:0; display:grid; gap:.7rem; }
+    .cs-list li { position:relative; padding-left:1.6rem; font-size:1rem; line-height:1.6; color:var(--ink-2); }
+    .cs-list li::before { content:""; position:absolute; left:0; top:.62em; width:9px; height:9px; border-radius:50%; background:var(--cg-gold); }
+    .cs-list.did li::before { background:var(--spanish-blue); }
+    .cs-list.res li::before { background:var(--sea-green); }
+    .cs-results-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.4rem; }
+    .cs-r { background:linear-gradient(135deg, rgba(244,178,35,.10), rgba(228,61,48,.06)); border-radius:14px; padding:1.1rem 1.2rem; }
+    .cs-r b { display:block; font-size:1.7rem; font-weight:800; line-height:1.1; color:var(--ink); margin-bottom:.3rem; }
+    .cs-r span { font-size:13.5px; color:var(--ink-2); line-height:1.45; }
+    .cs-quote { background:var(--ebony-clay); color:#fff; border-radius:20px; padding:2.2rem 2.4rem; margin:2.6rem 0 0; }
+    .cs-quote p { font-size:1.25rem; line-height:1.55; color:#fff; margin:0 0 1rem; font-weight:500; }
+    .cs-quote p::before { content:"\201C"; color:var(--cg-gold); font-size:2rem; line-height:0; margin-right:.2rem; vertical-align:-.3em; }
+    .cs-quote cite { font-style:normal; font-size:14px; color:rgba(255,255,255,.72); }
+    .cs-quote.alt { background:#fff; color:var(--ink); border:1px solid rgba(26,31,38,0.1); margin-top:1rem; } .cs-quote.alt p { color:var(--ink); font-size:1.05rem; } .cs-quote.alt cite { color:var(--ink-3); }
+    .cs-aside { position:sticky; top:96px; }
+    .cs-facts { background:#fff; border:1px solid rgba(26,31,38,0.09); border-radius:16px; padding:1.4rem 1.5rem; box-shadow:0 8px 22px rgba(43,29,18,0.06); }
+    .cs-facts h4 { font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); margin:0 0 1rem; }
+    .cs-facts dl { margin:0; display:grid; gap:.8rem; } .cs-facts dt { font-size:12px; color:var(--ink-3); } .cs-facts dd { margin:.1rem 0 0; font-size:14.5px; font-weight:700; color:var(--ink); line-height:1.4; }
+    .cs-facts .cs-tag { display:inline-block; margin-top:.2rem; }
+    .cs-aside .btn-primary { display:block; text-align:center; margin-top:1.2rem; }
+    .cs-related { background:var(--floral-white); padding:3.5rem 0; border-top:1px solid rgba(26,31,38,0.06); }
+    .cs-related h2 { margin-bottom:1.6rem; }
+    .cs-cta { background:var(--ebony-clay); color:#fff; text-align:center; padding:4rem 0; }
+    .cs-cta h2 { color:#fff; margin-bottom:.8rem; } .cs-cta p { color:rgba(255,255,255,.75); max-width:560px; margin:0 auto 1.6rem; }
+    @media (max-width:960px) { .cs-body { grid-template-columns:1fr; } .cs-aside { position:static; } .cs-metrics { grid-template-columns:1fr 1fr; } }
+    @media (max-width:560px) { .cs-metrics, .cs-results-grid { grid-template-columns:1fr; } .cs-quote { padding:1.6rem; } }
+
+    .cs-tabs { display:flex; flex-wrap:wrap; gap:0.6rem; justify-content:center; margin:2rem 0 2.5rem; }
+    .cs-tab { background:#fff; border:1px solid rgba(26,31,38,0.12); border-radius:999px; padding:9px 18px; font-size:0.9rem; font-weight:600; color:var(--ink-2); cursor:pointer; transition:all .18s; }
+    .cs-tab:hover { border-color:var(--cg-red); color:var(--cg-red); }
+    .cs-tab.active { background:var(--ebony-clay); color:#fff; border-color:var(--ebony-clay); }
+    .cs-tab b { font-weight:800; opacity:.55; margin-left:6px; }
+    .cs-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.6rem; }
+    .cs-card { display:flex; flex-direction:column; background:#fff; border-radius:16px; padding:1.6rem 1.6rem 1.4rem; border:1px solid rgba(26,31,38,0.07); box-shadow:0 4px 14px rgba(43,29,18,0.05); text-decoration:none; color:inherit; transition:transform .2s, box-shadow .2s; }
+    .cs-card:hover { transform:translateY(-4px); box-shadow:0 18px 38px rgba(43,29,18,0.09); }
+    .cs-card[hidden] { display:none; }
+    .cs-card-top { display:flex; align-items:center; justify-content:space-between; gap:.8rem; margin-bottom:1rem; }
+    .cs-client { font-size:12.5px; font-weight:700; color:var(--ink-2); line-height:1.3; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+    .cs-client img { height:26px; width:auto; display:block; }
+    .cs-tag { font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; padding:4px 9px; border-radius:6px; white-space:nowrap; }
+    .cs-card h3 { font-size:1.08rem; line-height:1.35; margin:0 0 .6rem; color:var(--ink); }
+    .cs-metric { font-size:.92rem; font-weight:700; color:var(--ink); margin-bottom:.6rem; }
+    .cs-metric mark { background:var(--cg-gold); padding:1px 6px; border-radius:4px; }
+    .cs-card p { font-size:.9rem; color:var(--ink-2); line-height:1.55; margin:0 0 1rem; flex:1; }
+    .cs-meta { font-size:12px; color:var(--ink-3); display:flex; gap:.6rem; flex-wrap:wrap; margin-bottom:.9rem; }
+    .cs-read { font-weight:700; color:var(--cg-red); font-size:.92rem; }
+    .cs-empty { text-align:center; color:var(--ink-3); padding:2rem; }
+    @media (max-width:960px) { .cs-grid { grid-template-columns:1fr 1fr; } }
+    @media (max-width:600px) { .cs-grid { grid-template-columns:1fr; } }
+
+  </style>
+  <link rel="stylesheet" href="../assets/entomo-2026.css">
+  <link rel="stylesheet" href="../assets/entomo-glass.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="logo">
+        <img src="../Images/entomo.svg" alt="entomo" style="height:36px; width:auto;">
+      </a>
+      <div class="nav-right-group">
+        <ul class="nav-links">
+          <li class="nav-dropdown-wrap">
+            <a href="#" role="button" aria-haspopup="true" aria-expanded="false">product</a>
+            <div class="nav-mega" style="width:720px;">
+              <div class="nav-mega-grid">
+                <a href="../solutions/performance-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">performance management</div>
+                    <div class="nav-mega-desc">maximize employee performance</div>
+                  </div>
+                </a>
+                <a href="../solutions/skill-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">career and learning management</div>
+                    <div class="nav-mega-desc">grow careers, close skill gaps</div>
+                  </div>
+                </a>
+                <a href="../solutions/engagement-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">employee engagement</div>
+                    <div class="nav-mega-desc">build engagement that lasts</div>
+                  </div>
+                </a>
+                <a href="../solutions/workforce-insights.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">workforce insights</div>
+                    <div class="nav-mega-desc">turn intelligence into decisions</div>
+                  </div>
+                </a>
+                <a href="../solutions/wellness-intelligence.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">employee wellbeing</div>
+                    <div class="nav-mega-desc">protect wellness, prevent burnout</div>
+                  </div>
+                </a>
+                <a href="../solutions/strategic-planning.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">strategic workforce planning</div>
+                    <div class="nav-mega-desc">align your workforce to strategy</div>
+                  </div>
+                </a>
+                <a href="../solutions/hire-to-retire.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">Core <span class="keep-case">HR</span></div>
+                    <div class="nav-mega-desc">simplify hire to retire</div>
+                  </div>
+                </a>
+                <a href="../../Home/national-talent-transformation-v2.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name"><span class="keep-case">TMRW</span></div>
+                    <div class="nav-mega-desc">national scale capability development platform</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#" role="button" aria-haspopup="true" aria-expanded="false">solutions</a>
+            <div class="nav-mega" style="width:760px;">
+              <div class="nav-mega-grid">
+                <a href="../solutions/competency-framework-creation.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">competency framework creation</div>
+                    <div class="nav-mega-desc">living, market-benchmarked frameworks in weeks</div>
+                  </div>
+                </a>
+                <a href="../solutions/workforce-assessments.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">workforce assessments at scale</div>
+                    <div class="nav-mega-desc"><span class="keep-case">AI</span>-built, proctored assessments for every role</div>
+                  </div>
+                </a>
+                <a href="../solutions/epmo.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">enterprise performance management office</div>
+                    <div class="nav-mega-desc">stand up the office that aligns <span class="keep-case">KPIs</span> to strategy</div>
+                  </div>
+                </a>
+                <a href="../solutions/spmo.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="12 2 19 21 12 17 5 21 12 2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">strategic performance management office</div>
+                    <div class="nav-mega-desc">run strategy-linked performance cycles end to end</div>
+                  </div>
+                </a>
+                <a href="../solutions/internal-mobility.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="17 11 21 7 17 3"/><line x1="21" y1="7" x2="9" y2="7"/><polyline points="7 21 3 17 7 13"/><line x1="15" y1="17" x2="3" y2="17"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">internal mobility</div>
+                    <div class="nav-mega-desc">career paths computed from skill adjacency</div>
+                  </div>
+                </a>
+                <a href="../solutions/succession-planning.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">succession planning</div>
+                    <div class="nav-mega-desc">evidence-based readiness for critical roles</div>
+                  </div>
+                </a>
+                <a href="../solutions/workforce-planning.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">workforce planning</div>
+                    <div class="nav-mega-desc">model demand, decide build, buy, borrow, or bot</div>
+                  </div>
+                </a>
+                <a href="../solutions/dia.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name"><span class="keep-case">DIA</span></div>
+                    <div class="nav-mega-desc">your data intelligence assistant for workforce questions</div>
+                  </div>
+                </a>
+                <a href="../solutions/workforce-analytics.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">workforce analytics &amp; reporting</div>
+                    <div class="nav-mega-desc">board-ready intelligence and <span class="keep-case">ISO</span> 30414 disclosure</div>
+                  </div>
+                </a>
+                <a href="../solutions/engagement-retention.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">engagement &amp; retention</div>
+                    <div class="nav-mega-desc">sense engagement, act early, retain talent</div>
+                  </div>
+                </a>
+                <a href="../solutions/learning-roi.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">learning <span class="keep-case">ROI</span></div>
+                    <div class="nav-mega-desc">make learning spend provable</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#"><span class="keep-case">AI</span> lab</a>
+            <div class="nav-mega" style="width:420px;">
+              <div class="nav-mega-grid" style="grid-template-columns: 1fr;">
+                <a href="../AI-lab/entomo-axon.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="5" r="2.6"/><circle cx="5" cy="19" r="2.6"/><circle cx="19" cy="19" r="2.6"/><line x1="10.8" y1="7.3" x2="6.2" y2="16.7"/><line x1="13.2" y1="7.3" x2="17.8" y2="16.7"/><line x1="7.6" y1="19" x2="16.4" y2="19"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">entomo <span class="axon-text">axon</span></div>
+                    <div class="nav-mega-desc">the workforce intelligence graph powering entomo.ai</div>
+                  </div>
+                </a>
+                <a href="../AI-lab/entomo-ai.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name"><picture class="brand-inline"><source srcset="../Images/logos/entomo-ai.webp" type="image/webp"><img src="../Images/logos/entomo-ai.png" alt="entomo.ai" width="1200" height="257" loading="lazy" decoding="async"></picture></div>
+                    <div class="nav-mega-desc">the <span class="keep-case">AI</span> across the platform</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#" role="button" aria-haspopup="true" aria-expanded="false">inspiration</a>
+            <div class="nav-mega" style="width:720px;">
+              <div class="nav-mega-grid">
+                <a href="blog.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">blog</div>
+                    <div class="nav-mega-desc">insights on agentic <span class="keep-case">AI</span> and the future of work</div>
+                  </div>
+                </a>
+                <a href="ebooks-whitepapers.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">ebooks &amp; whitepapers</div>
+                    <div class="nav-mega-desc">in-depth research and POV reports</div>
+                  </div>
+                </a>
+                <a href="case-studies.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">case studies</div>
+                    <div class="nav-mega-desc">real outcomes from enterprises and governments</div>
+                  </div>
+                </a>
+                <a href="entomo-community.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">entomo community</div>
+                    <div class="nav-mega-desc">connect with <span class="keep-case">HR</span> leaders shaping the future</div>
+                  </div>
+                </a>
+                <a href="events-webinars.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">events &amp; webinars</div>
+                    <div class="nav-mega-desc">live sessions, roundtables, and roadshows</div>
+                  </div>
+                </a>
+                <a href="templates.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">templates</div>
+                    <div class="nav-mega-desc">ready-to-use <span class="keep-case">HR</span> frameworks and playbooks</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#" role="button" aria-haspopup="true" aria-expanded="false">about</a>
+            <div class="nav-mega" style="width:720px;">
+              <div class="nav-mega-grid">
+                <a href="../about/why-entomo.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">why entomo</div>
+                    <div class="nav-mega-desc">our story and what makes us different</div>
+                  </div>
+                </a>
+                <a href="../about/life-at-entomo.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">life@entomo</div>
+                    <div class="nav-mega-desc">culture, values, and what makes us tick</div>
+                  </div>
+                </a>
+                <a href="../about/our-team.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">our team</div>
+                    <div class="nav-mega-desc">leadership and the people behind entomo</div>
+                  </div>
+                </a>
+                <a href="../about/security-at-entomo.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">security@entomo</div>
+                    <div class="nav-mega-desc">enterprise-grade security and compliance</div>
+                  </div>
+                </a>
+                <a href="../about/news-press-releases.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">news &amp; press release</div>
+                    <div class="nav-mega-desc">latest announcements and media coverage</div>
+                  </div>
+                </a>
+                <a href="../about/jobs-at-entomo.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">jobs@entomo</div>
+                    <div class="nav-mega-desc">join the team building tomorrow's <span class="keep-case">HR</span></div>
+                  </div>
+                </a>
+                <a href="../about/partners.html" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">partner with entomo</div>
+                    <div class="nav-mega-desc">SI, consulting, and ecosystem partnerships</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li><a href="../contact.html">contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="../request-demo.html" class="nav-cta">request a demo →</a>
+        </div>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+  <main id="main">
+  <section class="cs-hero">
+    <div class="container">
+      <div class="cs-eyebrow">case studies</div>
+      <h1>how enterprises and governments transform work with <mark>entomo</mark></h1>
+      <p class="cs-sub">32 deployments across financial services, government, energy, manufacturing, technology and telecom. every figure below is taken from entomo's published case-study record for that client, and every page is open to read.</p>
+    </div>
+  </section>
+  <section style="background:var(--floral-white); padding:3.5rem 0 4.5rem;">
+    <div class="container">
+      <div class="cs-tabs" role="tablist" aria-label="filter case studies by industry"><button class="cs-tab active" data-group="all">all<b>32</b></button><button class="cs-tab" data-group="financial-insurance">financial services &amp; insurance<b>6</b></button><button class="cs-tab" data-group="government-public">government &amp; public sector<b>4</b></button><button class="cs-tab" data-group="energy-mining-manufacturing">energy, mining &amp; manufacturing<b>10</b></button><button class="cs-tab" data-group="technology-business-services">technology &amp; business services<b>8</b></button><button class="cs-tab" data-group="telecom-digital">telecom &amp; digital<b>2</b></button><button class="cs-tab" data-group="real-estate-construction">real estate &amp; construction<b>2</b></button></div>
+      <div class="cs-grid" data-cs-grid><a class="cs-card" href="case-studies/generali-agency-performance-tracking.html" data-group="financial-insurance"><div class="cs-card-top"><span class="cs-client"><span class="keep-case">Generali</span></span><span class="cs-tag" style="background:rgba(0,100,191,0.10);color:#0064bf">Insurance</span></div><h3>digitisation and automation of performance tracking for <span class="keep-case">Generali</span>, a Fortune-listed multinational insurance company</h3><div class="cs-metric"><mark>700+</mark> agents in the agency division</div><p>The Client is a multinational insurance giant with over 200 years of history and a global footprint in 50 countries.</p><div class="cs-meta">Indonesia · Agency division with 150+ managers and 700+ agents · Performance Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/fortune-500-financial-payment-company.html" data-group="financial-insurance"><div class="cs-card-top"><span class="cs-client">a <span class="keep-case">Fortune 500</span> global financial payment company</span><span class="cs-tag" style="background:rgba(0,100,191,0.10);color:#0064bf">Financial Payments</span></div><h3>streamlining data management and improving sales and marketing productivity for a <span class="keep-case">Fortune 500</span> global financial payment company</h3><div class="cs-metric"><mark>210+</mark> countries of operation</div><p>The client is a global leader in financial payments, operating in over 210 countries.</p><div class="cs-meta">Global · Performance Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/fortune-500-global-insurance-provider.html" data-group="financial-insurance"><div class="cs-card-top"><span class="cs-client">a <span class="keep-case">Fortune 500</span> global insurance provider</span><span class="cs-tag" style="background:rgba(0,100,191,0.10);color:#0064bf">Insurance</span></div><h3>optimized agent performance and reporting through entomo’s <span class="keep-case">PX</span> platform</h3><div class="cs-metric"><mark>32.8%</mark> increase in annual insurance premiums over three years</div><p>The client is a global Fortune 500 insurance company, with a strong presence in life and property insurance.</p><div class="cs-meta">Over 10,000 agents; branch network exceeding 40 locations · Performance Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/philippines-financial-services-genai-performance.html" data-group="financial-insurance"><div class="cs-card-top"><span class="cs-client">a leading financial services company in <span class="keep-case">Asia</span></span><span class="cs-tag" style="background:rgba(0,100,191,0.10);color:#0064bf">financial services</span></div><h3>implementing a generative <span class="keep-case">AI</span>-powered performance management system to drive performance for over 10,000 employees</h3><div class="cs-metric"><mark>10,000+</mark> employees onboarded onto the WorkWise platform</div><p>A leading financial services company in Asia, with a large workforce and a commitment to improving performance across its operations.</p><div class="cs-meta">Philippines · 10,000+ employees · Performance Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/indonesia-public-listed-bank-epms.html" data-group="financial-insurance"><div class="cs-card-top"><span class="cs-client">A Public Listed Bank in <span class="keep-case">Indonesia</span></span><span class="cs-tag" style="background:rgba(0,100,191,0.10);color:#0064bf">Banking</span></div><h3>digitalizing performance process with <span class="keep-case">EPMS</span></h3><div class="cs-metric"><mark>5000+</mark> employees onboarded</div><p>The client is a leading Public listed Indonesian Bank with more than 5000 employees in different regions and branches.</p><div class="cs-meta">Indonesia · More than 5000 employees in different regions and branches · Performance Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/indonesia-asset-management-sales-tracking.html" data-group="financial-insurance"><div class="cs-card-top"><span class="cs-client">the asset management subsidiary company of one of the largest <span class="keep-case">Indonesian</span> conglomerates</span><span class="cs-tag" style="background:rgba(0,100,191,0.10);color:#0064bf">finance</span></div><h3>enhanced business decision-making, on-the- go sales team tracking for over 100 branches and sub-branches</h3><div class="cs-metric"><mark>14</mark> regions with sales staff on the entomo solution</div><p>The client is the asset management subsidiary company of one of the largest Indonesian conglomerates and has been operating in the Indonesian capital markets for more than 23 years.</p><div class="cs-meta">Indonesia · Performance Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/ntuc-learninghub-career-agility-hub.html" data-group="government-public"><div class="cs-card-top"><span class="cs-client"><span class="keep-case">NTUC LearningHub</span></span><span class="cs-tag" style="background:rgba(228,61,48,0.09);color:#c8401f">training services</span></div><h3>ntuc learning hub's Career agility hub</h3><div class="cs-metric"><mark>40,000+</mark> subscribers</div><p>NTUC Learning Hub is Singapore's leading training services provider, focused on improving the Singapore Citizen's employability and growth.</p><div class="cs-meta">Singapore · Talent Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/dubai-government-agency-performance.html" data-group="government-public"><div class="cs-card-top"><span class="cs-client">a large <span class="keep-case">Dubai</span> government agency</span><span class="cs-tag" style="background:rgba(228,61,48,0.09);color:#c8401f">Government</span></div><h3>enabling centralized and optimized performance management processes</h3><div class="cs-metric"><mark>75%</mark> improvement in employee appraisal writing time</div><p>The client is a prominent government organization committed to enhancing public sector efficiency.</p><div class="cs-meta">UAE · Over 60,000 civilian employees across 63 entities · Performance Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/sarawak-ict-system-integrator.html" data-group="government-public"><div class="cs-card-top"><span class="cs-client">A leading <span class="keep-case">ICT</span> system integrator and solution provider, wholly owned by the <span class="keep-case">Sarawak</span> State Government</span><span class="cs-tag" style="background:rgba(228,61,48,0.09);color:#c8401f">IT and Services</span></div><h3>digitisation of performance management for 800+ users at a leading <span class="keep-case">ICT</span> system integrator in <span class="keep-case">Sarawak</span>, <span class="keep-case">Malaysia</span></h3><div class="cs-metric"><mark>90%</mark> alignment of employee KPIs</div><p>The client is a key ICT system integrator and solution provider for the Sarawak State Government.</p><div class="cs-meta">Malaysia · 800+ users · Performance Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/middle-east-largest-railway-network.html" data-group="government-public"><div class="cs-card-top"><span class="cs-client">The developer and operator of the largest railway network in the <span class="keep-case">Middle East</span></span><span class="cs-tag" style="background:rgba(228,61,48,0.09);color:#c8401f">Transportation, Trucking &amp; Railroad</span></div><h3>automated performance tracking and productivity improvement for the largest railway network in the <span class="keep-case">Middle East</span> with 200+ employees</h3><div class="cs-metric"><mark>200+</mark> employees onboarded</div><p>The Client is the developer and operator of the largest railway network in the Middle East, tasked with managing strategic and operational level performance across various business units.</p><div class="cs-meta">Middle East · 200+ employees · Performance Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/ioc-lng-hrms-week-off-management.html" data-group="energy-mining-manufacturing"><div class="cs-card-top"><span class="cs-client"><span class="keep-case">IOC LNG Limited</span></span><span class="cs-tag" style="background:rgba(44,153,66,0.10);color:#2c9942">oil and gas</span></div><h3>implementation of an advanced <span class="keep-case">HRMS</span> with dynamic week-off management for <span class="keep-case">IOC</span> <span class="keep-case">LNG</span>, enhancing operational flexibility and employee satisfaction</h3><div class="cs-metric"><mark>30%</mark> reduction in administrative overhead related to week-off scheduling</div><p>IOC LNG Limited is a leading public sector unit in India, specializing in the exploration, production, refining, and distribution of liquefied natural gas (LNG).</p><div class="cs-meta">India · HRMS</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/linxens-hr-digitisation.html" data-group="energy-mining-manufacturing"><div class="cs-card-top"><span class="cs-client"><span class="keep-case">Linxens</span></span><span class="cs-tag" style="background:rgba(44,153,66,0.10);color:#2c9942">manufacturing</span></div><h3>streamlining <span class="keep-case">HR</span> operations for <span class="keep-case">Linxens</span>, a global leader in security and identification components, to enhance efficiency and employee experience</h3><div class="cs-metric"><mark>60%</mark> reduction in HR-related administrative tasks</div><p>Linxens is a global leader in the manufacturing of security and identification components.</p><div class="cs-meta">India · HRMS</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/sinar-mas-mining-group.html" data-group="energy-mining-manufacturing"><div class="cs-card-top"><span class="cs-client"><span class="keep-case">Sinar Mas Mining Group</span></span><span class="cs-tag" style="background:rgba(44,153,66,0.10);color:#2c9942">Mining &amp; Metals</span></div><h3>digitisation of performance management to improve productivity and drive employee engagement for <span class="keep-case">Sinar Mas Mining Group</span></h3><div class="cs-metric"><mark>17%</mark> increase in company productivity</div><p>Sinar Mas Mining (SMM) Group is one of the key pillars of the Sinar Mas conglomerate, with business interests spanning energy, financial services, media, and other sectors.</p><div class="cs-meta">Singapore · 60 business units · Performance Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/smm-group-performance-management.html" data-group="energy-mining-manufacturing"><div class="cs-card-top"><span class="cs-client"><span class="keep-case">SMM Group</span></span><span class="cs-tag" style="background:rgba(44,153,66,0.10);color:#2c9942">Renewables &amp; Environment</span></div><h3>streamlining performance management for 2550+ users in a large <span class="keep-case">Indonesian</span> business conglomerate</h3><div class="cs-metric"><mark>50%</mark> reduction in employee attrition</div><p>SMM Group is a conglomeration of over 60 business entities, headquartered in Jakarta, Indonesia.</p><div class="cs-meta">Indonesia · Over 5000 employees; 2550+ users onboarded · Performance Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/indonesia-top-10-coal-mining-epms.html" data-group="energy-mining-manufacturing"><div class="cs-card-top"><span class="cs-client">A Coal Mining Company – one of <span class="keep-case">Indonesia</span>’s top 10</span><span class="cs-tag" style="background:rgba(44,153,66,0.10);color:#2c9942">Mining</span></div><h3>transformed Performance and Change management</h3><div class="cs-metric"><mark>90%</mark> adoption rate</div><p>The client is one of the largest coal mining companies in Indonesia owned by a large Indonesian Conglomerate operating for over 40 years with more than 3000 employees in different worksites.</p><div class="cs-meta">Indonesia · More than 3000 employees in different worksites · Performance Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/global-pharmaceutical-giant-17000.html" data-group="energy-mining-manufacturing"><div class="cs-card-top"><span class="cs-client">A leading global pharmaceutical company</span><span class="cs-tag" style="background:rgba(44,153,66,0.10);color:#2c9942">Pharmaceuticals</span></div><h3>comprehensive performance tracking and management solution for a global pharmaceutical giant with over 17,000 employees</h3><div class="cs-metric"><mark>97,000</mark> goals finalized on the platform</div><p>The client is one of the largest pharmaceutical companies globally, operating in 36 countries with over 17,000 employees.</p><div class="cs-meta">India · Over 17,000 employees across 36 countries · Performance Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/indonesia-multinational-paper-manufacturer-epms.html" data-group="energy-mining-manufacturing"><div class="cs-card-top"><span class="cs-client">A Multinational paper Manufacturer in <span class="keep-case">Indonesia</span></span><span class="cs-tag" style="background:rgba(44,153,66,0.10);color:#2c9942">Manufacturing</span></div><h3>enabling clarity of strategy throughout the org with <span class="keep-case">EPMS</span></h3><div class="cs-metric"><mark>1200+</mark> users onboarded</div><p>The client is a leading manufacturer of specialty paper and packaging products for the tobacco industry.</p><div class="cs-meta">Indonesia · 1200+ users · Performance Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/state-owned-geothermal-300.html" data-group="energy-mining-manufacturing"><div class="cs-card-top"><span class="cs-client">A state-owned geothermal energy company in <span class="keep-case">Indonesia</span></span><span class="cs-tag" style="background:rgba(44,153,66,0.10);color:#2c9942">Oil &amp; Energy</span></div><h3>digitisation of performance management for a state-owned geothermal company with 300+ employees across <span class="keep-case">Indonesia</span></h3><div class="cs-metric"><mark>85%</mark> success rate for on-time submission of mid-year performance reviews</div><p>The Client is a state-owned geothermal company operating in the renewable energy sector in Indonesia.</p><div class="cs-meta">Indonesia · 300+ employees · Performance Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/indonesia-renewable-energy-soe-talent.html" data-group="energy-mining-manufacturing"><div class="cs-card-top"><span class="cs-client">An <span class="keep-case">Indonesian</span> State Owned Enterprise focused on Renewable Energy</span><span class="cs-tag" style="background:rgba(44,153,66,0.10);color:#2c9942">Energy</span></div><h3>transformed Talent Management and Performance</h3><div class="cs-metric"><mark>450+</mark> users onboarded in batch 1</div><p>The client is a state-owned enterprise that focuses on developing renewable energy projects, especially geothermal power generation.</p><div class="cs-meta">Indonesia · 450+ users onboarded in batch 1 · Performance Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/indonesia-top-5-mining-360-performance.html" data-group="energy-mining-manufacturing"><div class="cs-card-top"><span class="cs-client">One of the top 5 Mining Companies in <span class="keep-case">Indonesia</span></span><span class="cs-tag" style="background:rgba(44,153,66,0.10);color:#2c9942">Mining</span></div><h3>digitized performance process with <span class="keep-case">360</span> degree performance management</h3><div class="cs-metric"><mark>1200+</mark> employees onboarded</div><p>The client is one of the largest Coal mining companies in Indonesia that operates one of the world's largest open-pit coal mines in East Kalimantan province of Indonesia.</p><div class="cs-meta">Indonesia · 1200+ employees · Performance Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/graas-hr-digitisation.html" data-group="technology-business-services"><div class="cs-card-top"><span class="cs-client"><span class="keep-case">Graas</span></span><span class="cs-tag" style="background:rgba(122,63,191,0.10);color:#7a3fbf">ecommerce</span></div><h3>digitization of <span class="keep-case">HR</span> operations for <span class="keep-case">Graas</span>, enhancing efficiency and employee engagement across seven countries</h3><div class="cs-metric"><mark>30%</mark> reduction in HR administrative time</div><p>Graas is a leading digital growth facilitator specializing in eCommerce, operating across seven countries, including Singapore, Malaysia, the Philippines, India, Indonesia, Vietnam, and Thailand.</p><div class="cs-meta">Global · HRMS</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/7bn-enterprise-talent-transformation.html" data-group="technology-business-services"><div class="cs-card-top"><span class="cs-client">a $7 billion enterprise</span><span class="cs-tag" style="background:rgba(122,63,191,0.10);color:#7a3fbf">enterprise</span></div><h3>talent Transformation using Augmented Intelligence &amp; Analytics in a $7 Bn Enterprise*</h3><div class="cs-metric"><mark>$5 Million</mark> equivalent additional availability of resources by improving internal fulfillment</div><p>A $7 billion enterprise that undertook talent transformation using augmented intelligence and analytics, framed by entomo as a 'Right Workforce Talent Management' model spanning Right Plan, Right Cost, Right Time, Right People and Right Skill.</p><div class="cs-meta">Talent Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/uae-creative-media-hub.html" data-group="technology-business-services"><div class="cs-card-top"><span class="cs-client">A creative and media business hub in the <span class="keep-case">UAE</span></span><span class="cs-tag" style="background:rgba(122,63,191,0.10);color:#7a3fbf">Business Services</span></div><h3>redefining employee evaluation processes for a creative media house with a comprehensive performance management solution in 45 days</h3><div class="cs-metric"><mark>45 days</mark> to deploy a comprehensive performance management solution</div><p>The Client is a world-class hub for creative and media businesses in the UAE.</p><div class="cs-meta">UAE · Performance Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/global-it-research-services-predictive-attrition.html" data-group="technology-business-services"><div class="cs-card-top"><span class="cs-client">a Global <span class="keep-case">IT</span> &amp; Research Services organisation</span><span class="cs-tag" style="background:rgba(122,63,191,0.10);color:#7a3fbf">it and research services</span></div><h3>predictive attrition model for 11k employees</h3><div class="cs-metric"><mark>80%+</mark> accuracy employee attrition model</div><p>A Global IT &amp; Research Services organisation facing rising employee attrition, unsustainable long-term retention measures and talent poaching.</p><div class="cs-meta">Global · 11k employees · Talent Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/japan-it-services-skills-framework.html" data-group="technology-business-services"><div class="cs-card-top"><span class="cs-client">A leading <span class="keep-case">Japanese</span> <span class="keep-case">IT</span> services company</span><span class="cs-tag" style="background:rgba(122,63,191,0.10);color:#7a3fbf">IT Services</span></div><h3>talent transformation for one of <span class="keep-case">Japan</span>’s largest <span class="keep-case">IT</span> services companies through a structured skill framework and market intelligence</h3><div class="cs-metric"><mark>80%</mark> reduction in time to establish a structured Skills Framework for over 40 roles</div><p>The client is one of Japan's largest IT services providers, with operations across the globe.</p><div class="cs-meta">Japan · Talent Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/japan-it-services-genai-sales-chatbot.html" data-group="technology-business-services"><div class="cs-card-top"><span class="cs-client">A leading <span class="keep-case">Japanese</span> <span class="keep-case">IT</span> services company</span><span class="cs-tag" style="background:rgba(122,63,191,0.10);color:#7a3fbf">IT Services</span></div><h3>developed a <span class="keep-case">GenAI</span> chatbot for efficient sales opportunity management</h3><p>The client is one of Japan’s largest IT services providers, with operations spanning the globe.</p><div class="cs-meta">Japan · Sales Performance Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/middle-east-travel-management-agency.html" data-group="technology-business-services"><div class="cs-card-top"><span class="cs-client">An international travel management agency in the <span class="keep-case">Middle East</span></span><span class="cs-tag" style="background:rgba(122,63,191,0.10);color:#7a3fbf">Leisure, Travel &amp; Tourism</span></div><h3>digitisation and performance enhancement for a travel management agency in the <span class="keep-case">Middle East</span></h3><div class="cs-metric"><mark>70%</mark> reduction in manual reporting time</div><p>The Client is a well-established international travel management agency, providing comprehensive travel solutions for over four decades.</p><div class="cs-meta">Middle East · Over 30 employees · Performance Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/india-business-services-fieldforce-hr.html" data-group="technology-business-services"><div class="cs-card-top"><span class="cs-client"><span class="keep-case">India</span>'s leading business services provider</span><span class="cs-tag" style="background:rgba(122,63,191,0.10);color:#7a3fbf">business services</span></div><h3>digitization of <span class="keep-case">HR</span> and fieldforce management for <span class="keep-case">India</span>'s fastest-growing business services provider</h3><div class="cs-metric"><mark>70%</mark> reduction in HR task time</div><p>India's leading business services provider, managing a fieldforce of over 2,000 employees and supporting 700+ healthcare brands.</p><div class="cs-meta">India · over 2,000 employees · HRMS</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/dialog-axiata-performance.html" data-group="telecom-digital"><div class="cs-card-top"><span class="cs-client"><span class="keep-case">Dialog Axiata</span></span><span class="cs-tag" style="background:rgba(10,162,192,0.10);color:#0aa2c0">Telecommunications</span></div><h3>tracking and improving individual, team, and overall performance for <span class="keep-case">Sri Lanka</span>'s premier connectivity provider with 3500+ employees</h3><div class="cs-metric"><mark>95%</mark> of employees’ KPIs aligned with corporate goals</div><p>Dialog Axiata is Sri Lanka’s top telecommunications service provider, consistently recognized as the most valuable brand in the country.</p><div class="cs-meta">Sri Lanka · 3500+ employees · Performance Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/asean-telecom-gamified-productivity.html" data-group="telecom-digital"><div class="cs-card-top"><span class="cs-client">one of the largest telecommunications companies in the <span class="keep-case">ASEAN</span></span><span class="cs-tag" style="background:rgba(10,162,192,0.10);color:#0aa2c0">telecom</span></div><h3>democratized insights, gamification for accelerated productivity for 24,000-plus employees</h3><div class="cs-metric"><mark>350%+</mark> productivity gains in clients served within the first 100 days</div><p>The client is one of the largest telecommunications companies in the ASEAN, with over 24,000 employees and 5 million customers.</p><div class="cs-meta">ASEAN · 24,000+ employees · Performance Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/indonesia-real-estate-hybrid-appraisal.html" data-group="real-estate-construction"><div class="cs-card-top"><span class="cs-client">a leading real estate company in <span class="keep-case">Indonesia</span></span><span class="cs-tag" style="background:rgba(244,178,35,0.16);color:#9a6b00">construction</span></div><h3>implementing a hybrid performance appraisal system to streamline <span class="keep-case">KPI</span> alignment with company goals</h3><p>A leading real estate company in Indonesia, known for its diverse projects and contributions to regional development.</p><div class="cs-meta">Indonesia · Performance Transformation</div><span class="cs-read">read the case study &rarr;</span></a><a class="cs-card" href="case-studies/abu-dhabi-real-estate-epms-bi.html" data-group="real-estate-construction"><div class="cs-card-top"><span class="cs-client">a leading real estate developer in <span class="keep-case">Abu Dhabi</span></span><span class="cs-tag" style="background:rgba(244,178,35,0.16);color:#9a6b00">construction</span></div><h3>implementing a performance management solution to monitor and enhance organization-wide performance through a <span class="keep-case">BI</span> tool</h3><p>A leading real estate developer in Abu Dhabi, known for world-class developments and profitable investments.</p><div class="cs-meta">UAE · Performance Transformation</div><span class="cs-read">read the case study &rarr;</span></a></div>
+      <p class="cs-empty" data-cs-empty hidden>no case studies in this group yet.</p>
+    </div>
+  </section>
+  <section class="cs-cta">
+    <div class="container">
+      <h2>see what entomo can do for <mark>you</mark></h2>
+      <p>book a 30-minute demo and we will walk through the case study closest to your industry.</p>
+      <a class="btn-primary" href="../request-demo.html">request a demo &rarr;</a>
+    </div>
+  </section>
+</main>
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.cs-tab'), cards=document.querySelectorAll('.cs-card'), empty=document.querySelector('[data-cs-empty]');
+  tabs.forEach(function(t){ t.addEventListener('click', function(){
+    tabs.forEach(function(x){ x.classList.toggle('active', x===t); x.setAttribute('aria-selected', x===t?'true':'false'); });
+    var g=t.getAttribute('data-group'), n=0;
+    cards.forEach(function(c){ var show=(g==='all'||c.getAttribute('data-group')===g); c.hidden=!show; if(show) n++; });
+    empty.hidden=n>0;
+  }); });
+})();
+</script>
+<footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <img src="../Images/entomo.svg" alt="entomo" style="height:32px; width:auto;" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>platform</h3>
+          <ul>
+            <li><a href="#"><span class="keep-case">AI</span> agents</a></li>
+            <li><a href="#">intelligence architecture</a></li>
+            <li><a href="#">integrations</a></li>
+            <li><a href="#">security</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>solutions</h3>
+          <ul>
+            <li><a href="../solutions/performance-intelligence.html">performance intelligence</a></li>
+            <li><a href="../solutions/skill-intelligence.html">skill &amp; talent intelligence</a></li>
+            <li><a href="../solutions/engagement-intelligence.html">engagement intelligence</a></li>
+            <li><a href="../solutions/workforce-insights.html">workforce insights</a></li>
+            <li><a href="../solutions/wellness-intelligence.html">wellness intelligence</a></li>
+            <li><a href="../solutions/strategic-planning.html">strategic planning</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>resources</h3>
+          <ul>
+            <li><a href="#">Forrester <span class="keep-case">TEI</span> study</a></li>
+            <li><a href="../inspiration/case-studies.html">case studies</a></li>
+            <li><a href="blog.html">blog</a></li>
+            <li><a href="#">webinars</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>company</h3>
+          <ul>
+            <li><a href="../about/why-entomo.html">why entomo</a></li>
+            <li><a href="#">about us</a></li>
+            <li><a href="#">careers</a></li>
+            <li><a href="#">contact</a></li>
+            <li><a href="#">privacy policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 entomo. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // simple filter pill toggle (visual only)
+    document.querySelectorAll('.filter-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+      });
+    });
+  </script>
+
+
+  <!-- ===== SCROLL ANIMATION ENGINE ===== -->
+  <script>
+  (function() {
+    'use strict';
+
+    // Selectors for elements that should animate when scrolled into view.
+    // Excludes nav, footer, and elements that are part of always-visible chrome.
+    const SOLO_SELECTORS = [
+      'h1', 'h2', 'h3',
+      '.section-heading', '.section-subheading', '.section-eyebrow',
+      '.hero-eyebrow', '.hero-badge', '.hero-sub', '.hero-ctas',
+      '.lede', '.challenge-dismiss', '.dia-headline',
+      '.btn-primary', '.path-link',
+      '.coach-demo', '.dia-demo', '.ww-demo',
+      '.story-visual', '.positioning-block',
+      '.video-card', '.outcome-card', '.difference-card',
+      '.path-card', '.proof-card', '.solution-card',
+      '.metric', '.metric-large',
+      '.persona-panel.active',
+      '.sss-card', '.sss-pills-svg',
+      '.tomorrow-intro', '.story-grid',
+      '.flow-pills', '.feature-card',
+      'blockquote',
+    ];
+
+    // Grid-like containers whose children should stagger in
+    const STAGGER_SELECTORS = [
+      '.outcome-grid', '.difference-grid',
+      '.paths-grid', '.path-grid',
+      '.sss-grid',
+      '.proof-cards', '.solution-cards', '.solutions-grid',
+      '.enterprise-grid', '.stakeholder-grid',
+      '.videos-grid', '.video-grid',
+      '.team-grid', '.leaders-grid',
+      '.pillars-grid', '.values-grid',
+      '.benefits-grid', '.perks-grid',
+      '.cards-grid', '.card-grid',
+      '.partners-grid', '.partner-grid',
+      '.story-grid', '.tomorrow-grid',
+      '.testimonial-grid',
+      '.stats-grid',
+    ];
+
+    // Ancestors to exclude (don't animate elements inside these)
+    const EXCLUDE_ANCESTORS = ['nav.navbar', 'footer.footer', '.testimonials-track', '.marquee-track', '.agent-marquee-track', '.agent-areas-track', '.perf-mq-track'];
+
+    function isExcluded(el) {
+      for (const sel of EXCLUDE_ANCESTORS) {
+        if (el.closest(sel)) return true;
+      }
+      return false;
+    }
+
+    function tagAnim(el, variant = 'anim-fade-up') {
+      if (el.classList.contains('anim') || el.classList.contains('stagger')) return;
+      el.classList.add('anim', variant);
+    }
+
+    function tagStagger(el) {
+      if (el.classList.contains('stagger')) return;
+      el.classList.add('stagger');
+    }
+
+    // Tag solo elements
+    SOLO_SELECTORS.forEach(sel => {
+      document.querySelectorAll(sel).forEach(el => {
+        if (isExcluded(el)) return;
+        tagAnim(el);
+      });
+    });
+
+    // Tag stagger containers
+    STAGGER_SELECTORS.forEach(sel => {
+      document.querySelectorAll(sel).forEach(el => {
+        if (isExcluded(el)) return;
+        // Don't double-tag if already a stagger or anim
+        if (el.classList.contains('anim')) {
+          el.classList.remove('anim', 'anim-fade-up', 'anim-fade', 'anim-fade-down', 'anim-fade-left', 'anim-fade-right', 'anim-scale', 'anim-blur', 'anim-rise');
+        }
+        tagStagger(el);
+      });
+    });
+
+    // IntersectionObserver to reveal on scroll
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      document.querySelectorAll('.anim, .stagger').forEach(el => {
+        // Above-the-fold elements: reveal immediately with a tiny delay (gives a soft entrance)
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          // Small staggered delay for elements visible on initial load
+          setTimeout(() => el.classList.add('is-visible'), 50);
+        } else {
+          io.observe(el);
+        }
+      });
+    } else {
+      // Fallback: show everything immediately
+      document.querySelectorAll('.anim, .stagger').forEach(el => el.classList.add('is-visible'));
+    }
+  })();
+  </script>
+
+  <script src="../assets/entomo-2026.js" defer></script>
+</body>
+</html>
