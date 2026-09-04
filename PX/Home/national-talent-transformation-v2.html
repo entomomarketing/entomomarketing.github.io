@@ -1362,7 +1362,44 @@
       html { scroll-behavior: auto; }
     }
     /* ===== END SCROLL ANIMATIONS ===== */
-  </style>
+  
+    /* nav brand assets (rules mirrored from V3/assets/entomo-2026.css) */
+    :root { --axon-gradient: linear-gradient(90deg, #00e8fc 0%, #09bbfa 28%, #0380f9 55%, #0453f7 78%, #0616f6 100%); }
+    .brand-inline {
+  display: inline-block;
+  vertical-align: baseline;
+  line-height: 0;
+}
+    .brand-inline img {
+  /* entomo.ai artwork v2 (2026-08-26, from entomo-ai-source.svg): letterforms
+     ink 66.2% of image height, baseline on the bottom edge ->
+     0.6459 / 0.662 = 0.976em, zero baseline offset */
+  display: inline-block;
+  height: 0.976em;
+  width: auto;
+  vertical-align: 0;
+}
+    .brand-inline--axon img {
+  /* axon artwork v4 (2026-08-27): letterform band 75.0% of image height,
+     baseline at 84.3% from top; calibrated against the previous art's
+     shipped 0.875em / -0.072em using the same measurement */
+  height: 0.882em;
+  vertical-align: -0.139em;
+  margin: 0 0.04em;
+}
+    .axon-text {
+  background-image: var(--axon-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #b8608f;              /* fallback where background-clip:text is absent */
+  font-weight: 700;
+  /* The gradient is painted across the word's own box, so each instance runs
+     the full ramp rather than sampling a slice of a page-wide gradient. */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+</style>
   <link rel="stylesheet" href="../V3/assets/entomo-glass.css">
   <script src="../V3/assets/entomo-2026.js" defer></script>
 </head>
