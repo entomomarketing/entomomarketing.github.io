@@ -644,6 +644,25 @@
       color: var(--ebony-clay);
       font-weight: 600;
     }
+    .pww-plan { padding: 8px 12px 10px; }
+    .sec-coworker .ww-stage { min-height: 470px; }
+    .sec-coworker #pwwSubOutput .pww-greeting { margin-bottom: 6px; }
+    .pww-table { width:100%; border-collapse:collapse; font-size:12px; }
+    .pww-table th { text-align:left; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.8px; color:var(--ink-4); padding:4px 6px; border-bottom:1px solid rgba(26,31,38,.1); }
+    .pww-table td { padding:4px 6px; border-bottom:1px solid rgba(26,31,38,.06); color:var(--ebony-clay); font-weight:600; }
+    .pww-table td:not(:first-child), .pww-table th:not(:first-child) { text-align:right; font-variant-numeric:tabular-nums; }
+    .pww-table td.neg { color:#c8401f; } .pww-table td.pos { color:#2c9942; }
+    .pww-table tr.tot td { border-top:2px solid rgba(26,31,38,.14); border-bottom:0; font-weight:800; }
+    .pww-lbl { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.8px; color:var(--ink-4); margin:8px 0 4px; }
+    .pww-scen { display:flex; flex-wrap:wrap; gap:6px; }
+    .pww-scen span { font-size:11px; font-weight:600; color:var(--ink-2); background:rgba(26,31,38,.05); border-radius:8px; padding:5px 8px; }
+    .pww-scen span b { color:var(--ebony-clay); margin-left:4px; }
+    .pww-scen span.rec { background:rgba(44,153,66,.12); color:#1f7a34; border:1px solid rgba(44,153,66,.3); }
+    .pww-4b { display:flex; height:12px; border-radius:6px; overflow:hidden; gap:2px; }
+    .pww-4b i, .pww-4b-key i { display:block; }
+    .pww-4b-key { display:flex; flex-wrap:wrap; gap:6px 14px; margin-top:8px; font-size:11px; font-weight:600; color:var(--ink-2); }
+    .pww-4b-key span { display:inline-flex; align-items:center; gap:5px; } .pww-4b-key i { width:10px; height:10px; border-radius:3px; }
+    .b1 { background:#0064bf; } .b2 { background:#e43d30; } .b3 { background:#f4b223; } .b4 { background:#2c9942; }
     .ww-bottom {
       border-top: 1px solid rgba(26,31,38,0.06);
       padding: 10px 24px 14px;
@@ -1671,9 +1690,9 @@
       <div class="persona-sec-inner" style="direction:rtl;">
         <div class="persona-sec-text" style="direction:ltr;">
           <div class="section-eyebrow" style="color:#b8860b;"><span class="keep-case">HR</span>'s digital coworker</div>
-          <h2>headcount models and succession maps, <span>ready before the board meeting, not after</span></h2>
+          <h2>see the workforce you'll need, the talent you have, <span>and what to do about the gap</span></h2>
           <p>
-            Strategic workforce planning used to mean months of spreadsheet work, dozens of assumptions, and a plan that was already outdated when it landed. Your <span class="keep-case">AI</span> Coworker models headcount demand, stress-tests build-vs-buy scenarios, and maps succession pipelines in real time, updated as business conditions change.<br><br>Your planning team stops building spreadsheets and starts building strategy.
+            Strategic workforce planning is more than forecasting headcount. Your <span class="keep-case">AI</span> Coworker projects future workforce demand and talent supply, identifies the gaps between the two, and models multiple scenarios to help <span class="keep-case">HR</span> understand the impact of different workforce choices.<br><br>From build-vs-buy and redeployment to hiring, reskilling and succession, it evaluates the options and translates them into <span class="keep-case">4B</span> recommendations, Build, Buy, Borrow and Bot, so workforce decisions are backed by data, scenarios and clear actions.<br><br>Your planning team moves from asking &ldquo;How many people will we need?&rdquo; to &ldquo;What workforce strategy should we act on?&rdquo;
           </p>
         </div>
         <div style="direction:ltr;">
@@ -1691,11 +1710,11 @@
                   <div class="ww-greeting-online"></div>
                 </div>
                 <div class="ww-greeting-title">Hi, I'm entomo.ai</div>
-                <div class="ww-greeting-sub">i model workforce scenarios, map succession pipelines, and build your workforce plan, in real time</div>
+                <div class="ww-greeting-sub">i project workforce demand and supply, model the scenarios, and recommend build, buy, borrow or bot for every gap</div>
               </div>
               <div class="ww-panel ww-chat-panel" id="pwwPanelChat">
                 <div class="ww-user-q">
-                  <span>Model the workforce impact of expanding into 3 new markets</span>
+                  <span>Project our workforce demand and supply for the next 18 months and recommend how to close the gap</span>
                 </div>
                 <div class="ww-response-area">
                   <div class="ww-sub active" id="pwwSubAssemble">
@@ -1716,7 +1735,7 @@
                       <div class="ww-agent-card">
                         <img src="../Images/agents/talentatlas.png" alt="TalentAtlas" width="160" height="160" decoding="async" loading="lazy" decoding="async">
                         <div class="ww-agent-name">TalentAtlas</div>
-                        <div class="ww-agent-desc">talent demand modeling</div>
+                        <div class="ww-agent-desc">demand &amp; supply projection</div>
                       </div>
                       <div class="ww-flow-arrow">
                         <div class="ww-flow-dot"></div>
@@ -1724,46 +1743,39 @@
                         <div class="ww-flow-dot"></div>
                       </div>
                       <div class="ww-agent-card">
-                        <img src="../Images/agents/rolearchitect.png" alt="RoleArchitect" width="160" height="160" decoding="async" loading="lazy" decoding="async">
-                        <div class="ww-agent-name">RoleArchitect</div>
-                        <div class="ww-agent-desc">role design & architecture</div>
+                        <img src="../Images/agents/rolearchitect.png" alt="HorizonPlan" width="160" height="160" decoding="async" loading="lazy" decoding="async">
+                        <div class="ww-agent-name">HorizonPlan</div>
+                        <div class="ww-agent-desc">scenario modelling &amp; <span class="keep-case">4B</span></div>
                       </div>
                     </div>
                   </div>
                   <div class="ww-sub" id="pwwSubOutput">
-                    <div class="pww-greeting">Hi David, your workforce plan is ready.</div>
+                    <div class="pww-greeting">Hi David, your 18-month workforce plan is ready.</div>
                     <div class="pww-form-card">
                       <div class="pww-form-header">
                         <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true" focusable="false">
                           <rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/>
                         </svg>
-                        Workforce Expansion Model, APAC 3-Market Entry
+                        Demand, supply and the gap, next 18 months
                       </div>
-                      <div class="pww-form-grid">
-                        <div class="pww-form-field">
-                          <div class="pww-form-label">Planning Horizon</div>
-                          <div class="pww-form-value">18 months</div>
+                      <div class="pww-plan">
+                        <table class="pww-table" aria-label="workforce demand, supply and gap by role">
+                          <thead><tr><th>role</th><th>demand</th><th>supply</th><th>gap</th></tr></thead>
+                          <tbody>
+                            <tr><td>data engineering</td><td>48</td><td>31</td><td class="neg">&minus;17</td></tr>
+                            <tr><td>store managers</td><td>96</td><td>84</td><td class="neg">&minus;12</td></tr>
+                            <tr class="tot"><td>all roles</td><td>1,240</td><td>1,085</td><td class="neg">&minus;155</td></tr>
+                          </tbody>
+                        </table>
+                        <div class="pww-lbl">scenarios modelled</div>
+                        <div class="pww-scen">
+                          <span>hire-led <b>9.2 mo &middot; $4.1M</b></span>
+                          <span>reskill-led <b>7.5 mo &middot; $2.6M</b></span>
+                          <span class="rec">redeploy + hire <b>6.1 mo &middot; $2.9M</b> recommended</span>
                         </div>
-                        <div class="pww-form-field">
-                          <div class="pww-form-label">Target Markets</div>
-                          <div class="pww-form-value">Vietnam, Thailand, Philippines</div>
-                        </div>
-                        <div class="pww-form-field">
-                          <div class="pww-form-label">Headcount Required</div>
-                          <div class="pww-form-value">127 FTEs across 8 functions</div>
-                        </div>
-                        <div class="pww-form-field">
-                          <div class="pww-form-label">Build vs Buy Split</div>
-                          <div class="pww-form-value">60% build / 40% acquire</div>
-                        </div>
-                        <div class="pww-form-field">
-                          <div class="pww-form-label">Risk Level</div>
-                          <div class="pww-form-value">High (critical role shortage in Data Eng)</div>
-                        </div>
-                        <div class="pww-form-field">
-                          <div class="pww-form-label">Ready Date</div>
-                          <div class="pww-form-value">Q3 2026</div>
-                        </div>
+                        <div class="pww-lbl"><span class="keep-case">4B</span> recommendation for the 155-role gap</div>
+                        <div class="pww-4b" aria-hidden="true"><i class="b1" style="flex:62"></i><i class="b2" style="flex:41"></i><i class="b3" style="flex:28"></i><i class="b4" style="flex:24"></i></div>
+                        <div class="pww-4b-key"><span><i class="b1"></i>build 62</span><span><i class="b2"></i>buy 41</span><span><i class="b3"></i>borrow 28</span><span><i class="b4"></i>bot 24</span></div>
                       </div>
                     </div>
                   </div>
@@ -1772,9 +1784,9 @@
             </div>
             <div class="ww-bottom">
               <div class="ww-chips">
-                <div class="ww-chip">Run a build-vs-buy scenario</div>
-                <div class="ww-chip">Show role evolution forecast</div>
-                <div class="ww-chip">Succession risk by level</div>
+                <div class="ww-chip">Run a 4B recommendation</div>
+                <div class="ww-chip">Compare the three scenarios</div>
+                <div class="ww-chip">Show the demand-supply gap by role</div>
               </div>
               <div class="ww-input-row">
                 <div class="ww-input-text" id="pwwInput"><span class="ww-cursor"></span></div>
