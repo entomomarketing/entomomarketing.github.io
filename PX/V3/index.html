@@ -1160,15 +1160,27 @@
     }
 
     /* ===== ENTOMO.AI DEMO ===== */
-    .ww-headline {
+    .ww-meet {
       text-align: center;
-      font-size: 38px;
+      font-size: clamp(40px, 5.2vw, 66px);
       font-weight: 700;
       color: var(--ebony-clay);
-      margin-bottom: 2rem;
-      line-height: 1.2;
+      letter-spacing: -0.02em;
+      line-height: 1.12;
+      margin: 3.5rem auto 0.9rem;
     }
-    @media (max-width: 768px) { .ww-headline { font-size: 28px; } }
+    .ww-headline {
+      text-align: center;
+      font-size: clamp(18px, 1.6vw, 22px);
+      font-weight: 500;
+      color: var(--ink-3);
+      max-width: 760px;
+      margin: 0 auto 2rem;
+      line-height: 1.5;
+    }
+    .ww-meet-name { white-space: nowrap; }
+    .ww-cta { text-align: center; margin-top: 2.2rem; }
+    @media (max-width: 768px) { .ww-meet { font-size: 34px; margin-top: 2.5rem; } }
 
     .ww-demo {
       background: var(--white);
@@ -3047,7 +3059,8 @@
 
     <div class="container">
 
-      <h3 class="ww-headline" style="margin-top: 3.5rem;">You define the objective, <picture class="brand-inline brand-inline--enzo"><source srcset="Images/logos/enzo-lockup.webp" type="image/webp"><img src="Images/logos/enzo-lockup.png" alt="enzo" width="1600" height="504" loading="lazy" decoding="async"></picture> builds the right agent team that gets the work done</h3>
+      <h2 class="ww-meet">meet <span class="ww-meet-name"><picture class="brand-inline brand-inline--enzo"><source srcset="Images/logos/enzo-lockup.webp" type="image/webp"><img src="Images/logos/enzo-lockup.png" alt="enzo" width="1600" height="504" loading="lazy" decoding="async"></picture>,</span> your <span class="keep-case">AI</span> coworker.</h2>
+      <p class="ww-headline">you define the objective, and enzo builds the right agent team that gets the work done.</p>
 
       <div class="ww-demo" id="wwDemo">
 
@@ -3133,6 +3146,8 @@
         </div>
 
       </div>
+
+      <div class="ww-cta"><a href="AI-lab/enzo.html" class="btn-primary">explore entomo enzo &rarr;</a></div>
 
     </div><!-- /container -->
 

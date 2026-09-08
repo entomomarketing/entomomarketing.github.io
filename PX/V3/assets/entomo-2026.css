@@ -575,11 +575,13 @@ section { padding: var(--sp-section) 0; }
   max-width: 100%;
 }
 @media (max-width: 900px) {
-  .coach-input-text, .coach-think-title, .coach-chip,
-  .dia-prompt-chip, .ww-chip, .dia-phase-pill {
+  .coach-input-text, .coach-think-title, .dia-phase-pill {
     white-space: normal !important;
     word-break: break-word;
   }
+  /* prompt chips stay whole pills; the row wraps instead of the words (2026-09-08) */
+  .ww-chips, .coach-chips, .dia-prompt-chips { flex-wrap: wrap; overflow-x: visible; }
+  .ww-chip, .coach-chip, .dia-prompt-chip { white-space: nowrap !important; }
 }
 html, body { overflow-x: clip; }
 
