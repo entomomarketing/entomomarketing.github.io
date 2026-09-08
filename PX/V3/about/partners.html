@@ -906,7 +906,19 @@
       html { scroll-behavior: auto; }
     }
     /* ===== END SCROLL ANIMATIONS ===== */
-  </style>
+  
+    /* ===== partner logo wall ===== */
+    .pn-logos-section { padding: clamp(3.4rem, 5vw, 5.5rem) 0; background: var(--white); border-top: 1px solid rgba(26,31,38,0.06); }
+    .pn-logo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(158px, 1fr)); gap: 14px; }
+    .pn-logo { display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 1.1rem 1.2rem;
+      background: var(--black-haze); border: 1px solid rgba(26,31,38,0.06); border-radius: 14px;
+      transition: transform .2s var(--ease), box-shadow .2s var(--ease), border-color .2s var(--ease); }
+    .pn-logo:hover { transform: translateY(-3px); box-shadow: var(--sh-2); border-color: rgba(26,31,38,0.12); background: #fff; }
+    .pn-logo img { max-width: 100%; max-height: 46px; width: auto; height: auto; object-fit: contain;
+      filter: grayscale(1); opacity: .72; transition: filter .2s var(--ease), opacity .2s var(--ease); }
+    .pn-logo:hover img { filter: none; opacity: 1; }
+    @media (max-width: 640px) { .pn-logo-grid { grid-template-columns: repeat(auto-fill, minmax(124px, 1fr)); gap: 10px; } .pn-logo { min-height: 78px; } }
+</style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
 </head>
@@ -1327,6 +1339,46 @@
   </section>
 
   <!-- ===== PROOF BAR ===== -->
+
+  <!-- ===== PARTNER LOGOS ===== -->
+  <section class="pn-logos-section">
+    <div class="container">
+      <div class="text-center" style="max-width:720px; margin:0 auto 2.6rem;">
+        <h2 class="section-heading">join our global partner <mark>network</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;">system integrators, consultancies, resellers and training providers already delivering entomo to their customers across asia, the middle east and beyond.</p>
+      </div>
+      <div class="pn-logo-grid">
+          <div class="pn-logo"><img src="../Images/partners/co-create-tomorrow.svg" alt="Tomorrow" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/ramco.webp" alt="Ramco" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/smart-cube.png" alt="Smart Cube" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/alpha-data.png" alt="Alpha Data" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/moro.png" alt="Moro" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/sam-corporate.png" alt="SAM Corporate" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/augmented-workforce.png" alt="Augmented Workforce" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/lighthouse.png" alt="Lighthouse" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/csg.png" alt="CSG" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/crayon.png" alt="Crayon" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/doto.png" alt="doto" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/vinsys.png" alt="Vinsys" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/elevatus.png" alt="Elevatus" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/hr-leaders.png" alt="HR Leaders" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/invominds.png" alt="Invominds" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/ttm.png" alt="ttm" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/first-access.png" alt="First Access" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/synergi-lestari-pratama.png" alt="Synergi Lestari Pratama" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/talent-fit.png" alt="Talent Fit" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/aems.png" alt="AEMS" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/metrocom-jaddi.png" alt="Metrocom Jaddi" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/phincon.png" alt="PhinCon" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/daya-dimensi-indonesia.png" alt="Daya Dimensi Indonesia" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/solvento.png" alt="Solvento" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/ice-consulting.png" alt="iCE Consulting" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/ntuc-learninghub.png" alt="NTUC LearningHub" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/hrtech.png" alt="hrtech" loading="lazy" decoding="async"></div>
+          <div class="pn-logo"><img src="../Images/partners/ati.png" alt="ATI" loading="lazy" decoding="async"></div>
+      </div>
+    </div>
+  </section>
   <section class="proof-bar">
     <div class="container">
       <div class="proof-grid">
