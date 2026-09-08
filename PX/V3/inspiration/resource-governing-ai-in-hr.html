@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ebooks &amp; whitepapers | entomo</title>
-  <meta name="description" content="deep dives, real research, and POVs for HR leaders shaping the future of work. forrester TEI, agentic AI playbooks, and skills frameworks from entomo.">
+  <title>governing AI in HR | entomo</title>
+  <meta name="description" content="a readiness guide to the EU AI Act, NYC Local Law 144 and the documentation your HR systems must hold">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
@@ -774,11 +774,35 @@
       color:#fff; background:linear-gradient(150deg, var(--ebony-clay) 0%, #2b3038 100%); min-height:150px; }
     .resource-thumb--gen span { font-size:10px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; opacity:.6; margin-bottom:.35rem; }
     .resource-thumb--gen b { font-size:15px; font-weight:700; line-height:1.28; letter-spacing:-.012em; }
+
     .resource-card { text-decoration: none; color: inherit; display: block; }
-    .resource-thumb--gen { display:flex; flex-direction:column; justify-content:flex-end; padding:1.1rem 1.15rem;
-      color:#fff; background:linear-gradient(150deg, var(--ebony-clay) 0%, #2b3038 100%); min-height:150px; }
-    .resource-thumb--gen span { font-size:10px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; opacity:.6; margin-bottom:.35rem; }
-    .resource-thumb--gen b { font-size:15px; font-weight:700; line-height:1.28; letter-spacing:-.012em; }
+    /* ===== resource landing ===== */
+    .eb-wrap { padding: 2.6rem 0 4rem; }
+    .eb-grid { display: grid; grid-template-columns: minmax(0,1fr) 380px; gap: 3.2rem; align-items: start; }
+    .eb-back { display:inline-flex; align-items:center; gap:.45em; font-size:13px; font-weight:700; color:var(--ink-3); text-decoration:none; margin-bottom:1.4rem; }
+    .eb-back:hover { color: var(--cg-red); }
+    .eb-main h1 { font-size: clamp(28px,3.3vw,42px); letter-spacing:-.026em; line-height:1.13; margin:.85rem 0 0; max-width:20ch; }
+    .eb-sub { font-size: clamp(16.5px,1.4vw,19px); line-height:1.55; color:var(--ink-3); max-width:58ch; margin:1rem 0 1.1rem; }
+    .eb-meta { display:flex; gap:.55rem; align-items:center; font-size:13px; font-weight:600; color:var(--ink-4); margin-bottom:2rem; }
+    .eb-main h2 { font-size: clamp(19px,1.7vw,23px); margin:2.4rem 0 .9rem; }
+    .eb-main p { font-size:17px; line-height:1.72; color:var(--ink-2); margin:0 0 1.2rem; max-width:62ch; }
+    .eb-chapters { counter-reset: ch; list-style:none; margin:0; padding:0; max-width:60ch; }
+    .eb-chapters li { counter-increment: ch; position:relative; padding:.85rem 0 .85rem 3rem; border-bottom:1px solid rgba(26,31,38,.07); font-size:16.5px; color:var(--ink-2); }
+    .eb-chapters li::before { content: counter(ch,decimal-leading-zero); position:absolute; left:0; top:.85rem; font-size:13px; font-weight:800; color:var(--cg-red); letter-spacing:.04em; }
+    .eb-take { list-style:none; margin:0; padding:0; max-width:60ch; }
+    .eb-take li { position:relative; padding:.5rem 0 .5rem 1.9rem; font-size:16.5px; line-height:1.6; color:var(--ink-2); }
+    .eb-take li::before { content:""; position:absolute; left:0; top:1.05rem; width:9px; height:9px; border-radius:50%; background:var(--cg-gold); }
+    .eb-side { position: sticky; top: 96px; }
+    .eb-cover { border-radius:16px; padding:1.6rem 1.5rem 1.7rem; margin-bottom:1.2rem; color:#fff;
+      background:linear-gradient(150deg, var(--ebony-clay) 0%, #2b3038 100%); }
+    .eb-cover span { display:block; font-size:11px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; opacity:.62; margin-bottom:.6rem; }
+    .eb-cover b { display:block; font-size:19px; font-weight:700; line-height:1.25; letter-spacing:-.015em; }
+    .eb-note { font-size:12.5px; color:var(--ink-4); line-height:1.5; margin-top:.9rem; }
+    .eb-sources { margin-top:2.6rem; padding-top:1.3rem; border-top:1px solid rgba(26,31,38,.08); max-width:62ch; }
+    .eb-sources h2 { font-size:14px; text-transform:uppercase; letter-spacing:.12em; color:var(--ink-4); margin:0 0 .7rem; }
+    .eb-sources li { font-size:13.5px; line-height:1.6; color:var(--ink-3); margin-bottom:.35rem; }
+    .eb-sources a { color:var(--spanish-blue); }
+    @media (max-width: 980px) { .eb-grid { grid-template-columns: 1fr; } .eb-side { position: static; } }
 </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -1079,264 +1103,55 @@
     </div>
   </nav>
   <main id="main">
-
-  <!-- ===== HERO ===== -->
-  <section class="hero">
-    <div class="container">
-      <span class="hero-eyebrow">ebooks &amp; whitepapers</span>
-      <h1>deep dives. real research. for <span class="keep-case">HR</span> leaders shaping <mark>what's next</mark>.</h1>
-      <p class="lede">
-        whitepapers, ebooks, and customer stories from the team building agentic intelligence for the enterprise of tomorrow. download what you need, when you need it.
-      </p>
-    </div>
-  </section>
-
-  <!-- ===== FEATURED WHITEPAPER ===== -->
-  <section class="featured-section">
-    <div class="container">
-      <div class="featured-card">
-        <div class="featured-visual">
-          <div>
-            <div style="font-size:0.8rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.7); margin-bottom:0.5rem; position:relative; z-index:1;">forrester <span class="keep-case">TEI</span> study</div>
-            <div class="featured-stat">
-              <div class="featured-stat-number">103%</div>
-              <div class="featured-stat-label">return on investment over 3 years, validated by forrester</div>
-            </div>
-          </div>
-          <div class="featured-meta">
-            <span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              42 pages
-            </span>
-            <span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              25 min read
-            </span>
-          </div>
-        </div>
-        <div class="featured-content">
-          <span class="featured-tag">featured &middot; case study</span>
-          <h2 class="keep-case">Large government entity: $26.8M in benefits, 103% <span class="keep-case">ROI</span></h2>
-          <p>
-            a real entomo customer story: a large government entity reaps benefits of over <strong>$26.8 million and an <span class="keep-case">ROI</span> of 103%</strong> in a three-year period &mdash; through an integrated approach to organizational performance management across the enterprise.
-          </p>
-          <a class="btn-primary" href="https://entomo.co/resources/e-book-and-whitepapers/large-government-entity-reaps-benefits-of-over-usd26-8-million-and-roi-of/" target="_blank" rel="noopener">
-            read the story
-            <span class="arrow">&rarr;</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FILTER PILLS ===== -->
-  <section class="filter-section">
-    <div class="container">
-      <div class="filter-bar">
-        <button class="filter-pill active" data-filter="all">all</button>
-        <button class="filter-pill" data-filter="ebook">ebooks &amp; guides</button>
-        <button class="filter-pill" data-filter="whitepaper">whitepapers</button>
-        <button class="filter-pill" data-filter="case-study">case studies</button>
-        <button class="filter-pill" data-filter="self-assessment">self assessments</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== RESOURCE GRID ===== -->
-  <section class="grid-section">
-    <div class="container">
-      <div class="resource-grid">
-
-        <!-- Card 1 — Leveraging HRTech to create best-in-class Talent Engagement -->
-        <a class="resource-card" href="resource-agentic-hr-operating-model.html" data-category="whitepaper">
-          <div class="resource-thumb resource-thumb--gen"><span>whitepaper</span><b>the agentic <span class="keep-case">HR</span> operating model</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-whitepaper">whitepaper</span>
-            <h3>the agentic <span class="keep-case">HR</span> operating model</h3>
-            <p class="desc">what changes when intelligence acts inside the process rather than reporting on it, with a maturity model</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">34 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-skills-based-organisation-practically.html" data-category="ebook">
-          <div class="resource-thumb resource-thumb--gen"><span>ebook</span><b>the skills-based organisation, practically</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-ebook">ebook</span>
-            <h3>the skills-based organisation, practically</h3>
-            <p class="desc">a staged first-year guide from role architecture to skills-based staffing, with what to do in each quarter</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">44 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-governing-ai-in-hr.html" data-category="whitepaper">
-          <div class="resource-thumb resource-thumb--gen"><span>whitepaper</span><b>governing <span class="keep-case">AI</span> in <span class="keep-case">HR</span></b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-whitepaper">whitepaper</span>
-            <h3>governing <span class="keep-case">AI</span> in <span class="keep-case">HR</span></h3>
-            <p class="desc">a readiness guide to the EU AI Act, NYC Local Law 144 and the documentation your HR systems must hold</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">38 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-workforce-planning-when-ai-changes-the-work.html" data-category="ebook">
-          <div class="resource-thumb resource-thumb--gen"><span>ebook</span><b>workforce planning when <span class="keep-case">AI</span> changes the work</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-ebook">ebook</span>
-            <h3>workforce planning when <span class="keep-case">AI</span> changes the work</h3>
-            <p class="desc">how to model demand and supply when task composition shifts, with a build, buy, borrow, bot matrix</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">36 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-internal-talent-marketplace-people-use.html" data-category="ebook">
-          <div class="resource-thumb resource-thumb--gen"><span>ebook</span><b>designing an internal talent marketplace people use</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-ebook">ebook</span>
-            <h3>designing an internal talent marketplace people use</h3>
-            <p class="desc">the operating model, manager incentives and metrics that separate a working marketplace from an empty job board</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">30 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-human-capital-disclosure-iso-30414-csrd.html" data-category="whitepaper">
-          <div class="resource-thumb resource-thumb--gen"><span>whitepaper</span><b>human capital disclosure: <span class="keep-case">ISO</span> 30414 and <span class="keep-case">CSRD</span></b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-whitepaper">whitepaper</span>
-            <h3>human capital disclosure: <span class="keep-case">ISO</span> 30414 and <span class="keep-case">CSRD</span></h3>
-            <p class="desc">a metric-by-metric readiness guide to ISO 30414:2025 and the workforce disclosures inside the revised EU standards</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">40 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-hrtech-talent-engagement.html" data-category="ebook">
-          <div class="resource-thumb resource-thumb--gen"><span>ebook</span><b>leveraging HRTech to create best-in-class talent engagement</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-ebook">ebook</span>
-            <h3>leveraging HRTech to create best-in-class talent engagement</h3>
-            <p class="desc">a four-part webinar series on the platforms reshaping digital HR, recorded with IHRP Singapore.</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">50 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-reform-reimagine-roadmap.html" data-category="ebook">
-          <div class="resource-thumb resource-thumb--gen"><span>ebook</span><b>reform and reimagine workplace practices: a roadmap for leaders</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-ebook">ebook</span>
-            <h3>reform and reimagine workplace practices: a roadmap for leaders</h3>
-            <p class="desc">part two of the returning-to-work roadmap, a self-check across the react, respond, reform and reimagine stages.</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">7 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-augmenting-hcm-with-ai.html" data-category="whitepaper">
-          <div class="resource-thumb resource-thumb--gen"><span>whitepaper</span><b>driving business value: augmenting human capital management with <span class="keep-case">AI</span></b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-whitepaper">whitepaper</span>
-            <h3>driving business value: augmenting human capital management with <span class="keep-case">AI</span></h3>
-            <p class="desc">a report on where talent analytics matures, written with ETHRWorld.</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">18 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-career-readiness-singapore.html" data-category="whitepaper">
-          <div class="resource-thumb resource-thumb--gen"><span>whitepaper</span><b>evolution of career readiness: singapore</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-whitepaper">whitepaper</span>
-            <h3>evolution of career readiness: singapore</h3>
-            <p class="desc">a study of which roles and skills stayed resilient as the singapore career landscape shifted.</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">24 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-30-ideas-remote-age.html" data-category="ebook">
-          <div class="resource-thumb resource-thumb--gen"><span>ebook</span><b>30 revolutionary ideas for our remote age</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-ebook">ebook</span>
-            <h3>30 revolutionary ideas for our remote age</h3>
-            <p class="desc">thirty ideas from thirty HR and education influencers on what remote work changes permanently.</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">32 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-mastering-risk-and-performance.html" data-category="ebook">
-          <div class="resource-thumb resource-thumb--gen"><span>ebook</span><b>mastering risk and performance in the next normal</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-ebook">ebook</span>
-            <h3>mastering risk and performance in the next normal</h3>
-            <p class="desc">essential practices for enterprises and employees operating across owned, shared and remote workplaces.</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">8 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-return-to-work-self-assessment.html" data-category="ebook">
-          <div class="resource-thumb resource-thumb--gen"><span>ebook</span><b>are you ready to return to work? a self-assessment for leaders</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-ebook">ebook</span>
-            <h3>are you ready to return to work? a self-assessment for leaders</h3>
-            <p class="desc">part one of the returning-to-work roadmap, built around a yes or no self-check for leadership teams.</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">12 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== LEAD CAPTURE ===== -->
-  <section class="lead-section">
-    <div class="container">
-      <div class="lead-grid">
-        <div class="lead-text">
-          <div class="section-eyebrow">unlock the library</div>
-          <h2>get full access to every report</h2>
-          <p>one short form. unlimited access to entomo's research library &mdash; whitepapers, ebooks, customer stories, and frameworks for <span class="keep-case">HR</span> leaders shaping the agentic enterprise.</p>
-          <ul class="lead-points">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>
-              instant downloads. no drip emails.
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>
-              early access to new whitepapers and customer stories.
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>
-              quarterly executive briefing on agentic <span class="keep-case">HR</span> trends.
-            </li>
+  <section class="eb-wrap">
+    <div class="container eb-grid">
+      <div class="eb-main">
+        <a class="eb-back" href="ebooks-whitepapers.html">&larr; all resources</a>
+        <span class="resource-tag tag-whitepaper">whitepaper</span>
+        <h1>governing <span class="keep-case">AI</span> in <span class="keep-case">HR</span></h1>
+        <p class="eb-sub">a readiness guide to the EU AI Act, NYC Local Law 144 and the documentation your HR systems must hold</p>
+        <div class="eb-meta">38 pages &middot; 45 min read</div>
+<p>The deadline moved. The work did not get smaller. Regulation (EU) 2026/1744, the Digital Omnibus on AI, pushed the obligations for Annex III high-risk systems from August 2026 to 2 December 2027. Employment, worker management and access to self-employment stay inside Annex III. Other obligations already bind you. Using AI to infer emotions in the workplace has been prohibited since 2 February 2025, and that prohibition falls on the employer who switches the feature on.</p><p>In New York City, employers using automated employment decision tools have needed an annual independent bias audit since enforcement began on 5 July 2023, with candidate notice at least ten business days in advance. California's rules on automated decision systems took effect on 1 October 2025. Singapore published a governance framework for agentic AI in January 2026. India's DPDP Rules set the main compliance date at May 2027.</p><p>This guide is precise about what applies, to whom, and from when. <strong>Includes an Annex III classification worksheet, the documentation set to hold for each system, a bias audit specification you can send to a vendor, and a mapping to ISO/IEC 42001 and the NIST AI Risk Management Framework.</strong></p>
+        <h2>what&rsquo;s inside</h2>
+        <ol class="eb-chapters">
+          <li>the obligations that already apply to your HR stack</li>
+          <li>why employment sits in Annex III of the EU AI Act</li>
+          <li>what the Digital Omnibus moved, and what it left alone</li>
+          <li>NYC Local Law 144: specifying a bias audit that holds up</li>
+          <li>the wider patchwork: California, Illinois, Colorado, Singapore, India</li>
+          <li>the documentation set to hold for every HR AI system</li>
+          <li>mapping to ISO/IEC 42001 and the NIST AI Risk Management Framework</li>
+          <li>a readiness plan to December 2027, quarter by quarter</li>
+        </ol>
+        <h2>what you&rsquo;ll be able to do</h2>
+        <ul class="eb-take">
+          <li>classify every HR AI system against Annex III and record the reasoning behind each decision</li>
+          <li>specify a bias audit to a vendor, covering selection rate, scoring rate and impact ratio by category</li>
+          <li>assemble the documentation set for each system, with an owner, a retention period and a review date</li>
+          <li>build a quarter-by-quarter readiness plan against the 2 December 2027 application date</li>
+          <li>identify which tools in use today would fail a fundamental rights review</li>
+        </ul>
+        <div class="eb-sources">
+          <h2>referenced sources</h2>
+          <ul>
+          <li><a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" rel="noopener" target="_blank">Regulation (EU) 2024/1689, the EU AI Act, 2024</a></li>
+          <li><a href="https://eur-lex.europa.eu/eli/reg/2026/1744/oj" rel="noopener" target="_blank">Regulation (EU) 2026/1744, Digital Omnibus on AI, 2026</a></li>
+          <li><a href="https://www.nyc.gov/site/dca/about/automated-employment-decision-tools.page" rel="noopener" target="_blank">NYC Department of Consumer and Worker Protection, Automated Employment Decision Tools, 2023</a></li>
+          <li><a href="https://rules.cityofnewyork.us/rule/automated-employment-decision-tools-2/" rel="noopener" target="_blank">NYC Rules, Automated Employment Decision Tools, 2023</a></li>
+          <li><a href="https://www.osc.ny.gov/state-agencies/audits/2025/12/02/enforcement-local-law-144-automated-employment-decision-tools" rel="noopener" target="_blank">New York State Comptroller, Enforcement of Local Law 144, 2025</a></li>
+          <li><a href="https://calcivilrights.ca.gov/" rel="noopener" target="_blank">California Civil Rights Department, employment regulations on automated decision systems, 2025</a></li>
+          <li><a href="https://www.imda.gov.sg/-/media/imda/files/about/emerging-tech-and-research/artificial-intelligence/model-ai-governance-framework-for-agentic-ai.pdf" rel="noopener" target="_blank">IMDA Singapore, Model AI Governance Framework for Agentic AI, 2026</a></li>
+          <li><a href="https://www.meity.gov.in/" rel="noopener" target="_blank">Ministry of Electronics and Information Technology, India, DPDP Rules, 2025</a></li>
+          <li><a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf" rel="noopener" target="_blank">NIST, AI Risk Management Framework 1.0, 2023</a></li>
+          <li><a href="https://www.iso.org/standard/81230.html" rel="noopener" target="_blank">ISO/IEC 42001, AI management systems, 2023</a></li>
           </ul>
         </div>
-
-        <form class="lead-form">
-          <h3>access the full library</h3>
-          <p class="form-sub">takes less than 30 seconds.</p>
-
+      </div>
+      <aside class="eb-side">
+        <div class="eb-cover"><span>whitepaper</span><b>governing <span class="keep-case">AI</span> in <span class="keep-case">HR</span></b></div>
+        <form class="lead-form" onsubmit="event.preventDefault(); this.innerHTML='<h3>on its way.</h3><p class=&quot;form-sub&quot;>check your inbox for the download link. it usually arrives within a minute.</p>';">
+          <h3>get the whitepaper</h3>
+          <p class="form-sub">one short form. the download link arrives by email.</p>
           <div class="form-row">
             <div class="form-group">
               <label for="firstName">first name</label>
@@ -1347,44 +1162,24 @@
               <input type="text" id="lastName" name="lastName" placeholder="chen" required autocomplete="family-name">
             </div>
           </div>
-
           <div class="form-group">
             <label for="email">work email</label>
             <input type="email" id="email" name="email" placeholder="alex@company.com" required autocomplete="email">
           </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="company">company</label>
-              <input type="text" id="company" name="company" placeholder="acme corp" required autocomplete="organization">
-            </div>
-            <div class="form-group">
-              <label for="role">role</label>
-              <select id="role" name="role" required>
-                <option value="">select role</option>
-                <option value="chro"><span class="keep-case">CHRO</span> / chief people officer</option>
-                <option value="hr-leader"><span class="keep-case">HR</span> leader / VP <span class="keep-case">HR</span></option>
-                <option value="talent">talent / L&amp;D</option>
-                <option value="hrbp"><span class="keep-case">HR</span> business partner</option>
-                <option value="it">IT / digital <span class="keep-case">HR</span></option>
-                <option value="other">other</option>
-              </select>
-            </div>
+          <div class="form-group">
+            <label for="company">company</label>
+            <input type="text" id="company" name="company" placeholder="company name" required autocomplete="organization">
           </div>
-
-          <button type="submit" class="btn-primary">
-            unlock the library
-            <span class="arrow">→</span>
-          </button>
-          <p class="form-disclaimer">
-            by submitting, you agree to entomo's privacy policy. we never share your details.
-          </p>
+          <div class="form-group">
+            <label for="role">your role</label>
+            <input type="text" id="role" name="role" placeholder="head of talent" autocomplete="organization-title">
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">send me the whitepaper &rarr;</button>
+          <p class="eb-note">we use your details to send this resource and occasional research from entomo. unsubscribe any time.</p>
         </form>
-      </div>
+      </aside>
     </div>
   </section>
-
-  <!-- ===== FOOTER ===== -->
   </main>
   <footer class="footer">
     <div class="container">

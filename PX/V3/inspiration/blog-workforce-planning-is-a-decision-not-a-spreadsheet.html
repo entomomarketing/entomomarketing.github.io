@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ebooks &amp; whitepapers | entomo</title>
-  <meta name="description" content="deep dives, real research, and POVs for HR leaders shaping the future of work. forrester TEI, agentic AI playbooks, and skills frameworks from entomo.">
+  <title>workforce planning is a decision, not a spreadsheet | entomo</title>
+  <meta name="description" content="build, buy, borrow or bot: every capability needs a supply decision on the record, with the evidence that would reverse it.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
@@ -20,6 +20,7 @@
     }
     img { max-width: 100%; display: block; }
     a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; }
 
     :root {
       --cg-red: #e43d30;
@@ -195,6 +196,7 @@
       .nav-toggle { display: block; }
     }
 
+    /* Placeholder tooltips */
     .nav-placeholder-tooltip { position: relative; }
     .nav-placeholder-tooltip::after {
       content: attr(data-tooltip);
@@ -218,25 +220,24 @@
     .nav-placeholder-tooltip:hover::before { opacity: 1; }
 
     /* ===== HERO ===== */
-    .hero {
+    .blog-hero {
       background: linear-gradient(180deg, var(--floral-white) 0%, white 100%);
       padding: 5rem 0 3.5rem;
       text-align: center;
     }
     .hero-eyebrow {
       display: inline-block;
-      font-size: 13px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 1.5px;
-      background: linear-gradient(90deg, var(--cg-gold), var(--cg-red));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1rem;
+      background: rgba(228, 61, 48, 0.08);
+      color: var(--cg-red);
+      font-size: 0.85rem; font-weight: 700;
+      padding: 6px 16px; border-radius: 20px;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase; letter-spacing: 0.5px;
     }
-    .hero h1 { margin-bottom: 1.25rem; max-width: 920px; margin-left: auto; margin-right: auto; }
-    .hero .lede {
-      font-size: 1.15rem; color: var(--ink-3);
-      max-width: 720px; margin: 0 auto; line-height: 1.55;
+    .blog-hero h1 { margin-bottom: 1.25rem; max-width: 900px; margin-left: auto; margin-right: auto; }
+    .blog-hero .lede {
+      font-size: 1.2rem; color: var(--ink-3);
+      max-width: 700px; margin: 0 auto; line-height: 1.55;
     }
 
     /* ===== SECTION BASE ===== */
@@ -252,76 +253,46 @@
       margin-bottom: 1rem;
     }
 
-    /* ===== FEATURED WHITEPAPER ===== */
-    .featured-section { padding-top: 1rem; padding-bottom: 4rem; }
+    /* ===== FEATURED POST ===== */
+    .featured-section { padding-top: 1rem; padding-bottom: 3rem; background: white; }
     .featured-card {
       display: grid;
       grid-template-columns: 1.1fr 1fr;
       background: white;
-      border-radius: 24px;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
       border: 1px solid rgba(26,31,38,0.06);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.04);
+      transition: transform 0.25s, box-shadow 0.25s;
     }
-    .featured-visual {
-      background: linear-gradient(135deg, #1a1f26 0%, #0064bf 100%);
-      padding: 3rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      color: white;
+    .featured-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    }
+    .featured-image {
+      min-height: 360px;
+      background: linear-gradient(135deg, var(--cg-red) 0%, #c92e22 60%, #7a1a12 100%);
       position: relative;
       overflow: hidden;
-      min-height: 380px;
     }
-    .featured-visual::before {
+    .featured-image::before {
       content: '';
       position: absolute;
-      top: -80px; right: -80px;
-      width: 280px; height: 280px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(244,178,35,0.35) 0%, transparent 70%);
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(244,178,35,0.4) 0%, transparent 45%),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.15) 0%, transparent 50%);
     }
-    .featured-visual::after {
+    .featured-image::after {
       content: '';
       position: absolute;
-      bottom: -60px; left: -60px;
-      width: 200px; height: 200px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(228,61,48,0.3) 0%, transparent 70%);
+      bottom: 1.5rem; left: 1.5rem;
+      width: 60px; height: 60px; border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
     }
-    .featured-stat {
-      position: relative;
-      z-index: 1;
-    }
-    .featured-stat-number {
-      font-size: clamp(3rem, 6vw, 4.8rem);
-      font-weight: 800;
-      line-height: 1;
-      color: var(--cg-gold);
-      letter-spacing: -2px;
-    }
-    .featured-stat-label {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.85);
-      margin-top: 0.5rem;
-      max-width: 320px;
-      line-height: 1.5;
-    }
-    .featured-meta {
-      display: flex;
-      gap: 1.5rem;
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.7);
-      position: relative;
-      z-index: 1;
-    }
-    .featured-meta span {
-      display: flex; align-items: center; gap: 6px;
-    }
-
-    .featured-content {
-      padding: 3rem;
+    .featured-body {
+      padding: 3rem 2.75rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -329,64 +300,73 @@
     .featured-tag {
       display: inline-block;
       align-self: flex-start;
-      background: rgba(0, 100, 191, 0.1);
-      color: var(--spanish-blue);
       font-size: 11px; font-weight: 700;
-      padding: 5px 12px; border-radius: 20px;
-      text-transform: uppercase; letter-spacing: 1px;
+      letter-spacing: 1px;
+      padding: 5px 12px;
+      border-radius: 20px;
       margin-bottom: 1rem;
+      text-transform: uppercase;
+      background: rgba(228,61,48,0.1);
+      color: var(--cg-red);
     }
-    .featured-content h2 {
-      margin-bottom: 1rem;
-      font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+    .featured-body h2 {
+      font-size: clamp(1.6rem, 2.4vw, 2rem);
       line-height: 1.2;
+      margin-bottom: 1rem;
+      font-weight: 800;
     }
-    .featured-content p {
+    .featured-excerpt {
       font-size: 1rem;
       color: var(--ink-2);
       line-height: 1.6;
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.5rem;
     }
-    .btn-primary {
-      display: inline-flex;
+    .post-meta {
+      display: flex;
       align-items: center;
-      gap: 8px;
-      background: var(--gradient-cta); color: white;
-      padding: 13px 26px; border-radius: 10px;
-      font-weight: 700; font-size: 0.95rem;
-      border: none; cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-      text-transform: lowercase;
+      gap: 1rem;
+      font-size: 13px;
+      color: var(--ink-3);
+      margin-bottom: 1.5rem;
+    }
+    .post-meta .meta-author { font-weight: 600; color: var(--ebony-clay); }
+    .post-meta .meta-dot { color: var(--ink-4); }
+    .btn-link {
       align-self: flex-start;
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--gradient-cta);
+      color: white;
+      padding: 11px 22px;
+      border-radius: 8px;
+      font-size: 14px; font-weight: 700;
+      text-transform: lowercase;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-    .btn-primary:hover {
+    .btn-link:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(228, 61, 48, 0.3);
+      box-shadow: 0 10px 24px rgba(228, 61, 48, 0.28);
     }
-    .btn-primary .arrow { transition: transform 0.2s; }
-    .btn-primary:hover .arrow { transform: translateX(3px); }
 
     /* ===== FILTER PILLS ===== */
-    .filter-section { padding: 1rem 0 0; }
+    .filter-section { padding: 1rem 0 2rem; background: white; }
     .filter-bar {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
+      gap: 0.5rem;
       justify-content: center;
-      padding: 0.5rem 0 0;
     }
     .filter-pill {
       background: white;
-      border: 1.5px solid rgba(26,31,38,0.1);
-      color: var(--ebony-clay);
-      font-size: 0.9rem;
-      font-weight: 600;
-      padding: 8px 18px;
-      border-radius: 30px;
+      border: 1px solid rgba(26,31,38,0.12);
+      color: var(--ink-2);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
       cursor: pointer;
-      text-transform: lowercase;
-      font-family: inherit;
-      transition: all 0.2s;
+      transition: all 0.18s;
     }
     .filter-pill:hover {
       border-color: var(--cg-red);
@@ -398,217 +378,193 @@
       color: white;
     }
 
-    /* ===== RESOURCE GRID ===== */
-    .grid-section { padding-top: 2.5rem; }
-    .resource-grid {
+    /* ===== POSTS GRID ===== */
+    .posts-section { padding: 2rem 0 5rem; background: white; }
+    .posts-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.75rem;
+      gap: 2rem;
     }
-    .resource-card {
+    .post-card {
       background: white;
       border-radius: 16px;
       overflow: hidden;
       border: 1px solid rgba(26,31,38,0.06);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
       transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
       display: flex;
       flex-direction: column;
+      cursor: pointer;
     }
-    .resource-card:hover {
+    .post-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-      border-color: rgba(26,31,38,0.12);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.08);
+      border-color: rgba(26,31,38,0.1);
     }
-
-    .resource-thumb {
-      height: 200px;
+    .post-image {
+      height: 180px;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, #f2f7fc 0%, #fefbf4 100%);
     }
-    .resource-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      transition: transform 0.4s ease;
+    .post-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 25% 35%, rgba(255,255,255,0.25) 0%, transparent 45%),
+        radial-gradient(circle at 75% 75%, rgba(0,0,0,0.18) 0%, transparent 60%);
     }
-    .resource-card:hover .resource-thumb img { transform: scale(1.04); }
+    .post-image.gradient-1 { background: linear-gradient(135deg, #e43d30 0%, #f4b223 100%); }
+    .post-image.gradient-2 { background: linear-gradient(135deg, #0064bf 0%, #2a8de0 100%); }
+    .post-image.gradient-3 { background: linear-gradient(135deg, #2c9942 0%, #5dc46b 100%); }
+    .post-image.gradient-4 { background: linear-gradient(135deg, #1a1f26 0%, #3a4452 100%); }
+    .post-image.gradient-5 { background: linear-gradient(135deg, #f4b223 0%, #ffda00 100%); }
+    .post-image.gradient-6 { background: linear-gradient(135deg, #0064bf 0%, #1a1f26 100%); }
+    .post-image.gradient-7 { background: linear-gradient(135deg, #e43d30 0%, #1a1f26 100%); }
+    .post-image.gradient-8 { background: linear-gradient(135deg, #2c9942 0%, #0064bf 100%); }
+    .post-image.gradient-9 { background: linear-gradient(135deg, #f4b223 0%, #e43d30 100%); }
 
-    .resource-body {
-      padding: 1.5rem;
-      flex: 1;
+    .post-body {
+      padding: 1.5rem 1.5rem 1.75rem;
       display: flex;
       flex-direction: column;
+      flex: 1;
     }
-    .resource-tag {
+    .post-tag {
       display: inline-block;
       align-self: flex-start;
       font-size: 10px;
       font-weight: 700;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
+      letter-spacing: 1px;
       padding: 4px 10px;
-      border-radius: 20px;
+      border-radius: 12px;
+      text-transform: uppercase;
       margin-bottom: 0.85rem;
     }
-    .tag-whitepaper { background: rgba(0, 100, 191, 0.1); color: var(--spanish-blue); }
-    .tag-ebook { background: rgba(244, 178, 35, 0.15); color: #b8860b; }
-    .tag-research { background: rgba(44, 153, 66, 0.1); color: var(--sea-green); }
-    .tag-analyst { background: rgba(228, 61, 48, 0.1); color: var(--cg-red); }
-    .tag-pov { background: rgba(107, 44, 140, 0.1); color: #6b2c8c; }
-    .tag-recognition { background: rgba(26, 31, 38, 0.08); color: var(--ebony-clay); }
+    .tag-agentic { background: rgba(228,61,48,0.1); color: var(--cg-red); }
+    .tag-performance { background: rgba(0,100,191,0.1); color: var(--spanish-blue); }
+    .tag-skills { background: rgba(44,153,66,0.1); color: var(--sea-green); }
+    .tag-engagement { background: rgba(244,178,35,0.15); color: #b8860b; }
+    .tag-research { background: rgba(26,31,38,0.08); color: var(--ebony-clay); }
+    .tag-industry { background: rgba(228,61,48,0.08); color: #c92e22; }
+    .tag-workforce { background: rgba(0,100,191,0.08); color: #004a8f; }
 
-    .resource-card h3 {
+    .post-card h3 {
       font-size: 1.1rem;
-      line-height: 1.3;
-      margin-bottom: 0.65rem;
       font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
     }
-    .resource-card .desc {
-      font-size: 0.9rem;
+    .post-card:hover h3 { color: var(--cg-red); }
+    .post-excerpt {
+      font-size: 0.92rem;
       color: var(--ink-3);
       line-height: 1.55;
       margin-bottom: 1.25rem;
       flex: 1;
     }
-    .resource-meta {
+    .post-meta-sm {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-      padding-top: 1rem;
+      gap: 0.6rem;
+      font-size: 12px;
+      color: var(--ink-4);
+      padding-top: 0.85rem;
       border-top: 1px solid rgba(26,31,38,0.06);
-      margin-top: auto;
     }
-    .resource-readtime {
-      font-size: 0.8rem;
-      color: var(--ink-3);
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-    .btn-download {
-      background: none;
-      border: none;
-      color: var(--cg-red);
-      font-size: 0.9rem;
-      font-weight: 700;
-      cursor: pointer;
-      font-family: inherit;
-      text-transform: lowercase;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 0;
-      transition: gap 0.2s;
-    }
-    .btn-download:hover { gap: 9px; }
+    .post-meta-sm .meta-author { font-weight: 600; color: var(--ebony-clay); }
+    .post-meta-sm .meta-dot { color: var(--ink-4); }
 
-    /* ===== LEAD CAPTURE ===== */
-    .lead-section {
-      background: linear-gradient(135deg, var(--floral-white) 0%, var(--polar-white) 100%);
+    .load-more-wrap { text-align: center; margin-top: 3rem; }
+    .btn-secondary {
+      display: inline-block;
+      background: var(--sunrise-yellow);
+      color: var(--ebony-clay);
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-    .lead-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 4rem;
-      align-items: center;
-      max-width: 1100px;
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(244, 178, 35, 0.35);
+    }
+
+    /* ===== NEWSLETTER ===== */
+    .newsletter-section {
+      background: linear-gradient(135deg, var(--ebony-clay) 0%, #2a3038 100%);
+      color: white;
+      padding: 4.5rem 0;
+    }
+    .newsletter-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .newsletter-wrap .section-eyebrow {
+      background: linear-gradient(90deg, var(--cg-gold), #ffda00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .newsletter-wrap h2 {
+      color: white;
+      margin-bottom: 0.85rem;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+    }
+    .newsletter-wrap p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      line-height: 1.55;
+    }
+    .newsletter-form {
+      display: flex;
+      gap: 0.5rem;
+      max-width: 480px;
       margin: 0 auto;
     }
-    .lead-text h2 { margin-bottom: 1rem; }
-    .lead-text p {
-      font-size: 1.05rem;
-      color: var(--ink-2);
-      line-height: 1.65;
-      margin-bottom: 1.5rem;
-    }
-    .lead-points {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-    }
-    .lead-points li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.95rem;
-      color: rgba(26,31,38,0.78);
-    }
-    .lead-points svg {
-      width: 20px; height: 20px;
-      color: var(--sea-green);
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .lead-form {
-      background: white;
-      border-radius: 20px;
-      padding: 2.25rem;
-      box-shadow: 0 16px 50px rgba(0,0,0,0.08);
-      border: 1px solid rgba(26,31,38,0.05);
-    }
-    .lead-form h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.3rem;
-    }
-    .lead-form .form-sub {
-      font-size: 0.9rem;
-      color: var(--ink-3);
-      margin-bottom: 1.5rem;
-    }
-    .form-group {
-      margin-bottom: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-    .form-group label {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: rgba(26,31,38,0.75);
-      text-transform: lowercase;
-    }
-    .form-group input,
-    .form-group select {
-      width: 100%;
-      padding: 11px 14px;
-      border: 1.5px solid rgba(26,31,38,0.12);
-      border-radius: 8px;
+    .newsletter-form input {
+      flex: 1;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: white;
       font-family: inherit;
-      font-size: 0.95rem;
-      color: var(--ebony-clay);
-      background: white;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .form-group input:focus,
-    .form-group select:focus {
+      font-size: 15px;
+      padding: 13px 18px;
+      border-radius: 8px;
       outline: none;
-      border-color: var(--cg-red);
-      box-shadow: 0 0 0 3px rgba(228,61,48,0.1);
+      transition: border-color 0.2s, background 0.2s;
     }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.45); }
+    .newsletter-form input:focus {
+      border-color: var(--cg-gold);
+      background: rgba(255,255,255,0.12);
     }
-    .lead-form .btn-primary {
-      width: 100%;
-      justify-content: center;
-      margin-top: 0.5rem;
-      padding: 14px;
+    .newsletter-form button {
+      background: var(--gradient-cta);
+      color: white;
+      border: none;
+      padding: 13px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      text-transform: lowercase;
+      transition: transform 0.2s, box-shadow 0.2s;
+      white-space: nowrap;
     }
-    .form-disclaimer {
-      font-size: 0.75rem;
-      color: var(--ink-4);
-      line-height: 1.5;
+    .newsletter-form button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(228, 61, 48, 0.35);
+    }
+    .newsletter-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
       margin-top: 1rem;
-      text-align: center;
     }
 
     /* ===== FOOTER ===== */
@@ -682,17 +638,18 @@
     }
 
     /* ===== RESPONSIVE ===== */
-    @media (max-width: 960px) {
+    @media (max-width: 980px) {
       .featured-card { grid-template-columns: 1fr; }
-      .featured-visual { min-height: 280px; padding: 2rem; }
-      .featured-content { padding: 2rem; }
-      .resource-grid { grid-template-columns: repeat(2, 1fr); }
-      .lead-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .featured-image { min-height: 240px; }
+      .featured-body { padding: 2rem 1.75rem; }
+      .posts-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .nav-links { display: none; }
     }
     @media (max-width: 640px) {
-      .resource-grid { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
+      .posts-grid { grid-template-columns: 1fr; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-form button { width: 100%; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; gap: 1rem; }
     }
@@ -769,16 +726,33 @@
       html { scroll-behavior: auto; }
     }
     /* ===== END SCROLL ANIMATIONS ===== */
-      .resource-card { text-decoration: none; color: inherit; display: block; }
-    .resource-thumb--gen { display:flex; flex-direction:column; justify-content:flex-end; padding:1.1rem 1.15rem;
-      color:#fff; background:linear-gradient(150deg, var(--ebony-clay) 0%, #2b3038 100%); min-height:150px; }
-    .resource-thumb--gen span { font-size:10px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; opacity:.6; margin-bottom:.35rem; }
-    .resource-thumb--gen b { font-size:15px; font-weight:700; line-height:1.28; letter-spacing:-.012em; }
-    .resource-card { text-decoration: none; color: inherit; display: block; }
-    .resource-thumb--gen { display:flex; flex-direction:column; justify-content:flex-end; padding:1.1rem 1.15rem;
-      color:#fff; background:linear-gradient(150deg, var(--ebony-clay) 0%, #2b3038 100%); min-height:150px; }
-    .resource-thumb--gen span { font-size:10px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; opacity:.6; margin-bottom:.35rem; }
-    .resource-thumb--gen b { font-size:15px; font-weight:700; line-height:1.28; letter-spacing:-.012em; }
+  
+    .post-card, .featured-card { text-decoration: none; color: inherit; display: block; }
+    /* ===== article ===== */
+    .bl-hero { padding: 3.2rem 0 2rem; background: linear-gradient(160deg, var(--floral-white) 0%, #fff 72%); border-bottom: 1px solid rgba(26,31,38,0.06); }
+    .bl-back { display:inline-flex; align-items:center; gap:.45em; font-size:13px; font-weight:700; color:var(--ink-3); text-decoration:none; margin-bottom:1.5rem; }
+    .bl-back:hover { color: var(--cg-red); }
+    .bl-hero h1 { font-size: clamp(30px,3.7vw,48px); letter-spacing:-.028em; line-height:1.1; max-width:19ch; margin:.85rem 0 0; }
+    .bl-dek { font-size: clamp(17px,1.5vw,20px); line-height:1.55; color:var(--ink-3); max-width:60ch; margin:1.05rem 0 1.3rem; }
+    .bl-meta { display:flex; align-items:center; gap:.6rem; font-size:13px; color:var(--ink-4); font-weight:600; }
+    .bl-body { padding: 2.8rem 0 3rem; }
+    .bl-article { max-width: 68ch; }
+    .bl-article p { font-size:17.5px; line-height:1.75; color:var(--ink-2); margin:0 0 1.4rem; }
+    .bl-article h2 { font-size: clamp(22px,2.1vw,29px); letter-spacing:-.02em; line-height:1.2; margin:2.6rem 0 .9rem; }
+    .bl-article h3 { font-size: clamp(18px,1.6vw,21px); margin:2rem 0 .7rem; }
+    .bl-article ul, .bl-article ol { margin:0 0 1.4rem 1.15rem; padding:0; }
+    .bl-article li { font-size:17px; line-height:1.7; color:var(--ink-2); margin-bottom:.55rem; }
+    .bl-article a { color: var(--spanish-blue); text-decoration:underline; text-underline-offset:2px; }
+    .bl-article strong { color: var(--ink); font-weight:700; }
+    .bl-article blockquote { margin:1.8rem 0; padding:1.1rem 1.4rem; border-left:3px solid var(--cg-gold); background:var(--floral-white); border-radius:0 12px 12px 0; }
+    .bl-article blockquote p { margin:0; font-size:17.5px; color:var(--ink); }
+    .bl-sources { max-width:68ch; margin-top:2.6rem; padding-top:1.4rem; border-top:1px solid rgba(26,31,38,.08); }
+    .bl-sources h2 { font-size:15px; text-transform:uppercase; letter-spacing:.12em; color:var(--ink-4); margin:0 0 .8rem; }
+    .bl-sources ol { margin:0 0 0 1.1rem; }
+    .bl-sources li { font-size:13.5px; line-height:1.6; color:var(--ink-3); margin-bottom:.4rem; }
+    .bl-sources a { color: var(--spanish-blue); }
+    .bl-more { padding: 0 0 4.5rem; }
+    .bl-more h2 { font-size:1.35rem; margin-bottom:1.3rem; }
 </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -1079,312 +1053,80 @@
     </div>
   </nav>
   <main id="main">
-
-  <!-- ===== HERO ===== -->
-  <section class="hero">
+  <section class="bl-hero">
     <div class="container">
-      <span class="hero-eyebrow">ebooks &amp; whitepapers</span>
-      <h1>deep dives. real research. for <span class="keep-case">HR</span> leaders shaping <mark>what's next</mark>.</h1>
-      <p class="lede">
-        whitepapers, ebooks, and customer stories from the team building agentic intelligence for the enterprise of tomorrow. download what you need, when you need it.
-      </p>
+      <a class="bl-back" href="blog.html">&larr; all articles</a>
+      <span class="post-tag tag-workforce">workforce planning</span>
+      <h1>workforce planning is a decision, not a spreadsheet</h1>
+      <p class="bl-dek">build, buy, borrow or bot: every capability needs a supply decision on the record, with the evidence that would reverse it.</p>
+      <div class="bl-meta"><span>jun 17, 2026</span><span class="meta-dot">&middot;</span><span>8 min read</span></div>
     </div>
   </section>
 
-  <!-- ===== FEATURED WHITEPAPER ===== -->
-  <section class="featured-section">
+  <section class="bl-body">
     <div class="container">
-      <div class="featured-card">
-        <div class="featured-visual">
-          <div>
-            <div style="font-size:0.8rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.7); margin-bottom:0.5rem; position:relative; z-index:1;">forrester <span class="keep-case">TEI</span> study</div>
-            <div class="featured-stat">
-              <div class="featured-stat-number">103%</div>
-              <div class="featured-stat-label">return on investment over 3 years, validated by forrester</div>
-            </div>
-          </div>
-          <div class="featured-meta">
-            <span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              42 pages
-            </span>
-            <span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              25 min read
-            </span>
-          </div>
-        </div>
-        <div class="featured-content">
-          <span class="featured-tag">featured &middot; case study</span>
-          <h2 class="keep-case">Large government entity: $26.8M in benefits, 103% <span class="keep-case">ROI</span></h2>
-          <p>
-            a real entomo customer story: a large government entity reaps benefits of over <strong>$26.8 million and an <span class="keep-case">ROI</span> of 103%</strong> in a three-year period &mdash; through an integrated approach to organizational performance management across the enterprise.
-          </p>
-          <a class="btn-primary" href="https://entomo.co/resources/e-book-and-whitepapers/large-government-entity-reaps-benefits-of-over-usd26-8-million-and-roi-of/" target="_blank" rel="noopener">
-            read the story
-            <span class="arrow">&rarr;</span>
-          </a>
-        </div>
+      <article class="bl-article">
+<p>Ask most enterprises for their workforce plan and you will be sent a spreadsheet. It has a row per team, a column per quarter, and numbers that total to a budget. It is a useful document. It is not a plan, because it records an outcome without recording any of the decisions that produced it.</p><p>A workforce plan is a set of supply decisions. For every capability the business needs, someone has to decide where that capability will come from, and say what would change the answer. The spreadsheet hides that decision inside a headcount number, which is why plans survive review and then fail in execution.</p><p>The confidence data reflects this. Deloitte's 2025 analysis of workforce planning cites Gartner research finding that only 29% of chief human resources officers were confident in their ability to deliver on strategic workforce planning goals. McKinsey's 2020 survey on reskilling found that around nine in ten executives and managers said their organizations either had skill gaps already or expected them within five years, with 43% reporting existing gaps and 44% expecting them to appear.</p><h2>four ways to supply a capability</h2><p>There are four routes. Build, buy, borrow, and bot. Every capability in the plan gets assigned to one of them, on the record, with a stated reason. The value is not in the four words. It is in the requirement to choose, and to name the evidence that would flip the choice.</p><h3>build</h3><p>Build means developing the capability in people you already employ. Build is right when three conditions hold together. The capability is durable, meaning you will still need it in three years. Adjacency exists, meaning somebody is within one or two skills of it. And the learning curve is shorter than the hiring cycle for the same skill, which in tight markets it often is.</p><p>Build fails when it is chosen from sentiment rather than evidence. If nobody is within reach, build is not a plan. It is a hope with a training budget attached to it.</p><h3>buy</h3><p>Buy means external hiring. Buy is right when the capability is new to the organization, no internal adjacency exists, and the skill is durable enough to justify a permanent seat. Buy is also right when you need a teacher. Hiring two or three people who can build a capability in others is usually cheaper than hiring twenty who cannot.</p><p>Buy is over-used because it is the default. In the McKinsey survey, hiring was the most common response to skill gaps, cited by around two-thirds of respondents, with skill building second at 56%.</p><h3>borrow</h3><p>Borrow means contractors, agencies, partners, and internal secondments. Borrow is right when demand is spiky or time-boxed, when a skill is scarce and you need it before you can build it, or when you want to test whether a capability is worth owning permanently.</p><p>Borrowing a capability you intend to keep is a decision to pay a premium indefinitely. Borrowing to buy time while you build is a sound sequence. The two look identical in the budget and differ entirely in intent, so write the intent down.</p><h3>bot</h3><p>Bot means automation, including but not limited to large language models. This leg needs evidence rather than enthusiasm, and the evidence is now reasonably good.</p><p>Eloundou and colleagues, publishing in Science in 2024, estimated that around 80% of the United States workforce could have at least 10% of their work tasks affected by large language models, and that about 19% of workers could see at least half their tasks affected. The International Labour Organization's 2025 refined global index of occupational exposure found that roughly one in four workers globally sits in an occupation with some generative AI exposure, while only 3.3% of global employment falls into the highest exposure gradient.</p><p>That second study matters for anyone planning in Southeast Asia, the Middle East, or India. Exposure varies sharply with country income. Around 34% of employment in high-income countries falls into one of the four exposure gradients, against 11% in low-income countries. Automation assumptions imported from a North American headquarters will overstate the near-term opportunity in most of these markets, and a plan that budgets for the imported number will under-hire.</p><p>Bot is right when four things are true. The work is high volume. The task is rule-bound or text-bound. The output is checkable by someone who would notice an error. And the cost of an undetected error is bounded. Where error cost is unbounded, automation is a review-capacity decision, not a headcount reduction.</p><h2>the four questions that pick the route</h2><p>Score each capability on four variables before assigning a route. With the right people in the room this takes about twenty minutes per capability.</p><ol><li><strong>Durability.</strong> How many years will we still need this capability? Score it under one year, one to three years, or over three years.</li><li><strong>Adjacency.</strong> How many people are within one development cycle of it? Score zero, one to five, or more than five. If you cannot answer, that inability is itself the finding.</li><li><strong>Time to value.</strong> Compare your hiring cycle and your learning cycle for this capability in weeks, using your own historical data rather than a published benchmark.</li><li><strong>Task structure.</strong> What share of the work is routine, checkable, and expressible in text or rules? Estimate it from a task inventory, never from a job description.</li></ol><p>Then apply the rule. High durability with high adjacency is build. High durability with zero adjacency is buy. Low durability is borrow, whatever else is true. A high routine share with bounded error cost is bot first, and whatever work remains goes back through the other three questions, because what is left after automation is a different job with a different skill profile.</p><p>For each decision, write the single fact that would reverse it. That sentence is what makes the plan reviewable three months later.</p><h2>modeling demand without last year's headcount</h2><p>Demand modeling fails when it starts from current headcount and applies a growth percentage. That method encodes last year's staffing errors into next year's plan and calls the result a forecast.</p><p>Start from business drivers instead. Pick three to five drivers that leaders already forecast: revenue by segment, transaction volume, branch count, claims processed, regulatory filings. Express each capability's demand as a ratio to a driver. Twelve underwriters per hundred thousand policies. One data engineer per four analytics products in production.</p><p>The ratios will be rough. Rough and explicit beats precise and invented, because an explicit ratio can be argued with. Then interrogate each one. If a ratio has held steady for three years while the work underneath it changed, it is measuring something other than the work.</p><h2>modeling supply without a single attrition rate</h2><p>Supply modeling fails when one company attrition rate is applied to every group. Attrition is not uniform. It concentrates in particular role families, tenure bands, and locations, and the average conceals exactly the places where the plan will break.</p><p>Build supply in four moves. Start with current headcount by capability rather than by cost centre. Subtract expected exits using attrition rates segmented by role family and tenure band. Add and subtract expected internal moves, which requires knowing which roles are adjacent to which. Add confirmed pipeline only, meaning offers out and requisitions with live candidates.</p><p>Most plans skip the third move entirely. That is why internal mobility and workforce planning are usually run by two teams whose numbers have never been reconciled.</p><h2>the gap is a shape, not a number</h2><p>The output of the model is not one gap figure. It is two curves, demand and supply, plotted by quarter across eight quarters. The shape tells you the route.</p><p>A gap that opens in quarter two and closes by quarter five is a borrow problem. A gap that opens in quarter six and widens from there is a build problem, and you have time to use. A gap that is open now and structural is a buy problem, and you are already late. The same numeric gap points to three different decisions depending only on when it arrives.</p><p>The World Economic Forum's Future of Jobs Report 2025, based on responses from more than 1,000 employers across 55 economies, gives a useful sense of scale. Employers expect 39% of key skills to change by 2030. Of every hundred workers, 59 will need training, 29 can be upskilled inside their current role, 19 will need reskilling and redeployment elsewhere in the business, and 11 are unlikely to receive the training they need. That last group is the one a plan either accounts for or abandons by omission.</p><h2>what makes a plan wrong</h2><p>Every plan is wrong on the day it is published. The useful question is what makes it wrong faster than the review cycle can catch.</p><p>Three triggers should force a re-decision rather than a routine refresh. A business driver moving more than 15% from forecast. An automation result landing materially above or below the assumed task share. An attrition surprise in any segment carrying a build decision, because build depends on the people you assumed would stay.</p><p>Quarterly review, annual rebuild, and a named owner per capability is enough governance for most enterprises. Tooling helps once the capability inventory outgrows a spreadsheet, and connected <a href="../solutions/workforce-planning.html">workforce planning</a> systems earn their place mainly by keeping supply data current rather than by producing better forecasts. The forecast was never the hard part. The decision was, and the decision is what the spreadsheet leaves out.</p>
+      </article>
+      <div class="bl-sources">
+        <h2>sources</h2>
+        <ol>
+          <li><a href="https://www.deloitte.com/us/en/insights/topics/talent/future-of-workforce-planning/reinventing-workforce-planning.html" rel="noopener" target="_blank">Deloitte Insights, Reinventing workforce planning, 2025</a></li>
+          <li><a href="https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/beyond-hiring-how-companies-are-reskilling-to-address-talent-gaps" rel="noopener" target="_blank">McKinsey &amp; Company, Beyond hiring: How companies are reskilling to address talent gaps, 2020</a></li>
+          <li><a href="https://www.science.org/doi/10.1126/science.adj0998" rel="noopener" target="_blank">Eloundou, Manning, Mishkin &amp; Rock, GPTs are GPTs, Science, 2024</a></li>
+          <li><a href="https://www.ilo.org/sites/default/files/2025-05/WP140_web.pdf" rel="noopener" target="_blank">ILO Working Paper 140, Generative AI and Jobs: A Refined Global Index of Occupational Exposure, 2025</a></li>
+          <li><a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" rel="noopener" target="_blank">World Economic Forum, Future of Jobs Report 2025</a></li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <!-- ===== FILTER PILLS ===== -->
-  <section class="filter-section">
+  <section class="bl-more">
     <div class="container">
-      <div class="filter-bar">
-        <button class="filter-pill active" data-filter="all">all</button>
-        <button class="filter-pill" data-filter="ebook">ebooks &amp; guides</button>
-        <button class="filter-pill" data-filter="whitepaper">whitepapers</button>
-        <button class="filter-pill" data-filter="case-study">case studies</button>
-        <button class="filter-pill" data-filter="self-assessment">self assessments</button>
+      <h2>keep reading</h2>
+      <div class="posts-grid">
+        <a class="post-card" href="blog-job-description-wrong-unit-of-analysis.html" data-category="agentic">
+          <div class="post-image gradient-1"></div>
+          <div class="post-body">
+            <span class="post-tag tag-agentic">axon</span>
+            <h3>the job description is the wrong unit of analysis</h3>
+            <p class="post-excerpt">job titles average away the variation that matters, and the decisions enterprises now face need a smaller unit than the job.</p>
+            <div class="post-meta-sm">
+              <span>sep 02, 2026</span>
+              <span class="meta-dot">&middot;</span>
+              <span>8 min read</span>
+            </div>
+          </div>
+        </a>
+        <a class="post-card" href="blog-the-queue-between-question-and-answer.html" data-category="agentic">
+          <div class="post-image gradient-2"></div>
+          <div class="post-body">
+            <span class="post-tag tag-agentic">enzo</span>
+            <h3>the queue between a question and its answer</h3>
+            <p class="post-excerpt">self-service analytics never removed the wait for workforce answers, because the slow part was never retrieval.</p>
+            <div class="post-meta-sm">
+              <span>aug 22, 2026</span>
+              <span class="meta-dot">&middot;</span>
+              <span>8 min read</span>
+            </div>
+          </div>
+        </a>
+        <a class="post-card" href="blog-goal-quality-is-a-measurable-property.html" data-category="performance">
+          <div class="post-image gradient-3"></div>
+          <div class="post-body">
+            <span class="post-tag tag-performance">performance</span>
+            <h3>goal quality is measurable, and most goals fail the test</h3>
+            <p class="post-excerpt">a goal nobody can review produces no feedback, and that failure can be scored, sampled and tracked across an entire organisation.</p>
+            <div class="post-meta-sm">
+              <span>aug 11, 2026</span>
+              <span class="meta-dot">&middot;</span>
+              <span>7 min read</span>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
   </section>
-
-  <!-- ===== RESOURCE GRID ===== -->
-  <section class="grid-section">
-    <div class="container">
-      <div class="resource-grid">
-
-        <!-- Card 1 — Leveraging HRTech to create best-in-class Talent Engagement -->
-        <a class="resource-card" href="resource-agentic-hr-operating-model.html" data-category="whitepaper">
-          <div class="resource-thumb resource-thumb--gen"><span>whitepaper</span><b>the agentic <span class="keep-case">HR</span> operating model</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-whitepaper">whitepaper</span>
-            <h3>the agentic <span class="keep-case">HR</span> operating model</h3>
-            <p class="desc">what changes when intelligence acts inside the process rather than reporting on it, with a maturity model</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">34 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-skills-based-organisation-practically.html" data-category="ebook">
-          <div class="resource-thumb resource-thumb--gen"><span>ebook</span><b>the skills-based organisation, practically</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-ebook">ebook</span>
-            <h3>the skills-based organisation, practically</h3>
-            <p class="desc">a staged first-year guide from role architecture to skills-based staffing, with what to do in each quarter</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">44 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-governing-ai-in-hr.html" data-category="whitepaper">
-          <div class="resource-thumb resource-thumb--gen"><span>whitepaper</span><b>governing <span class="keep-case">AI</span> in <span class="keep-case">HR</span></b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-whitepaper">whitepaper</span>
-            <h3>governing <span class="keep-case">AI</span> in <span class="keep-case">HR</span></h3>
-            <p class="desc">a readiness guide to the EU AI Act, NYC Local Law 144 and the documentation your HR systems must hold</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">38 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-workforce-planning-when-ai-changes-the-work.html" data-category="ebook">
-          <div class="resource-thumb resource-thumb--gen"><span>ebook</span><b>workforce planning when <span class="keep-case">AI</span> changes the work</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-ebook">ebook</span>
-            <h3>workforce planning when <span class="keep-case">AI</span> changes the work</h3>
-            <p class="desc">how to model demand and supply when task composition shifts, with a build, buy, borrow, bot matrix</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">36 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-internal-talent-marketplace-people-use.html" data-category="ebook">
-          <div class="resource-thumb resource-thumb--gen"><span>ebook</span><b>designing an internal talent marketplace people use</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-ebook">ebook</span>
-            <h3>designing an internal talent marketplace people use</h3>
-            <p class="desc">the operating model, manager incentives and metrics that separate a working marketplace from an empty job board</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">30 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-human-capital-disclosure-iso-30414-csrd.html" data-category="whitepaper">
-          <div class="resource-thumb resource-thumb--gen"><span>whitepaper</span><b>human capital disclosure: <span class="keep-case">ISO</span> 30414 and <span class="keep-case">CSRD</span></b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-whitepaper">whitepaper</span>
-            <h3>human capital disclosure: <span class="keep-case">ISO</span> 30414 and <span class="keep-case">CSRD</span></h3>
-            <p class="desc">a metric-by-metric readiness guide to ISO 30414:2025 and the workforce disclosures inside the revised EU standards</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">40 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-hrtech-talent-engagement.html" data-category="ebook">
-          <div class="resource-thumb resource-thumb--gen"><span>ebook</span><b>leveraging HRTech to create best-in-class talent engagement</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-ebook">ebook</span>
-            <h3>leveraging HRTech to create best-in-class talent engagement</h3>
-            <p class="desc">a four-part webinar series on the platforms reshaping digital HR, recorded with IHRP Singapore.</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">50 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-reform-reimagine-roadmap.html" data-category="ebook">
-          <div class="resource-thumb resource-thumb--gen"><span>ebook</span><b>reform and reimagine workplace practices: a roadmap for leaders</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-ebook">ebook</span>
-            <h3>reform and reimagine workplace practices: a roadmap for leaders</h3>
-            <p class="desc">part two of the returning-to-work roadmap, a self-check across the react, respond, reform and reimagine stages.</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">7 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-augmenting-hcm-with-ai.html" data-category="whitepaper">
-          <div class="resource-thumb resource-thumb--gen"><span>whitepaper</span><b>driving business value: augmenting human capital management with <span class="keep-case">AI</span></b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-whitepaper">whitepaper</span>
-            <h3>driving business value: augmenting human capital management with <span class="keep-case">AI</span></h3>
-            <p class="desc">a report on where talent analytics matures, written with ETHRWorld.</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">18 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-career-readiness-singapore.html" data-category="whitepaper">
-          <div class="resource-thumb resource-thumb--gen"><span>whitepaper</span><b>evolution of career readiness: singapore</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-whitepaper">whitepaper</span>
-            <h3>evolution of career readiness: singapore</h3>
-            <p class="desc">a study of which roles and skills stayed resilient as the singapore career landscape shifted.</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">24 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-30-ideas-remote-age.html" data-category="ebook">
-          <div class="resource-thumb resource-thumb--gen"><span>ebook</span><b>30 revolutionary ideas for our remote age</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-ebook">ebook</span>
-            <h3>30 revolutionary ideas for our remote age</h3>
-            <p class="desc">thirty ideas from thirty HR and education influencers on what remote work changes permanently.</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">32 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-mastering-risk-and-performance.html" data-category="ebook">
-          <div class="resource-thumb resource-thumb--gen"><span>ebook</span><b>mastering risk and performance in the next normal</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-ebook">ebook</span>
-            <h3>mastering risk and performance in the next normal</h3>
-            <p class="desc">essential practices for enterprises and employees operating across owned, shared and remote workplaces.</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">8 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-return-to-work-self-assessment.html" data-category="ebook">
-          <div class="resource-thumb resource-thumb--gen"><span>ebook</span><b>are you ready to return to work? a self-assessment for leaders</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-ebook">ebook</span>
-            <h3>are you ready to return to work? a self-assessment for leaders</h3>
-            <p class="desc">part one of the returning-to-work roadmap, built around a yes or no self-check for leadership teams.</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">12 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== LEAD CAPTURE ===== -->
-  <section class="lead-section">
-    <div class="container">
-      <div class="lead-grid">
-        <div class="lead-text">
-          <div class="section-eyebrow">unlock the library</div>
-          <h2>get full access to every report</h2>
-          <p>one short form. unlimited access to entomo's research library &mdash; whitepapers, ebooks, customer stories, and frameworks for <span class="keep-case">HR</span> leaders shaping the agentic enterprise.</p>
-          <ul class="lead-points">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>
-              instant downloads. no drip emails.
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>
-              early access to new whitepapers and customer stories.
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>
-              quarterly executive briefing on agentic <span class="keep-case">HR</span> trends.
-            </li>
-          </ul>
-        </div>
-
-        <form class="lead-form">
-          <h3>access the full library</h3>
-          <p class="form-sub">takes less than 30 seconds.</p>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="firstName">first name</label>
-              <input type="text" id="firstName" name="firstName" placeholder="alex" required autocomplete="given-name">
-            </div>
-            <div class="form-group">
-              <label for="lastName">last name</label>
-              <input type="text" id="lastName" name="lastName" placeholder="chen" required autocomplete="family-name">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="email">work email</label>
-            <input type="email" id="email" name="email" placeholder="alex@company.com" required autocomplete="email">
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="company">company</label>
-              <input type="text" id="company" name="company" placeholder="acme corp" required autocomplete="organization">
-            </div>
-            <div class="form-group">
-              <label for="role">role</label>
-              <select id="role" name="role" required>
-                <option value="">select role</option>
-                <option value="chro"><span class="keep-case">CHRO</span> / chief people officer</option>
-                <option value="hr-leader"><span class="keep-case">HR</span> leader / VP <span class="keep-case">HR</span></option>
-                <option value="talent">talent / L&amp;D</option>
-                <option value="hrbp"><span class="keep-case">HR</span> business partner</option>
-                <option value="it">IT / digital <span class="keep-case">HR</span></option>
-                <option value="other">other</option>
-              </select>
-            </div>
-          </div>
-
-          <button type="submit" class="btn-primary">
-            unlock the library
-            <span class="arrow">→</span>
-          </button>
-          <p class="form-disclaimer">
-            by submitting, you agree to entomo's privacy policy. we never share your details.
-          </p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
   </main>
   <footer class="footer">
     <div class="container">
@@ -1417,9 +1159,9 @@
         <div class="footer-col">
           <h3>resources</h3>
           <ul>
-            <li><a href="ebooks-whitepapers.html">ebooks &amp; whitepapers</a></li>
+            <li><a href="#">Forrester <span class="keep-case">TEI</span> study</a></li>
             <li><a href="../inspiration/case-studies.html">case studies</a></li>
-            <li><a href="#">blog</a></li>
+            <li><a href="blog.html">blog</a></li>
             <li><a href="#">webinars</a></li>
           </ul>
         </div>
@@ -1446,18 +1188,11 @@
   </footer>
 
   <script>
-    // Filter pill toggle + card filtering
-    const pills = document.querySelectorAll('.filter-pill');
-    const cards = document.querySelectorAll('.resource-card[data-category]');
-    pills.forEach(pill => {
+    // simple filter pill toggle (visual only)
+    document.querySelectorAll('.filter-pill').forEach(pill => {
       pill.addEventListener('click', () => {
-        pills.forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
         pill.classList.add('active');
-        const filter = pill.dataset.filter;
-        cards.forEach(card => {
-          const match = filter === 'all' || card.dataset.category === filter;
-          card.style.display = match ? '' : 'none';
-        });
       });
     });
   </script>

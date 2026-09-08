@@ -726,7 +726,8 @@
       html { scroll-behavior: auto; }
     }
     /* ===== END SCROLL ANIMATIONS ===== */
-  </style>
+      .post-card, .featured-card { text-decoration: none; color: inherit; display: block; }
+</style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
 </head>
@@ -1041,24 +1042,18 @@
   <!-- ===== FEATURED POST ===== -->
   <section class="featured-section">
     <div class="container">
-      <article class="featured-card">
+      <a class="featured-card" href="blog-job-description-wrong-unit-of-analysis.html" style="color:inherit;">
         <div class="featured-image"></div>
         <div class="featured-body">
-          <span class="featured-tag">featured · agentic <span class="keep-case">AI</span></span>
-          <h2 class="keep-case" style="text-transform: lowercase;">agentic <span class="keep-case">AI</span> in the flow of work: why <span class="keep-case">HR</span> is the next frontier</h2>
+          <span class="featured-tag">featured &middot; axon</span>
+          <h2 style="text-transform: lowercase;">the job description is the wrong unit of analysis</h2>
           <p class="featured-excerpt">
-            dashboards tell you what happened. agents help you do something about it. here's why the daily flow-of-work — not the annual cycle — is where the next decade of <span class="keep-case">HR</span> will be won.
+            job titles average away the variation that matters, and the decisions enterprises now face need a smaller unit than the job.
           </p>
-          <div class="post-meta">
-            <span class="meta-author">priya raghavan</span>
-            <span class="meta-dot">·</span>
-            <span>may 02, 2026</span>
-            <span class="meta-dot">·</span>
-            <span>9 min read</span>
-          </div>
-          <a href="#" class="btn-link">read article →</a>
+          <div class="post-meta"><span>sep 02, 2026</span><span class="meta-dot">&middot;</span><span>8 min read</span></div>
+          <span class="btn-link">read article &rarr;</span>
         </div>
-      </article>
+      </a>
     </div>
   </section>
 
@@ -1066,14 +1061,13 @@
   <section class="filter-section">
     <div class="container">
       <div class="filter-bar">
-        <button class="filter-pill active">all</button>
-        <button class="filter-pill">agentic <span class="keep-case">AI</span></button>
-        <button class="filter-pill">performance</button>
-        <button class="filter-pill">skills</button>
-        <button class="filter-pill">engagement</button>
-        <button class="filter-pill">workforce planning</button>
-        <button class="filter-pill">industry insights</button>
-        <button class="filter-pill">research</button>
+        <button class="filter-pill active" data-filter="all">all</button>
+        <button class="filter-pill" data-filter="agentic">agentic <span class="keep-case">AI</span></button>
+        <button class="filter-pill" data-filter="performance">performance</button>
+        <button class="filter-pill" data-filter="skills">skills &amp; growth</button>
+        <button class="filter-pill" data-filter="engagement">engagement</button>
+        <button class="filter-pill" data-filter="workforce">workforce planning</button>
+        <button class="filter-pill" data-filter="research">research</button>
       </div>
     </div>
   </section>
@@ -1083,149 +1077,188 @@
     <div class="container">
       <div class="posts-grid">
 
-        <article class="post-card">
-          <div class="post-image gradient-1"></div>
-          <div class="post-body">
-            <span class="post-tag tag-agentic">agentic <span class="keep-case">AI</span></span>
-            <h3>why dashboards are dead and agents are the future</h3>
-            <p class="post-excerpt">dashboards report. agents act. inside the shift from passive analytics to intelligence that nudges, coaches, and decides.</p>
-            <div class="post-meta-sm">
-              <span class="meta-author">arjun mehta</span>
-              <span class="meta-dot">·</span>
-              <span>apr 28, 2026</span>
-              <span class="meta-dot">·</span>
-              <span>7 min read</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="post-card">
+        <a class="post-card" href="blog-the-queue-between-question-and-answer.html" data-category="agentic">
           <div class="post-image gradient-2"></div>
           <div class="post-body">
-            <span class="post-tag tag-performance">performance</span>
-            <h3>from annual reviews to continuous performance</h3>
-            <p class="post-excerpt">why the once-a-year review is finally being retired — and how continuous coaching is rewriting the manager's calendar.</p>
+            <span class="post-tag tag-agentic">enzo</span>
+            <h3>the queue between a question and its answer</h3>
+            <p class="post-excerpt">self-service analytics never removed the wait for workforce answers, because the slow part was never retrieval.</p>
             <div class="post-meta-sm">
-              <span class="meta-author">leena kapoor</span>
-              <span class="meta-dot">·</span>
-              <span>apr 24, 2026</span>
-              <span class="meta-dot">·</span>
-              <span>6 min read</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="post-card">
-          <div class="post-image gradient-3"></div>
-          <div class="post-body">
-            <span class="post-tag tag-skills">skills</span>
-            <h3>the skills crisis is a measurement crisis</h3>
-            <p class="post-excerpt">enterprises don't have a skills shortage. they have a skills visibility shortage. here's how to fix the lens before chasing the gap.</p>
-            <div class="post-meta-sm">
-              <span class="meta-author">vikram suri</span>
-              <span class="meta-dot">·</span>
-              <span>apr 19, 2026</span>
-              <span class="meta-dot">·</span>
+              <span>aug 22, 2026</span>
+              <span class="meta-dot">&middot;</span>
               <span>8 min read</span>
             </div>
           </div>
-        </article>
-
-        <article class="post-card">
-          <div class="post-image gradient-4"></div>
+        </a>
+        <a class="post-card" href="blog-goal-quality-is-a-measurable-property.html" data-category="performance">
+          <div class="post-image gradient-3"></div>
           <div class="post-body">
-            <span class="post-tag tag-research">research</span>
-            <h3>what 30M users taught us about workforce engagement</h3>
-            <p class="post-excerpt">five patterns we found across 30M+ users worldwide — and what they reveal about the signals that actually predict retention.</p>
+            <span class="post-tag tag-performance">performance</span>
+            <h3>goal quality is measurable, and most goals fail the test</h3>
+            <p class="post-excerpt">a goal nobody can review produces no feedback, and that failure can be scored, sampled and tracked across an entire organisation.</p>
             <div class="post-meta-sm">
-              <span class="meta-author">dr. anika rao</span>
-              <span class="meta-dot">·</span>
-              <span>apr 15, 2026</span>
-              <span class="meta-dot">·</span>
-              <span>11 min read</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="post-card">
-          <div class="post-image gradient-5"></div>
-          <div class="post-body">
-            <span class="post-tag tag-industry">industry insights</span>
-            <h3>building the enterprise of tomorrow: a <span class="keep-case">CHRO</span>'s playbook</h3>
-            <p class="post-excerpt">a practical sequence for <span class="keep-case">CHROs</span> leading agentic transformation — from board sponsorship to first measurable outcome in 90 days.</p>
-            <div class="post-meta-sm">
-              <span class="meta-author">rohit sinha</span>
-              <span class="meta-dot">·</span>
-              <span>apr 11, 2026</span>
-              <span class="meta-dot">·</span>
-              <span>10 min read</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="post-card">
-          <div class="post-image gradient-6"></div>
-          <div class="post-body">
-            <span class="post-tag tag-agentic">agentic <span class="keep-case">AI</span></span>
-            <h3>how agentic <span class="keep-case">AI</span> changes the manager's job</h3>
-            <p class="post-excerpt">when an agent handles the cadence, the manager gets the conversation back. a look at what the new manager workflow actually feels like.</p>
-            <div class="post-meta-sm">
-              <span class="meta-author">tara chen</span>
-              <span class="meta-dot">·</span>
-              <span>apr 07, 2026</span>
-              <span class="meta-dot">·</span>
-              <span>6 min read</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="post-card">
-          <div class="post-image gradient-7"></div>
-          <div class="post-body">
-            <span class="post-tag tag-research">research</span>
-            <h3>forrester <span class="keep-case">TEI</span>: 103% <span class="keep-case">ROI</span> from agentic <span class="keep-case">HR</span></h3>
-            <p class="post-excerpt">our highlights from the forrester total economic impact study — including the $26.8M value path that drove a 103% <span class="keep-case">ROI</span>.</p>
-            <div class="post-meta-sm">
-              <span class="meta-author">entomo research</span>
-              <span class="meta-dot">·</span>
-              <span>apr 03, 2026</span>
-              <span class="meta-dot">·</span>
-              <span>5 min read</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="post-card">
-          <div class="post-image gradient-8"></div>
-          <div class="post-body">
-            <span class="post-tag tag-industry">industry insights</span>
-            <h3>why your <span class="keep-case">HRIS</span> isn't enough anymore</h3>
-            <p class="post-excerpt">your <span class="keep-case">HRIS</span> is a system of record. tomorrow's enterprise needs a system of intelligence. the difference, and why it matters now.</p>
-            <div class="post-meta-sm">
-              <span class="meta-author">karthik venkat</span>
-              <span class="meta-dot">·</span>
-              <span>mar 29, 2026</span>
-              <span class="meta-dot">·</span>
+              <span>aug 11, 2026</span>
+              <span class="meta-dot">&middot;</span>
               <span>7 min read</span>
             </div>
           </div>
-        </article>
-
-        <article class="post-card">
-          <div class="post-image gradient-9"></div>
+        </a>
+        <a class="post-card" href="blog-engagement-surveys-measure-the-wrong-latency.html" data-category="engagement">
+          <div class="post-image gradient-4"></div>
+          <div class="post-body">
+            <span class="post-tag tag-engagement">engagement</span>
+            <h3>your engagement survey measures the wrong latency</h3>
+            <p class="post-excerpt">engagement moves day to day, the annual survey reports once a year, and the gap between those two clocks is where most listening programmes fail.</p>
+            <div class="post-meta-sm">
+              <span>jul 31, 2026</span>
+              <span class="meta-dot">&middot;</span>
+              <span>8 min read</span>
+            </div>
+          </div>
+        </a>
+        <a class="post-card" href="blog-burnout-is-a-job-design-problem.html" data-category="engagement">
+          <div class="post-image gradient-5"></div>
+          <div class="post-body">
+            <span class="post-tag tag-engagement">wellbeing</span>
+            <h3>burnout is a job design problem, not a resilience problem</h3>
+            <p class="post-excerpt">the evidence points at demands, resources and control, yet most organisations respond by measuring how well people cope with them.</p>
+            <div class="post-meta-sm">
+              <span>jul 20, 2026</span>
+              <span class="meta-dot">&middot;</span>
+              <span>7 min read</span>
+            </div>
+          </div>
+        </a>
+        <a class="post-card" href="blog-the-board-ready-workforce-report.html" data-category="research">
+          <div class="post-image gradient-6"></div>
+          <div class="post-body">
+            <span class="post-tag tag-research">analytics</span>
+            <h3>the workforce report your board and your auditor both accept</h3>
+            <p class="post-excerpt">ISO 30414 became a requirements standard in 2025 and the EU narrowed CSRD in 2026, which changes what a credible disclosure set looks like.</p>
+            <div class="post-meta-sm">
+              <span>jul 09, 2026</span>
+              <span class="meta-dot">&middot;</span>
+              <span>8 min read</span>
+            </div>
+          </div>
+        </a>
+        <a class="post-card" href="blog-career-paths-people-can-walk.html" data-category="skills">
+          <div class="post-image gradient-1"></div>
+          <div class="post-body">
+            <span class="post-tag tag-skills">skills</span>
+            <h3>career paths people can walk</h3>
+            <p class="post-excerpt">career frameworks name destinations and skip the route; paths built from skill distance tell people where they can go next.</p>
+            <div class="post-meta-sm">
+              <span>jun 28, 2026</span>
+              <span class="meta-dot">&middot;</span>
+              <span>6 min read</span>
+            </div>
+          </div>
+        </a>
+        <a class="post-card" href="blog-workforce-planning-is-a-decision-not-a-spreadsheet.html" data-category="workforce">
+          <div class="post-image gradient-2"></div>
           <div class="post-body">
             <span class="post-tag tag-workforce">workforce planning</span>
-            <h3>the <span class="keep-case">4B</span> framework: build, buy, borrow, bot</h3>
-            <p class="post-excerpt">the <span class="keep-case">4B</span> framework gives workforce leaders a clear, defensible answer to the question every CFO is asking: where does the work actually go?</p>
+            <h3>workforce planning is a decision, not a spreadsheet</h3>
+            <p class="post-excerpt">build, buy, borrow or bot: every capability needs a supply decision on the record, with the evidence that would reverse it.</p>
             <div class="post-meta-sm">
-              <span class="meta-author">nadia hassan</span>
-              <span class="meta-dot">·</span>
-              <span>mar 24, 2026</span>
-              <span class="meta-dot">·</span>
+              <span>jun 17, 2026</span>
+              <span class="meta-dot">&middot;</span>
+              <span>8 min read</span>
+            </div>
+          </div>
+        </a>
+        <a class="post-card" href="blog-why-competency-frameworks-die-in-month-seven.html" data-category="skills">
+          <div class="post-image gradient-3"></div>
+          <div class="post-body">
+            <span class="post-tag tag-skills">frameworks</span>
+            <h3>why competency frameworks die in month seven</h3>
+            <p class="post-excerpt">role requirements drift faster than any rewrite cycle; a framework survives only if it is maintained monthly like an operating system.</p>
+            <div class="post-meta-sm">
+              <span>jun 06, 2026</span>
+              <span class="meta-dot">&middot;</span>
+              <span>7 min read</span>
+            </div>
+          </div>
+        </a>
+        <a class="post-card" href="blog-assessing-skills-at-scale-without-fooling-yourself.html" data-category="skills">
+          <div class="post-image gradient-4"></div>
+          <div class="post-body">
+            <span class="post-tag tag-skills">assessment</span>
+            <h3>assessing skills at scale without fooling yourself</h3>
+            <p class="post-excerpt">validity is an argument you build, reliability is the ceiling you cannot exceed, and most internal assessments fail on both.</p>
+            <div class="post-meta-sm">
+              <span>may 26, 2026</span>
+              <span class="meta-dot">&middot;</span>
+              <span>8 min read</span>
+            </div>
+          </div>
+        </a>
+        <a class="post-card" href="blog-internal-mobility-two-clocks.html" data-category="workforce">
+          <div class="post-image gradient-5"></div>
+          <div class="post-body">
+            <span class="post-tag tag-workforce">internal mobility</span>
+            <h3>internal mobility runs on two clocks</h3>
+            <p class="post-excerpt">one clock fills the role open this month, the other builds the career that takes three years, and most organisations wind only one of them.</p>
+            <div class="post-meta-sm">
+              <span>may 15, 2026</span>
+              <span class="meta-dot">&middot;</span>
+              <span>7 min read</span>
+            </div>
+          </div>
+        </a>
+        <a class="post-card" href="blog-succession-readiness-is-evidence.html" data-category="workforce">
+          <div class="post-image gradient-6"></div>
+          <div class="post-body">
+            <span class="post-tag tag-workforce">succession</span>
+            <h3>succession slates need evidence, not ratings</h3>
+            <p class="post-excerpt">nine-box grids produce agreement quickly and accuracy rarely, and a board question will find the difference every time.</p>
+            <div class="post-meta-sm">
+              <span>may 04, 2026</span>
+              <span class="meta-dot">&middot;</span>
+              <span>7 min read</span>
+            </div>
+          </div>
+        </a>
+        <a class="post-card" href="blog-learning-roi-chain-of-evidence.html" data-category="skills">
+          <div class="post-image gradient-1"></div>
+          <div class="post-body">
+            <span class="post-tag tag-skills">learning</span>
+            <h3>learning spend needs a chain of evidence</h3>
+            <p class="post-excerpt">training evaluation stops at satisfaction scores because the next four links are unowned, not because they are impossible.</p>
+            <div class="post-meta-sm">
+              <span>apr 23, 2026</span>
+              <span class="meta-dot">&middot;</span>
+              <span>7 min read</span>
+            </div>
+          </div>
+        </a>
+        <a class="post-card" href="blog-skills-taxonomy-dictionary-not-diagnosis.html" data-category="agentic">
+          <div class="post-image gradient-2"></div>
+          <div class="post-body">
+            <span class="post-tag tag-agentic">axon</span>
+            <h3>your skills taxonomy is a dictionary, not a diagnosis</h3>
+            <p class="post-excerpt">a taxonomy resolves what to call things, and cannot tell you proficiency, context or currency, which is where every workforce decision lives.</p>
+            <div class="post-meta-sm">
+              <span>apr 12, 2026</span>
+              <span class="meta-dot">&middot;</span>
+              <span>7 min read</span>
+            </div>
+          </div>
+        </a>
+        <a class="post-card" href="blog-autonomy-is-a-dial-not-a-switch.html" data-category="agentic">
+          <div class="post-image gradient-3"></div>
+          <div class="post-body">
+            <span class="post-tag tag-agentic">enzo</span>
+            <h3>autonomy should be a dial, not a switch</h3>
+            <p class="post-excerpt">a four-level model for governing AI in HR, with what to log at each level and the evidence required to move a use case up.</p>
+            <div class="post-meta-sm">
+              <span>apr 01, 2026</span>
+              <span class="meta-dot">&middot;</span>
               <span>9 min read</span>
             </div>
           </div>
-        </article>
+        </a>
 
       </div>
 
@@ -1313,11 +1346,15 @@
   </footer>
 
   <script>
-    // simple filter pill toggle (visual only)
-    document.querySelectorAll('.filter-pill').forEach(pill => {
+    // filter pills actually filter the grid
+    const pills = document.querySelectorAll('.filter-pill');
+    const cards = document.querySelectorAll('.post-card[data-category]');
+    pills.forEach(pill => {
       pill.addEventListener('click', () => {
-        document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+        pills.forEach(p => p.classList.remove('active'));
         pill.classList.add('active');
+        const f = pill.dataset.filter;
+        cards.forEach(c => { c.style.display = (f === 'all' || c.dataset.category === f) ? '' : 'none'; });
       });
     });
   </script>

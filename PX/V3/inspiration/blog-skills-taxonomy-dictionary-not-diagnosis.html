@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ebooks &amp; whitepapers | entomo</title>
-  <meta name="description" content="deep dives, real research, and POVs for HR leaders shaping the future of work. forrester TEI, agentic AI playbooks, and skills frameworks from entomo.">
+  <title>your skills taxonomy is a dictionary, not a diagnosis | entomo</title>
+  <meta name="description" content="a taxonomy resolves what to call things, and cannot tell you proficiency, context or currency, which is where every workforce decision lives.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
@@ -20,6 +20,7 @@
     }
     img { max-width: 100%; display: block; }
     a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; }
 
     :root {
       --cg-red: #e43d30;
@@ -195,6 +196,7 @@
       .nav-toggle { display: block; }
     }
 
+    /* Placeholder tooltips */
     .nav-placeholder-tooltip { position: relative; }
     .nav-placeholder-tooltip::after {
       content: attr(data-tooltip);
@@ -218,25 +220,24 @@
     .nav-placeholder-tooltip:hover::before { opacity: 1; }
 
     /* ===== HERO ===== */
-    .hero {
+    .blog-hero {
       background: linear-gradient(180deg, var(--floral-white) 0%, white 100%);
       padding: 5rem 0 3.5rem;
       text-align: center;
     }
     .hero-eyebrow {
       display: inline-block;
-      font-size: 13px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 1.5px;
-      background: linear-gradient(90deg, var(--cg-gold), var(--cg-red));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1rem;
+      background: rgba(228, 61, 48, 0.08);
+      color: var(--cg-red);
+      font-size: 0.85rem; font-weight: 700;
+      padding: 6px 16px; border-radius: 20px;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase; letter-spacing: 0.5px;
     }
-    .hero h1 { margin-bottom: 1.25rem; max-width: 920px; margin-left: auto; margin-right: auto; }
-    .hero .lede {
-      font-size: 1.15rem; color: var(--ink-3);
-      max-width: 720px; margin: 0 auto; line-height: 1.55;
+    .blog-hero h1 { margin-bottom: 1.25rem; max-width: 900px; margin-left: auto; margin-right: auto; }
+    .blog-hero .lede {
+      font-size: 1.2rem; color: var(--ink-3);
+      max-width: 700px; margin: 0 auto; line-height: 1.55;
     }
 
     /* ===== SECTION BASE ===== */
@@ -252,76 +253,46 @@
       margin-bottom: 1rem;
     }
 
-    /* ===== FEATURED WHITEPAPER ===== */
-    .featured-section { padding-top: 1rem; padding-bottom: 4rem; }
+    /* ===== FEATURED POST ===== */
+    .featured-section { padding-top: 1rem; padding-bottom: 3rem; background: white; }
     .featured-card {
       display: grid;
       grid-template-columns: 1.1fr 1fr;
       background: white;
-      border-radius: 24px;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
       border: 1px solid rgba(26,31,38,0.06);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.04);
+      transition: transform 0.25s, box-shadow 0.25s;
     }
-    .featured-visual {
-      background: linear-gradient(135deg, #1a1f26 0%, #0064bf 100%);
-      padding: 3rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      color: white;
+    .featured-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    }
+    .featured-image {
+      min-height: 360px;
+      background: linear-gradient(135deg, var(--cg-red) 0%, #c92e22 60%, #7a1a12 100%);
       position: relative;
       overflow: hidden;
-      min-height: 380px;
     }
-    .featured-visual::before {
+    .featured-image::before {
       content: '';
       position: absolute;
-      top: -80px; right: -80px;
-      width: 280px; height: 280px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(244,178,35,0.35) 0%, transparent 70%);
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(244,178,35,0.4) 0%, transparent 45%),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.15) 0%, transparent 50%);
     }
-    .featured-visual::after {
+    .featured-image::after {
       content: '';
       position: absolute;
-      bottom: -60px; left: -60px;
-      width: 200px; height: 200px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(228,61,48,0.3) 0%, transparent 70%);
+      bottom: 1.5rem; left: 1.5rem;
+      width: 60px; height: 60px; border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
     }
-    .featured-stat {
-      position: relative;
-      z-index: 1;
-    }
-    .featured-stat-number {
-      font-size: clamp(3rem, 6vw, 4.8rem);
-      font-weight: 800;
-      line-height: 1;
-      color: var(--cg-gold);
-      letter-spacing: -2px;
-    }
-    .featured-stat-label {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.85);
-      margin-top: 0.5rem;
-      max-width: 320px;
-      line-height: 1.5;
-    }
-    .featured-meta {
-      display: flex;
-      gap: 1.5rem;
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.7);
-      position: relative;
-      z-index: 1;
-    }
-    .featured-meta span {
-      display: flex; align-items: center; gap: 6px;
-    }
-
-    .featured-content {
-      padding: 3rem;
+    .featured-body {
+      padding: 3rem 2.75rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -329,64 +300,73 @@
     .featured-tag {
       display: inline-block;
       align-self: flex-start;
-      background: rgba(0, 100, 191, 0.1);
-      color: var(--spanish-blue);
       font-size: 11px; font-weight: 700;
-      padding: 5px 12px; border-radius: 20px;
-      text-transform: uppercase; letter-spacing: 1px;
+      letter-spacing: 1px;
+      padding: 5px 12px;
+      border-radius: 20px;
       margin-bottom: 1rem;
+      text-transform: uppercase;
+      background: rgba(228,61,48,0.1);
+      color: var(--cg-red);
     }
-    .featured-content h2 {
-      margin-bottom: 1rem;
-      font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+    .featured-body h2 {
+      font-size: clamp(1.6rem, 2.4vw, 2rem);
       line-height: 1.2;
+      margin-bottom: 1rem;
+      font-weight: 800;
     }
-    .featured-content p {
+    .featured-excerpt {
       font-size: 1rem;
       color: var(--ink-2);
       line-height: 1.6;
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.5rem;
     }
-    .btn-primary {
-      display: inline-flex;
+    .post-meta {
+      display: flex;
       align-items: center;
-      gap: 8px;
-      background: var(--gradient-cta); color: white;
-      padding: 13px 26px; border-radius: 10px;
-      font-weight: 700; font-size: 0.95rem;
-      border: none; cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-      text-transform: lowercase;
+      gap: 1rem;
+      font-size: 13px;
+      color: var(--ink-3);
+      margin-bottom: 1.5rem;
+    }
+    .post-meta .meta-author { font-weight: 600; color: var(--ebony-clay); }
+    .post-meta .meta-dot { color: var(--ink-4); }
+    .btn-link {
       align-self: flex-start;
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--gradient-cta);
+      color: white;
+      padding: 11px 22px;
+      border-radius: 8px;
+      font-size: 14px; font-weight: 700;
+      text-transform: lowercase;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-    .btn-primary:hover {
+    .btn-link:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(228, 61, 48, 0.3);
+      box-shadow: 0 10px 24px rgba(228, 61, 48, 0.28);
     }
-    .btn-primary .arrow { transition: transform 0.2s; }
-    .btn-primary:hover .arrow { transform: translateX(3px); }
 
     /* ===== FILTER PILLS ===== */
-    .filter-section { padding: 1rem 0 0; }
+    .filter-section { padding: 1rem 0 2rem; background: white; }
     .filter-bar {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
+      gap: 0.5rem;
       justify-content: center;
-      padding: 0.5rem 0 0;
     }
     .filter-pill {
       background: white;
-      border: 1.5px solid rgba(26,31,38,0.1);
-      color: var(--ebony-clay);
-      font-size: 0.9rem;
-      font-weight: 600;
-      padding: 8px 18px;
-      border-radius: 30px;
+      border: 1px solid rgba(26,31,38,0.12);
+      color: var(--ink-2);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
       cursor: pointer;
-      text-transform: lowercase;
-      font-family: inherit;
-      transition: all 0.2s;
+      transition: all 0.18s;
     }
     .filter-pill:hover {
       border-color: var(--cg-red);
@@ -398,217 +378,193 @@
       color: white;
     }
 
-    /* ===== RESOURCE GRID ===== */
-    .grid-section { padding-top: 2.5rem; }
-    .resource-grid {
+    /* ===== POSTS GRID ===== */
+    .posts-section { padding: 2rem 0 5rem; background: white; }
+    .posts-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.75rem;
+      gap: 2rem;
     }
-    .resource-card {
+    .post-card {
       background: white;
       border-radius: 16px;
       overflow: hidden;
       border: 1px solid rgba(26,31,38,0.06);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
       transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
       display: flex;
       flex-direction: column;
+      cursor: pointer;
     }
-    .resource-card:hover {
+    .post-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-      border-color: rgba(26,31,38,0.12);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.08);
+      border-color: rgba(26,31,38,0.1);
     }
-
-    .resource-thumb {
-      height: 200px;
+    .post-image {
+      height: 180px;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, #f2f7fc 0%, #fefbf4 100%);
     }
-    .resource-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      transition: transform 0.4s ease;
+    .post-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 25% 35%, rgba(255,255,255,0.25) 0%, transparent 45%),
+        radial-gradient(circle at 75% 75%, rgba(0,0,0,0.18) 0%, transparent 60%);
     }
-    .resource-card:hover .resource-thumb img { transform: scale(1.04); }
+    .post-image.gradient-1 { background: linear-gradient(135deg, #e43d30 0%, #f4b223 100%); }
+    .post-image.gradient-2 { background: linear-gradient(135deg, #0064bf 0%, #2a8de0 100%); }
+    .post-image.gradient-3 { background: linear-gradient(135deg, #2c9942 0%, #5dc46b 100%); }
+    .post-image.gradient-4 { background: linear-gradient(135deg, #1a1f26 0%, #3a4452 100%); }
+    .post-image.gradient-5 { background: linear-gradient(135deg, #f4b223 0%, #ffda00 100%); }
+    .post-image.gradient-6 { background: linear-gradient(135deg, #0064bf 0%, #1a1f26 100%); }
+    .post-image.gradient-7 { background: linear-gradient(135deg, #e43d30 0%, #1a1f26 100%); }
+    .post-image.gradient-8 { background: linear-gradient(135deg, #2c9942 0%, #0064bf 100%); }
+    .post-image.gradient-9 { background: linear-gradient(135deg, #f4b223 0%, #e43d30 100%); }
 
-    .resource-body {
-      padding: 1.5rem;
-      flex: 1;
+    .post-body {
+      padding: 1.5rem 1.5rem 1.75rem;
       display: flex;
       flex-direction: column;
+      flex: 1;
     }
-    .resource-tag {
+    .post-tag {
       display: inline-block;
       align-self: flex-start;
       font-size: 10px;
       font-weight: 700;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
+      letter-spacing: 1px;
       padding: 4px 10px;
-      border-radius: 20px;
+      border-radius: 12px;
+      text-transform: uppercase;
       margin-bottom: 0.85rem;
     }
-    .tag-whitepaper { background: rgba(0, 100, 191, 0.1); color: var(--spanish-blue); }
-    .tag-ebook { background: rgba(244, 178, 35, 0.15); color: #b8860b; }
-    .tag-research { background: rgba(44, 153, 66, 0.1); color: var(--sea-green); }
-    .tag-analyst { background: rgba(228, 61, 48, 0.1); color: var(--cg-red); }
-    .tag-pov { background: rgba(107, 44, 140, 0.1); color: #6b2c8c; }
-    .tag-recognition { background: rgba(26, 31, 38, 0.08); color: var(--ebony-clay); }
+    .tag-agentic { background: rgba(228,61,48,0.1); color: var(--cg-red); }
+    .tag-performance { background: rgba(0,100,191,0.1); color: var(--spanish-blue); }
+    .tag-skills { background: rgba(44,153,66,0.1); color: var(--sea-green); }
+    .tag-engagement { background: rgba(244,178,35,0.15); color: #b8860b; }
+    .tag-research { background: rgba(26,31,38,0.08); color: var(--ebony-clay); }
+    .tag-industry { background: rgba(228,61,48,0.08); color: #c92e22; }
+    .tag-workforce { background: rgba(0,100,191,0.08); color: #004a8f; }
 
-    .resource-card h3 {
+    .post-card h3 {
       font-size: 1.1rem;
-      line-height: 1.3;
-      margin-bottom: 0.65rem;
       font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
     }
-    .resource-card .desc {
-      font-size: 0.9rem;
+    .post-card:hover h3 { color: var(--cg-red); }
+    .post-excerpt {
+      font-size: 0.92rem;
       color: var(--ink-3);
       line-height: 1.55;
       margin-bottom: 1.25rem;
       flex: 1;
     }
-    .resource-meta {
+    .post-meta-sm {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-      padding-top: 1rem;
+      gap: 0.6rem;
+      font-size: 12px;
+      color: var(--ink-4);
+      padding-top: 0.85rem;
       border-top: 1px solid rgba(26,31,38,0.06);
-      margin-top: auto;
     }
-    .resource-readtime {
-      font-size: 0.8rem;
-      color: var(--ink-3);
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-    .btn-download {
-      background: none;
-      border: none;
-      color: var(--cg-red);
-      font-size: 0.9rem;
-      font-weight: 700;
-      cursor: pointer;
-      font-family: inherit;
-      text-transform: lowercase;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 0;
-      transition: gap 0.2s;
-    }
-    .btn-download:hover { gap: 9px; }
+    .post-meta-sm .meta-author { font-weight: 600; color: var(--ebony-clay); }
+    .post-meta-sm .meta-dot { color: var(--ink-4); }
 
-    /* ===== LEAD CAPTURE ===== */
-    .lead-section {
-      background: linear-gradient(135deg, var(--floral-white) 0%, var(--polar-white) 100%);
+    .load-more-wrap { text-align: center; margin-top: 3rem; }
+    .btn-secondary {
+      display: inline-block;
+      background: var(--sunrise-yellow);
+      color: var(--ebony-clay);
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-    .lead-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 4rem;
-      align-items: center;
-      max-width: 1100px;
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(244, 178, 35, 0.35);
+    }
+
+    /* ===== NEWSLETTER ===== */
+    .newsletter-section {
+      background: linear-gradient(135deg, var(--ebony-clay) 0%, #2a3038 100%);
+      color: white;
+      padding: 4.5rem 0;
+    }
+    .newsletter-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .newsletter-wrap .section-eyebrow {
+      background: linear-gradient(90deg, var(--cg-gold), #ffda00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .newsletter-wrap h2 {
+      color: white;
+      margin-bottom: 0.85rem;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+    }
+    .newsletter-wrap p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      line-height: 1.55;
+    }
+    .newsletter-form {
+      display: flex;
+      gap: 0.5rem;
+      max-width: 480px;
       margin: 0 auto;
     }
-    .lead-text h2 { margin-bottom: 1rem; }
-    .lead-text p {
-      font-size: 1.05rem;
-      color: var(--ink-2);
-      line-height: 1.65;
-      margin-bottom: 1.5rem;
-    }
-    .lead-points {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-    }
-    .lead-points li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.95rem;
-      color: rgba(26,31,38,0.78);
-    }
-    .lead-points svg {
-      width: 20px; height: 20px;
-      color: var(--sea-green);
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .lead-form {
-      background: white;
-      border-radius: 20px;
-      padding: 2.25rem;
-      box-shadow: 0 16px 50px rgba(0,0,0,0.08);
-      border: 1px solid rgba(26,31,38,0.05);
-    }
-    .lead-form h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.3rem;
-    }
-    .lead-form .form-sub {
-      font-size: 0.9rem;
-      color: var(--ink-3);
-      margin-bottom: 1.5rem;
-    }
-    .form-group {
-      margin-bottom: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-    .form-group label {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: rgba(26,31,38,0.75);
-      text-transform: lowercase;
-    }
-    .form-group input,
-    .form-group select {
-      width: 100%;
-      padding: 11px 14px;
-      border: 1.5px solid rgba(26,31,38,0.12);
-      border-radius: 8px;
+    .newsletter-form input {
+      flex: 1;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: white;
       font-family: inherit;
-      font-size: 0.95rem;
-      color: var(--ebony-clay);
-      background: white;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .form-group input:focus,
-    .form-group select:focus {
+      font-size: 15px;
+      padding: 13px 18px;
+      border-radius: 8px;
       outline: none;
-      border-color: var(--cg-red);
-      box-shadow: 0 0 0 3px rgba(228,61,48,0.1);
+      transition: border-color 0.2s, background 0.2s;
     }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.45); }
+    .newsletter-form input:focus {
+      border-color: var(--cg-gold);
+      background: rgba(255,255,255,0.12);
     }
-    .lead-form .btn-primary {
-      width: 100%;
-      justify-content: center;
-      margin-top: 0.5rem;
-      padding: 14px;
+    .newsletter-form button {
+      background: var(--gradient-cta);
+      color: white;
+      border: none;
+      padding: 13px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      text-transform: lowercase;
+      transition: transform 0.2s, box-shadow 0.2s;
+      white-space: nowrap;
     }
-    .form-disclaimer {
-      font-size: 0.75rem;
-      color: var(--ink-4);
-      line-height: 1.5;
+    .newsletter-form button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(228, 61, 48, 0.35);
+    }
+    .newsletter-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
       margin-top: 1rem;
-      text-align: center;
     }
 
     /* ===== FOOTER ===== */
@@ -682,17 +638,18 @@
     }
 
     /* ===== RESPONSIVE ===== */
-    @media (max-width: 960px) {
+    @media (max-width: 980px) {
       .featured-card { grid-template-columns: 1fr; }
-      .featured-visual { min-height: 280px; padding: 2rem; }
-      .featured-content { padding: 2rem; }
-      .resource-grid { grid-template-columns: repeat(2, 1fr); }
-      .lead-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .featured-image { min-height: 240px; }
+      .featured-body { padding: 2rem 1.75rem; }
+      .posts-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .nav-links { display: none; }
     }
     @media (max-width: 640px) {
-      .resource-grid { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
+      .posts-grid { grid-template-columns: 1fr; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-form button { width: 100%; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; gap: 1rem; }
     }
@@ -769,16 +726,33 @@
       html { scroll-behavior: auto; }
     }
     /* ===== END SCROLL ANIMATIONS ===== */
-      .resource-card { text-decoration: none; color: inherit; display: block; }
-    .resource-thumb--gen { display:flex; flex-direction:column; justify-content:flex-end; padding:1.1rem 1.15rem;
-      color:#fff; background:linear-gradient(150deg, var(--ebony-clay) 0%, #2b3038 100%); min-height:150px; }
-    .resource-thumb--gen span { font-size:10px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; opacity:.6; margin-bottom:.35rem; }
-    .resource-thumb--gen b { font-size:15px; font-weight:700; line-height:1.28; letter-spacing:-.012em; }
-    .resource-card { text-decoration: none; color: inherit; display: block; }
-    .resource-thumb--gen { display:flex; flex-direction:column; justify-content:flex-end; padding:1.1rem 1.15rem;
-      color:#fff; background:linear-gradient(150deg, var(--ebony-clay) 0%, #2b3038 100%); min-height:150px; }
-    .resource-thumb--gen span { font-size:10px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; opacity:.6; margin-bottom:.35rem; }
-    .resource-thumb--gen b { font-size:15px; font-weight:700; line-height:1.28; letter-spacing:-.012em; }
+  
+    .post-card, .featured-card { text-decoration: none; color: inherit; display: block; }
+    /* ===== article ===== */
+    .bl-hero { padding: 3.2rem 0 2rem; background: linear-gradient(160deg, var(--floral-white) 0%, #fff 72%); border-bottom: 1px solid rgba(26,31,38,0.06); }
+    .bl-back { display:inline-flex; align-items:center; gap:.45em; font-size:13px; font-weight:700; color:var(--ink-3); text-decoration:none; margin-bottom:1.5rem; }
+    .bl-back:hover { color: var(--cg-red); }
+    .bl-hero h1 { font-size: clamp(30px,3.7vw,48px); letter-spacing:-.028em; line-height:1.1; max-width:19ch; margin:.85rem 0 0; }
+    .bl-dek { font-size: clamp(17px,1.5vw,20px); line-height:1.55; color:var(--ink-3); max-width:60ch; margin:1.05rem 0 1.3rem; }
+    .bl-meta { display:flex; align-items:center; gap:.6rem; font-size:13px; color:var(--ink-4); font-weight:600; }
+    .bl-body { padding: 2.8rem 0 3rem; }
+    .bl-article { max-width: 68ch; }
+    .bl-article p { font-size:17.5px; line-height:1.75; color:var(--ink-2); margin:0 0 1.4rem; }
+    .bl-article h2 { font-size: clamp(22px,2.1vw,29px); letter-spacing:-.02em; line-height:1.2; margin:2.6rem 0 .9rem; }
+    .bl-article h3 { font-size: clamp(18px,1.6vw,21px); margin:2rem 0 .7rem; }
+    .bl-article ul, .bl-article ol { margin:0 0 1.4rem 1.15rem; padding:0; }
+    .bl-article li { font-size:17px; line-height:1.7; color:var(--ink-2); margin-bottom:.55rem; }
+    .bl-article a { color: var(--spanish-blue); text-decoration:underline; text-underline-offset:2px; }
+    .bl-article strong { color: var(--ink); font-weight:700; }
+    .bl-article blockquote { margin:1.8rem 0; padding:1.1rem 1.4rem; border-left:3px solid var(--cg-gold); background:var(--floral-white); border-radius:0 12px 12px 0; }
+    .bl-article blockquote p { margin:0; font-size:17.5px; color:var(--ink); }
+    .bl-sources { max-width:68ch; margin-top:2.6rem; padding-top:1.4rem; border-top:1px solid rgba(26,31,38,.08); }
+    .bl-sources h2 { font-size:15px; text-transform:uppercase; letter-spacing:.12em; color:var(--ink-4); margin:0 0 .8rem; }
+    .bl-sources ol { margin:0 0 0 1.1rem; }
+    .bl-sources li { font-size:13.5px; line-height:1.6; color:var(--ink-3); margin-bottom:.4rem; }
+    .bl-sources a { color: var(--spanish-blue); }
+    .bl-more { padding: 0 0 4.5rem; }
+    .bl-more h2 { font-size:1.35rem; margin-bottom:1.3rem; }
 </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -1079,312 +1053,164 @@
     </div>
   </nav>
   <main id="main">
-
-  <!-- ===== HERO ===== -->
-  <section class="hero">
+  <section class="bl-hero">
     <div class="container">
-      <span class="hero-eyebrow">ebooks &amp; whitepapers</span>
-      <h1>deep dives. real research. for <span class="keep-case">HR</span> leaders shaping <mark>what's next</mark>.</h1>
-      <p class="lede">
-        whitepapers, ebooks, and customer stories from the team building agentic intelligence for the enterprise of tomorrow. download what you need, when you need it.
-      </p>
+      <a class="bl-back" href="blog.html">&larr; all articles</a>
+      <span class="post-tag tag-agentic">axon</span>
+      <h1>your skills taxonomy is a dictionary, not a diagnosis</h1>
+      <p class="bl-dek">a taxonomy resolves what to call things, and cannot tell you proficiency, context or currency, which is where every workforce decision lives.</p>
+      <div class="bl-meta"><span>apr 12, 2026</span><span class="meta-dot">&middot;</span><span>7 min read</span></div>
     </div>
   </section>
 
-  <!-- ===== FEATURED WHITEPAPER ===== -->
-  <section class="featured-section">
+  <section class="bl-body">
     <div class="container">
-      <div class="featured-card">
-        <div class="featured-visual">
-          <div>
-            <div style="font-size:0.8rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.7); margin-bottom:0.5rem; position:relative; z-index:1;">forrester <span class="keep-case">TEI</span> study</div>
-            <div class="featured-stat">
-              <div class="featured-stat-number">103%</div>
-              <div class="featured-stat-label">return on investment over 3 years, validated by forrester</div>
-            </div>
-          </div>
-          <div class="featured-meta">
-            <span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              42 pages
-            </span>
-            <span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              25 min read
-            </span>
-          </div>
-        </div>
-        <div class="featured-content">
-          <span class="featured-tag">featured &middot; case study</span>
-          <h2 class="keep-case">Large government entity: $26.8M in benefits, 103% <span class="keep-case">ROI</span></h2>
-          <p>
-            a real entomo customer story: a large government entity reaps benefits of over <strong>$26.8 million and an <span class="keep-case">ROI</span> of 103%</strong> in a three-year period &mdash; through an integrated approach to organizational performance management across the enterprise.
-          </p>
-          <a class="btn-primary" href="https://entomo.co/resources/e-book-and-whitepapers/large-government-entity-reaps-benefits-of-over-usd26-8-million-and-roi-of/" target="_blank" rel="noopener">
-            read the story
-            <span class="arrow">&rarr;</span>
-          </a>
-        </div>
+      <article class="bl-article">
+<p>Most large enterprises now own a skills taxonomy. Few of them can point to a decision it changed.</p>
+
+<p>Deloitte's skills-based organisation study found that 85 percent of HR executives had skills classification efforts underway, while only 10 percent said they effectively classify skills into a taxonomy. The same research found fewer than one in five organisations adopting skills-based approaches to any significant extent.</p>
+
+<p>The usual reading of that gap is that the work is unfinished. A more useful reading is that the artefact is being asked to do something it was never built to do. A taxonomy is a controlled vocabulary. It resolves naming. It does not resolve meaning.</p>
+
+<h2>what a taxonomy is genuinely good for</h2>
+
+<p>This is not an argument against taxonomies. Without one, an enterprise cannot count anything. "Python", "Python programming", "Python 3" and "python scripting" are four rows in a spreadsheet and one skill in reality. A taxonomy collapses them, sets parent and child relationships, and gives every downstream system a shared vocabulary.</p>
+
+<p>That is real value, and it is a prerequisite. It is also the entire extent of what a taxonomy delivers on its own. The moment you try to make a workforce decision, three things are missing.</p>
+
+<h2>what it cannot tell you</h2>
+
+<h3>proficiency</h3>
+
+<p>A taxonomy says a skill exists and that a person is associated with it. It says nothing about depth. Two people tagged with "financial modelling" may be separated by a decade of practice and a full order of magnitude in output quality.</p>
+
+<p>Depth is where almost all staffing risk sits. Nobody fails a project because a capability was absent from the org chart. They fail because the capability was present at a level below what the work demanded, and nothing in the system distinguished the two.</p>
+
+<p>Proficiency is also the part most self-assessment data gets wrong, in a predictable direction. A skills profile assembled from self-reported tags is a record of confidence, not competence, and the two correlate weakly.</p>
+
+<h3>context</h3>
+
+<p>The same skill name means different things in different places. "Stakeholder management" in a two-hundred-person business unit and "stakeholder management" across a regulated multinational with matrix reporting share four words and very little else.</p>
+
+<p>A taxonomy is deliberately context-free, because that is what makes it portable. The portability comes at the cost of the specificity you need to decide whether a particular person can do a particular piece of work here.</p>
+
+<p>The practical consequence shows up in internal mobility. Match rates against a taxonomy look strong, hiring managers reject the matches, and everyone concludes the marketplace does not work. What failed was not the marketplace. It was the assumption that a shared skill label implies transferable capability.</p>
+
+<h3>currency</h3>
+
+<p>Skill records carry no expiry date, and skills do. A taxonomy entry created in 2021 asserts the same thing in 2026 with equal confidence, having learned nothing in between.</p>
+
+<h2>how fast the requirement moves</h2>
+
+<p>The decay is measurable, and the measurements are less comfortable than most planning assumptions.</p>
+
+<p>Lightcast, working with the Burning Glass Institute and BCG, analysed 15 million job postings and reported in 2022 that the skills requested in the average US job had changed 37 percent since 2016. One in five of those skills was entirely new to the occupation, meaning nobody in that career would have been expected to hold it a few years earlier.</p>
+
+<p>Lightcast's follow-up analysis of the 2021 to 2024 window found the average job saw 32 percent of its skills change over three years, and that one in four jobs experienced 75 percent skill turnover. Their conclusion was that the pace is accelerating: the most recent three years were nearly as disruptive as the five before them.</p>
+
+<p>The World Economic Forum's Future of Jobs Report 2025, based on employers representing more than 14 million workers, reports that 39 percent of workers' core skills are expected to change by 2030. That figure has fallen from 44 percent in the 2023 edition and 57 percent in 2020, which is worth noting honestly. Skill instability is high but no longer accelerating in employer expectations.</p>
+
+<p>Put the two evidence bases together and the operating implication is clear. Roughly a third of the skill requirement in an average role turns over within a three-year cycle, and the turnover is not evenly distributed. Some roles are close to stable. Others are substantially rewritten inside a single planning horizon.</p>
+
+<h2>what a market-benchmarked capability model adds</h2>
+
+<p>A capability model is a taxonomy with three additional commitments, each of which costs something.</p>
+
+<ul>
+<li><strong>proficiency scales with observable anchors.</strong> Not "beginner to expert" but a description of what a person at each level produces, decides, and escalates. The anchor has to be behavioural, or assessors will silently reinterpret it.</li>
+<li><strong>context binding.</strong> Each skill is attached to the tasks it enables inside your specific role architecture. This is what turns a match into a defensible recommendation, because the claim becomes "can do these tasks" rather than "has this tag".</li>
+<li><strong>market reference.</strong> The expected skill set for a role is compared against external labour market signal on a set cadence, so drift is detected rather than discovered.</li>
+</ul>
+
+<p>The third commitment is the one most internal projects skip, and it is the one that determines whether the model stays true. Without an external reference, a capability model records what your organisation currently believes a role requires. That belief is itself an artefact of the last time somebody looked.</p>
+
+<h2>a grid for deciding how hard to work at this</h2>
+
+<p>Not every skill deserves the same governance. Score each skill in your model on two axes.</p>
+
+<p><strong>Volatility:</strong> how fast the market definition of this skill is moving. Tool-specific and platform-specific skills are high. Domain judgement, regulatory knowledge and craft skills are usually lower.</p>
+
+<p><strong>Consequence:</strong> what breaks if you are wrong about someone's proficiency. A misjudged capability in a safety, financial control or client-facing decision role carries a different cost from a misjudged one in an internal support task.</p>
+
+<p>Four quadrants follow, and each takes a different treatment.</p>
+
+<ul>
+<li><strong>high volatility, high consequence.</strong> Assess directly and re-benchmark against the market quarterly. This is a small set, usually under 30 skills. Spend real money here.</li>
+<li><strong>high volatility, low consequence.</strong> Track through activity signal rather than assessment. Refresh the definition annually and accept imprecision on individuals.</li>
+<li><strong>low volatility, high consequence.</strong> Assess directly, but re-benchmark rarely. Certification and structured evaluation work well because the target is stable.</li>
+<li><strong>low volatility, low consequence.</strong> Leave in the taxonomy. Self-report is sufficient. Do not build assessment infrastructure for this quadrant, however much easier it is than the first.</li>
+</ul>
+
+<p>Most organisations invert this. They build careful assessment for stable, low-stakes skills because those are tractable, and rely on self-report for the volatile, high-stakes ones because those are hard.</p>
+
+<h2>what to do on Monday</h2>
+
+<p>Take the twenty skills your organisation most often names in workforce plans. For each, write down three things: the behavioural definition of level three, the last date the definition was reviewed, and the external source used to check it.</p>
+
+<p>Count how many rows you can complete. That count, not the size of your taxonomy, is the honest measure of your skills capability today. Most enterprises complete fewer than five.</p>
+
+<p>Then fix the highest-consequence gaps first, using the grid above. Resist the pull toward completeness. A capability model covering 40 skills with real proficiency anchors and a live market reference is worth more than one covering 4,000 without them.</p>
+
+<p>This is the difference entomo drew when building <a href="../AI-lab/entomo-axon.html">axon</a> around benchmarked role architectures rather than a static skill list, with market benchmarks refreshing monthly rather than at project milestones. The principle holds regardless of what you build on: a taxonomy tells you what to call things, and a capability model tells you what is true.</p>
+      </article>
+      <div class="bl-sources">
+        <h2>sources</h2>
+        <ol>
+          <li><a href="https://www.deloitte.com/us/en/insights/topics/talent/organizational-skill-based-hiring.html" rel="noopener" target="_blank">Deloitte Insights, The skills-based organization: A new operating model for work and the workforce, 2022</a></li>
+          <li><a href="https://lightcast.io/resources/research/shifting-skills" rel="noopener" target="_blank">Lightcast, Burning Glass Institute and BCG, Shifting Skills, Moving Targets, and Remaking the Workforce, 2022</a></li>
+          <li><a href="https://lightcast.io/resources/research/speed-of-skill-change" rel="noopener" target="_blank">Lightcast, The Speed of Skill Change in the US, 2024</a></li>
+          <li><a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/in-full/3-skills-outlook/" rel="noopener" target="_blank">World Economic Forum, Future of Jobs Report 2025, skills outlook, 2025</a></li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <!-- ===== FILTER PILLS ===== -->
-  <section class="filter-section">
+  <section class="bl-more">
     <div class="container">
-      <div class="filter-bar">
-        <button class="filter-pill active" data-filter="all">all</button>
-        <button class="filter-pill" data-filter="ebook">ebooks &amp; guides</button>
-        <button class="filter-pill" data-filter="whitepaper">whitepapers</button>
-        <button class="filter-pill" data-filter="case-study">case studies</button>
-        <button class="filter-pill" data-filter="self-assessment">self assessments</button>
+      <h2>keep reading</h2>
+      <div class="posts-grid">
+        <a class="post-card" href="blog-job-description-wrong-unit-of-analysis.html" data-category="agentic">
+          <div class="post-image gradient-1"></div>
+          <div class="post-body">
+            <span class="post-tag tag-agentic">axon</span>
+            <h3>the job description is the wrong unit of analysis</h3>
+            <p class="post-excerpt">job titles average away the variation that matters, and the decisions enterprises now face need a smaller unit than the job.</p>
+            <div class="post-meta-sm">
+              <span>sep 02, 2026</span>
+              <span class="meta-dot">&middot;</span>
+              <span>8 min read</span>
+            </div>
+          </div>
+        </a>
+        <a class="post-card" href="blog-the-queue-between-question-and-answer.html" data-category="agentic">
+          <div class="post-image gradient-2"></div>
+          <div class="post-body">
+            <span class="post-tag tag-agentic">enzo</span>
+            <h3>the queue between a question and its answer</h3>
+            <p class="post-excerpt">self-service analytics never removed the wait for workforce answers, because the slow part was never retrieval.</p>
+            <div class="post-meta-sm">
+              <span>aug 22, 2026</span>
+              <span class="meta-dot">&middot;</span>
+              <span>8 min read</span>
+            </div>
+          </div>
+        </a>
+        <a class="post-card" href="blog-goal-quality-is-a-measurable-property.html" data-category="performance">
+          <div class="post-image gradient-3"></div>
+          <div class="post-body">
+            <span class="post-tag tag-performance">performance</span>
+            <h3>goal quality is measurable, and most goals fail the test</h3>
+            <p class="post-excerpt">a goal nobody can review produces no feedback, and that failure can be scored, sampled and tracked across an entire organisation.</p>
+            <div class="post-meta-sm">
+              <span>aug 11, 2026</span>
+              <span class="meta-dot">&middot;</span>
+              <span>7 min read</span>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
   </section>
-
-  <!-- ===== RESOURCE GRID ===== -->
-  <section class="grid-section">
-    <div class="container">
-      <div class="resource-grid">
-
-        <!-- Card 1 — Leveraging HRTech to create best-in-class Talent Engagement -->
-        <a class="resource-card" href="resource-agentic-hr-operating-model.html" data-category="whitepaper">
-          <div class="resource-thumb resource-thumb--gen"><span>whitepaper</span><b>the agentic <span class="keep-case">HR</span> operating model</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-whitepaper">whitepaper</span>
-            <h3>the agentic <span class="keep-case">HR</span> operating model</h3>
-            <p class="desc">what changes when intelligence acts inside the process rather than reporting on it, with a maturity model</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">34 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-skills-based-organisation-practically.html" data-category="ebook">
-          <div class="resource-thumb resource-thumb--gen"><span>ebook</span><b>the skills-based organisation, practically</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-ebook">ebook</span>
-            <h3>the skills-based organisation, practically</h3>
-            <p class="desc">a staged first-year guide from role architecture to skills-based staffing, with what to do in each quarter</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">44 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-governing-ai-in-hr.html" data-category="whitepaper">
-          <div class="resource-thumb resource-thumb--gen"><span>whitepaper</span><b>governing <span class="keep-case">AI</span> in <span class="keep-case">HR</span></b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-whitepaper">whitepaper</span>
-            <h3>governing <span class="keep-case">AI</span> in <span class="keep-case">HR</span></h3>
-            <p class="desc">a readiness guide to the EU AI Act, NYC Local Law 144 and the documentation your HR systems must hold</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">38 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-workforce-planning-when-ai-changes-the-work.html" data-category="ebook">
-          <div class="resource-thumb resource-thumb--gen"><span>ebook</span><b>workforce planning when <span class="keep-case">AI</span> changes the work</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-ebook">ebook</span>
-            <h3>workforce planning when <span class="keep-case">AI</span> changes the work</h3>
-            <p class="desc">how to model demand and supply when task composition shifts, with a build, buy, borrow, bot matrix</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">36 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-internal-talent-marketplace-people-use.html" data-category="ebook">
-          <div class="resource-thumb resource-thumb--gen"><span>ebook</span><b>designing an internal talent marketplace people use</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-ebook">ebook</span>
-            <h3>designing an internal talent marketplace people use</h3>
-            <p class="desc">the operating model, manager incentives and metrics that separate a working marketplace from an empty job board</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">30 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-human-capital-disclosure-iso-30414-csrd.html" data-category="whitepaper">
-          <div class="resource-thumb resource-thumb--gen"><span>whitepaper</span><b>human capital disclosure: <span class="keep-case">ISO</span> 30414 and <span class="keep-case">CSRD</span></b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-whitepaper">whitepaper</span>
-            <h3>human capital disclosure: <span class="keep-case">ISO</span> 30414 and <span class="keep-case">CSRD</span></h3>
-            <p class="desc">a metric-by-metric readiness guide to ISO 30414:2025 and the workforce disclosures inside the revised EU standards</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">40 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-hrtech-talent-engagement.html" data-category="ebook">
-          <div class="resource-thumb resource-thumb--gen"><span>ebook</span><b>leveraging HRTech to create best-in-class talent engagement</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-ebook">ebook</span>
-            <h3>leveraging HRTech to create best-in-class talent engagement</h3>
-            <p class="desc">a four-part webinar series on the platforms reshaping digital HR, recorded with IHRP Singapore.</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">50 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-reform-reimagine-roadmap.html" data-category="ebook">
-          <div class="resource-thumb resource-thumb--gen"><span>ebook</span><b>reform and reimagine workplace practices: a roadmap for leaders</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-ebook">ebook</span>
-            <h3>reform and reimagine workplace practices: a roadmap for leaders</h3>
-            <p class="desc">part two of the returning-to-work roadmap, a self-check across the react, respond, reform and reimagine stages.</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">7 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-augmenting-hcm-with-ai.html" data-category="whitepaper">
-          <div class="resource-thumb resource-thumb--gen"><span>whitepaper</span><b>driving business value: augmenting human capital management with <span class="keep-case">AI</span></b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-whitepaper">whitepaper</span>
-            <h3>driving business value: augmenting human capital management with <span class="keep-case">AI</span></h3>
-            <p class="desc">a report on where talent analytics matures, written with ETHRWorld.</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">18 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-career-readiness-singapore.html" data-category="whitepaper">
-          <div class="resource-thumb resource-thumb--gen"><span>whitepaper</span><b>evolution of career readiness: singapore</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-whitepaper">whitepaper</span>
-            <h3>evolution of career readiness: singapore</h3>
-            <p class="desc">a study of which roles and skills stayed resilient as the singapore career landscape shifted.</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">24 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-30-ideas-remote-age.html" data-category="ebook">
-          <div class="resource-thumb resource-thumb--gen"><span>ebook</span><b>30 revolutionary ideas for our remote age</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-ebook">ebook</span>
-            <h3>30 revolutionary ideas for our remote age</h3>
-            <p class="desc">thirty ideas from thirty HR and education influencers on what remote work changes permanently.</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">32 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-mastering-risk-and-performance.html" data-category="ebook">
-          <div class="resource-thumb resource-thumb--gen"><span>ebook</span><b>mastering risk and performance in the next normal</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-ebook">ebook</span>
-            <h3>mastering risk and performance in the next normal</h3>
-            <p class="desc">essential practices for enterprises and employees operating across owned, shared and remote workplaces.</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">8 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-        <a class="resource-card" href="resource-return-to-work-self-assessment.html" data-category="ebook">
-          <div class="resource-thumb resource-thumb--gen"><span>ebook</span><b>are you ready to return to work? a self-assessment for leaders</b></div>
-          <div class="resource-body">
-            <span class="resource-tag tag-ebook">ebook</span>
-            <h3>are you ready to return to work? a self-assessment for leaders</h3>
-            <p class="desc">part one of the returning-to-work roadmap, built around a yes or no self-check for leadership teams.</p>
-            <div class="resource-meta">
-              <span class="resource-readtime">12 pages</span>
-              <span class="btn-download">get it <span>&rarr;</span></span>
-            </div>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== LEAD CAPTURE ===== -->
-  <section class="lead-section">
-    <div class="container">
-      <div class="lead-grid">
-        <div class="lead-text">
-          <div class="section-eyebrow">unlock the library</div>
-          <h2>get full access to every report</h2>
-          <p>one short form. unlimited access to entomo's research library &mdash; whitepapers, ebooks, customer stories, and frameworks for <span class="keep-case">HR</span> leaders shaping the agentic enterprise.</p>
-          <ul class="lead-points">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>
-              instant downloads. no drip emails.
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>
-              early access to new whitepapers and customer stories.
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>
-              quarterly executive briefing on agentic <span class="keep-case">HR</span> trends.
-            </li>
-          </ul>
-        </div>
-
-        <form class="lead-form">
-          <h3>access the full library</h3>
-          <p class="form-sub">takes less than 30 seconds.</p>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="firstName">first name</label>
-              <input type="text" id="firstName" name="firstName" placeholder="alex" required autocomplete="given-name">
-            </div>
-            <div class="form-group">
-              <label for="lastName">last name</label>
-              <input type="text" id="lastName" name="lastName" placeholder="chen" required autocomplete="family-name">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="email">work email</label>
-            <input type="email" id="email" name="email" placeholder="alex@company.com" required autocomplete="email">
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="company">company</label>
-              <input type="text" id="company" name="company" placeholder="acme corp" required autocomplete="organization">
-            </div>
-            <div class="form-group">
-              <label for="role">role</label>
-              <select id="role" name="role" required>
-                <option value="">select role</option>
-                <option value="chro"><span class="keep-case">CHRO</span> / chief people officer</option>
-                <option value="hr-leader"><span class="keep-case">HR</span> leader / VP <span class="keep-case">HR</span></option>
-                <option value="talent">talent / L&amp;D</option>
-                <option value="hrbp"><span class="keep-case">HR</span> business partner</option>
-                <option value="it">IT / digital <span class="keep-case">HR</span></option>
-                <option value="other">other</option>
-              </select>
-            </div>
-          </div>
-
-          <button type="submit" class="btn-primary">
-            unlock the library
-            <span class="arrow">→</span>
-          </button>
-          <p class="form-disclaimer">
-            by submitting, you agree to entomo's privacy policy. we never share your details.
-          </p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
   </main>
   <footer class="footer">
     <div class="container">
@@ -1417,9 +1243,9 @@
         <div class="footer-col">
           <h3>resources</h3>
           <ul>
-            <li><a href="ebooks-whitepapers.html">ebooks &amp; whitepapers</a></li>
+            <li><a href="#">Forrester <span class="keep-case">TEI</span> study</a></li>
             <li><a href="../inspiration/case-studies.html">case studies</a></li>
-            <li><a href="#">blog</a></li>
+            <li><a href="blog.html">blog</a></li>
             <li><a href="#">webinars</a></li>
           </ul>
         </div>
@@ -1446,18 +1272,11 @@
   </footer>
 
   <script>
-    // Filter pill toggle + card filtering
-    const pills = document.querySelectorAll('.filter-pill');
-    const cards = document.querySelectorAll('.resource-card[data-category]');
-    pills.forEach(pill => {
+    // simple filter pill toggle (visual only)
+    document.querySelectorAll('.filter-pill').forEach(pill => {
       pill.addEventListener('click', () => {
-        pills.forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
         pill.classList.add('active');
-        const filter = pill.dataset.filter;
-        cards.forEach(card => {
-          const match = filter === 'all' || card.dataset.category === filter;
-          card.style.display = match ? '' : 'none';
-        });
       });
     });
   </script>
