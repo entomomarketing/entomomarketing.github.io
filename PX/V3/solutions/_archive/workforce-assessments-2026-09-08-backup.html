@@ -1665,21 +1665,6 @@
     .as-inst.i3{border-color:var(--cg-red);} .as-inst.i4{border-color:var(--sea-green);}
     .as-inst b { display:block; font-size:16.5px; margin-bottom:0.45rem; }
     .as-inst p { margin:0; font-size:13.5px; line-height:1.55; color:var(--ink-2); }
-    .as-flow { display:grid; grid-template-columns:repeat(4,1fr); gap:1.1rem; max-width:1140px; margin:3rem auto 0; position:relative; }
-    .as-flow-step { position:relative; background:var(--white); border:1px solid rgba(26,31,38,0.09); border-top:4px solid var(--acc); border-radius:18px; padding:1.4rem 1.3rem 1.3rem; box-shadow:0 4px 18px rgba(43,29,18,0.06); }
-    .as-flow-step.s1{--acc:var(--cg-red)} .as-flow-step.s2{--acc:var(--cg-gold)} .as-flow-step.s3{--acc:var(--spanish-blue)} .as-flow-step.s4{--acc:var(--sea-green)}
-    .as-flow-step + .as-flow-step::before { content:"\2192"; position:absolute; left:-0.95rem; top:1.45rem; color:var(--ink-4); font-size:18px; font-weight:800; }
-    .as-flow-head { display:flex; align-items:center; gap:.6rem; margin-bottom:.8rem; }
-    .as-flow-head i { font-style:normal; width:28px; height:28px; border-radius:50%; background:var(--acc); color:#fff; font-size:13px; font-weight:800; display:inline-flex; align-items:center; justify-content:center; }
-    .as-flow-head b { font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--acc); }
-    .as-flow-lead { margin:0 0 .8rem; font-size:15px; font-weight:700; line-height:1.4; color:var(--ink); }
-    .as-flow-step ul { list-style:none; margin:0; padding:0; display:grid; gap:.45rem; }
-    .as-flow-step li { position:relative; padding-left:1rem; font-size:13.5px; line-height:1.5; color:var(--ink-2); }
-    .as-flow-step li::before { content:""; position:absolute; left:0; top:.55em; width:6px; height:6px; border-radius:50%; background:var(--acc); }
-    .as-flow-pull { text-align:center; font-size:1.25rem; font-weight:700; color:var(--ink); max-width:720px; margin:2.4rem auto 0; line-height:1.4; }
-    .as-flow-note { text-align:center; font-size:13px; color:var(--ink-3); max-width:640px; margin:.8rem auto 0; }
-    @media (max-width:960px) { .as-flow { grid-template-columns:1fr 1fr; } .as-flow-step + .as-flow-step::before { display:none; } }
-    @media (max-width:560px) { .as-flow { grid-template-columns:1fr; } }
     @media (max-width:980px){ .as-instruments { grid-template-columns:repeat(2,1fr); } }
     @media (max-width:560px){ .as-instruments { grid-template-columns:1fr; } }
 
@@ -2079,35 +2064,16 @@
   <!-- ===== FOUR INSTRUMENTS ===== -->
   <section style="background: var(--white);">
     <div class="container">
-      <div class="text-center" style="max-width:760px; margin:0 auto;">
-        <p class="section-eyebrow"><span class="keep-case">AI</span>-powered skill assessment methodology</p>
-        <h2 class="section-heading">from role requirements to a continuously evolving skill <mark>assessment</mark></h2>
-        <p class="section-subheading" style="margin:0 auto;">our skill assessments are not built from a generic question bank. they are contextualized to the role, required skills and expected proficiency, with <span class="keep-case">AI</span> accelerating assessment creation and enabling continuous refinement.</p>
+      <div class="text-center" style="max-width:720px; margin:0 auto;">
+        <h2 class="section-heading">four instruments feeding one <mark>baseline</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;">gamified so people finish them, contextualized to the role so the results mean something.</p>
       </div>
-      <div class="as-flow">
-        <div class="as-flow-step s1">
-          <div class="as-flow-head"><i>1</i><b>design</b></div>
-          <p class="as-flow-lead">role &amp; skill requirements feed the assessment blueprint</p>
-          <ul><li>role &rarr; skills &rarr; expected proficiency</li><li>the assessment blueprint defines what needs to be measured</li></ul>
-        </div>
-        <div class="as-flow-step s2">
-          <div class="as-flow-head"><i>2</i><b>validate</b></div>
-          <p class="as-flow-lead"><span class="keep-case">AI</span> generates a holistic question bank aligned to the required skills and proficiency levels</p>
-          <ul><li><span class="keep-case">AI</span> generates relevant questions and scenarios</li><li>questions are mapped to skills and proficiency</li></ul>
-        </div>
-        <div class="as-flow-step s3">
-          <div class="as-flow-head"><i>3</i><b>assess</b></div>
-          <p class="as-flow-lead">subject matter experts review and approve the assessment</p>
-          <ul><li><span class="keep-case">SMEs</span> ensure relevance and accuracy</li><li>the approved assessment becomes the assessment instrument</li></ul>
-        </div>
-        <div class="as-flow-step s4">
-          <div class="as-flow-head"><i>4</i><b>improve</b></div>
-          <p class="as-flow-lead"><span class="keep-case">AI</span>-powered, adaptive assessment is delivered based on the role and proficiency requirement</p>
-          <ul><li>automated scoring generates skill-level proficiency</li><li>results identify capability gaps and proficiency</li></ul>
-        </div>
+      <div class="as-instruments">
+        <div class="as-inst i1"><b>skill</b><p>technical assessments built from the role's own <span class="axon-text">axon</span> profile, scoring proficiency level by level against the market bar.</p></div>
+        <div class="as-inst i2"><b>cognitive ability</b><p>reasoning and problem-solving instruments that read potential, not just current output.</p></div>
+        <div class="as-inst i3"><b>personality</b><p>work-style profiles that show how someone operates, so managers coach the person they actually have.</p></div>
+        <div class="as-inst i4"><b>attitude &amp; behavior</b><p>behavioral assessments that surface how work gets done: collaboration, ownership, feedback habits.</p></div>
       </div>
-      <p class="as-flow-pull">generic tests measure generic knowledge. we use <span class="keep-case">AI</span> to assess skills in the context of the role.</p>
-      <p class="as-flow-note">cognitive, personality and behavioural instruments can complement the skill baseline where a role calls for them.</p>
     </div>
   </section>
 
