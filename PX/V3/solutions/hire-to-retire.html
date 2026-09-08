@@ -1238,6 +1238,19 @@
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
+  <style>.ww-topbar-left { display:flex; align-items:center; gap:10px; } .ww-avatar--enzo { width:30px; height:30px; flex-shrink:0; } .ww-avatar--enzo img { width:100%; height:100%; object-fit:contain; display:block; }</style>
+
+  <style>
+    /* enzo, the co-worker: face in the chat mock, animated while it works */
+    .ww-topbar-avatar { border-radius: 0; overflow: visible; }
+    .ww-topbar-avatar img { object-fit: contain; }
+    .ww-greeting-photo { width: 108px; height: 108px; border-radius: 0; overflow: visible; border: 0; margin-bottom: 8px; }
+    .ww-greeting-photo img { object-fit: contain; }
+    .ww-greeting-online { bottom: 8px; right: 30px; }
+    .ww-assemble-icon--enzo { width: 84px; height: 84px; border-radius: 0; background: none; margin-bottom: 4px; }
+    .ww-assemble-icon--enzo img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  </style>
+  <style>.ww-thinking { display:flex; align-items:center; gap:10px; } .ww-think-enzo img { width:52px; height:52px; display:block; object-fit:contain; }</style>
 </head>
 <body>
   <a class="eq-skip" href="#main">skip to content</a>
@@ -1405,13 +1418,13 @@
                   <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="5" r="2.6"/><circle cx="5" cy="19" r="2.6"/><circle cx="19" cy="19" r="2.6"/><line x1="10.8" y1="7.3" x2="6.2" y2="16.7"/><line x1="13.2" y1="7.3" x2="17.8" y2="16.7"/><line x1="7.6" y1="19" x2="16.4" y2="19"/></svg></div>
                   <div class="nav-mega-text">
                     <div class="nav-mega-name">entomo <span class="axon-text">axon</span></div>
-                    <div class="nav-mega-desc">the workforce intelligence graph powering entomo.ai</div>
+                    <div class="nav-mega-desc">the workforce intelligence graph powering Enzo</div>
                   </div>
                 </a>
-                <a href="../AI-lab/entomo-ai.html" class="nav-mega-item">
-                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></svg></div>
+                <a href="../AI-lab/enzo.html" class="nav-mega-item">
+                  <div class="nav-mega-icon nav-mega-icon--enzo"><picture><source srcset="../Images/logos/enzo-mark.webp" type="image/webp"><img src="../Images/logos/enzo-mark.png" alt="" width="640" height="583" loading="lazy" decoding="async"></picture></div>
                   <div class="nav-mega-text">
-                    <div class="nav-mega-name"><picture class="brand-inline"><source srcset="../Images/logos/entomo-ai.webp" type="image/webp"><img src="../Images/logos/entomo-ai.png" alt="entomo.ai" width="1200" height="257" loading="lazy" decoding="async"></picture></div>
+                    <div class="nav-mega-name"><picture><source srcset="../Images/logos/enzo-wordmark.webp" type="image/webp"><img class="nav-mega-logo nav-mega-logo--enzo" src="../Images/logos/enzo-wordmark.png" alt="enzo" width="1200" height="311" loading="lazy" decoding="async"></picture></div>
                     <div class="nav-mega-desc">the <span class="keep-case">AI</span> across the platform</div>
                   </div>
                 </a>
@@ -1678,23 +1691,23 @@
           <div class="ww-demo">
             <div class="ww-topbar">
               <div class="ww-topbar-left">
-                <div class="ww-avatar">👤</div>
+                <div class="ww-avatar ww-avatar--enzo"><picture><source srcset="../Images/logos/enzo-mark.webp" type="image/webp"><img src="../Images/logos/enzo-mark.png" alt="enzo" width="640" height="583" loading="lazy" decoding="async"></picture></div>
                 <div>
-                  <div class="ww-topbar-title">entomo.ai: your digital co-worker</div>
+                  <div class="ww-topbar-title">Enzo: your digital co-worker</div>
                 </div>
               </div>
             </div>
             <div class="ww-stage" id="pwwStage">
               <div class="ww-panel ww-panel-greet active" id="pwwPanelGreet">
                 <div class="ww-greet-avatar">👤</div>
-                <div class="ww-greet-hi">hi, i'm entomo.ai</div>
+                <div class="ww-greet-hi">hi, i'm enzo</div>
                 <div class="ww-greet-desc">your <span class="keep-case">ai</span> coworker that automates onboarding, leave workflows, payroll, and compliance end to end</div>
               </div>
               <div class="ww-panel ww-chat-panel" id="pwwPanelChat">
                 <div class="ww-user-q" id="pwwUserQ"></div>
                 <div class="ww-response-area" id="pwwResponseArea">
                   <div class="ww-sub active" id="pwwSubThink">
-                    <div class="ww-thinking">setting up your onboarding workflow <div class="ww-dots"><span></span><span></span><span></span></div></div>
+                    <div class="ww-thinking"><picture class="ww-think-enzo"><source srcset="../Images/agents/enzo-thinking.webp" type="image/webp"><img src="../Images/logos/enzo-mark.png" alt="enzo" width="224" height="224" loading="lazy" decoding="async"></picture>setting up your onboarding workflow <div class="ww-dots"><span></span><span></span><span></span></div></div>
                   </div>
                   <div class="ww-sub" id="pwwSubAssemble">
                     <div class="ww-agent-stage">

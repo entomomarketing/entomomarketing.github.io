@@ -985,7 +985,7 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
    the light card treatment; craft is applied in kind instead.
    ========================================================================== */
 
-/* The entomo.ai / axon chat card — ebony-clay on a light section */
+/* The enzo / axon chat card — ebony-clay on a light section */
 .ww-card {
   background: var(--ebony-clay) !important;
   border: 1px solid rgba(255, 255, 255, .09) !important;
@@ -1483,7 +1483,7 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
 
 /* ============================================================================
    28. Brand lockups
-   The entomo.ai and entomo axon logos, used in place of the words where the
+   The enzo and entomo axon logos, used in place of the words where the
    mention is a brand statement rather than prose. Every one carries alt text
    with the exact words it replaces, so the copy still reaches screen readers
    and search engines — the change is presentational only.
@@ -1567,6 +1567,17 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
   vertical-align: -0.139em;
   margin: 0 0.04em;
 }
+
+/* enzo, the co-worker (2026-09-08). Trimmed lockup: the wordmark's x-height band
+   is 51% of the image height with its baseline 81% from the top. An x-height of
+   0.6em therefore needs 1.18em of image, and -0.22em seats that baseline on the
+   text baseline. */
+.brand-inline--enzo img { height: 1.18em; vertical-align: -0.22em; margin: 0 0.06em; }
+.brand-lockup--enzo { width: min(420px, 80%); }
+.nav-mega-icon--enzo img { width: 32px; height: auto; display: block; }
+.nav-mega-logo--enzo { height: 1.05em; margin: 0.14em 0 0.22em; }
+@media (max-width: 640px) { .brand-lockup--enzo { width: min(300px, 86%); } }
+
 
 /* An inline lockup is an inline-block, so a line can break between it and the
    punctuation that follows — which left "why [axon]" on one line and
