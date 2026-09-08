@@ -1578,9 +1578,17 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
 .brand-lockup--enzo { width: min(420px, 80%); }
 .nav-mega-icon--enzo img { width: 32px; height: auto; display: block; }
 .nav-mega-logo--enzo { height: 1.05em; margin: 0.14em 0 0.22em; }
-/* product brands in the menu: colour symbol in the tile, wordmark, then 'by entomo' */
-.nav-mega-name--brand { display: flex; align-items: baseline; gap: 0.42em; }
-.nav-mega-by { font-size: 12px; font-weight: 600; color: var(--ink-3); letter-spacing: 0; }
+/* product brands in the menu: colour symbol in the tile, wordmark, then 'by entomo'.
+   Bottom-aligned geometrically, not by baseline: the two wordmarks sit in different
+   wrappers (TMRW is a bare img, enzo is inside a picture), so synthesized baselines
+   disagree by ~3px. flex-end aligns the boxes, and the margins below correct for the
+   empty space each artwork carries under its letterforms (measured 2026-09-08:
+   tmrw.svg 20.0% of its height, enzo-wordmark 2.0%). Residual under half a pixel. */
+.nav-mega-name--brand { display: flex; align-items: flex-end; gap: 0.42em; }
+.nav-mega-name--brand > picture { display: block; }
+.nav-mega-name--brand .nav-mega-logo { margin: 0 0 -0.071em; }
+.nav-mega-name--brand .nav-mega-logo--enzo { margin: 0 0 0.107em; }
+.nav-mega-by { font-size: 12px; font-weight: 600; color: var(--ink-3); letter-spacing: 0; line-height: 1; }
 .nav-mega-icon--tmrw img { width: 26px; height: auto; display: block; }
 @media (max-width: 640px) { .brand-lockup--enzo { width: min(300px, 86%); } }
 
