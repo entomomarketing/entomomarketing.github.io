@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>news & press releases | entomo</title>
-  <meta name="description" content="latest announcements, product launches, partnerships, and media coverage from entomo — the agentic intelligence platform for performance and skills.">
+  <title>entomo wins aegis graham bell award for innovation in AI | entomo</title>
+  <meta name="description" content="recognized for applying agentic intelligence to enterprise HR, bringing AI out of dashboards and into the daily flow-of-work.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
@@ -699,7 +699,26 @@
       html { scroll-behavior: auto; }
     }
     /* ===== END SCROLL ANIMATIONS ===== */
-  </style>
+  
+    /* ===== press release detail ===== */
+    .pr-hero { padding: 3.2rem 0 2.2rem; background: linear-gradient(160deg, var(--floral-white) 0%, #fff 70%); border-bottom: 1px solid rgba(26,31,38,0.06); }
+    .pr-back { display: inline-flex; align-items: center; gap: 0.45em; font-size: 13px; font-weight: 700; color: var(--ink-3); text-decoration: none; margin-bottom: 1.6rem; }
+    .pr-back:hover { color: var(--cg-red); }
+    .pr-hero h1 { font-size: clamp(30px, 3.6vw, 46px); letter-spacing: -0.028em; line-height: 1.12; max-width: 20ch; margin: 0.9rem 0 0; }
+    .pr-hero h1.is-verbatim, .news-card h3.is-verbatim, .featured-card h2.is-verbatim { text-transform: none; }
+    .pr-hero h1.is-verbatim { max-width: 24ch; }
+    .pr-dek { font-size: clamp(17px, 1.5vw, 20px); line-height: 1.55; color: var(--ink-3); max-width: 62ch; margin: 1.1rem 0 0; }
+    .pr-body { padding: 3rem 0 3.4rem; }
+    .pr-article { max-width: 68ch; }
+    .pr-article p { font-size: 17px; line-height: 1.72; color: var(--ink-2); margin: 0 0 1.35rem; }
+    .pr-article p:first-child { font-size: 18.5px; color: var(--ink); }
+    .pr-source { margin-top: 2.4rem; padding-top: 1.4rem; border-top: 1px solid rgba(26,31,38,0.08); font-size: 13.5px; color: var(--ink-4); }
+    .pr-source a { color: var(--spanish-blue); }
+    .pr-more { padding: 0 0 4.5rem; }
+    .pr-more h2 { font-size: 1.35rem; margin-bottom: 1.4rem; }
+    .pr-more-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    @media (max-width: 860px) { .pr-more-grid { grid-template-columns: 1fr; } }
+</style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
 </head>
@@ -999,53 +1018,41 @@
     </div>
   </nav>
   <main id="main">
-
-  <!-- ===== HERO ===== -->
-  <section class="news-hero">
+  <section class="pr-hero">
     <div class="container">
-      <span class="hero-eyebrow">news &amp; press</span>
-      <h1>the latest <mark>from entomo</mark>.</h1>
-      <p class="lede">
-        product launches, partnerships, customer wins, and the recognition shaping the agentic intelligence platform for performance and skills.
-      </p>
+      <a class="pr-back" href="news-press-releases.html">&larr; all news</a>
+      <div class="meta-row">
+        <span class="meta-date">february 28, 2026</span>
+        <span class="tag award">award</span>
+      </div>
+      <h1 class="">entomo wins aegis graham bell award for innovation in <span class="keep-case">AI</span></h1>
+      <p class="pr-dek">recognized for applying agentic intelligence to enterprise <span class="keep-case">HR</span>, bringing <span class="keep-case">AI</span> out of dashboards and into the daily flow-of-work.</p>
     </div>
   </section>
 
-  <!-- ===== FEATURED ===== -->
-  <section class="featured-section">
+  <section class="pr-body">
     <div class="container">
-      <a href="news-dia-launch.html" class="featured-card" style="color:inherit;">
-        <div class="featured-visual">
-          <span class="featured-visual-label">featured announcement</span>
-        </div>
-        <div class="featured-content">
+      <article class="pr-article">
+          <p>entomo has received an aegis graham bell award for innovation in <span class="keep-case">AI</span>.</p>
+          <p>the recognition is for the platform's agentic approach to enterprise human resources: intelligence that acts inside the process it serves rather than reporting on it afterwards. the distinction matters in practice. a dashboard tells a manager that a goal is drifting. an agent drafts the correction and puts it in front of the person who can approve it.</p>
+          <p>the award programme recognises innovation across the indian technology industry and is judged by an independent panel.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="pr-more">
+    <div class="container">
+      <h2>more from entomo</h2>
+      <div class="pr-more-grid news-grid">
+        <a href="news-dia-launch.html" class="news-card">
           <div class="meta-row">
             <span class="meta-date">april 22, 2026</span>
             <span class="tag product">product</span>
           </div>
-          <h2 class="">entomo launches <span class="keep-case">DIA</span>, the always-on workforce intelligence agent</h2>
-          <p>
-            <span class="keep-case">DIA</span>, entomo's central agent, brings agentic intelligence into the daily flow-of-work for 30M+ users worldwide. coaching every employee, equipping every manager, and giving leaders real-time workforce intelligence without the dashboard sprawl.
-          </p>
-          <span class="read-more">read the full release</span>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- ===== NEWS GRID ===== -->
-  <section class="grid-section">
-    <div class="container">
-      <div class="grid-intro">
-        <div class="section-eyebrow">all news</div>
-        <h2 class="section-heading">what's happening at entomo</h2>
-        <p class="section-subheading" style="margin: 1rem auto 0;">
-          a running record of what we're building, who we're working with, and where the industry is recognising agentic intelligence in <span class="keep-case">HR</span>.
-        </p>
-      </div>
-
-      <div class="news-grid">
-
+          <h3 class="">entomo launches <span class="keep-case">DIA</span>, the always-on workforce intelligence agent</h3>
+          <p><span class="keep-case">DIA</span>, entomo's central agent, brings agentic intelligence into the daily flow-of-work for 30M+ users worldwide. coaching every employee, equipping every manager, and giving leaders real-time workforce intelligence without the dashboard sprawl.</p>
+          <span class="read-more">read more</span>
+        </a>
         <a href="news-indonesian-bank-performance.html" class="news-card">
           <div class="meta-row">
             <span class="meta-date">march 14, 2026</span>
@@ -1053,15 +1060,6 @@
           </div>
           <h3 class="">a public listed indonesian bank moves 5,000+ employees off paper performance reviews</h3>
           <p>a full move from paper and spreadsheets to a digital performance process across regions and branches, with 91% adoption inside two months.</p>
-          <span class="read-more">read more</span>
-        </a>
-        <a href="news-aegis-graham-bell-award.html" class="news-card">
-          <div class="meta-row">
-            <span class="meta-date">february 28, 2026</span>
-            <span class="tag award">award</span>
-          </div>
-          <h3 class="">entomo wins aegis graham bell award for innovation in <span class="keep-case">AI</span></h3>
-          <p>recognized for applying agentic intelligence to enterprise <span class="keep-case">HR</span>, bringing <span class="keep-case">AI</span> out of dashboards and into the daily flow-of-work.</p>
           <span class="read-more">read more</span>
         </a>
         <a href="news-axon-launch.html" class="news-card">
@@ -1073,138 +1071,9 @@
           <p>axon connects what every role requires with what every person brings, giving every entomo agent one governed source of truth to reason on, grounded to a live global view of the labour market.</p>
           <span class="read-more">read more</span>
         </a>
-        <a href="news-enterprise-skill-intelligence.html" class="news-card">
-          <div class="meta-row">
-            <span class="meta-date">december 12, 2025</span>
-            <span class="tag customer">customer</span>
-          </div>
-          <h3 class="">a $7 billion enterprise rebuilds talent decisions on skill intelligence</h3>
-          <p>augmented intelligence and analytics applied to talent transformation: $5 million equivalent in additional resource availability through better internal fulfilment, and a step change in how development plans get executed.</p>
-          <span class="read-more">read more</span>
-        </a>
-        <a href="news-microsoft-integration.html" class="news-card">
-          <div class="meta-row">
-            <span class="meta-date">september 17, 2025</span>
-            <span class="tag partnership">partnership</span>
-          </div>
-          <h3 class="">entomo and microsoft expand integration across teams and copilot</h3>
-          <p>Enzo and <span class="keep-case">DIA</span> now sit natively inside teams and copilot, coaching employees, automating workflows, and surfacing workforce intelligence where work already happens.</p>
-          <span class="read-more">read more</span>
-        </a>
-        <a href="news-g2-leader.html" class="news-card">
-          <div class="meta-row">
-            <span class="meta-date">november 19, 2024</span>
-            <span class="tag award">award</span>
-          </div>
-          <h3 class="">entomo recognized as a <span class="keep-case">G2</span> leader in performance management software</h3>
-          <p>top marks across ease of use, quality of support, and meets requirements, driven by feedback from enterprise customers in 50+ countries.</p>
-          <span class="read-more">read more</span>
-        </a>
-        <a href="news-leadership-transition.html" class="news-card">
-          <div class="meta-row">
-            <span class="meta-date">june 13, 2024</span>
-            <span class="tag company">company</span>
-          </div>
-          <h3 class="is-verbatim">entomo Announces Leadership Transition: Ushering in Accelerated Growth</h3>
-          <p>Kavitha Venkatachalam assumes the role of Chief Executive Officer of entomo PX, as Prithvi Shergill moves to Partner - entomo and CEO - Tomorrow.</p>
-          <span class="read-more">read more</span>
-        </a>
-        <a href="news-forrester-tei.html" class="news-card">
-          <div class="meta-row">
-            <span class="meta-date">october 24, 2023</span>
-            <span class="tag company">company</span>
-          </div>
-          <h3 class="">forrester <span class="keep-case">TEI</span> study validates 103% <span class="keep-case">ROI</span> from entomo deployments</h3>
-          <p>an independent total economic impact study of entomo customers shows $26.8M in net present value over three years across performance, skills and workforce planning.</p>
-          <span class="read-more">read more</span>
-        </a>
-        <a href="news-prithvi-shergill-group-ceo.html" class="news-card">
-          <div class="meta-row">
-            <span class="meta-date">may 16, 2022</span>
-            <span class="tag company">company</span>
-          </div>
-          <h3 class="is-verbatim">entomo announces Prithvi Singh Shergill to lead the entomo People Experience Business as Group CEO</h3>
-          <p>entomo restructures into two verticals under entomo labs, with Prithvi Shergill anchoring the people experience business globally.</p>
-          <span class="read-more">read more</span>
-        </a>
-
-      </div>
-
-      <div class="grid-footer">
-        <a href="#" class="btn-ghost">load more news</a>
       </div>
     </div>
   </section>
-
-  <!-- ===== PRESS KIT / MEDIA CONTACT ===== -->
-  <section class="presskit-section">
-    <div class="container">
-      <div class="text-center" style="max-width: 720px; margin: 0 auto;">
-        <div class="section-eyebrow">for media &amp; analysts</div>
-        <h2 class="section-heading">press kit, contacts, and resources</h2>
-        <p class="section-subheading" style="margin: 1rem auto 0;">
-          everything you need to cover entomo — brand assets, executive bios, and a direct line to our communications team.
-        </p>
-      </div>
-
-      <div class="presskit-grid">
-        <a href="#" class="presskit-card">
-          <div class="presskit-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 15 17 10"/>
-              <line x1="12" y1="15" x2="12" y2="3"/>
-            </svg>
-          </div>
-          <h3>download brand assets</h3>
-          <p>logos, product screenshots, brand colors, and approved imagery — packaged for print and digital use.</p>
-          <span class="read-more">download press kit</span>
-        </a>
-
-        <a href="mailto:press@entomo.co" class="presskit-card">
-          <div class="presskit-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
-            </svg>
-          </div>
-          <h3>media contact</h3>
-          <p>for interviews, briefings, and analyst inquiries, reach the entomo communications team directly.</p>
-          <span class="read-more">press@entomo.co</span>
-        </a>
-
-        <a href="#" class="presskit-card">
-          <div class="presskit-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
-          </div>
-          <h3>executive bios</h3>
-          <p>biographies and high-resolution headshots for entomo's leadership team — ready for editorial use.</p>
-          <span class="read-more">view leadership</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SUBSCRIBE ===== -->
-  <section class="subscribe-section">
-    <div class="container">
-      <div class="section-eyebrow">stay in the loop</div>
-      <h2>get press alerts straight to your inbox</h2>
-      <p>be first to hear about product launches, customer wins, and entomo announcements. no marketing — just the news.</p>
-      <form class="subscribe-form" onsubmit="event.preventDefault();">
-        <input type="email" placeholder="your work email" aria-label="your work email" required>
-        <button type="submit" class="btn-primary">subscribe →</button>
-      </form>
-      <p class="subscribe-disclaimer">we'll only send you press releases. unsubscribe anytime.</p>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
   </main>
   <footer class="footer">
     <div class="container">
