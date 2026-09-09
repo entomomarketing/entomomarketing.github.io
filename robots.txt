@@ -1,0 +1,27 @@
+# entomo. Search engines and answer engines are welcome; entomo wants to be read and cited.
+User-agent: *
+Allow: /
+
+# Answer engines and AI assistants, explicitly allowed (user decision, 2026-09-09).
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: GPTBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://entomomarketing.github.io/sitemap.xml
