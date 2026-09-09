@@ -769,10 +769,12 @@
       html { scroll-behavior: auto; }
     }
     /* ===== END SCROLL ANIMATIONS ===== */
-      .resource-card { text-decoration: none; color: inherit; display: block; }
+    .resource-card { text-decoration: none; color: inherit; display: block; }
     .resource-thumb--gen { display:flex; flex-direction:column; justify-content:flex-end; padding:1.1rem 1.15rem;
       color:#fff; background:linear-gradient(150deg, var(--ebony-clay) 0%, #2b3038 100%); min-height:150px; }
     .resource-thumb--gen span { font-size:10px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; opacity:.6; margin-bottom:.35rem; }
+    .resource-thumb--cov { padding:0; overflow:hidden; background:var(--black-haze); }
+    .resource-thumb--cov img { width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
     .resource-thumb--gen b { font-size:15px; font-weight:700; line-height:1.28; letter-spacing:-.012em; }
 
     .resource-card { text-decoration: none; color: inherit; display: block; }
@@ -797,6 +799,8 @@
       background:linear-gradient(150deg, var(--ebony-clay) 0%, #2b3038 100%); }
     .eb-cover span { display:block; font-size:11px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; opacity:.62; margin-bottom:.6rem; }
     .eb-cover b { display:block; font-size:19px; font-weight:700; line-height:1.25; letter-spacing:-.015em; }
+    .eb-cover-img { display:block; width:100%; border-radius:14px; margin-bottom:1.2rem;
+      border:1px solid rgba(26,31,38,.10); box-shadow:0 2px 6px rgba(43,29,18,.06), 0 14px 34px rgba(43,29,18,.10); }
     .eb-note { font-size:12.5px; color:var(--ink-4); line-height:1.5; margin-top:.9rem; }
     .eb-sources { margin-top:2.6rem; padding-top:1.3rem; border-top:1px solid rgba(26,31,38,.08); max-width:62ch; }
     .eb-sources h2 { font-size:14px; text-transform:uppercase; letter-spacing:.12em; color:var(--ink-4); margin:0 0 .7rem; }
@@ -1110,7 +1114,7 @@
         <span class="resource-tag tag-ebook">ebook</span>
         <h1>workforce planning when <span class="keep-case">AI</span> changes the work</h1>
         <p class="eb-sub">how to model demand and supply when task composition shifts, with a build, buy, borrow, bot matrix</p>
-        <div class="eb-meta">36 pages &middot; 40 min read</div>
+        <div class="eb-meta">31 pages &middot; 40 min read</div>
 <p>Headcount planning assumes roles hold still. They are not holding still. The ILO and NASK estimate that around one in four workers globally sit in occupations with some exposure to generative AI, with clerical work the most exposed category. Stanford's Digital Economy Lab puts employment of 22 to 25 year olds in the most AI-exposed occupations about 19% below where it would sit had it tracked their less-exposed peers, an effect running through reduced hiring rather than higher separations.</p><p>Planning at the level of job titles hides all of this. This guide models demand at the task level, then rebuilds supply from attrition, internal movement and skill decay. It gives a build, buy, borrow, bot matrix for deciding how each capability gap gets closed, with cost, lead time and reversibility as the inputs. It then runs the whole model through four scenarios rather than one forecast.</p><p>Written for workforce planning leads, people analytics teams and the finance partners who sign off headcount. <strong>Includes a task exposure scoring method, four scenario templates, the decision matrix, and the leading indicators that move before headcount does.</strong></p>
         <h2>what&rsquo;s inside</h2>
         <ol class="eb-chapters">
@@ -1132,17 +1136,18 @@
         <div class="eb-sources">
           <h2>referenced sources</h2>
           <ul>
-          <li><a href="https://www.ilo.org/sites/default/files/2025-05/WP140_web.pdf" rel="noopener" target="_blank">ILO and NASK, Generative AI and Jobs: A Refined Global Index of Occupational Exposure, 2025</a></li>
-          <li><a href="https://digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf" rel="noopener" target="_blank">Stanford Digital Economy Lab, Canaries in the Coal Mine, 2026</a></li>
-          <li><a href="https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf" rel="noopener" target="_blank">World Economic Forum, Future of Jobs Report, 2025</a></li>
-          <li><a href="https://www.weforum.org/publications/four-futures-for-jobs-in-the-new-economy-ai-and-talent-in-2030/" rel="noopener" target="_blank">World Economic Forum, Four Futures for Jobs in the New Economy, 2026</a></li>
-          <li><a href="https://www.onetcenter.org/content.html" rel="noopener" target="_blank">O*NET Resource Center, Content Model, 2025</a></li>
+          <li><a href="https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure" rel="noopener" target="_blank">ILO and NASK-PIB, Working Paper 140, Generative AI and jobs: a refined global index of occupational exposure, 2025</a></li>
+          <li><a href="https://www.imf.org/-/media/files/publications/sdn/2024/english/sdnea2024001.pdf" rel="noopener" target="_blank">IMF Staff Discussion Note SDN/2024/001, Gen-AI: Artificial Intelligence and the Future of Work, 2024</a></li>
+          <li><a href="https://digitaleconomy.stanford.edu/news/canariesaug26/" rel="noopener" target="_blank">Stanford Digital Economy Lab, Canaries in the Coal Mine, August 2026 update, 2026</a></li>
+          <li><a href="https://academic.oup.com/qje/article/140/2/889/7990658" rel="noopener" target="_blank">Quarterly Journal of Economics, Generative AI at Work, 2025</a></li>
+          <li><a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" rel="noopener" target="_blank">World Economic Forum, Future of Jobs Report 2025, 2025</a></li>
+          <li><a href="https://u.ae/en/information-and-services/jobs/Sector-of-employment/employment-in-the-private-sector/emiratis-employment-in-private-sector" rel="noopener" target="_blank">Government of the UAE, Employing Emiratis in the private sector, 2026</a></li>
           </ul>
         </div>
       </div>
       <aside class="eb-side">
-        <div class="eb-cover"><span>ebook</span><b>workforce planning when <span class="keep-case">AI</span> changes the work</b></div>
-        <form class="lead-form" onsubmit="event.preventDefault(); this.innerHTML='<h3>on its way.</h3><p class=&quot;form-sub&quot;>check your inbox for the download link. it usually arrives within a minute.</p>';">
+        <img class="eb-cover-img" src="../Images/resources/workforce-planning-when-ai-changes-the-work.jpg" alt="cover of workforce planning when AI changes the work" width="760" height="1075">
+        <form class="lead-form" onsubmit="event.preventDefault(); this.innerHTML='<h3>here it is.</h3><p class=&quot;form-sub&quot;>your copy is ready. we have also emailed you the link.</p><a class=&quot;btn-primary&quot; style=&quot;width:100%;justify-content:center;&quot; href=&quot;../downloads/workforce-planning-when-ai-changes-the-work.pdf&quot; download>download the ebook &rarr;</a>';">
           <h3>get the ebook</h3>
           <p class="form-sub">one short form. the download link arrives by email.</p>
           <div class="form-row">

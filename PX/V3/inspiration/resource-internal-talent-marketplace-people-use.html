@@ -769,10 +769,12 @@
       html { scroll-behavior: auto; }
     }
     /* ===== END SCROLL ANIMATIONS ===== */
-      .resource-card { text-decoration: none; color: inherit; display: block; }
+    .resource-card { text-decoration: none; color: inherit; display: block; }
     .resource-thumb--gen { display:flex; flex-direction:column; justify-content:flex-end; padding:1.1rem 1.15rem;
       color:#fff; background:linear-gradient(150deg, var(--ebony-clay) 0%, #2b3038 100%); min-height:150px; }
     .resource-thumb--gen span { font-size:10px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; opacity:.6; margin-bottom:.35rem; }
+    .resource-thumb--cov { padding:0; overflow:hidden; background:var(--black-haze); }
+    .resource-thumb--cov img { width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
     .resource-thumb--gen b { font-size:15px; font-weight:700; line-height:1.28; letter-spacing:-.012em; }
 
     .resource-card { text-decoration: none; color: inherit; display: block; }
@@ -797,6 +799,8 @@
       background:linear-gradient(150deg, var(--ebony-clay) 0%, #2b3038 100%); }
     .eb-cover span { display:block; font-size:11px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; opacity:.62; margin-bottom:.6rem; }
     .eb-cover b { display:block; font-size:19px; font-weight:700; line-height:1.25; letter-spacing:-.015em; }
+    .eb-cover-img { display:block; width:100%; border-radius:14px; margin-bottom:1.2rem;
+      border:1px solid rgba(26,31,38,.10); box-shadow:0 2px 6px rgba(43,29,18,.06), 0 14px 34px rgba(43,29,18,.10); }
     .eb-note { font-size:12.5px; color:var(--ink-4); line-height:1.5; margin-top:.9rem; }
     .eb-sources { margin-top:2.6rem; padding-top:1.3rem; border-top:1px solid rgba(26,31,38,.08); max-width:62ch; }
     .eb-sources h2 { font-size:14px; text-transform:uppercase; letter-spacing:.12em; color:var(--ink-4); margin:0 0 .7rem; }
@@ -1110,7 +1114,7 @@
         <span class="resource-tag tag-ebook">ebook</span>
         <h1>designing an internal talent marketplace people use</h1>
         <p class="eb-sub">the operating model, manager incentives and metrics that separate a working marketplace from an empty job board</p>
-        <div class="eb-meta">30 pages &middot; 35 min read</div>
+        <div class="eb-meta">32 pages &middot; 35 min read</div>
 <p>Internal talent marketplaces fail in a predictable way. The platform goes live, roles and projects get posted, participation spikes, then flattens within two quarters. The cause is rarely the technology. Deloitte's research on internal talent marketplaces found that 46% of managers resist internal mobility, 49% of organisations lack the technology to move people into new internal roles, and 49% named their existing internal recruiting processes as a barrier.</p><p>Managers decide whether a marketplace works. A manager who releases a strong performer carries the cost and sees none of the benefit. This guide treats that as an incentive design problem rather than a communications problem, and sets out exactly what to add to manager scorecards and what to stop rewarding.</p><p>Written for heads of talent, mobility leads and HR operating-model owners. <strong>Includes the operating model across gigs, projects, roles and mentoring, a liquidity calculation, four opening-scope options with their trade-offs, and a metric set for the first four quarters.</strong></p>
         <h2>what&rsquo;s inside</h2>
         <ol class="eb-chapters">
@@ -1132,16 +1136,17 @@
         <div class="eb-sources">
           <h2>referenced sources</h2>
           <ul>
-          <li><a href="https://www.deloitte.com/us/en/insights/topics/talent/internal-talent-marketplace.html" rel="noopener" target="_blank">Deloitte, Activating the Internal Talent Marketplace, 2020</a></li>
-          <li><a href="https://www.deloitte.com/us/en/insights/topics/talent/human-capital-trends.html" rel="noopener" target="_blank">Deloitte, Global Human Capital Trends, 2026</a></li>
-          <li><a href="https://learning.linkedin.com/resources/workplace-learning-report" rel="noopener" target="_blank">LinkedIn Learning, Workplace Learning Report, 2025</a></li>
-          <li><a href="https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf" rel="noopener" target="_blank">World Economic Forum, Future of Jobs Report, 2025</a></li>
+          <li><a href="https://www.aeaweb.org/articles?id=10.1257/aer.20220264" rel="noopener" target="_blank">Haegele, Talent Hoarding in Organizations, American Economic Review 116(8), 2026</a></li>
+          <li><a href="https://pure.psu.edu/en/publications/turned-down-and-taking-off-rejection-and-turnover-in-internal-tal/" rel="noopener" target="_blank">Dlugos and Keller, Turned Down and Taking Off: Rejection and Turnover in Internal Talent Markets, Academy of Management Journal 64(1), 2021</a></li>
+          <li><a href="https://journals.sagepub.com/doi/abs/10.1177/0001839217736045" rel="noopener" target="_blank">Keller, Posting and Slotting: How Hiring Processes Shape the Quality of Hire and Compensation in Internal Labor Markets, Administrative Science Quarterly 63(4), 2018</a></li>
+          <li><a href="https://faculty.wharton.upenn.edu/wp-content/uploads/2012/03/Paying_More_ASQ_edits_FINAL.pdf" rel="noopener" target="_blank">Bidwell, Paying More to Get Less: The Effects of External Hiring versus Internal Mobility, Administrative Science Quarterly 56(3), 2011</a></li>
+          <li><a href="https://sloanreview.mit.edu/projects/opportunity-marketplaces/" rel="noopener" target="_blank">Schrage, Schwartz, Kiron, Jones and Buckley, Opportunity Marketplaces, MIT Sloan Management Review and Deloitte, 2020</a></li>
           </ul>
         </div>
       </div>
       <aside class="eb-side">
-        <div class="eb-cover"><span>ebook</span><b>designing an internal talent marketplace people use</b></div>
-        <form class="lead-form" onsubmit="event.preventDefault(); this.innerHTML='<h3>on its way.</h3><p class=&quot;form-sub&quot;>check your inbox for the download link. it usually arrives within a minute.</p>';">
+        <img class="eb-cover-img" src="../Images/resources/internal-talent-marketplace-people-use.jpg" alt="cover of designing an internal talent marketplace people use" width="760" height="1075">
+        <form class="lead-form" onsubmit="event.preventDefault(); this.innerHTML='<h3>here it is.</h3><p class=&quot;form-sub&quot;>your copy is ready. we have also emailed you the link.</p><a class=&quot;btn-primary&quot; style=&quot;width:100%;justify-content:center;&quot; href=&quot;../downloads/internal-talent-marketplace-people-use.pdf&quot; download>download the ebook &rarr;</a>';">
           <h3>get the ebook</h3>
           <p class="form-sub">one short form. the download link arrives by email.</p>
           <div class="form-row">

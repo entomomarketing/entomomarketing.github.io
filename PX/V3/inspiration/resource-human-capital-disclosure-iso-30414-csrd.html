@@ -769,10 +769,12 @@
       html { scroll-behavior: auto; }
     }
     /* ===== END SCROLL ANIMATIONS ===== */
-      .resource-card { text-decoration: none; color: inherit; display: block; }
+    .resource-card { text-decoration: none; color: inherit; display: block; }
     .resource-thumb--gen { display:flex; flex-direction:column; justify-content:flex-end; padding:1.1rem 1.15rem;
       color:#fff; background:linear-gradient(150deg, var(--ebony-clay) 0%, #2b3038 100%); min-height:150px; }
     .resource-thumb--gen span { font-size:10px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; opacity:.6; margin-bottom:.35rem; }
+    .resource-thumb--cov { padding:0; overflow:hidden; background:var(--black-haze); }
+    .resource-thumb--cov img { width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
     .resource-thumb--gen b { font-size:15px; font-weight:700; line-height:1.28; letter-spacing:-.012em; }
 
     .resource-card { text-decoration: none; color: inherit; display: block; }
@@ -797,6 +799,8 @@
       background:linear-gradient(150deg, var(--ebony-clay) 0%, #2b3038 100%); }
     .eb-cover span { display:block; font-size:11px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; opacity:.62; margin-bottom:.6rem; }
     .eb-cover b { display:block; font-size:19px; font-weight:700; line-height:1.25; letter-spacing:-.015em; }
+    .eb-cover-img { display:block; width:100%; border-radius:14px; margin-bottom:1.2rem;
+      border:1px solid rgba(26,31,38,.10); box-shadow:0 2px 6px rgba(43,29,18,.06), 0 14px 34px rgba(43,29,18,.10); }
     .eb-note { font-size:12.5px; color:var(--ink-4); line-height:1.5; margin-top:.9rem; }
     .eb-sources { margin-top:2.6rem; padding-top:1.3rem; border-top:1px solid rgba(26,31,38,.08); max-width:62ch; }
     .eb-sources h2 { font-size:14px; text-transform:uppercase; letter-spacing:.12em; color:var(--ink-4); margin:0 0 .7rem; }
@@ -1134,17 +1138,17 @@
         <div class="eb-sources">
           <h2>referenced sources</h2>
           <ul>
-          <li><a href="https://committee.iso.org/sites/tc260/home/news/content-left-area/news-and-updates/iso-30414-2025-strengthening-hum.html" rel="noopener" target="_blank">ISO/TC 260, ISO 30414:2025 human capital reporting and disclosure, 2025</a></li>
-          <li><a href="https://eur-lex.europa.eu/eli/dir/2026/470/oj" rel="noopener" target="_blank">Directive (EU) 2026/470, Omnibus I amendments to CSRD, 2026</a></li>
-          <li><a href="https://eur-lex.europa.eu/eli/reg_del/2023/2772/oj" rel="noopener" target="_blank">Commission Delegated Regulation (EU) 2023/2772, European Sustainability Reporting Standards, 2023</a></li>
-          <li><a href="https://finance.ec.europa.eu/capital-markets-union-and-financial-markets/company-reporting-and-auditing/company-reporting/corporate-sustainability-reporting_en" rel="noopener" target="_blank">European Commission, Corporate sustainability reporting, 2026</a></li>
-          <li><a href="https://eur-lex.europa.eu/eli/dir/2023/970/oj" rel="noopener" target="_blank">Directive (EU) 2023/970, EU Pay Transparency Directive, 2023</a></li>
+          <li><a href="https://www.iso.org/standard/30414" rel="noopener" target="_blank">ISO 30414:2025, Human resource management, requirements and recommendations for human capital reporting and disclosure, ISO, 2025</a></li>
+          <li><a href="https://eur-lex.europa.eu/eli/dir/2026/470/oj" rel="noopener" target="_blank">Directive (EU) 2026/470 of 24 February 2026, Omnibus I, Official Journal of the European Union, 2026</a></li>
+          <li><a href="https://ec.europa.eu/finance/docs/level-2-measures/csrd-delegated-act-2026-5010_en.pdf" rel="noopener" target="_blank">Commission Delegated Regulation of 3 July 2026 amending Delegated Regulation (EU) 2023/2772 as regards the simplification of certain sustainability reporting standards, C(2026) 5010, European Commission, 2026</a></li>
+          <li><a href="https://eur-lex.europa.eu/eli/dir/2022/2464/oj" rel="noopener" target="_blank">Directive (EU) 2022/2464, Corporate Sustainability Reporting Directive, Official Journal of the European Union, 2022</a></li>
+          <li><a href="https://knowledgehub.efrag.org/eng/interactive/simplified-esrs/esrs-s1/technical-advice" rel="noopener" target="_blank">EFRAG Knowledge Hub, simplified ESRS, ESRS S1 own workforce, EFRAG, 2026</a></li>
           </ul>
         </div>
       </div>
       <aside class="eb-side">
-        <div class="eb-cover"><span>whitepaper</span><b>human capital disclosure: <span class="keep-case">ISO</span> 30414 and <span class="keep-case">CSRD</span></b></div>
-        <form class="lead-form" onsubmit="event.preventDefault(); this.innerHTML='<h3>on its way.</h3><p class=&quot;form-sub&quot;>check your inbox for the download link. it usually arrives within a minute.</p>';">
+        <img class="eb-cover-img" src="../Images/resources/human-capital-disclosure-iso-30414-csrd.jpg" alt="cover of human capital disclosure: ISO 30414 and CSRD" width="760" height="1075">
+        <form class="lead-form" onsubmit="event.preventDefault(); this.innerHTML='<h3>here it is.</h3><p class=&quot;form-sub&quot;>your copy is ready. we have also emailed you the link.</p><a class=&quot;btn-primary&quot; style=&quot;width:100%;justify-content:center;&quot; href=&quot;../downloads/human-capital-disclosure-iso-30414-csrd.pdf&quot; download>download the whitepaper &rarr;</a>';">
           <h3>get the whitepaper</h3>
           <p class="form-sub">one short form. the download link arrives by email.</p>
           <div class="form-row">
