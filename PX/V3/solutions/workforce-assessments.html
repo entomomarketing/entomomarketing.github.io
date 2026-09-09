@@ -1697,10 +1697,19 @@
       border-radius:999px; padding:5px 13px 5px 6px; font-size:12.5px; font-weight:700; color:var(--spanish-blue); }
     .as-step .as-agent img { width:26px; height:26px; border-radius:50%; }
 
-    .as-outcome { display:flex; gap:2.6rem; flex-wrap:wrap; justify-content:center; margin:3rem auto 0; }
-    .as-o { text-align:center; }
-    .as-o b { display:block; font-size:1.7rem; letter-spacing:-1px; color:var(--ink); }
-    .as-o span { font-size:13.5px; color:var(--ink-3); }
+    .as-case { max-width:1020px; margin:3.2rem auto 0; background:var(--white); border-radius:22px;
+      border:1px solid rgba(26,31,38,0.07); box-shadow:0 16px 44px rgba(43,29,18,0.09); overflow:hidden;
+      display:grid; grid-template-columns:1.35fr 1fr; }
+    .as-case-l { padding:2.3rem 2.5rem; }
+    .as-case-ind { font-size:12px; font-weight:800; letter-spacing:1.1px; text-transform:uppercase; color:var(--ink-4); margin-bottom:1rem; }
+    .as-case-lead { font-size:1.25rem; font-weight:700; line-height:1.4; color:var(--ink); margin:0; }
+    .as-case-p { font-size:14px; line-height:1.6; color:var(--ink-3); margin:1.1rem 0 0; }
+    .as-case-link { display:inline-block; margin-top:1.3rem; font-size:14px; font-weight:700; color:var(--spanish-blue); text-decoration:none; }
+    .as-case-link:hover { text-decoration:underline; }
+    .as-case-r { background:linear-gradient(160deg, rgba(0,100,191,0.06), rgba(44,153,66,0.07)); padding:2.3rem 2.2rem; display:flex; flex-direction:column; gap:1.3rem; justify-content:center; border-left:1px solid rgba(26,31,38,0.06); }
+    .as-kpi b { display:block; font-size:1.65rem; letter-spacing:-1px; color:var(--ink); line-height:1.05; }
+    .as-kpi > span { font-size:13.5px; color:var(--ink-3); }
+    @media (max-width:900px){ .as-case { grid-template-columns:1fr; } .as-case-r { border-left:none; border-top:1px solid rgba(26,31,38,0.06); } }
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -2133,10 +2142,27 @@
           <p>scores flow back into <span class="axon-text">axon</span>: talent hotspots and nine-box grids for leaders, proficiency gaps into individual development plans, aggregate baselines into workforce planning. no report to distribute; the graph updates.</p>
         </div>
       </div>
-      <div class="as-outcome">
-        <div class="as-o"><b>500K+ skills</b><span>assessed across 3,500+ distinct skills at <span class="keep-case">Carelon</span>, validated at a 95% approval rate</span></div>
-        <div class="as-o"><b>~95%</b><span>of a 14K+ workforce skill-profiled at any given time</span></div>
-        <div class="as-o"><b>every result</b><span>linked to a development action, not filed in a drawer</span></div>
+    </div>
+  </section>
+
+  <!-- ===== CASE ===== -->
+  <section style="background: var(--floral-white);">
+    <div class="container">
+      <div class="text-center" style="max-width:760px; margin:0 auto;">
+        <h2 class="section-heading"><span class="keep-case">India</span>'s patent examiners, benchmarked before and after <mark>capacity building</mark></h2>
+      </div>
+      <div class="as-case">
+        <div class="as-case-l">
+          <div class="as-case-ind">government &middot; india &middot; mission karmayogi</div>
+          <p class="as-case-lead">a baseline and an end-line assessment for newly inducted patent examiners, built from role blueprints and benchmarked to one national competency framework.</p>
+          <p class="as-case-p">led by the <span class="keep-case">CEGIS Foundation</span>, knowledge partner of the <span class="keep-case">Capacity Building Commission</span>, with the <span class="keep-case">Office of the Controller General of Patents, Designs and Trademarks</span> under the <span class="keep-case">Ministry of Commerce and Industry</span>. examiners across 14 disciplines and four regional zones sat scenario-based assessments on eight functional and behavioural competency domains, aligned to the <span class="keep-case">FRAC</span> framework of <span class="keep-case">Mission Karmayogi</span>. delivered proctored and paperless on entomo's platform, with near-time analytics feeding individual development plans and capability planning.</p>
+          <a class="as-case-link" href="../inspiration/case-studies/cegis-india-ip-office-patent-examiner-assessments.html">read the case study &rarr;</a>
+        </div>
+        <div class="as-case-r">
+          <div class="as-kpi"><b>14 disciplines</b><span>of patent examiners across four regional zones, under one competency framework</span></div>
+          <div class="as-kpi"><b>baseline + end-line</b><span>assessments built from role-specific blueprints on eight competency domains</span></div>
+          <div class="as-kpi"><b><span class="keep-case">FRAC</span>-aligned</b><span>proficiency benchmarks, with results flowing to development plans and capability planning</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -2150,7 +2176,7 @@
       <div class="integrations-grid">
         <div class="integration-card">
           <div class="integration-card-title">will employees actually take them?</div>
-          <p class="faq-a">This is the failure mode of most programs, which is why the experience is gamified, mobile, and role-relevant. When an assessment reads like your actual job rather than a generic quiz, completion follows. One enterprise rollout reached 95% adoption.</p>
+          <p class="faq-a">This is the failure mode of most programs, which is why the experience is gamified, mobile, and role-relevant. When an assessment reads like your actual job rather than a generic quiz, completion follows.</p>
         </div>
         <div class="integration-card">
           <div class="integration-card-title">what happens to the results?</div>
