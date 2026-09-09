@@ -1388,7 +1388,8 @@
       font-size: 16px;
       font-weight: 700;
       text-transform: lowercase;
-      margin-bottom: 0.75rem;
+      margin: 0 0 0.75rem;
+      line-height: 1.4;
       color: var(--ebony-clay);
     }
     .integration-pill-row {
@@ -1712,6 +1713,22 @@
     .sol-further-grid b { display:block; font-size:16.5px; line-height:1.35; letter-spacing:-.01em; color:var(--ink); margin-bottom:.4rem; }
     .sol-further-grid span { font-size:13.5px; line-height:1.55; color:var(--ink-3); }
     @media (max-width:760px){ .sol-further-grid { grid-template-columns:1fr; } }
+    /* answer block (seo batch 6) */
+    .sol-answer { padding: 4rem 0; background: var(--floral-white, #fdf9f3); border-top: 1px solid rgba(26,31,38,0.06); }
+    .sol-answer-in { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
+    .sol-answer h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 800; line-height: 1.15; letter-spacing: -.02em; color: var(--ebony-clay, #1a1f26); text-transform: lowercase; margin: 0 0 1.1rem; }
+    .sol-answer h2 .keep-case { text-transform: none; }
+    .sol-answer h2 mark { background: var(--sunrise-yellow, #ffda00); color: #000; padding: 0 .3em; border-radius: 10px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+    .sol-answer p { font-size: 17.5px; line-height: 1.65; color: var(--ink-3, #3d444d); margin: 0; }
+    .sol-answer-table { margin-top: 1.6rem; overflow-x: auto; }
+    .sol-answer table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 14.5px; background: var(--white, #fff); border: 1px solid rgba(26,31,38,0.08); border-radius: 14px; overflow: hidden; }
+    .sol-answer th { text-align: left; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-4, #6b7280); padding: .8rem 1rem; border-bottom: 1px solid rgba(26,31,38,0.1); background: var(--polar-white, #f4f7fb); }
+    .sol-answer td { padding: .8rem 1rem; border-bottom: 1px solid rgba(26,31,38,0.06); color: var(--ebony-clay, #1a1f26); vertical-align: top; line-height: 1.5; }
+    .sol-answer td:first-child { font-weight: 700; }
+    .sol-answer tr:last-child td { border-bottom: 0; }
+    .sol-answer td a { color: var(--spanish-blue, #0064bf); font-weight: 700; text-decoration: none; } .sol-answer td a:hover { text-decoration: underline; }
+    @media (max-width: 760px) { .sol-answer { padding: 3rem 0; } .sol-answer table { font-size: 13.5px; } .sol-answer th, .sol-answer td { padding: .7rem .6rem; } }
+
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -2330,22 +2347,30 @@
       </div>
       <div class="integrations-grid">
         <div class="integration-card">
-          <div class="integration-card-title">what stops it making things up?</div>
+          <h3 class="integration-card-title">what stops it making things up?</h3>
           <p class="faq-a"><span class="keep-case">DIA</span> answers from structured workforce intelligence: <span class="axon-text">axon</span>'s governed graph, your enterprise context, and decision logic built for talent questions. It queries your data and shows its working; it doesn't improvise from an internet-trained memory the way a generic assistant does.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">who can ask what?</div>
+          <h3 class="integration-card-title">who can ask what?</h3>
           <p class="faq-a">Access follows your governance, down to the individual. A manager's answers cover their team; an executive's cover the enterprise. Same assistant, different scope, enforced by the platform's <span class="keep-case">ISO</span> 27001 and <span class="keep-case">ISO</span> 27701 certified access layer.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">what can it actually produce?</div>
+          <h3 class="integration-card-title">what can it actually produce?</h3>
           <p class="faq-a">Everything from a one-line answer to a chart to a full <span class="keep-case">ISO</span> 30414-aligned human capital report, plus actions: nudges routed to owners, reviews drafted for approval, <span class="keep-case">KPI</span> libraries generated per role. Answers that end in something done, not just something known.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">where does it live?</div>
+          <h3 class="integration-card-title">where does it live?</h3>
           <p class="faq-a">In the flow of work: inside the entomo workspace and in the tools your teams already use, the way one enterprise client runs its assistant inside microsoft teams. The point of the ask path is never switching context to use it.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ===== ANSWER (seo batch 6) ===== -->
+  <section class="sol-answer">
+    <div class="sol-answer-in">
+      <h2>what is a <mark>data intelligence assistant</mark>?</h2>
+      <p><span class="keep-case">DIA</span> is entomo's data intelligence assistant. it answers a workforce question in plain language at whatever altitude the asker needs, grounded in your governed data rather than a generic chatbot's guess. the same question returns exposure and trend to the <span class="keep-case">CEO</span>, drivers and programs to the <span class="keep-case">CHRO</span>, and names and next steps to the manager, each scoped to what that person is entitled to see.</p>
     </div>
   </section>
 

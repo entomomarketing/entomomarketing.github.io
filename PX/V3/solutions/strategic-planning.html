@@ -1286,6 +1286,22 @@
     .sol-further-grid b { display:block; font-size:16.5px; line-height:1.35; letter-spacing:-.01em; color:var(--ink); margin-bottom:.4rem; }
     .sol-further-grid span { font-size:13.5px; line-height:1.55; color:var(--ink-3); }
     @media (max-width:760px){ .sol-further-grid { grid-template-columns:1fr; } }
+    /* answer block (seo batch 6) */
+    .sol-answer { padding: 4rem 0; background: var(--floral-white, #fdf9f3); border-top: 1px solid rgba(26,31,38,0.06); }
+    .sol-answer-in { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
+    .sol-answer h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 800; line-height: 1.15; letter-spacing: -.02em; color: var(--ebony-clay, #1a1f26); text-transform: lowercase; margin: 0 0 1.1rem; }
+    .sol-answer h2 .keep-case { text-transform: none; }
+    .sol-answer h2 mark { background: var(--sunrise-yellow, #ffda00); color: #000; padding: 0 .3em; border-radius: 10px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+    .sol-answer p { font-size: 17.5px; line-height: 1.65; color: var(--ink-3, #3d444d); margin: 0; }
+    .sol-answer-table { margin-top: 1.6rem; overflow-x: auto; }
+    .sol-answer table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 14.5px; background: var(--white, #fff); border: 1px solid rgba(26,31,38,0.08); border-radius: 14px; overflow: hidden; }
+    .sol-answer th { text-align: left; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-4, #6b7280); padding: .8rem 1rem; border-bottom: 1px solid rgba(26,31,38,0.1); background: var(--polar-white, #f4f7fb); }
+    .sol-answer td { padding: .8rem 1rem; border-bottom: 1px solid rgba(26,31,38,0.06); color: var(--ebony-clay, #1a1f26); vertical-align: top; line-height: 1.5; }
+    .sol-answer td:first-child { font-weight: 700; }
+    .sol-answer tr:last-child td { border-bottom: 0; }
+    .sol-answer td a { color: var(--spanish-blue, #0064bf); font-weight: 700; text-decoration: none; } .sol-answer td a:hover { text-decoration: underline; }
+    @media (max-width: 760px) { .sol-answer { padding: 3rem 0; } .sol-answer table { font-size: 13.5px; } .sol-answer th, .sol-answer td { padding: .7rem .6rem; } }
+
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -2293,6 +2309,14 @@
 
       </div>
 
+    </div>
+  </section>
+
+  <!-- ===== ANSWER (seo batch 6) ===== -->
+  <section class="sol-answer">
+    <div class="sol-answer-in">
+      <h2>what does <mark>strategic workforce planning</mark> produce?</h2>
+      <p>strategic workforce planning turns a business strategy into a workforce you can staff. entomo projects demand from strategy and signals, measures supply with attrition and movement, surfaces the gap by role, models the futures side by side, and returns one recommendation across build, buy, borrow and bot, with cost, time and risk side by side, translated into a hiring plan, a reskilling plan and redeployment moves with named owners.</p>
     </div>
   </section>
 

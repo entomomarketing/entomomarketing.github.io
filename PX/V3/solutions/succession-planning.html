@@ -1388,7 +1388,8 @@
       font-size: 16px;
       font-weight: 700;
       text-transform: lowercase;
-      margin-bottom: 0.75rem;
+      margin: 0 0 0.75rem;
+      line-height: 1.4;
       color: var(--ebony-clay);
     }
     .integration-pill-row {
@@ -1724,6 +1725,22 @@
     .sol-further-grid b { display:block; font-size:16.5px; line-height:1.35; letter-spacing:-.01em; color:var(--ink); margin-bottom:.4rem; }
     .sol-further-grid span { font-size:13.5px; line-height:1.55; color:var(--ink-3); }
     @media (max-width:760px){ .sol-further-grid { grid-template-columns:1fr; } }
+    /* answer block (seo batch 6) */
+    .sol-answer { padding: 4rem 0; background: var(--floral-white, #fdf9f3); border-top: 1px solid rgba(26,31,38,0.06); }
+    .sol-answer-in { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
+    .sol-answer h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 800; line-height: 1.15; letter-spacing: -.02em; color: var(--ebony-clay, #1a1f26); text-transform: lowercase; margin: 0 0 1.1rem; }
+    .sol-answer h2 .keep-case { text-transform: none; }
+    .sol-answer h2 mark { background: var(--sunrise-yellow, #ffda00); color: #000; padding: 0 .3em; border-radius: 10px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+    .sol-answer p { font-size: 17.5px; line-height: 1.65; color: var(--ink-3, #3d444d); margin: 0; }
+    .sol-answer-table { margin-top: 1.6rem; overflow-x: auto; }
+    .sol-answer table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 14.5px; background: var(--white, #fff); border: 1px solid rgba(26,31,38,0.08); border-radius: 14px; overflow: hidden; }
+    .sol-answer th { text-align: left; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-4, #6b7280); padding: .8rem 1rem; border-bottom: 1px solid rgba(26,31,38,0.1); background: var(--polar-white, #f4f7fb); }
+    .sol-answer td { padding: .8rem 1rem; border-bottom: 1px solid rgba(26,31,38,0.06); color: var(--ebony-clay, #1a1f26); vertical-align: top; line-height: 1.5; }
+    .sol-answer td:first-child { font-weight: 700; }
+    .sol-answer tr:last-child td { border-bottom: 0; }
+    .sol-answer td a { color: var(--spanish-blue, #0064bf); font-weight: 700; text-decoration: none; } .sol-answer td a:hover { text-decoration: underline; }
+    @media (max-width: 760px) { .sol-answer { padding: 3rem 0; } .sol-answer table { font-size: 13.5px; } .sol-answer th, .sol-answer td { padding: .7rem .6rem; } }
+
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -2272,22 +2289,30 @@
       </div>
       <div class="integrations-grid">
         <div class="integration-card">
-          <div class="integration-card-title">how current is the readiness data?</div>
+          <h3 class="integration-card-title">how current is the readiness data?</h3>
           <p class="faq-a">As current as the work. Readiness draws on live goal delivery, assessment results, and skill profiles in <span class="axon-text">axon</span>, so a pipeline weakens the moment its members stall, not a year later at review time.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">can we keep our eligibility rules?</div>
+          <h3 class="integration-card-title">can we keep our eligibility rules?</h3>
           <p class="faq-a">Yes. Comparison criteria are configurable: tenure, mobility, assessment thresholds, compliance requirements. The <span class="keep-case">AI</span> ranks against your parameters and shows its evidence; it never applies rules you didn't set.</p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">what fills the gaps it finds?</div>
+          <h3 class="integration-card-title">what fills the gaps it finds?</h3>
           <p class="faq-a">Development, automatically proposed: individual development plans, gigs and rotations from the internal marketplace, mentors from the network. A red cell on the matrix arrives with the plan that turns it amber. <a href="internal-mobility.html" style="color:var(--spanish-blue); font-weight:600;">see internal mobility &rarr;</a></p>
         </div>
         <div class="integration-card">
-          <div class="integration-card-title">is this only for the c-suite?</div>
+          <h3 class="integration-card-title">is this only for the c-suite?</h3>
           <p class="faq-a">No. The matrix covers every role you flag as critical, and criticality is often highest below the executive layer: the plant director, the chief underwriter, the one architect who knows the core system.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ===== ANSWER (seo batch 6) ===== -->
+  <section class="sol-answer">
+    <div class="sol-answer-in">
+      <h2>what makes a successor <mark>ready</mark>?</h2>
+      <p>readiness is evidence, not a nomination. entomo risk-scores critical roles, scores successor readiness on live goal delivery, assessment results and skill profiles in axon, and calibrates candidates in the nine-box. a pipeline weakens the moment its members stall, not a year later at review time, so no critical role is ever one resignation from empty.</p>
     </div>
   </section>
 
