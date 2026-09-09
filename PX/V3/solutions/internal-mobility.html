@@ -1721,6 +1721,16 @@
     .im-pr { text-align:center; }
     .im-pr b { display:block; font-size:2.1rem; letter-spacing:-1.5px; color:var(--ink); }
     .im-pr span { font-size:13.5px; color:var(--ink-3); max-width:220px; display:block; }
+
+    /* further reading (seo batch 5) */
+    .sol-further { padding: 4rem 0; background: var(--polar-white); border-top: 1px solid rgba(26,31,38,0.06); }
+    .sol-further-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1.1rem; max-width:1020px; margin:2rem auto 0; }
+    .sol-further-grid a { display:block; padding:1.35rem 1.5rem; background:var(--white); border:1px solid rgba(26,31,38,0.08); border-radius:18px; text-decoration:none; color:inherit; box-shadow:0 2px 6px rgba(43,29,18,0.04); transition:transform .18s ease, box-shadow .18s ease; }
+    .sol-further-grid a:hover { transform:translateY(-2px); box-shadow:0 12px 30px rgba(43,29,18,0.09); }
+    .sol-further-grid small { display:block; font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-4); margin-bottom:.45rem; }
+    .sol-further-grid b { display:block; font-size:16.5px; line-height:1.35; letter-spacing:-.01em; color:var(--ink); margin-bottom:.4rem; }
+    .sol-further-grid span { font-size:13.5px; line-height:1.55; color:var(--ink-3); }
+    @media (max-width:760px){ .sol-further-grid { grid-template-columns:1fr; } }
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -1760,6 +1770,12 @@
     {
      "@type": "ListItem",
      "position": 2,
+     "name": "solutions",
+     "item": "https://entomomarketing.github.io/PX/V3/index.html#solutions"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
      "name": "your next hire is already on your payroll"
     }
    ]
@@ -2298,6 +2314,19 @@
           <div class="integration-card-title">where does succession fit in?</div>
           <p class="faq-a">Mobility feeds it. Every gig delivered and skill assessed builds the evidence succession planning draws on, so pipelines fill from real movement instead of static nomination lists. <a href="succession-planning.html" style="color:var(--spanish-blue); font-weight:600;">see succession planning &rarr;</a></p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FURTHER READING ===== -->
+  <section class="sol-further">
+    <div class="container">
+      <div class="text-center"><h2 class="section-heading">further <mark>reading</mark></h2></div>
+      <div class="sol-further-grid">
+        <a href="succession-planning.html"><small>related solution</small><b>succession planning</b><span>succession planning with agentic AI: critical roles risk-scored, successor readiness scored on evidence, nine-box calibration and ready-now talent pools.</span></a>
+        <a href="skill-intelligence.html"><small>related solution</small><b>skills intelligence for careers and learning</b><span>skills intelligence that maps what your workforce has, validates it against what roles require, and grows the capability the gap reveals. built on axon.</span></a>
+        <a href="../inspiration/blog-internal-mobility-two-clocks.html"><small>from the blog</small><b>internal mobility runs on two clocks</b><span>one clock fills the role open this month, the other builds the career that takes three years, and most organisations wind only one of them.</span></a>
+        <a href="../inspiration/case-studies/ntuc-learninghub-career-agility-hub.html"><small>case study</small><b>NTUC LearningHub: 40,000+ career subscribers</b><span>NTUC LearningHub runs its career agility hub on entomo: 40,000+ subscribers, 100,000+ jobs visible, 170+ employers posting 1,000+ featured jobs.</span></a>
       </div>
     </div>
   </section>

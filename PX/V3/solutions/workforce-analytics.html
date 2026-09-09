@@ -1750,6 +1750,16 @@
     .wa-stat { padding-left:1.1rem; border-left:3px solid var(--spanish-blue); }
     .wa-stat:nth-child(2){ border-color:var(--cg-red);} .wa-stat:nth-child(3){ border-color:var(--sea-green);}
     @media (max-width:900px){ .wa-proof { grid-template-columns:1fr; } }
+
+    /* further reading (seo batch 5) */
+    .sol-further { padding: 4rem 0; background: var(--polar-white); border-top: 1px solid rgba(26,31,38,0.06); }
+    .sol-further-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1.1rem; max-width:1020px; margin:2rem auto 0; }
+    .sol-further-grid a { display:block; padding:1.35rem 1.5rem; background:var(--white); border:1px solid rgba(26,31,38,0.08); border-radius:18px; text-decoration:none; color:inherit; box-shadow:0 2px 6px rgba(43,29,18,0.04); transition:transform .18s ease, box-shadow .18s ease; }
+    .sol-further-grid a:hover { transform:translateY(-2px); box-shadow:0 12px 30px rgba(43,29,18,0.09); }
+    .sol-further-grid small { display:block; font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-4); margin-bottom:.45rem; }
+    .sol-further-grid b { display:block; font-size:16.5px; line-height:1.35; letter-spacing:-.01em; color:var(--ink); margin-bottom:.4rem; }
+    .sol-further-grid span { font-size:13.5px; line-height:1.55; color:var(--ink-3); }
+    @media (max-width:760px){ .sol-further-grid { grid-template-columns:1fr; } }
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -1789,6 +1799,12 @@
     {
      "@type": "ListItem",
      "position": 2,
+     "name": "solutions",
+     "item": "https://entomomarketing.github.io/PX/V3/index.html#solutions"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
      "name": "turn workforce data into decisions"
     }
    ]
@@ -2314,6 +2330,19 @@
           <div class="integration-card-title">can it produce <span class="keep-case">ISO</span> 30414 human capital reports?</div>
           <p class="faq-a">Yes. The platform delivers <span class="keep-case">ISO</span> 30414-compliant human capital reporting with comparator intelligence, assembled from the same governed data that answers daily questions. Ask for the report and the agent team builds it.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FURTHER READING ===== -->
+  <section class="sol-further">
+    <div class="container">
+      <div class="text-center"><h2 class="section-heading">further <mark>reading</mark></h2></div>
+      <div class="sol-further-grid">
+        <a href="workforce-insights.html"><small>related solution</small><b>workforce insights for leaders</b><span>every workforce question deserves a real answer, not a dashboard: agentic AI that interprets your people data and recommends what to do next.</span></a>
+        <a href="dia.html"><small>related solution</small><b>DIA, the data intelligence assistant</b><span>DIA is entomo's data intelligence assistant: ask any workforce question in plain language and get a board-ready recommendation, not a chart.</span></a>
+        <a href="../inspiration/blog-the-board-ready-workforce-report.html"><small>from the blog</small><b>the workforce report your board and your auditor both accept</b><span>ISO 30414 became a requirements standard in 2025 and the EU narrowed CSRD in 2026, which changes what a credible disclosure set looks like.</span></a>
+        <a href="../inspiration/case-studies/global-it-research-services-predictive-attrition.html"><small>case study</small><b>IT research firm: 80%+ attrition prediction</b><span>a global IT and research services firm built a predictive attrition model on entomo: 80%+ accuracy across 80+ parameters, covering 11,000 employees.</span></a>
       </div>
     </div>
   </section>

@@ -1699,6 +1699,16 @@
     .lr-o span { font-size:14px; color:var(--ink-2); line-height:1.55; display:block; }
     .lr-o em { display:block; font-style:normal; margin-top:0.8rem; font-size:12px; font-weight:800; letter-spacing:0.8px; text-transform:uppercase; color:var(--ink-4); }
     @media (max-width:900px){ .lr-outcomes { grid-template-columns:1fr; } }
+
+    /* further reading (seo batch 5) */
+    .sol-further { padding: 4rem 0; background: var(--polar-white); border-top: 1px solid rgba(26,31,38,0.06); }
+    .sol-further-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1.1rem; max-width:1020px; margin:2rem auto 0; }
+    .sol-further-grid a { display:block; padding:1.35rem 1.5rem; background:var(--white); border:1px solid rgba(26,31,38,0.08); border-radius:18px; text-decoration:none; color:inherit; box-shadow:0 2px 6px rgba(43,29,18,0.04); transition:transform .18s ease, box-shadow .18s ease; }
+    .sol-further-grid a:hover { transform:translateY(-2px); box-shadow:0 12px 30px rgba(43,29,18,0.09); }
+    .sol-further-grid small { display:block; font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-4); margin-bottom:.45rem; }
+    .sol-further-grid b { display:block; font-size:16.5px; line-height:1.35; letter-spacing:-.01em; color:var(--ink); margin-bottom:.4rem; }
+    .sol-further-grid span { font-size:13.5px; line-height:1.55; color:var(--ink-3); }
+    @media (max-width:760px){ .sol-further-grid { grid-template-columns:1fr; } }
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -1738,6 +1748,12 @@
     {
      "@type": "ListItem",
      "position": 2,
+     "name": "solutions",
+     "item": "https://entomomarketing.github.io/PX/V3/index.html#solutions"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
      "name": "maximize the return on every learning dollar"
     }
    ]
@@ -2224,6 +2240,19 @@
           <div class="integration-card-title">can employees drive their own development?</div>
           <p class="faq-a">That's the design. People see their own gaps, choose aspirations, and get recommendations: courses, micro-learning, gigs, mentors. Ownership is what turns a training assignment into a growth path people finish.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FURTHER READING ===== -->
+  <section class="sol-further">
+    <div class="container">
+      <div class="text-center"><h2 class="section-heading">further <mark>reading</mark></h2></div>
+      <div class="sol-further-grid">
+        <a href="skill-intelligence.html"><small>related solution</small><b>skills intelligence for careers and learning</b><span>skills intelligence that maps what your workforce has, validates it against what roles require, and grows the capability the gap reveals. built on axon.</span></a>
+        <a href="workforce-assessments.html"><small>related solution</small><b>workforce assessments at scale</b><span>skill assessments built from the role's axon blueprint, generated with AI, approved by your experts and scored to proficiency. live in weeks, not quarters.</span></a>
+        <a href="../inspiration/blog-learning-roi-chain-of-evidence.html"><small>from the blog</small><b>learning spend needs a chain of evidence</b><span>training evaluation stops at satisfaction scores because the next four links are unowned, not because they are impossible.</span></a>
+        <a href="../inspiration/case-studies/japan-it-services-skills-framework.html"><small>case study</small><b>Japan IT services: skills framework 80% faster</b><span>talent transformation for one of Japan's largest IT services companies through a structured skill framework and market intelligence.</span></a>
       </div>
     </div>
   </section>

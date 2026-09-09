@@ -1276,6 +1276,16 @@
       html { scroll-behavior: auto; }
     }
     /* ===== END SCROLL ANIMATIONS ===== */
+
+    /* further reading (seo batch 5) */
+    .sol-further { padding: 4rem 0; background: var(--polar-white); border-top: 1px solid rgba(26,31,38,0.06); }
+    .sol-further-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1.1rem; max-width:1020px; margin:2rem auto 0; }
+    .sol-further-grid a { display:block; padding:1.35rem 1.5rem; background:var(--white); border:1px solid rgba(26,31,38,0.08); border-radius:18px; text-decoration:none; color:inherit; box-shadow:0 2px 6px rgba(43,29,18,0.04); transition:transform .18s ease, box-shadow .18s ease; }
+    .sol-further-grid a:hover { transform:translateY(-2px); box-shadow:0 12px 30px rgba(43,29,18,0.09); }
+    .sol-further-grid small { display:block; font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-4); margin-bottom:.45rem; }
+    .sol-further-grid b { display:block; font-size:16.5px; line-height:1.35; letter-spacing:-.01em; color:var(--ink); margin-bottom:.4rem; }
+    .sol-further-grid span { font-size:13.5px; line-height:1.55; color:var(--ink-3); }
+    @media (max-width:760px){ .sol-further-grid { grid-template-columns:1fr; } }
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -1326,6 +1336,12 @@
     {
      "@type": "ListItem",
      "position": 2,
+     "name": "solutions",
+     "item": "https://entomomarketing.github.io/PX/V3/index.html#solutions"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
      "name": "align your workforce to what's next"
     }
    ]
@@ -2277,6 +2293,19 @@
 
       </div>
 
+    </div>
+  </section>
+
+  <!-- ===== FURTHER READING ===== -->
+  <section class="sol-further">
+    <div class="container">
+      <div class="text-center"><h2 class="section-heading">further <mark>reading</mark></h2></div>
+      <div class="sol-further-grid">
+        <a href="workforce-planning.html"><small>related solution</small><b>workforce planning</b><span>workforce planning with agentic AI: model demand against strategy, rank skill gaps, compare build, buy, borrow or bot for every need, and score succession.</span></a>
+        <a href="succession-planning.html"><small>related solution</small><b>succession planning</b><span>succession planning with agentic AI: critical roles risk-scored, successor readiness scored on evidence, nine-box calibration and ready-now talent pools.</span></a>
+        <a href="../inspiration/blog-workforce-planning-is-a-decision-not-a-spreadsheet.html"><small>from the blog</small><b>workforce planning is a decision, not a spreadsheet</b><span>build, buy, borrow or bot: every capability needs a supply decision on the record, with the evidence that would reverse it.</span></a>
+        <a href="../inspiration/case-studies/7bn-enterprise-talent-transformation.html"><small>case study</small><b>a $7bn enterprise: $5M more resources freed</b><span>a $7bn enterprise ran talent transformation on entomo's augmented intelligence and analytics: $5M equivalent in resources freed by internal fulfilment.</span></a>
+      </div>
     </div>
   </section>
 

@@ -1256,6 +1256,16 @@
       html { scroll-behavior: auto; }
     }
     /* ===== END SCROLL ANIMATIONS ===== */
+
+    /* further reading (seo batch 5) */
+    .sol-further { padding: 4rem 0; background: var(--polar-white); border-top: 1px solid rgba(26,31,38,0.06); }
+    .sol-further-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1.1rem; max-width:1020px; margin:2rem auto 0; }
+    .sol-further-grid a { display:block; padding:1.35rem 1.5rem; background:var(--white); border:1px solid rgba(26,31,38,0.08); border-radius:18px; text-decoration:none; color:inherit; box-shadow:0 2px 6px rgba(43,29,18,0.04); transition:transform .18s ease, box-shadow .18s ease; }
+    .sol-further-grid a:hover { transform:translateY(-2px); box-shadow:0 12px 30px rgba(43,29,18,0.09); }
+    .sol-further-grid small { display:block; font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-4); margin-bottom:.45rem; }
+    .sol-further-grid b { display:block; font-size:16.5px; line-height:1.35; letter-spacing:-.01em; color:var(--ink); margin-bottom:.4rem; }
+    .sol-further-grid span { font-size:13.5px; line-height:1.55; color:var(--ink-3); }
+    @media (max-width:760px){ .sol-further-grid { grid-template-columns:1fr; } }
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -1306,6 +1316,12 @@
     {
      "@type": "ListItem",
      "position": 2,
+     "name": "solutions",
+     "item": "https://entomomarketing.github.io/PX/V3/index.html#solutions"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
      "name": "achieve peak employee performance"
     }
    ]
@@ -2213,6 +2229,19 @@
 
       </div>
 
+    </div>
+  </section>
+
+  <!-- ===== FURTHER READING ===== -->
+  <section class="sol-further">
+    <div class="container">
+      <div class="text-center"><h2 class="section-heading">further <mark>reading</mark></h2></div>
+      <div class="sol-further-grid">
+        <a href="epmo.html"><small>related solution</small><b>enterprise performance management office</b><span>an enterprise performance management office as advisory plus platform: every KPI aligned from strategy map to individual scorecard, kept continuous by AI.</span></a>
+        <a href="spmo.html"><small>related solution</small><b>strategic performance management office</b><span>build and run a strategic performance management office: balanced scorecards, strategy maps and a KPI cascade from corporate strategy to every scorecard.</span></a>
+        <a href="../inspiration/blog-goal-quality-is-a-measurable-property.html"><small>from the blog</small><b>goal quality is measurable, and most goals fail the test</b><span>a goal nobody can review produces no feedback, and that failure can be scored, sampled and tracked across an entire organisation.</span></a>
+        <a href="../inspiration/case-studies/dialog-axiata-performance.html"><small>case study</small><b>Dialog Axiata: 95% of KPIs aligned to strategy</b><span>Dialog Axiata, Sri Lanka's premier connectivity provider, tracks and improves individual, team and company performance for 3,500+ employees on entomo.</span></a>
+      </div>
     </div>
   </section>
 

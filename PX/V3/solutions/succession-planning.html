@@ -1714,6 +1714,16 @@
     .su-f-old { color:var(--ink-3); text-decoration:line-through; text-decoration-color:rgba(228,61,48,0.5); text-decoration-thickness:1.5px; }
     .su-f-new { font-weight:600; color:var(--ink); border-left:1px solid rgba(26,31,38,0.06); background:linear-gradient(135deg, rgba(44,153,66,0.05), transparent), var(--white); }
     @media (max-width:720px){ .su-f { grid-template-columns:1fr; } .su-f-new{border-left:none;} }
+
+    /* further reading (seo batch 5) */
+    .sol-further { padding: 4rem 0; background: var(--polar-white); border-top: 1px solid rgba(26,31,38,0.06); }
+    .sol-further-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1.1rem; max-width:1020px; margin:2rem auto 0; }
+    .sol-further-grid a { display:block; padding:1.35rem 1.5rem; background:var(--white); border:1px solid rgba(26,31,38,0.08); border-radius:18px; text-decoration:none; color:inherit; box-shadow:0 2px 6px rgba(43,29,18,0.04); transition:transform .18s ease, box-shadow .18s ease; }
+    .sol-further-grid a:hover { transform:translateY(-2px); box-shadow:0 12px 30px rgba(43,29,18,0.09); }
+    .sol-further-grid small { display:block; font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-4); margin-bottom:.45rem; }
+    .sol-further-grid b { display:block; font-size:16.5px; line-height:1.35; letter-spacing:-.01em; color:var(--ink); margin-bottom:.4rem; }
+    .sol-further-grid span { font-size:13.5px; line-height:1.55; color:var(--ink-3); }
+    @media (max-width:760px){ .sol-further-grid { grid-template-columns:1fr; } }
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -1753,6 +1763,12 @@
     {
      "@type": "ListItem",
      "position": 2,
+     "name": "solutions",
+     "item": "https://entomomarketing.github.io/PX/V3/index.html#solutions"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
      "name": "know your next leaders before you need them"
     }
    ]
@@ -2271,6 +2287,19 @@
           <div class="integration-card-title">is this only for the c-suite?</div>
           <p class="faq-a">No. The matrix covers every role you flag as critical, and criticality is often highest below the executive layer: the plant director, the chief underwriter, the one architect who knows the core system.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FURTHER READING ===== -->
+  <section class="sol-further">
+    <div class="container">
+      <div class="text-center"><h2 class="section-heading">further <mark>reading</mark></h2></div>
+      <div class="sol-further-grid">
+        <a href="internal-mobility.html"><small>related solution</small><b>internal mobility</b><span>internal mobility on entomo: career paths computed from skill adjacency, opportunities matched to skills and aspirations, and succession driven by skills.</span></a>
+        <a href="strategic-planning.html"><small>related solution</small><b>strategic workforce planning</b><span>project workforce demand and talent supply, surface the gap by role, model the scenarios, and get a build, buy, borrow or bot recommendation for every gap.</span></a>
+        <a href="../inspiration/blog-succession-readiness-is-evidence.html"><small>from the blog</small><b>succession slates need evidence, not ratings</b><span>nine-box grids produce agreement quickly and accuracy rarely, and a board question will find the difference every time.</span></a>
+        <a href="../inspiration/case-studies/7bn-enterprise-talent-transformation.html"><small>case study</small><b>a $7bn enterprise: $5M more resources freed</b><span>a $7bn enterprise ran talent transformation on entomo's augmented intelligence and analytics: $5M equivalent in resources freed by internal fulfilment.</span></a>
       </div>
     </div>
   </section>
