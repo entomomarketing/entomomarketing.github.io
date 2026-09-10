@@ -1,0 +1,2493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>employee engagement and retention | entomo</title>
+  <meta name="description" content="keep your best people: continuous listening, sentiment and burnout signals in real time, and the recognition, mentorship and growth paths that retain them.">
+  <!-- seo:head -->
+  <link rel="canonical" href="https://entomomarketing.github.io/PX/V3/solutions/employee-retention/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="entomo">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://entomomarketing.github.io/PX/V3/solutions/employee-retention/">
+  <meta property="og:title" content="employee engagement and retention">
+  <meta property="og:description" content="keep your best people: continuous listening, sentiment and burnout signals in real time, and the recognition, mentorship and growth paths that retain them.">
+  <meta property="og:image" content="https://entomomarketing.github.io/PX/V3/assets/images/og-default.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="entomo, the agentic intelligence platform for work">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="employee engagement and retention">
+  <meta name="twitter:description" content="keep your best people: continuous listening, sentiment and burnout signals in real time, and the recognition, mentorship and growth paths that retain them.">
+  <meta name="twitter:image" content="https://entomomarketing.github.io/PX/V3/assets/images/og-default.jpg">
+  <link rel="icon" href="../../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../assets/images/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png">
+  <meta name="theme-color" content="#e43d30">
+  <!-- /seo:head -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&display=swap"></noscript>
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Nunito Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #1a1f26;
+      background-color: #ffffff;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --cg-red: #e43d30;
+      --cg-gold: #f4b223;
+      --spanish-blue: #0064bf;
+      --sea-green: #2c9942;
+      --sunrise-yellow: #ffda00;
+      --white: #ffffff;
+      --black: #000000;
+      --ebony-clay: #1a1f26;
+      --black-haze: #fafbfb;
+      --silver-sand: #c0c2c3;
+      --floral-white: #fefbf4;
+      --lavender: #e6f0f9;
+      --pistachio: #eaf5ed;
+      --polar-white: #f2f7fc;
+      --gradient-cta: linear-gradient(90deg, #f4b223, #e43d30);
+      --radius-semi: 5px;
+      --radius-standard: 10px;
+      --radius-medium: 15px;
+      --radius-large: 25px;
+      --shadow-sm: 0px 5px 10px rgba(0,0,0,0.10);
+      --shadow-md: 0px 15px 25px rgba(0,0,0,0.10);
+      --max-width: 1280px;
+    }
+
+    /* ===== UTILITY ===== */
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+    .text-center { text-align: center; }
+    .keep-case { text-transform: none !important; }
+    mark {
+      background-color: var(--sunrise-yellow);
+      background-image: none;
+      color: var(--black);
+      border-radius: 12px;
+      padding: 0.05em 0.35em;
+      line-height: 1;
+      font-weight: 700;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn-primary {
+      background-image: var(--gradient-cta); color: var(--white); border: none;
+      border-radius: var(--radius-semi); padding: 12px 36px; font-family: inherit;
+      font-size: 17px; font-weight: 600; text-transform: lowercase; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
+
+    /* ===== SECTION SPACING ===== */
+    section { padding: 4.5rem 0; }
+    @media (max-width: 768px) { section { padding: 3rem 0; } }
+
+    .section-eyebrow {
+      font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: lowercase; color: var(--cg-red); margin-bottom: 0.75rem;
+    }
+    .section-heading {
+      font-size: 36px; font-weight: 700; line-height: 1.2;
+      text-transform: lowercase; color: var(--ebony-clay); margin-bottom: 1rem;
+    }
+    .section-subheading {
+      font-size: 17px; color: var(--ink-3); max-width: 680px; line-height: 1.65;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .navbar {
+      position: sticky; top: 0; z-index: 100; background: var(--white);
+      border-bottom: 1px solid rgba(26,31,38,0.08); backdrop-filter: blur(12px);
+    }
+    .navbar .container {
+      display: flex; align-items: center; justify-content: space-between; height: 68px;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 700; text-transform: lowercase; }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-size: 16px; font-weight: 500; text-transform: lowercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--cg-red); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+    .nav-cta {
+      background-image: var(--gradient-cta); color: var(--white); border: none;
+      border-radius: var(--radius-semi); padding: 8px 20px; font-family: inherit;
+      font-size: 14px; font-weight: 600; text-transform: lowercase; cursor: pointer;
+    }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-toggle svg { width: 24px; height: 24px; }
+    /* ===== SOLUTIONS MEGA DROPDOWN ===== */
+    .nav-dropdown-wrap {
+      position: relative;
+    }
+    .nav-dropdown-wrap > a {
+      display: flex; align-items: center; gap: 4px;
+    }
+    .nav-dropdown-wrap > a::after {
+      content: '';
+      border: solid currentColor; border-width: 0 1.5px 1.5px 0;
+      display: inline-block; padding: 2.5px;
+      transform: rotate(45deg); margin-top: -3px;
+      transition: transform 0.2s;
+    }
+    .nav-dropdown-wrap:hover > a::after {
+      transform: rotate(-135deg); margin-top: 2px;
+    }
+    .nav-mega {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.08);
+      border-radius: var(--radius-medium);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12), 0 0 0 1px rgba(26,31,38,0.04);
+      padding: 1.25rem;
+      width: 680px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+      transform: translateX(-50%) translateY(14px);
+      z-index: 200;
+    }
+    .nav-dropdown-wrap:hover .nav-mega {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(8px);
+    }
+    .nav-mega-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+    }
+    .nav-mega-item {
+      display: flex; flex-direction: row; align-items: flex-start; gap: 12px;
+      padding: 12px 14px; border-radius: var(--radius-standard);
+      transition: background 0.15s; text-decoration: none; color: inherit;
+    }
+    .nav-mega-icon {
+      width: 40px; height: 40px; border-radius: 9px; flex-shrink: 0;
+      background: rgba(26,31,38,0.05);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+    }
+    .nav-mega-icon svg {
+      width: 18px; height: 18px; stroke: rgba(26,31,38,0.45); fill: none;
+      transition: stroke 0.15s;
+    }
+    .nav-mega-text { display: flex; flex-direction: column; gap: 2px; }
+    .nav-mega-item:hover { background: rgba(228,61,48,0.04); }
+    .nav-mega-item:hover .nav-mega-icon { background: rgba(228,61,48,0.08); }
+    .nav-mega-item:hover .nav-mega-icon svg { stroke: var(--cg-red); }
+    .nav-mega-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      margin-bottom: 3px;
+      line-height: 1.3;
+    }
+    .nav-mega-desc {
+      font-size: 12px;
+      color: var(--ink-4);
+      line-height: 1.4;
+      font-weight: 500;
+    }
+    .nav-mega-item:hover .nav-mega-name {
+      color: var(--cg-red);
+    }
+    .nav-right-group { display: flex; flex-direction: row; align-items: center; gap: 1.5rem; flex-wrap: nowrap; }
+    @media (max-width: 900px) {
+      .nav-mega { display: none; }
+    }
+
+    @media (max-width: 900px) { .nav-links { display: none; } .nav-toggle { display: block; } }
+
+    /* ===== HERO ===== */
+    .sol-hero {
+      background: linear-gradient(135deg, rgba(228,61,48,0.04) 0%, rgba(244,178,35,0.06) 40%, rgba(254,251,244,0.6) 100%);
+      padding: 5rem 0 4.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .sol-hero::before {
+      content: '';
+      position: absolute; top: -30%; right: -5%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(228,61,48,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .sol-hero .container { position: relative; z-index: 1; }
+    .sol-hero-content { max-width: 860px; margin: 0 auto; text-align: center; }
+    .sol-breadcrumb {
+      font-size: 13px; color: var(--ink-4); margin-bottom: 1.5rem;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .sol-breadcrumb a { color: var(--cg-red); font-weight: 600; }
+    .sol-breadcrumb a:hover { text-decoration: underline; }
+    .sol-hero h1 {
+      font-size: clamp(36px, 5vw, 68px); font-weight: 700; line-height: 1.12;
+      text-transform: lowercase; color: var(--ebony-clay); margin-bottom: 1.25rem;
+    }
+    .sol-hero-sub {
+      font-size: 18px; line-height: 1.65; color: var(--ink-3);
+      max-width: 640px; margin: 0 auto 2rem;
+    }
+    .sol-hero-proof {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--ink-4); margin-top: 1.25rem;
+    }
+    .sol-hero-proof svg { width: 14px; height: 14px; stroke: var(--cg-red); }
+
+    /* ===== OUTCOMES ===== */
+    /* ===== DIA DEMO CSS (for performance intelligence page) ===== */
+    .dia-demo {
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(26,31,38,0.04);
+      overflow: hidden;
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      height: 480px;
+    }
+    .dia-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+      border-bottom: 1px solid rgba(26,31,38,0.06);
+      background: var(--polar-white);
+      flex-shrink: 0;
+    }
+    .dia-topbar-left { display: flex; align-items: center; gap: 10px; }
+    .dia-avatar {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--spanish-blue), #00a1e0);
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 11px; font-weight: 700;
+    }
+    .dia-topbar-title { font-size: 14px; font-weight: 700; color: var(--ebony-clay); }
+    .dia-topbar-sub { font-size: 11px; color: var(--ink-4); font-weight: 500; }
+    .dia-chat {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px 24px 16px;
+      overflow: hidden;
+    }
+    .dia-msg {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.35s, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                  max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                  margin 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      max-height: 0;
+      overflow: hidden;
+      margin-bottom: 0;
+    }
+    .dia-msg.show {
+      opacity: 1;
+      transform: translateY(0);
+      max-height: 350px;
+      margin-bottom: 12px;
+    }
+    .dia-user-q {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .dia-user-q span {
+      background: var(--spanish-blue);
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 16px;
+      border-radius: 16px 16px 4px 16px;
+      max-width: 80%;
+    }
+    .dia-phase {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .dia-phase-dot {
+      width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 2px;
+    }
+    .dia-phase-dot.foundation { background: rgba(26,31,38,0.08); }
+    .dia-phase-dot.agents { background: rgba(0,100,191,0.1); }
+    .dia-phase-dot svg { width: 12px; height: 12px; }
+    .dia-phase-body {}
+    .dia-phase-label {
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.8px; color: var(--ink-4); margin-bottom: 5px;
+    }
+    .dia-phase-pills { display: flex; flex-wrap: wrap; gap: 5px; }
+    .dia-phase-pill {
+      font-size: 11px; font-weight: 600; padding: 3px 10px;
+      border-radius: 6px; white-space: nowrap;
+    }
+    .dia-phase-pill.dark {
+      background: rgba(26,31,38,0.06); color: var(--ink-4);
+    }
+    .dia-phase-pill.blue {
+      background: rgba(0,100,191,0.07); color: var(--cg-blue-text);
+    }
+    .dia-dots {
+      display: flex; align-items: center; gap: 5px;
+      padding: 4px 0;
+    }
+    .dia-dots span {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--spanish-blue); opacity: 0.25;
+      animation: dia-pulse 1s infinite;
+    }
+    .dia-dots span:nth-child(2) { animation-delay: 0.15s; }
+    .dia-dots span:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes dia-pulse {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 0.9; transform: scale(1.35); }
+    }
+    .dia-greeting {
+      font-size: 13.5px; font-weight: 600; color: var(--ebony-clay);
+      margin-bottom: 10px;
+    }
+    .dia-outcome {
+      background: linear-gradient(135deg, #0064bf 0%, #00a1e0 100%);
+      border-radius: 16px;
+      padding: 24px 28px;
+      color: white;
+    }
+    .dia-outcome-label {
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 1px; opacity: 0.65; margin-bottom: 4px;
+    }
+    .dia-outcome-row {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .dia-outcome-score {
+      font-size: 56px; font-weight: 700; line-height: 1; letter-spacing: -2px;
+    }
+    .dia-outcome-badge {
+      display: flex; align-items: center; gap: 5px;
+      background: rgba(255,255,255,0.18); padding: 5px 11px;
+      border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 6px;
+    }
+    .dia-outcome-divider {
+      height: 1px; background: rgba(255,255,255,0.18); margin: 12px 0;
+    }
+    .dia-outcome-detail {
+      font-size: 13px; line-height: 1.55; opacity: 0.85;
+    }
+    .dia-bottom {
+      border-top: 1px solid rgba(26,31,38,0.06);
+      padding: 12px 24px 16px;
+      flex-shrink: 0;
+    }
+    .dia-prompt-chips {
+      display: flex; gap: 6px; margin-bottom: 10px; overflow-x: auto;
+    }
+    .dia-prompt-chip {
+      white-space: nowrap; font-size: 11px; font-weight: 500;
+      color: var(--ink-4); padding: 6px 12px;
+      border-radius: 18px; border: 1px solid rgba(26,31,38,0.09);
+      background: white;
+    }
+    .dia-input-row {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(26,31,38,0.03); border: 1px solid rgba(26,31,38,0.08);
+      border-radius: 12px; padding: 10px 12px 10px 16px;
+    }
+    .dia-input-text {
+      flex: 1; font-size: 14px; color: var(--ebony-clay);
+      font-family: inherit; overflow: hidden; white-space: nowrap;
+      min-height: 20px;
+    }
+    .dia-cursor {
+      display: inline-block; width: 2px; height: 16px;
+      background: var(--spanish-blue); vertical-align: text-bottom;
+      animation: dia-blink 0.7s step-end infinite;
+    }
+    @keyframes dia-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .dia-send-btn {
+      width: 34px; height: 34px; border-radius: 9px;
+      background: var(--spanish-blue); display: flex;
+      align-items: center; justify-content: center; flex-shrink: 0;
+      opacity: 0.3; transition: opacity 0.2s;
+    }
+    .dia-send-btn.active { opacity: 1; }
+
+    /* ===== ENTOMO.AI DEMO CSS ===== */
+    .ww-demo {
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(26,31,38,0.04);
+      overflow: hidden;
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      height: 480px;
+    }
+    .ww-topbar {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 24px;
+      border-bottom: 1px solid rgba(26,31,38,0.06);
+      background: var(--polar-white); flex-shrink: 0;
+    }
+    .ww-topbar-avatar {
+      width: 30px; height: 30px; border-radius: 50%;
+      overflow: hidden; flex-shrink: 0;
+    }
+    .ww-topbar-avatar img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .ww-topbar-title { font-size: 14px; font-weight: 700; color: var(--ebony-clay); }
+    .ww-stage {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    .ww-panel {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      padding: 24px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+    }
+    .ww-panel.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .ww-greeting-photo {
+      width: 88px; height: 88px; border-radius: 50%;
+      overflow: hidden; position: relative;
+      margin-bottom: 16px;
+      border: 3px solid rgba(0,100,191,0.1);
+    }
+    .ww-greeting-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .ww-greeting-online {
+      width: 14px; height: 14px; border-radius: 50%;
+      background: #2c9942; border: 3px solid white;
+      position: absolute; bottom: 4px; right: 4px;
+    }
+    .ww-greeting-title {
+      font-size: 26px; font-weight: 700; color: var(--ebony-clay);
+      margin-bottom: 8px;
+    }
+    .ww-greeting-title span { color: var(--spanish-blue); }
+    .ww-greeting-sub {
+      font-size: 14px; color: var(--ink-4);
+      line-height: 1.55; max-width: 400px; text-align: center;
+    }
+    .ww-chat-panel {
+      justify-content: flex-start;
+      align-items: stretch;
+      padding: 20px 24px;
+    }
+    .ww-user-q {
+      display: flex; justify-content: flex-end; margin-bottom: 16px;
+      flex-shrink: 0;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.3s 0.05s, transform 0.3s 0.05s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .ww-panel.active .ww-user-q {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .ww-user-q span {
+      background: var(--sunrise-yellow);
+      color: var(--ebony-clay); font-size: 14px; font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 16px 16px 4px 16px;
+    }
+    .ww-response-area {
+      flex: 1; position: relative;
+    }
+    .ww-sub {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.35s, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+    }
+    .ww-sub.active { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .ww-assemble-icon {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(0,100,191,0.08);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 10px;
+    }
+    .ww-assemble-icon svg { width: 20px; height: 20px; }
+    .ww-assemble-title {
+      font-size: 17px; font-weight: 700; color: var(--ebony-clay);
+      margin-bottom: 4px; white-space: nowrap;
+    }
+    .ww-assemble-sub {
+      font-size: 13px; color: var(--ink-4); margin-bottom: 12px;
+      white-space: nowrap;
+    }
+    .ww-assemble-dots {
+      display: flex; align-items: center; gap: 5px;
+    }
+    .ww-assemble-dots span {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--spanish-blue); opacity: 0.25;
+      animation: ww-pulse 1s infinite;
+    }
+    .ww-assemble-dots span:nth-child(2) { animation-delay: 0.15s; }
+    .ww-assemble-dots span:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes ww-pulse {
+      0%,100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 0.9; transform: scale(1.35); }
+    }
+    .ww-team-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--cg-blue-text);
+      margin-bottom: 12px;
+    }
+    .ww-agents-row {
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ww-agent-card {
+      display: flex; flex-direction: column; align-items: center;
+      background: var(--white);
+      border: 1.5px solid rgba(0,100,191,0.12);
+      border-radius: 14px;
+      padding: 12px 8px 8px;
+      width: 130px; flex-shrink: 0;
+      box-shadow: 0 2px 10px rgba(0,100,191,0.06);
+    }
+    .ww-agent-card img {
+      width: 42px; height: 42px; border-radius: 10px;
+      object-fit: cover; margin-bottom: 6px;
+    }
+    .ww-agent-name {
+      font-size: 12px; font-weight: 700; color: var(--ebony-clay);
+      text-align: center; line-height: 1.2; margin-bottom: 3px;
+    }
+    .ww-agent-desc {
+      font-size: 10px; color: var(--ink-4);
+      text-align: center; line-height: 1.3; font-weight: 500;
+    }
+    .ww-flow-arrow {
+      display: flex; align-items: center; padding: 0 6px; gap: 3px;
+    }
+    .ww-flow-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--spanish-blue);
+      animation: ww-flow 0.8s infinite;
+    }
+    .ww-flow-arrow .ww-flow-dot:nth-child(2) { animation-delay: 0.15s; }
+    .ww-flow-arrow .ww-flow-dot:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes ww-flow {
+      0%,100% { opacity: 0.12; }
+      50% { opacity: 1; }
+    }
+    #pwwSubOutput {
+      align-items: stretch;
+      justify-content: flex-start;
+      padding-top: 8px;
+      text-align: left;
+    }
+    .pww-greeting {
+      font-size: 13.5px; font-weight: 600; color: var(--ebony-clay);
+      margin-bottom: 10px;
+    }
+    .pww-form-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      width: 100%;
+      max-width: 100%;
+      border: 1px solid rgba(0,100,191,0.12);
+    }
+    .pww-form-header {
+      background: linear-gradient(135deg, #0064bf 0%, #00a1e0 100%);
+      color: white;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pww-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px 16px;
+      padding: 16px;
+    }
+    .pww-form-field {
+      display: flex;
+      flex-direction: column;
+    }
+    .pww-form-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--ink-4);
+      margin-bottom: 5px;
+    }
+    .pww-form-value {
+      font-size: 13px;
+      color: var(--ebony-clay);
+      font-weight: 600;
+    }
+    .ww-bottom {
+      border-top: 1px solid rgba(26,31,38,0.06);
+      padding: 10px 24px 14px;
+      flex-shrink: 0;
+    }
+    .ww-chips {
+      display: flex; gap: 6px; margin-bottom: 8px; overflow-x: auto;
+    }
+    .ww-chip {
+      white-space: nowrap; font-size: 11px; font-weight: 500;
+      color: var(--ink-4); padding: 6px 12px;
+      border-radius: 18px; border: 1px solid rgba(26,31,38,0.09);
+      background: white;
+    }
+    .ww-input-row {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(26,31,38,0.03); border: 1px solid rgba(26,31,38,0.08);
+      border-radius: 12px; padding: 10px 12px 10px 16px;
+    }
+    .ww-input-text {
+      flex: 1; font-size: 14px; color: var(--ebony-clay);
+      font-family: inherit; overflow: hidden; white-space: nowrap;
+      min-height: 20px;
+    }
+    .ww-cursor {
+      display: inline-block; width: 2px; height: 16px;
+      background: var(--spanish-blue); vertical-align: text-bottom;
+      animation: ww-blink 0.7s step-end infinite;
+    }
+    @keyframes ww-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .ww-send-btn {
+      width: 34px; height: 34px; border-radius: 9px;
+      background: var(--spanish-blue); display: flex;
+      align-items: center; justify-content: center; flex-shrink: 0;
+      opacity: 0.3; transition: opacity 0.2s;
+    }
+    .ww-send-btn.active { opacity: 1; }
+
+    /* ===== COACH DEMO CSS ===== */
+    .coach-demo {
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(26,31,38,0.04);
+      overflow: hidden;
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      height: 480px;
+    }
+    .coach-topbar {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 24px;
+      border-bottom: 1px solid rgba(26,31,38,0.06);
+      background: var(--polar-white); flex-shrink: 0;
+    }
+    .coach-avatar {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: linear-gradient(135deg, #0064bf, #00a1e0);
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 11px; font-weight: 700;
+    }
+    .coach-topbar-title { font-size: 14px; font-weight: 700; color: var(--ebony-clay); }
+    .coach-stage {
+      flex: 1; position: relative; overflow: hidden;
+    }
+    .coach-panel {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      padding: 24px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+    }
+    .coach-panel.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .coach-greeting-text {
+      text-align: center;
+    }
+    .coach-greeting-title {
+      font-size: 26px; font-weight: 700; color: var(--ebony-clay);
+      margin-bottom: 8px;
+    }
+    .coach-greeting-sub {
+      font-size: 14px; color: var(--ink-4);
+      line-height: 1.55; max-width: 400px;
+    }
+    .coach-chat-panel {
+      justify-content: flex-start;
+      align-items: stretch;
+      padding: 20px 24px;
+    }
+    .coach-user-q {
+      display: flex; justify-content: flex-end; margin-bottom: 16px;
+      flex-shrink: 0;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.3s 0.05s, transform 0.3s 0.05s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .coach-panel.active .coach-user-q {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .coach-user-q span {
+      background: #0064bf;
+      color: white; font-size: 14px; font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 16px 16px 4px 16px;
+    }
+    .coach-response-area {
+      flex: 1; position: relative;
+    }
+    .coach-sub {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.35s, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+    }
+    .coach-sub.active { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .coach-think-icon {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(0,100,191,0.08);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 10px;
+    }
+    .coach-think-title {
+      font-size: 14px; font-weight: 600; color: var(--ebony-clay);
+      margin-bottom: 8px; white-space: nowrap;
+    }
+    .coach-think-dots {
+      display: flex; align-items: center; gap: 5px;
+    }
+    .coach-think-dots span {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #0064bf; opacity: 0.25;
+      animation: coach-pulse 1s infinite;
+    }
+    .coach-think-dots span:nth-child(2) { animation-delay: 0.15s; }
+    .coach-think-dots span:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes coach-pulse {
+      0%,100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 0.9; transform: scale(1.35); }
+    }
+    #pcoachSubResponse {
+      align-items: stretch;
+      justify-content: flex-start;
+      padding-top: 8px;
+      text-align: left;
+    }
+    .coach-response {
+      background: rgba(0,100,191,0.05);
+      border-radius: 14px;
+      padding: 18px 20px;
+      width: 100%;
+      max-width: 100%;
+    }
+    .coach-greeting {
+      font-size: 13.5px; font-weight: 600; color: var(--ebony-clay);
+      margin-bottom: 10px;
+    }
+    .coach-bullets {
+      list-style: none; padding: 0; margin: 0 0 12px 0;
+    }
+    .coach-bullets li {
+      font-size: 12.5px; line-height: 1.55; color: rgba(26,31,38,0.72);
+      padding: 4px 0 4px 16px; position: relative;
+    }
+    .coach-bullets li::before {
+      content: ""; position: absolute; left: 0; top: 11px;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #0064bf; opacity: 0.45;
+    }
+    .coach-bullets li strong {
+      color: var(--ebony-clay); font-weight: 700;
+    }
+    .coach-actions-row {
+      display: flex; gap: 8px;
+    }
+    .coach-action-btn {
+      font-size: 12px; font-weight: 600; color: white;
+      background: #0064bf; padding: 6px 14px;
+      border-radius: 8px; cursor: pointer;
+    }
+    .coach-action-btn.outline {
+      background: transparent; color: #0064bf;
+      border: 1.5px solid rgba(0,100,191,0.25);
+    }
+    .coach-bottom {
+      border-top: 1px solid rgba(26,31,38,0.06);
+      padding: 10px 24px 14px;
+      flex-shrink: 0;
+    }
+    .coach-chips {
+      display: flex; gap: 6px; margin-bottom: 8px; overflow-x: auto;
+    }
+    .coach-chip {
+      white-space: nowrap; font-size: 11px; font-weight: 500;
+      color: var(--ink-4); padding: 6px 12px;
+      border-radius: 18px; border: 1px solid rgba(26,31,38,0.09);
+      background: white;
+    }
+    .coach-input-row {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(26,31,38,0.03); border: 1px solid rgba(26,31,38,0.08);
+      border-radius: 12px; padding: 10px 12px 10px 16px;
+    }
+    .coach-input-text {
+      flex: 1; font-size: 14px; color: var(--ebony-clay);
+      font-family: inherit; overflow: hidden; white-space: nowrap;
+      min-height: 20px;
+    }
+    .coach-cursor {
+      display: inline-block; width: 2px; height: 16px;
+      background: #0064bf; vertical-align: text-bottom;
+      animation: coach-blink 0.7s step-end infinite;
+    }
+    @keyframes coach-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .coach-send-btn {
+      width: 34px; height: 34px; border-radius: 9px;
+      background: #0064bf; display: flex;
+      align-items: center; justify-content: center; flex-shrink: 0;
+      opacity: 0.3; transition: opacity 0.2s;
+    }
+    .coach-send-btn.active { opacity: 1; }
+
+    /* ===== PERSONA SECTIONS (shared) ===== */
+    .persona-sec {
+      padding: 4.5rem 0;
+    }
+    .persona-sec-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center;
+    }
+    @media (max-width: 900px) { .persona-sec-inner { grid-template-columns: 1fr; } }
+    .persona-sec-text h2 {
+      font-size: 32px; font-weight: 700; line-height: 1.2;
+      text-transform: lowercase; color: var(--ebony-clay); margin-bottom: 1rem;
+    }
+    .persona-sec-text > p {
+      font-size: 16px; line-height: 1.65; color: var(--ink-3);
+      margin-bottom: 1.75rem;
+    }
+    .persona-caps {
+      list-style: none; display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .persona-caps li {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      font-size: 14.5px; line-height: 1.55; color: var(--ebony-clay);
+    }
+    .persona-caps-icon {
+      flex-shrink: 0; width: 24px; height: 24px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center; margin-top: 1px;
+    }
+    .persona-caps-icon svg { width: 13px; height: 13px; }
+    .persona-agents {
+      display: flex; gap: 0.6rem; margin-top: 1.5rem; flex-wrap: wrap;
+    }
+    .persona-agent-tag {
+      font-size: 12px; font-weight: 600; padding: 5px 12px;
+      border-radius: 20px; display: inline-flex; align-items: center; gap: 5px;
+    }
+    .persona-agent-tag img { width: 16px; height: 16px; border-radius: 50%; }
+
+    /* Visual cards for persona sections */
+    .persona-visual-card {
+      border-radius: var(--radius-large);
+      padding: 2.5rem 2rem;
+      position: relative; overflow: hidden;
+      min-height: 340px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ===== LEADERS SECTION ===== */
+    .sec-leaders { background: var(--floral-white); }
+    .sec-leaders .persona-caps-icon { background: rgba(228,61,48,0.08); color: var(--cg-red); }
+    .sec-leaders .persona-caps-icon svg { stroke: var(--cg-red); }
+    .sec-leaders .persona-agent-tag { background: rgba(228,61,48,0.06); color: var(--cg-red); }
+    .sec-leaders .persona-visual-card { background: rgba(228,61,48,0.04); }
+    .sec-leaders .persona-sec-text h2 span { color: var(--cg-red); }
+    .sec-leaders .dia-avatar { background: linear-gradient(135deg, #e43d30, #f4b223); }
+    .sec-leaders .dia-user-q span { background: #e43d30; }
+    .sec-leaders .dia-phase-dot.agents { background: rgba(228,61,48,0.1); }
+    .sec-leaders .dia-phase-dot.agents svg { stroke: #e43d30; }
+    .sec-leaders .dia-phase-pill.blue { background: rgba(228,61,48,0.07); color: var(--cg-red-text); }
+    .sec-leaders .dia-outcome { background: linear-gradient(135deg, #e43d30, #f4b223); }
+    .sec-leaders .dia-dots span { background: #e43d30; }
+    .sec-leaders .dia-send-btn { background: #e43d30; }
+    .sec-leaders .dia-cursor { background: #e43d30; }
+
+    /* ===== COWORKER SECTION ===== */
+    .sec-coworker { background: var(--white); }
+    .sec-coworker .persona-caps-icon { background: rgba(244,178,35,0.1); color: #b8860b; }
+    .sec-coworker .persona-caps-icon svg { stroke: #b8860b; }
+    .sec-coworker .persona-agent-tag { background: rgba(244,178,35,0.08); color: #b8860b; }
+    .sec-coworker .persona-visual-card { background: rgba(244,178,35,0.04); }
+    .sec-coworker .persona-sec-text h2 span { color: #b8860b; }
+
+    /* ===== EMPLOYEES SECTION ===== */
+    /* ===== PERFORMANCE AGENTS MARQUEE ===== */
+    .perf-agents-section {
+      background: var(--floral-white);
+      padding: 4.5rem 0;
+      overflow: hidden;
+    }
+    .perf-agents-section .section-eyebrow { text-align: center; }
+    .perf-agents-section h2 {
+      text-align: center;
+      font-size: 36px; font-weight: 700; line-height: 1.2;
+      text-transform: lowercase; color: var(--ebony-clay);
+      margin-bottom: 2.5rem;
+    }
+    .perf-mq-wrapper {
+      position: relative;
+      overflow: hidden;
+      padding: 0.5rem 0 1rem;
+    }
+    .perf-mq-wrapper::before,
+    .perf-mq-wrapper::after {
+      content: '';
+      position: absolute; top: 0; bottom: 0;
+      width: 140px; z-index: 2; pointer-events: none;
+    }
+    .perf-mq-wrapper::before { left: 0; background: linear-gradient(to right, var(--floral-white), transparent); }
+    .perf-mq-wrapper::after  { right: 0; background: linear-gradient(to left,  var(--floral-white), transparent); }
+    .perf-mq-track {
+      display: flex;
+      gap: 1.5rem;
+      width: max-content;
+      animation: perf-scroll 22s linear infinite;
+    }
+    .perf-mq-track:hover { animation-play-state: paused; }
+    @keyframes perf-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .perf-mq-card {
+      display: flex; flex-direction: column; align-items: flex-start;
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.06);
+      border-radius: var(--radius-medium);
+      padding: 1.75rem 1.5rem 1.5rem;
+      width: 300px; flex-shrink: 0;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: default;
+    }
+    .perf-mq-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .perf-mq-card img {
+      width: 60px; height: 60px;
+      border-radius: 14px; object-fit: cover; margin-bottom: 14px;
+    }
+    .perf-mq-name { font-size: 20px; font-weight: 700; color: var(--ebony-clay); margin-bottom: 3px; }
+    .perf-mq-role {
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.8px; color: var(--ink-4); margin-bottom: 12px;
+    }
+    .perf-mq-desc { font-size: 14px; line-height: 1.55; color: var(--ink-3); }
+
+    .sec-employees { background: var(--polar-white); }
+    .sec-employees .persona-caps-icon { background: rgba(0,100,191,0.08); color: var(--spanish-blue); }
+    .sec-employees .persona-caps-icon svg { stroke: var(--spanish-blue); }
+    .sec-employees .persona-agent-tag { background: rgba(0,100,191,0.06); color: var(--spanish-blue); }
+    .sec-employees .persona-visual-card { background: rgba(0,100,191,0.04); }
+    .sec-employees .persona-sec-text h2 span { color: var(--spanish-blue); }
+
+    /* ===== FEATURES GRID ===== */
+    .features-section { background: var(--floral-white); }
+    .features-tabs {
+      display: flex; gap: 0.5rem; margin-bottom: 2.5rem; flex-wrap: wrap;
+      justify-content: center;
+    }
+    .features-tab {
+      font-family: inherit; font-size: 13.5px; font-weight: 600;
+      text-transform: lowercase; padding: 8px 20px;
+      border-radius: 30px; border: 1px solid rgba(26,31,38,0.12);
+      background: var(--white); color: var(--ebony-clay);
+      cursor: pointer; transition: all 0.2s;
+    }
+    .features-tab.active { background: var(--cg-red); color: var(--white); border-color: var(--cg-red); }
+    .features-tab:hover:not(.active) { border-color: var(--cg-red); color: var(--cg-red); }
+    .features-panel { display: none; }
+    .features-panel.active { display: grid; }
+    .features-grid {
+      grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+    }
+    @media (max-width: 900px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .features-grid { grid-template-columns: 1fr; } }
+    .feature-card {
+      background: var(--white);
+      border-radius: var(--radius-large);
+      padding: 1.5rem;
+      border: 1px solid rgba(26,31,38,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+    .feature-card-icon {
+      width: 40px; height: 40px; border-radius: var(--radius-standard);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 0.85rem; background: rgba(228,61,48,0.06);
+    }
+    .feature-card-icon svg { width: 20px; height: 20px; stroke: var(--cg-red); stroke-width: 1.75; fill: none; }
+    .feature-card h4 {
+      font-size: 15px; font-weight: 700; text-transform: lowercase;
+      margin-bottom: 0.4rem; color: var(--ebony-clay);
+    }
+    .feature-card p {
+      font-size: 13.5px; line-height: 1.6; color: var(--ink-3);
+    }
+
+    /* ===== BOTTOM CTA ===== */
+    .bottom-cta {
+      background: var(--ebony-clay);
+      padding: 4rem 0;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .bottom-cta::before {
+      content: ''; position: absolute; top: -40%; left: -10%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(228,61,48,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .bottom-cta .container { position: relative; z-index: 1; }
+    .bottom-cta h2 {
+      font-size: 34px; font-weight: 700; line-height: 1.2;
+      color: var(--white); text-transform: lowercase; margin-bottom: 1rem;
+    }
+    .bottom-cta p {
+      font-size: 16px; color: rgba(255,255,255,0.6);
+      max-width: 560px; margin: 0 auto 2rem;
+    }
+    .bottom-cta .btn-primary { font-size: 18px; padding: 14px 42px; }
+
+    /* ===== FOOTER ===== */
+    .footer { background: var(--black-haze); padding: 3.5rem 0 1.5rem; }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 2rem; margin-bottom: 3rem;
+    }
+    @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    .footer-brand p {
+      font-size: 14px; line-height: 1.6; color: var(--ink-3);
+      margin-top: 0.75rem; max-width: 280px;
+    }
+    .footer-col h4 { font-size: 15px; font-weight: 700; text-transform: lowercase; margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col a { font-size: 14px; color: var(--ink-3); text-transform: lowercase; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--cg-red); }
+    .footer-bottom {
+      border-top: 1px solid rgba(26,31,38,0.08); padding-top: 1.5rem;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-bottom p { font-size: 13px; color: var(--ink-4); }
+    .footer-socials { display: flex; gap: 0.75rem; }
+    .footer-socials a {
+      width: 36px; height: 36px; border: 1px solid rgba(26,31,38,0.15); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; color: var(--ebony-clay); transition: background 0.2s, color 0.2s;
+    }
+    .footer-socials a:hover { background: var(--ebony-clay); color: var(--white); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .sol-hero h1 { font-size: clamp(28px, 8vw, 36px); }
+      .section-heading { font-size: 26px; }
+      .persona-sec-text h2 { font-size: 26px; }
+    }
+
+    /* ===== PLACEHOLDER TOOLTIPS — TEMPORARY, REMOVE WHEN PAGES ARE BUILT =====
+       To revert: delete this entire CSS block and remove class="nav-placeholder-tooltip"
+       + data-tooltip attributes from the 4 nav elements in every page. ===== */
+    .nav-placeholder-tooltip {
+      position: relative;
+    }
+    .nav-placeholder-tooltip::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(26,31,38,0.88);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 500;
+      white-space: nowrap;
+      padding: 5px 10px;
+      border-radius: 5px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      z-index: 999;
+    }
+    .nav-placeholder-tooltip::before {
+      content: '';
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 50%;
+      transform: translateX(-50%);
+      border: 4px solid transparent;
+      border-bottom-color: rgba(26,31,38,0.88);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      z-index: 999;
+    }
+    .nav-placeholder-tooltip:hover::after,
+    .nav-placeholder-tooltip:hover::before {
+      opacity: 1;
+    }
+    /* ===== END PLACEHOLDER TOOLTIPS ===== */
+  
+    /* ===== SCROLL ANIMATIONS (modern, gpu-accelerated, accessible) ===== */
+    .anim {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+    .anim-fade        { transform: none; }
+    .anim-fade-up     { transform: translateY(28px); }
+    .anim-fade-down   { transform: translateY(-22px); }
+    .anim-fade-left   { transform: translateX(-32px); }
+    .anim-fade-right  { transform: translateX(32px); }
+    .anim-scale       { transform: scale(0.96); }
+    .anim-blur        { filter: blur(10px); }
+    .anim-rise        { transform: translateY(40px) scale(0.985); }
+    .anim.is-visible {
+      opacity: 1;
+      transform: none;
+      filter: none;
+    }
+
+    /* Stagger children — cascading reveal for grids & rows */
+    .stagger > * {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+    .stagger.is-visible > *:nth-child(1)  { transition-delay: 0.00s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(2)  { transition-delay: 0.07s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(3)  { transition-delay: 0.14s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(4)  { transition-delay: 0.21s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(5)  { transition-delay: 0.28s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(6)  { transition-delay: 0.35s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(7)  { transition-delay: 0.42s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(8)  { transition-delay: 0.49s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(9)  { transition-delay: 0.56s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(n+10) { transition-delay: 0.63s; opacity: 1; transform: none; }
+
+    /* Sequential delays for children of .anim parents (use anim-d-N classes) */
+    .anim-d-1 { transition-delay: 0.10s; }
+    .anim-d-2 { transition-delay: 0.20s; }
+    .anim-d-3 { transition-delay: 0.30s; }
+    .anim-d-4 { transition-delay: 0.40s; }
+    .anim-d-5 { transition-delay: 0.50s; }
+
+    /* Subtle hover lift for cards (modern micro-interaction) */
+    .anim-lift {
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .anim-lift:hover {
+      transform: translateY(-4px);
+    }
+
+    /* Smooth scrolling */
+    html { scroll-behavior: smooth; }
+
+    /* Honor reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      .anim, .anim *, .stagger, .stagger > *, .anim-lift {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+    /* ===== END SCROLL ANIMATIONS ===== */
+
+    /* ===== IMPORTED FROM ENTOMO-AXON (shared components) ===== */
+    .arch-diagram {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      margin-top: 3rem;
+      border: 1px solid rgba(26,31,38,0.08);
+      border-radius: var(--radius-large);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .arch-col {
+      position: relative;
+      padding: 2rem 1.5rem;
+      background: var(--white);
+      border-right: 1px solid rgba(26,31,38,0.07);
+      transition: background 0.2s;
+      cursor: default;
+    }
+    .arch-col:last-child { border-right: none; }
+    .arch-col:hover { background: rgba(244,178,35,0.04); }
+    .arch-col-header {
+      font-size: 15px;
+      font-weight: 800;
+      text-transform: lowercase;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.2px;
+    }
+    .arch-col-desc {
+      font-size: 13px;
+      color: var(--ink-3);
+      line-height: 1.55;
+    }
+    .arch-col-arrow {
+      position: absolute;
+      top: 50%;
+      right: -14px;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 28px;
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: var(--ink-4);
+      z-index: 2;
+    }
+    .arch-col:last-child .arch-col-arrow { display: none; }
+    .arch-tooltip {
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      background: var(--ebony-clay);
+      color: var(--white);
+      font-size: 13px;
+      line-height: 1.55;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-standard);
+      width: 230px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 50;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    .arch-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 7px solid transparent;
+      border-top-color: var(--ebony-clay);
+    }
+    .arch-col:hover .arch-tooltip {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    .arch-color-data-sources { color: var(--spanish-blue); }
+    .arch-color-foundation { color: var(--cg-gold); }
+    .arch-color-intelligence { color: var(--cg-red); }
+    .arch-color-agents {
+      background: linear-gradient(90deg, var(--cg-gold), var(--cg-red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .arch-color-outcomes { color: var(--sea-green); }
+    @media (max-width: 900px) {
+      .arch-diagram { grid-template-columns: 1fr 1fr; }
+      .arch-col { border-right: none; border-bottom: 1px solid rgba(26,31,38,0.07); }
+      .arch-col-arrow { display: none; }
+    }
+    @media (max-width: 550px) {
+      .arch-diagram { grid-template-columns: 1fr; }
+    }
+    .integrations-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .integration-card {
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.09);
+      border-radius: var(--radius-medium);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .integration-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .integration-card.market-card {
+      grid-column: 1 / -1;
+      border: 2px solid var(--cg-gold);
+      background: #fff8e8;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .integration-card-title {
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: lowercase;
+      margin: 0 0 0.75rem;
+      line-height: 1.4;
+      color: var(--ebony-clay);
+    }
+    .integration-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    .integration-pill, .int-pill {
+      background: rgba(26,31,38,0.06);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink-2);
+    }
+    .tech-chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 2.5rem;
+    }
+    .tech-chip {
+      background: var(--polar-white);
+      border: 1px solid rgba(26,31,38,0.1);
+      border-radius: 20px;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(26,31,38,0.75);
+    }
+    @media (max-width: 768px) {
+      .integrations-grid { grid-template-columns: 1fr; }
+      .integration-card.market-card { grid-template-columns: 1fr; }
+    }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .pillar-card {
+      background: var(--white);
+      border-radius: var(--radius-medium);
+      border-top: 4px solid var(--cg-gold);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .pillar-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .pillar-name {
+      font-size: 17px;
+      font-weight: 800;
+      text-transform: lowercase;
+      color: var(--ebony-clay);
+      margin-bottom: 0.4rem;
+    }
+    .pillar-sublabel {
+      display: inline-block;
+      background: rgba(244,178,35,0.12);
+      border: 1px solid rgba(244,178,35,0.25);
+      border-radius: 20px;
+      padding: 3px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 0.9rem;
+    }
+    .pillar-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--ink-2);
+      margin-bottom: 1rem;
+    }
+    .pillar-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .pillar-bullets li {
+      font-size: 13.5px;
+      color: var(--ink-3);
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.5;
+    }
+    .pillar-bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--cg-gold);
+      font-weight: 700;
+    }
+    @media (max-width: 900px) { .pillars-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 550px) { .pillars-grid { grid-template-columns: 1fr; } }
+    .pillar-tagline {
+      font-size: 13px;
+      font-style: italic;
+      color: var(--cg-gold);
+      font-weight: 600;
+      margin: 4px 0 10px;
+      text-transform: none;
+    }
+    .pillar-desc {
+      font-size: 15px;
+      color: var(--ink-2);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .agent-marquee-wrapper {
+      position: relative;
+      overflow: hidden;
+      margin-top: 2.5rem;
+      padding: 1rem 0 1.5rem;
+    }
+    .agent-marquee-wrapper::before,
+    .agent-marquee-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .agent-marquee-wrapper::before { left: 0; background: linear-gradient(to right, #1a1f26, transparent); }
+    .agent-marquee-wrapper::after  { right: 0; background: linear-gradient(to left, #1a1f26, transparent); }
+    .agent-marquee-track {
+      display: flex;
+      gap: 1rem;
+      width: max-content;
+      animation: agent-scroll 36s linear infinite;
+    }
+    .agent-marquee-track:hover { animation-play-state: paused; }
+    .orchestration-chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 2.5rem;
+    }
+    .orch-chip {
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.1);
+      border-radius: 20px;
+      padding: 7px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-2);
+      box-shadow: var(--shadow-sm);
+    }
+    .persona-simple-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    .persona-simple-card {
+      background: var(--white);
+      border-radius: var(--radius-medium);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .persona-simple-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .persona-simple-top {
+      padding: 1.5rem 1.5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .green-top { background: rgba(44,153,66,0.08); border-bottom: 3px solid var(--sea-green); }
+    .red-top   { background: rgba(228,61,48,0.08); border-bottom: 3px solid var(--cg-red); }
+    .blue-top  { background: rgba(0,100,191,0.08); border-bottom: 3px solid var(--spanish-blue); }
+    .gold-top  { background: rgba(244,178,35,0.12); border-bottom: 3px solid var(--cg-gold); }
+    .persona-simple-role {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--ink-4);
+    }
+    .persona-simple-headline {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      line-height: 1.2;
+    }
+    .persona-tags {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .ptag {
+      font-size: 13px;
+      color: var(--ink-3);
+      padding: 5px 12px;
+      background: rgba(26,31,38,0.04);
+      border-radius: 25px;
+      display: inline-block;
+      text-transform: lowercase;
+      font-weight: 500;
+      width: fit-content;
+    }
+    @media (max-width: 1024px) { .persona-simple-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 600px)  { .persona-simple-grid { grid-template-columns: 1fr; } }
+    .marquee-wrapper {
+      overflow: hidden;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+    .marquee-wrapper::before,
+    .marquee-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .marquee-wrapper::before { left: 0;  background: linear-gradient(to right, var(--floral-white), transparent); }
+    .marquee-wrapper::after  { right: 0; background: linear-gradient(to left,  var(--floral-white), transparent); }
+    .marquee-track {
+      display: flex;
+      gap: 3.5rem;
+      width: max-content;
+      animation: marquee 32s linear infinite;
+      align-items: center;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-logo {
+      height: 34px;
+      width: auto;
+      max-width: 120px;
+      opacity: 0.45;
+      filter: grayscale(100%);
+      object-fit: contain;
+      flex-shrink: 0;
+      transition: opacity 0.3s, filter 0.3s;
+    }
+    .marquee-logo:hover { opacity: 1; filter: grayscale(0%); }
+    /* ===== USE-CASE PAGE ADDITIONS ===== */
+    .story-quote {
+      font-size: clamp(20px, 2.6vw, 30px);
+      font-weight: 600;
+      line-height: 1.45;
+      max-width: 860px;
+      margin: 0 auto;
+      color: var(--ebony-clay);
+      text-transform: none;
+    }
+    .story-attr {
+      margin-top: 1.25rem;
+      font-size: 14px;
+      color: var(--ink-3);
+      font-weight: 600;
+    }
+    .integration-card .faq-a {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: rgba(26,31,38,0.72);
+      margin-top: 10px;
+      text-transform: none;
+    }
+    .shift-good {
+      border: 1.5px solid rgba(44,153,66,0.4) !important;
+      background: #f2faf4 !important;
+    }
+    a.btn-primary { display: inline-block; text-decoration: none; }
+
+    /* ===== engagement-retention: page-specific ===== */
+    .er-curve { max-width:1000px; margin:3.4rem auto 0; background:var(--white); border:1px solid rgba(26,31,38,0.08);
+      border-radius:20px; padding:2rem 2rem 1.4rem; box-shadow:0 14px 40px rgba(43,29,18,0.08); }
+    .er-curve svg { width:100%; height:auto; display:block; }
+    .er-legend { display:flex; gap:1.8rem; justify-content:center; flex-wrap:wrap; margin-top:1rem; font-size:12.5px; color:var(--ink-3); }
+    .er-legend i { display:inline-block; width:22px; height:3px; border-radius:2px; vertical-align:middle; margin-right:6px; }
+
+    .er-pairs { max-width:920px; margin:3.4rem auto 0; display:flex; flex-direction:column; gap:0.9rem; }
+    .er-pair { display:grid; grid-template-columns:1fr 1fr; border-radius:14px; overflow:hidden; border:1px solid rgba(26,31,38,0.07); }
+    .er-pair > div { padding:1.1rem 1.35rem; font-size:14.5px; line-height:1.55; background:var(--white); }
+    .er-lag { color:var(--ink-3); }
+    .er-lag small, .er-lead small { display:block; font-size:10.5px; font-weight:800; letter-spacing:1.1px; text-transform:uppercase; margin-bottom:3px; }
+    .er-lag small { color:#a02417; }
+    .er-lead small { color:#1d6c2d; }
+    .er-lead { font-weight:600; color:var(--ink); border-left:1px solid rgba(26,31,38,0.06);
+      background:linear-gradient(135deg, rgba(44,153,66,0.05), transparent), var(--white); }
+    @media (max-width:720px){ .er-pair { grid-template-columns:1fr; } .er-lead{border-left:none;} }
+
+    .er-tools { display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem; max-width:1100px; margin:3.2rem auto 0; }
+    .er-tool { background:var(--white); border-radius:16px; padding:1.5rem 1.4rem; border:1px solid rgba(26,31,38,0.07); border-bottom:4px solid; }
+    .er-tool.t1{border-bottom-color:var(--cg-red);} .er-tool.t2{border-bottom-color:var(--cg-gold);}
+    .er-tool.t3{border-bottom-color:var(--spanish-blue);} .er-tool.t4{border-bottom-color:var(--sea-green);}
+    .er-tool b { display:block; font-size:16px; margin-bottom:0.4rem; }
+    .er-tool p { margin:0; font-size:13.5px; line-height:1.55; color:var(--ink-2); }
+    @media (max-width:960px){ .er-tools { grid-template-columns:1fr 1fr; } }
+    @media (max-width:560px){ .er-tools { grid-template-columns:1fr; } }
+
+    .er-case { max-width:1020px; margin:3.4rem auto 0; display:grid; grid-template-columns:1fr 1.2fr; gap:0;
+      background:var(--white); border-radius:22px; overflow:hidden; border:1px solid rgba(26,31,38,0.07); box-shadow:0 16px 44px rgba(43,29,18,0.09); }
+    .er-case-num { background:linear-gradient(160deg, #14321d, #1d6c2d); color:#fff; padding:2.6rem 2.4rem; display:flex; flex-direction:column; justify-content:center; }
+    .er-case-num b { font-size:3.4rem; letter-spacing:-2px; line-height:1; }
+    .er-case-num span { font-size:15px; opacity:0.85; margin-top:0.5rem; }
+    .er-case-body { padding:2.4rem 2.5rem; }
+    .er-case-body q { display:block; quotes:'\201C' '\201D'; font-size:1.12rem; line-height:1.6; font-weight:600; color:var(--ink); margin-bottom:1rem; }
+    .er-case-body cite { font-style:normal; font-size:13.5px; color:var(--ink-3); }
+    .er-case-tags { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1.3rem; }
+    @media (max-width:860px){ .er-case { grid-template-columns:1fr; } }
+
+    /* further reading (seo batch 5) */
+    .sol-further { padding: 4rem 0; background: var(--polar-white); border-top: 1px solid rgba(26,31,38,0.06); }
+    .sol-further-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1.1rem; max-width:1020px; margin:2rem auto 0; }
+    .sol-further-grid a { display:block; padding:1.35rem 1.5rem; background:var(--white); border:1px solid rgba(26,31,38,0.08); border-radius:18px; text-decoration:none; color:inherit; box-shadow:0 2px 6px rgba(43,29,18,0.04); transition:transform .18s ease, box-shadow .18s ease; }
+    .sol-further-grid a:hover { transform:translateY(-2px); box-shadow:0 12px 30px rgba(43,29,18,0.09); }
+    .sol-further-grid small { display:block; font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-4); margin-bottom:.45rem; }
+    .sol-further-grid b { display:block; font-size:16.5px; line-height:1.35; letter-spacing:-.01em; color:var(--ink); margin-bottom:.4rem; }
+    .sol-further-grid span { font-size:13.5px; line-height:1.55; color:var(--ink-3); }
+    @media (max-width:760px){ .sol-further-grid { grid-template-columns:1fr; } }
+  </style>
+  <link rel="stylesheet" href="../../assets/entomo-2026.css">
+  <link rel="stylesheet" href="../../assets/entomo-glass.css">
+  <!-- seo:jsonld -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://entomomarketing.github.io/PX/V3/solutions/employee-retention/#webpage",
+   "url": "https://entomomarketing.github.io/PX/V3/solutions/employee-retention/",
+   "name": "employee engagement and retention",
+   "description": "keep your best people: continuous listening, sentiment and burnout signals in real time, and the recognition, mentorship and growth paths that retain them.",
+   "inLanguage": "en",
+   "isPartOf": {
+    "@id": "https://entomomarketing.github.io/PX/V3/#website"
+   },
+   "primaryImageOfPage": {
+    "@id": "https://entomomarketing.github.io/PX/V3/solutions/employee-retention/#primaryimage"
+   },
+   "breadcrumb": {
+    "@id": "https://entomomarketing.github.io/PX/V3/solutions/employee-retention/#breadcrumb"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://entomomarketing.github.io/PX/V3/solutions/employee-retention/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "home",
+     "item": "https://entomomarketing.github.io/PX/V3/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "solutions",
+     "item": "https://entomomarketing.github.io/PX/V3/solutions/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "engagement that shows up in retention"
+    }
+   ]
+  },
+  {
+   "@type": "ImageObject",
+   "@id": "https://entomomarketing.github.io/PX/V3/solutions/employee-retention/#primaryimage",
+   "url": "https://entomomarketing.github.io/PX/V3/assets/images/og-default.jpg",
+   "width": 1200,
+   "height": 630
+  },
+  {
+   "@type": "Service",
+   "name": "engagement that shows up in retention",
+   "serviceType": "employee retention",
+   "provider": {
+    "@id": "https://entomomarketing.github.io/PX/V3/#organization"
+   },
+   "description": "engagement read as live signals, mood, feedback, recognition, growth, and acted on months before a resignation letter, in the flow of everyday work.",
+   "areaServed": [
+    "Asia",
+    "Middle East",
+    "India"
+   ],
+   "url": "https://entomomarketing.github.io/PX/V3/solutions/employee-retention/"
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "is this surveillance?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. The signals are things employees choose to share: mood check-ins, survey responses, feedback, recognition, and their own goals. Access is governed down to the individual on an ISO 27001 and ISO 27701 certified platform, and the output is support routed to a manager, not a score on a wall."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "what stops this being another ignored survey tool?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Action tracking. Every finding becomes a nudge with an owner, and the platform measures completion, so \"we heard you\" turns into something people can see. That loop is why scorecard publication hit 95% at sinar mas."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "how do managers keep up with the signals?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "They don't have to watch dashboards. Signals arrive as specific, timed nudges: this person, this conversation, this week. Manager-quality metrics also show leadership which teams need coaching support, not just which need pizza."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "does engagement connect to growth and pay?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Directly. The same platform runs goals, skills, and recognition, so a flagged risk can be answered with the things that actually retain people: a growth path, a gig, a mentor, a fair review. see internal mobility →"
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <!-- /seo:jsonld -->
+</head>
+<body>
+  <a class="eq-skip" href="#main">skip to content</a>
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="../../" class="logo">
+        <img src="../../assets/images/entomo.svg" alt="entomo" style="height:36px; width:auto;" width="587" height="138">
+      </a>
+      <div class="nav-right-group">
+        <ul class="nav-links">
+          <li class="nav-dropdown-wrap">
+            <a href="#" role="button" aria-haspopup="true" aria-expanded="false">products</a>
+            <div class="nav-mega" style="width:720px;">
+              <div class="nav-mega-grid">
+                <a href="../../products/performance-management/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">performance management</div>
+                    <div class="nav-mega-desc">maximize employee performance</div>
+                  </div>
+                </a>
+                <a href="../../products/talent-development/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4 3.5 8.2 12 12.4l8.5-4.2z"/><path d="M7 10.5v4.3c0 1.6 2.2 2.9 5 2.9s5-1.3 5-2.9v-4.3"/><path d="M20.5 8.2v5.3"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">career and learning management</div>
+                    <div class="nav-mega-desc">grow careers, close skill gaps</div>
+                  </div>
+                </a>
+                <a href="../../products/employee-engagement/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.5 11.8a7.6 7.6 0 0 1-8.2 7.6 8.4 8.4 0 0 1-3.1-.7L4 20.5l1.7-4.9a7.5 7.5 0 0 1-.8-3.3 7.6 7.6 0 0 1 7.6-7.8 7.6 7.6 0 0 1 8 7.3z"/><circle cx="9.2" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="12.6" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="12" r="1" fill="currentColor" stroke="none"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">employee engagement</div>
+                    <div class="nav-mega-desc">build engagement that lasts</div>
+                  </div>
+                </a>
+                <a href="../../products/people-analytics/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 20.5h17"/><path d="M7.5 20.5v-6.2"/><path d="M12 20.5V9.2"/><path d="M16.5 20.5v-8.6"/><path d="M5 8.6 9.5 5l4 3.2L19 3.5"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">workforce insights</div>
+                    <div class="nav-mega-desc">turn intelligence into decisions</div>
+                  </div>
+                </a>
+                <a href="../../products/employee-wellbeing/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20.6s-7.7-4.8-7.7-10A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.7 3.2c0 5.2-7.7 10-7.7 10z"/><path d="M7.6 12.4h2.2l1.3-2.2 1.8 4.3 1.2-2.1h2.3"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">employee wellbeing</div>
+                    <div class="nav-mega-desc">protect wellness, prevent burnout</div>
+                  </div>
+                </a>
+                <a href="../../products/strategic-workforce-planning/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.6"/><path d="M15.6 8.4 13.5 13.6 8.4 15.6l2.1-5.2z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">strategic workforce planning</div>
+                    <div class="nav-mega-desc">align your workforce to strategy</div>
+                  </div>
+                </a>
+                <a href="../../products/core-hr/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2.6" y="7.4" width="18.8" height="12.2" rx="2.6"/><path d="M8.6 7.4V6a2 2 0 0 1 2-2h2.8a2 2 0 0 1 2 2v1.4"/><path d="M2.6 12.6h18.8"/><path d="M11 12.6h2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">Core <span class="keep-case">HR</span></div>
+                    <div class="nav-mega-desc">simplify hire to retire</div>
+                  </div>
+                </a>
+                <a href="../../products/tmrw/" class="nav-mega-item">
+                  <div class="nav-mega-icon nav-mega-icon--tmrw"><img src="../../assets/images/logos/tmrw-mark.svg" alt="" width="352" height="350" loading="lazy" decoding="async"></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name nav-mega-name--brand"><img class="nav-mega-logo" src="../../assets/images/logos/tmrw.svg" alt="TMRW" width="810" height="224" loading="lazy" decoding="async"><span class="nav-mega-by">by entomo</span></div>
+                    <div class="nav-mega-desc">national scale capability development platform</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#" role="button" aria-haspopup="true" aria-expanded="false">solutions</a>
+            <div class="nav-mega" style="width:760px;">
+              <div class="nav-mega-grid">
+                <a href="../competency-framework/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.4" y="3.4" width="17.2" height="17.2" rx="2.6"/><path d="M3.4 9.2h17.2"/><path d="M3.4 14.8h17.2"/><path d="M9.2 3.4v17.2"/><path d="M14.8 3.4v17.2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">competency framework creation</div>
+                    <div class="nav-mega-desc">living, market-benchmarked frameworks in weeks</div>
+                  </div>
+                </a>
+                <a href="../skills-assessments/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4.4" y="4.6" width="15.2" height="16" rx="2.4"/><path d="M9 4.6V3.9A1.9 1.9 0 0 1 10.9 2h2.2A1.9 1.9 0 0 1 15 3.9v.7"/><path d="M8.8 12.4l2.3 2.3 4.1-4.6"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">skills assessments at scale</div>
+                    <div class="nav-mega-desc"><span class="keep-case">AI</span>-built, proctored assessments for every role</div>
+                  </div>
+                </a>
+                <a href="../enterprise-performance-management-office/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 20.6V8.4l6.2-3.2 6.2 3.2v12.2"/><path d="M15.4 20.6v-7.4l5.6 2.8v4.6"/><path d="M2 20.6h20"/><path d="M7.6 12.2h3.2"/><path d="M7.6 16h3.2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">enterprise performance management office</div>
+                    <div class="nav-mega-desc">stand up the office that aligns <span class="keep-case">KPIs</span> to strategy</div>
+                  </div>
+                </a>
+                <a href="../strategic-performance-management-office/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 21V3.6"/><path d="M6 4.6h11.4l-2.2 3.7 2.2 3.7H6"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">strategic performance management office</div>
+                    <div class="nav-mega-desc">run strategy-linked performance cycles end to end</div>
+                  </div>
+                </a>
+                <a href="../internal-mobility/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.4 8.6h12.8"/><path d="M13.8 5.2 17.2 8.6l-3.4 3.4"/><path d="M19.6 15.4H6.8"/><path d="M10.2 12 6.8 15.4l3.4 3.4"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">internal mobility</div>
+                    <div class="nav-mega-desc">career paths computed from skill adjacency</div>
+                  </div>
+                </a>
+                <a href="../succession-planning/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="8.8" y="2.8" width="6.4" height="4.6" rx="1.6"/><rect x="2.4" y="16.6" width="6.4" height="4.6" rx="1.6"/><rect x="15.2" y="16.6" width="6.4" height="4.6" rx="1.6"/><path d="M12 7.4v3.8"/><path d="M5.6 16.6v-3.4h12.8v3.4"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">succession planning</div>
+                    <div class="nav-mega-desc">evidence-based readiness for critical roles</div>
+                  </div>
+                </a>
+                <a href="../workforce-planning/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 20.4h18"/><path d="M4.6 16.6 8.8 11l3.4 2.8 4-6.6"/><path d="M16.2 7.2 20.4 12" stroke-dasharray="2.4 2.4"/><circle cx="8.8" cy="11" r="1.1" fill="currentColor" stroke="none"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">workforce planning</div>
+                    <div class="nav-mega-desc">model demand, decide build, buy, borrow, or bot</div>
+                  </div>
+                </a>
+                <a href="../data-intelligence-assistant/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.2l1.9 5.1 5.1 1.9-5.1 1.9L12 17.2l-1.9-5.1L5 10.2l5.1-1.9z"/><path d="M18.6 15.2l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name"><span class="keep-case">DIA</span></div>
+                    <div class="nav-mega-desc">your data intelligence assistant for workforce questions</div>
+                  </div>
+                </a>
+                <a href="../workforce-analytics/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6.2 3h7.4L19 8.4v11.2A2.4 2.4 0 0 1 16.6 21H6.2a2.4 2.4 0 0 1-2.4-2.4V5.4A2.4 2.4 0 0 1 6.2 3z"/><path d="M13.4 3v5.6H19"/><path d="M8 17.4v-3"/><path d="M11.4 17.4v-6"/><path d="M14.8 17.4v-4.2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">workforce analytics &amp; reporting</div>
+                    <div class="nav-mega-desc">board-ready intelligence and <span class="keep-case">ISO</span> 30414 disclosure</div>
+                  </div>
+                </a>
+                <a href="./" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10.2 13.6a4.2 4.2 0 0 0 6 0l2.6-2.6a4.2 4.2 0 0 0-6-6l-1.4 1.4"/><path d="M13.8 10.4a4.2 4.2 0 0 0-6 0l-2.6 2.6a4.2 4.2 0 0 0 6 6l1.4-1.4"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">engagement &amp; retention</div>
+                    <div class="nav-mega-desc">sense engagement, act early, retain talent</div>
+                  </div>
+                </a>
+                <a href="../learning-roi/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="9.2" cy="6.6" rx="5.6" ry="2.5"/><path d="M3.6 6.6v4.3c0 1.4 2.5 2.5 5.6 2.5s5.6-1.1 5.6-2.5V6.6"/><path d="M3.6 10.9v4.3c0 1.4 2.5 2.5 5.6 2.5c.5 0 1 0 1.5-.1"/><path d="M17.6 20.8v-6.4"/><path d="M14.9 17.1l2.7-2.7 2.7 2.7"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">learning <span class="keep-case">ROI</span></div>
+                    <div class="nav-mega-desc">make learning spend provable</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#"><span class="keep-case">AI</span> lab</a>
+            <div class="nav-mega" style="width:420px;">
+              <div class="nav-mega-grid" style="grid-template-columns: 1fr;">
+                <a href="../../ai-lab/axon/" class="nav-mega-item">
+                  <div class="nav-mega-icon nav-mega-icon--axon"><picture><source srcset="../../assets/images/logos/axon-mark.webp" type="image/webp"><img src="../../assets/images/logos/axon-mark.png" alt="" width="180" height="197" loading="lazy" decoding="async"></picture></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name nav-mega-name--brand"><span class="nav-mega-pre">entomo</span><picture><source srcset="../../assets/images/logos/axon-wordmark.webp" type="image/webp"><img class="nav-mega-logo nav-mega-logo--axon" src="../../assets/images/logos/axon-wordmark.png" alt="axon" width="480" height="155" loading="lazy" decoding="async"></picture></div>
+                    <div class="nav-mega-desc">the workforce intelligence graph powering entomo.ai</div>
+                  </div>
+                </a>
+                <a href="../../ai-lab/enzo/" class="nav-mega-item">
+                  <div class="nav-mega-icon nav-mega-icon--enzo"><picture><source srcset="../../assets/images/logos/enzo-mark.webp" type="image/webp"><img src="../../assets/images/logos/enzo-mark.png" alt="" width="640" height="583" loading="lazy" decoding="async"></picture></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name nav-mega-name--brand"><picture><source srcset="../../assets/images/logos/enzo-wordmark.webp" type="image/webp"><img class="nav-mega-logo nav-mega-logo--enzo" src="../../assets/images/logos/enzo-wordmark.png" alt="enzo" width="1200" height="311" loading="lazy" decoding="async"></picture><span class="nav-mega-by">by entomo</span></div>
+                    <div class="nav-mega-desc">the <span class="keep-case">AI</span> co-worker inside entomo.ai</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#" role="button" aria-haspopup="true" aria-expanded="false">inspiration</a>
+            <div class="nav-mega" style="width:720px;">
+              <div class="nav-mega-grid">
+                <a href="../../blog/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.4 5A2 2 0 0 1 6.4 3h7.2L20 8.6v10.4a2 2 0 0 1-2 2H6.4a2 2 0 0 1-2-2z"/><path d="M13.6 3v5.6H20"/><path d="M8 13h8"/><path d="M8 16.8h5"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">blog</div>
+                    <div class="nav-mega-desc">insights on agentic <span class="keep-case">AI</span> and the future of work</div>
+                  </div>
+                </a>
+                <a href="../../resources/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6.6C10.4 5.1 8.4 4.4 6 4.4H3.4v12.8H6c2.4 0 4.4.7 6 2.2"/><path d="M12 6.6c1.6-1.5 3.6-2.2 6-2.2h2.6v12.8H18c-2.4 0-4.4.7-6 2.2"/><path d="M12 6.6v13"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">ebooks &amp; whitepapers</div>
+                    <div class="nav-mega-desc">in-depth research and POV reports</div>
+                  </div>
+                </a>
+                <a href="../../case-studies/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="9" r="5.8"/><path d="M8.6 13.9 7.2 21.4l4.8-2.5 4.8 2.5-1.4-7.5"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">case studies</div>
+                    <div class="nav-mega-desc">real outcomes from enterprises and governments</div>
+                  </div>
+                </a>
+                <a href="../../community/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="5.6" r="2.6"/><circle cx="5.4" cy="17" r="2.6"/><circle cx="18.6" cy="17" r="2.6"/><path d="M10.3 7.2 7.1 14.6"/><path d="M13.7 7.2l3.2 7.4"/><path d="M8 17.4h8"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">entomo community</div>
+                    <div class="nav-mega-desc">connect with <span class="keep-case">HR</span> leaders shaping the future</div>
+                  </div>
+                </a>
+                <a href="../../resources/templates/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.4" y="3.4" width="12.4" height="12.4" rx="2.2"/><path d="M3.4 8h12.4"/><path d="M8 8v7.8"/><path d="M8.8 20.6h9.6a2.2 2.2 0 0 0 2.2-2.2V8.8"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">templates</div>
+                    <div class="nav-mega-desc">ready-to-use <span class="keep-case">HR</span> frameworks and playbooks</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#" role="button" aria-haspopup="true" aria-expanded="false">about</a>
+            <div class="nav-mega" style="width:720px;">
+              <div class="nav-mega-grid">
+                <a href="../../about/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.8 20.6 9.6 9l4 6 2.8-4.4 4.8 10z"/><circle cx="7.4" cy="5.4" r="2.2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">why entomo</div>
+                    <div class="nav-mega-desc">our story and what makes us different</div>
+                  </div>
+                </a>
+                <a href="../../about/life-at-entomo/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-7.2"/><path d="M12 13.8c0-3.4 2.5-6.2 5.7-6.2 0 3.4-2.5 6.2-5.7 6.2z"/><path d="M12 15.6c0-2.9-2.3-5.2-5.2-5.2 0 2.9 2.3 5.2 5.2 5.2z"/><path d="M8.2 21h7.6"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">life@entomo</div>
+                    <div class="nav-mega-desc">culture, values, and what makes us tick</div>
+                  </div>
+                </a>
+                <a href="../../about/team/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="8.4" r="3.2"/><path d="M3.4 19.6a5.6 5.6 0 0 1 11.2 0"/><circle cx="17.6" cy="9.6" r="2.4"/><path d="M15.8 14.4a4.6 4.6 0 0 1 5.8 4.4"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">our team</div>
+                    <div class="nav-mega-desc">leadership and the people behind entomo</div>
+                  </div>
+                </a>
+                <a href="../../about/security/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 19.4 6v5.6c0 4.4-3.1 8.2-7.4 9.2-4.3-1-7.4-4.8-7.4-9.2V6z"/><rect x="9.4" y="11.2" width="5.2" height="4.4" rx="1.2"/><path d="M10.6 11.2v-1.1a1.4 1.4 0 0 1 2.8 0v1.1"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">security@entomo</div>
+                    <div class="nav-mega-desc">enterprise-grade security and compliance</div>
+                  </div>
+                </a>
+                <a href="../../news/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 10.2v3.6a1.6 1.6 0 0 0 1.6 1.6H8l7.4 4.2V4.4L8 8.6H5.6A1.6 1.6 0 0 0 4 10.2z"/><path d="M18.4 9.4a3.6 3.6 0 0 1 0 5.2"/><path d="M8 15.4V20"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">news &amp; press release</div>
+                    <div class="nav-mega-desc">latest announcements and media coverage</div>
+                  </div>
+                </a>
+                <a href="../../about/careers/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9.6" cy="8" r="3.2"/><path d="M3.4 20a6.2 6.2 0 0 1 12.4 0"/><path d="M19.4 8.6v5.6"/><path d="M16.6 11.4h5.6"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">jobs@entomo</div>
+                    <div class="nav-mega-desc">join the team building tomorrow's <span class="keep-case">HR</span></div>
+                  </div>
+                </a>
+                <a href="../../about/partners/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="8.8" cy="12" r="5.4"/><circle cx="15.2" cy="12" r="5.4"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">partner with entomo</div>
+                    <div class="nav-mega-desc">SI, consulting, and ecosystem partnerships</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li><a href="../../contact/">contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="../../request-demo/" class="nav-cta">request a demo →</a>
+        </div>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+  <main id="main">
+
+  <!-- ===== HERO ===== -->
+  <section class="sol-hero">
+    <div class="container">
+      <div class="sol-hero-content">
+        <div class="sol-breadcrumb">
+          <a href="../../">home</a>
+          <span>/</span>
+          <a href="../">solutions</a>
+          <span>/</span>
+          <span>engagement retention</span>
+        </div>
+        <h1>engagement that shows up in <mark>retention</mark></h1>
+        <p class="sol-hero-sub">
+          engagement read as live signals, mood, feedback, recognition, growth, and acted on months before a resignation letter, in the flow of everyday work.
+        </p>
+        <a class="btn-primary" href="../../request-demo/">get started &rarr;</a>
+      </div>
+    </div>
+    <div class="marquee-wrapper" style="margin-top:2.5rem;">
+      <div class="marquee-track">
+        <img class="marquee-logo" src="../../assets/images/client-logos/tata-elxsi.png"        alt="Tata Elxsi logo" width="111" height="78" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/ey.png"                alt="EY logo" width="93" height="78" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/cigna.png"             alt="Cigna logo" width="173" height="57" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/nttdata.png"           alt="NTT Data logo" width="171" height="25" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/ntuc-learning-hub.png" alt="NTUC Learning Hub logo" width="196" height="52" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/generalli.png"         alt="Generali logo" width="95" height="78" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/carelon.jpeg"          alt="Carelon logo" width="800" height="300" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/soiitz.png"            alt="Soiitz logo" width="174" height="53" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/drreddys.png"          alt="Dr Reddy&#x27;s logo" width="172" height="38" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/digital-dubai.png"     alt="Digital Dubai logo" width="595" height="222" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/uob.png"               alt="UOB logo" width="146" height="52" decoding="async">
+        <!-- Duplicate set for seamless loop -->
+        <img class="marquee-logo" src="../../assets/images/client-logos/tata-elxsi.png"        alt="Tata Elxsi logo" width="111" height="78" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/ey.png"                alt="EY logo" width="93" height="78" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/cigna.png"             alt="Cigna logo" width="173" height="57" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/nttdata.png"           alt="NTT Data logo" width="171" height="25" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/ntuc-learning-hub.png" alt="NTUC Learning Hub logo" width="196" height="52" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/generalli.png"         alt="Generali logo" width="95" height="78" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/carelon.jpeg"          alt="Carelon logo" width="800" height="300" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/soiitz.png"            alt="Soiitz logo" width="174" height="53" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/drreddys.png"          alt="Dr Reddy&#x27;s logo" width="172" height="38" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/digital-dubai.png"     alt="Digital Dubai logo" width="595" height="222" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/uob.png"               alt="UOB logo" width="146" height="52" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== THE SIX MONTHS BEFORE ===== -->
+  <section style="background: var(--polar-white);">
+    <div class="container">
+      <div class="text-center" style="max-width:760px; margin:0 auto;">
+        <p class="section-eyebrow">the challenge today</p>
+        <h2 class="section-heading">most of your workforce today is quietly <mark>disengaged</mark>.</h2>
+        <p class="section-subheading" style="margin:0 auto;">resignations only confirm what the signals said all along. gallup puts disengagement's global cost at $438 billion a year, and none of it shows up in a lagging report while there's still time to act.</p>
+      </div>
+      <div class="er-curve">
+        <svg viewBox="0 0 960 300" role="img" aria-label="a rising attrition-risk curve over six months, with the signals entomo catches marked along it: a sentiment dip, skipped check-ins, a stalled growth conversation, and no recognition; interventions are marked where nudges fire">
+          <line x1="40" y1="250" x2="930" y2="250" stroke="rgba(26,31,38,0.18)" stroke-width="1.5"/>
+          <path d="M 40 232 C 200 226, 300 218, 420 196 C 560 170, 680 128, 930 58" fill="none" stroke="#e43d30" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M 40 232 C 200 226, 300 218, 420 200 C 560 186, 700 196, 930 214" fill="none" stroke="#2c9942" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="1 0"/>
+          <g font-family="Nunito Sans, sans-serif">
+            <circle cx="240" cy="219" r="6" fill="#f4b223"/>
+            <text x="250" y="200" text-anchor="middle" font-size="13" fill="#5a626c">month 2: sentiment dips in mood meter</text>
+            <circle cx="420" cy="197" r="6" fill="#f4b223"/>
+            <text x="420" y="176" text-anchor="middle" font-size="13" fill="#5a626c">month 3: check-ins stop</text>
+            <circle cx="600" cy="158" r="6" fill="#e43d30"/>
+            <text x="545" y="110" text-anchor="middle" font-size="13" fill="#a02417" font-weight="700">month 4: no growth conversation logged</text>
+            <circle cx="600" cy="190" r="6" fill="#2c9942"/>
+            <text x="640" y="222" text-anchor="middle" font-size="13" fill="#1d6c2d" font-weight="700">nudge: manager coach-in + growth path</text>
+            <text x="905" y="48" text-anchor="end" font-size="13.5" fill="#a02417" font-weight="800">unseen: resignation</text>
+            <text x="905" y="252" text-anchor="end" font-size="13.5" fill="#1d6c2d" font-weight="800">seen early: retained</text>
+          </g>
+        </svg>
+        <div class="er-legend">
+          <span><i style="background:#e43d30"></i>risk left unseen</span>
+          <span><i style="background:#2c9942"></i>risk seen and acted on</span>
+          <span><i style="background:#f4b223; height:8px; width:8px; border-radius:50%;"></i>signals entomo reads</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LAGGING TO LEADING ===== -->
+  <section style="background: var(--white);">
+    <div class="container">
+      <div class="text-center" style="max-width:720px; margin:0 auto;">
+        <h2 class="section-heading">swap every lagging measure for a <mark>leading</mark> one</h2>
+      </div>
+      <div class="er-pairs">
+        <div class="er-pair">
+          <div class="er-lag"><small>lagging</small>the exit interview explains why they left</div>
+          <div class="er-lead"><small>leading</small>hyper-personalized mood meters read how people feel while they're still here</div>
+        </div>
+        <div class="er-pair">
+          <div class="er-lag"><small>lagging</small>the annual survey, reported a quarter later</div>
+          <div class="er-lead"><small>leading</small><span class="keep-case">AI</span>-templated pulses with analysis per topic, and completion-tracked actions on every finding</div>
+        </div>
+        <div class="er-pair">
+          <div class="er-lag"><small>lagging</small>attrition rate, counted after the fact</div>
+          <div class="er-lead"><small>leading</small>attrition risk flagged early, signal by signal, to the one manager who can change it</div>
+        </div>
+        <div class="er-pair">
+          <div class="er-lag"><small>lagging</small>recognition saved up for the annual awards night</div>
+          <div class="er-lead"><small>leading</small>kudos and rewards in the flow of work, the week the work happened</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== THE INSTRUMENTS ===== -->
+  <section style="background: var(--polar-white); border-top: 1px solid rgba(26,31,38,0.06);">
+    <div class="container">
+      <div class="text-center" style="max-width:740px; margin:0 auto;">
+        <h2 class="section-heading">the engagement loop, in the flow of <mark>work</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;">not an annual program. four instruments running continuously, with Pulse360 reading the signals underneath.</p>
+      </div>
+      <div class="er-tools">
+        <div class="er-tool t1"><b>sense</b><p>gen-<span class="keep-case">AI</span> mood meters and pulse surveys tuned to each person; sentiment and tone read across feedback by Pulse360.</p></div>
+        <div class="er-tool t2"><b>understand</b><p>survey analysis by topic and team, engagement health and manager-quality signals surfaced to the leaders who own them.</p></div>
+        <div class="er-tool t3"><b>act</b><p>nudges route each finding to its owner: a coach-in to schedule, a growth conversation to have, an action plan tracked to completion.</p></div>
+        <div class="er-tool t4"><b>reinforce</b><p>kudos, contests, and rewards keep contribution visible; mentorship and interest hubs keep people connected to their next step.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROOF ===== -->
+  <section style="background: var(--pistachio);">
+    <div class="container">
+      <div class="text-center" style="max-width:700px; margin:0 auto;">
+        <h2 class="section-heading">retention that shows up in the <mark>annual report</mark></h2>
+      </div>
+      <div class="er-case">
+        <div class="er-case-num">
+          <b>50%</b>
+          <span>reduction in employee attrition at an indonesian conglomerate, alongside 95% of employees publishing scorecards</span>
+        </div>
+        <div class="er-case-body">
+          <q>Through the successful implementation, entomo has helped us shift to a meritocracy-based, agile organization. It has aligned our business objectives and engaged our people through meaningful interventions.</q>
+          <cite>Swasono Satyo, Chief Human Resources Officer, Sinar Mas Group</cite>
+          <div class="er-case-tags">
+            <span class="ptag">15% higher employee satisfaction at <span class="keep-case">Graas</span> after self-service rollout</span>
+            <span class="ptag">+7.99% company-wide satisfaction at sinar mas</span>
+            <span class="ptag">16% higher training participation in the same program</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
+    <div class="container">
+      <div class="text-center" style="max-width:720px; margin:0 auto;">
+        <h2 class="section-heading">fair questions about reading <mark>people signals</mark></h2>
+      </div>
+      <div class="integrations-grid">
+        <div class="integration-card">
+          <h3 class="integration-card-title">is this surveillance?</h3>
+          <p class="faq-a">No. The signals are things employees choose to share: mood check-ins, survey responses, feedback, recognition, and their own goals. Access is governed down to the individual on an <span class="keep-case">ISO</span> 27001 and <span class="keep-case">ISO</span> 27701 certified platform, and the output is support routed to a manager, not a score on a wall.</p>
+        </div>
+        <div class="integration-card">
+          <h3 class="integration-card-title">what stops this being another ignored survey tool?</h3>
+          <p class="faq-a">Action tracking. Every finding becomes a nudge with an owner, and the platform measures completion, so "we heard you" turns into something people can see. That loop is why scorecard publication hit 95% at sinar mas.</p>
+        </div>
+        <div class="integration-card">
+          <h3 class="integration-card-title">how do managers keep up with the signals?</h3>
+          <p class="faq-a">They don't have to watch dashboards. Signals arrive as specific, timed nudges: this person, this conversation, this week. Manager-quality metrics also show leadership which teams need coaching support, not just which need pizza.</p>
+        </div>
+        <div class="integration-card">
+          <h3 class="integration-card-title">does engagement connect to growth and pay?</h3>
+          <p class="faq-a">Directly. The same platform runs goals, skills, and recognition, so a flagged risk can be answered with the things that actually retain people: a growth path, a gig, a mentor, a fair review. <a href="../internal-mobility/" style="color:var(--spanish-blue); font-weight:600;">see internal mobility &rarr;</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FURTHER READING ===== -->
+  <section class="sol-further">
+    <div class="container">
+      <div class="text-center"><h2 class="section-heading">further <mark>reading</mark></h2></div>
+      <div class="sol-further-grid">
+        <a href="../../products/employee-engagement/"><small>related solution</small><b>employee engagement platform</b><span>continuous employee engagement and culture: agentic intelligence that listens to your workforce, celebrates contributions and surfaces signals for leaders.</span></a>
+        <a href="../../products/employee-wellbeing/"><small>related solution</small><b>employee wellbeing intelligence</b><span>protect your people's wellbeing: agentic intelligence that senses wellness signals early, nudges proactively, and acts before stress becomes attrition.</span></a>
+        <a href="../../blog/burnout-is-a-job-design-problem/"><small>from the blog</small><b>burnout is a job design problem, not a resilience problem</b><span>the evidence points at demands, resources and control, yet most organisations respond by measuring how well people cope with them.</span></a>
+        <a href="../../case-studies/asean-telecom-gamified-productivity/"><small>case study</small><b>ASEAN telecom: 350%+ productivity in 100 days</b><span>one of ASEAN's largest telecoms: democratised insights and gamification for accelerated productivity across 24,000-plus employees.</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BOTTOM CTA ===== -->
+  <section class="bottom-cta">
+    <div class="container">
+      <h2>see the signals while there's still <mark>time</mark>.</h2>
+      <p>engagement intelligence on the platform behind 30M+ users, Forrester-validated at the platform level.</p>
+      <a class="btn-primary" href="../../request-demo/">read your engagement signals &rarr;</a>
+    </div>
+  </section>
+
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <img src="../../assets/images/entomo.svg" alt="entomo" style="height:32px; width:auto;" loading="lazy" decoding="async" width="587" height="138">
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>platform</h3>
+          <ul>
+            <li><a href="../../#agents"><span><span class="keep-case">AI</span> agents</span></a></li>
+            <li><a href="../../ai-lab/axon/">intelligence architecture</a></li>
+            <li><a href="../../#integrations">integrations</a></li>
+            <li><a href="../../about/security/">security</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>products</h3>
+          <ul>
+            <li><a href="../../products/performance-management/">performance management</a></li>
+            <li><a href="../../products/talent-development/">talent development</a></li>
+            <li><a href="../../products/employee-engagement/">employee engagement</a></li>
+            <li><a href="../../products/people-analytics/">people analytics</a></li>
+            <li><a href="../../products/employee-wellbeing/">employee wellbeing</a></li>
+            <li><a href="../../products/strategic-workforce-planning/">strategic workforce planning</a></li>
+            <li><a href="../../products/core-hr/">core <span class="keep-case">HR</span></a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>resources</h3>
+          <ul>
+            <li><a href="../../news/forrester-tei/"><span>Forrester <span class="keep-case">TEI</span> study</span></a></li>
+            <li><a href="../../case-studies/">case studies</a></li>
+            <li><a href="../../blog/">blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>company</h3>
+          <ul>
+            <li><a href="../../about/">why entomo</a></li>
+            <li><a href="../../about/team/">our team</a></li>
+            <li><a href="../../about/careers/">careers</a></li>
+            <li><a href="../../contact/">contact</a></li>
+            <li><a href="#">privacy policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 entomo. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/company/entomo" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== SCROLL ANIMATION ENGINE ===== -->
+  <script>
+  (function() {
+    'use strict';
+
+    // Selectors for elements that should animate when scrolled into view.
+    // Excludes nav, footer, and elements that are part of always-visible chrome.
+    const SOLO_SELECTORS = [
+      'h1', 'h2', 'h3',
+      '.section-heading', '.section-subheading', '.section-eyebrow',
+      '.hero-eyebrow', '.hero-badge', '.hero-sub', '.hero-ctas',
+      '.lede', '.challenge-dismiss', '.dia-headline',
+      '.btn-primary', '.path-link',
+      '.coach-demo', '.dia-demo', '.ww-demo',
+      '.story-visual', '.positioning-block',
+      '.video-card', '.outcome-card', '.difference-card',
+      '.path-card', '.proof-card', '.solution-card',
+      '.metric', '.metric-large',
+      '.persona-panel.active',
+      '.sss-card', '.sss-pills-svg',
+      '.tomorrow-intro', '.story-grid',
+      '.flow-pills', '.feature-card',
+      'blockquote',
+    ];
+
+    // Grid-like containers whose children should stagger in
+    const STAGGER_SELECTORS = [
+      '.outcome-grid', '.difference-grid',
+      '.paths-grid', '.path-grid',
+      '.sss-grid',
+      '.proof-cards', '.solution-cards', '.solutions-grid',
+      '.enterprise-grid', '.stakeholder-grid',
+      '.videos-grid', '.video-grid',
+      '.team-grid', '.leaders-grid',
+      '.pillars-grid', '.values-grid',
+      '.benefits-grid', '.perks-grid',
+      '.cards-grid', '.card-grid',
+      '.partners-grid', '.partner-grid',
+      '.story-grid', '.tomorrow-grid',
+      '.testimonial-grid',
+      '.stats-grid',
+    ];
+
+    // Ancestors to exclude (don't animate elements inside these)
+    const EXCLUDE_ANCESTORS = ['nav.navbar', 'footer.footer', '.testimonials-track', '.marquee-track', '.agent-marquee-track', '.agent-areas-track', '.perf-mq-track'];
+
+    function isExcluded(el) {
+      for (const sel of EXCLUDE_ANCESTORS) {
+        if (el.closest(sel)) return true;
+      }
+      return false;
+    }
+
+    function tagAnim(el, variant = 'anim-fade-up') {
+      if (el.classList.contains('anim') || el.classList.contains('stagger')) return;
+      el.classList.add('anim', variant);
+    }
+
+    function tagStagger(el) {
+      if (el.classList.contains('stagger')) return;
+      el.classList.add('stagger');
+    }
+
+    // Tag solo elements
+    SOLO_SELECTORS.forEach(sel => {
+      document.querySelectorAll(sel).forEach(el => {
+        if (isExcluded(el)) return;
+        tagAnim(el);
+      });
+    });
+
+    // Tag stagger containers
+    STAGGER_SELECTORS.forEach(sel => {
+      document.querySelectorAll(sel).forEach(el => {
+        if (isExcluded(el)) return;
+        // Don't double-tag if already a stagger or anim
+        if (el.classList.contains('anim')) {
+          el.classList.remove('anim', 'anim-fade-up', 'anim-fade', 'anim-fade-down', 'anim-fade-left', 'anim-fade-right', 'anim-scale', 'anim-blur', 'anim-rise');
+        }
+        tagStagger(el);
+      });
+    });
+
+    // IntersectionObserver to reveal on scroll
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      document.querySelectorAll('.anim, .stagger').forEach(el => {
+        // Above-the-fold elements: reveal immediately with a tiny delay (gives a soft entrance)
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          // Small staggered delay for elements visible on initial load
+          setTimeout(() => el.classList.add('is-visible'), 50);
+        } else {
+          io.observe(el);
+        }
+      });
+    } else {
+      // Fallback: show everything immediately
+      document.querySelectorAll('.anim, .stagger').forEach(el => el.classList.add('is-visible'));
+    }
+  })();
+  </script>
+
+  <script src="../../assets/entomo-2026.js" defer></script>
+</body>
+</html>

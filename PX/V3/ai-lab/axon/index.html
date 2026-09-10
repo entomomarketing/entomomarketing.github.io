@@ -1,0 +1,3199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>entomo axon | the intelligence behind entomo.ai</title>
+  <meta name="description" content="axon is the intelligence behind entomo.ai. it connects what every role requires with what every person brings, into one model of how work gets done.">
+  <!-- seo:head -->
+  <link rel="canonical" href="https://entomomarketing.github.io/PX/V3/ai-lab/axon/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="entomo">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://entomomarketing.github.io/PX/V3/ai-lab/axon/">
+  <meta property="og:title" content="entomo axon | the intelligence behind entomo.ai">
+  <meta property="og:description" content="axon is the intelligence behind entomo.ai. it connects what every role requires with what every person brings, into one model of how work gets done.">
+  <meta property="og:image" content="https://entomomarketing.github.io/PX/V3/assets/images/og-default.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="entomo, the agentic intelligence platform for work">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="entomo axon | the intelligence behind entomo.ai">
+  <meta name="twitter:description" content="axon is the intelligence behind entomo.ai. it connects what every role requires with what every person brings, into one model of how work gets done.">
+  <meta name="twitter:image" content="https://entomomarketing.github.io/PX/V3/assets/images/og-default.jpg">
+  <link rel="icon" href="../../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../assets/images/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png">
+  <meta name="theme-color" content="#e43d30">
+  <!-- /seo:head -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&display=swap"></noscript>
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Nunito Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #1a1f26;
+      background-color: #ffffff;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --cg-red: #e43d30;
+      --cg-gold: #f4b223;
+      --spanish-blue: #0064bf;
+      --sea-green: #2c9942;
+      --sunrise-yellow: #ffda00;
+      --white: #ffffff;
+      --black: #000000;
+      --ebony-clay: #1a1f26;
+      --black-haze: #fafbfb;
+      --silver-sand: #c0c2c3;
+      --floral-white: #fefbf4;
+      --lavender: #e6f0f9;
+      --pistachio: #eaf5ed;
+      --polar-white: #f2f7fc;
+      --gradient-cta: linear-gradient(90deg, #f4b223, #e43d30);
+      --radius-semi: 5px;
+      --radius-standard: 10px;
+      --radius-medium: 15px;
+      --radius-large: 25px;
+      --shadow-sm: 0px 5px 10px rgba(0,0,0,0.10);
+      --shadow-md: 0px 15px 25px rgba(0,0,0,0.10);
+      --max-width: 1280px;
+    }
+
+    /* ===== UTILITY ===== */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .text-center { text-align: center; }
+
+    /* ===== MARK / HIGHLIGHT ===== */
+    mark {
+      background-color: var(--sunrise-yellow);
+      background-image: none;
+      color: var(--black);
+      border-radius: 12px;
+      padding: 0.05em 0.35em;
+      line-height: 1;
+      font-weight: 700;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+    /* mark inside dark sections — yellow stripe still shows, text dark for legibility */
+    .dark-section mark {
+      background-color: var(--sunrise-yellow);
+      background-image: none;
+      color: var(--black);
+      border-radius: 12px;
+      padding: 0.05em 0.35em;
+      line-height: 1;
+      font-weight: 700;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    /* ===== CASE OVERRIDE ===== */
+    .keep-case { text-transform: none !important; }
+
+    /* ===== HEADINGS LOWERCASE ===== */
+    h1, h2, h3, h4, h5, h6 { text-transform: lowercase; }
+
+    /* ===== BUTTONS ===== */
+    .btn-primary {
+      background-image: var(--gradient-cta);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-semi);
+      padding: 14px 36px;
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: 600;
+      text-transform: lowercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
+    .btn-primary-lg {
+      padding: 16px 44px;
+      font-size: 19px;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--ebony-clay);
+      border: 2px solid rgba(26,31,38,0.2);
+      border-radius: var(--radius-semi);
+      padding: 14px 36px;
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: 600;
+      text-transform: lowercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--ebony-clay); transform: translateY(-1px); }
+    .btn-ghost-white {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.3);
+    }
+    .btn-ghost-white:hover { border-color: var(--white); color: var(--white); }
+
+    /* ===== SECTION SPACING ===== */
+    section { padding: 5rem 0; }
+    @media (max-width: 768px) { section { padding: 3.5rem 0; } }
+
+    /* ===== EYEBROW ===== */
+    .section-eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--cg-red);
+      margin-bottom: 0.75rem;
+    }
+    .section-eyebrow-white {
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ===== SECTION HEADINGS ===== */
+    .section-heading {
+      font-size: clamp(30px, 3.5vw, 44px);
+      font-weight: 700;
+      line-height: 1.18;
+      margin-bottom: 1rem;
+    }
+    .section-subheading {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: rgba(26,31,38,0.68);
+      max-width: 720px;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid rgba(26,31,38,0.08);
+      backdrop-filter: blur(12px);
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: lowercase;
+    }
+    .nav-right-group { display: flex; flex-direction: row; align-items: center; gap: 1.5rem; flex-wrap: nowrap; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: lowercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--cg-red); }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-shrink: 0; }
+    .nav-cta {
+      background-image: var(--gradient-cta);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-semi);
+      padding: 8px 20px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: lowercase;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.9; }
+
+    /* Dropdown */
+    .nav-dropdown-wrap { position: relative; }
+    .nav-dropdown-wrap > a {
+      display: flex; align-items: center; gap: 4px;
+    }
+    .nav-dropdown-wrap > a::after {
+      content: '';
+      border: solid currentColor; border-width: 0 1.5px 1.5px 0;
+      display: inline-block; padding: 2.5px;
+      transform: rotate(45deg); margin-top: -3px;
+      transition: transform 0.2s;
+    }
+    .nav-dropdown-wrap:hover > a::after {
+      transform: rotate(-135deg); margin-top: 2px;
+    }
+    .nav-mega {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(14px);
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.08);
+      border-radius: var(--radius-medium);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12), 0 0 0 1px rgba(26,31,38,0.04);
+      padding: 1.25rem;
+      width: 680px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+      z-index: 200;
+    }
+    .nav-dropdown-wrap:hover .nav-mega {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(8px);
+    }
+    .nav-mega-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+    }
+    .nav-mega-item {
+      display: flex; flex-direction: row; align-items: flex-start; gap: 12px;
+      padding: 12px 14px; border-radius: var(--radius-standard);
+      transition: background 0.15s; text-decoration: none; color: inherit;
+    }
+    .nav-mega-icon {
+      width: 40px; height: 40px; border-radius: 9px; flex-shrink: 0;
+      background: rgba(26,31,38,0.05);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+    }
+    .nav-mega-icon svg {
+      width: 18px; height: 18px; stroke: rgba(26,31,38,0.45); fill: none;
+      transition: stroke 0.15s;
+    }
+    .nav-mega-text { display: flex; flex-direction: column; gap: 2px; }
+    .nav-mega-item:hover { background: rgba(228,61,48,0.04); }
+    .nav-mega-item:hover .nav-mega-icon { background: rgba(228,61,48,0.08); }
+    .nav-mega-item:hover .nav-mega-icon svg { stroke: var(--cg-red); }
+    .nav-mega-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      margin-bottom: 3px;
+      line-height: 1.3;
+    }
+    .nav-mega-desc {
+      font-size: 12px;
+      color: var(--ink-4);
+      line-height: 1.4;
+      font-weight: 500;
+    }
+    .nav-mega-item:hover .nav-mega-name { color: var(--cg-red); }
+
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-toggle svg { width: 24px; height: 24px; }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      .nav-mega { display: none; }
+    }
+
+    /* ===== SECTION 1 — HERO ===== */
+    .hero-platform {
+      background-color: var(--floral-white);
+      padding: 6rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-neural {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-platform > .container { position: relative; z-index: 1; }
+    .hero-platform::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -8%;
+      width: 650px;
+      height: 650px;
+      background: radial-gradient(circle, rgba(244,178,35,0.14) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-platform::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -5%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0,100,191,0.07) 0%, transparent 65%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-platform .container { position: relative; z-index: 1; }
+    .hero-platform-content {
+      max-width: 960px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(244,178,35,0.12);
+      border: 1px solid rgba(244,178,35,0.28);
+      border-radius: 20px;
+      padding: 6px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      margin-bottom: 1.75rem;
+      letter-spacing: 0.3px;
+    }
+    .hero-badge .pulse-dot {
+      width: 7px; height: 7px;
+      background: var(--cg-gold);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.5); }
+    }
+    .hero-wordmark {
+      display: block;
+    }
+    .axon-wordmark {
+      display: block;
+      font-size: 56px;
+      font-weight: 800;
+      letter-spacing: -2px;
+      color: var(--ebony-clay);
+      line-height: 1;
+    }
+    .axon-wordmark em {
+      font-style: normal;
+      color: var(--cg-red);
+    }
+    @media (max-width: 640px) {
+      .axon-wordmark { font-size: 38px; }
+    }
+    .hero-platform h1 {
+      font-size: clamp(38px, 5.5vw, 72px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 1.25rem;
+      color: var(--ebony-clay);
+    }
+    .hero-tagline {
+      font-size: clamp(22px, 3vw, 40px);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      margin-bottom: 1.25rem;
+      color: var(--ebony-clay);
+    }
+    .hero-platform-sub {
+      font-size: 19px;
+      line-height: 1.65;
+      color: rgba(26,31,38,0.62);
+      max-width: 660px;
+      margin: 0 auto 2rem;
+    }
+    .hero-stat-chips {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.75rem;
+    }
+    .stat-chip {
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.1);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ebony-clay);
+    }
+    .hero-ctas {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+
+    .hero-trust { margin: 1.5rem 0; text-align: center; }
+    .trust-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--ink-4); margin-bottom: 12px; font-weight: 600; }
+    .trust-logos { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    .trust-logo-pill { background: rgba(26,31,38,0.05); border: 1px solid rgba(26,31,38,0.1); border-radius: 25px; padding: 6px 16px; font-size: 13px; font-weight: 600; color: var(--ink-4); }
+
+    .hero-subline {
+      font-size: 19px;
+      line-height: 1.65;
+      color: rgba(26,31,38,0.62);
+      max-width: 660px;
+      margin: 0 auto 1.25rem;
+    }
+    .hero-proof-line {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink-4);
+      letter-spacing: 0.5px;
+      margin-bottom: 1.5rem;
+      text-transform: lowercase;
+    }
+
+    /* Pipeline flow */
+    .pipeline-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.08);
+      border-radius: var(--radius-large);
+      padding: 1.25rem 1.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .pipeline-pill {
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+      white-space: nowrap;
+      text-transform: lowercase;
+    }
+    .pipeline-pill.data-sources { background: var(--spanish-blue); }
+    .pipeline-pill.data-foundation { background: var(--cg-gold); color: var(--ebony-clay); }
+    .pipeline-pill.intelligence-layer { background: var(--cg-red); }
+    .pipeline-pill.ai-agents {
+      background-image: linear-gradient(90deg, var(--cg-gold), var(--cg-red));
+    }
+    .pipeline-pill.outcomes { background: var(--sea-green); }
+    .pipeline-arrow {
+      font-size: 18px;
+      color: var(--ink-4);
+      padding: 0 10px;
+      font-weight: 300;
+    }
+    @media (max-width: 640px) {
+      .pipeline-flow { gap: 0.5rem; }
+      .pipeline-arrow { display: none; }
+    }
+
+    /* ===== SECTION 2 — DATA FLOW ARCHITECTURE ===== */
+    .arch-diagram {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      margin-top: 3rem;
+      border: 1px solid rgba(26,31,38,0.08);
+      border-radius: var(--radius-large);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .arch-col {
+      position: relative;
+      padding: 2rem 1.5rem;
+      background: var(--white);
+      border-right: 1px solid rgba(26,31,38,0.07);
+      transition: background 0.2s;
+      cursor: default;
+    }
+    .arch-col:last-child { border-right: none; }
+    .arch-col:hover { background: rgba(244,178,35,0.04); }
+    .arch-col-header {
+      font-size: 15px;
+      font-weight: 800;
+      text-transform: lowercase;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.2px;
+    }
+    .arch-col-desc {
+      font-size: 13px;
+      color: var(--ink-3);
+      line-height: 1.55;
+    }
+    .arch-col-arrow {
+      position: absolute;
+      top: 50%;
+      right: -14px;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 28px;
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: var(--ink-4);
+      z-index: 2;
+    }
+    .arch-col:last-child .arch-col-arrow { display: none; }
+
+    /* Tooltip panel */
+    .arch-tooltip {
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      background: var(--ebony-clay);
+      color: var(--white);
+      font-size: 13px;
+      line-height: 1.55;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-standard);
+      width: 230px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 50;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    .arch-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 7px solid transparent;
+      border-top-color: var(--ebony-clay);
+    }
+    .arch-col:hover .arch-tooltip {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    .arch-color-data-sources { color: var(--spanish-blue); }
+    .arch-color-foundation { color: var(--cg-gold); }
+    .arch-color-intelligence { color: var(--cg-red); }
+    .arch-color-agents {
+      background: linear-gradient(90deg, var(--cg-gold), var(--cg-red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .arch-color-outcomes { color: var(--sea-green); }
+
+    @media (max-width: 900px) {
+      .arch-diagram { grid-template-columns: 1fr 1fr; }
+      .arch-col { border-right: none; border-bottom: 1px solid rgba(26,31,38,0.07); }
+      .arch-col-arrow { display: none; }
+    }
+    @media (max-width: 550px) {
+      .arch-diagram { grid-template-columns: 1fr; }
+    }
+
+    /* ===== SECTION 3 — DATA SOURCES ===== */
+    .integrations-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .integration-card {
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.09);
+      border-radius: var(--radius-medium);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .integration-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .integration-card.market-card {
+      grid-column: 1 / -1;
+      border: 2px solid var(--cg-gold);
+      background: #fff8e8;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .integration-card-title {
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: lowercase;
+      margin-bottom: 0.75rem;
+      color: var(--ebony-clay);
+    }
+    .integration-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    .integration-pill, .int-pill {
+      background: rgba(26,31,38,0.06);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink-2);
+    }
+    .unique-badge {
+      display: inline-block;
+      background: var(--cg-gold);
+      color: var(--ebony-clay);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .market-card-body { font-size: 14.5px; line-height: 1.6; color: var(--ink-2); }
+    .tech-chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 2.5rem;
+    }
+    .tech-chip {
+      background: var(--polar-white);
+      border: 1px solid rgba(26,31,38,0.1);
+      border-radius: 20px;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(26,31,38,0.75);
+    }
+    @media (max-width: 768px) {
+      .integrations-grid { grid-template-columns: 1fr; }
+      .integration-card.market-card { grid-template-columns: 1fr; }
+    }
+
+    /* ===== SECTION 4 — DATA FOUNDATION ===== */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .pillar-card {
+      background: var(--white);
+      border-radius: var(--radius-medium);
+      border-top: 4px solid var(--cg-gold);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .pillar-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .pillar-name {
+      font-size: 17px;
+      font-weight: 800;
+      text-transform: lowercase;
+      color: var(--ebony-clay);
+      margin-bottom: 0.4rem;
+    }
+    .pillar-sublabel {
+      display: inline-block;
+      background: rgba(244,178,35,0.12);
+      border: 1px solid rgba(244,178,35,0.25);
+      border-radius: 20px;
+      padding: 3px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 0.9rem;
+    }
+    .pillar-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--ink-2);
+      margin-bottom: 1rem;
+    }
+    .pillar-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .pillar-bullets li {
+      font-size: 13.5px;
+      color: var(--ink-3);
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.5;
+    }
+    .pillar-bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--cg-gold);
+      font-weight: 700;
+    }
+    @media (max-width: 900px) { .pillars-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 550px) { .pillars-grid { grid-template-columns: 1fr; } }
+
+    .pillar-tagline {
+      font-size: 13px;
+      font-style: italic;
+      color: var(--cg-gold);
+      font-weight: 600;
+      margin: 4px 0 10px;
+      text-transform: none;
+    }
+    .pillar-desc {
+      font-size: 15px;
+      color: var(--ink-2);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+
+    /* ===== SECTION 5 — AI AGENTS ECOSYSTEM ===== */
+    .dark-section {
+      background: #1a1f26;
+      color: var(--white);
+    }
+    .dark-section .section-eyebrow { color: rgba(255,255,255,0.55); }
+    .dark-section .section-heading { color: var(--white); }
+    .dark-section .section-subheading { color: rgba(255,255,255,0.65); }
+    .dark-section h2, .dark-section h3, .dark-section h4 { color: var(--white); }
+
+    .agents-intro {
+      font-size: 18px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.65);
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+    }
+
+    .agent-category {
+      margin-bottom: 2.5rem;
+    }
+    .agent-category-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .category-chip {
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .category-chip.blue { background: rgba(0,100,191,0.18); color: #5aadff; }
+    .category-chip.red { background: rgba(228,61,48,0.18); color: #ff7f75; }
+    .category-chip.green { background: rgba(44,153,66,0.18); color: #5dd97a; }
+    .category-chip.gold { background: rgba(244,178,35,0.18); color: #f4b223; }
+
+    .category-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .agents-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .agent-card {
+      background: rgba(255,255,255,0.06);
+      border-radius: var(--radius-medium);
+      padding: 1.5rem;
+      transition: background 0.2s, transform 0.2s;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .agent-card:hover {
+      background: rgba(255,255,255,0.10);
+      transform: translateY(-2px);
+    }
+    .agent-name {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--white);
+      text-transform: lowercase;
+      margin-bottom: 0.25rem;
+    }
+    .agent-role-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: rgba(255,255,255,0.38);
+      margin-bottom: 0.75rem;
+    }
+    .agent-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .agent-bullets li {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.45;
+    }
+    .agent-bullets li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: rgba(255,255,255,0.3);
+      font-size: 16px;
+      line-height: 1.1;
+    }
+    /* Accent left borders per category */
+    .agent-card.blue { border-left: 3px solid rgba(0,100,191,0.5); }
+    .agent-card.red { border-left: 3px solid rgba(228,61,48,0.5); }
+    .agent-card.green { border-left: 3px solid rgba(44,153,66,0.5); }
+    .agent-card.gold { border-left: 3px solid rgba(244,178,35,0.5); }
+
+    .agents-footnote { text-align: center; font-size: 13px; color: rgba(255,255,255,0.3); margin-top: 2rem; font-style: italic; text-transform: none; }
+
+    .agents-tier2 {
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .agents-tier2-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .agents-tier2-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .agent-compact {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .agent-compact-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      text-transform: none;
+    }
+    .agent-compact-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.4;
+      text-transform: none;
+    }
+    .agent-mech {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+      margin: 0;
+      text-transform: none;
+    }
+
+    /* ===== AGENT MARQUEE (scrolling strip) ===== */
+    .agent-marquee-wrapper {
+      position: relative;
+      overflow: hidden;
+      margin-top: 2.5rem;
+      padding: 1rem 0 1.5rem;
+    }
+    .agent-marquee-wrapper::before,
+    .agent-marquee-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .agent-marquee-wrapper::before { left: 0; background: linear-gradient(to right, #1a1f26, transparent); }
+    .agent-marquee-wrapper::after  { right: 0; background: linear-gradient(to left, #1a1f26, transparent); }
+    .agent-marquee-track {
+      display: flex;
+      gap: 1rem;
+      width: max-content;
+      animation: agent-scroll 36s linear infinite;
+    }
+    .agent-marquee-track:hover { animation-play-state: paused; }
+    @keyframes agent-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .agent-mq-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-medium);
+      padding: 1.5rem 1.25rem 1.25rem;
+      width: 220px;
+      flex-shrink: 0;
+      transition: transform 0.2s, background 0.2s;
+      cursor: default;
+    }
+    .agent-mq-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.11);
+    }
+    .agent-mq-card img {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-bottom: 12px;
+    }
+    .agent-mq-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 2px;
+    }
+    .agent-mq-role {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 10px;
+    }
+    .agent-mq-desc {
+      font-size: 13px;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ===== DIFFERENCE SECTION ===== */
+    .difference-section { background: var(--floral-white); padding: 96px 0; }
+    .difference-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .difference-text h2 { font-size: clamp(28px, 3.5vw, 42px); font-weight: 700; line-height: 1.2; margin: 0.5rem 0 1.25rem; }
+    .difference-list { list-style: none; padding: 0; margin: 0 0 2rem; display: flex; flex-direction: column; gap: 12px; }
+    .difference-list li { padding-left: 24px; position: relative; font-size: 16px; color: var(--ink-2); line-height: 1.5; }
+    .difference-list li::before { content: '→'; position: absolute; left: 0; color: var(--cg-red); font-weight: 700; }
+    .ww-card { background: var(--ebony-clay); border-radius: 25px; padding: 28px; box-shadow: 0px 15px 25px rgba(0,0,0,0.15); }
+    .ww-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .ww-avatar { width: 40px; height: 40px; background: linear-gradient(90deg, #f4b223, #e43d30); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff; font-size: 16px; flex-shrink: 0; text-transform: uppercase; }
+    .ww-name { font-weight: 700; color: #fff; font-size: 15px; text-transform: lowercase; }
+    .ww-status { font-size: 12px; color: rgba(255,255,255,0.45); display: flex; align-items: center; gap: 5px; }
+    .ww-dot { width: 6px; height: 6px; background: #2c9942; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+    .ww-messages { display: flex; flex-direction: column; gap: 12px; }
+    .ww-msg { background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 16px; }
+    .ww-msg p { font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.5; margin: 0 0 6px; text-transform: none; }
+    .ww-msg p:last-child { margin-bottom: 0; }
+    .ww-msg-sub { color: rgba(255,255,255,0.45) !important; font-size: 12px !important; }
+    .ww-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+    .ww-chip { background: rgba(244,178,35,0.12); border: 1px solid rgba(244,178,35,0.25); color: var(--cg-gold); padding: 6px 14px; border-radius: 25px; font-size: 12px; font-weight: 600; cursor: pointer; text-transform: lowercase; }
+    @media (max-width: 900px) { .difference-inner { grid-template-columns: 1fr; gap: 3rem; } }
+
+    /* ===== SECTION 6 — ORCHESTRATION ===== */
+    .orchestration-scenarios {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .scenario-card {
+      background: var(--white);
+      border-radius: var(--radius-large);
+      padding: 2.25rem 2.5rem;
+      box-shadow: var(--shadow-md);
+    }
+    .scenario-trigger-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--cg-red);
+      margin-bottom: 0.5rem;
+    }
+    .scenario-trigger {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ebony-clay);
+      margin-bottom: 1.25rem;
+      line-height: 1.4;
+    }
+    .scenario-agents {
+      margin: 0 0 1.25rem;
+      padding-left: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .scenario-agents li {
+      font-size: 14.5px;
+      color: var(--ink-2);
+      line-height: 1.55;
+    }
+    .scenario-agents li strong {
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+    }
+    .scenario-result {
+      background: rgba(44,153,66,0.08);
+      border-left: 3px solid var(--sea-green);
+      border-radius: var(--radius-semi);
+      padding: 0.85rem 1.1rem;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--ebony-clay);
+      line-height: 1.5;
+    }
+    .orchestration-chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 2.5rem;
+    }
+    .orch-chip {
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.1);
+      border-radius: 20px;
+      padding: 7px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-2);
+      box-shadow: var(--shadow-sm);
+    }
+    .orchestration-callout {
+      background: rgba(0,100,191,0.06);
+      border: 1px solid rgba(0,100,191,0.15);
+      border-radius: var(--radius-medium);
+      padding: 1.75rem 2rem;
+      margin-top: 2.5rem;
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(26,31,38,0.75);
+      text-align: center;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===== ORCHESTRATION FLOW DIAGRAM ===== */
+    .orch-flows {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .orch-flow-card {
+      background: var(--white);
+      border-radius: var(--radius-large);
+      padding: 1.75rem 2rem;
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: 200px 1fr auto;
+      align-items: center;
+      gap: 2rem;
+    }
+    .orch-flow-trigger {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .orch-trigger-icon { font-size: 20px; flex-shrink: 0; }
+    .orch-trigger-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      line-height: 1.3;
+    }
+    .orch-flow-diagram {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .orch-agent-pill {
+      padding: 5px 14px;
+      border-radius: 25px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: lowercase;
+      white-space: nowrap;
+    }
+    .orch-agent-pill.blue { background: rgba(0,100,191,0.1); color: var(--spanish-blue); }
+    .orch-agent-pill.red  { background: rgba(228,61,48,0.1); color: var(--cg-red); }
+    .orch-agent-pill.green{ background: rgba(44,153,66,0.1); color: var(--sea-green); }
+    .orch-arrow { color: rgba(26,31,38,0.25); font-size: 14px; font-weight: 600; }
+    .orch-flow-result {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--sea-green);
+      text-transform: lowercase;
+      white-space: nowrap;
+      background: rgba(44,153,66,0.08);
+      padding: 6px 14px;
+      border-radius: 25px;
+    }
+    @media (max-width: 900px) {
+      .orch-flow-card { grid-template-columns: 1fr; gap: 1rem; }
+      .orch-flow-result { white-space: normal; }
+    }
+
+    /* ===== UX SIMPLE GRID ===== */
+    .ux-simple-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .ux-simple-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 1.75rem;
+      background: var(--white);
+      border-radius: var(--radius-medium);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(26,31,38,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .ux-simple-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .ux-simple-icon {
+      width: 40px; height: 40px;
+      background: rgba(228,61,48,0.08);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--cg-red);
+    }
+    .ux-simple-icon svg { width: 20px; height: 20px; }
+    .ux-simple-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      line-height: 1.25;
+    }
+    .ux-simple-sub {
+      font-size: 13px;
+      color: var(--ink-4);
+      text-transform: lowercase;
+      line-height: 1.4;
+    }
+    @media (max-width: 900px) { .ux-simple-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 550px) { .ux-simple-grid { grid-template-columns: 1fr; } }
+
+    /* ===== PERSONA SIMPLE GRID ===== */
+    .persona-simple-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    .persona-simple-card {
+      background: var(--white);
+      border-radius: var(--radius-medium);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .persona-simple-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .persona-simple-top {
+      padding: 1.5rem 1.5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .green-top { background: rgba(44,153,66,0.08); border-bottom: 3px solid var(--sea-green); }
+    .red-top   { background: rgba(228,61,48,0.08); border-bottom: 3px solid var(--cg-red); }
+    .blue-top  { background: rgba(0,100,191,0.08); border-bottom: 3px solid var(--spanish-blue); }
+    .gold-top  { background: rgba(244,178,35,0.12); border-bottom: 3px solid var(--cg-gold); }
+    .persona-simple-role {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--ink-4);
+    }
+    .persona-simple-headline {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      line-height: 1.2;
+    }
+    .persona-tags {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .ptag {
+      font-size: 13px;
+      color: var(--ink-3);
+      padding: 5px 12px;
+      background: rgba(26,31,38,0.04);
+      border-radius: 25px;
+      display: inline-block;
+      text-transform: lowercase;
+      font-weight: 500;
+      width: fit-content;
+    }
+    @media (max-width: 1024px) { .persona-simple-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 600px)  { .persona-simple-grid { grid-template-columns: 1fr; } }
+
+
+    /* ===== SECTION 7 — UX DESIGN ===== */
+    .ux-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .ux-card {
+      background: var(--white);
+      border-radius: var(--radius-medium);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(26,31,38,0.07);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .ux-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+    .ux-icon-wrap {
+      width: 44px; height: 44px;
+      background: rgba(228,61,48,0.08);
+      border-radius: var(--radius-standard);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      color: var(--cg-red);
+    }
+    .ux-icon-wrap svg { width: 22px; height: 22px; }
+    .ux-card-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+    .ux-card-desc {
+      font-size: 14px;
+      color: var(--ink-3);
+      line-height: 1.6;
+    }
+    @media (max-width: 900px) { .ux-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 550px) { .ux-grid { grid-template-columns: 1fr; } }
+
+    /* ===== SECTION 8 — PERSONAS ===== */
+    .persona-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .persona-card {
+      background: var(--white);
+      border-radius: var(--radius-medium);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(26,31,38,0.07);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .persona-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .persona-card.border-green { border-top: 4px solid var(--sea-green); }
+    .persona-card.border-red { border-top: 4px solid var(--cg-red); }
+    .persona-card.border-blue { border-top: 4px solid var(--spanish-blue); }
+    .persona-card.border-gold { border-top: 4px solid var(--cg-gold); }
+    .persona-chip {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+    }
+    .persona-chip.green { background: rgba(44,153,66,0.1); color: var(--sea-green); }
+    .persona-chip.red { background: rgba(228,61,48,0.1); color: var(--cg-red); }
+    .persona-chip.blue { background: rgba(0,100,191,0.1); color: var(--spanish-blue); }
+    .persona-chip.gold { background: rgba(244,178,35,0.15); color: #b8860b; }
+    .persona-heading {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--ebony-clay);
+      text-transform: lowercase;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    .persona-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .persona-bullets li {
+      font-size: 13.5px;
+      color: var(--ink-3);
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.5;
+    }
+    .persona-bullets li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--ink-4);
+      font-size: 12px;
+      top: 2px;
+    }
+    @media (max-width: 1024px) { .persona-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 550px) { .persona-grid { grid-template-columns: 1fr; } }
+
+    /* ===== SECTION 9 — SECURITY ===== */
+    .security-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .security-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .security-icon-wrap {
+      width: 48px; height: 48px;
+      background: rgba(255,255,255,0.08);
+      border-radius: var(--radius-standard);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+    }
+    .security-icon-wrap svg { width: 22px; height: 22px; }
+    .security-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: none;
+    }
+    .security-desc {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+    }
+    @media (max-width: 900px) { .security-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 550px) { .security-grid { grid-template-columns: 1fr; } }
+
+    /* ===== SECTION 10 — FINAL CTA ===== */
+    .final-cta-section {
+      background: var(--floral-white);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .final-cta-section::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 600px;
+      background: radial-gradient(ellipse, rgba(244,178,35,0.12) 0%, rgba(228,61,48,0.06) 40%, transparent 70%);
+      pointer-events: none;
+    }
+    .final-cta-section .container { position: relative; z-index: 1; }
+    .final-cta-section h2 {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700;
+      line-height: 1.18;
+      margin-bottom: 1.25rem;
+      color: var(--ebony-clay);
+    }
+    .final-cta-supporting {
+      font-size: 18px;
+      line-height: 1.65;
+      color: rgba(26,31,38,0.62);
+      max-width: 580px;
+      margin: 0 auto 2.25rem;
+    }
+    .final-cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .proof-chips {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .proof-chip {
+      background: var(--white);
+      border: 1px solid rgba(26,31,38,0.1);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--ink-3);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--black-haze);
+      padding: 3.5rem 0 1.5rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--ink-3);
+      margin-top: 0.75rem;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: lowercase;
+      margin-bottom: 1rem;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .footer-col a {
+      font-size: 14px;
+      color: var(--ink-3);
+      text-transform: lowercase;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--cg-red); }
+    .footer-bottom {
+      border-top: 1px solid rgba(26,31,38,0.08);
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-bottom p {
+      font-size: 13px;
+      color: var(--ink-4);
+    }
+    .footer-socials {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .footer-socials a {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(26,31,38,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--ebony-clay);
+      transition: background 0.2s, color 0.2s;
+    }
+    .footer-socials a:hover {
+      background: var(--ebony-clay);
+      color: var(--white);
+    }
+
+    /* ===== HERO MARQUEE ===== */
+    .marquee-wrapper {
+      overflow: hidden;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+    .marquee-wrapper::before,
+    .marquee-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .marquee-wrapper::before { left: 0;  background: linear-gradient(to right, var(--floral-white), transparent); }
+    .marquee-wrapper::after  { right: 0; background: linear-gradient(to left,  var(--floral-white), transparent); }
+    .marquee-track {
+      display: flex;
+      gap: 3.5rem;
+      width: max-content;
+      animation: marquee 32s linear infinite;
+      align-items: center;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-logo {
+      height: 34px;
+      width: auto;
+      max-width: 120px;
+      opacity: 0.45;
+      filter: grayscale(100%);
+      object-fit: contain;
+      flex-shrink: 0;
+      transition: opacity 0.3s, filter 0.3s;
+    }
+    .marquee-logo:hover { opacity: 1; filter: grayscale(0%); }
+
+    /* ===== GLOBAL RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .hero-platform { padding: 4rem 0 3.5rem; }
+    }
+
+    /* ===== PLACEHOLDER TOOLTIPS — TEMPORARY, REMOVE WHEN PAGES ARE BUILT =====
+       To revert: delete this entire CSS block and remove class="nav-placeholder-tooltip"
+       + data-tooltip attributes from the 4 nav elements in every page. ===== */
+    .nav-placeholder-tooltip {
+      position: relative;
+    }
+    .nav-placeholder-tooltip::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(26,31,38,0.88);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 500;
+      white-space: nowrap;
+      padding: 5px 10px;
+      border-radius: 5px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      z-index: 999;
+    }
+    .nav-placeholder-tooltip::before {
+      content: '';
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 50%;
+      transform: translateX(-50%);
+      border: 4px solid transparent;
+      border-bottom-color: rgba(26,31,38,0.88);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      z-index: 999;
+    }
+    .nav-placeholder-tooltip:hover::after,
+    .nav-placeholder-tooltip:hover::before {
+      opacity: 1;
+    }
+    /* ===== END PLACEHOLDER TOOLTIPS ===== */
+  
+    /* ===== SCROLL ANIMATIONS (modern, gpu-accelerated, accessible) ===== */
+    .anim {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+    .anim-fade        { transform: none; }
+    .anim-fade-up     { transform: translateY(28px); }
+    .anim-fade-down   { transform: translateY(-22px); }
+    .anim-fade-left   { transform: translateX(-32px); }
+    .anim-fade-right  { transform: translateX(32px); }
+    .anim-scale       { transform: scale(0.96); }
+    .anim-blur        { filter: blur(10px); }
+    .anim-rise        { transform: translateY(40px) scale(0.985); }
+    .anim.is-visible {
+      opacity: 1;
+      transform: none;
+      filter: none;
+    }
+
+    /* Stagger children — cascading reveal for grids & rows */
+    .stagger > * {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+    .stagger.is-visible > *:nth-child(1)  { transition-delay: 0.00s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(2)  { transition-delay: 0.07s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(3)  { transition-delay: 0.14s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(4)  { transition-delay: 0.21s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(5)  { transition-delay: 0.28s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(6)  { transition-delay: 0.35s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(7)  { transition-delay: 0.42s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(8)  { transition-delay: 0.49s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(9)  { transition-delay: 0.56s; opacity: 1; transform: none; }
+    .stagger.is-visible > *:nth-child(n+10) { transition-delay: 0.63s; opacity: 1; transform: none; }
+
+    /* Sequential delays for children of .anim parents (use anim-d-N classes) */
+    .anim-d-1 { transition-delay: 0.10s; }
+    .anim-d-2 { transition-delay: 0.20s; }
+    .anim-d-3 { transition-delay: 0.30s; }
+    .anim-d-4 { transition-delay: 0.40s; }
+    .anim-d-5 { transition-delay: 0.50s; }
+
+    /* Subtle hover lift for cards (modern micro-interaction) */
+    .anim-lift {
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .anim-lift:hover {
+      transform: translateY(-4px);
+    }
+
+    /* Smooth scrolling */
+    html { scroll-behavior: smooth; }
+
+    /* Honor reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      .anim, .anim *, .stagger, .stagger > *, .anim-lift {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+    /* ===== END SCROLL ANIMATIONS ===== */
+
+    /* ===== axon: page-specific ===== */
+    .ax-islands { display:flex; flex-wrap:wrap; justify-content:center; gap:1.2rem; max-width:1000px; margin:3.2rem auto 0; }
+    .ax-isle { width:180px; border:1.5px dashed rgba(26,31,38,0.28); border-radius:14px; padding:1.1rem 1.15rem 1.2rem;
+      background:var(--white); color:var(--ink-2); }
+    .ax-isle b { display:block; font-size:15px; color:var(--ink); margin-bottom:0.3rem; }
+    .ax-isle span { font-size:12.5px; line-height:1.45; display:block; color:var(--ink-3); }
+    .ax-isle:nth-child(1){ transform:rotate(-2deg);} .ax-isle:nth-child(2){ transform:rotate(1.4deg) translateY(10px);}
+    .ax-isle:nth-child(3){ transform:rotate(-1deg) translateY(-6px);} .ax-isle:nth-child(4){ transform:rotate(2deg) translateY(6px);}
+    .ax-isle:nth-child(5){ transform:rotate(-1.6deg);}
+    @media (max-width:640px){ .ax-isle { width:calc(50% - 0.6rem); } }
+    .ax-caption { max-width:720px; margin:2.6rem auto 0; text-align:center; font-size:15px; line-height:1.65; color:var(--ink-2); }
+
+    .ax-why { display:grid; grid-template-columns:repeat(2,1fr); gap:1.4rem; max-width:1000px; margin:3.2rem auto 0; }
+    .ax-w { background:var(--white); border-radius:18px; padding:1.7rem 1.7rem 1.6rem; border:1px solid rgba(26,31,38,0.07);
+      box-shadow:0 4px 16px rgba(43,29,18,0.05); border-top:4px solid; }
+    .ax-w.w1{border-color:var(--spanish-blue);} .ax-w.w2{border-color:var(--sea-green);}
+    .ax-w.w3{border-color:var(--cg-red);} .ax-w.w4{border-color:var(--cg-gold);}
+    .ax-w b { display:block; font-size:17px; margin-bottom:0.5rem; color:var(--ink); }
+    .ax-w p { margin:0; font-size:14.5px; line-height:1.6; color:var(--ink-2); }
+    @media (max-width:820px){ .ax-why { grid-template-columns:1fr; } }
+
+    .ax-blocks { display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem; max-width:1080px; margin:3.2rem auto 0; }
+    .ax-b { position:relative; background:var(--white); border-radius:16px; padding:1.6rem 1.4rem 1.5rem;
+      border:1px solid rgba(26,31,38,0.08); overflow:hidden; }
+    .ax-b i { position:absolute; right:0.6rem; top:-0.9rem; font-style:normal; font-weight:800; font-size:4.6rem; opacity:0.07; }
+    .ax-b b { display:block; font-size:16.5px; margin-bottom:0.4rem; }
+    .ax-b p { margin:0; font-size:13.5px; line-height:1.55; color:var(--ink-2); }
+    .ax-b.k{border-top:4px solid var(--cg-red);} .ax-b.s{border-top:4px solid var(--cg-gold);}
+    .ax-b.a{border-top:4px solid var(--spanish-blue);} .ax-b.t{border-top:4px solid var(--sea-green);}
+    @media (max-width:960px){ .ax-blocks { grid-template-columns:1fr 1fr; } }
+    @media (max-width:560px){ .ax-blocks { grid-template-columns:1fr; } }
+    .ax-cred { text-align:center; font-size:13.5px; color:var(--ink-3); max-width:680px; margin:2.4rem auto 0; }
+
+    .ax-run { display:grid; grid-template-columns:repeat(2,1fr); gap:1.4rem; max-width:1000px; margin:3.2rem auto 0; }
+    .ax-r { background:var(--white); border-radius:18px; padding:1.7rem 1.8rem; border:1px solid rgba(26,31,38,0.07); box-shadow:0 4px 16px rgba(43,29,18,0.05); }
+    .ax-r em { display:block; font-style:normal; font-size:11.5px; font-weight:800; letter-spacing:1.2px; text-transform:uppercase; color:var(--ink-4); margin-bottom:0.5rem; }
+    .ax-r b { display:block; font-size:1.35rem; letter-spacing:-0.5px; color:var(--ink); line-height:1.25; margin-bottom:0.5rem; }
+    .ax-r p { margin:0; font-size:14px; line-height:1.6; color:var(--ink-2); }
+    @media (max-width:820px){ .ax-run { grid-template-columns:1fr; } }
+    .ax-every { text-align:center; margin:2.8rem auto 0; font-size:14.5px; color:var(--ink-2); }
+
+    .ax-vs { display:grid; grid-template-columns:1fr 1fr; gap:1.6rem; max-width:1000px; margin:3.2rem auto 0; }
+    .ax-v { border-radius:18px; padding:1.8rem 1.8rem 1.6rem; }
+    .ax-v.cop { background:linear-gradient(180deg,#fbfbfc,#f4f5f6); border:1px solid rgba(26,31,38,0.08); }
+    .ax-v.own { background:var(--white); border:1px solid rgba(0,100,191,0.28); box-shadow:0 14px 36px rgba(0,100,191,0.10); }
+    .ax-v-t { font-size:12px; font-weight:800; letter-spacing:1.2px; text-transform:uppercase; color:var(--ink-4); margin-bottom:1rem; }
+    .ax-v.own .ax-v-t { color:var(--spanish-blue); }
+    .ax-v ul { list-style:none; margin:0; padding:0; }
+    .ax-v li { padding:0.55rem 0 0.55rem 1.6rem; position:relative; font-size:14.5px; line-height:1.55; color:var(--ink-2); border-top:1px dashed rgba(26,31,38,0.1); }
+    .ax-v li:first-child { border-top:none; }
+    .ax-v.cop li::before { content:'✕'; position:absolute; left:0; color:#a02417; font-weight:800; }
+    .ax-v.own li::before { content:'✓'; position:absolute; left:0; color:#1d6c2d; font-weight:800; }
+    .ax-v.own li { color:var(--ink); font-weight:600; }
+    .ax-punch { text-align:center; font-size:15.5px; font-weight:700; color:var(--ink); margin-top:2.4rem; }
+    @media (max-width:820px){ .ax-vs { grid-template-columns:1fr; } }
+
+    .ax-case { max-width:1020px; margin:3.2rem auto 0; background:var(--white); border-radius:22px;
+      border:1px solid rgba(26,31,38,0.07); box-shadow:0 16px 44px rgba(43,29,18,0.09);
+      display:grid; grid-template-columns:1.3fr 1fr; overflow:hidden; }
+    .ax-case-l { padding:2.3rem 2.5rem; }
+    .final-cta-section .brand-inline--axon { background:#fff; border-radius:0.28em; padding:0.10em 0.16em 0.02em; box-shadow:0 2px 10px rgba(0,0,0,0.25); }
+    .ax-case-l q { display:block; quotes:'\201C' '\201D'; font-size:1.15rem; line-height:1.6; font-weight:600; color:var(--ink); margin-bottom:1rem; }
+    .ax-case-l cite { font-style:normal; font-size:13.5px; color:var(--ink-3); }
+    .ax-case-r { background:linear-gradient(160deg, rgba(0,100,191,0.06), rgba(44,153,66,0.07)); padding:2.3rem 2.2rem;
+      display:flex; flex-direction:column; gap:1.25rem; justify-content:center; border-left:1px solid rgba(26,31,38,0.06); }
+    .ax-kpi b { display:block; font-size:1.6rem; letter-spacing:-1px; color:var(--ink); line-height:1.05; }
+    .ax-kpi span { font-size:13.5px; color:var(--ink-3); }
+    @media (max-width:880px){ .ax-case { grid-template-columns:1fr; } .ax-case-r{border-left:none; border-top:1px solid rgba(26,31,38,0.06);} }
+    html { scroll-behavior: smooth; }
+    #watch-it-think { scroll-margin-top: 72px; }
+
+    /* ===== axon alternate: bold structure ===== */
+
+    /* deep entomo-blue field with a fine dot grid: high-tech, polished, and
+       nothing like a black stage */
+    .dark-section.alt-power {
+      position:relative; overflow:hidden;
+      background-color:#07204f;
+      background-image:
+        radial-gradient(rgba(255,255,255,0.075) 1px, transparent 1.4px),
+        linear-gradient(160deg, #061a42 0%, #08306f 55%, #0a3f8f 100%);
+      background-size: 22px 22px, 100% 100%;
+    }
+    .alt-power::before, .alt-power::after { content:''; position:absolute; border-radius:50%; filter:blur(90px); opacity:.6; pointer-events:none; }
+    .alt-power::before { width:560px; height:560px; left:-160px; top:-120px; background:radial-gradient(circle, rgba(0,232,252,.45), transparent 70%); }
+    .alt-power::after  { width:620px; height:620px; right:-200px; bottom:-220px; background:radial-gradient(circle, rgba(244,178,35,.28), transparent 70%); }
+    .alt-power .axon-text { background-image: linear-gradient(90deg, #7ff5ff 0%, #ffffff 100%); }
+    .alt-card { background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04)); border-color: rgba(255,255,255,0.16); }
+    .alt-card:hover { border-color: rgba(127,245,255,0.6); }
+    section.alt-band { background: linear-gradient(160deg, #061a42, #0a3f8f); }
+    .alt-band .axon-text { background-image: linear-gradient(90deg, #7ff5ff 0%, #ffffff 100%); }
+    .alt-power .container { position:relative; z-index:1; }
+    .alt-power .section-heading { color:#fff; }
+    .alt-power .section-heading mark { color: var(--ink); }
+    .alt-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; max-width:1080px; margin:3.2rem auto 0; }
+    .alt-card { position:relative; border-radius:22px; padding:2rem 2rem 1.8rem;
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      border:1px solid rgba(255,255,255,0.12); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      transition: transform .3s ease, border-color .3s ease; }
+    .alt-card:hover { transform: translateY(-3px); border-color: rgba(0,232,252,0.45); }
+    .alt-card i { position:absolute; right:1.4rem; top:1.2rem; font-style:normal; font-weight:800; font-size:13px; letter-spacing:2px;
+      color: rgba(255,255,255,0.35); }
+    .alt-card em { display:block; font-style:normal; font-size:12px; font-weight:800; letter-spacing:1.6px; text-transform:uppercase;
+      color:#00e8fc; margin-bottom:0.7rem; }
+    .alt-card b { display:block; font-size:clamp(22px,2vw,28px); font-weight:800; letter-spacing:-0.6px; line-height:1.15; color:#fff; margin-bottom:0.8rem; }
+    .alt-card p { margin:0 0 1.1rem; font-size:15px; line-height:1.6; color:rgba(255,255,255,0.72); }
+    .alt-chips { display:flex; flex-wrap:wrap; gap:0.45rem; }
+    .alt-chips span { font-size:11.5px; font-weight:700; color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.18);
+      background:rgba(255,255,255,0.05); border-radius:999px; padding:0.28em 0.7em; }
+    @media (max-width:820px){ .alt-grid { grid-template-columns:1fr; } }
+
+    .alt-feed { max-width:640px; margin:3rem auto 0; background:var(--white); border-radius:22px; border:1px solid rgba(26,31,38,0.08);
+      box-shadow:0 18px 48px rgba(43,29,18,.12); overflow:hidden; }
+    .alt-feed-bar { display:flex; align-items:center; justify-content:space-between; padding:0.9rem 1.2rem; border-bottom:1px solid rgba(26,31,38,0.07);
+      font-size:13px; font-weight:800; color:var(--ink); }
+    .alt-feed-bar span { display:inline-flex; align-items:center; gap:0.4em; font-size:11.5px; font-weight:700; color:var(--ink-4); }
+    .alt-feed-bar span i { width:7px; height:7px; border-radius:50%; background:#1d6c2d; animation: alt-blink 1.6s ease-in-out infinite; }
+    @keyframes alt-blink { 50% { opacity:.25; } }
+    @media (prefers-reduced-motion: reduce) { .alt-feed-bar span i { animation:none; } }
+    .alt-feed-list { height:330px; padding:1rem 1.2rem; display:flex; flex-direction:column; gap:0.7rem; overflow:hidden; }
+    .alt-sig { display:flex; gap:0.85rem; align-items:flex-start; padding:0.85rem 1rem; border-radius:14px; background:#f7f8f9;
+      border:1px solid rgba(26,31,38,0.06); opacity:0; transform:translateY(10px); transition: opacity .4s ease, transform .4s ease; }
+    .alt-sig.on { opacity:1; transform:none; }
+    .alt-sig i { flex:0 0 auto; width:10px; height:10px; border-radius:50%; margin-top:0.3rem; background:var(--axon-gradient); }
+    .alt-sig b { display:block; font-size:13.5px; color:var(--ink); margin-bottom:0.15rem; }
+    .alt-sig span { font-size:12.5px; color:var(--ink-3); line-height:1.45; }
+    .alt-sig small { display:block; margin-top:0.35rem; font-size:11px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:var(--spanish-blue); }
+
+    .alt-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem; max-width:1080px; margin:3rem auto 0; }
+    .alt-stat { text-align:center; padding:1.6rem 1rem; border-radius:18px; background:var(--white); border:1px solid rgba(26,31,38,0.07); }
+    .alt-stat b { display:block; font-size:clamp(30px,3.2vw,44px); font-weight:800; letter-spacing:-1.5px; line-height:1; color:var(--ink); margin-bottom:0.4rem; }
+    .alt-stat span { font-size:13px; color:var(--ink-3); }
+    @media (max-width:820px){ .alt-stats { grid-template-columns:1fr 1fr; } }
+
+    .alt-band { background:#0b1220; padding:4rem 0; text-align:center; }
+    .alt-band h2 { color:#fff; font-size:clamp(26px,3.4vw,44px); letter-spacing:-1px; margin:0 0 0.8rem; }
+    .alt-band h2 mark { color: var(--ink); }
+    .alt-band p { color: rgba(255,255,255,0.7); font-size:16px; margin:0; }
+
+    /* ===== readiness / development / results (from alternate 2) ===== */
+    .a2-answers { display:grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; max-width: 980px; margin: 3.2rem auto 0; }
+    .a2-a { background: var(--white); border-radius: 22px; border: 1px solid rgba(26,31,38,0.07); box-shadow: 0 10px 30px rgba(43,29,18,0.07); padding: 1.8rem 1.7rem 1.6rem; display:flex; flex-direction:column; }
+    .a2-a em { display:block; font-style:normal; font-size: 12px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; margin-bottom:.6rem; color: var(--spanish-blue); }
+    .a2-a b { display:block; font-size: 20px; letter-spacing:-0.4px; line-height:1.25; color: var(--ink); margin-bottom:.6rem; }
+    .a2-a p { margin: 0 0 1.2rem; font-size: 14.5px; line-height:1.6; color: var(--ink-2); }
+    .a2-mock { margin-top:auto; background: #f7f8f9; border:1px solid rgba(26,31,38,0.07); border-radius: 14px; padding: .9rem 1rem; font-size: 12.5px; color: var(--ink-2); line-height:1.5; }
+    .a2-mock b { display:block; font-size: 13px; color: var(--ink); margin-bottom:.2rem; }
+    .a2-mock i { display:block; font-style:normal; margin-top:.4rem; font-size: 11px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:#0380f9; }
+    @media (max-width: 960px) { .a2-answers { grid-template-columns: 1fr; } }
+    .hero-subhead { font-size: clamp(20px, 2.3vw, 30px); font-weight: 700; letter-spacing: -0.4px; color: var(--ink); max-width: 820px; margin: 0.4rem auto 1rem; line-height: 1.3; }
+    .hero-tagline .brand-inline img { height: 0.9em; vertical-align: -0.02em; }
+
+    /* ===== K/S/A/T model: assembles on view, then keeps thinking ===== */
+    .ax-blocks-wrap { position:relative; max-width:1080px; margin:3.2rem auto 0; padding-top:34px; }
+    .ax-blocks-wrap .ax-blocks { margin:0; }
+    .ax-bus { position:absolute; left:0; top:0; width:100%; height:34px; overflow:visible; }
+    .ax-bus .rail, .ax-bus .stub { fill:none; stroke: rgba(26,31,38,0.16); stroke-width:1.5; stroke-dasharray:1200; stroke-dashoffset:1200; transition: stroke-dashoffset 1.3s ease 0.25s; }
+    .ax-bus .stub { transition-delay:1.0s; }
+    .ax-blocks-wrap.is-in .ax-bus .rail, .ax-blocks-wrap.is-in .ax-bus .stub { stroke-dashoffset:0; }
+    .ax-bus .pulse { fill:none; stroke:#0380f9; stroke-width:2.5; stroke-linecap:round; stroke-dasharray:22 900; stroke-dashoffset:922; opacity:0; }
+    .ax-blocks-wrap.is-in .ax-bus .pulse { opacity:1; animation: ax-pulse 3.4s linear 1.6s infinite; }
+    @keyframes ax-pulse { to { stroke-dashoffset:0; } }
+    .ax-node { position:absolute; top:3px; width:11px; height:11px; border-radius:50%; background:var(--white); border:2px solid #0380f9; transform:translate(-50%,0) scale(0); transition: transform .4s ease; }
+    .ax-node.n1{left:12.5%} .ax-node.n2{left:37.5%} .ax-node.n3{left:62.5%} .ax-node.n4{left:87.5%}
+    .ax-blocks-wrap.is-in .ax-node { transform:translate(-50%,0) scale(1); }
+    .ax-blocks-wrap.is-in .ax-node.n2{transition-delay:.15s} .ax-blocks-wrap.is-in .ax-node.n3{transition-delay:.3s} .ax-blocks-wrap.is-in .ax-node.n4{transition-delay:.45s}
+    .ax-blocks-wrap .ax-b { opacity:0; transform:translateY(22px); transition: opacity .6s ease, transform .6s ease, box-shadow .6s ease; }
+    .ax-blocks-wrap .ax-b:nth-child(2){ transition-delay:.15s } .ax-blocks-wrap .ax-b:nth-child(3){ transition-delay:.3s } .ax-blocks-wrap .ax-b:nth-child(4){ transition-delay:.45s }
+    .ax-blocks-wrap.is-in .ax-b { opacity:1; transform:none; }
+    .ax-blocks-wrap.is-in .ax-b { animation: ax-think 4.8s ease-in-out 1.8s infinite; }
+    .ax-blocks-wrap.is-in .ax-b:nth-child(2){ animation-delay:3.0s } .ax-blocks-wrap.is-in .ax-b:nth-child(3){ animation-delay:4.2s } .ax-blocks-wrap.is-in .ax-b:nth-child(4){ animation-delay:5.4s }
+    @keyframes ax-think { 0%,100% { box-shadow: 0 0 0 rgba(3,128,249,0); } 12% { box-shadow: 0 12px 34px rgba(3,128,249,0.22); } 30% { box-shadow: 0 0 0 rgba(3,128,249,0); } }
+    .ax-blocks-wrap .ax-b i { transition: opacity .8s ease .5s; }
+    .ax-blocks--r2 { grid-template-columns:repeat(3,1fr); margin-top:1.2rem; max-width:1080px; margin-left:auto; margin-right:auto; }
+     .ax-b.g{border-top:4px solid var(--ember,#c8401f);} .ax-b.pf{border-top:4px solid #7a3fbf;} .ax-b.c{border-top:4px solid #0aa2c0;}
+     .ax-blocks-wrap .ax-blocks--r2 .ax-b:nth-child(1){ transition-delay:.6s } .ax-blocks-wrap .ax-blocks--r2 .ax-b:nth-child(2){ transition-delay:.75s } .ax-blocks-wrap .ax-blocks--r2 .ax-b:nth-child(3){ transition-delay:.9s }
+     .ax-blocks-wrap.is-in .ax-blocks--r2 .ax-b:nth-child(1){ animation-delay:6.6s } .ax-blocks-wrap.is-in .ax-blocks--r2 .ax-b:nth-child(2){ animation-delay:7.8s } .ax-blocks-wrap.is-in .ax-blocks--r2 .ax-b:nth-child(3){ animation-delay:9.0s }
+     .ax-bus--down { position:static; display:block; width:100%; height:26px; margin:0; }
+     .ax-bus--down .stub { transition-delay:1.15s; }
+     .ax-ctx { border:1px solid rgba(26,31,38,0.14); border-radius:14px; padding:1.05rem 1.4rem 1.1rem; text-align:center;
+       background:linear-gradient(90deg, rgba(228,61,48,0.045), rgba(244,178,35,0.045), rgba(0,100,191,0.045), rgba(44,153,66,0.045));
+       opacity:0; transform:translateY(14px); transition:opacity .6s ease 1.05s, transform .6s ease 1.05s; }
+     .ax-blocks-wrap.is-in .ax-ctx { opacity:1; transform:none; animation: ax-think 4.8s ease-in-out 10.2s infinite; }
+     .ax-ctx b { display:block; font-size:15px; }
+     .ax-ctx p { margin:0.25rem 0 0; font-size:13.5px; line-height:1.55; color:var(--ink-2); }
+     .ax-board { max-width:1080px; margin:3rem auto 0; }
+     .ax-board svg { width:100%; height:auto; display:block; font-family:inherit; }
+     .ax-hl { opacity:0; animation: ax-hl 6.3s ease-in-out infinite; }
+     @keyframes ax-hl { 0%, 14%, 100% { opacity:0; } 5%, 9% { opacity:1; } }
+     .ax-cpu-glow { opacity:0.3; animation: ax-cpu 3.8s ease-in-out infinite; }
+     @keyframes ax-cpu { 0%, 100% { opacity:0.25; } 50% { opacity:0.85; } }
+     .ax-board [data-cap] { cursor:default; outline-offset:3px; }
+     .ax-board-cap { text-align:center; font-size:14px; color:var(--ink-2); margin:1rem auto 0; max-width:640px; min-height:2.6em; }
+     @media (min-width:961px) { .ax-blocks-wrap { display:none; } }
+     @media (max-width:960px) { .ax-board { display:none; } }
+     @media (prefers-reduced-motion: reduce) { .ax-hl, .ax-cpu-glow { animation:none; } .ax-hl { opacity:0; } .ax-cpu-glow { opacity:0.4; } .ax-sigs { display:none; } }
+     .ax-mq { overflow:hidden; width:100vw; max-width:none; margin:3rem 0 0 calc(50% - 50vw); position:relative; padding:1.4rem 0;
+       -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+       mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); }
+     .ax-mq::before { content:""; position:absolute; inset:0; pointer-events:none;
+       background:
+         radial-gradient(46% 120% at 12% 20%,  rgba(244,178,35,.16), transparent 64%),
+         radial-gradient(42% 130% at 42% 90%,  rgba(228,61,48,.10),  transparent 62%),
+         radial-gradient(48% 120% at 70% 10%,  rgba(0,100,191,.13),  transparent 64%),
+         radial-gradient(40% 130% at 94% 80%,  rgba(44,153,66,.10),  transparent 62%); }
+     .ax-mq-track { position:relative; display:flex; width:max-content; animation: ax-mq-scroll 45s linear infinite; }
+     .ax-mq:hover .ax-mq-track, .ax-mq:focus-within .ax-mq-track { animation-play-state:paused; }
+     .ax-mq-set { display:flex; align-items:stretch; gap:1.8rem; padding-right:1.8rem; }
+     .ax-stat-i { position:relative; white-space:nowrap; display:inline-flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+       padding:1.5rem 2.6rem 1.6rem; border-radius:26px;
+       background: var(--g-pane-soft, rgba(255,255,255,.58));
+       border:1px solid var(--g-edge, rgba(26,31,38,.085));
+       box-shadow: var(--g-shadow, 0 8px 22px rgba(43,29,18,.07)),
+                   inset 0 1px 0 var(--g-rim, rgba(255,255,255,.92)),
+                   inset 0 0 0 1px var(--g-rim-soft, rgba(255,255,255,.45)),
+                   inset 0 0 14px -5px rgba(255,255,255,.95); }
+     .ax-stat-i::before { content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+       background: linear-gradient(138deg, rgba(255,255,255,.55) 0%, rgba(255,255,255,.08) 38%, rgba(255,255,255,0) 55%, rgba(255,255,255,.20) 100%); }
+     .ax-stat-i b { position:relative; font-size:3.6rem; line-height:1.1; font-weight:800; color:var(--ink); }
+     .ax-stat-i i { position:relative; font-style:normal; font-size:15px; color:var(--ink-2); margin-top:0.5rem; }
+     @keyframes ax-mq-scroll { to { transform: translateX(-50%); } }
+     @media (prefers-reduced-motion: reduce) { .ax-mq-track { animation:none; flex-wrap:wrap; width:auto; justify-content:center; row-gap:1.8rem; } .ax-mq { mask-image:none; -webkit-mask-image:none; } }
+     .ax-mq-note { text-align:center; font-size:11.5px; color:var(--ink-3); margin:0.9rem auto 0; }
+     @media (max-width:960px) { .ax-bus, .ax-node, .ax-bus--down { display:none; } .ax-blocks-wrap { padding-top:0; } .ax-blocks--r2 { grid-template-columns:1fr 1fr; } .ax-ctx { margin-top:1.2rem; } }
+     @media (max-width:560px) { .ax-blocks--r2 { grid-template-columns:1fr; } }
+    @media (prefers-reduced-motion: reduce) {
+      .ax-blocks-wrap .ax-b, .ax-node, .ax-bus .rail, .ax-bus .stub, .ax-ctx { transition:none; animation:none; opacity:1; transform:none; stroke-dashoffset:0; }
+      .ax-blocks-wrap.is-in .ax-b, .ax-blocks-wrap.is-in .ax-bus .pulse, .ax-blocks-wrap.is-in .ax-ctx { animation:none; }
+      .ax-node { transform:translate(-50%,0) scale(1); }
+    }
+
+    /* ===== the agents that think with axon: a flat, interlocking, scrolling lattice ===== */
+    .agw-card { flex:0 0 auto; background:#ffffff; border:1px solid rgba(26,31,38,0.10);
+      border-top:4px solid var(--agcat); border-radius:18px; padding:1.15rem 1.35rem 1.2rem;
+      box-shadow:0 1px 2px rgba(43,29,18,0.05), 0 10px 26px rgba(43,29,18,0.07); }
+    .agw-t { display:block; font-size:16.5px; color:var(--ink); margin-bottom:0.9rem; }
+    .agw-row { display:flex; gap:1.5rem; }
+    .agw-a { display:flex; flex-direction:column; width:196px; flex-shrink:0; }
+    .agw-a img, .agw-init { width:44px; height:44px; border-radius:12px; object-fit:cover; border:1px solid rgba(26,31,38,0.08); margin-bottom:0.5rem; }
+    .agw-init { display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:800; color:var(--agcat); background:color-mix(in srgb, var(--agcat) 9%, #ffffff); }
+    .agw-a b { font-size:14px; color:var(--ink); line-height:1.2; }
+    .agw-a i { font-style:normal; font-size:10.8px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; color:var(--agcat); margin:0.15rem 0 0.35rem; }
+    .agw-a em { font-style:normal; font-size:12px; line-height:1.45; color:var(--ink-3); }
+    .agrid { max-width:1140px; margin:2.6rem auto 0; display:flex; flex-direction:column; gap:1rem; }
+    .agrid-row { display:flex; gap:1rem; }
+    .agrid-card { flex:1 1 var(--basis,50%); background:#ffffff; border:1px solid rgba(26,31,38,0.10);
+      border-top:4px solid var(--agcat); border-radius:18px; padding:1.2rem 1.35rem 1.15rem;
+      box-shadow:0 1px 2px rgba(43,29,18,0.05), 0 10px 26px rgba(43,29,18,0.07); }
+    .agrid-t { display:block; font-size:16.5px; color:var(--ink); }
+    .agrid-o { margin:0.25rem 0 0.9rem; font-size:12.5px; line-height:1.45; color:var(--ink-2); }
+    .agrid-agents { display:flex; flex-wrap:wrap; gap:0.55rem 1.4rem; }
+    .agrid-a { display:inline-flex; align-items:center; gap:0.6rem; min-width:0; }
+    .agrid-a img { width:38px; height:38px; border-radius:11px; object-fit:cover; border:1px solid rgba(26,31,38,0.08); }
+    .agrid-a span { display:flex; flex-direction:column; }
+    .agrid-a b { font-size:13.5px; color:var(--ink); line-height:1.2; }
+    .agrid-a i { font-style:normal; font-size:10.8px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; color:var(--agcat); margin-top:0.1rem; }
+    @media (max-width:900px) { .agrid-row { flex-direction:column; } }
+    .agcat-card { flex:0 0 400px; display:flex; flex-direction:column; background:#ffffff; border:1px solid rgba(26,31,38,0.10);
+      border-top:4px solid var(--agcat); border-radius:18px; padding:1.15rem 1.25rem 1.05rem;
+      box-shadow:0 1px 2px rgba(43,29,18,0.05), 0 10px 26px rgba(43,29,18,0.07); }
+    .agcat-head b { display:block; font-size:16.5px; color:var(--ink); }
+    .agcat-head p { margin:0.2rem 0 0.75rem; font-size:12.5px; line-height:1.45; color:var(--ink-2); }
+    .agcat-row { display:flex; align-items:center; gap:0.7rem; padding:0.5rem 0.4rem; border-top:1px solid rgba(26,31,38,0.07); }
+    .agcat-row img { width:38px; height:38px; border-radius:11px; object-fit:cover; border:1px solid rgba(26,31,38,0.08); }
+    .agcat-row span { display:flex; flex-direction:column; min-width:0; }
+    .agcat-row b { font-size:13.5px; color:var(--ink); line-height:1.2; }
+    .agcat-row i { font-style:normal; font-size:10.8px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; color:var(--agcat); margin-top:0.1rem; }
+    @media (max-width:560px) { .agcat-card { flex-basis:320px; } }
+    .ax-lattice { margin:2.6rem auto 0; max-width:1120px; overflow:hidden; border-top:1px solid rgba(26,31,38,0.14); border-bottom:1px solid rgba(26,31,38,0.14);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+    .ax-lat-row { overflow:hidden; }
+    .ax-lat-row.b { border-top:1px solid rgba(26,31,38,0.14); }
+    .ax-lat-track { display:flex; gap:1rem; padding:1.1rem 0.5rem; width:max-content; animation: ax-lat 90s linear infinite; }
+    
+    .ax-lattice:hover .ax-lat-track, .ax-lattice:focus-within .ax-lat-track { animation-play-state:paused; }
+    @keyframes ax-lat { to { transform:translateX(-50%); } }
+    .ax-tile { flex:0 0 300px; display:flex; align-items:center; gap:0.75rem; padding:0.8rem 1rem; text-decoration:none; color:var(--ink-2);
+      background:var(--white); border-right:1px solid rgba(26,31,38,0.14); transition: background .2s ease; }
+    .ax-tile:hover { background:#f4f8ff; }
+    .ax-tile img { flex:0 0 auto; width:44px; height:44px; border-radius:12px; object-fit:cover; border:1px solid rgba(26,31,38,0.08); }
+    .ax-tile-t { display:flex; flex-direction:column; min-width:0; }
+    .ax-tile-t b { font-size:13.5px; color:var(--ink); line-height:1.2; }
+    .ax-tile-t i { font-style:normal; font-size:11px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--spanish-blue); margin:0.1rem 0 0.2rem; }
+    .ax-tile-t em { font-style:normal; font-size:11.5px; line-height:1.35; color:var(--ink-3); display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+    @media (prefers-reduced-motion: reduce) {
+      .ax-lat-track { animation:none; }
+      .ax-lat-row { overflow-x:auto; }
+      .ax-lattice { -webkit-mask-image:none; mask-image:none; }
+    }
+    .ax-midcta { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:1.2rem; margin:2.6rem auto 0; }
+    .ax-midcta span { font-size:15px; color:var(--ink-2); }
+    .ax-kpi-cap { font-size:10.5px; font-weight:800; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-4); margin-bottom:-0.2rem; }
+      .ax-case-lead { font-size:1.25rem; font-weight:700; line-height:1.4; color:var(--ink); margin:0; }
+    /* answer block (seo batch 6) */
+    .sol-answer { padding: 4rem 0; background: var(--floral-white, #fdf9f3); border-top: 1px solid rgba(26,31,38,0.06); }
+    .sol-answer-in { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
+    .sol-answer h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 800; line-height: 1.15; letter-spacing: -.02em; color: var(--ebony-clay, #1a1f26); text-transform: lowercase; margin: 0 0 1.1rem; }
+    .sol-answer h2 .keep-case { text-transform: none; }
+    .sol-answer h2 mark { background: var(--sunrise-yellow, #ffda00); color: #000; padding: 0 .3em; border-radius: 10px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+    .sol-answer p { font-size: 17.5px; line-height: 1.65; color: var(--ink-3, #3d444d); margin: 0; }
+    .sol-answer-table { margin-top: 1.6rem; overflow-x: auto; }
+    .sol-answer table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 14.5px; background: var(--white, #fff); border: 1px solid rgba(26,31,38,0.08); border-radius: 14px; overflow: hidden; }
+    .sol-answer th { text-align: left; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-4, #6b7280); padding: .8rem 1rem; border-bottom: 1px solid rgba(26,31,38,0.1); background: var(--polar-white, #f4f7fb); }
+    .sol-answer td { padding: .8rem 1rem; border-bottom: 1px solid rgba(26,31,38,0.06); color: var(--ebony-clay, #1a1f26); vertical-align: top; line-height: 1.5; }
+    .sol-answer td:first-child { font-weight: 700; }
+    .sol-answer tr:last-child td { border-bottom: 0; }
+    .sol-answer td a { color: var(--spanish-blue, #0064bf); font-weight: 700; text-decoration: none; } .sol-answer td a:hover { text-decoration: underline; }
+    @media (max-width: 760px) { .sol-answer { padding: 3rem 0; } .sol-answer table { font-size: 13.5px; } .sol-answer th, .sol-answer td { padding: .7rem .6rem; } }
+
+  </style>
+  <link rel="stylesheet" href="../../assets/entomo-2026.css">
+  <link rel="stylesheet" href="../../assets/entomo-glass.css">
+  <!-- seo:jsonld -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://entomomarketing.github.io/PX/V3/ai-lab/axon/#webpage",
+   "url": "https://entomomarketing.github.io/PX/V3/ai-lab/axon/",
+   "name": "entomo axon | the intelligence behind entomo.ai",
+   "description": "axon is the intelligence behind entomo.ai. it connects what every role requires with what every person brings, into one model of how work gets done.",
+   "inLanguage": "en",
+   "isPartOf": {
+    "@id": "https://entomomarketing.github.io/PX/V3/#website"
+   },
+   "primaryImageOfPage": {
+    "@id": "https://entomomarketing.github.io/PX/V3/ai-lab/axon/#primaryimage"
+   },
+   "breadcrumb": {
+    "@id": "https://entomomarketing.github.io/PX/V3/ai-lab/axon/#breadcrumb"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://entomomarketing.github.io/PX/V3/ai-lab/axon/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "home",
+     "item": "https://entomomarketing.github.io/PX/V3/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "AI lab",
+     "item": "https://entomomarketing.github.io/PX/V3/ai-lab/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "the intelligence behind"
+    }
+   ]
+  },
+  {
+   "@type": "ImageObject",
+   "@id": "https://entomomarketing.github.io/PX/V3/ai-lab/axon/#primaryimage",
+   "url": "https://entomomarketing.github.io/PX/V3/assets/images/og-default.jpg",
+   "width": 1200,
+   "height": 630
+  },
+  {
+   "@type": "SoftwareApplication",
+   "name": "axon",
+   "applicationSuite": "entomo.ai",
+   "applicationCategory": "BusinessApplication",
+   "operatingSystem": "Web",
+   "description": "axon is the intelligence behind entomo.ai. it connects what every role requires with what every person brings, into one model of how work gets done.",
+   "publisher": {
+    "@id": "https://entomomarketing.github.io/PX/V3/#organization"
+   },
+   "url": "https://entomomarketing.github.io/PX/V3/ai-lab/axon/"
+  }
+ ]
+}
+  </script>
+  <!-- /seo:jsonld -->
+</head>
+<body>
+  <a class="eq-skip" href="#main">skip to content</a>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="../../" class="logo">
+        <img src="../../assets/images/entomo.svg" alt="entomo" style="height:36px; width:auto;" width="587" height="138">
+      </a>
+      <div class="nav-right-group">
+        <ul class="nav-links">
+          <li class="nav-dropdown-wrap">
+            <a href="#" role="button" aria-haspopup="true" aria-expanded="false">products</a>
+            <div class="nav-mega" style="width:720px;">
+              <div class="nav-mega-grid">
+                <a href="../../products/performance-management/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">performance management</div>
+                    <div class="nav-mega-desc">maximize employee performance</div>
+                  </div>
+                </a>
+                <a href="../../products/talent-development/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4 3.5 8.2 12 12.4l8.5-4.2z"/><path d="M7 10.5v4.3c0 1.6 2.2 2.9 5 2.9s5-1.3 5-2.9v-4.3"/><path d="M20.5 8.2v5.3"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">career and learning management</div>
+                    <div class="nav-mega-desc">grow careers, close skill gaps</div>
+                  </div>
+                </a>
+                <a href="../../products/employee-engagement/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.5 11.8a7.6 7.6 0 0 1-8.2 7.6 8.4 8.4 0 0 1-3.1-.7L4 20.5l1.7-4.9a7.5 7.5 0 0 1-.8-3.3 7.6 7.6 0 0 1 7.6-7.8 7.6 7.6 0 0 1 8 7.3z"/><circle cx="9.2" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="12.6" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="12" r="1" fill="currentColor" stroke="none"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">employee engagement</div>
+                    <div class="nav-mega-desc">build engagement that lasts</div>
+                  </div>
+                </a>
+                <a href="../../products/people-analytics/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 20.5h17"/><path d="M7.5 20.5v-6.2"/><path d="M12 20.5V9.2"/><path d="M16.5 20.5v-8.6"/><path d="M5 8.6 9.5 5l4 3.2L19 3.5"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">workforce insights</div>
+                    <div class="nav-mega-desc">turn intelligence into decisions</div>
+                  </div>
+                </a>
+                <a href="../../products/employee-wellbeing/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20.6s-7.7-4.8-7.7-10A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.7 3.2c0 5.2-7.7 10-7.7 10z"/><path d="M7.6 12.4h2.2l1.3-2.2 1.8 4.3 1.2-2.1h2.3"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">employee wellbeing</div>
+                    <div class="nav-mega-desc">protect wellness, prevent burnout</div>
+                  </div>
+                </a>
+                <a href="../../products/strategic-workforce-planning/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.6"/><path d="M15.6 8.4 13.5 13.6 8.4 15.6l2.1-5.2z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">strategic workforce planning</div>
+                    <div class="nav-mega-desc">align your workforce to strategy</div>
+                  </div>
+                </a>
+                <a href="../../products/core-hr/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2.6" y="7.4" width="18.8" height="12.2" rx="2.6"/><path d="M8.6 7.4V6a2 2 0 0 1 2-2h2.8a2 2 0 0 1 2 2v1.4"/><path d="M2.6 12.6h18.8"/><path d="M11 12.6h2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">Core <span class="keep-case">HR</span></div>
+                    <div class="nav-mega-desc">simplify hire to retire</div>
+                  </div>
+                </a>
+                <a href="../../products/tmrw/" class="nav-mega-item">
+                  <div class="nav-mega-icon nav-mega-icon--tmrw"><img src="../../assets/images/logos/tmrw-mark.svg" alt="" width="352" height="350" loading="lazy" decoding="async"></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name nav-mega-name--brand"><img class="nav-mega-logo" src="../../assets/images/logos/tmrw.svg" alt="TMRW" width="810" height="224" loading="lazy" decoding="async"><span class="nav-mega-by">by entomo</span></div>
+                    <div class="nav-mega-desc">national scale capability development platform</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#" role="button" aria-haspopup="true" aria-expanded="false">solutions</a>
+            <div class="nav-mega" style="width:760px;">
+              <div class="nav-mega-grid">
+                <a href="../../solutions/competency-framework/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.4" y="3.4" width="17.2" height="17.2" rx="2.6"/><path d="M3.4 9.2h17.2"/><path d="M3.4 14.8h17.2"/><path d="M9.2 3.4v17.2"/><path d="M14.8 3.4v17.2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">competency framework creation</div>
+                    <div class="nav-mega-desc">living, market-benchmarked frameworks in weeks</div>
+                  </div>
+                </a>
+                <a href="../../solutions/skills-assessments/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4.4" y="4.6" width="15.2" height="16" rx="2.4"/><path d="M9 4.6V3.9A1.9 1.9 0 0 1 10.9 2h2.2A1.9 1.9 0 0 1 15 3.9v.7"/><path d="M8.8 12.4l2.3 2.3 4.1-4.6"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">skills assessments at scale</div>
+                    <div class="nav-mega-desc"><span class="keep-case">AI</span>-built, proctored assessments for every role</div>
+                  </div>
+                </a>
+                <a href="../../solutions/enterprise-performance-management-office/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 20.6V8.4l6.2-3.2 6.2 3.2v12.2"/><path d="M15.4 20.6v-7.4l5.6 2.8v4.6"/><path d="M2 20.6h20"/><path d="M7.6 12.2h3.2"/><path d="M7.6 16h3.2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">enterprise performance management office</div>
+                    <div class="nav-mega-desc">stand up the office that aligns <span class="keep-case">KPIs</span> to strategy</div>
+                  </div>
+                </a>
+                <a href="../../solutions/strategic-performance-management-office/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 21V3.6"/><path d="M6 4.6h11.4l-2.2 3.7 2.2 3.7H6"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">strategic performance management office</div>
+                    <div class="nav-mega-desc">run strategy-linked performance cycles end to end</div>
+                  </div>
+                </a>
+                <a href="../../solutions/internal-mobility/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.4 8.6h12.8"/><path d="M13.8 5.2 17.2 8.6l-3.4 3.4"/><path d="M19.6 15.4H6.8"/><path d="M10.2 12 6.8 15.4l3.4 3.4"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">internal mobility</div>
+                    <div class="nav-mega-desc">career paths computed from skill adjacency</div>
+                  </div>
+                </a>
+                <a href="../../solutions/succession-planning/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="8.8" y="2.8" width="6.4" height="4.6" rx="1.6"/><rect x="2.4" y="16.6" width="6.4" height="4.6" rx="1.6"/><rect x="15.2" y="16.6" width="6.4" height="4.6" rx="1.6"/><path d="M12 7.4v3.8"/><path d="M5.6 16.6v-3.4h12.8v3.4"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">succession planning</div>
+                    <div class="nav-mega-desc">evidence-based readiness for critical roles</div>
+                  </div>
+                </a>
+                <a href="../../solutions/workforce-planning/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 20.4h18"/><path d="M4.6 16.6 8.8 11l3.4 2.8 4-6.6"/><path d="M16.2 7.2 20.4 12" stroke-dasharray="2.4 2.4"/><circle cx="8.8" cy="11" r="1.1" fill="currentColor" stroke="none"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">workforce planning</div>
+                    <div class="nav-mega-desc">model demand, decide build, buy, borrow, or bot</div>
+                  </div>
+                </a>
+                <a href="../../solutions/data-intelligence-assistant/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.2l1.9 5.1 5.1 1.9-5.1 1.9L12 17.2l-1.9-5.1L5 10.2l5.1-1.9z"/><path d="M18.6 15.2l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name"><span class="keep-case">DIA</span></div>
+                    <div class="nav-mega-desc">your data intelligence assistant for workforce questions</div>
+                  </div>
+                </a>
+                <a href="../../solutions/workforce-analytics/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6.2 3h7.4L19 8.4v11.2A2.4 2.4 0 0 1 16.6 21H6.2a2.4 2.4 0 0 1-2.4-2.4V5.4A2.4 2.4 0 0 1 6.2 3z"/><path d="M13.4 3v5.6H19"/><path d="M8 17.4v-3"/><path d="M11.4 17.4v-6"/><path d="M14.8 17.4v-4.2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">workforce analytics &amp; reporting</div>
+                    <div class="nav-mega-desc">board-ready intelligence and <span class="keep-case">ISO</span> 30414 disclosure</div>
+                  </div>
+                </a>
+                <a href="../../solutions/employee-retention/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10.2 13.6a4.2 4.2 0 0 0 6 0l2.6-2.6a4.2 4.2 0 0 0-6-6l-1.4 1.4"/><path d="M13.8 10.4a4.2 4.2 0 0 0-6 0l-2.6 2.6a4.2 4.2 0 0 0 6 6l1.4-1.4"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">engagement &amp; retention</div>
+                    <div class="nav-mega-desc">sense engagement, act early, retain talent</div>
+                  </div>
+                </a>
+                <a href="../../solutions/learning-roi/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="9.2" cy="6.6" rx="5.6" ry="2.5"/><path d="M3.6 6.6v4.3c0 1.4 2.5 2.5 5.6 2.5s5.6-1.1 5.6-2.5V6.6"/><path d="M3.6 10.9v4.3c0 1.4 2.5 2.5 5.6 2.5c.5 0 1 0 1.5-.1"/><path d="M17.6 20.8v-6.4"/><path d="M14.9 17.1l2.7-2.7 2.7 2.7"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">learning <span class="keep-case">ROI</span></div>
+                    <div class="nav-mega-desc">make learning spend provable</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#"><span class="keep-case">AI</span> lab</a>
+            <div class="nav-mega" style="width:420px;">
+              <div class="nav-mega-grid" style="grid-template-columns: 1fr;">
+                <a href="./" class="nav-mega-item">
+                  <div class="nav-mega-icon nav-mega-icon--axon"><picture><source srcset="../../assets/images/logos/axon-mark.webp" type="image/webp"><img src="../../assets/images/logos/axon-mark.png" alt="" width="180" height="197" loading="lazy" decoding="async"></picture></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name nav-mega-name--brand"><span class="nav-mega-pre">entomo</span><picture><source srcset="../../assets/images/logos/axon-wordmark.webp" type="image/webp"><img class="nav-mega-logo nav-mega-logo--axon" src="../../assets/images/logos/axon-wordmark.png" alt="axon" width="480" height="155" loading="lazy" decoding="async"></picture></div>
+                    <div class="nav-mega-desc">the workforce intelligence graph powering entomo.ai</div>
+                  </div>
+                </a>
+                <a href="../enzo/" class="nav-mega-item">
+                  <div class="nav-mega-icon nav-mega-icon--enzo"><picture><source srcset="../../assets/images/logos/enzo-mark.webp" type="image/webp"><img src="../../assets/images/logos/enzo-mark.png" alt="" width="640" height="583" loading="lazy" decoding="async"></picture></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name nav-mega-name--brand"><picture><source srcset="../../assets/images/logos/enzo-wordmark.webp" type="image/webp"><img class="nav-mega-logo nav-mega-logo--enzo" src="../../assets/images/logos/enzo-wordmark.png" alt="enzo" width="1200" height="311" loading="lazy" decoding="async"></picture><span class="nav-mega-by">by entomo</span></div>
+                    <div class="nav-mega-desc">the <span class="keep-case">AI</span> co-worker inside entomo.ai</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#" role="button" aria-haspopup="true" aria-expanded="false">inspiration</a>
+            <div class="nav-mega" style="width:720px;">
+              <div class="nav-mega-grid">
+                <a href="../../blog/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.4 5A2 2 0 0 1 6.4 3h7.2L20 8.6v10.4a2 2 0 0 1-2 2H6.4a2 2 0 0 1-2-2z"/><path d="M13.6 3v5.6H20"/><path d="M8 13h8"/><path d="M8 16.8h5"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">blog</div>
+                    <div class="nav-mega-desc">insights on agentic <span class="keep-case">AI</span> and the future of work</div>
+                  </div>
+                </a>
+                <a href="../../resources/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6.6C10.4 5.1 8.4 4.4 6 4.4H3.4v12.8H6c2.4 0 4.4.7 6 2.2"/><path d="M12 6.6c1.6-1.5 3.6-2.2 6-2.2h2.6v12.8H18c-2.4 0-4.4.7-6 2.2"/><path d="M12 6.6v13"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">ebooks &amp; whitepapers</div>
+                    <div class="nav-mega-desc">in-depth research and POV reports</div>
+                  </div>
+                </a>
+                <a href="../../case-studies/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="9" r="5.8"/><path d="M8.6 13.9 7.2 21.4l4.8-2.5 4.8 2.5-1.4-7.5"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">case studies</div>
+                    <div class="nav-mega-desc">real outcomes from enterprises and governments</div>
+                  </div>
+                </a>
+                <a href="../../community/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="5.6" r="2.6"/><circle cx="5.4" cy="17" r="2.6"/><circle cx="18.6" cy="17" r="2.6"/><path d="M10.3 7.2 7.1 14.6"/><path d="M13.7 7.2l3.2 7.4"/><path d="M8 17.4h8"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">entomo community</div>
+                    <div class="nav-mega-desc">connect with <span class="keep-case">HR</span> leaders shaping the future</div>
+                  </div>
+                </a>
+                <a href="../../resources/templates/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.4" y="3.4" width="12.4" height="12.4" rx="2.2"/><path d="M3.4 8h12.4"/><path d="M8 8v7.8"/><path d="M8.8 20.6h9.6a2.2 2.2 0 0 0 2.2-2.2V8.8"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">templates</div>
+                    <div class="nav-mega-desc">ready-to-use <span class="keep-case">HR</span> frameworks and playbooks</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-dropdown-wrap">
+            <a href="#" role="button" aria-haspopup="true" aria-expanded="false">about</a>
+            <div class="nav-mega" style="width:720px;">
+              <div class="nav-mega-grid">
+                <a href="../../about/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.8 20.6 9.6 9l4 6 2.8-4.4 4.8 10z"/><circle cx="7.4" cy="5.4" r="2.2"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">why entomo</div>
+                    <div class="nav-mega-desc">our story and what makes us different</div>
+                  </div>
+                </a>
+                <a href="../../about/life-at-entomo/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-7.2"/><path d="M12 13.8c0-3.4 2.5-6.2 5.7-6.2 0 3.4-2.5 6.2-5.7 6.2z"/><path d="M12 15.6c0-2.9-2.3-5.2-5.2-5.2 0 2.9 2.3 5.2 5.2 5.2z"/><path d="M8.2 21h7.6"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">life@entomo</div>
+                    <div class="nav-mega-desc">culture, values, and what makes us tick</div>
+                  </div>
+                </a>
+                <a href="../../about/team/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="8.4" r="3.2"/><path d="M3.4 19.6a5.6 5.6 0 0 1 11.2 0"/><circle cx="17.6" cy="9.6" r="2.4"/><path d="M15.8 14.4a4.6 4.6 0 0 1 5.8 4.4"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">our team</div>
+                    <div class="nav-mega-desc">leadership and the people behind entomo</div>
+                  </div>
+                </a>
+                <a href="../../about/security/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 19.4 6v5.6c0 4.4-3.1 8.2-7.4 9.2-4.3-1-7.4-4.8-7.4-9.2V6z"/><rect x="9.4" y="11.2" width="5.2" height="4.4" rx="1.2"/><path d="M10.6 11.2v-1.1a1.4 1.4 0 0 1 2.8 0v1.1"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">security@entomo</div>
+                    <div class="nav-mega-desc">enterprise-grade security and compliance</div>
+                  </div>
+                </a>
+                <a href="../../news/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 10.2v3.6a1.6 1.6 0 0 0 1.6 1.6H8l7.4 4.2V4.4L8 8.6H5.6A1.6 1.6 0 0 0 4 10.2z"/><path d="M18.4 9.4a3.6 3.6 0 0 1 0 5.2"/><path d="M8 15.4V20"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">news &amp; press release</div>
+                    <div class="nav-mega-desc">latest announcements and media coverage</div>
+                  </div>
+                </a>
+                <a href="../../about/careers/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9.6" cy="8" r="3.2"/><path d="M3.4 20a6.2 6.2 0 0 1 12.4 0"/><path d="M19.4 8.6v5.6"/><path d="M16.6 11.4h5.6"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">jobs@entomo</div>
+                    <div class="nav-mega-desc">join the team building tomorrow's <span class="keep-case">HR</span></div>
+                  </div>
+                </a>
+                <a href="../../about/partners/" class="nav-mega-item">
+                  <div class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="8.8" cy="12" r="5.4"/><circle cx="15.2" cy="12" r="5.4"/></svg></div>
+                  <div class="nav-mega-text">
+                    <div class="nav-mega-name">partner with entomo</div>
+                    <div class="nav-mega-desc">SI, consulting, and ecosystem partnerships</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li><a href="../../contact/">contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="../../request-demo/" class="nav-cta">request a demo →</a>
+        </div>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+  <main id="main">
+
+  <!-- ===== SECTION 1, HERO ===== -->
+  <section class="hero-platform">
+    <canvas class="hero-neural" data-hero-neural aria-hidden="true"></canvas>
+    <div class="container">
+      <div class="hero-platform-content">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          <span class="keep-case">AI</span> lab &middot; entomo's workforce intelligence engine</div>
+        <div class="hero-wordmark">
+          <picture class="brand-lockup brand-lockup--hero brand-lockup--axon"><source srcset="../../assets/images/logos/entomo-axon.webp" type="image/webp"><img src="../../assets/images/logos/entomo-axon.png" alt="entomo axon" width="1200" height="388" fetchpriority="high" decoding="async"></picture>
+        </div>
+        <h1 class="hero-tagline">the <mark>intelligence</mark> behind <picture class="brand-inline"><source srcset="../../assets/images/logos/entomo-ai.webp" type="image/webp"><img src="../../assets/images/logos/entomo-ai.png" alt="entomo.ai" width="1200" height="257" loading="eager" decoding="async"></picture></h1>
+          <p class="hero-subhead">know what it takes. know who has it. know what to do.</p>
+        <p class="hero-subline"><span class="axon-text">axon</span> connects what every role requires with what every person brings, creating the workforce intelligence that powers better performance, development, mobility, and succession.</p>
+        <div class="hero-ctas">
+          <a href="../../request-demo/" class="btn-primary">request a demo &rarr;</a>
+        </div>
+      </div>
+    </div>
+    <!-- Scrolling logo marquee, full width, outside container -->
+    <div class="marquee-wrapper" style="margin-top:2.5rem;">
+      <div class="marquee-track">
+        <img class="marquee-logo" src="../../assets/images/client-logos/tata-elxsi.png"        alt="Tata Elxsi logo" width="111" height="78" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/ey.png"                alt="EY logo" width="93" height="78" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/cigna.png"             alt="Cigna logo" width="173" height="57" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/nttdata.png"           alt="NTT Data logo" width="171" height="25" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/ntuc-learning-hub.png" alt="NTUC Learning Hub logo" width="196" height="52" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/generalli.png"         alt="Generali logo" width="95" height="78" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/carelon.jpeg"          alt="Carelon logo" width="800" height="300" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/soiitz.png"            alt="Soiitz logo" width="174" height="53" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/drreddys.png"          alt="Dr Reddy&#x27;s logo" width="172" height="38" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/digital-dubai.png"     alt="Digital Dubai logo" width="595" height="222" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/uob.png"               alt="UOB logo" width="146" height="52" decoding="async">
+        <!-- Duplicate set for seamless loop -->
+        <img class="marquee-logo" src="../../assets/images/client-logos/tata-elxsi.png"        alt="Tata Elxsi logo" width="111" height="78" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/ey.png"                alt="EY logo" width="93" height="78" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/cigna.png"             alt="Cigna logo" width="173" height="57" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/nttdata.png"           alt="NTT Data logo" width="171" height="25" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/ntuc-learning-hub.png" alt="NTUC Learning Hub logo" width="196" height="52" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/generalli.png"         alt="Generali logo" width="95" height="78" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/carelon.jpeg"          alt="Carelon logo" width="800" height="300" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/soiitz.png"            alt="Soiitz logo" width="174" height="53" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/drreddys.png"          alt="Dr Reddy&#x27;s logo" width="172" height="38" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/digital-dubai.png"     alt="Digital Dubai logo" width="595" height="222" decoding="async">
+        <img class="marquee-logo" src="../../assets/images/client-logos/uob.png"               alt="UOB logo" width="146" height="52" decoding="async">
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== THE FOUR THINGS ===== -->
+  <section class="dark-section alt-power">
+    <div class="container">
+      <div class="text-center" style="max-width:820px; margin:0 auto;">
+        <h2 class="section-heading">your <span class="keep-case">HR</span> system stores workforce data. <span class="axon-text">axon</span> <mark>understands</mark> it.</h2>
+        <p style="font-size:18px; line-height:1.65; color:rgba(255,255,255,0.65); max-width:640px; margin:0 auto;">it understands what work requires, how people are performing, where the gaps are and what action will improve the outcome.</p>
+      </div>
+      <div class="alt-grid">
+        <div class="alt-card">
+          <i>01</i><em>knows</em>
+          <b>what does this role actually require?</b>
+          <p><span class="axon-text">axon</span> maps the <span style="color:#ff8a80;font-weight:700">knowledge</span>, <span style="color:#ffd166;font-weight:700">skills</span>, <span style="color:#7fc4ff;font-weight:700">abilities</span>, and <span style="color:#7ee2a0;font-weight:700">tasks</span> behind every role, the level each one needs, and the outcomes the role is measured on.</p>
+          <div class="alt-chips"><span>role architecture in under five minutes</span><span>3B+ job postings</span><span>1.2B+ career profiles</span></div>
+        </div>
+        <div class="alt-card">
+          <i>02</i><em>sees</em>
+          <b>who is performing, who is ready, and where are the gaps?</b>
+          <p><span class="axon-text">axon</span> reads performance and capability side by side, and raises the gaps that will hurt results.</p>
+          <div class="alt-chips"><span>skill gap detection</span><span>successor readiness</span><span>goal quality score</span></div>
+        </div>
+        <div class="alt-card">
+          <i>03</i><em>acts</em>
+          <b>what goals, development or interventions will close those gaps?</b>
+          <p>it drafts goals, reviews, and development plans for you like a co-worker, and you decide.</p>
+          <div class="alt-chips"><span><span class="keep-case">KPI</span> library in under a minute</span><span>reviews in minutes</span><span>intelligent <span class="keep-case">IDPs</span></span></div>
+        </div>
+        <div class="alt-card">
+          <i>04</i><em>answers</em>
+          <b>what should we do next, and why?</b>
+          <p>ask in plain language, and <span class="axon-text">axon</span> reasons across the whole model to give a cited answer scoped to what you are allowed to see.</p>
+          <div class="alt-chips"><span>real-time answers</span><span>evidence attached</span><span>90% less manual dashboard work</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== THE AGENTS RUN ON AXON ===== -->
+  <section style="background: var(--white); border-top: 1px solid rgba(26,31,38,0.06);">
+    <div class="container">
+      <div class="text-center" style="max-width:760px; margin:0 auto;">
+        <p class="section-eyebrow">the agents</p>
+        <h2 class="section-heading">every entomo.ai agent <mark>thinks</mark> with <span class="axon-text">axon</span></h2>
+        <p class="section-subheading" style="margin:0 auto;">12+ integrated agents live today, with the same intelligence behind each, acting together on what the role requires, what the person brings, how the person performs and where the gaps are.</p>
+      </div>
+      <div class="ax-lattice" data-ax-agents aria-label="the entomo.ai agents, grouped by area">
+        <div class="ax-lat-row a"><div class="ax-lat-track"><div class="agw-card" style="--agcat:#e43d30"><b class="agw-t">agents for performance management</b><div class="agw-row"><div class="agw-a"><img src="../../assets/images/agents/goalforge.png" alt="GoalForge, an entomo agent for goal intelligence" width="160" height="160" loading="lazy" decoding="async"><b>GoalForge</b><i>goal intelligence</i><em>Generates role-aligned performance goals that reflect strategic priorities and validates quality automatically.</em></div><div class="agw-a"><img src="../../assets/images/agents/convocraft.png" alt="ConvoCraft, an entomo agent for conversation design" width="160" height="160" loading="lazy" decoding="async"><b>ConvoCraft</b><i>conversation design</i><em>Structures high-impact manager conversations with clarity and intent, from performance talks to feedback reviews.</em></div><div class="agw-a"><img src="../../assets/images/agents/teaminsight.png" alt="ManagerIntel, an entomo agent for manager intelligence" width="160" height="160" loading="lazy" decoding="async"><b>ManagerIntel</b><i>manager intelligence</i><em>Diagnoses team performance and helps managers deliver better feedback.</em></div><div class="agw-a"><img src="../../assets/images/agents/flowgen.png" alt="FlowGen, an entomo agent for workflow automation" width="160" height="160" loading="lazy" decoding="async"><b>FlowGen</b><i>workflow automation</i><em>Automates <span class="keep-case">HR</span> workflows end-to-end, from goal setting to reviews, without manual intervention.</em></div></div></div><div class="agw-card" style="--agcat:#f4b223"><b class="agw-t">agents for skills and growth</b><div class="agw-row"><div class="agw-a"><img src="../../assets/images/agents/talentatlas.png" alt="TalentAtlas, an entomo agent for role intelligence" width="160" height="160" loading="lazy" decoding="async"><b>TalentAtlas</b><i>role intelligence</i><em>Maps industry-benchmarked role architectures and competency frameworks with market-aligned precision.</em></div><div class="agw-a"><img src="../../assets/images/agents/rolearchitect.png" alt="RoleArchitect, an entomo agent for role design" width="160" height="160" loading="lazy" decoding="async"><b>RoleArchitect</b><i>role design</i><em>Builds and evolves role definitions that align to organisational strategy and workforce capability needs.</em></div><div class="agw-a"><img src="../../assets/images/agents/skillmatrix.png" alt="SkillMatrix, an entomo agent for proficiency intelligence" width="160" height="160" loading="lazy" decoding="async"><b>SkillMatrix</b><i>proficiency intelligence</i><em>Surfaces proficiency gaps and maps capability across teams, aligned to real-time market signals.</em></div><div class="agw-a"><img src="../../assets/images/agents/assescraft.png" alt="AssesCraft, an entomo agent for assessment engine" width="160" height="160" loading="lazy" decoding="async"><b>AssesCraft</b><i>assessment engine</i><em>Designs structured, role-aligned assessments that evaluate skills, proficiency, and job readiness at scale.</em></div><div class="agw-a"><img src="../../assets/images/agents/growthplanner.png" alt="GrowthPlanner, an entomo agent for development engine" width="160" height="160" loading="lazy" decoding="async"><b>GrowthPlanner</b><i>development engine</i><em>Translates performance insights into personalised growth plans with clear career paths and skill milestones.</em></div><div class="agw-a"><img src="../../assets/images/agents/profilecraft.png" alt="PathFinder, an entomo agent for career mobility" width="160" height="160" loading="lazy" decoding="async"><b>PathFinder</b><i>career mobility</i><em>Matches people to internal jobs and successor slates, with learning recommendations to get there.</em></div><div class="agw-a"><img src="../../assets/images/agents/pulse360.png" alt="AutoIDP, an entomo agent for development plans" width="160" height="160" loading="lazy" decoding="async"><b>AutoIDP</b><i>development plans</i><em>Builds individual development plans automatically from each person’s current and future role.</em></div></div></div><div class="agw-card" style="--agcat:#7a3fbf"><b class="agw-t">agents for talent acquisition</b><div class="agw-row"><div class="agw-a"><img src="../../assets/images/agents/talentatlas.png" alt="HireSense, an entomo agent for talent acquisition" width="160" height="160" loading="lazy" decoding="async"><b>HireSense</b><i>talent acquisition</i><em>Creates job descriptions, matches candidates, and evaluates assessments and interviews to speed up hiring.</em></div><div class="agw-a"><img src="../../assets/images/agents/convocraft.png" alt="VideoAssist, an entomo agent for video assessments" width="160" height="160" loading="lazy" decoding="async"><b>VideoAssist</b><i>video assessments</i><em>Runs <span class="keep-case">AI</span>-based video interviews and questionnaires, and reports what they reveal about each candidate.</em></div><div class="agw-a"><img src="../../assets/images/agents/profilecraft.png" alt="ProfileCraft, an entomo agent for profile intelligence" width="160" height="160" loading="lazy" decoding="async"><b>ProfileCraft</b><i>profile intelligence</i><em>Crafts rich talent profiles from skills, history, and ambition, powering smarter hiring and mobility decisions.</em></div></div></div><div class="agw-card" style="--agcat:#0064bf"><b class="agw-t">agents for employee engagement</b><div class="agw-row"><div class="agw-a"><img src="../../assets/images/agents/pulse360.png" alt="Pulse360, an entomo agent for sentiment analytics" width="160" height="160" loading="lazy" decoding="async"><b>Pulse360</b><i>sentiment analytics</i><em>Analyzes feedback tone, alignment, and perception gaps to uncover blind spots and leadership risks.</em></div><div class="agw-a"><img src="../../assets/images/agents/insight360.png" alt="Insight360, an entomo agent for feedback intelligence" width="160" height="160" loading="lazy" decoding="async"><b>Insight360</b><i>feedback intelligence</i><em>Surfaces perception gaps, strengths, and growth priorities from 360-degree feedback data in real time.</em></div><div class="agw-a"><img src="../../assets/images/agents/flowgen.png" alt="PolicyPilot, an entomo agent for employee service" width="160" height="160" loading="lazy" decoding="async"><b>PolicyPilot</b><i>employee service</i><em>Resolves policy and process questions with context-aware answers, instantly.</em></div></div></div><div class="agw-card" style="--agcat:#2c9942"><b class="agw-t">agents for workforce analytics</b><div class="agw-row"><div class="agw-a"><img src="../../assets/images/agents/teaminsight.png" alt="TeamInsight, an entomo agent for team analytics" width="160" height="160" loading="lazy" decoding="async"><b>TeamInsight</b><i>team analytics</i><em>Tracks team health, collaboration patterns, and performance dynamics to surface risks before they escalate.</em></div><div class="agw-a"><img src="../../assets/images/agents/insight360.png" alt="InsightDesk, an entomo agent for conversational BI" width="160" height="160" loading="lazy" decoding="async"><b>InsightDesk</b><i>conversational BI</i><em>Answers plain-language questions with real-time workforce intelligence.</em></div><div class="agw-a"><img src="../../assets/images/agents/rolearchitect.png" alt="HorizonPlan, an entomo agent for workforce planning" width="160" height="160" loading="lazy" decoding="async"><b>HorizonPlan</b><i>workforce planning</i><em>Projects talent demand and supply, and runs what-if scenarios for the workforce plan.</em></div></div></div><div class="agw-card" aria-hidden="true" style="--agcat:#e43d30"><b class="agw-t">agents for performance management</b><div class="agw-row"><div class="agw-a"><img src="../../assets/images/agents/goalforge.png" alt="GoalForge, an entomo agent for goal intelligence" width="160" height="160" loading="lazy" decoding="async"><b>GoalForge</b><i>goal intelligence</i><em>Generates role-aligned performance goals that reflect strategic priorities and validates quality automatically.</em></div><div class="agw-a"><img src="../../assets/images/agents/convocraft.png" alt="ConvoCraft, an entomo agent for conversation design" width="160" height="160" loading="lazy" decoding="async"><b>ConvoCraft</b><i>conversation design</i><em>Structures high-impact manager conversations with clarity and intent, from performance talks to feedback reviews.</em></div><div class="agw-a"><img src="../../assets/images/agents/teaminsight.png" alt="ManagerIntel, an entomo agent for manager intelligence" width="160" height="160" loading="lazy" decoding="async"><b>ManagerIntel</b><i>manager intelligence</i><em>Diagnoses team performance and helps managers deliver better feedback.</em></div><div class="agw-a"><img src="../../assets/images/agents/flowgen.png" alt="FlowGen, an entomo agent for workflow automation" width="160" height="160" loading="lazy" decoding="async"><b>FlowGen</b><i>workflow automation</i><em>Automates <span class="keep-case">HR</span> workflows end-to-end, from goal setting to reviews, without manual intervention.</em></div></div></div><div class="agw-card" aria-hidden="true" style="--agcat:#f4b223"><b class="agw-t">agents for skills and growth</b><div class="agw-row"><div class="agw-a"><img src="../../assets/images/agents/talentatlas.png" alt="TalentAtlas, an entomo agent for role intelligence" width="160" height="160" loading="lazy" decoding="async"><b>TalentAtlas</b><i>role intelligence</i><em>Maps industry-benchmarked role architectures and competency frameworks with market-aligned precision.</em></div><div class="agw-a"><img src="../../assets/images/agents/rolearchitect.png" alt="RoleArchitect, an entomo agent for role design" width="160" height="160" loading="lazy" decoding="async"><b>RoleArchitect</b><i>role design</i><em>Builds and evolves role definitions that align to organisational strategy and workforce capability needs.</em></div><div class="agw-a"><img src="../../assets/images/agents/skillmatrix.png" alt="SkillMatrix, an entomo agent for proficiency intelligence" width="160" height="160" loading="lazy" decoding="async"><b>SkillMatrix</b><i>proficiency intelligence</i><em>Surfaces proficiency gaps and maps capability across teams, aligned to real-time market signals.</em></div><div class="agw-a"><img src="../../assets/images/agents/assescraft.png" alt="AssesCraft, an entomo agent for assessment engine" width="160" height="160" loading="lazy" decoding="async"><b>AssesCraft</b><i>assessment engine</i><em>Designs structured, role-aligned assessments that evaluate skills, proficiency, and job readiness at scale.</em></div><div class="agw-a"><img src="../../assets/images/agents/growthplanner.png" alt="GrowthPlanner, an entomo agent for development engine" width="160" height="160" loading="lazy" decoding="async"><b>GrowthPlanner</b><i>development engine</i><em>Translates performance insights into personalised growth plans with clear career paths and skill milestones.</em></div><div class="agw-a"><img src="../../assets/images/agents/profilecraft.png" alt="PathFinder, an entomo agent for career mobility" width="160" height="160" loading="lazy" decoding="async"><b>PathFinder</b><i>career mobility</i><em>Matches people to internal jobs and successor slates, with learning recommendations to get there.</em></div><div class="agw-a"><img src="../../assets/images/agents/pulse360.png" alt="AutoIDP, an entomo agent for development plans" width="160" height="160" loading="lazy" decoding="async"><b>AutoIDP</b><i>development plans</i><em>Builds individual development plans automatically from each person’s current and future role.</em></div></div></div><div class="agw-card" aria-hidden="true" style="--agcat:#7a3fbf"><b class="agw-t">agents for talent acquisition</b><div class="agw-row"><div class="agw-a"><img src="../../assets/images/agents/talentatlas.png" alt="HireSense, an entomo agent for talent acquisition" width="160" height="160" loading="lazy" decoding="async"><b>HireSense</b><i>talent acquisition</i><em>Creates job descriptions, matches candidates, and evaluates assessments and interviews to speed up hiring.</em></div><div class="agw-a"><img src="../../assets/images/agents/convocraft.png" alt="VideoAssist, an entomo agent for video assessments" width="160" height="160" loading="lazy" decoding="async"><b>VideoAssist</b><i>video assessments</i><em>Runs <span class="keep-case">AI</span>-based video interviews and questionnaires, and reports what they reveal about each candidate.</em></div><div class="agw-a"><img src="../../assets/images/agents/profilecraft.png" alt="ProfileCraft, an entomo agent for profile intelligence" width="160" height="160" loading="lazy" decoding="async"><b>ProfileCraft</b><i>profile intelligence</i><em>Crafts rich talent profiles from skills, history, and ambition, powering smarter hiring and mobility decisions.</em></div></div></div><div class="agw-card" aria-hidden="true" style="--agcat:#0064bf"><b class="agw-t">agents for employee engagement</b><div class="agw-row"><div class="agw-a"><img src="../../assets/images/agents/pulse360.png" alt="Pulse360, an entomo agent for sentiment analytics" width="160" height="160" loading="lazy" decoding="async"><b>Pulse360</b><i>sentiment analytics</i><em>Analyzes feedback tone, alignment, and perception gaps to uncover blind spots and leadership risks.</em></div><div class="agw-a"><img src="../../assets/images/agents/insight360.png" alt="Insight360, an entomo agent for feedback intelligence" width="160" height="160" loading="lazy" decoding="async"><b>Insight360</b><i>feedback intelligence</i><em>Surfaces perception gaps, strengths, and growth priorities from 360-degree feedback data in real time.</em></div><div class="agw-a"><img src="../../assets/images/agents/flowgen.png" alt="PolicyPilot, an entomo agent for employee service" width="160" height="160" loading="lazy" decoding="async"><b>PolicyPilot</b><i>employee service</i><em>Resolves policy and process questions with context-aware answers, instantly.</em></div></div></div><div class="agw-card" aria-hidden="true" style="--agcat:#2c9942"><b class="agw-t">agents for workforce analytics</b><div class="agw-row"><div class="agw-a"><img src="../../assets/images/agents/teaminsight.png" alt="TeamInsight, an entomo agent for team analytics" width="160" height="160" loading="lazy" decoding="async"><b>TeamInsight</b><i>team analytics</i><em>Tracks team health, collaboration patterns, and performance dynamics to surface risks before they escalate.</em></div><div class="agw-a"><img src="../../assets/images/agents/insight360.png" alt="InsightDesk, an entomo agent for conversational BI" width="160" height="160" loading="lazy" decoding="async"><b>InsightDesk</b><i>conversational BI</i><em>Answers plain-language questions with real-time workforce intelligence.</em></div><div class="agw-a"><img src="../../assets/images/agents/rolearchitect.png" alt="HorizonPlan, an entomo agent for workforce planning" width="160" height="160" loading="lazy" decoding="async"><b>HorizonPlan</b><i>workforce planning</i><em>Projects talent demand and supply, and runs what-if scenarios for the workforce plan.</em></div></div></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== THREE ANSWERS ===== -->
+  <section style="background: var(--white);">
+    <div class="container">
+      <div class="text-center" style="max-width:760px; margin:0 auto;">
+        <p class="section-eyebrow">what it gives you</p>
+        <h2 class="section-heading">get definitive answers with <span class="axon-text">axon</span> to make decisions <mark>confidently</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;">because it models every role and every person, <span class="axon-text">axon</span> can answer these for a job, a person, or the whole workforce.</p>
+      </div>
+      <div class="a2-answers">
+        <div class="a2-a">
+          <em>capability</em>
+          <b>where the workforce falls short of the strategy, and what closes it</b>
+          <p><span class="axon-text">axon</span> adds up every role and every person to show which capabilities the plan depends on and where supply will run out.</p>
+          <div class="a2-mock"><b>cloud engineering, next year</b>demand 42 &middot; supply 27 &middot; 9 internal candidates one step away<i>plan drafted</i></div>
+        </div>
+        <div class="a2-a">
+          <em>readiness</em>
+          <b>who can do this job today, and who is one step away</b>
+          <p><span class="axon-text">axon</span> compares every person to the full requirements of the role, not to a keyword.</p>
+          <div class="a2-mock"><b>branch manager, west</b>2 ready now &middot; 3 ready with development &middot; gap for most: credit risk assessment<i>succession slate drafted</i></div>
+        </div>
+        <div class="a2-a">
+          <em>development</em>
+          <b>what each person must learn next, and why</b>
+          <p>the gap between a person and a role becomes a plan with a reason attached to every item.</p>
+          <div class="a2-mock"><b>meera s. &rarr; director</b>2 of 3 gating competencies met &middot; commercial negotiation is the gap<i>90-day plan drafted</i></div>
+        </div>
+        <div class="a2-a">
+          <em>results</em>
+          <b>which goals and skills move which outcomes</b>
+          <p>every goal is tied to the measure it moves, so the business can see the line from effort to result.</p>
+          <div class="a2-mock"><b>deposit growth, q3</b>4 goals aligned &middot; average quality score 92 &middot; 1 goal drifting<i>realignment suggested</i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CORE 1: THE LIVING MODEL ===== -->
+  <section style="background: var(--white);">
+    <div class="container">
+      <div class="text-center" style="max-width:760px; margin:0 auto;">
+        <p class="section-eyebrow">the core</p>
+        <h2 class="section-heading">one dynamic living model of how work gets <mark>done</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;"><span class="axon-text">axon</span> connects every element of work and capability, and keeps them current.</p>
+        <p class="section-subheading" style="margin:0.6rem auto 0; font-weight:700; color:var(--ink);">intelligence comes from connecting the right data points, and that is precisely what <span class="axon-text">axon</span> does.</p>
+      </div>
+      <div class="ax-board">
+        <svg viewBox="0 0 1000 664" role="img" aria-label="the axon model as one integrated circuit: knowledge, skills, abilities, tasks, goals, proficiencies, and certifications packed as components around the axon core; the board they are all mounted on is the industry and sub-industry context">
+          <defs>
+            <linearGradient id="axgGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#00e8fc"/><stop offset=".5" stop-color="#0380f9"/><stop offset="1" stop-color="#0616f6"/>
+            </linearGradient>
+            <linearGradient id="axCta" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#f4b223"/><stop offset="1" stop-color="#e43d30"/>
+            </linearGradient>
+            <linearGradient id="axCu" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f2cf8e"/><stop offset=".5" stop-color="#d99a4e"/><stop offset="1" stop-color="#a86a2c"/>
+            </linearGradient>
+            <linearGradient id="axSheen" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="rgba(255,255,255,0.11)"/><stop offset=".4" stop-color="rgba(255,255,255,0.02)"/><stop offset="1" stop-color="rgba(255,255,255,0.06)"/>
+            </linearGradient>
+            <radialGradient id="axBoardWash" cx="0.5" cy="0.32" r="0.9">
+              <stop offset="0" stop-color="#132443"/><stop offset="1" stop-color="#0b1426"/>
+            </radialGradient>
+            <pattern id="axDotsD" width="26" height="26" patternUnits="userSpaceOnUse">
+              <circle cx="13" cy="13" r="1" fill="rgba(255,255,255,0.07)"/>
+            </pattern>
+            <pattern id="axWM" width="420" height="120" patternUnits="userSpaceOnUse">
+              <text x="10" y="34" font-size="15" font-weight="800" letter-spacing="3" fill="rgba(255,255,255,0.032)">INDUSTRY &amp; SUB-INDUSTRY CONTEXT</text>
+              <text x="-200" y="94" font-size="15" font-weight="800" letter-spacing="3" fill="rgba(255,255,255,0.032)">INDUSTRY &amp; SUB-INDUSTRY CONTEXT</text>
+              <text x="220" y="94" font-size="15" font-weight="800" letter-spacing="3" fill="rgba(255,255,255,0.032)">INDUSTRY &amp; SUB-INDUSTRY CONTEXT</text>
+            </pattern>
+          </defs>
+          <rect x="30" y="18" width="940" height="628" rx="26" fill="url(#axBoardWash)" stroke="rgba(255,255,255,0.14)" stroke-width="1.2"/>
+          <rect x="30" y="18" width="940" height="628" rx="26" fill="url(#axDotsD)"/>
+          <rect x="30" y="18" width="940" height="628" rx="26" fill="url(#axWM)"/>
+          <line x1="46" y1="19.5" x2="954" y2="19.5" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
+          <text x="500" y="52" text-anchor="middle" font-size="12.5" font-weight="800" letter-spacing="2.6" fill="url(#axCta)">INDUSTRY AND SUB-INDUSTRY CONTEXT, WOVEN INTO AXON&#39;S CORE</text>
+          <text x="500" y="632" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.38)">the board every component is mounted on</text>
+          <path d="M150,280 H84" fill="none" stroke="rgba(240,180,110,0.35)" stroke-width="2"/><circle cx="84" cy="280" r="4" fill="#0b1426" stroke="rgba(240,180,110,0.55)" stroke-width="1.6"/><path d="M150,384 H84" fill="none" stroke="rgba(240,180,110,0.35)" stroke-width="2"/><circle cx="84" cy="384" r="4" fill="#0b1426" stroke="rgba(240,180,110,0.55)" stroke-width="1.6"/><path d="M850,280 H916" fill="none" stroke="rgba(240,180,110,0.35)" stroke-width="2"/><circle cx="916" cy="280" r="4" fill="#0b1426" stroke="rgba(240,180,110,0.55)" stroke-width="1.6"/><path d="M850,384 H916" fill="none" stroke="rgba(240,180,110,0.35)" stroke-width="2"/><circle cx="916" cy="384" r="4" fill="#0b1426" stroke="rgba(240,180,110,0.55)" stroke-width="1.6"/><path d="M261,100 V64" fill="none" stroke="rgba(240,180,110,0.35)" stroke-width="2"/><circle cx="261" cy="64" r="4" fill="#0b1426" stroke="rgba(240,180,110,0.55)" stroke-width="1.6"/><path d="M499,100 V64" fill="none" stroke="rgba(240,180,110,0.35)" stroke-width="2"/><circle cx="499" cy="64" r="4" fill="#0b1426" stroke="rgba(240,180,110,0.55)" stroke-width="1.6"/><path d="M737,100 V64" fill="none" stroke="rgba(240,180,110,0.35)" stroke-width="2"/><circle cx="737" cy="64" r="4" fill="#0b1426" stroke="rgba(240,180,110,0.55)" stroke-width="1.6"/><path d="M321,564 V600" fill="none" stroke="rgba(240,180,110,0.35)" stroke-width="2"/><circle cx="321" cy="600" r="4" fill="#0b1426" stroke="rgba(240,180,110,0.55)" stroke-width="1.6"/><path d="M679,564 V600" fill="none" stroke="rgba(240,180,110,0.35)" stroke-width="2"/><circle cx="679" cy="600" r="4" fill="#0b1426" stroke="rgba(240,180,110,0.55)" stroke-width="1.6"/>
+          <rect x="162" y="218" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="188" y="218" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="214" y="218" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="240" y="218" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="266" y="218" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="292" y="218" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="358" y="218" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="384" y="218" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="410" y="218" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="436" y="218" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="462" y="218" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="488" y="218" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="514" y="218" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="540" y="218" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="566" y="218" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="592" y="218" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="618" y="218" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="682" y="218" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="708" y="218" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="734" y="218" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="760" y="218" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="786" y="218" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="812" y="218" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="162" y="430" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="188" y="430" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="214" y="430" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="240" y="430" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="266" y="430" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="292" y="430" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="358" y="430" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="384" y="430" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="410" y="430" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="436" y="430" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="462" y="430" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="520" y="430" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="546" y="430" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="572" y="430" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="598" y="430" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="624" y="430" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="682" y="430" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="708" y="430" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="734" y="430" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="760" y="430" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="786" y="430" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="812" y="430" width="3" height="16" rx="1" fill="url(#axCu)"/><rect x="330" y="264" width="16" height="3" rx="1" fill="url(#axCu)"/><rect x="330" y="290" width="16" height="3" rx="1" fill="url(#axCu)"/><rect x="330" y="316" width="16" height="3" rx="1" fill="url(#axCu)"/><rect x="330" y="342" width="16" height="3" rx="1" fill="url(#axCu)"/><rect x="330" y="368" width="16" height="3" rx="1" fill="url(#axCu)"/><rect x="330" y="394" width="16" height="3" rx="1" fill="url(#axCu)"/><rect x="654" y="264" width="16" height="3" rx="1" fill="url(#axCu)"/><rect x="654" y="290" width="16" height="3" rx="1" fill="url(#axCu)"/><rect x="654" y="316" width="16" height="3" rx="1" fill="url(#axCu)"/><rect x="654" y="342" width="16" height="3" rx="1" fill="url(#axCu)"/><rect x="654" y="368" width="16" height="3" rx="1" fill="url(#axCu)"/><rect x="654" y="394" width="16" height="3" rx="1" fill="url(#axCu)"/>
+          <rect x="150" y="100" width="222" height="118" rx="12" fill="rgba(19,32,58,0.92)" stroke="rgba(255,255,255,0.22)" stroke-width="1.2"/><rect x="151" y="101" width="220" height="116" rx="11" fill="url(#axSheen)" pointer-events="none"/><line x1="160" y1="101.5" x2="362" y2="101.5" stroke="rgba(255,255,255,0.28)" stroke-width="1"/><rect x="166" y="116" width="28" height="28" rx="8" fill="rgba(255,255,255,0.05)" stroke="#ff6b5e" stroke-width="1.6"/><text x="180" y="136" text-anchor="middle" font-size="15" font-weight="800" fill="#ff6b5e">K</text><text x="206" y="135" font-size="15" font-weight="700" fill="#ffffff">knowledge</text><text x="167" y="166" font-size="11.5" fill="rgba(255,255,255,0.62)">what the role must know: domain</text><text x="167" y="183" font-size="11.5" fill="rgba(255,255,255,0.62)">expertise, regulation, frameworks.</text><rect x="388" y="100" width="222" height="118" rx="12" fill="rgba(19,32,58,0.92)" stroke="rgba(255,255,255,0.22)" stroke-width="1.2"/><rect x="389" y="101" width="220" height="116" rx="11" fill="url(#axSheen)" pointer-events="none"/><line x1="398" y1="101.5" x2="600" y2="101.5" stroke="rgba(255,255,255,0.28)" stroke-width="1"/><rect x="404" y="116" width="28" height="28" rx="8" fill="rgba(255,255,255,0.05)" stroke="#f4b223" stroke-width="1.6"/><text x="418" y="136" text-anchor="middle" font-size="15" font-weight="800" fill="#f4b223">S</text><text x="444" y="135" font-size="15" font-weight="700" fill="#ffffff">skills</text><text x="405" y="166" font-size="11.5" fill="rgba(255,255,255,0.62)">what the person can do: practical,</text><text x="405" y="183" font-size="11.5" fill="rgba(255,255,255,0.62)">trainable capability.</text><rect x="626" y="100" width="222" height="118" rx="12" fill="rgba(19,32,58,0.92)" stroke="rgba(255,255,255,0.22)" stroke-width="1.2"/><rect x="627" y="101" width="220" height="116" rx="11" fill="url(#axSheen)" pointer-events="none"/><line x1="636" y1="101.5" x2="838" y2="101.5" stroke="rgba(255,255,255,0.28)" stroke-width="1"/><rect x="642" y="116" width="28" height="28" rx="8" fill="rgba(255,255,255,0.05)" stroke="#4da3ff" stroke-width="1.6"/><text x="656" y="136" text-anchor="middle" font-size="15" font-weight="800" fill="#4da3ff">A</text><text x="682" y="135" font-size="15" font-weight="700" fill="#ffffff">abilities</text><text x="643" y="166" font-size="11.5" fill="rgba(255,255,255,0.62)">what the person brings: problem-</text><text x="643" y="183" font-size="11.5" fill="rgba(255,255,255,0.62)">solving, leadership, judgment.</text><rect x="150" y="234" width="180" height="196" rx="12" fill="rgba(19,32,58,0.92)" stroke="rgba(255,255,255,0.22)" stroke-width="1.2"/><rect x="151" y="235" width="178" height="194" rx="11" fill="url(#axSheen)" pointer-events="none"/><line x1="160" y1="235.5" x2="320" y2="235.5" stroke="rgba(255,255,255,0.28)" stroke-width="1"/><rect x="224" y="256" width="32" height="32" rx="9" fill="rgba(255,255,255,0.05)" stroke="#ff8a5c" stroke-width="1.6"/><text x="240" y="279" text-anchor="middle" font-size="17" font-weight="800" fill="#ff8a5c">G</text><text x="240" y="317" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">goals</text><text x="240" y="346" text-anchor="middle" font-size="11.5" fill="rgba(255,255,255,0.62)">what each person is</text><text x="240" y="363" text-anchor="middle" font-size="11.5" fill="rgba(255,255,255,0.62)">driving toward, tied to</text><text x="240" y="380" text-anchor="middle" font-size="11.5" fill="rgba(255,255,255,0.62)">business outcomes.</text><rect x="670" y="234" width="180" height="196" rx="12" fill="rgba(19,32,58,0.92)" stroke="rgba(255,255,255,0.22)" stroke-width="1.2"/><rect x="671" y="235" width="178" height="194" rx="11" fill="url(#axSheen)" pointer-events="none"/><line x1="680" y1="235.5" x2="840" y2="235.5" stroke="rgba(255,255,255,0.28)" stroke-width="1"/><rect x="744" y="256" width="32" height="32" rx="9" fill="rgba(255,255,255,0.05)" stroke="#a97ce8" stroke-width="1.6"/><text x="760" y="279" text-anchor="middle" font-size="17" font-weight="800" fill="#a97ce8">P</text><text x="760" y="317" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">proficiencies</text><text x="760" y="346" text-anchor="middle" font-size="11.5" fill="rgba(255,255,255,0.62)">how deep each skill</text><text x="760" y="363" text-anchor="middle" font-size="11.5" fill="rgba(255,255,255,0.62)">runs, level by level.</text><rect x="150" y="446" width="342" height="118" rx="12" fill="rgba(19,32,58,0.92)" stroke="rgba(255,255,255,0.22)" stroke-width="1.2"/><rect x="151" y="447" width="340" height="116" rx="11" fill="url(#axSheen)" pointer-events="none"/><line x1="160" y1="447.5" x2="482" y2="447.5" stroke="rgba(255,255,255,0.28)" stroke-width="1"/><rect x="166" y="462" width="28" height="28" rx="8" fill="rgba(255,255,255,0.05)" stroke="#43c463" stroke-width="1.6"/><text x="180" y="482" text-anchor="middle" font-size="15" font-weight="800" fill="#43c463">T</text><text x="206" y="481" font-size="15" font-weight="700" fill="#ffffff">tasks</text><text x="167" y="512" font-size="11.5" fill="rgba(255,255,255,0.62)">what the role demands, activity by activity, tied to real KPIs.</text><rect x="508" y="446" width="342" height="118" rx="12" fill="rgba(19,32,58,0.92)" stroke="rgba(255,255,255,0.22)" stroke-width="1.2"/><rect x="509" y="447" width="340" height="116" rx="11" fill="url(#axSheen)" pointer-events="none"/><line x1="518" y1="447.5" x2="840" y2="447.5" stroke="rgba(255,255,255,0.28)" stroke-width="1"/><rect x="524" y="462" width="28" height="28" rx="8" fill="rgba(255,255,255,0.05)" stroke="#2cc6e4" stroke-width="1.6"/><text x="538" y="482" text-anchor="middle" font-size="15" font-weight="800" fill="#2cc6e4">C</text><text x="564" y="481" font-size="15" font-weight="700" fill="#ffffff">certifications</text><text x="525" y="512" font-size="11.5" fill="rgba(255,255,255,0.62)">the credentials that prove capability, tracked and kept current.</text>
+          <rect x="346" y="234" width="308" height="196" rx="16" fill="#060e1d" stroke="url(#axgGrad)" stroke-width="2"/>
+          <rect x="360" y="248" width="280" height="168" rx="10" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
+          <rect class="ax-cpu-glow" x="341" y="229" width="318" height="206" rx="19" fill="none" stroke="url(#axgGrad)" stroke-width="1.6"/>
+          <text x="500" y="322" text-anchor="middle" font-size="36" font-weight="800" fill="url(#axgGrad)">axon</text>
+          <text x="500" y="352" text-anchor="middle" font-size="12.5" fill="rgba(255,255,255,0.66)">one living model</text>
+          <g class="ax-sigs" aria-hidden="true">
+          <path d="M261,218 L261,226 L338,226 L338,300 L346,300" fill="none" stroke="rgba(240,180,110,0.30)" stroke-width="1.6" stroke-linejoin="round"/>
+          <circle cx="261" cy="226" r="2.4" fill="#0b1426" stroke="rgba(240,180,110,0.5)" stroke-width="1.2"/>
+          <circle cx="338" cy="226" r="2.4" fill="#0b1426" stroke="rgba(240,180,110,0.5)" stroke-width="1.2"/>
+          <circle cx="338" cy="300" r="2.4" fill="#0b1426" stroke="rgba(240,180,110,0.5)" stroke-width="1.2"/>
+          <path d="M499,218 L499,226 L662,226 L662,300 L654,300" fill="none" stroke="rgba(240,180,110,0.30)" stroke-width="1.6" stroke-linejoin="round"/>
+          <circle cx="499" cy="226" r="2.4" fill="#0b1426" stroke="rgba(240,180,110,0.5)" stroke-width="1.2"/>
+          <circle cx="662" cy="226" r="2.4" fill="#0b1426" stroke="rgba(240,180,110,0.5)" stroke-width="1.2"/>
+          <circle cx="662" cy="300" r="2.4" fill="#0b1426" stroke="rgba(240,180,110,0.5)" stroke-width="1.2"/>
+          <path d="M737,218 L737,226 L662,226 L662,320 L670,320" fill="none" stroke="rgba(240,180,110,0.30)" stroke-width="1.6" stroke-linejoin="round"/>
+          <circle cx="737" cy="226" r="2.4" fill="#0b1426" stroke="rgba(240,180,110,0.5)" stroke-width="1.2"/>
+          <circle cx="662" cy="226" r="2.4" fill="#0b1426" stroke="rgba(240,180,110,0.5)" stroke-width="1.2"/>
+          <circle cx="662" cy="320" r="2.4" fill="#0b1426" stroke="rgba(240,180,110,0.5)" stroke-width="1.2"/>
+          <path d="M346,250 L338,250 L338,400 L330,400" fill="none" stroke="rgba(240,180,110,0.30)" stroke-width="1.6" stroke-linejoin="round"/>
+          <circle cx="338" cy="250" r="2.4" fill="#0b1426" stroke="rgba(240,180,110,0.5)" stroke-width="1.2"/>
+          <circle cx="338" cy="400" r="2.4" fill="#0b1426" stroke="rgba(240,180,110,0.5)" stroke-width="1.2"/>
+          <path d="M259,430 L259,438 L321,438 L321,446" fill="none" stroke="rgba(240,180,110,0.30)" stroke-width="1.6" stroke-linejoin="round"/>
+          <circle cx="259" cy="438" r="2.4" fill="#0b1426" stroke="rgba(240,180,110,0.5)" stroke-width="1.2"/>
+          <circle cx="321" cy="438" r="2.4" fill="#0b1426" stroke="rgba(240,180,110,0.5)" stroke-width="1.2"/>
+          <path d="M600,430 L600,438 L679,438 L679,446" fill="none" stroke="rgba(240,180,110,0.30)" stroke-width="1.6" stroke-linejoin="round"/>
+          <circle cx="600" cy="438" r="2.4" fill="#0b1426" stroke="rgba(240,180,110,0.5)" stroke-width="1.2"/>
+          <circle cx="679" cy="438" r="2.4" fill="#0b1426" stroke="rgba(240,180,110,0.5)" stroke-width="1.2"/>
+          <path d="M760,430 L760,438 L500,438 L500,505 L508,505" fill="none" stroke="rgba(240,180,110,0.30)" stroke-width="1.6" stroke-linejoin="round"/>
+          <circle cx="760" cy="438" r="2.4" fill="#0b1426" stroke="rgba(240,180,110,0.5)" stroke-width="1.2"/>
+          <circle cx="500" cy="438" r="2.4" fill="#0b1426" stroke="rgba(240,180,110,0.5)" stroke-width="1.2"/>
+          <circle cx="500" cy="505" r="2.4" fill="#0b1426" stroke="rgba(240,180,110,0.5)" stroke-width="1.2"/>
+          <path d="M400,446 L400,438 L338,438 L338,310 L346,310" fill="none" stroke="rgba(240,180,110,0.30)" stroke-width="1.6" stroke-linejoin="round"/>
+          <circle cx="400" cy="438" r="2.4" fill="#0b1426" stroke="rgba(240,180,110,0.5)" stroke-width="1.2"/>
+          <circle cx="338" cy="438" r="2.4" fill="#0b1426" stroke="rgba(240,180,110,0.5)" stroke-width="1.2"/>
+          <circle cx="338" cy="310" r="2.4" fill="#0b1426" stroke="rgba(240,180,110,0.5)" stroke-width="1.2"/>
+          <g><circle r="7" fill="#ff6b5e" opacity="0.22"/><circle r="3" fill="#ff6b5e" opacity="0.95"/>
+      <animateMotion dur="11s" begin="-4s" repeatCount="indefinite" path="M261,218 L261,226 L338,226 L338,300 L346,300"/></g>
+          <g><circle r="7" fill="#f4b223" opacity="0.22"/><circle r="3" fill="#f4b223" opacity="0.95"/>
+      <animateMotion dur="12s" begin="-7s" repeatCount="indefinite" path="M499,218 L499,226 L662,226 L662,300 L654,300"/></g>
+          <g><circle r="7" fill="#4da3ff" opacity="0.22"/><circle r="3" fill="#4da3ff" opacity="0.95"/>
+      <animateMotion dur="10s" begin="-2s" repeatCount="indefinite" path="M737,218 L737,226 L662,226 L662,320 L670,320"/></g>
+          <g><circle r="7" fill="#0380f9" opacity="0.22"/><circle r="3" fill="#0380f9" opacity="0.95"/>
+      <animateMotion dur="10s" begin="-5s" repeatCount="indefinite" path="M346,250 L338,250 L338,400 L330,400"/></g>
+          <g><circle r="7" fill="#ff8a5c" opacity="0.22"/><circle r="3" fill="#ff8a5c" opacity="0.95"/>
+      <animateMotion dur="8s" begin="-3s" repeatCount="indefinite" path="M259,430 L259,438 L321,438 L321,446"/></g>
+          <g><circle r="7" fill="#2cc6e4" opacity="0.22"/><circle r="3" fill="#2cc6e4" opacity="0.95"/>
+      <animateMotion dur="9s" begin="-6s" repeatCount="indefinite" path="M600,430 L600,438 L679,438 L679,446"/></g>
+          <g><circle r="7" fill="#a97ce8" opacity="0.22"/><circle r="3" fill="#a97ce8" opacity="0.95"/>
+      <animateMotion dur="13s" begin="-9s" repeatCount="indefinite" path="M760,430 L760,438 L500,438 L500,505 L508,505"/></g>
+          <g><circle r="7" fill="#43c463" opacity="0.22"/><circle r="3" fill="#43c463" opacity="0.95"/>
+      <animateMotion dur="11s" begin="-1s" repeatCount="indefinite" path="M400,446 L400,438 L338,438 L338,310 L346,310"/></g>
+          </g>
+          <rect class="ax-hl" x="150" y="100" width="222" height="118" rx="12" fill="none" stroke="#ff6b5e" stroke-width="2.2" style="animation-delay:0.0s"/><rect class="ax-hl" x="388" y="100" width="222" height="118" rx="12" fill="none" stroke="#f4b223" stroke-width="2.2" style="animation-delay:0.9s"/><rect class="ax-hl" x="626" y="100" width="222" height="118" rx="12" fill="none" stroke="#4da3ff" stroke-width="2.2" style="animation-delay:1.8s"/><rect class="ax-hl" x="150" y="234" width="180" height="196" rx="12" fill="none" stroke="#ff8a5c" stroke-width="2.2" style="animation-delay:2.7s"/><rect class="ax-hl" x="670" y="234" width="180" height="196" rx="12" fill="none" stroke="#a97ce8" stroke-width="2.2" style="animation-delay:3.6s"/><rect class="ax-hl" x="150" y="446" width="342" height="118" rx="12" fill="none" stroke="#43c463" stroke-width="2.2" style="animation-delay:4.5s"/><rect class="ax-hl" x="508" y="446" width="342" height="118" rx="12" fill="none" stroke="#2cc6e4" stroke-width="2.2" style="animation-delay:5.4s"/>
+          <rect x="150" y="100" width="222" height="118" rx="12" fill="transparent" data-cap="knowledge: what the role must know: domain expertise, regulation, frameworks, context." tabindex="0" role="img" aria-label="knowledge. what the role must know: domain expertise, regulation, frameworks, context."/><rect x="388" y="100" width="222" height="118" rx="12" fill="transparent" data-cap="skills: what the person can do: practical, trainable capability." tabindex="0" role="img" aria-label="skills. what the person can do: practical, trainable capability."/><rect x="626" y="100" width="222" height="118" rx="12" fill="transparent" data-cap="abilities: what the person brings: problem-solving, leadership, judgment." tabindex="0" role="img" aria-label="abilities. what the person brings: problem-solving, leadership, judgment."/><rect x="150" y="234" width="180" height="196" rx="12" fill="transparent" data-cap="goals: what each person is driving toward, tied to business outcomes." tabindex="0" role="img" aria-label="goals. what each person is driving toward, tied to business outcomes."/><rect x="670" y="234" width="180" height="196" rx="12" fill="transparent" data-cap="proficiencies: how deep each skill runs, level by level." tabindex="0" role="img" aria-label="proficiencies. how deep each skill runs, level by level."/><rect x="150" y="446" width="342" height="118" rx="12" fill="transparent" data-cap="tasks: what the role demands, activity by activity, tied to real KPIs." tabindex="0" role="img" aria-label="tasks. what the role demands, activity by activity, tied to real KPIs."/><rect x="508" y="446" width="342" height="118" rx="12" fill="transparent" data-cap="certifications: the credentials that prove capability, tracked and kept current." tabindex="0" role="img" aria-label="certifications. the credentials that prove capability, tracked and kept current."/>
+        </svg>
+        <p class="ax-board-cap" data-ax-cap>the board itself is your industry &amp; sub-industry context — every component is mounted on it.</p>
+      </div>
+      <div class="ax-blocks-wrap" data-ax-blocks>
+        <svg class="ax-bus" viewBox="0 0 1000 34" preserveAspectRatio="none" aria-hidden="true">
+          <path class="rail" d="M125,8 H875"/>
+          <path class="stub" d="M125,8 V34 M375,8 V34 M625,8 V34 M875,8 V34"/>
+          <path class="pulse" d="M125,8 H875"/>
+        </svg>
+        <span class="ax-node n1" aria-hidden="true"></span><span class="ax-node n2" aria-hidden="true"></span><span class="ax-node n3" aria-hidden="true"></span><span class="ax-node n4" aria-hidden="true"></span>
+      <div class="ax-blocks">
+        <div class="ax-b k"><i>K</i><b>knowledge</b><p>what the role must know: domain expertise, regulation, frameworks, context.</p></div>
+        <div class="ax-b s"><i>S</i><b>skills</b><p>what the person can do: practical, trainable capability, with proficiency levels.</p></div>
+        <div class="ax-b a"><i>A</i><b>abilities</b><p>what the person brings: problem-solving, leadership, adaptability, judgment.</p></div>
+        <div class="ax-b t"><i>T</i><b>tasks</b><p>what the role demands, activity by activity, tied to real <span class="keep-case">KPIs</span>.</p></div>
+      </div>
+      <div class="ax-blocks ax-blocks--r2">
+        <div class="ax-b g"><i>G</i><b>goals</b><p>what each person is driving toward, tied to business outcomes.</p></div>
+        <div class="ax-b pf"><i>P</i><b>proficiencies</b><p>how deep each skill runs, level by level.</p></div>
+        <div class="ax-b c"><i>C</i><b>certifications</b><p>the credentials that prove capability, tracked and kept current.</p></div>
+      </div>
+      <svg class="ax-bus ax-bus--down" viewBox="0 0 1000 26" preserveAspectRatio="none" aria-hidden="true">
+        <path class="stub" d="M167,0 V26 M500,0 V26 M833,0 V26"/>
+      </svg>
+      <div class="ax-ctx">
+        <b>industry &amp; sub-industry context</b>
+        <p>the context of your industry and sub-industry, built into every element above.</p>
+      </div>
+      </div>
+      <p class="ax-cred">powered by a living global graph of skills, roles, jobs and talent, grounded to <span class="keep-case">L</span>ightcast skill taxonomy and built on intelligence from 3B+ job postings, 1.2B+ career profiles and 34K+ skills. <span class="axon-text">axon</span> reveals what each role demands today, and how it is evolving.</p>
+    </div>
+  </section>
+
+  <!-- ===== CORE 3: LEARNS ===== -->
+  <section style="background: var(--white);">
+    <div class="container">
+      <div class="text-center" style="max-width:760px; margin:0 auto;">
+        <p class="section-eyebrow">always current</p>
+        <h2 class="section-heading">it gets smarter every <mark>cycle</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;">every goal, review, and assessment adds to the model, and the market benchmarks refresh every month.</p>
+      </div>
+            <div class="ax-mq" data-ax-mq>
+        <div class="ax-mq-track">
+          <div class="ax-mq-set"><span class="ax-stat-i"><b>3 billion+</b> <i>job postings</i></span><span class="ax-stat-i"><b>6.3 million+</b> <i>companies</i></span><span class="ax-stat-i"><b>34,000+</b> <i>skills</i></span><span class="ax-stat-i"><b>242 million</b> <i>salary observations</i></span><span class="ax-stat-i"><b>1.2 billion</b> <i>career profiles</i></span><span class="ax-stat-i"><b>165</b> <i>countries</i></span><span class="ax-stat-i"><b>17</b> <i>languages</i></span><span class="ax-stat-i"><b>1800+</b> <i>unique occupations</i></span><span class="ax-stat-i"><b>monthly</b> <i>market refresh</i></span><span class="ax-stat-i"><b>100+ yrs</b> <i>of cumulative HR process knowledge built in</i></span></div>
+          <div class="ax-mq-set" aria-hidden="true"><span class="ax-stat-i"><b>3 billion+</b> <i>job postings</i></span><span class="ax-stat-i"><b>6.3 million+</b> <i>companies</i></span><span class="ax-stat-i"><b>34,000+</b> <i>skills</i></span><span class="ax-stat-i"><b>242 million</b> <i>salary observations</i></span><span class="ax-stat-i"><b>1.2 billion</b> <i>career profiles</i></span><span class="ax-stat-i"><b>165</b> <i>countries</i></span><span class="ax-stat-i"><b>17</b> <i>languages</i></span><span class="ax-stat-i"><b>1800+</b> <i>unique occupations</i></span><span class="ax-stat-i"><b>monthly</b> <i>market refresh</i></span><span class="ax-stat-i"><b>100+ yrs</b> <i>of cumulative HR process knowledge built in</i></span></div>
+        </div>
+      </div>
+      <p class="ax-mq-note">anchored to <span class="keep-case">L</span>ightcast taxonomy</p>
+    </div>
+  </section>
+
+  <section id="watch-it-think" style="background: var(--white);">
+    <div class="container">
+      <div class="text-center" style="max-width:800px; margin:0 auto;">
+        <p class="section-eyebrow">the model, live</p>
+        <h2 class="section-heading">watch <span class="axon-text">axon</span> think through one <mark>role</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;">this is one role with everything it takes to do the job well. hover or tap any point to see how the model connects it.</p>
+        <p class="section-subheading" style="margin:0.5rem auto 0; font-weight:700; color:var(--ink);">the same model, read through one job: what it must deliver, and the knowledge, skills, and abilities it takes.</p>
+      </div>
+
+      <div class="arch-diagram axon-graph" data-axon-graph data-edges="r1>p1,r1>p2,p1>t1,p1>t3,p2>t2,p2>t3,t1>k1,t2>k1,t2>k2,t3>k2,t3>k3,k1>s1,k1>s2,k2>s2,k2>s3,k3>s3,k3>s4,p1>k1,p2>k2,t1>s1,t2>s2,t3>s4">
+        <canvas class="sg-mesh" aria-hidden="true"></canvas>
+        <svg class="sg-links" aria-hidden="true" focusable="false"></svg>
+        <div class="sg-col" data-layer="0">
+          <div class="arch-col-header arch-color-data-sources">role</div>
+          <div class="arch-col-desc">Every role defined as a living profile, benchmarked against the market, not a static job description.</div>
+          <div class="arch-col-arrow" aria-hidden="true">&rarr;</div>
+          <div class="sg-nodes">
+            <div class="sg-node" data-node="r1" tabindex="0" role="button" aria-label="Branch Manager">Branch Manager</div>
+          </div>
+        </div>
+        <div class="sg-col" data-layer="1">
+          <div class="arch-col-header arch-color-foundation">responsibility</div>
+          <div class="arch-col-desc">Roles decompose into responsibilities that describe how the work is organized.</div>
+          <div class="arch-col-arrow" aria-hidden="true">&rarr;</div>
+          <div class="sg-nodes">
+            <div class="sg-node" data-node="p1" tabindex="0" role="button" aria-label="grow the deposit book">grow the deposit book</div>
+            <div class="sg-node" data-node="p2" tabindex="0" role="button" aria-label="develop the branch team">develop the branch team</div>
+          </div>
+        </div>
+        <div class="sg-col" data-layer="2">
+          <div class="arch-col-header arch-color-intelligence">task</div>
+          <div class="arch-col-desc">Responsibilities break into observable tasks: the atomic unit of work <span class="axon-text">axon</span> reasons over.</div>
+          <div class="arch-col-arrow" aria-hidden="true">&rarr;</div>
+          <div class="sg-nodes">
+            <div class="sg-node" data-node="t1" tabindex="0" role="button" aria-label="run portfolio reviews">run portfolio reviews</div>
+            <div class="sg-node" data-node="t2" tabindex="0" role="button" aria-label="coach relationship managers">coach relationship managers</div>
+            <div class="sg-node" data-node="t3" tabindex="0" role="button" aria-label="approve credit within limit">approve credit within limit</div>
+          </div>
+        </div>
+        <div class="sg-col" data-layer="3">
+          <div class="arch-col-header arch-color-agents"><span class="keep-case">KPI</span></div>
+          <div class="arch-col-desc">Tasks link to the <span class="keep-case">KPIs</span> they move, connecting daily work to measurable business outcomes.</div>
+          <div class="arch-col-arrow" aria-hidden="true">&rarr;</div>
+          <div class="sg-nodes">
+            <div class="sg-node" data-node="k1" tabindex="0" role="button" aria-label="deposit growth">deposit growth</div>
+            <div class="sg-node" data-node="k2" tabindex="0" role="button" aria-label="team attrition">team attrition</div>
+            <div class="sg-node" data-node="k3" tabindex="0" role="button" aria-label="credit quality">credit quality</div>
+          </div>
+        </div>
+        <div class="sg-col" data-layer="4">
+          <div class="arch-col-header arch-color-outcomes">skill</div>
+          <div class="arch-col-desc">Every task maps to the knowledge, skills, and abilities required to perform it well.</div>
+          <div class="arch-tooltip" style="left:auto; right:0; transform:none;">Skills are attached to the work itself, so development, mobility, and hiring decisions inherit real context, not keywords.</div>
+          <div class="sg-nodes">
+            <div class="sg-node" data-node="s1" tabindex="0" role="button" aria-label="portfolio analysis">portfolio analysis</div>
+            <div class="sg-node" data-node="s2" tabindex="0" role="button" aria-label="coaching conversations">coaching conversations</div>
+            <div class="sg-node" data-node="s3" tabindex="0" role="button" aria-label="credit risk assessment">credit risk assessment</div>
+            <div class="sg-node" data-node="s4" tabindex="0" role="button" aria-label="regulatory compliance">regulatory compliance</div>
+          </div>
+        </div>
+      </div>
+      <div class="ax-midcta">
+        <a href="../../request-demo/" class="btn-primary">request a demo &rarr;</a>
+        <span>bring your most difficult role, and watch <span class="axon-text">axon</span> work through it live.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CORE 2: PROACTIVE ===== -->
+  <section style="background: var(--polar-white); border-top: 1px solid rgba(26,31,38,0.06);">
+    <div class="container">
+      <div class="text-center" style="max-width:760px; margin:0 auto;">
+        <p class="section-eyebrow">in the flow of work</p>
+        <h2 class="section-heading">it works before you <mark>ask</mark></h2>
+        <p class="section-subheading" style="margin:0 auto;"><span class="axon-text">axon</span> raises what matters inside the process itself, at the moment a decision is being made.</p>
+      </div>
+      <div class="alt-feed" data-alt-feed>
+        <div class="alt-feed-bar"><div><span class="axon-text">axon</span> signals</div><span><i></i>live, illustrative</span></div>
+        <div class="alt-feed-list"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== BAND ===== -->
+  <section class="alt-band">
+    <div class="container">
+      <h2><span class="keep-case">HR</span> systems manage people. <span class="axon-text">axon</span> <mark>understands</mark> them.</h2>
+      <p>performance. skills. potential. development. mobility. succession. one intelligence layer connecting them all.</p>
+    </div>
+  </section>
+
+  <!-- ===== PROOF ===== -->
+  <section style="background: var(--floral-white);">
+    <div class="container">
+      <div class="text-center" style="max-width:700px; margin:0 auto;">
+        <p class="section-eyebrow">proof, not promises</p>
+        <h2 class="section-heading">what one deployment <mark>delivered</mark></h2>
+      </div>
+      <div class="ax-case">
+        <div class="ax-case-l">
+<img src="../../assets/images/client-logos/carelon.jpeg" alt="Carelon logo" width="800" height="300" loading="lazy" decoding="async" style="height:34px; width:auto; display:block; margin-bottom:0.9rem;">
+          <p class="ax-case-lead">from a skills benchmarking idea to a living, enterprise-wide capability engine at <span class="keep-case">Carelon</span>.</p>
+          <p style="font-size:14px; color:var(--ink-3); margin-top:1.1rem;">300+ structured success profiles now cover the enterprise, nearly four times the launch footprint, and four in ten of the active tech workforce hold at least one <span class="keep-case">AI</span>, <span class="keep-case">ML</span>, data science or emerging capability. at the platform level, Forrester recorded $26.8M in benefits and 103% <span class="keep-case">ROI</span> over three years for a government client.</p>
+        </div>
+        <div class="ax-case-r">
+          <div class="ax-kpi-cap">from this deployment</div>
+          <div class="ax-kpi"><b>14K+</b><span>employees on the platform, with ~95% skill-profiled at any given time</span></div>
+          <div class="ax-kpi"><b>300+</b><span>roles defined as success profiles, nearly 4&times; growth since launch</span></div>
+          <div class="ax-kpi"><b>500K+</b><span>skills assessed across 3,500+ distinct skills, validated at a 95% approval rate</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark-section">
+    <div class="container">
+      <div class="text-center" style="max-width:800px; margin:0 auto;">
+        <p class="section-eyebrow" style="color: rgba(255,255,255,0.45);">security &amp; compliance</p>
+        <h2 class="section-heading" style="font-size:clamp(28px,3.5vw,44px); margin-bottom:1rem;">built for enterprises that cannot afford to compromise.</h2>
+        <p style="font-size:18px; line-height:1.65; color:rgba(255,255,255,0.62); max-width:680px; margin:0 auto 3rem;">
+          entomo meets the security, privacy, and compliance requirements of the world's most regulated industries, without exceptions and without workarounds.
+        </p>
+      </div>
+
+      <div class="security-grid">
+        <!-- 1 -->
+        <div class="security-item">
+          <div class="security-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          </div>
+          <div class="security-title"><span class="keep-case">SOC</span> 2 Type II</div>
+          <div class="security-desc">Independently audited, security, availability, and privacy controls verified.</div>
+        </div>
+        <!-- 2 -->
+        <div class="security-item">
+          <div class="security-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div class="security-title"><span class="keep-case">GDPR</span></div>
+          <div class="security-desc">Full European data protection compliance with privacy-by-design at its core.</div>
+        </div>
+        <!-- 3 -->
+        <div class="security-item">
+          <div class="security-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div class="security-title">regional compliance</div>
+          <div class="security-desc"><span class="keep-case">PDPA</span>, <span class="keep-case">PDPL</span>, and <span class="keep-case">DPDP</span> compliance built in, across Southeast Asia, Middle East, and India.</div>
+        </div>
+        <!-- 4 -->
+        <div class="security-item">
+          <div class="security-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="security-title">data residency</div>
+          <div class="security-desc">Employee data stays within your required geography, no exceptions.</div>
+        </div>
+        <!-- 5 -->
+        <div class="security-item">
+          <div class="security-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="7.5" cy="15.5" r="5.5"/><path d="M21 2l-9.6 9.6"/><path d="M15.5 7.5l3 3L22 7l-3-3"/></svg>
+          </div>
+          <div class="security-title"><span class="keep-case">SSO</span></div>
+          <div class="security-desc"><span class="keep-case">SAML</span> 2.0 and OAuth 2.0, connects to your existing identity provider seamlessly.</div>
+        </div>
+        <!-- 6 -->
+        <div class="security-item">
+          <div class="security-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="security-title">role-based access</div>
+          <div class="security-desc">Granular controls across every data view, agent action, and admin function.</div>
+        </div>
+        <!-- 7 -->
+        <div class="security-item">
+          <div class="security-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div class="security-title"><span class="keep-case">API</span>-first</div>
+          <div class="security-desc">Every capability exposed via documented REST <span class="keep-case">APIs</span>, no data silos, no middleware.</div>
+        </div>
+        <!-- 8 -->
+        <div class="security-item">
+          <div class="security-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <div class="security-title">audit trails</div>
+          <div class="security-desc">Immutable logs of every platform action, access, execution, and permission changes.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ANSWER (seo batch 6) ===== -->
+  <section class="sol-answer">
+    <div class="sol-answer-in">
+      <h2>what is <mark>axon</mark>?</h2>
+      <p>axon is the intelligence behind entomo.ai. it connects what every role requires with what every person brings, into one living model of how work gets done, and it gets smarter every cycle. every entomo.ai agent thinks with the same model, so performance, development, mobility and succession draw on one answer instead of four.</p>
+    </div>
+  </section>
+
+  <section class="final-cta-section">
+    <div class="container">
+      <h2>ready to see what <picture class="brand-inline brand-inline--axon"><source srcset="../../assets/images/logos/entomo-axon.webp" type="image/webp"><img src="../../assets/images/logos/entomo-axon.png" alt="axon" width="1200" height="388" loading="lazy" decoding="async"></picture> knows about <mark>work</mark>?</h2>
+      <p>bring your most difficult role to the demo and watch <span class="axon-text">axon</span> work through it live.</p>
+      <a href="../../request-demo/" class="btn-primary">request a demo &rarr;</a>
+    </div>
+  </section>
+
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <img src="../../assets/images/entomo.svg" alt="entomo" style="height:32px; width:auto;" loading="lazy" decoding="async" width="587" height="138">
+          </div>
+          <p>Agentic workforce intelligence platform powering 30M+ users across global enterprise brands.</p>
+        </div>
+        <div class="footer-col">
+          <h3>platform</h3>
+          <ul>
+            <li><a href="../../#agents"><span><span class="keep-case">AI</span> agents</span></a></li>
+            <li><a href="../../ai-lab/axon/">intelligence architecture</a></li>
+            <li><a href="../../#integrations">integrations</a></li>
+            <li><a href="../../about/security/">security</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>products</h3>
+          <ul>
+            <li><a href="../../products/performance-management/">performance management</a></li>
+            <li><a href="../../products/talent-development/">talent development</a></li>
+            <li><a href="../../products/employee-engagement/">employee engagement</a></li>
+            <li><a href="../../products/people-analytics/">people analytics</a></li>
+            <li><a href="../../products/employee-wellbeing/">employee wellbeing</a></li>
+            <li><a href="../../products/strategic-workforce-planning/">strategic workforce planning</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>resources</h3>
+          <ul>
+            <li><a href="../../news/forrester-tei/"><span>Forrester <span class="keep-case">TEI</span> study</span></a></li>
+            <li><a href="../../case-studies/">case studies</a></li>
+            <li><a href="../../blog/">blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>company</h3>
+          <ul>
+            <li><a href="../../about/team/">our team</a></li>
+            <li><a href="../../about/careers/">careers</a></li>
+            <li><a href="../../contact/">contact</a></li>
+            <li><a href="#">privacy policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 entomo. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/company/entomo" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+
+    // Mobile nav toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = navLinks.style.display === 'flex';
+        navLinks.style.display = isOpen ? 'none' : 'flex';
+        navLinks.style.flexDirection = isOpen ? '' : 'column';
+        navLinks.style.position = isOpen ? '' : 'absolute';
+        navLinks.style.top = isOpen ? '' : '68px';
+        navLinks.style.left = isOpen ? '' : '0';
+        navLinks.style.right = isOpen ? '' : '0';
+        navLinks.style.background = isOpen ? '' : 'var(--white)';
+        navLinks.style.padding = isOpen ? '' : '1.5rem';
+        navLinks.style.borderBottom = isOpen ? '' : '1px solid rgba(26,31,38,0.08)';
+        navLinks.style.boxShadow = isOpen ? '' : 'var(--shadow-md)';
+        navLinks.style.zIndex = isOpen ? '' : '99';
+      });
+    }
+
+    // Smooth scroll for pipeline "explore agents" button
+    document.querySelectorAll('a[href="#agents-section"]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.getElementById('agents-section');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+  <!-- ===== SCROLL ANIMATION ENGINE ===== -->
+  <script>
+  (function() {
+    'use strict';
+
+    // Selectors for elements that should animate when scrolled into view.
+    // Excludes nav, footer, and elements that are part of always-visible chrome.
+    const SOLO_SELECTORS = [
+      'h1', 'h2', 'h3',
+      '.section-heading', '.section-subheading', '.section-eyebrow',
+      '.hero-eyebrow', '.hero-badge', '.hero-sub', '.hero-ctas',
+      '.lede', '.challenge-dismiss', '.dia-headline',
+      '.btn-primary', '.path-link',
+      '.coach-demo', '.dia-demo', '.ww-demo',
+      '.story-visual', '.positioning-block',
+      '.video-card', '.outcome-card', '.difference-card',
+      '.path-card', '.proof-card', '.solution-card',
+      '.metric', '.metric-large',
+      '.persona-panel.active',
+      '.sss-card', '.sss-pills-svg',
+      '.tomorrow-intro', '.story-grid',
+      '.flow-pills', '.feature-card',
+      'blockquote',
+    ];
+
+    // Grid-like containers whose children should stagger in
+    const STAGGER_SELECTORS = [
+      '.outcome-grid', '.difference-grid',
+      '.paths-grid', '.path-grid',
+      '.sss-grid',
+      '.proof-cards', '.solution-cards', '.solutions-grid',
+      '.enterprise-grid', '.stakeholder-grid',
+      '.videos-grid', '.video-grid',
+      '.team-grid', '.leaders-grid',
+      '.pillars-grid', '.values-grid',
+      '.benefits-grid', '.perks-grid',
+      '.cards-grid', '.card-grid',
+      '.partners-grid', '.partner-grid',
+      '.story-grid', '.tomorrow-grid',
+      '.testimonial-grid',
+      '.stats-grid',
+    ];
+
+    // Ancestors to exclude (don't animate elements inside these)
+    const EXCLUDE_ANCESTORS = ['nav.navbar', 'footer.footer', '.testimonials-track', '.marquee-track', '.agent-marquee-track', '.agent-areas-track', '.perf-mq-track'];
+
+    function isExcluded(el) {
+      for (const sel of EXCLUDE_ANCESTORS) {
+        if (el.closest(sel)) return true;
+      }
+      return false;
+    }
+
+    function tagAnim(el, variant = 'anim-fade-up') {
+      if (el.classList.contains('anim') || el.classList.contains('stagger')) return;
+      el.classList.add('anim', variant);
+    }
+
+    function tagStagger(el) {
+      if (el.classList.contains('stagger')) return;
+      el.classList.add('stagger');
+    }
+
+    // Tag solo elements
+    SOLO_SELECTORS.forEach(sel => {
+      document.querySelectorAll(sel).forEach(el => {
+        if (isExcluded(el)) return;
+        tagAnim(el);
+      });
+    });
+
+    // Tag stagger containers
+    STAGGER_SELECTORS.forEach(sel => {
+      document.querySelectorAll(sel).forEach(el => {
+        if (isExcluded(el)) return;
+        // Don't double-tag if already a stagger or anim
+        if (el.classList.contains('anim')) {
+          el.classList.remove('anim', 'anim-fade-up', 'anim-fade', 'anim-fade-down', 'anim-fade-left', 'anim-fade-right', 'anim-scale', 'anim-blur', 'anim-rise');
+        }
+        tagStagger(el);
+      });
+    });
+
+    // IntersectionObserver to reveal on scroll
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      document.querySelectorAll('.anim, .stagger').forEach(el => {
+        // Above-the-fold elements: reveal immediately with a tiny delay (gives a soft entrance)
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          // Small staggered delay for elements visible on initial load
+          setTimeout(() => el.classList.add('is-visible'), 50);
+        } else {
+          io.observe(el);
+        }
+      });
+    } else {
+      // Fallback: show everything immediately
+      document.querySelectorAll('.anim, .stagger').forEach(el => el.classList.add('is-visible'));
+    }
+  })();
+  </script>
+
+  <script src="../../assets/entomo-2026.js" defer></script>
+  <script>
+  (function () {
+    var root = document.querySelector('[data-alt-feed]');
+    if (!root) return;
+    var list = root.querySelector('.alt-feed-list');
+    var SIGNALS = [
+      { t: 'skill gap opening in credit risk assessment', d: '3 people in branch north are below the level the role now requires.', k: 'recommend learning' },
+      { t: 'no ready successor for branch manager, west', d: 'two internal candidates are within one gating competency.', k: 'draft succession slate' },
+      { t: 'q3 goal drifting from strategy', d: 'goal quality score dropped to 61 after the target changed.', k: 'suggest realignment' },
+      { t: 'review draft ready for meera s.', d: 'built from 6 goal cycles, 11 reviewers, and 4 assessments.', k: 'awaiting approval' }
+    ];
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function card(sg) {
+      var d = document.createElement('div');
+      d.className = 'alt-sig';
+      d.innerHTML = '<i></i><div><b>' + sg.t + '</b><span>' + sg.d + '</span><small>' + sg.k + '</small></div>';
+      list.appendChild(d);
+      requestAnimationFrame(function () { requestAnimationFrame(function () { d.classList.add('on'); }); });
+    }
+    if (reduce) { SIGNALS.forEach(card); return; }
+    var i = 0, running = false, paused = false;
+    root.addEventListener('mouseenter', function () { paused = true; });
+    root.addEventListener('mouseleave', function () { paused = false; });
+    root.addEventListener('focusin', function () { paused = true; });
+    root.addEventListener('focusout', function () { paused = false; });
+    function next() {
+      if (paused) { setTimeout(next, 400); return; }
+      if (i >= SIGNALS.length) { setTimeout(function () { if (paused) { setTimeout(next, 400); return; } list.innerHTML = ''; i = 0; setTimeout(next, 500); }, 3600); return; }
+      card(SIGNALS[i++]);
+      setTimeout(next, 1500);
+    }
+    function play() { if (running) return; running = true; next(); }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es, obs) {
+        if (es.some(function (e) { return e.isIntersecting; })) { play(); obs.disconnect(); }
+      }, { threshold: 0.3 }).observe(root);
+    } else { play(); }
+  })();
+  </script>
+  <script>
+  (function () {
+    var w = document.querySelector('[data-ax-blocks]');
+    if (!w) return;
+    if (!('IntersectionObserver' in window)) { w.classList.add('is-in'); return; }
+    new IntersectionObserver(function (es, obs) {
+      if (es.some(function (e) { return e.isIntersecting; })) { w.classList.add('is-in'); obs.disconnect(); }
+    }, { threshold: 0.35 }).observe(w);
+  })();
+  </script>
+  <script>
+  (function () {
+    var cap = document.querySelector('[data-ax-cap]');
+    if (!cap) return;
+    var def = cap.textContent;
+    document.querySelectorAll('.ax-board [data-cap]').forEach(function (el) {
+      function show(){ cap.textContent = el.getAttribute('data-cap'); }
+      function hide(){ cap.textContent = def; }
+      el.addEventListener('pointerenter', show); el.addEventListener('pointerleave', hide);
+      el.addEventListener('focus', show); el.addEventListener('blur', hide);
+    });
+  })();
+  </script>
+  <script>
+  (function () {
+    var w = document.querySelector('[data-ax-agents]');
+    if (!w) return;
+    var items = w.querySelectorAll('.ax-tile');
+    items.forEach(function (a, i) { a.style.transitionDelay = (i * 45) + 'ms'; });
+    if (!('IntersectionObserver' in window)) { w.classList.add('is-in'); return; }
+    new IntersectionObserver(function (es, obs) {
+      if (es.some(function (e) { return e.isIntersecting; })) { w.classList.add('is-in'); obs.disconnect(); }
+    }, { threshold: 0.3 }).observe(w);
+  })();
+  </script>
+</body>
+
+</html>

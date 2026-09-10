@@ -7,6 +7,9 @@
   <url><loc>https://entomomarketing.github.io/PX/V3/about/partners/</loc><lastmod>2026-09-10</lastmod></url>
   <url><loc>https://entomomarketing.github.io/PX/V3/about/security/</loc><lastmod>2026-09-10</lastmod></url>
   <url><loc>https://entomomarketing.github.io/PX/V3/about/team/</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://entomomarketing.github.io/PX/V3/ai-lab/axon/</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://entomomarketing.github.io/PX/V3/ai-lab/enzo/</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://entomomarketing.github.io/PX/V3/ai-lab/</loc><lastmod>2026-09-10</lastmod></url>
   <url><loc>https://entomomarketing.github.io/PX/V3/blog/assessing-skills-at-scale-without-fooling-yourself/</loc><lastmod>2026-09-10</lastmod></url>
   <url><loc>https://entomomarketing.github.io/PX/V3/blog/autonomy-is-a-dial-not-a-switch/</loc><lastmod>2026-09-10</lastmod></url>
   <url><loc>https://entomomarketing.github.io/PX/V3/blog/burnout-is-a-job-design-problem/</loc><lastmod>2026-09-10</lastmod></url>
@@ -70,10 +73,15 @@
   <url><loc>https://entomomarketing.github.io/PX/V3/news/leadership-transition/</loc><lastmod>2026-09-10</lastmod></url>
   <url><loc>https://entomomarketing.github.io/PX/V3/news/microsoft-integration/</loc><lastmod>2026-09-10</lastmod></url>
   <url><loc>https://entomomarketing.github.io/PX/V3/news/prithvi-shergill-group-ceo/</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://entomomarketing.github.io/PX/V3/platform/axon/</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://entomomarketing.github.io/PX/V3/platform/enzo/</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://entomomarketing.github.io/PX/V3/platform/</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://entomomarketing.github.io/PX/V3/platform/tmrw/</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://entomomarketing.github.io/PX/V3/products/core-hr/</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://entomomarketing.github.io/PX/V3/products/employee-engagement/</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://entomomarketing.github.io/PX/V3/products/employee-wellbeing/</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://entomomarketing.github.io/PX/V3/products/</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://entomomarketing.github.io/PX/V3/products/people-analytics/</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://entomomarketing.github.io/PX/V3/products/performance-management/</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://entomomarketing.github.io/PX/V3/products/strategic-workforce-planning/</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://entomomarketing.github.io/PX/V3/products/talent-development/</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://entomomarketing.github.io/PX/V3/products/tmrw/</loc><lastmod>2026-09-10</lastmod></url>
   <url><loc>https://entomomarketing.github.io/PX/V3/request-demo/</loc><lastmod>2026-09-10</lastmod></url>
   <url><loc>https://entomomarketing.github.io/PX/V3/resources/30-ideas-remote-age/</loc><lastmod>2026-09-10</lastmod></url>
   <url><loc>https://entomomarketing.github.io/PX/V3/resources/agentic-hr-operating-model/</loc><lastmod>2026-09-10</lastmod></url>
@@ -90,24 +98,17 @@
   <url><loc>https://entomomarketing.github.io/PX/V3/resources/skills-based-organisation-practically/</loc><lastmod>2026-09-10</lastmod></url>
   <url><loc>https://entomomarketing.github.io/PX/V3/resources/templates/</loc><lastmod>2026-09-10</lastmod></url>
   <url><loc>https://entomomarketing.github.io/PX/V3/resources/workforce-planning-when-ai-changes-the-work/</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://entomomarketing.github.io/PX/V3/solutions/competency-framework-creation/</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://entomomarketing.github.io/PX/V3/solutions/dia/</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://entomomarketing.github.io/PX/V3/solutions/engagement-intelligence/</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://entomomarketing.github.io/PX/V3/solutions/engagement-retention/</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://entomomarketing.github.io/PX/V3/solutions/epmo/</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://entomomarketing.github.io/PX/V3/solutions/hire-to-retire/</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://entomomarketing.github.io/PX/V3/solutions/competency-framework/</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://entomomarketing.github.io/PX/V3/solutions/data-intelligence-assistant/</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://entomomarketing.github.io/PX/V3/solutions/employee-retention/</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://entomomarketing.github.io/PX/V3/solutions/enterprise-performance-management-office/</loc><lastmod>2026-09-10</lastmod></url>
   <url><loc>https://entomomarketing.github.io/PX/V3/solutions/</loc><lastmod>2026-09-10</lastmod></url>
   <url><loc>https://entomomarketing.github.io/PX/V3/solutions/internal-mobility/</loc><lastmod>2026-09-10</lastmod></url>
   <url><loc>https://entomomarketing.github.io/PX/V3/solutions/learning-roi/</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://entomomarketing.github.io/PX/V3/solutions/performance-intelligence/</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://entomomarketing.github.io/PX/V3/solutions/skill-intelligence/</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://entomomarketing.github.io/PX/V3/solutions/spmo/</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://entomomarketing.github.io/PX/V3/solutions/strategic-planning/</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://entomomarketing.github.io/PX/V3/solutions/skills-assessments/</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://entomomarketing.github.io/PX/V3/solutions/strategic-performance-management-office/</loc><lastmod>2026-09-10</lastmod></url>
   <url><loc>https://entomomarketing.github.io/PX/V3/solutions/succession-planning/</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://entomomarketing.github.io/PX/V3/solutions/wellness-intelligence/</loc><lastmod>2026-09-10</lastmod></url>
   <url><loc>https://entomomarketing.github.io/PX/V3/solutions/workforce-analytics/</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://entomomarketing.github.io/PX/V3/solutions/workforce-assessments/</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://entomomarketing.github.io/PX/V3/solutions/workforce-insights/</loc><lastmod>2026-09-10</lastmod></url>
   <url><loc>https://entomomarketing.github.io/PX/V3/solutions/workforce-planning/</loc><lastmod>2026-09-10</lastmod></url>
   <url><loc>https://entomomarketing.github.io/PX/V3/downloads/agentic-hr-operating-model.pdf</loc><lastmod>2026-09-09</lastmod></url>
   <url><loc>https://entomomarketing.github.io/PX/V3/downloads/governing-ai-in-hr.pdf</loc><lastmod>2026-09-09</lastmod></url>
