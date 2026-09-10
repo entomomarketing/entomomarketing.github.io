@@ -1615,10 +1615,10 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
               transform 280ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 .navbar .nav-mega-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px 10px; }
-.navbar .nav-mega:has(a[href$="enzo.html"]) { width: min(740px, calc(100vw - 2.5rem)) !important; }
-.navbar .nav-mega:has(a[href$="enzo.html"]) .nav-mega-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-.navbar .nav-mega:has(a[href$="blog.html"]) { width: min(960px, calc(100vw - 2.5rem)) !important; }
-.navbar .nav-mega:has(a[href$="blog.html"]) .nav-mega-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.navbar .nav-mega:has(a[data-page="enzo"]) { width: min(740px, calc(100vw - 2.5rem)) !important; }
+.navbar .nav-mega:has(a[data-page="enzo"]) .nav-mega-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+.navbar .nav-mega:has(a[data-page="blog"]) { width: min(960px, calc(100vw - 2.5rem)) !important; }
+.navbar .nav-mega:has(a[data-page="blog"]) .nav-mega-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
 .navbar .nav-mega-item {
   --nm: 228, 61, 48;
@@ -1651,40 +1651,39 @@ li:has(> .keep-case), .persona-tags li:has(.keep-case),
   .navbar .nav-mega-item:hover .nav-mega-icon { transform: none; }
 }
 
-.navbar .nav-mega-item[href$="performance-intelligence.html"] { --nm: 228, 61, 48; --nm-ink: #c8401f; }
-.navbar .nav-mega-item[href$="skill-intelligence.html"] { --nm: 244, 178, 35; --nm-ink: #8a6508; }
-.navbar .nav-mega-item[href$="engagement-intelligence.html"] { --nm: 186, 123, 174; --nm-ink: #8a4f80; }
-.navbar .nav-mega-item[href$="workforce-insights.html"] { --nm: 0, 100, 191; --nm-ink: #0064bf; }
-.navbar .nav-mega-item[href$="wellness-intelligence.html"] { --nm: 44, 153, 66; --nm-ink: #217a33; }
-.navbar .nav-mega-item[href$="strategic-planning.html"] { --nm: 44, 155, 187; --nm-ink: #1b6f88; }
-.navbar .nav-mega-item[href$="hire-to-retire.html"] { --nm: 228, 61, 48; --nm-ink: #c8401f; }
-.navbar .nav-mega-item[href$="national-talent-transformation-v2.html"] { --nm: 244, 178, 35; --nm-ink: #8a6508; }
-.navbar .nav-mega-item[href$="competency-framework-creation.html"] { --nm: 0, 100, 191; --nm-ink: #0064bf; }
-.navbar .nav-mega-item[href$="workforce-assessments.html"] { --nm: 44, 155, 187; --nm-ink: #1b6f88; }
-.navbar .nav-mega-item[href$="epmo.html"] { --nm: 228, 61, 48; --nm-ink: #c8401f; }
-.navbar .nav-mega-item[href$="spmo.html"] { --nm: 244, 178, 35; --nm-ink: #8a6508; }
-.navbar .nav-mega-item[href$="internal-mobility.html"] { --nm: 44, 153, 66; --nm-ink: #217a33; }
-.navbar .nav-mega-item[href$="succession-planning.html"] { --nm: 186, 123, 174; --nm-ink: #8a4f80; }
-.navbar .nav-mega-item[href$="workforce-planning.html"] { --nm: 44, 155, 187; --nm-ink: #1b6f88; }
-.navbar .nav-mega-item[href$="dia.html"] { --nm: 0, 100, 191; --nm-ink: #0064bf; }
-.navbar .nav-mega-item[href$="workforce-analytics.html"] { --nm: 228, 61, 48; --nm-ink: #c8401f; }
-.navbar .nav-mega-item[href$="engagement-retention.html"] { --nm: 44, 153, 66; --nm-ink: #217a33; }
-.navbar .nav-mega-item[href$="learning-roi.html"] { --nm: 244, 178, 35; --nm-ink: #8a6508; }
-.navbar .nav-mega-item[href$="blog.html"] { --nm: 0, 100, 191; --nm-ink: #0064bf; }
-.navbar .nav-mega-item[href$="ebooks-whitepapers.html"] { --nm: 244, 178, 35; --nm-ink: #8a6508; }
-.navbar .nav-mega-item[href$="case-studies.html"] { --nm: 228, 61, 48; --nm-ink: #c8401f; }
-.navbar .nav-mega-item[href$="entomo-community.html"] { --nm: 44, 153, 66; --nm-ink: #217a33; }
-.navbar .nav-mega-item[href$="events-webinars.html"] { --nm: 186, 123, 174; --nm-ink: #8a4f80; }
-.navbar .nav-mega-item[href$="templates.html"] { --nm: 44, 155, 187; --nm-ink: #1b6f88; }
-.navbar .nav-mega-item[href$="why-entomo.html"] { --nm: 228, 61, 48; --nm-ink: #c8401f; }
-.navbar .nav-mega-item[href$="life-at-entomo.html"] { --nm: 44, 153, 66; --nm-ink: #217a33; }
-.navbar .nav-mega-item[href$="our-team.html"] { --nm: 186, 123, 174; --nm-ink: #8a4f80; }
-.navbar .nav-mega-item[href$="security-at-entomo.html"] { --nm: 0, 100, 191; --nm-ink: #0064bf; }
-.navbar .nav-mega-item[href$="news-press-releases.html"] { --nm: 244, 178, 35; --nm-ink: #8a6508; }
-.navbar .nav-mega-item[href$="jobs-at-entomo.html"] { --nm: 44, 155, 187; --nm-ink: #1b6f88; }
-.navbar .nav-mega-item[href$="partners.html"] { --nm: 228, 61, 48; --nm-ink: #c8401f; }
-.navbar .nav-mega-item[href$="entomo-axon.html"] { --nm: 0, 100, 191; --nm-ink: #0064bf; }
-.navbar .nav-mega-item[href$="enzo.html"] { --nm: 186, 123, 174; --nm-ink: #8a4f80; }
+.navbar .nav-mega-item[data-page="performance-management"] { --nm: 228, 61, 48; --nm-ink: #c8401f; }
+.navbar .nav-mega-item[data-page="talent-development"] { --nm: 244, 178, 35; --nm-ink: #8a6508; }
+.navbar .nav-mega-item[data-page="employee-engagement"] { --nm: 186, 123, 174; --nm-ink: #8a4f80; }
+.navbar .nav-mega-item[data-page="people-analytics"] { --nm: 0, 100, 191; --nm-ink: #0064bf; }
+.navbar .nav-mega-item[data-page="employee-wellbeing"] { --nm: 44, 153, 66; --nm-ink: #217a33; }
+.navbar .nav-mega-item[data-page="strategic-workforce-planning"] { --nm: 44, 155, 187; --nm-ink: #1b6f88; }
+.navbar .nav-mega-item[data-page="core-hr"] { --nm: 228, 61, 48; --nm-ink: #c8401f; }
+.navbar .nav-mega-item[data-page="tmrw"] { --nm: 244, 178, 35; --nm-ink: #8a6508; }
+.navbar .nav-mega-item[data-page="competency-framework"] { --nm: 0, 100, 191; --nm-ink: #0064bf; }
+.navbar .nav-mega-item[data-page="skills-assessments"] { --nm: 44, 155, 187; --nm-ink: #1b6f88; }
+.navbar .nav-mega-item[data-page="enterprise-performance-management-office"] { --nm: 228, 61, 48; --nm-ink: #c8401f; }
+.navbar .nav-mega-item[data-page="strategic-performance-management-office"] { --nm: 244, 178, 35; --nm-ink: #8a6508; }
+.navbar .nav-mega-item[data-page="internal-mobility"] { --nm: 44, 153, 66; --nm-ink: #217a33; }
+.navbar .nav-mega-item[data-page="succession-planning"] { --nm: 186, 123, 174; --nm-ink: #8a4f80; }
+.navbar .nav-mega-item[data-page="workforce-planning"] { --nm: 44, 155, 187; --nm-ink: #1b6f88; }
+.navbar .nav-mega-item[data-page="data-intelligence-assistant"] { --nm: 0, 100, 191; --nm-ink: #0064bf; }
+.navbar .nav-mega-item[data-page="workforce-analytics"] { --nm: 228, 61, 48; --nm-ink: #c8401f; }
+.navbar .nav-mega-item[data-page="employee-retention"] { --nm: 44, 153, 66; --nm-ink: #217a33; }
+.navbar .nav-mega-item[data-page="learning-roi"] { --nm: 244, 178, 35; --nm-ink: #8a6508; }
+.navbar .nav-mega-item[data-page="blog"] { --nm: 0, 100, 191; --nm-ink: #0064bf; }
+.navbar .nav-mega-item[data-page="resources"] { --nm: 244, 178, 35; --nm-ink: #8a6508; }
+.navbar .nav-mega-item[data-page="case-studies"] { --nm: 228, 61, 48; --nm-ink: #c8401f; }
+.navbar .nav-mega-item[data-page="community"] { --nm: 44, 153, 66; --nm-ink: #217a33; }
+.navbar .nav-mega-item[data-page="templates"] { --nm: 44, 155, 187; --nm-ink: #1b6f88; }
+.navbar .nav-mega-item[data-page="about"] { --nm: 228, 61, 48; --nm-ink: #c8401f; }
+.navbar .nav-mega-item[data-page="life-at-entomo"] { --nm: 44, 153, 66; --nm-ink: #217a33; }
+.navbar .nav-mega-item[data-page="team"] { --nm: 186, 123, 174; --nm-ink: #8a4f80; }
+.navbar .nav-mega-item[data-page="security"] { --nm: 0, 100, 191; --nm-ink: #0064bf; }
+.navbar .nav-mega-item[data-page="news"] { --nm: 244, 178, 35; --nm-ink: #8a6508; }
+.navbar .nav-mega-item[data-page="careers"] { --nm: 44, 155, 187; --nm-ink: #1b6f88; }
+.navbar .nav-mega-item[data-page="partners"] { --nm: 228, 61, 48; --nm-ink: #c8401f; }
+.navbar .nav-mega-item[data-page="axon"] { --nm: 0, 100, 191; --nm-ink: #0064bf; }
+.navbar .nav-mega-item[data-page="enzo"] { --nm: 186, 123, 174; --nm-ink: #8a4f80; }
 
 /* The drawer reuses the same panels, so the desktop sizing above has to stand
    down inside it. The label fix is separate: the trigger was justified
