@@ -120,7 +120,6 @@ Every figure on this site is drawn from entomo's published record for that clien
 - [RFP template for performance and talent systems](https://entomomarketing.github.io/PX/V3/resources/templates/): a comprehensive RFP template for performance, career and succession management, to evaluate vendors and shortlist the right performance and talent system.
 
 ## Optional
-- [page not found](https://entomomarketing.github.io/PX/V3/404.html): 
 - [contact entomo | let's build your enterprise of tomorrow](https://entomomarketing.github.io/PX/V3/contact/): talk to entomo about agentic workforce intelligence. offices across india, southeast asia, the middle east, europe, and north america.
 - [privacy policy](https://entomomarketing.github.io/PX/V3/privacy-policy/): Protecting the individual’s privacy on the Internet is vital to the future of Internet-based business and the move toward a true Internet economy. We…
 - [request a demo of entomo | agentic intelligence for work](https://entomomarketing.github.io/PX/V3/request-demo/): see your workforce, transformed by agentic intelligence. book a tailored entomo demo with a solution consultant. response within one business day.
