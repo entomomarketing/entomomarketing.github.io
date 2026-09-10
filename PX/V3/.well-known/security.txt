@@ -1,0 +1,5 @@
+Contact: mailto:security@entomo.co
+Expires: 2027-09-10T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://entomomarketing.github.io/PX/V3/.well-known/security.txt
+Policy: https://entomomarketing.github.io/PX/V3/about/security/

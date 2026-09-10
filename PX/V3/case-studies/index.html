@@ -24,6 +24,8 @@
   <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../assets/images/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="manifest" href="../site.webmanifest">
   <meta name="theme-color" content="#e43d30">
   <!-- /seo:head -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -925,6 +927,14 @@
     @media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
     /* /footer */
 
+    /* skip link */
+    .eq-skip {
+      position: absolute; left: -9999px; top: 0; z-index: 200;
+      background: #14181e; color: #fff; padding: 0.8em 1.2em;
+      border-radius: 0 0 10px 0; font-weight: 700;
+    }
+    .eq-skip:focus { left: 0; outline: 2.5px solid #f4b223; outline-offset: 2px; }
+    /* /skip link */
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
   <link rel="stylesheet" href="../assets/entomo-glass.css">
@@ -981,6 +991,7 @@
   <!-- /seo:jsonld -->
 </head>
 <body>
+  <a class="eq-skip" href="#main">skip to content</a>
   <nav class="navbar">
     <div class="container">
       <a href="../" class="logo">
