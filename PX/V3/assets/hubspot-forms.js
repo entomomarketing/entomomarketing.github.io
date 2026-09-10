@@ -84,6 +84,17 @@
     } catch (e) {}
   }
 
+  function track(form) {
+    try {
+      var d = form.dataset, ev = { event: "hs_form_success", form_intent: d.hsForm, form_id: FORMS[d.hsForm] };
+      ["content_slug", "content_title", "content_type", "subscribe_list"].forEach(function (k) {
+        var v = d["hsField" + k.replace(/(^|_)([a-z])/g, function (_, __, c) { return c.toUpperCase(); })];
+        if (v) ev[k] = v;
+      });
+      (window.dataLayer = window.dataLayer || []).push(ev); // for the Google Tag Manager container's conversion triggers
+    } catch (e) {}
+  }
+
   function succeed(form) {
     var tpl = form.querySelector("template.hs-success");
     form.classList.add("hs-sent");
@@ -124,7 +135,7 @@
           return data;
         });
       })
-      .then(function () { remember(form); succeed(form); })
+      .then(function () { remember(form); track(form); succeed(form); })
       .catch(function (err) {
         if (btn) { btn.disabled = false; btn.innerHTML = label; }
         fail(form, err);
