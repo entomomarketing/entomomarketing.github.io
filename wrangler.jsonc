@@ -1,0 +1,11 @@
+{
+  // Cloudflare Worker serving the entomo website as static assets. Only PX/V3 is published.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "entomo",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./PX/V3",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}
