@@ -440,21 +440,6 @@
       background-position: right 14px center;
       padding-right: 40px;
     }
-    .form-consent {
-      display: flex; align-items: flex-start; gap: 8px;
-      margin: 0.5rem 0 1.5rem;
-    }
-    .form-consent input[type="checkbox"] {
-      width: 16px; height: 16px;
-      margin-top: 3px;
-      accent-color: var(--cg-red);
-    }
-    .form-consent label {
-      font-size: 0.85rem;
-      color: var(--ink-3);
-      line-height: 1.5;
-    }
-    .form-consent label a { color: var(--cg-red); text-decoration: underline; }
     .btn-primary {
       display: inline-flex; align-items: center; gap: 8px;
       background: var(--gradient-cta); color: white;
@@ -752,6 +737,19 @@
     @media (max-width: 960px) { .footer-grid { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1 / -1; } }
     @media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
     /* /footer */
+
+    /* hubspot forms (2026-09-10) */
+    .hs-hp { position: absolute !important; left: -9999px !important; top: auto; width: 1px; height: 1px; overflow: hidden; opacity: 0; }
+    .form-privacy { font-size: .8rem; color: var(--ink-4, #6b7280); line-height: 1.5; margin: .9rem 0 0; }
+    .form-privacy a { color: inherit; text-decoration: underline; }
+    .hs-status { font-size: .875rem; line-height: 1.5; color: var(--cg-red, #e43d30); margin: .9rem 0 0; }
+    .hs-status[hidden] { display: none; } .hs-status a { color: inherit; font-weight: 700; }
+    .hs-thanks h3 { font-size: 1.35rem; margin: 0 0 .5rem; }
+    .hs-thanks p { color: var(--ink-3, #3d444d); font-size: .95rem; line-height: 1.55; margin: 0 0 1.25rem; }
+    .hs-thanks p:last-child { margin-bottom: 0; }
+    .hs-thanks .btn-primary { width: 100%; justify-content: center; }
+    form[data-hs-form] button[disabled] { opacity: .7; cursor: default; transform: none; box-shadow: none; }
+    /* /hubspot forms */
 
   </style>
   <link rel="stylesheet" href="../assets/entomo-2026.css">
@@ -1201,22 +1199,22 @@
           </div>
         </div>
 
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('thank you. our team will be in touch within one business day.');">
+        <form class="contact-form" data-hs-form="contact" data-hs-do-not-collect="true"><div class="hs-hp" aria-hidden="true"><label>leave this field empty<input type="text" name="hs_website" tabindex="-1" autocomplete="off"></label></div>
           <div class="form-row">
             <div class="form-field">
               <label for="firstName">first name<span class="req">*</span></label>
-              <input type="text" id="firstName" name="firstName" required placeholder="jane" autocomplete="given-name">
+              <input type="text" id="firstName" name="firstname" required placeholder="jane" autocomplete="given-name">
             </div>
             <div class="form-field">
               <label for="lastName">last name<span class="req">*</span></label>
-              <input type="text" id="lastName" name="lastName" required placeholder="doe" autocomplete="family-name">
+              <input type="text" id="lastName" name="lastname" required placeholder="doe" autocomplete="family-name">
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-field">
               <label for="workEmail">work email<span class="req">*</span></label>
-              <input type="email" id="workEmail" name="workEmail" required placeholder="jane@yourcompany.com" autocomplete="email">
+              <input type="email" id="workEmail" name="email" required placeholder="jane@yourcompany.com" autocomplete="email">
             </div>
             <div class="form-field">
               <label for="company">company<span class="req">*</span></label>
@@ -1226,12 +1224,12 @@
 
           <div class="form-row">
             <div class="form-field">
-              <label for="role">role / title</label>
-              <input type="text" id="role" name="role" placeholder="CHRO, head of L&amp;D, etc." autocomplete="organization-title">
+              <label for="role">role / title<span class="req">*</span></label>
+              <input type="text" id="role" name="jobtitle" required placeholder="CHRO, head of L&amp;D, etc." autocomplete="organization-title">
             </div>
             <div class="form-field">
-              <label for="employees">company size</label>
-              <select id="employees" name="employees" autocomplete="off">
+              <label for="employees">company size<span class="req">*</span></label>
+              <select id="employees" name="company_size_range" required autocomplete="off">
                 <option value="">select range</option>
                 <option>under 1,000</option>
                 <option>1,000 – 5,000</option>
@@ -1244,7 +1242,7 @@
 
           <div class="form-field">
             <label for="inquiry">type of inquiry<span class="req">*</span></label>
-            <select id="inquiry" name="inquiry" required>
+            <select id="inquiry" name="inquiry_type" required>
               <option value="">select one</option>
               <option>request a demo</option>
               <option>pricing &amp; packaging</option>
@@ -1261,14 +1259,9 @@
             <textarea id="message" name="message" placeholder="briefly describe your priorities — performance, skills, engagement, planning, or something else." autocomplete="off"></textarea>
           </div>
 
-          <div class="form-consent">
-            <input type="checkbox" id="consent" name="consent" required>
-            <label for="consent">
-              I agree to receive communications from entomo and acknowledge the <a href="../privacy-policy/">privacy policy</a>.
-            </label>
-          </div>
-
           <button type="submit" class="btn-primary">send message</button>
+          <p class="form-privacy">by submitting, you agree to entomo's <a href="../privacy-policy/">privacy policy</a>. we never share your details.</p>
+          <template class="hs-success"><div class="hs-thanks"><h3>thank you.</h3><p>our team will be in touch within one business day.</p></div></template><p class="hs-status" role="alert" hidden></p>
         </form>
       </div>
     </div>
@@ -1568,7 +1561,7 @@
     ];
 
     // Ancestors to exclude (don't animate elements inside these)
-    const EXCLUDE_ANCESTORS = ['nav.navbar', 'footer.footer', '.testimonials-track', '.marquee-track', '.agent-marquee-track', '.agent-areas-track', '.perf-mq-track'];
+    const EXCLUDE_ANCESTORS = ['form', 'nav.navbar', 'footer.footer', '.testimonials-track', '.marquee-track', '.agent-marquee-track', '.agent-areas-track', '.perf-mq-track'];
 
     function isExcluded(el) {
       for (const sel of EXCLUDE_ANCESTORS) {
@@ -1639,5 +1632,7 @@
   </script>
 
   <script src="../assets/entomo-2026.js" defer></script>
+  <script src="../assets/hubspot-forms.js" defer></script>
+  <script type="text/javascript" id="hs-script-loader" async defer src="https://js-na2.hs-scripts.com/1750400.js"></script>
 </body>
 </html>
