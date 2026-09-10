@@ -1749,6 +1749,17 @@
     .sol-answer td a { color: var(--spanish-blue, #0064bf); font-weight: 700; text-decoration: none; } .sol-answer td a:hover { text-decoration: underline; }
     @media (max-width: 760px) { .sol-answer { padding: 3rem 0; } .sol-answer table { font-size: 13.5px; } .sol-answer th, .sol-answer td { padding: .7rem .6rem; } }
 
+    /* footer mirrors the navigation (2026-09-10) */
+    .footer-grid { grid-template-columns: 1.6fr 1fr 1.25fr 1fr 1fr; }
+    .footer-col h3 { font-size: 14px; font-weight: 800; letter-spacing: .02em; text-transform: lowercase; color: var(--ebony-clay, #1a1f26); margin: 0 0 .9rem; }
+    .footer-col h3 .keep-case { text-transform: none; }
+    .footer-col ul + h3 { margin-top: 1.6rem; }
+    .footer-col a { text-decoration: none; }
+    .footer-brand p { font-size: 14px; line-height: 1.6; color: var(--ink-3, #3d444d); margin-top: .75rem; max-width: 280px; }
+    @media (max-width: 960px) { .footer-grid { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1 / -1; } }
+    @media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
+    /* /footer */
+
   </style>
   <link rel="stylesheet" href="../../assets/entomo-2026.css">
   <link rel="stylesheet" href="../../assets/entomo-glass.css">
@@ -2365,55 +2376,73 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="logo">
-            <img src="../../assets/images/entomo.svg" alt="entomo" style="height:32px; width:auto;" loading="lazy" decoding="async" width="587" height="138">
+            <a href="../../"><img src="../../assets/images/entomo.svg" alt="entomo" style="height:32px; width:auto;" loading="lazy" decoding="async" width="587" height="138"></a>
           </div>
-        </div>
-        <div class="footer-col">
-          <h3>platform</h3>
-          <ul>
-            <li><a href="../../#agents"><span><span class="keep-case">AI</span> agents</span></a></li>
-            <li><a href="../../ai-lab/axon/">intelligence architecture</a></li>
-            <li><a href="../../#integrations">integrations</a></li>
-            <li><a href="../../about/security/">security</a></li>
-          </ul>
+          <p>agentic workforce intelligence for the enterprise of tomorrow. powering 30M+ users worldwide.</p>
         </div>
         <div class="footer-col">
           <h3>products</h3>
           <ul>
-            <li><a href="../../products/performance-management/">performance management</a></li>
-            <li><a href="../../products/talent-development/">talent development</a></li>
-            <li><a href="../../products/employee-engagement/">employee engagement</a></li>
-            <li><a href="../../products/people-analytics/">people analytics</a></li>
-            <li><a href="../../products/employee-wellbeing/">employee wellbeing</a></li>
-            <li><a href="../../products/strategic-workforce-planning/">strategic workforce planning</a></li>
-            <li><a href="../../products/core-hr/">core <span class="keep-case">HR</span></a></li>
+            <li><a href="../../products/performance-management/"><span>performance management</span></a></li>
+            <li><a href="../../products/talent-development/"><span>career and learning management</span></a></li>
+            <li><a href="../../products/employee-engagement/"><span>employee engagement</span></a></li>
+            <li><a href="../../products/people-analytics/"><span>workforce insights</span></a></li>
+            <li><a href="../../products/employee-wellbeing/"><span>employee wellbeing</span></a></li>
+            <li><a href="../../products/strategic-workforce-planning/"><span>strategic workforce planning</span></a></li>
+            <li><a href="../../products/core-hr/"><span>Core <span class="keep-case">HR</span></span></a></li>
+            <li><a href="../../products/tmrw/"><span><span class="keep-case">TMRW</span> by entomo</span></a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h3>resources</h3>
+          <h3>solutions</h3>
           <ul>
-            <li><a href="../../news/forrester-tei/"><span>Forrester <span class="keep-case">TEI</span> study</span></a></li>
-            <li><a href="../../case-studies/">case studies</a></li>
-            <li><a href="../../blog/">blog</a></li>
+            <li><a href="../../solutions/competency-framework/"><span>competency framework creation</span></a></li>
+            <li><a href="../../solutions/skills-assessments/"><span>skills assessments at scale</span></a></li>
+            <li><a href="../../solutions/enterprise-performance-management-office/"><span>enterprise performance management office</span></a></li>
+            <li><a href="../../solutions/strategic-performance-management-office/"><span>strategic performance management office</span></a></li>
+            <li><a href="../../solutions/internal-mobility/"><span>internal mobility</span></a></li>
+            <li><a href="../../solutions/succession-planning/"><span>succession planning</span></a></li>
+            <li><a href="../../solutions/workforce-planning/"><span>workforce planning</span></a></li>
+            <li><a href="../../solutions/data-intelligence-assistant/"><span><span class="keep-case">DIA</span></span></a></li>
+            <li><a href="../../solutions/workforce-analytics/"><span>workforce analytics &amp; reporting</span></a></li>
+            <li><a href="../../solutions/employee-retention/"><span>engagement &amp; retention</span></a></li>
+            <li><a href="../../solutions/learning-roi/"><span>learning <span class="keep-case">ROI</span></span></a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h3>company</h3>
+          <h3><span class="keep-case">AI</span> lab</h3>
           <ul>
-            <li><a href="../../about/">why entomo</a></li>
-            <li><a href="../../about/team/">our team</a></li>
-            <li><a href="../../about/careers/">careers</a></li>
-            <li><a href="../../contact/">contact</a></li>
-            <li><a href="#">privacy policy</a></li>
+            <li><a href="../../ai-lab/axon/"><span>axon</span></a></li>
+            <li><a href="../../ai-lab/enzo/"><span><span class="keep-case">Enzo</span></span></a></li>
+          </ul>
+          <h3>inspiration</h3>
+          <ul>
+            <li><a href="../../blog/"><span>blog</span></a></li>
+            <li><a href="../../resources/"><span>ebooks &amp; whitepapers</span></a></li>
+            <li><a href="../../case-studies/"><span>case studies</span></a></li>
+            <li><a href="../../community/"><span>entomo community</span></a></li>
+            <li><a href="../../resources/templates/"><span>templates</span></a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>about</h3>
+          <ul>
+            <li><a href="../../about/"><span>why entomo</span></a></li>
+            <li><a href="../../about/life-at-entomo/"><span>life@entomo</span></a></li>
+            <li><a href="../../about/team/"><span>our team</span></a></li>
+            <li><a href="../../about/security/"><span>security@entomo</span></a></li>
+            <li><a href="../../news/"><span>news &amp; press release</span></a></li>
+            <li><a href="../../about/careers/"><span>jobs@entomo</span></a></li>
+            <li><a href="../../about/partners/"><span>partner with entomo</span></a></li>
+            <li><a href="../../contact/"><span>contact</span></a></li>
+            <li><a href="../../privacy-policy/"><span>privacy policy</span></a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <p>© 2026 entomo. All rights reserved.</p>
         <div class="footer-socials">
-          <a href="https://www.linkedin.com/company/entomo" aria-label="LinkedIn">in</a>
-          <a href="#" aria-label="Twitter">𝕏</a>
-          <a href="#" aria-label="YouTube">▶</a>
+          <a href="https://www.linkedin.com/company/entomo" aria-label="LinkedIn" rel="noopener" target="_blank">in</a>
         </div>
       </div>
     </div>
