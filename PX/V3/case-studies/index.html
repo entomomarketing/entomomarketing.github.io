@@ -803,14 +803,14 @@
     .cs-tab:hover { border-color:var(--cg-red); color:var(--cg-red); }
     .cs-tab.active { background:var(--ebony-clay); color:#fff; border-color:var(--ebony-clay); }
     .cs-tab b { font-weight:800; opacity:.55; margin-left:6px; }
-    .cs-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.6rem; }
+    .cs-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.6rem; }
     .cs-card { display:flex; flex-direction:column; background:#fff; border-radius:16px; padding:1.6rem 1.6rem 1.4rem; border:1px solid rgba(26,31,38,0.07); box-shadow:0 4px 14px rgba(43,29,18,0.05); text-decoration:none; color:inherit; transition:transform .2s, box-shadow .2s; }
     .cs-card:hover { transform:translateY(-4px); box-shadow:0 18px 38px rgba(43,29,18,0.09); }
     .cs-card[hidden] { display:none; }
-    .cs-card-top { display:flex; align-items:center; justify-content:space-between; gap:.8rem; margin-bottom:1rem; }
-    .cs-client { font-size:12.5px; font-weight:700; color:var(--ink-2); line-height:1.3; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+    .cs-card-top { display:flex; align-items:flex-start; justify-content:space-between; gap:.8rem; margin-bottom:1rem; }
+    .cs-client { font-size:12.5px; font-weight:700; color:var(--ink-2); line-height:1.3;  }
     .cs-client img { height:26px; width:auto; display:block; }
-    .cs-tag { font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; padding:4px 9px; border-radius:6px; white-space:nowrap; }
+    .cs-tag { font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; padding:4px 9px; border-radius:6px; white-space:normal; flex:0 1 auto; max-width:42%; min-width:min-content; }
     .cs-card h3 { font-size:1.08rem; line-height:1.35; margin:0 0 .6rem; color:var(--ink); }
     .cs-metric { font-size:.92rem; font-weight:700; color:var(--ink); margin-bottom:.6rem; }
     .cs-metric mark { background:var(--cg-gold); padding:1px 6px; border-radius:4px; }
@@ -818,7 +818,7 @@
     .cs-meta { font-size:12px; color:var(--ink-3); display:flex; gap:.6rem; flex-wrap:wrap; margin-bottom:.9rem; }
     .cs-read { font-weight:700; color:var(--cg-red); font-size:.92rem; }
     .cs-empty { text-align:center; color:var(--ink-3); padding:2rem; }
-    @media (max-width:960px) { .cs-grid { grid-template-columns:1fr 1fr; } }
+    @media (max-width:960px) { .cs-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
     @media (max-width:600px) { .cs-grid { grid-template-columns:1fr; } }
 
     /* ---- v2 visual case-study pages ---- */
@@ -896,8 +896,8 @@
     .cs-sel.active { border-color:var(--selfg); box-shadow:0 12px 28px rgba(43,29,18,.10); } .cs-sel.active em { background:var(--selfg); color:#fff; }
     .cs-showing { display:flex; align-items:center; gap:.6rem; font-size:14px; color:var(--ink-2); margin-bottom:1.2rem; }
     .cs-showing b { color:var(--ink); }
-    .cs-card .cs-client { display:flex; align-items:flex-start; gap:.5rem; -webkit-line-clamp:unset; overflow:visible; } .cs-card .cs-client .ic { color:var(--ink-3); margin-top:1px; }
-    .cs-client-t { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; line-height:1.3; }
+    .cs-card .cs-client { display:flex; align-items:flex-start; gap:.5rem; flex:1 1 auto; min-width:0; -webkit-line-clamp:unset; overflow:visible; } .cs-card .cs-client .ic { color:var(--ink-3); margin-top:1px; }
+    .cs-client-t { line-height:1.3; }
     @media (max-width:960px) { .cs-hero2 .grid, .cs-client2 { grid-template-columns:1fr; } .cs-metrics, .cs-journey, .cs-cards, .cs-outcomes { grid-template-columns:1fr 1fr; } .cs-sel-grid { grid-template-columns:1fr 1fr; } }
     @media (max-width:600px) { .cs-metrics, .cs-journey, .cs-cards, .cs-outcomes, .cs-sel-grid { grid-template-columns:1fr; } .cs-quote2 { padding:1.5rem 1.4rem 1.4rem 1.4rem; } .cs-quote2 .ic { position:static; margin-bottom:.6rem; } }
 
