@@ -2277,6 +2277,32 @@
     @media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
     /* /footer */
 
+    /* awards, composed from a background, an emblem and text (2026-09-11) */
+    .awards-carousel { max-width: 980px; }
+    .awards-slide { position: relative; min-width: 100%; display: block; padding: 0; border-radius: var(--radius-large); overflow: hidden; }
+    .awards-slide .awards-bg { position: absolute; inset: 0; width: 100%; height: 100%; max-height: none; object-fit: cover; border-radius: 0; z-index: 0; }
+    .awards-slide-in { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 1.8rem; align-items: center; padding: 2.1rem 2.3rem; min-height: 296px; }
+    .awards-art, .awards-copy { min-width: 0; }
+    .awards-title, .awards-sub { overflow-wrap: anywhere; }
+    .awards-art { display: flex; align-items: center; justify-content: center; }
+    .awards-slide .awards-art img { width: auto; height: auto; max-width: 100%; max-height: 232px; object-fit: contain; border-radius: 10px; }
+    .awards-title { font-size: clamp(1.22rem, 2.1vw, 1.8rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.012em; text-transform: lowercase; margin: 0 0 0.55rem; }
+    .awards-title .keep-case { text-transform: none; }
+    .awards-sub { font-size: clamp(0.9rem, 1.15vw, 1rem); line-height: 1.5; margin: 0; }
+    .awards-sub .keep-case { text-transform: none; }
+    .awards-slide[data-bg="dark"] .awards-title { color: var(--cg-gold); }
+    .awards-slide[data-bg="dark"] .awards-sub { color: rgba(255,255,255,0.93); }
+    .awards-slide[data-bg="light"] .awards-title { color: var(--spanish-blue); }
+    .awards-slide[data-bg="light"] .awards-sub { color: var(--ink-2); }
+    .awards-logo { display: block; height: 34px; width: auto; margin-top: 0.9rem; border-radius: 5px; }
+    @media (max-width: 760px) {
+      .awards-slide-in { grid-template-columns: minmax(0, 1fr); gap: 1.1rem; padding: 1.6rem 1.2rem; text-align: center; min-height: 0; }
+      .awards-title { font-size: 1.12rem; }
+      .awards-slide .awards-art img { max-height: 168px; }
+      .awards-logo { margin-left: auto; margin-right: auto; }
+    }
+    /* /awards */
+
   </style>
   <link rel="stylesheet" href="assets/entomo-2026.css?v=6a071d3c">
   <link rel="stylesheet" href="assets/entomo-glass.css?v=449de245">
@@ -4273,7 +4299,98 @@
       <div class="awards-carousel" id="awardsCarousel">
         <div class="awards-viewport">
           <div class="awards-track" id="awardsTrack" role="group" aria-roledescription="carousel" aria-label="Awards and recognition" aria-live="off">
-            <!-- Slides populated dynamically from assets/images/awards/ -->
+        <div class="awards-slide" data-bg="dark">
+          <img class="awards-bg" src="assets/images/awards/award-gen-ai-innovation-bg.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" width="1600" height="640">
+          <div class="awards-slide-in">
+            <div class="awards-art"><img src="assets/images/awards/award-gen-ai-innovation-logo.webp" alt="Aegis Graham Bell Awards" loading="lazy" decoding="async"></div>
+            <div class="awards-copy">
+              <p class="awards-title">won the best innovation in <span class="keep-case">Gen AI</span></p>
+              <p class="awards-sub"><span class="keep-case">Ops, IT &amp; Digital Workplace</span> at the <span class="keep-case">Aegis Graham Bell Awards</span>, supported by the <span class="keep-case">Ministry of Electronics and Information Technology, Government of India</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="awards-slide" data-bg="dark">
+          <img class="awards-bg" src="assets/images/awards/award-businessworld-people-tech-future-2026-bg.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" width="1600" height="640">
+          <div class="awards-slide-in">
+            <div class="awards-art"><img src="assets/images/awards/award-businessworld-people-tech-future-2026-art.webp" alt="BusinessWorld People Tech Future Awards 2026 gold certificate and trophy awarded to entomo" loading="lazy" decoding="async"></div>
+            <div class="awards-copy">
+              <p class="awards-title">gold winner at the <span class="keep-case">BusinessWorld People Tech Future Awards 2026</span></p>
+              <p class="awards-sub">in the <span class="keep-case">Best HR Tech Innovator Service Provider (Product &amp; Services)</span> category</p>
+            </div>
+          </div>
+        </div>
+        <div class="awards-slide" data-bg="dark">
+          <img class="awards-bg" src="assets/images/awards/award-world-technology-innovation-bg.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" width="1600" height="640">
+          <div class="awards-slide-in">
+            <div class="awards-art"><img src="assets/images/awards/award-world-technology-innovation-art.webp" alt="entomo receiving the World Technology Innovation Award on stage" loading="lazy" decoding="async"></div>
+            <div class="awards-copy">
+              <p class="awards-title">winner of the <span class="keep-case">World Technology Innovation Award</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="awards-slide" data-bg="dark">
+          <img class="awards-bg" src="assets/images/awards/award-brandon-hall-generative-ai-gold-bg.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" width="1600" height="640">
+          <div class="awards-slide-in">
+            <div class="awards-art"><img src="assets/images/awards/award-brandon-hall-generative-ai-gold-art.webp" alt="Brandon Hall Group Technology Excellence Award, gold 2024, for best advance in generative AI for business impact" loading="lazy" decoding="async"></div>
+            <div class="awards-copy">
+              <p class="awards-title">gold at the <span class="keep-case">Brandon Hall Group Technology Excellence Awards</span> 2024</p>
+              <p class="awards-sub">for best advance in <span class="keep-case">generative AI</span> for business impact</p>
+            </div>
+          </div>
+        </div>
+        <div class="awards-slide" data-bg="dark">
+          <img class="awards-bg" src="assets/images/awards/award-best-gen-ai-hr-technology-bg.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" width="1600" height="640">
+          <div class="awards-slide-in">
+            <div class="awards-art"><img src="assets/images/awards/award-best-gen-ai-hr-technology-art.webp" alt="Brandon Hall Group Technology Excellence Award, silver 2025, for best generative AI human resource technology" loading="lazy" decoding="async"></div>
+            <div class="awards-copy">
+              <p class="awards-title">silver at the <span class="keep-case">Brandon Hall Group Technology Excellence Awards</span> 2025</p>
+              <p class="awards-sub">for best <span class="keep-case">generative AI</span> human resource technology, <span class="keep-case">agentic AI</span> powered people experiences from hire to retire</p>
+            </div>
+          </div>
+        </div>
+        <div class="awards-slide" data-bg="light">
+          <img class="awards-bg" src="assets/images/awards/award-incredible-workplaces-certification-bg.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" width="1600" height="640">
+          <div class="awards-slide-in">
+            <div class="awards-art"><img src="assets/images/awards/award-incredible-workplaces-certification-art.webp" alt="Incredible Workplaces certification awarded to entomo for 2026 to 2027" loading="lazy" decoding="async"></div>
+            <div class="awards-copy">
+              <p class="awards-title">awarded the <span class="keep-case">Incredible Workplaces™</span> certification</p>
+              <p class="awards-sub">for 2026 to 2027</p>
+            </div>
+          </div>
+        </div>
+        <div class="awards-slide" data-bg="dark">
+          <img class="awards-bg" src="assets/images/awards/award-digital-transformation-pioneer-2025-bg.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" width="1600" height="640">
+          <div class="awards-slide-in">
+            <div class="awards-art"><img src="assets/images/awards/award-digital-transformation-pioneer-2025-art.webp" alt="GCC Gov HR Awards badge" loading="lazy" decoding="async"></div>
+            <div class="awards-copy">
+              <p class="awards-title"><span class="keep-case">Digital Transformation Pioneer of the Year 2025</span></p>
+              <p class="awards-sub">finalist at the <span class="keep-case">GCC Gov HR Awards</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="awards-slide" data-bg="dark">
+          <img class="awards-bg" src="assets/images/awards/award-brandon-hall-competencies-2024-bg.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" width="1600" height="640">
+          <div class="awards-slide-in">
+            <div class="awards-art"><img src="assets/images/awards/award-brandon-hall-competencies-2024-art.webp" alt="Brandon Hall Group HCM Excellence Award, bronze 2024, learning and development" loading="lazy" decoding="async"></div>
+            <div class="awards-copy">
+              <p class="awards-title">bronze at the <span class="keep-case">Brandon Hall Group HCM Excellence Awards</span> 2024</p>
+              <p class="awards-sub">for best competencies and skill development, in learning and development</p>
+            </div>
+          </div>
+        </div>
+        <div class="awards-slide" data-bg="light">
+          <img class="awards-bg" src="assets/images/awards/award-g2-category-leader-bg.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" width="1600" height="640">
+          <div class="awards-slide-in">
+            <div class="awards-art"><img src="assets/images/awards/award-g2-category-leader-art.webp" alt="G2 category leader badges awarded to entomo" loading="lazy" decoding="async"></div>
+            <div class="awards-copy">
+              <p class="awards-title">category leader on <span class="keep-case">G2</span></p>
+              <p class="awards-sub">for strategic planning, performance management, objectives and key results, and career management software. voted a leader in the spring 2023 <span class="keep-case">G2</span> awards</p>
+            </div>
+          </div>
+        </div>
+      
+      
+      
           </div>
         </div>
         <button class="awards-nav awards-nav--prev" id="awardsPrev" type="button" aria-label="Previous award">&#8249;</button>
@@ -4622,32 +4739,14 @@
   <!-- ===== AWARDS CAROUSEL (dynamic) ===== -->
   <script>
   (function() {
-    // ── Add or remove filenames here — the carousel adapts automatically ──
-    const awardImages = [
-      { file: 'brandon-hall-excellence-in-technology-bronze-2021.webp', alt: 'Brandon Hall Group Excellence in Technology Awards 2021, bronze for best advance in unique talent management technology' },
-      { file: 'mena-stevie-awards-gold-2021-technical-innovation.webp', alt: "2021 gold Stevie winner, Middle East and North Africa Stevie Awards, most valuable technical innovation for the UAE's COVID-19 response" },
-      { file: 'observenow-super-30-hr-leaders-best-hr-service-provider-2023.webp', alt: 'ObserveNow Super 30 HR Leaders Awards 2023, best HR service provider' },
-      { file: 'asia-pacific-stevie-awards-gold-2023-hr-technology.webp', alt: 'gold winner, 2023 Asia-Pacific Stevie Awards, innovative use of technology in human resources' },
-      { file: 'hr-tech-awards-2023-best-talent-intelligence-solution.webp', alt: 'HR Tech Awards 2023, talent management: best talent intelligence solution' }
-    ];
 
     const track = document.getElementById('awardsTrack');
     const dotsWrap = document.getElementById('awardsDots');
     const prevBtn = document.getElementById('awardsPrev');
     const nextBtn = document.getElementById('awardsNext');
-    if (!track || awardImages.length === 0) return;
-
-    // Build slides
-    awardImages.forEach(src => {
-      const slide = document.createElement('div');
-      slide.className = 'awards-slide';
-      const img = document.createElement('img');
-      img.src = 'assets/images/awards/' + src.file;
-      img.alt = src.alt;
-      img.loading = 'lazy';
-      slide.appendChild(img);
-      track.appendChild(slide);
-    });
+    if (!track) return;
+    const awardImages = Array.from(track.querySelectorAll('.awards-slide'));
+    if (awardImages.length === 0) return;
 
     // Build dots
     awardImages.forEach((_, i) => {
